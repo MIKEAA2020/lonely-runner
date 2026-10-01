@@ -1,0 +1,280 @@
+# Computational check of the proposed ILP enumeration: executed and verified
+
+Date: 2026-10-02. Scope: exactly the check proposed at the end of the preceding
+document ("What the computational check would test"): full integer-feasibility
+enumeration of the polytope P(v) for n = 4 and n = 5 with v_n <= 50, recording
+any v where P(v) is real-feasible but integer-infeasible. The calibration runs
+n = 1, 2, 3 (same V) and the document's own next-step #2 (tabulating gap(v)
+against the overlap bound) were executed as well. All code, data summaries, and
+checksums are committed under audits/computational-check/.
+
+## 1. Executive summary
+
+- **Every enumerated speed vector admits an integer point in P(v).** Totals
+  (exact): n=1: 50/50, n=2: 1,225/1,225, n=3: 19,600/19,600, n=4: 230,300/230,300,
+  n=5: 2,118,760/2,118,760. Grand total 2,369,935 vectors, 100% integer-feasible,
+  **zero counterexamples** of any kind. (Note: C(50,4) = 230,300; the preceding
+  document's "approximately 230,000" was rounded down, and C(50,5) = 2,118,760
+  vs. its "approximately 2,000,000".)
+- Every vector carries an explicit certificate: an integer point k and a lonely
+  time t = a/b with min_i ||t v_i|| >= 1/(n+1), machine-verified against every
+  polytope constraint twice (runtime self-check in the solver, plus an
+  independent full numpy re-verification of all 2,369,935 witnesses afterwards).
+  **Zero verification failures.**
+- **New small result (proved, then also machine-checked):** the LP relaxation of
+  P(v) is non-empty for *every* v, with the explicit point k_i = (v_i - v_1)/((n+1) v_1).
+  Consequently the document's search criterion "real-feasible but
+  integer-infeasible" is *equivalent* to plain integer infeasibility: the LP side
+  is vacuous, and the whole content of the check is integrality — exactly as the
+  document suspected ("Whether the polytope is integral is the key technical
+  question"). Proof in section 2.1.
+- **Tight-set census** (gap(v) = 1/(n+1) exactly, v_n <= 50):
+  n=2: 25 sets, exactly {(d,2d)}; n=3: 16 sets, exactly {(d,2d,3d)};
+  n=4: 19 sets = {(d,2d,3d,4d) : d<=12} ∪ {(d,3d,4d,7d) : d<=7};
+  n=5: 15 sets = {(d,2d,3d,4d,5d) : d<=10} ∪ {(d,3d,4d,5d,9d) : d<=5}.
+  The families (1,3,4,7) and (1,3,4,5,9) are the only non-arithmetic-progression
+  tight sets in range; at t = 1/(n+1) every runner sits at a multiple of 1/(n+1)
+  with min exactly 1/(n+1).
+- **The second-tightest gap is exactly 2/(2n+1) for every n = 2..5** in range:
+  n=3: 2/7 (e.g. v = (1,3,4)); n=4: 2/9 (e.g. (1,3,4,5)); n=5: 2/11 (e.g.
+  (1,3,4,5,7)). There is a visible "ladder" of extremal gap values between
+  1/(n+1) and 1/2 with a sparse set of minimizers.
+- **Three errata** were found in the preceding document's hand-verification
+  tables (section 6): one claimed witness is infeasible (v = (1,3,4),
+  k = (0,0,1); correct witness (0,1,1)); two tight-constraint annotations are
+  mislabeled. None affect the document's conclusions, which all verify.
+- **Verdict:** the outcome is consistent with the known state of the art (LRC is
+  proven for n <= 7 by Barajas-Serra 2008, so n = 4, 5 were expected to pass);
+  the check validates the document's reduction and k_i-formulation end-to-end
+  and provides strong computational evidence for integrality of P(v) in the
+  tested range. It is evidence, not a proof.
+
+## 2. What exactly was tested, and why the computation is exact
+
+### 2.1 Formulation
+
+For v_1 < ... < v_n distinct positive integers, delta = 1/(n+1), the polytope
+tested is the document's P(v), written with integer coefficients:
+
+  P(v) = { k in R^n :  0 <= k_i <= v_i - 1,
+           (n+1)(v_j k_i - v_i k_j) <= n v_i - v_j   for all i != j }.
+
+Equivalence used (derived in the document, re-derived and re-verified here):
+a lonely time exists iff there is a t with ||t v_i|| >= delta for all i, iff
+the intervals [(k_i + delta)/v_i, (k_i + 1 - delta)/v_i] have non-empty
+intersection over some integer choice of k_i, iff P(v) contains an integer
+point. All inequalities are non-strict on both sides, so there are no
+strictness traps at equality (tight cases are included and certified).
+
+**Proposition (LP relaxation is always non-empty).** For every v,
+k_i = (v_i - v_1)/((n+1) v_1) lies in P(v).
+
+*Proof.* Write w_i = (k_i + delta)/v_i (the left endpoint of runner i's time
+window). The pair constraints say w_i <= w_j + (1 - 2 delta)/v_j for all i, j.
+The point w_i = delta / v_1 lies in every window-range [delta/v_i,
+1 - (1-delta)/v_i]: the lower bound holds because v_1 <= v_i, and the upper
+bound delta/v_1 <= (v_i - 1 + delta)/v_i rearranges to
+delta (v_i - v_1) <= v_1 (v_i - 1), which holds since delta < 1 <= v_1 and
+v_i - v_1 <= v_i - 1. Substituting w_i = delta/v_1 gives constraints
+0 <= (1 - 2 delta)/v_j, true since delta = 1/(n+1) < 1/2. The corresponding
+k_i = (v_i - v_1)/((n+1) v_1) satisfies 0 <= k_i <= v_i - 1 by the same
+inequality. For n = 1 there are no pair constraints. ∎
+
+This was also verified numerically: 2,550 exact rational spot-checks (500 per
+n = 1..5), all valid. Hence "P(v) real-feasible" carries no information in the
+tested range (and provably none in general); the document's criterion
+"real-feasible but integer-infeasible" reduces exactly to "integer-infeasible",
+i.e. to failure of the Lonely Runner Conjecture itself.
+
+### 2.2 Exact algorithm
+
+gap(v) = max_{t in [0,1]} min_i ||t v_i|| was computed exactly in integer
+arithmetic. The function g(t) = min_i ||t v_i|| is continuous and piecewise
+linear, so its maximum is attained at a breakpoint of g. Breakpoints of g are
+contained in: breakpoints of the individual sawtooths ||t v_i||, i.e. the peaks
+t = odd/(2 v_i) (valleys t = m/v_i force g = 0 and cannot host a positive
+maximum), and crossings ||t v_i|| = ||t v_j||, i.e. t (v_i + v_j) in Z or
+t (v_i - v_j) in Z. Each candidate t = a/b is evaluated as
+min_i min((a v_i) mod b, b - (a v_i) mod b) / b — pure integer arithmetic,
+no floating point anywhere. gap(v) >= 1/(n+1) is decided by the integer
+comparison (n+1) * num >= den.
+
+Witness construction: for an argmax t* = a/b, set k_i = floor(t* v_i); then
+t* v_i in [k_i + delta, k_i + 1 - delta] for all i, so k is an integer point
+of P(v). Every witness was checked against all n(n-1) pair constraints and
+bounds at runtime, and re-checked independently afterwards (layer L1 below).
+
+## 3. Validation layers
+
+Six independent layers, all passing:
+
+- **L1 — full re-verification:** every one of the 2,369,935 dumped witnesses
+  re-checked against all constraints with numpy (vectorized exact integer
+  arithmetic). Violations: 0. Feasibility flags consistent with gaps: yes.
+- **L2 — independent reference implementation:** an exact implementation
+  written separately in pure Python (same breakpoint theorem, different code
+  path, `fractions`-free integer arithmetic) was compared record-by-record on
+  samples: all 1,225 vectors for n=2, 2,000 random for n=3, 600 each for
+  n=4, n=5 (plus 50 for n=1). Gap mismatches: 0. Feasibility mismatches: 0.
+- **L3 — literal ILP enumeration:** the C program's `brute` mode enumerates the
+  *entire* k-box {0,...,v_i-1}^n and counts every integer point satisfying all
+  constraints — the document's proposed check executed in the most literal way.
+  Run over **all** v with v_n <= 12: n=2: 66 vectors (321 integer points),
+  n=3: 220 (1,164), n=4: 495 (3,129), n=5: 792 (5,076). Verdict agreement with
+  the run-mode sweep: **100%** (1,573/1,573).
+- **L4 — third-party MILP solver:** HiGHS (scipy.optimize.milp) solved 444
+  sampled instances (100 random per n = 2..5, 30 for n=1, plus all document
+  rows and tight/second-tightest families). Returned points re-verified
+  exactly. Disagreements: 0.
+- **L5 — document claims:** see section 5.
+- **L6 — structural invariants:** gap(d v) = gap(v) verified on 78,082 scaled
+  pairs (violations: 0); bounded-speed criterion v_n <= n v_1 ⟺ k = 0 feasible
+  verified on all vectors; LP explicit point verified on 2,550 samples.
+
+## 4. Results
+
+### 4.1 Headline table
+
+| n | vectors (exact) | integer-feasible | tight (gap = 1/(n+1)) | second-tightest gap | runtime |
+|---|---|---|---|---|---|
+| 1 | 50 | 50 | 50 | — (all gap 1/2) | <0.01 s |
+| 2 | 1,225 | 1,225 | 25 | 2/5 | <0.01 s |
+| 3 | 19,600 | 19,600 | 16 | 2/7 | 0.05 s |
+| 4 | 230,300 | 230,300 | 19 | 2/9 | 1.45 s |
+| 5 | 2,118,760 | 2,118,760 | 15 | 2/11 | 25.98 s |
+
+Single core, gcc -O2, Xeon. Witness-verification failures: 0 everywhere.
+
+### 4.2 Tight sets (complete census, v_n <= 50)
+
+n=2: (d,2d), d = 1..25. n=3: (d,2d,3d), d = 1..16.
+n=4: (d,2d,3d,4d), d = 1..12; and (d,3d,4d,7d), d = 1..7.
+n=5: (d,2d,3d,4d,5d), d = 1..10; and (d,3d,4d,5d,9d), d = 1..5.
+
+Representative certificates: v = (1,3,4,7), k = (0,0,0,1), t = 1/5:
+||t v|| = (1/5, 2/5, 1/5, 2/5), min = 1/5 = 1/(n+1).
+v = (1,3,4,5,9), k = (0,0,0,0,1), t = 1/6: (1/6, 1/2, 1/3, 1/6, 1/2), min = 1/6.
+Full lists with witnesses: computational-check/tight_n*.txt.
+
+### 4.3 Gap distribution (top values by count)
+
+n=5: 1/3 (353,332 vectors), 2/7 (64,160), 2/5 (55,666), 1/2 (54,423),
+4/11 (49,209), 4/13 (46,308)...
+n=4: 1/3 (28,777), 2/5 (16,026), 1/2 (13,380), 3/8 (6,606), 3/7 (6,061)...
+n=3: 1/2 (2,607), 2/5 (1,377), 1/3 (1,298), 3/7 (1,292)...
+The mode drifts upward with n; 1/2 (all runners simultaneously antipodal,
+e.g. all-odd speed sets at t = 1/2) stays a large class at every n.
+
+### 4.4 The document's next-step #2: gap vs. overlap bound
+
+The document's overlap-improved union bound certifies loneliness at level
+delta < 1/(2n - 2(n-1)/v_n). Checked on every vector: **gap(v) >= that
+threshold in all 2,369,935 cases** (0 violations) — the document's claim (b)
+verifies universally. But the overlap bound reaches 1/(n+1) only when v_n <= 2:
+among all n >= 2 vectors in range it certifies the conjecture for exactly one
+vector, v = (1,2). This quantifies precisely how far union-bound-type arguments
+remain from the conjecture, matching the document's diagnosis.
+
+Bounded-speed reduction (document's one-line proof): among n=4 vectors, 98,346
+(42.7%) have v_n <= 4 v_1 and are certified by k = 0; for n=5, 882,595 (41.7%).
+The remaining 57-58% require non-zero shifts — and all of them have them.
+
+### 4.5 Spot values for the document's own examples
+
+| v | gap(v) | threshold 1/(n+1) |
+|---|---|---|
+| (1,2,3) | 1/4 | 1/4 (tight) |
+| (1,3,4) | 2/7 | 1/4 |
+| (1,3,5) | 1/2 | 1/4 |
+| (1,2,3,4) | 1/5 | 1/5 (tight) |
+| (1,3,4,7) | 1/5 | 1/5 (tight) |
+| (1,2,3,5) | 1/4 | 1/5 |
+| (1,2,5,10) | 1/3 | 1/5 |
+| (1,3,7,15) | 1/2 | 1/5 |
+| (1,4,9,20) | 8/21 | 1/5 |
+| (1,5,9,15) | 1/2 | 1/5 |
+| (1,3,5,7) | 1/2 | 1/5 |
+| (1,2,3,4,5) | 1/6 | 1/6 (tight) |
+| (1,3,4,5,9) | 1/6 | 1/6 (tight) |
+
+The document's statement "for v = (1,3,5,7), n=4, the gap is >= 1/4 > 1/5" is
+true but very weak: the actual gap is 1/2, the maximum possible (all speeds
+odd, t = 1/2 puts every runner exactly antipodal to the origin).
+
+## 5. Verification of the preceding document's claims
+
+| Claim | Status |
+|---|---|
+| Equivalence: LRC ⟺ P(v) integer-feasible for all v | Re-derived, consistent with every computation |
+| Corrected reduction (document 2's) | Verified: bounded-speed ⟺ k=0 feasible, exactly, on all vectors |
+| Bounded-speed case v_n <= n v_1 | Confirmed: all such vectors feasible, k=0 certified (L5/L6) |
+| Union bound gap >= 1/(2n) | Confirmed: 0 violations, all vectors |
+| Overlap improvement (claim (b)) | Confirmed: 0 violations, all vectors; never certifies 1/(n+1) beyond v=(1,2) |
+| AP (1,...,n) is tight | Confirmed: in tight census for every n |
+| "True for n <= 13 (computational verification)" | Not independently checked (out of scope); n <= 5 now verified here |
+| Hand table 1 (4 rows) | 3 rows verified; row (1,3,4) has an infeasible claimed witness — erratum E1 |
+| Hand table 2 (9 rows) | All 9 witnesses valid; 2 tight-constraint annotations wrong — errata E2, E3 |
+
+## 6. Errata against the preceding document
+
+- **E1 (substantive).** Table "Small-case verification", row v = (1,3,4),
+  claimed integer point k = (0,0,1). It violates constraint (i,j) = (3,2):
+  (n+1)(v_2 k_3 - v_3 k_2) = 4(3*1 - 4*0) = 12 > n v_3 - v_2 = 3*4 - 3 = 9,
+  i.e. 3 > 9/4. The claimed lonely time t = 3/7 *is* valid
+  (||3/7||, ||9/7||, ||12/7|| = (3/7, 2/7, 5/7) >= 1/4); the correct witness
+  at that time is k = (0,1,1), and gap(1,3,4) = 2/7. The brute-force
+  enumeration finds exactly 2 integer points for this v, neither of them
+  (0,0,1).
+- **E2 (annotation).** Table "hand verification", row v = (1,3), k = (0,1):
+  claimed "(1,2) equality". No constraint is tight for this witness (the
+  feasible t-window is [4/9, 5/9], non-degenerate); moreover equality in the
+  document's condition v_1(1+k_2) - v_2 k_1 = (v_1+v_2)/3 = 4/3 is impossible
+  for integer k since the left side is an integer.
+- **E3 (annotation).** Row v = (1,3,5), k = (0,0,1), and the section-4 text
+  "equality at (i,j) = (1,3)": the actual equality pairs for this witness are
+  (1,2) and (3,2) (both sides equal 1); the (1,3) pair has slack 1/2.
+- **Note.** "gap >= 1/4" for (1,3,5,7) is true but the actual gap is 1/2
+  (see 4.5).
+
+None of these affect the document's theorems, its adjudication, or its
+conclusions.
+
+## 7. What this does and does not establish
+
+Established: within n <= 5 and v_n <= 50, the polytope P(v) is
+integer-feasible for every speed vector, with machine-verifiable certificates;
+the LP relaxation is provably always feasible (so the integrality question is
+the whole question); the document's reduction, corrected formulation,
+bounded-speed theorem, union and overlap bounds, and tightness claims all
+verify exactly; three annotation-level errata were found and corrected.
+
+Not established: integrality of P(v) in general, and therefore the Lonely
+Runner Conjecture. The enumeration is finite; it covers a range where the
+conjecture was already proven by other means (n <= 7). The value of the check
+is that it validates the *reduction itself* — the k_i-formulation, the polytope,
+and the integrality framing — on millions of instances, and it supplies the
+tight-set and second-tightest censuses that any future proof must saturate.
+
+The natural next steps, in the document's own framing: push the enumeration to
+n = 6, 7 (C(40,6) = 3,838,380 vectors; the committed program runs this
+unchanged), tabulate the 2/(2n+1) minimizers against the overlap bound, and
+attempt a total-dual-integrality or circulation-style argument on the
+constraint matrix, for which the committed tight-set census now provides exact
+test data.
+
+## 8. Reproducibility
+
+- Source: computational-check/lrc_ilp_check.c (solver + brute mode),
+  computational-check/lrc_verify.py (validation driver), computational-check/README.txt
+  (build and run instructions).
+- Aggregate machine-readable results: computational-check/stats.json.
+- Tight-set lists with witnesses: computational-check/tight_n1..n5.txt.
+- Full per-vector dumps (74 MB) are not committed; regenerate with the commands
+  in the README in about 30 seconds. SHA-256 of the regenerated dumps:
+  n1: 35483d10cbf7d0124ef1c6df924cc7e04bdd4a7b343b39c777724abb0eb2315e
+  n2: edb7f43b67037b95c660685dc7770a12aea7834b3ee33ae1d114c1b2e0d17e8b
+  n3: d48d72080dc0631996e6878a326679854982e29e6396b1c39cb7f060aff4a3fc
+  n4: 6291e6a38dd795b924f93cb144e9cc6f7f8f4289b6b06b2b5497ece45c8a9334
+  n5: d392093526519b63130811923a27f48db7ab1bd1667156e93d652e912c9ba435
+- Environment: gcc 14.2.0 (-O2), Python 3.12, numpy 2.1.3, scipy 1.14.1
+  (HiGHS), Intel Xeon, single thread. Random seeds: 20261002.

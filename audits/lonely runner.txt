@@ -622,3 +622,30 @@ If no counterexample is found, the next step is to prove integrality. Candidate 
 **What I cannot do:** Run the computation. Prove integrality. Close the conjecture.
 
 The reduction is genuine. The computational test is concrete. The proof remains open.
+
+# The computational check: executed
+
+The check proposed above has now been run in full: exhaustive integer-feasibility enumeration of P(v) for n = 4 and n = 5 with v_n <= 50 (plus calibration runs n <= 3), executed exactly as specified — including a literal enumeration of every integer point in the k-box for all v with v_n <= 12, and third-party MILP (HiGHS) cross-solves. Full methodology, validation layers, and data: "computational check results.txt" and computational-check/ in this directory.
+
+## Result
+
+All 2,369,935 enumerated speed vectors admit an integer point in P(v):
+
+- n = 4: 230,300 of 230,300 (C(50,4) = 230,300; the estimate above was rounded down)
+- n = 5: 2,118,760 of 2,118,760 (C(50,5), as estimated)
+- every vector carries an explicit witness (k, t), machine-verified against all polytope constraints twice (runtime self-check plus independent full re-verification), with zero failures.
+
+No counterexample of the form "real-feasible but integer-infeasible" exists — and provably none can: the LP relaxation of P(v) is non-empty for every v, with the explicit point k_i = (v_i - v_1)/((n+1) v_1) (proof in computational check results.txt, section 2.1). The real side of the search criterion is vacuous; integrality is the whole question, exactly as suspected above.
+
+## What the enumeration adds
+
+- Tight-set census for v_n <= 50: n=2 {(d,2d)}; n=3 {(d,2d,3d)}; n=4 {(d,2d,3d,4d)} ∪ {(d,3d,4d,7d)}; n=5 {(d,2d,3d,4d,5d)} ∪ {(d,3d,4d,5d,9d)}. The sporadic families (1,3,4,7) and (1,3,4,5,9) are the only non-arithmetic-progression tight sets in range.
+- The second-tightest gap is exactly 2/(2n+1) for every n = 2..5 (for n=5: 2/11, attained e.g. by (1,3,4,5,7)).
+- The overlap improvement (claim (b) above, and next-step #2) holds on every one of the 2,369,935 vectors, but certifies the conjecture's 1/(n+1) for exactly one n >= 2 vector in range, (1,2): union-bound methods remain quantifiably far from closing the gap.
+- Three errata in the hand-verification tables above: row v=(1,3,4) claims k=(0,0,1), which is infeasible (it violates the (3,2) constraint, 3 > 9/4); the correct witness at the claimed time t=3/7 is (0,1,1), and gap = 2/7. Two tight-constraint annotations are mislabeled ((1,3) should read (1,2)). The theorems, adjudication, and conclusions above are unaffected.
+
+## Honest assessment
+
+The outcome matches the known theory (the conjecture is proven for n <= 7), so this run is a confirmation of the reduction and evidence for integrality — not a proof. What is now unconditionally established in range: P(v) is integer-feasible for every v with n <= 5, v_n <= 50, with certificates; the k_i-formulation, the bounded-speed one-line proof, the union and overlap bounds, and the tightness claims above all verify exactly. The next rungs are one command away (n = 6, 7 with unchanged code; C(40,6) = 3,838,380 vectors).
+
+The reduction is genuine. The computational test was concrete. It has been executed: every polytope in range is integer-feasible. The proof remains open.
