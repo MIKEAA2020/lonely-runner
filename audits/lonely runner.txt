@@ -1,0 +1,624 @@
+I treated the Lonely Runner Conjecture as a mathematical problem, focused on the **gap of loneliness** (the best universal lower bound on how far the slowest runner can get from the pack), and executed the full pipeline: formalize → reduce → close or bound.
+
+## 1. Formalization of the gap problem
+
+Let \(v_1,\dots,v_n \in \mathbb{N}\) be distinct positive speeds, and let the stationary runner be at the origin. Define the **loneliness gap**:
+
+\[
+\delta_n := \inf_{v_1<\dots<v_n} \sup_{t\in\mathbb{R}} \min_{1\le i\le n} \|t v_i\|_{\mathbb{T}}
+\]
+
+where \(\|\cdot\|_{\mathbb{T}}\) is distance to the nearest integer. The conjecture is \(\delta_n = 1/(n+1)\). The trivial union bound gives \(\delta_n \ge 1/(2n)\). Chen (1994) improved this to \(1/(2n-1+1/(2n-3))\). Bedert (2025) obtained:
+
+\[
+\delta_n \ge \frac{1}{2n} + \frac{1}{n^{5/3+o(1)}}
+\]
+
+The gap between \(1/(2n)\) and \(1/(n+1)\) is still a factor of roughly 2. The union bound fails because the “bad sets”
+
+\[
+E_i(\delta) := \{t : \|t v_i\|_{\mathbb{T}} < \delta\}
+\]
+
+overlap, and their union does not cover the torus when \(\delta < 1/(n+1)\). Improving the bound requires understanding the overlap structure.
+
+## 2. Reduction to a geometric covering problem
+
+Henze and Malikiosis (2017) established the following equivalence. The **LR zonotope** associated with \(v = (v_1,\dots,v_n)\) is:
+
+\[
+Z(v) := \left\{ \sum_{i=1}^n \lambda_i v_i : 0 \le \lambda_i \le 1 \right\} \subset \mathbb{R}^n
+\]
+
+where \(v_i\) are interpreted as vectors in \(\mathbb{R}^n\) (after embedding). The covering radius of a lattice zonotope is the smallest \(r\) such that balls of radius \(r\) centered at lattice points cover \(\mathbb{R}^n\).
+
+The equivalence is:
+
+\[
+\delta_n \ge \delta \quad \Longleftrightarrow \quad \operatorname{covrad}(Z(v)) \le R(\delta)
+\]
+
+for an explicit function \(R(\delta)\). In particular, the conjecture \(\delta_n = 1/(n+1)\) is equivalent to:
+
+\[
+\sup_{v} \operatorname{covrad}(Z(v)) \le R\left(\frac{1}{n+1}\right)
+\]
+
+This reduces the arithmetic problem to a **lattice covering problem**: bound the covering radius of LR zonotopes.
+
+## 3. What the reduction buys
+
+The union bound is a statement about measures of sets on the torus. The covering-radius formulation is a statement about **lattice geometry**. The latter admits tools that the former does not:
+
+- **Minkowski’s first theorem** on successive minima.
+- **The Flatness Theorem** for lattice polytopes.
+- **Minkowski’s theorem on linear forms**.
+- **Transference theorems** relating covering radius to successive minima.
+
+These tools have already been used to reprove and improve the bounded-speed reduction (Malikiosis–Santos–Schymura 2025). The covering-radius formulation also makes precise what is missing: to close the conjecture, one needs a **covering radius bound** that is sharp at the \(1/(n+1)\) threshold.
+
+## 4. Reduction: explicit bound on \(\delta_n\) from covering radius
+
+I can state the reduction in a form that separates the known geometric input from the remaining arithmetic gap.
+
+**Proposition (reduction).** Let \(Z(v)\) be the LR zonotope of \(v \in \mathbb{N}^n\), and let \(\mu(Z)\) be its covering radius. Then:
+
+\[
+\delta_n \ge \frac{1}{2n} \cdot \frac{1}{\mu(Z) \cdot \sqrt{n}}
+\]
+
+More precisely, if \(\mu(Z) \le C_n\) for all LR zonotopes with \(n\) generators, then:
+
+\[
+\delta_n \ge \frac{1}{n(1 + 2C_n \sqrt{n})}
+\]
+
+*Sketch.* The covering radius controls how far a point in the zonotope is from the nearest lattice point. Translating this back to the torus, the measure of the complement of the union of \(E_i(\delta)\) is bounded below by a function of \(\mu(Z)\). The union bound corresponds to \(C_n \sim \sqrt{n}\). Improving \(C_n\) improves \(\delta_n\).
+
+This is a **reduction**, not a new bound: the geometric input \(C_n\) is the open part.
+
+## 5. The remaining gap, stated precisely
+
+The conjecture requires:
+
+\[
+\mu(Z(v)) \le \frac{1}{2} \sqrt{n} \quad \text{for all } v
+\]
+
+The union bound gives:
+
+\[
+\mu(Z(v)) \le \sqrt{n}
+\]
+
+The Bedert improvement corresponds to a **logarithmic** improvement in this covering radius bound. The gap is a factor of 2 in the covering radius.
+
+**What would close it:** a proof that the covering radius of every LR zonotope is at most half the trivial bound. This is a **concrete geometric inequality** about lattice zonotopes, not a statement about runners. It is a problem in discrete geometry.
+
+## 6. What is closed, and what is not
+
+| Item | Status |
+|---|---|
+| Equivalence to covering radius | Known (Henze–Malikiosis 2017) |
+| Reduction of \(\delta_n\) to \(\mu(Z)\) | Stated above |
+| Union bound \(\delta_n \ge 1/(2n)\) | Closed |
+| Chen improvement | Closed |
+| Bedert improvement | Closed (2025) |
+| Conjecture \(\delta_n = 1/(n+1)\) | Open |
+| Covering radius bound needed | Open |
+
+**I did not close the conjecture.** I formalized the gap problem, reduced it to a covering-radius bound on LR zonotopes, and identified the exact geometric inequality that remains open: \(\mu(Z(v)) \le \frac{1}{2}\sqrt{n}\).
+
+## 7. Why this is a real reduction
+
+The reduction is not a restatement. It changes the problem from a **measure-theoretic** statement about Diophantine approximation on the torus to a **convex-geometric** statement about lattice zonotopes. The latter is amenable to:
+
+- **Lattice point counting** (geometry of numbers).
+- **Minkowski’s theorems** (successive minima, linear forms).
+- **Zonotope theory** (coloops, cosimplicity, volume vectors).
+- **Computational geometry** (covering radius algorithms for rational polytopes).
+
+The recent proofs for \(n \le 13\) used exactly this geometric approach (Rosenfeld 2025, Trakulthongchai 2026). The reduction makes precise what those computational proofs are doing: they are verifying the covering radius bound for bounded speed sets.
+
+## 8. What I would do next
+
+1. **Prove the covering radius bound for special families** (arithmetic progressions, lacunary sequences) using zonotope geometry.
+2. **Apply the Flatness Theorem** to bound \(\mu(Z)\) in terms of the successive minima of the zonotope.
+3. **Check whether the half-factor can be obtained** from a symmetry argument on LR zonotopes (e.g., a central symmetry that forces the covering radius to be at most half the diameter).
+4. **Compare with the known tight instances** (Goddyn–Wong) to see whether the covering radius bound is saturated.
+
+The reduction is genuine. The remaining gap is a geometric inequality. Whether that inequality is true is the conjecture.
+
+# Joint evaluation, verification, and adjudication
+
+## The central contradiction
+
+**Document 1:** The reduction is valid; a Minkowski–Flatness argument improves the bound; the remaining gap is a covering-radius inequality μ(Z) ≤ ½√n; central symmetry would close it.
+
+**Document 2:** The reduction does not hold up as written; the proposition is internally inconsistent; the "factor of 2" is an artifact of normalization; the correct reduction gives a relative gap of about 1/n.
+
+Let me verify the key mathematical claims and adjudicate.
+
+---
+
+## Verification of Document 2's critique
+
+### 1. The proposition is internally inconsistent — VERIFIED
+
+Document 1 states: if μ(Z) ≤ C_n, then δ_n ≥ 1/(n(1 + 2C_n√n)).
+
+Plug in the conjectural value C_n = ½√n:
+δ_n ≥ 1/(n(1 + 2·½√n·√n)) = 1/(n(1 + n)) = 1/(n(n+1))
+
+But the conjecture is δ_n = 1/(n+1), not 1/(n(n+1)). **Document 2 is correct. The formula is wrong by a factor of n.**
+
+Document 2's corrected reduction:
+μ(Z_v) ≤ 1 − 2δ ⟹ some t has ‖tv_i‖ ≥ δ for all i.
+
+For δ = 1/(n+1): μ ≤ 1 − 2/(n+1) = (n−1)/(n+1).
+For δ = 1/(2n): μ ≤ 1 − 1/n = (n−1)/n.
+
+**Document 2's reduction is correct.** The gap between union bound and conjecture is (n−1)/n vs (n−1)/(n+1) — a relative improvement of about 1/n, not a factor of 2.
+
+### 2. The "factor of 2" is an artifact — VERIFIED
+
+Document 1 uses a √n normalization: union bound gives μ ≤ √n, conjecture needs μ ≤ ½√n. That's a factor of 2.
+
+Document 2 uses the correct normalization: union bound gives μ ≤ (n−1)/n, conjecture needs μ ≤ (n−1)/(n+1). The difference is 1/n relative.
+
+**Document 2 is correct.** The "factor of 2" only appears in the wrong normalization.
+
+### 3. Bedert is not a logarithmic improvement — VERIFIED
+
+Document 1 says: "The Bedert improvement corresponds to a logarithmic improvement in this covering radius bound."
+
+Bedert's bound is δ_n ≥ 1/(2n) + 1/n^{5/3+o(1)}, which is polynomial, not logarithmic.
+
+**Document 2 is correct.** Document 1 mischaracterizes Bedert's result.
+
+### 4. The Flatness argument is vague — VERIFIED
+
+Document 1 claims μ(Z) ≤ C·√n/width(Z) ≤ C'n^{1/2−ε}, but does not:
+- Specify the Flatness constant
+- Verify that width(Z) ≥ Ω(√n)
+- Show the derivation carefully
+
+**Document 2 is correct.** The argument is asserted, not derived.
+
+### 5. The Flatness constants cannot reach 1/(n+1) — VERIFIED
+
+The Flatness theorem gives polynomial bounds, not sharp ones. It can improve the exponent but cannot reach the sharp 1/(n+1) threshold.
+
+**Document 2 is correct.**
+
+---
+
+## Verification of Document 2's positive contributions
+
+### (a) Sharp upper bound for arithmetic progressions — VERIFIED
+
+Document 2's proof: For v = (1,...,n), the n+2 points 0, {t},...,{nt}, 1 split [0,1] into n+1 gaps. Some gap is ≤ 1/(n+1). That gap equals ‖kt‖ for some k. At t = 1/(n+1), every ‖k/(n+1)‖ ≥ 1/(n+1). So δ_n ≤ 1/(n+1).
+
+**Verified.** This is Dirichlet's theorem applied to the lonely runner problem. The argument is correct.
+
+### (b) Overlap improvement — VERIFIED
+
+All E_i(δ) contain the interval (−δ/v_n, δ/v_n), which has length 2δ/v_n. The union bound counts it n times; it should count once. So:
+
+|∪E_i| ≤ 2nδ − 2(n−1)δ/v_n
+
+A lonely time exists when δ < 1/(2n − 2(n−1)/v_n).
+
+**Verified.** The argument is correct and elementary.
+
+### (c) Script — VERIFIED
+
+The script computes f(t) = min_i ‖tv_i‖ at all candidate peak points. The candidates are:
+- t = (2k+1)/(2v_i) (where runner i is at ½)
+- t = k/(v_i ± v_j) (where runners i and j are equidistant)
+
+This is correct: f(t) is piecewise linear, and its local maxima occur at these points.
+
+**Verified.**
+
+---
+
+## Adjudication of remaining contradictions
+
+### Contradiction: Is the reduction valid?
+
+Document 1 says "the reduction is valid." Document 2 says "the reduction does not hold up as written."
+
+**Adjudication:** The general idea (reduce to covering radius) is valid. Document 1's specific proposition is wrong. Document 2's corrected reduction is right. So both are partly right: the reduction exists, but Document 1's version is flawed.
+
+### Contradiction: What is the remaining gap?
+
+Document 1 says: μ ≤ ½√n (factor of 2).
+Document 2 says: μ ≤ (n−1)/(n+1) vs (n−1)/n (relative 1/n).
+
+**Adjudication:** Document 2 is correct. The factor of 2 is an artifact of √n normalization. The true gap is a relative improvement of about 1/n in a scaling constant.
+
+### Contradiction: Does the Flatness argument work?
+
+Document 1 claims a specific improvement: δ_n ≥ 1/(2n) + n^{-3/2+o(1)}.
+Document 2 says the Flatness constants cannot reach 1/(n+1).
+
+**Adjudication:** These are not contradictory. The Flatness argument might give a polynomial improvement (as Document 2 acknowledges), but cannot close the conjecture (as Document 2 correctly notes). Document 1's specific bound is asserted, not derived.
+
+### Contradiction: Are the small-n proofs verifying the covering radius bound?
+
+Document 1 asserts this. Document 2 says it's asserted without evidence.
+
+**Adjudication:** Document 2 is correct to flag this. The small-n proofs (Rosenfeld, Trakulthongchai) use computational and Diophantine methods, not necessarily covering-radius verification. Document 1's claim is unverified.
+
+---
+
+## What survives from each document
+
+**From Document 1:**
+- The general idea of reducing to covering radius (correct, from Henze–Malikiosis)
+- The Minkowski–Flatness direction (legitimate, but not sharp)
+- The identification of the remaining obstruction as geometric (correct)
+
+**From Document 2:**
+- The corrected reduction (μ ≤ 1−2δ)
+- The correct normalization (no factor of 2)
+- The internal inconsistency of Document 1's proposition
+- The proof of the sharp upper bound
+- The overlap improvement
+- The verified script
+
+---
+
+## Overall verdict
+
+**Document 2 is the stronger document.** It correctly identifies three errors in Document 1, provides a corrected reduction, and adds verified results. Document 1's contributions are the general direction (reduce to covering radius) and the identification of the geometric obstruction, but its specific claims are flawed.
+
+**The corrected state of the Lonely Runner problem:**
+
+- The conjecture is equivalent to μ(Z_v) ≤ (n−1)/(n+1) for all integer vectors v.
+- The union bound gives μ(Z_v) ≤ (n−1)/n.
+- The gap is a relative improvement of about 1/n in a scaling constant.
+- The Flatness approach can give polynomial improvements but cannot close the conjecture.
+- No central-symmetry argument is known that would close the gap.
+
+**The remaining open problem is a concrete geometric inequality:** prove that every LR zonotope has covering radius at most (n−1)/(n+1). This is a finite-dimensional problem in the geometry of numbers.
+
+**What to do next (per Document 2's next steps):**
+
+1. Run the script over all v with v_n ≤ 40 for n = 3–6, record maximal-μ cases.
+2. Tabulate gap(v) against the overlap bound to see where the slack is.
+3. Extend the overlap improvement to inclusion–exclusion around rationals 1/2, 1/3, …
+4. Consider whether Fourier/additive-combinatorial methods (Tao, Bedert) are more promising than flatness-type tools.
+
+The reduction is real. The remaining gap is geometric. Whether it can be closed is open.
+
+# Proceeding with the corrected reduction
+
+## Verification summary
+
+Document 2's three corrections are verified:
+
+1. **The proposition is inconsistent.** Plugging the conjectural value C_n = ½√n into Document 1's formula gives 1/(n(n+1)), not 1/(n+1). Off by a factor of n.
+2. **The "factor of 2" is a normalization artifact.** In the correct normalization, the union bound gives μ ≤ (n−1)/n, the conjecture needs μ ≤ (n−1)/(n+1). The gap is a relative 1/n, not a factor of 2.
+3. **The k_i formulation is the right language.** Below I develop it and use it to identify exactly where the difficulty lives.
+
+---
+
+## 1. The cleanest formulation
+
+The conjecture is equivalent to: for every set of distinct positive integers \(v_1 < \cdots < v_n\), there exist integers \(k_1, \ldots, k_n\) such that for all \(i, j\):
+
+\[
+v_i(1+k_j) - v_j k_i \geq \frac{v_i + v_j}{n+1}
+\]
+
+**Derivation.** A lonely time \(t\) exists with gap \(\delta\) iff there are integers \(k_i\) with:
+
+\[
+\frac{\delta + k_i}{v_i} \leq t \leq \frac{1-\delta + k_i}{v_i} \quad \text{for all } i
+\]
+
+The intersection is non-empty iff for all \(i,j\):
+
+\[
+\frac{\delta + k_i}{v_i} \leq \frac{1-\delta + k_j}{v_j}
+\]
+
+Rearranging gives:
+
+\[
+\delta(v_i + v_j) \leq v_i(1+k_j) - v_j k_i
+\]
+
+Setting \(\delta = 1/(n+1)\) gives the stated condition.
+
+---
+
+## 2. What this immediately proves
+
+**The bounded-speed case.** If \(v_n \leq n v_1\), the conjecture holds. Take \(k_i = 0\) for all \(i\). The condition becomes:
+
+\[
+v_i \geq \frac{v_i + v_j}{n+1} \quad \forall i,j
+\]
+
+which is equivalent to:
+
+\[
+n v_i \geq v_j \quad \forall i,j
+\]
+
+The worst case is \(i = 1, j = n\): \(n v_1 \geq v_n\). So if \(v_n \leq n v_1\), the conjecture is proven by \(t \in [1/((n+1)v_1), n/((n+1)v_n)]\) (non-empty by the condition).
+
+This recovers the known bounded-speed result. The proof is one line in the k_i formulation.
+
+---
+
+## 3. Where the difficulty lives
+
+When \(v_n > n v_1\), the choice \(k_i = 0\) fails. Non-zero \(k_i\) are needed. The condition becomes a **simultaneous Diophantine approximation problem**: find integer shifts \(k_i\) that "fold" the line \(\{tv\}\) back into the cube \([1/(n+1), n/(n+1)]^n\).
+
+**The critical pair.** The binding constraint is always \(i = 1, j = n\):
+
+\[
+v_1(1+k_n) - v_n k_1 \geq \frac{v_1 + v_n}{n+1}
+\]
+
+For \(k_1 = 0\), this requires \(v_1(1+k_n) \geq (v_1+v_n)/(n+1)\). Since \(k_n \geq 1\) when \(v_n > n v_1\), this becomes \(2v_1 \geq (v_1+v_n)/(n+1)\), which is even harder.
+
+So the problem is: **can the shifts \(k_i\) always be chosen to satisfy all pairwise inequalities simultaneously?**
+
+---
+
+## 4. The arithmetic progression is tight
+
+For \(v_i = i\), \(k_i = 0\) works:
+
+\[
+i \geq \frac{i+j}{n+1} \quad \forall i,j
+\]
+
+Worst case: \(i=1, j=n\): \(1 \geq (1+n)/(n+1) = 1\). **Equality.** So the AP is tight, confirming \(\delta_n \leq 1/(n+1)\).
+
+For the odd AP \(v_i = 2i-1\), the tight point requires non-zero \(k\). For \(n=3\): \(v = (1,3,5)\), \(t = 1/4\), \(k = (0,0,1)\). The condition holds with equality at \((i,j) = (1,3)\).
+
+**Not all APs are tight.** For \(v = (1,3,5,7)\), \(n=4\), the gap is \(\geq 1/4 > 1/5\). The tight case is specifically the consecutive integers. This is why the conjecture is about the *worst* configuration, not all configurations.
+
+---
+
+## 5. The remaining gap, stated precisely
+
+**Conjecture (equivalent form):** For every set of distinct positive integers \(v_1 < \cdots < v_n\), there exist integers \(k_1, \ldots, k_n\) satisfying:
+
+\[
+v_i(1+k_j) - v_j k_i \geq \frac{v_i + v_j}{n+1} \quad \forall i,j
+\]
+
+**What is known:**
+- True if \(v_n \leq n v_1\) (take \(k_i = 0\)).
+- True for \(n \leq 13\) (computational verification).
+- Union bound gives the weaker condition with \((n+1)\) replaced by \(2n\).
+
+**What is missing:** A proof that the shifts \(k_i\) can always be chosen when \(v_n > n v_1\).
+
+---
+
+## 6. Concrete next steps
+
+1. **Reformulate as a lattice problem.** The condition \(M_{ij} \geq (v_i+v_j)/(n+1)\) with \(M_{ij} = v_i(1+k_j) - v_j k_i\) defines a polytope in the \(k\)-space. The conjecture is that this polytope contains an integer point for every \(v\).
+
+2. **Check whether the polytope is integral.** If the constraint matrix is totally unimodular, the integer point exists whenever the real polytope is non-empty. Test this for small \(n\).
+
+3. **Use the structure of the critical pair.** The binding constraint is \((1,n)\). Show that if the \((1,n)\) constraint can be satisfied, the others follow. This reduces the problem from \(n^2\) constraints to \(n\) constraints.
+
+4. **Extend the bounded-speed threshold.** The current threshold is \(v_n \leq n v_1\). Can it be improved to \(v_n \leq C(n) v_1\) for some \(C(n) > n\)? The k_i formulation gives a clear path: find the largest \(C\) such that \(k_i = 0\) works.
+
+5. **Run the computational check.** For small \(n\), enumerate all \(v\) with \(v_n \leq V_{\max}\) and check whether integer \(k_i\) exist. This is a linear programming / integer programming problem. The known \(n \leq 13\) results likely used a version of this.
+
+---
+
+## 7. Honest assessment
+
+The k_i formulation is clean and reduces the conjecture to a simultaneous integer feasibility problem. It immediately proves the bounded-speed case and identifies the critical pair. But it does not close the conjecture. The hard case — widely spread speeds — remains open.
+
+Whether this reformulation is new: I don't know. It resembles known formulations in Diophantine approximation. The specific pairwise inequality \(v_i(1+k_j) - v_j k_i \geq (v_i+v_j)/(n+1)\) may be a useful way to state the problem, but I cannot verify its novelty without a literature search, which I cannot perform.
+
+The next concrete step is the lattice/integrality check. If the polytope is integral, the conjecture follows from the real feasibility, which might be provable by a convexity argument. This is the most promising direction.
+
+# The lattice/integrality check: results
+
+## The polytope
+
+Define \(P(v) \subset \mathbb{R}^n\) by the inequalities:
+
+\[
+v_j k_i - v_i k_j \leq \frac{n v_i - v_j}{n+1} \quad \forall i,j
+\]
+\[
+0 \leq k_i \leq v_i - 1 \quad \forall i
+\]
+
+The conjecture is equivalent to: **\(P(v)\) contains an integer point for every distinct positive integer vector \(v\).**
+
+## What I checked
+
+### The constraint matrix is not totally unimodular
+
+The matrix has rows indexed by \((i,j)\) and columns by \(k\). Entry in row \((i,j)\), column \(i\) is \(v_j\); column \(j\) is \(-v_i\); else 0.
+
+Consider the 3×3 submatrix with rows \((i,j), (j,k), (k,i)\) and columns \(i,j,k\):
+
+\[
+\begin{pmatrix} v_j & -v_i & 0 \\ 0 & v_k & -v_j \\ -v_k & 0 & v_i \end{pmatrix}
+\]
+
+**Determinant = 0.** Verified by expansion.
+
+Consider rows \((i,j), (i,k), (j,k)\):
+
+\[
+\begin{pmatrix} v_j & -v_i & 0 \\ v_k & 0 & -v_i \\ 0 & v_k & -v_j \end{pmatrix}
+\]
+
+**Determinant = 0.** Verified.
+
+Consider the cyclic 4×4 submatrix with rows \((i,j), (j,k), (k,l), (l,i)\):
+
+\[
+\begin{pmatrix} v_j & -v_i & 0 & 0 \\ 0 & v_k & -v_j & 0 \\ 0 & 0 & v_l & -v_k \\ -v_l & 0 & 0 & v_i \end{pmatrix}
+\]
+
+**Determinant = 0.** The matrix is singular for any cyclic structure. The rows sum to zero in a weighted sense.
+
+**Conclusion:** The constraint matrix is not TU, but its small square submatrices have determinant 0. This suggests the polytope may be **integral despite not being TU** — a phenomenon known for "circulation" polytopes.
+
+### Small-case verification
+
+I verified by hand for \(n=2\) and \(n=3\):
+
+| \(v\) | Integer point in \(P(v)\) | Lonely time |
+|---|---|---|
+| (1,2) | \(k=(0,0)\) | \(t=1/3\) |
+| (2,3) | \(k=(0,0)\) | \(t=1/6\) |
+| (1,2,3) | \(k=(0,0,0)\) | \(t=1/4\) |
+| (1,3,4) | \(k=(0,0,1)\) | \(t=3/7\) |
+
+In all cases, \(P(v)\) contains an integer point. The polytope appears to be integral for these cases.
+
+### The bounded-speed case
+
+If \(v_n \leq n v_1\), then \(k_i = 0\) is feasible. Proof: the worst constraint is \((i,j) = (1,n)\):
+
+\[
+0 \leq \frac{n v_1 - v_n}{n+1}
+\]
+
+which holds iff \(v_n \leq n v_1\). All other constraints are weaker. **This is a one-line proof of the bounded-speed case.**
+
+## The remaining obstruction
+
+The hard case is \(v_n > n v_1\). In this regime, \(k_i = 0\) fails, and non-zero shifts are needed. The conjecture becomes:
+
+**For every distinct positive integer vector \(v\) with \(v_n > n v_1\), the polytope \(P(v)\) contains an integer point.**
+
+I cannot prove this. The polytope is not TU, and the integrality does not follow from standard theorems. The small-case verification suggests the polytope is integral, but this is not a proof.
+
+## What this formulation buys
+
+1. **A clean equivalence:** the conjecture is equivalent to an integer feasibility problem.
+2. **A one-line proof of the bounded-speed case.**
+3. **A precise statement of the remaining gap:** the hard case \(v_n > n v_1\).
+4. **A computational route:** for small \(n\), enumerate \(v\) and check integer feasibility via ILP.
+
+## What it does not buy
+
+1. **It does not close the conjecture.** The hard case remains open.
+2. **It does not prove integrality.** The polytope may fail to be integral for some \(v\), in which case the conjecture would require a different argument.
+3. **It may not be novel.** This formulation resembles known "view obstruction" and lattice-point formulations (Cusick, Henze–Malikiosis).
+
+## Honest assessment
+
+The \(k_i\) formulation is clean and reduces the conjecture to a concrete integer feasibility problem. It immediately proves the bounded-speed case and identifies the hard regime precisely. But it does not close the conjecture. The hard case — widely spread speeds — remains open. Whether the polytope is integral is the key technical question, and I cannot resolve it.
+
+**What I would do next:**
+1. Test integrality computationally for \(n = 4, 5\) with \(v_n\) up to 50.
+2. Look for a counterexample where \(P(v)\) is non-empty but has no integer point.
+3. If no counterexample exists, try to prove integrality via a total dual integrality argument on the circulation-like structure.
+
+The formulation is a genuine reduction. It is not a solution.
+
+# Proceeding: hand verification and structural analysis
+
+I cannot run the computational check (no code execution). What I can do: verify small cases by hand, analyze the structure of the constraint matrix, and identify precisely what the computational check would test.
+
+## 1. Hand-verified cases
+
+For each \(v\), I found an integer point \(k\) in \(P(v)\):
+
+| \(n\) | \(v\) | \(k\) | Tight constraint |
+|---|---|---|---|
+| 2 | (1,2) | (0,0) | (1,2) equality |
+| 2 | (1,3) | (0,1) | (1,2) equality |
+| 3 | (1,2,3) | (0,0,0) | (1,3) equality |
+| 3 | (1,3,5) | (0,0,1) | (1,3) equality |
+| 4 | (1,2,3,5) | (0,0,0,1) | — |
+| 4 | (1,2,5,10) | (0,0,1,2) | — |
+| 4 | (1,3,7,15) | (0,0,1,3) | — |
+| 4 | (1,4,9,20) | (0,1,2,6) | (4,3) near-tight |
+| 4 | (1,5,9,15) | (0,1,2,3) | — |
+
+In all cases, an integer point exists. The polytope appears integral for these cases.
+
+## 2. Structure of the constraint matrix
+
+The constraint matrix \(A\) has rows indexed by \((i,j)\) and columns by \(k\). Row \((i,j)\) has \(v_j\) in column \(i\), \(-v_i\) in column \(j\), zero elsewhere.
+
+**2×2 minors:** For rows \((i,j)\) and \((j,i)\), columns \(i,j\):
+
+\[
+\det = v_j^2 - v_i^2
+\]
+
+For \(v = (1,2)\): \(4-1 = 3\). So the matrix is **not totally unimodular**.
+
+**3×3 minors:** For rows \((i,j), (j,k), (k,i)\):
+
+\[
+\det = 0
+\]
+
+The cyclic structure forces singularity.
+
+**Implication:** Since the matrix is not TU, integrality of the polytope does not follow from standard theorems. The polytope may have fractional vertices. But the conjecture only requires that **some** integer point exists, not that all vertices are integer.
+
+## 3. The key remaining question
+
+**Is \(P(v)\) integer-feasible for all distinct positive integer vectors \(v\)?**
+
+- If yes: the conjecture follows (assuming the reduction is exact).
+- If no: the conjecture requires a different argument, or is false.
+
+The hand-verified cases are consistent with "yes," but they are not a proof.
+
+## 4. What the computational check would test
+
+For each \(n\) (say 4 and 5) and each \(v\) with \(v_n \leq V_{\max}\) (say 50):
+
+1. Formulate \(P(v)\) as an integer linear program (ILP).
+2. Use a solver (e.g., SCIP, GLPK, or a custom branch-and-bound) to check feasibility.
+3. Record any \(v\) where \(P(v)\) is real-feasible but integer-infeasible.
+
+The number of cases:
+- \(n=4\): \(\binom{50}{4} \approx 230{,}000\)
+- \(n=5\): \(\binom{50}{5} \approx 2{,}000{,}000\)
+
+Each ILP has \(n\) variables and \(n(n-1)\) constraints. This is computationally feasible.
+
+**What to look for:** a counterexample where \(P(v) \neq \emptyset\) but \(P(v) \cap \mathbb{Z}^n = \emptyset\). If none exists up to \(V_{\max} = 50\), the evidence for integrality is strong (but not a proof).
+
+## 5. Theoretical approach to integrality
+
+If no counterexample is found, the next step is to prove integrality. Candidate arguments:
+
+**a. Total dual integrality (TDI).** Show that the system \(Ax \leq b\) is TDI. The matrix is not TU, but TDI is weaker. The dual polytope might have integer vertices even when the primal does not.
+
+**b. Network matrix structure.** The constraint matrix resembles the incidence matrix of a complete directed graph with edge weights \(v_i\). If the polytope can be recognized as a **circulation polytope** or a **network flow polytope**, integrality follows from network flow theory.
+
+**c. Rounding argument.** Start with a real point \(k \in P(v)\). Round to the nearest integer point. Show that the rounding preserves feasibility. This requires a bound on the perturbation, which depends on the slack in the constraints. The slack is of order \(1/n\), which may be too small for naive rounding.
+
+**d. Unimodular transformation.** Find a unimodular transformation \(U\) such that \(AU\) is TU. The matrix has a cyclic structure that might admit such a transformation.
+
+## 6. Honest assessment
+
+**What I verified:** A handful of cases by hand. The polytope contains integer points in all of them.
+
+**What I did not verify:** The full computational check. I cannot run code.
+
+**What remains open:** Whether \(P(v)\) is always integer-feasible. This is equivalent to the Lonely Runner Conjecture.
+
+**What the computational check would add:** If no counterexample is found up to \(V_{\max} = 50\), it would provide strong evidence for integrality. If a counterexample is found, it would either falsify the conjecture (if the reduction is exact) or reveal a flaw in the reduction.
+
+**What I cannot do:** Run the computation. Prove integrality. Close the conjecture.
+
+The reduction is genuine. The computational test is concrete. The proof remains open.
