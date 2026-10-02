@@ -661,3 +661,53 @@ Date: 2026-10-02. The three next steps proposed at the end of the computational 
 **3. The TDI/circulation argument attempted** ("integrality analysis.txt"), using the committed censuses as test data. P(v) is exactly a network potential polytope (difference-constraint system on the complete digraph), which re-proves the LP-nonemptiness via no-negative-cycles and recovers the bounded-speed theorem transparently. But TDI and unimodular-TU repair are refuted (fractional vertices exist on integral data, including on tight census vectors); rounding at the LP center provably never certifies; and the Smith normal form of the pair matrix — invariant factors all equal to (n+1) gcd(v) — pins down the exact arithmetic obstruction that the free flow-side integrality cannot see. The census adds the regularity any future proof must hit: every tight witness is either a box-corner vertex or a squeezed point in a sub-unit fiber with exactly one tight pair constraint.
 
 The proof remains open — but the map is now sharper: what is sufficient (modular rungs, corner/fiber witnesses), what is false (the inter-rung emptiness), and where the obstruction lives (the (n+1)g-granularity between potentials and the k-lattice).
+
+# The open upper bound, closed; the blocked run, run
+
+Date: 2026-10-02. The two items left open by the previous continuation are
+now settled; all artifacts are committed in this directory and under
+computational-check/.
+
+**1. The open upper bound gap(1,...,n-1,2n) <= 2/(2n+1) is closed -- it is
+now Theorem 6** ("ladder analysis.txt", section 4b): gap(1,2,...,n-1,2n) =
+2/(2n+1) for every n >= 2. The lower bound was already the rung lemma with
+c = 2; the upper bound needed two new ideas. First, an argmax-localization
+lemma: for any speed set containing 1 and an even speed, the maximum of
+min_v ||vt|| can only be attained where two distinct speeds are active with
+opposite sawtooth slopes, which forces (v_i + v_j) t to be an integer -- so
+the argmax lives on the sum-crossing grid j/(v_i+v_j) with denominator at
+most 3n-1, never at a difference-crossing and never at a peak. Second, a
+residue kill-lemma: for every reduced denominator m' <= 3n-1 and every
+coprime numerator, some speed v in {1,...,n-1,2n} hits 0, +-1 or +-2 modulo
+m' (case analysis over m' in [2,n-1] | [n,2n] | [n+1,2n-1] | [2n+1,3n-1],
+the last case using the doubling u -> 2u of the modular inverse). The
+machine check confirms everything exactly: family gap = 2/(2n+1) verified
+on the complete candidate set for n = 2..200 plus samples to n = 1000; the
+kill-lemma verified on 16.5 million (m', j') pairs; the committed solver
+cross-checked at n = 2..7. Bonus finding: the maximizer is unique,
+t = +-2/(2n+1), for every n <= 40 tested. The ladder's sufficient side is
+now fully theorem-grade: rung values, the AP family, the sporadic families,
+and the extremal rung-2 family are all proved for every n.
+
+**2. The n = 7, V = 50 sweep is run** (code changes accepted, so the
+per-process wall-time limit was circumvented by sharding): the solver gained
+a rank-based `shard` mode whose decomposition is proven byte-identical to
+the committed solver (on n = 7, V = 38 the 5-shard concatenation reproduces
+the committed dump, sha256 a01a5564..., exactly). 16 shards, 8 calls:
+**99,884,400 vectors with v_n <= 50, every one integer-feasible, zero
+verify failures.** Cumulative since the start: 130,765,291 vectors, zero
+counterexamples. Census: the tight census grows exactly as predicted (14 =
+7 + 4 + 3, one new multiple per family, NO new tight families in
+38 < v_n <= 50); the inter-rung population does not grow (still exactly the
+four gap-3/23 vectors -- no new counterexamples to the second-rung
+statement below v_n = 50); the rung-2 population grows 21 -> 29 (list
+committed), including the Theorem 6 family at d = 1, 2, 3. Validation: full
+numpy re-verification of all 99.9M witnesses (0 violations), 1,055
+independent reference solves, 170 MILP cross-solves, sample/dump
+consistency, all passing. Details: "computational check results.txt",
+section 10.
+
+The proof remains open -- but the extremal family that generated the ladder
+picture is now completely understood, and the n = 7 evidence doubles in
+range with no surprises: the zoo of exceptions stops at the boundary the
+theory predicts.

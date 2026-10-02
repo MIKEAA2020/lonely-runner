@@ -1,0 +1,23 @@
+== 1. run-mode byte match (v1 vs v2) ==
+   run n=2 V=6: dump+tight byte-identical
+   run n=3 V=12: dump+tight byte-identical
+   run n=4 V=8: dump+tight byte-identical
+   run n=5 V=10: dump+tight byte-identical
+== 2/3. shard decomposition == run ==
+   shard n=2 V=6 S=7: concat byte-identical; totals 15/15 tight=3 vfail=0 (ref: 15 15 3 0)
+   shard n=3 V=12 S=4: concat byte-identical; totals 220/220 tight=4 vfail=0 (ref: 220 220 4 0)
+   shard n=4 V=8 S=3: concat byte-identical; totals 70/70 tight=3 vfail=0 (ref: 70 70 3 0)
+   shard n=5 V=10 S=5: concat byte-identical; totals 252/252 tight=3 vfail=0 (ref: 252 252 3 0)
+   shard n=5 V=10 S=7: concat byte-identical; totals 252/252 tight=3 vfail=0 (ref: 252 252 3 0)
+== 4. BIG equivalence: n=7 V=38, 5 shards vs committed dump ==
+   committed: a01a55641c2f54592729a9b8b5526ded686d50bf9f1b57e58159ce07c4f6c456
+   concat:    a01a55641c2f54592729a9b8b5526ded686d50bf9f1b57e58159ce07c4f6c456
+   BYTE-IDENTICAL
+   TIGHT LIST IDENTICAL
+   merged: total=12620256 feasible=12620256 tight=10 verify_failures=0
+n=7 V=38 shards=5 idx=0 lo=0 hi=2524052 count=2524052 feasible=2524052 infeasible=0 tight=3 verify_failures=0 seconds=61.07
+n=7 V=38 shards=5 idx=1 lo=2524052 hi=5048103 count=2524051 feasible=2524051 infeasible=0 tight=5 verify_failures=0 seconds=62.35
+n=7 V=38 shards=5 idx=2 lo=5048103 hi=7572154 count=2524051 feasible=2524051 infeasible=0 tight=1 verify_failures=0 seconds=65.09
+n=7 V=38 shards=5 idx=3 lo=7572154 hi=10096205 count=2524051 feasible=2524051 infeasible=0 tight=1 verify_failures=0 seconds=67.08
+n=7 V=38 shards=5 idx=4 lo=10096205 hi=12620256 count=2524051 feasible=2524051 infeasible=0 tight=0 verify_failures=0 seconds=72.04
+EQUIVALENCE: ALL CHECKS PASS

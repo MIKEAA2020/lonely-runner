@@ -371,3 +371,151 @@ The theoretical work that this data enabled — the ladder attack and the
 TDI/circulation attempt, both using the committed censuses as test data —
 is in "ladder analysis.txt" and "integrality analysis.txt" in this
 directory.
+
+---
+
+## 10. Theorem 6 (closed upper bound for the extremal family) and the sharded n = 7, V = 50 sweep
+
+Date: 2026-10-02. Two continuation items, both from the end of section 9 /
+"ladder analysis.txt": (1) the open upper bound
+gap(1,2,...,n-1,2n) <= 2/(2n+1), and (2) the n = 7, V = 50 sweep, which the
+original environment's per-process limit had blocked (V = 38 was the largest
+completable bound; V = 50 needs ~56 minutes of single-core compute).
+
+### 10.1 Theorem 6: gap(1,2,...,n-1,2n) = 2/(2n+1) for every n >= 2
+
+PROVED (full proof in "ladder analysis.txt", section 4b). The argument has
+two steps. Lemma 6.1 (argmax localization): for any speed set containing 1
+and an even speed, the maximum of g(t) = min_v ||vt|| is attained at a point
+where two distinct speeds are simultaneously active with opposite sawtooth
+slopes, forcing (v+ + v-) t to be an integer -- the argmax lives on the
+sum-crossing grid t = j/(v_i + v_j), never at a difference-crossing
+(same-sign crossing) and never at a peak (value 1/2 is impossible since
+t = 1/2 kills every even speed). Lemma 6.2 (residue kill-lemma): for every
+reduced denominator m' in [2, 3n-1] and every j' coprime to m', some speed
+v in {1,...,n-1,2n} has v j' = 0, +-1, or +-2 (mod m') according to the
+case m' <= n-1 or m' | 2n / n+1 <= m' <= 2n-1 / 2n+1 <= m' <= 3n-1. Since
+the argmax denominator m = v+ + v- is at most 2n + (n-1) = 3n-1, the two
+lemmas give max g <= 2/(2n+1); the rung lemma (c = 2) gives the equality at
+t* = 2/(2n+1). The census values 2/5, 2/7, 2/9, 2/11, 2/13, 2/15 are now
+the n = 2..7 instances of a theorem for all n.
+
+Machine verification (lrc_gap_family_check.py, five layers, all PASS):
+- L1 exact family gap over the full candidate set (peaks + sum-crossings +
+  difference-crossings): n = 2..200 exhaustive + samples n = 250, 400, 700,
+  1000. Every candidate satisfies min_v ||vt|| <= 2/(2n+1); t* attains
+  exactly 2/(2n+1). Bonus finding: for every n <= 40 the maximizer set is
+  exactly {2/(2n+1), (2n-1)/(2n+1)} -- the rung witness is the unique argmax
+  (observed; recorded, not proved).
+- L2 the residue kill-lemma verified directly: n = 2..250 exhaustive +
+  samples 400, 800; 97,220 denominators, 16,500,433 units, all case bounds
+  met with zero exceptions.
+- L3 cross-check against the committed solver binary (unchanged build of the
+  committed source, sha256 ea11e7d9...): the family representatives appear
+  in fresh runs with gap exactly 2/(2n+1) for n = 2..7, and an independent
+  Python implementation agrees with the committed solver on all 342 vectors
+  of three complete sweeps (run 3 6, run 4 8, run 5 10).
+- L4 pure-Python exact reference (no numpy), n = 2..40.
+- L5 dense-grid sanity scan (2,000,000 points, Lipschitz correction
+  2n/N), n = 2..12.
+
+### 10.2 The sharded solver (code changes, previously forbidden, now accepted)
+
+lrc_ilp_check.c gained a third mode:
+
+  shard n V prefix NSHARDS IDX [nodump]
+
+which enumerates exactly the vectors whose 0-based lexicographic rank lies
+in the IDX-th of NSHARDS contiguous rank intervals partitioning C(V,n)
+(remainder spread over the first C(V,n) mod NSHARDS shards), with unranking
+into the same order the recursive enumeration produces. Per shard it writes
+the same 32-byte records as run mode (<prefix>_dump.bin, suppressible), the
+tight list, a summary with the shard geometry, a reduced gap-value histogram
+(<prefix>_spectrum.txt), and every 99733rd record as text
+(<prefix>_sample.txt). The run and brute modes are untouched.
+
+Equivalence proof (lrc_shard_equiv.sh, all PASS):
+- The rebuilt binary's run mode is byte-identical to the committed binary on
+  fresh runs (n = 2..5 sweeps: dump + tight list).
+- Shard decomposition = run, byte-identical concatenation, for (n,V,S) =
+  (2,6,7), (3,12,4), (4,8,3), (5,10,5), (5,10,7) -- including
+  remainder-distributed splits; merged tight lists and totals match.
+- BIG: n = 7, V = 38 sharded into 5 reproduces the committed n7_V38 dump
+  byte-for-byte (sha256 a01a55641c2f54592729a9b8b5526ded686d50bf9f1b57e58159
+  ce07c4f6c456 -- the value recorded in section 9), tight list identical,
+  merged totals 12,620,256 / 12,620,256 / tight 10 / 0 verify failures.
+
+### 10.3 The n = 7, V = 50 sweep
+
+  16 shards x 6,242,775 vectors (C(50,7) = 99,884,400), 2 shards per
+  process-pair on 2 cores, 8 sequential calls, 183-246 s per shard,
+  3372 s of CPU time total.
+
+Headline: **99,884,400 / 99,884,400 vectors integer-feasible, zero
+infeasible, zero witness verify failures.** Cumulative across all checks:
+130,765,291 speed vectors (n <= 7), every one with an exact integer
+certificate, zero counterexamples of any kind.
+
+Census results (complete in range v_n <= 50):
+- Tight sets (gap = 1/8 exactly): exactly 14, namely the three known
+  families with one more multiple each: (d,2d,...,7d) d = 1..7 (7 vectors),
+  (d,2d,3d,4d,5d,7d,12d) d = 1..4 (4 vectors, new: d = 4 at v_n = 48),
+  (d,4d,5d,6d,7d,11d,13d) d = 1..3 (3 vectors, new: d = 3 at v_n = 39).
+  **No new tight families appear in the window 38 < v_n <= 50.**
+- Inter-rung vectors (gap strictly between 1/8 and 2/15): still exactly the
+  four known ones -- (1,2,3,4,5,7,18), (2,4,6,8,10,14,36),
+  (1,3,4,5,7,13,18), (2,6,8,10,14,26,36), all gap 3/23. **No new
+  second-rung counterexamples appear up to v_n <= 50** (their multiples
+  would need v_n = 54 > 50).
+- Rung-2 population (gap = 2/15 exactly): 29 vectors (21 at V = 38, +8 new
+  with v_n in (38, 50]), including the Theorem 6 family multiples
+  (1,2,3,4,5,6,14), (2,4,6,8,10,12,28), (3,6,9,12,15,18,42). Complete list
+  committed in computational-check/tight_n7_V50_rung2.txt.
+- Bottom of the gap spectrum, V = 38 -> V = 50:
+  1/8: 10 -> 14; 3/23: 4 -> 4; 2/15: 21 -> 29; 5/37: 1 -> 1;
+  3/22: 1 -> 3; 4/29: 5 -> 8; 5/36: 2 -> 2; 6/43: 0 -> 2; 7/50: 0 -> 1;
+  (then 1/7 x 556, 8/55 x 6, ...). 930 distinct gap values total.
+
+### 10.4 Validation layers for this section (lrc_n7v50_validate.py, all PASS)
+
+- A: full numpy re-verification of ALL 99,884,400 dump records: every
+  witness satisfies every polytope constraint (0 violations); structural
+  checks (speeds strictly increasing, in range, k in the box); feasible-flag
+  consistency (feasible iff gap*(n+1) >= 1); witness = floor(t v) for the
+  stored argmax t; and rank geometry (each shard's first/last record equals
+  the unranked lo / hi-1 vector of its interval).
+- B: aggregate consistency (16 shard counts sum to C(50,7)); merged spectrum
+  equals the sum of the 16 shard histograms and totals 99,884,400; tight
+  census equals the predicted 14; inter-rung census equals the 4 known
+  vectors; rung-2 contains the three Theorem 6 multiples.
+- C: independent exact reference solver (pure Python) on all 1,008 sampled
+  records (every 99733rd vector of every shard, with witness re-verified)
+  and all 47 census vectors: 1,055 solves, zero disagreements.
+- D: HiGHS MILP cross-solves on 170 vectors (census + random samples): all
+  feasible, returned integer points re-verified.
+- E: Theorem 6 anchors: the three family multiples have gap exactly 2/15 in
+  the records.
+- F: sample.txt <-> dump.bin consistency: all 1,008 sampled records match
+  the corresponding dump records exactly (v, k, t, gap, feasible).
+
+### 10.5 Reproducibility for this section
+
+  gcc -O2 -o lrc_ilp_check lrc_ilp_check.c       # v2: run / shard / brute
+  mkdir -p out
+  ./lrc_shard_equiv.sh                           # byte-equivalence proofs
+  for k in 0 1 2 3 4 5 6 7; do ./lrc_run_n7v50.sh $k; done   # 8 calls, ~4-5 min each
+  python3 lrc_gap_family_check.py                # Theorem 6 layers L1-L5
+  python3 lrc_n7v50_validate.py A 0 8            # full re-verification
+  python3 lrc_n7v50_validate.py A 8 16
+  python3 lrc_n7v50_validate.py B C D E F
+
+SHA-256 of the full reconstructed dump (concatenation of the 16 shard dumps,
+in rank order) = the run-mode-equivalent n = 7, V = 50 dump:
+  60a2bbefa4c341058e9726398587e0a0967e631fb4afcfa2bf0e96f440271882
+Dumps are 16 x 199,768,800 bytes (3.2 GB total) and are not committed
+(regenerable in ~56 single-core minutes). Seeds: 20261002.
+
+The equivalence argument of section 10.2 is what licenses reading the
+sharded V = 50 run as a run of the committed solver: on n = 7, V = 38 the
+shard decomposition reproduces the committed binary's output byte for byte,
+and the only code path difference for V = 50 is the rank interval.
