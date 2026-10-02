@@ -238,3 +238,58 @@ Reproduction (2 cores):
   bash lrc_tight_hunt.sh
   gcc -O2 -o lrc_xs_batch lrc_xs_batch.c
   python3 lrc_tight_decomp.py && python3 lrc_tight_atlas.py && python3 lrc_tight_spines.py
+
+=== 2026-10-02: silent killers and the induction step (the NSK census) ===
+audit: audits/"silent killers and the induction step.txt"
+nsk_census/            self-contained subdirectory:
+  lrc_nsk_census.c     the no-silent-kill census.  Per (m-1)-core S of
+                       [1..B] at level g=1/(m+1): probe pass on the
+                       crossing-grid midpoints of s_max with the
+                       killer-intersection certificate (if no x in
+                       [1,R_found]\S kills all FOUND escapes then
+                       D(S,g) is empty -- sound because D <= R <=
+                       R_found and D must kill every escape); exact
+                       event-scan fallback for near-tight cores; D/X
+                       by the General Filler Theorem trichotomy for
+                       x in [1,min(R,cap)].  check mode prints R/D/X
+                       for arbitrary rational g (the Python port's
+                       twin).  Flags: ON (gap=g), SUB (gap<g), RFLAG
+                       (R>cap), SILENT.
+  lrc_nsk_theory.py    NT1 trichotomy on 2865 (S,g,x) triples; NT2
+                       every-order decomposition of all 443 (T,x)
+                       pairs of every tight set n=2..8; NT3 reduction
+                       equivalence at m=2..5 + negative control
+                       (S={1}, g=2/5, x=2 silent); NT4 scaling
+                       containment + level-2 strictness errata.
+  lrc_nsk_validate.py  V-A 480/480 C-vs-Python; V-B 68 trichotomy
+                       pairs vs gap_int; V-C m=4 B=14 census ==
+                       Python enumeration.
+  lrc_nsk_analyze.py   tier tallies (accounting C(B,m-1) exact),
+                       productive-core classification (ladder /
+                       mod-seeds / every-order others), ALL 2137
+                       X-fillers re-verified exact, 120 negative
+                       samples > g -> nsk_census_report.json.
+  cores_m{2..10}_*.txt merged per-tier productive cores (R, D, X).
+  summary_m{2..10}_*.txt per-shard summaries.
+  nsk_census_report.json  machine-readable totals and maps.
+
+Headline: 1,709,221,699 cores across m=2..10 (B=500/300/200/150/120/
+80/60/50/40), SILENT=0, D=X at every core, no flags.  By Theorem R:
+LRC certified for every m-set whose second-largest speed is <= B_m --
+including m=9 (B=50: independent computational check of the announced
+nine-speed case) and m=10 (B=40: the open frontier; 273,438,880
+nine-speed cores, self-contained -- any 9-core at/below 1/11 would
+have been flagged).  Productive maps: pure ladder family at
+m=6,8,9,10 (rung-2 barrenness extended to B=120/60/50/40; tight zoos
+at n=9,10 predicted pure scalings within these universes); ladder +
+mod seeds + their every-order cores at m=4,5,7 (B=200/150/80,
+reconciling the Task-3 productivity census exactly).
+
+Reproduction (2 cores, ~70 min):
+  gcc -O2 -o lrc_nsk_census nsk_census/lrc_nsk_census.c
+  python3 nsk_census/lrc_nsk_theory.py && python3 nsk_census/lrc_nsk_validate.py
+  for spec in "2 500 1" "3 300 1" "4 200 1" "5 150 1" "6 120 2" "7 80 4" \
+              "8 60 6" "9 50 8" "10 40 6"; do set -- $spec; \
+    for i in $(seq 0 $(($3-1))); do \
+      ./lrc_nsk_census $1 $2 out/nsk_m$1_s$i $3 $i 3000 & done; wait; done
+  python3 nsk_census/lrc_nsk_analyze.py

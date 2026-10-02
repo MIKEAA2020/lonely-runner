@@ -1,0 +1,374 @@
+SILENT KILLERS AND THE INDUCTION STEP: THE X(S) MACHINERY POINTED AT LRC
+=========================================================================
+
+Date: 2026-10-02
+Context.  An external assessment of the tight-set decomposition work
+("tight-set decomposition via X(S).txt") distinguished progress on the
+CLASSIFICATION of tight sets (Problem 1 of the Perarnau-Serra survey)
+from progress on the CONJECTURE, and laid out the path between them:
+
+    Step 1  make the X(S) theorem a theorem in general g, not a
+            verification on 463 cases;
+    Step 2  prove that every set with gap <= 1/(n+1) admits the
+            decomposition;
+    Step 3  show the decomposition preserves the bound (induction);
+    Step 4  universality: all sets decompose.
+
+This audit executes that path as far as it goes, and is explicit about
+where it stops.  Summary of outcomes:
+
+    Step 1  DONE.  The filler theorem is general in g and is now stated
+            as an exact TRICHOTOMY (gap >, =, < g), proved below and
+            machine-checked on 2,865 (S, g, x) triples across regimes
+            (lrc_nsk_theory.py NT1).
+    Step 2  DONE as a reduction.  Under LRC(m-1): every tight m-set
+            decomposes at EVERY removal order (G1), and the sub-threshold
+            case reduces to ALL-SILENT sets (Theorem R).  "Every set with
+            gap <= 1/(m+1) admits the decomposition" is a theorem whose
+            proof needs LRC(m-1); the residue is exactly the conjecture.
+    Step 3  The content is the NO-SILENT-KILL property NSC(m): every
+            escape-killer touches.  LRC(m) <=> NSC(m) given LRC(m-1)
+            (Theorem R).  This audit derives the structural constraints
+            on silent killers (L1-L5) and certifies NSC on 1.71 billion
+            cores (the NSK census, m = 2..10) -- but the general proof
+            of NSC is not here; it IS LRC.  The census pushes the
+            certified range to m = 10 speeds (second-largest speed
+            <= 40), past the announced nine-speed result.
+    Step 4  Subsumed: universality is the induction of Step 3.
+
+Normalization (as in the previous audits): a set of n distinct positive
+speeds, gap(V) = sup_t min_{v in V} ||v t||, LRC(n) : gap >= 1/(n+1).
+
+--------------------------------------------------------------------------
+1. The General Filler Theorem (trichotomy)
+--------------------------------------------------------------------------
+
+THEOREM G.  Let S be a finite set of positive integers, g in (0, 1/2)
+rational, x an integer with x not in S.  Write g_S(t) = min_{s in S}
+||s t||,
+
+    E(S) = { t : g_S(t) > g }   (escape set; finite union of open
+                                 intervals (alpha_j, beta_j) when
+                                 gap(S) > g, empty otherwise),
+    L(S) = { t : g_S(t) = g }   (level set; finite).
+
+Define the two conditions
+
+    (A) [kill]   for every escape interval (alpha_j, beta_j) there is
+                 an integer m_j with m_j - g <= x*alpha_j and
+                 x*beta_j <= m_j + g  (vacuous when E is empty);
+    (B) [touch]  some t in L(S) has ||x t|| >= g.
+
+Then EXACTLY ONE of the following holds, and each is an equivalence:
+
+    gap(S + {x}) > g   <=>   not (A)
+    gap(S + {x}) = g   <=>   (A) and (B)
+    gap(S + {x}) < g   <=>   (A) and not (B).
+
+An x with (A) and not (B) is a SILENT KILLER of S at level g: it kills
+every escape and every level time, and the gap of the extension drops
+STRICTLY below the target.  Write D(S, g) = {x : (A)} (the
+escape-killers) and X(S, g) = D(S, g) cap {touch} (the fillers).
+
+PROOF.  gap(S + {x}) = sup_t min(g_S(t), ||x t||).
+
+(>)  If (A) fails, some escape interval (alpha, beta) contains a point
+     t with ||x t|| > g; there g_S(t) > g as well, so the sup exceeds g.
+     If (A) holds, then on E we have ||x t|| <= g (the connected image
+     x*[alpha, beta] lies in a single window [m-g, m+g]; windows are
+     disjoint since 2g < 1), and off E we have g_S <= g; hence the sup
+     is <= g.  This proves the first two lines together: not (A) iff
+     gap > g.
+
+(=)  Given (A), the value g is attained iff some t has g_S(t) >= g and
+     ||x t|| >= g.  On E, ||x t|| < g STRICTLY in the interior (an
+     interior point at window distance exactly g would force an endpoint
+     of [x*alpha, x*beta] past a window edge, contradicting (A)), so
+     any attaining t has g_S(t) = g exactly: t in L(S).  Conversely a
+     level time t with ||x t|| >= g gives min(g, ||x t||) = g there.
+     (When E is empty -- gap(S) <= g -- only this clause remains, with
+     gap(S + {x}) <= gap(S).)
+
+(<)  Given (A) and not (B): on E the min is < g strictly (interior
+     points have ||x t|| < g; endpoints are level times with ||x .|| <
+     g by not (B)); on L(S) the min is ||x t|| < g; off E cup L(S) the
+     min is g_S < g.  The sup over the compact level-closure is
+     attained at a point where the value is < g, hence gap < g.  QED.
+
+The strictness in the third case is what makes the trichotomy exact;
+it is also why the touch had to be taken on the FULL level set (the
+Task-2 discovery: isolated level times such as t* = 7/15 for H2 carry
+the touch).
+
+Consequences (proved in "rung family and the filler theorem.txt", now
+in trichotomy form):
+  * RADIUS (L1).  (A) forces x*(beta_j - alpha_j) <= 2g for every
+    escape, so x <= R(S, g) := floor(2g / L_max).  Escape-killers
+    (fillers AND silent killers) live in [1, R(S, g)]; x > R fails (A)
+    structurally, so gap(S + {x}) > g for EVERY x > R.  Cores with
+    gap(S) <= g have E empty: gap(S) = g gives the infinite family
+    {x clean at a level time}; gap(S) < g gives no fillers and every
+    extension stays below g.
+  * D(S, g) is FINITE and explicitly computable from the escape
+    decomposition of S alone -- no gap solver is needed.  This is what
+    makes the census below possible.
+
+Machine verification (lrc_nsk_theory.py): NT1 classifies 2,865 random
+and fixed (S, g, x) triples (g at LRC levels, rung levels, and off-zoo
+values such as 2/5, 3/8; cores above, on, and below the level) with
+ZERO mismatches between the trichotomy prediction and gap_int /
+lrc_xs_batch.  Silent killers DO exist off the LRC levels -- e.g.
+S = {1}, g = 2/5, x = 2 (gap({1,2}) = 1/3 < 2/5) -- which is exactly
+the negative control: NSC fails precisely where the level exceeds what
+the (m)-sets can support.
+
+--------------------------------------------------------------------------
+2. The reduction theorems (the assessment's Step 2)
+--------------------------------------------------------------------------
+
+COROLLARY G1 (every-order decomposition).  If gap(T) = g and
+gap(T \ {x}) > g, then x in X(T \ {x}, g).  In particular, under
+LRC(m-1), EVERY tight m-set T decomposes at EVERY removal order: each
+element is an X-filler of the remaining core.
+
+Proof: gap(T \ {x}) >= gap(T) = g, and under LRC(m-1) it is >= 1/m >
+g, so the trichotomy's middle case applies to the pair (T\{x}, x).  QED.
+
+This upgrades the Task-3 canonical chains (one decomposition per tight
+set) to all m decompositions.  Machine check NT2: all 443 (T, x) pairs
+of every tight set n = 2..8 (V <= 50) are X-certified with D = X at
+every core, zero failures.
+
+THEOREM R (silent-killer reduction of LRC).  Fix m >= 2, g = 1/(m+1),
+and let NSC(m) be the statement: for every (m-1)-set S of distinct
+positive integers with gap(S) > g, every integer x not in S with (A)
+also has (B) (no silent killers; equivalently D = X for every core).
+Then:
+
+    (i)  LRC(m)  =>  NSC(m)   (a silent killer exhibits an m-set with
+                               gap < 1/(m+1));
+    (ii) LRC(m-1) and NSC(m)  =>  LRC(m).
+
+So under LRC(m-1) -- classical for m-1 <= 7 speeds, and now for
+m-1 = 8 (Rosenfeld's nine-runner theorem, Jan 2026; independent
+Trakulthongchai, announced for nine and ten runners = eight and nine
+speeds) -- LRC(m) and NSC(m) are equivalent.  The conjecture IS the
+no-silent-kill property, level by level.
+
+Proof.  (i) x silent for S gives gap(S + {x}) < g by Theorem G.
+(ii) Let T have gap(T) < g.  If some (m-1)-core S = T \ {x} has
+gap(S) <= g, then S violates LRC(m-1) (its bound is 1/m > g), which
+is excluded.  So every core has gap(S) > g, and for x = max(T) the
+trichotomy puts x in case (A) and not (B): a silent killer, excluded
+by NSC(m).  QED.
+
+COROLLARY G2 (counterexample shape).  Let T be a minimal-by-inclusion
+m-set with gap(T) < 1/(m+1) (all (m-1)-cores above the level; automatic
+under LRC(m-1)).  Then EVERY x in T is a silent killer of T \ {x}.
+In particular, by L1:
+
+    every x in T satisfies  x <= R(T \ {x}, 1/(m+1)),
+
+so every (m-1)-subset of a counterexample has all its level-g escapes
+of length <= 2g = 2/(m+1) ("near-tight in escape length").  A
+counterexample is an ALL-SILENT, mutually near-tight configuration:
+each element parks near an integer across every escape of the others
+and stays strictly inside g of every integer at every level time of
+the others.  The census below enumerates exactly these support cores.
+
+--------------------------------------------------------------------------
+3. Structural constraints on silent killers (the Step 3 attack surface)
+--------------------------------------------------------------------------
+
+L1 RADIUS.  x silent => x <= R(S, g) = floor(2g / L_max(S, g)).
+   Silent killers are SMALL relative to the escape geometry.
+
+L2 PARKING.  For each escape (alpha_j, beta_j) there is an integer
+   m_j with x*alpha_j, x*beta_j in [m_j - g, m_j + g]: through every
+   escape the filler sits within g of ONE integer.
+
+L3 CONTOUR STRICTNESS.  x silent => ||x t|| < g for EVERY t in L(S, g)
+   (strictly), in particular at both endpoints of every escape.
+
+L4 PINNING.  Two escapes parked at integers m_1, m_2 give
+   | x*(alpha_2 - alpha_1) - (m_2 - m_1) | <= 2g: x is pinned to the
+   Diophantine condition frac(x * Delta) in [0, 2g] union [1-2g, 1]
+   for every inter-escape offset Delta.  With several escapes x is
+   confined to O(1) values per integer hypothesis -- the mechanism
+   behind the tiny X-lists of the zoo.
+
+L5 RESIDUE CONDITION.  At a level time t* = p/d (lowest terms), the
+   silent condition ||x t*|| < g restricts x mod d to the residues
+   with dist(x*p mod d, 0) < g*d: a modular condition per level time.
+   Simultaneous level times with different denominators squeeze x by
+   CRT.  (This is Lemma A's mechanism transposed from argmax grids to
+   level sets.)
+
+None of these individually eliminates silent killers; together they
+make the census cheap and give the eventual proof its shape: an
+all-silent set must satisfy L1-L5 at every element simultaneously.
+
+PROPOSITION P (scaling; with an errata).  For all c >= 1:
+   c * X(S, g) is a subset of X(c*S, g) (the escape/level structure
+   transfers under t -> c*t because ||x*(c t)|| = ||(c x)*t||).
+   The inclusion can be STRICT: X({1}, 1/3) = {2} but X({2}, 1/3) =
+   {1, 4} -- the extra filler x = 1 is a DESCALING filler ({2} + 1 =
+   {1} + 2 = {1, 2}), corresponding to the non-integral rational
+   filler x/c = 1/2 of {1}.  ERRATA for the Task-3 atlas: the claim
+   "X(c*S) = c*X(S) exactly, 324/324" was measured only on core pairs
+   at levels 3..8; at level 2 equality fails as above.  Equality does
+   hold on all 324 zoo core pairs at levels 3..8 (re-verified, NT4)
+   and on all census productive cores classified below.
+
+--------------------------------------------------------------------------
+4. The no-silent-kill census
+--------------------------------------------------------------------------
+
+The census (lrc_nsk_census.c, exact int64 rational arithmetic) walks
+every (m-1)-core S in [1..B] at level g = 1/(m+1) and certifies
+D(S, g) = X(S, g):
+
+  * probe:  midpoints of the crossing grid of the largest speed
+            (crossings of ||s_max t|| = g).  Every escape longer than
+            2g contains a probe point (grid gap < 2g), and the exact
+            local escape around a probe (nearest crossings of each
+            speed, O(m)) recovers that escape.  If no x in
+            [1, R_found] \ S kills all FOUND escapes, then D is empty
+            (D must kill all escapes and D <= R <= R_found) -- the
+            core is SKIPPED with a certificate.
+  * full:   near-tight cores (all escapes <= 2g) get the exact event
+            scan (events = all level-g crossings of all speeds;
+            segment signs at exact midpoints; escapes = maximal
+            positive runs; level times = events with g_S = g), then
+            D and X for every x in [1, min(R, cap)], cap = 3000.
+  * flags:  cores with E empty (gap <= g: would violate LRC(m-1)),
+            radii above the cap, and any SILENT killer are flagged.
+
+Validation: 480/480 random cores match the independent Python
+reference (V-A); 68 (S, x) trichotomy pairs against gap_int (V-B);
+m=4 B=14 census equals the Python enumeration exactly (V-C); the
+m=8 B=20 census reproduces the brute-force lrc_xs_batch census of all
+203,490 8-sets in [1..21] (tight sets and their cores exactly, zero
+sub-threshold sets); after the runs, ALL 2,137 X-fillers of all tiers
+were re-verified to give gap exactly 1/(m+1), and 120 sampled
+non-killers give gap > g (lrc_nsk_analyze.py).
+
+RESULTS.  (cores = C(B, m-1), all counts exact; SILENT = 0 everywhere;
+D = X at every core; no ON/SUB/RFLAG flags; max_R << cap = 3000.)
+
+   m   B        cores            skip      full     productive  max_R
+   2   500            500            0        500     500      1000
+   3   300       44,850       42,553     2,297     350       600
+   4   200    1,313,400    1,283,751    29,649     300       400
+   5   150   20,260,275   20,089,324   170,951     221       400
+   6   120  190,578,024  189,568,419 1,009,605     124       240
+   7    80  300,500,200  297,309,888 3,190,312     158       196
+   8    60  386,206,920  376,590,689 9,616,231      57       117
+   9    50  536,878,650  502,284,65734,593,993      46       112
+  10    40  273,438,880  234,867,95338,570,927      40        80
+  TOTAL      1,709,221,699                                SILENT = 0
+
+THE CERTIFIED CLAIMS (Theorem R makes each of these an LRC statement):
+
+  * LRC(m) holds for every m-set T with T \ {max(T)} inside [1..B_m]:
+    no such set has gap < 1/(m+1).  The top element needs no bound:
+    any counterexample's max is a silent killer, hence <= R <= max_R
+    (<= 1000 across all tiers), and every x > R fails (A) structurally.
+  * m = 9, B = 50: an independent computational verification of the
+    announced nine-speed case (536,878,650 cores; every 9-set with
+    second-largest speed <= 50 has gap >= 1/10).
+  * m = 10, B = 40: the OPEN frontier.  Every 10-set with
+    second-largest speed <= 40 has gap >= 1/11.  (273,438,880 cores;
+    no proof exists or is announced at ten speeds.)  The m = 10 tier
+    is self-contained: any 9-core at or below 1/11 would have been
+    flagged (none was), so the census does not even assume LRC(9).
+
+THE PRODUCTIVE-CORE MAP (near-tight cores with D != empty, i.e. the
+supports of tight sets; full lists in out/nsk_*_cores.txt and
+nsk_census_report.json):
+
+  * m = 6, 8, 9, 10: the map is EXACTLY the ladder family
+    c * ([m] \ {j}) (124, 57, 46, 40 cores).  NO rung-2 seed is
+    productive: the n = 6 barrenness of the Task-3 census extends from
+    V = 50 to B = 120, the n = 8 barrenness to B = 60, and the
+    barrenness now also holds at n = 9 (B = 50) and n = 10 (B = 40).
+    Within these universes the tight zoos at n = 6..10 are predicted
+    to be the pure scalings c*[n] -- and at n = 9, 10 that is a
+    prediction beyond any census taken so far.
+  * m = 4, 5, 7: ladder + the known mod-family seeds
+    ({1,3,4} -> {2,7}, {3,4,7} -> {1};  {1,3,4,5} -> {2,9},
+    {1,4,5,9} -> {3};  {1,2,3,4,5,12} -> {7}, {1,4,5,6,7,11} -> {13})
+    + their scalings + the remaining every-order cores of the mod
+    families (e.g. {1,3,7} -> {4}, {1,4,7} -> {3} at m = 4;
+    {1,2,3,5,7,12} -> {4} at m = 7).  Everything reconciles with the
+    Task-3 productivity census; nothing beyond those families appears,
+    at B = 200/150/80 respectively (2x-3x beyond the V = 50 horizon).
+  * Descaling fillers occur at every level (e.g. {10,15,20,25,30} ->
+    X = {5} producing 5*[6]; {6,9,...,27} -> X = {3} at m = 9;
+    {6,9,...,30} -> X = {3}, {8,12,...,40} -> X = {4} at m = 10),
+    exactly as Proposition P predicts (strictness of c*X(S) in X(cS)).
+
+The census thus re-derives the tight zoos from the core side, extends
+the barrenness evidence at four levels, verifies the announced
+nine-speed case independently, and certifies the first open-frontier
+case (ten speeds) -- all as instances of the single law D = X.
+
+--------------------------------------------------------------------------
+5. Honest status
+--------------------------------------------------------------------------
+
+What is proved: Theorem G (trichotomy), G1 (every-order decomposition,
+given LRC(m-1)), R (the reduction), G2 (counterexample shape), L1-L5,
+Proposition P.  What is verified: NSC on 1.71 billion cores across
+m = 2..10 with exact arithmetic and triple independent validation.
+
+What is NOT proved: NSC(m) in general for any m >= 2 -- equivalently
+(by Theorem R), LRC itself.  The census is finite evidence, and the
+structural lemmas constrain but do not eliminate silent killers.  The
+path from here to the conjecture remains Step 3: turn L1-L5 into an
+impossibility argument for all-silent sets.  The assessment's closing
+line stands: the foundation is necessary but not sufficient.
+
+--------------------------------------------------------------------------
+6. Open problems
+--------------------------------------------------------------------------
+
+  O1'  Prove NSC(m) for small m directly in the X-language: m = 2
+       (LRC(2), classically trivial -- reprove it as "no silent killer
+       of a singleton at 1/3"), then m = 3.  A proof of NSC(3) in this
+       language would validate the program on the first nontrivial rung.
+  O2'  The all-silent rigidity: does G2 + L4 (pinning) + L5 (residues)
+       force a contradiction for |T| >= 3?  The census says the
+       constraints are mutually unsatisfiable on 1.7e9 cores.
+  O3'  Productivity beyond the horizon: continue the m = 9, 10 maps
+       (B = 60, 50 at ~2x cost) or attack O1 of the previous audit
+       (barrenness as a theorem) with the census's core-side formulation:
+       "no core outside the ladder families has D != empty".
+  O4'  Inter-rung: the census flags cores by escape length, not by gap
+       value; a level-scan variant would probe the inter-rung windows
+       at m = 9, 10 (empty at m = 8 through V = 50).
+
+--------------------------------------------------------------------------
+7. Files and reproduction
+--------------------------------------------------------------------------
+
+  scripts (scripts/, also audits/computational-check/nsk_census/):
+    lrc_nsk_census.c      the census (probe + killer-intersection
+                          certificate + exact fallback; check mode for
+                          per-core D/X at any rational g)
+    lrc_nsk_theory.py     NT1-NT4: trichotomy, every-order, reduction,
+                          scaling (with the level-2 errata)
+    lrc_nsk_validate.py   V-A/B/C validation vs Python and brute
+    lrc_nsk_analyze.py    tallies, classification, X-filler
+                          verification -> out/nsk_census_report.json
+  data:   out/nsk_m*_cores.txt, out/nsk_m*_summary.txt,
+          out/nsk_census_report.json
+  reproduction (2 cores, all foreground):
+    gcc -O2 -o lrc_nsk_census lrc_nsk_census.c
+    python3 lrc_nsk_theory.py; python3 lrc_nsk_validate.py
+    for spec in "2 500 1" "3 300 1" "4 200 1" "5 150 1" "6 120 2" \
+                "7 80 4" "8 60 6" "9 50 8" "10 40 6"; do
+      set -- $spec
+      for i in $(seq 0 $(($3 - 1))); do
+        ./lrc_nsk_census $1 $2 out/nsk_m$1_s$i $3 $i 3000 & done; wait; done
+    python3 lrc_nsk_analyze.py

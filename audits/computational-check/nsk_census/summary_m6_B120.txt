@@ -1,0 +1,8 @@
+m=6 B=120 g=1/7 cores=95289012 shard=0/2 cap=3000
+skip_certified=94782562 full=506450 nonemptyD=54 sumD=54 sumX=54
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=317
+
+m=6 B=120 g=1/7 cores=95289012 shard=1/2 cap=3000
+skip_certified=94785857 full=503155 nonemptyD=70 sumD=70 sumX=70
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=317
+

@@ -1,0 +1,24 @@
+m=8 B=60 g=1/9 cores=64367820 shard=0/6 cap=3000
+skip_certified=62779796 full=1588024 nonemptyD=15 sumD=15 sumX=15
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=112
+
+m=8 B=60 g=1/9 cores=64367820 shard=1/6 cap=3000
+skip_certified=62765784 full=1602036 nonemptyD=8 sumD=8 sumX=8
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=117
+
+m=8 B=60 g=1/9 cores=64367820 shard=2/6 cap=3000
+skip_certified=62749459 full=1618361 nonemptyD=4 sumD=4 sumX=4
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=112
+
+m=8 B=60 g=1/9 cores=64367820 shard=3/6 cap=3000
+skip_certified=62777336 full=1590484 nonemptyD=13 sumD=13 sumX=13
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=121
+
+m=8 B=60 g=1/9 cores=64367820 shard=4/6 cap=3000
+skip_certified=62766157 full=1601663 nonemptyD=9 sumD=9 sumX=9
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=161
+
+m=8 B=60 g=1/9 cores=64367820 shard=5/6 cap=3000
+skip_certified=62752157 full=1615663 nonemptyD=8 sumD=8 sumX=8
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=120
+

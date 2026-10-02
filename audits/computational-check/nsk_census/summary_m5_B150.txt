@@ -1,0 +1,4 @@
+m=5 B=150 g=1/6 cores=20260275 shard=0/1 cap=3000
+skip_certified=20089324 full=170951 nonemptyD=221 sumD=251 sumX=251
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=400
+

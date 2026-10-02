@@ -1,0 +1,16 @@
+m=7 B=80 g=1/8 cores=75125050 shard=0/4 cap=3000
+skip_certified=74328942 full=796108 nonemptyD=37 sumD=39 sumX=39
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=266
+
+m=7 B=80 g=1/8 cores=75125050 shard=1/4 cap=3000
+skip_certified=74325356 full=799694 nonemptyD=48 sumD=56 sumX=56
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=213
+
+m=7 B=80 g=1/8 cores=75125050 shard=2/4 cap=3000
+skip_certified=74327638 full=797412 nonemptyD=34 sumD=34 sumX=34
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=240
+
+m=7 B=80 g=1/8 cores=75125050 shard=3/4 cap=3000
+skip_certified=74327952 full=797098 nonemptyD=39 sumD=40 sumX=40
+SILENT=0 max_silent_x=0 ON=0 SUB=0 RFLAG=0 max_R=192
+
