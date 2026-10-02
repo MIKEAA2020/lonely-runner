@@ -1,0 +1,276 @@
+THE C-HALF ATTACK AND EXHAUSTIVENESS
+=====================================
+(The advisor's directive, executed: "Attack the C-half directly, using the
+residue law... The residue law says the two binders at t* satisfy
+u = +-w (mod b)... Try to show: (1) the crossing denominator b divides some
+explicit expression in u, w; (2) the crossing value C* = ||u t*|| is at
+least 1/b times an explicit integer; (3) that integer is at least b/(k+2).
+Also: verify exhaustiveness separately.  Take small n, enumerate all sets,
+and check that every set is either a seed or an extension of a productive
+core.  If exhaustiveness fails, the whole program fails, and it is better
+to know that now.")
+
+Date: 2026-10-03.  Machine verification: lrc_chalf_probe.py (dissection of
+all 20,804 crossing entries of the drop experiment), lrc_exhaust_check.py
+(exhaustive census of every subset of [1..18], sizes 2..7 = 63,003 sets),
+lrc_chalf_patch.py (the inter-rung core families the drop experiment
+missed).  Exact rational arithmetic throughout.
+
+Everything stated as a THEOREM below is proved; everything stated as a LAW
+is machine-verified in the stated universe; the C-bound itself remains a
+verified law and is the isolated residue.
+
+
+1. THE C-HALF MADE ARITHMETIC (the advisor's three steps)
+----------------------------------------------------------
+Setup.  S a core, |S| = k, gap(S) >= 1/(k+1); x killed-but-not-clean (a
+dropper); V = S u {x}; t* = a/b (lowest terms) a crossing argmax of V with
+binders u != w, p = q = g_new.  At a crossing x itself binds (p = g_new),
+so the binder pair is (x, v) for some v in S.
+
+STEP 1 (THEOREM, residue law; proved in the drop audit).  b | (x + v) or
+b | (x - v).  Measured on 24,216 crossing binder pairs: sum-law (x + v = 0
+mod b) 22,318 = 92.2%, difference-law 1,898 = 7.8%, no exceptions.  The
+quotient j = (x +- v)/b satisfies j = 1 in 64.9% of pairs (b = x + v
+exactly), j <= 2 in 80.1%.  j is the "overshoot index" of the filler.
+
+STEP 2 (THEOREM, the pole law; NEW proof below).  Write m := C* * b, an
+integer (C* = ||v a/b|| = dist_b(va)/b).  Then the residues
+    R(t*) := { (u a) mod b : u in V }
+satisfy  min R = m  and  max R = b - m  EXACTLY: some binder sits at m
+(rising through t*) and some binder at b - m (falling).  Equivalently, the
+circular gap sequence of the point set {0} u R starts and ends with gap
+exactly m.  Verified 20,804/20,804 and on every patch crossing.
+
+    Proof.  Binders have residue in {m, b-m}.  Suppose all binders have
+    residue b - m (falling side: for t < t*, ||v t|| = g_new + v(t*-t) >
+    g_new).  Every non-binder has ||u t*|| > g_new, hence by continuity
+    ||u t|| > g_new on a neighborhood of t*.  So q_V(t*-eps) > g_new for
+    small eps > 0, contradicting global maximality of t*.  The all-rising
+    case is symmetric (look at t* + eps).  So the slopes are mixed: a
+    binder at m and a binder at b - m.  Since every u in V has
+    ||u t*|| >= g_new, i.e. (u a) mod b in [m, b-m], the two poles are
+    attained.  QED.
+
+STEP 3 (the deficit law -- verified, not yet proved).  Define the deficit
+    d := m(k+2) - b.
+Then the C-half is EXACTLY the statement
+
+    (C-bound)     d >= 0      <=>      b <= m(k+2)      <=>      C* >= 1/(k+2).
+
+VERIFIED: d >= 0 on all 20,804 crossing entries of the drop experiment and
+on all crossings of the inter-rung patch scan (Section 5) -- zero
+violations.  d = 0 occurs exactly at floor landings (m/b = 1/(k+2)); d = 1
+is the second band; the rung family has d = m - 1; the inter-rung
+inhabitant 3/23 at n=7 has d = 1 (m = 3, b = 23, k+2 = 8).
+
+Equivalences (elementary).  With R the residues (distinct case; duplicates
+merge points and are handled by the multiset version):
+
+    d >= 0  <=>  (b - 2m) <= m k  <=>  average interior residue gap <= m
+             <=>  the k+1 residues fit [m, b-m] with mean spacing <= m.
+
+So the C-half says: THE DILATE a*V MOD b IS DENSE-ENOUGH IN Z_b -- the
+point set {0} u (aV mod b) has no slack in its average spacing.  This is
+the precise form of "the covering at a crossing argmax is efficient"
+(Section 3).
+
+
+2. THE LAW HIERARCHY AT CROSSINGS (what the data says)
+------------------------------------------------------
+L0  POLE LAW (theorem).  min R = m, max R = b - m.  100% (20,804/20,804).
+
+L1  m-NET LAW.  max circular gap G of {0} u R satisfies G <= m: holds on
+    19,640/20,804 = 94.4%.  The 1,164 violations have excess gaps mostly
+    +1 (920), decay to +12; the worst all come from one hub core
+    ({1,3,4,5,7,12} with large fillers) and all sit far above the floor
+    (d >= 19 there).  L1 => the C-bound; L1 fails only where the C-bound
+    has slack.
+
+L2  DEFICIT LAW (the C-bound).  d >= 0: 100%.  THE OPEN CORE.
+
+L3  PERFECT-AP STRUCTURE AT d=0.  d = 0 <=> floor landing, and then the
+    point set {0} u R is exactly the arithmetic progression m, 2m, ...,
+    (k+1)m (with duplicate residues merging adjacent points: the 22/750
+    non-uniform rows are duplicate cases).  I.e. at a floor landing the
+    dilate a*V mod b IS m * Z_{k+2}.  The tight extensions are the perfect
+    nets.
+
+L4  BINDER-COHORT LAW.  The crossing's core binder v is one of the CORE's
+    own argmax binders: 22,560/24,216 = 93.2%.  The mixed crossing binds
+    the filler against the core's own binding cohort -- the new argmax
+    re-uses the core's argmax skeleton.  (The 6.8% exceptions are
+    non-binder partners, typically at large j.)
+
+L5  OVERSHOOT LAW (theorem, repackaged).  x is a dropper iff for every
+    argmax time a_j/b_j of S:  dist_{b_j}(x a_j) <= gap(S) * b_j - 1.
+    For unified-grid cores (86.6% of rows: all argmaxes of S on a single
+    denominator b_S with gap(S) = m_S/b_S) this reads: x * J_S inside
+    [-(m_S - 1), m_S - 1] (mod b_S), J_S the argmax index set.  Droppers
+    are EXPLICIT RESIDUE CLASSES mod b_S: consecutive cores (J = units):
+    x = 0 mod (k+1); {1,4} (J = {2,3}, m_S = 2): x = +-2 mod 5; the
+    tight 6-core {1,2,3,4,5,7}: x = 0 mod 6.  The signed residue eps of x
+    mod b_S satisfies |eps| <= m_S - 1 ALONG J_S (not along 1).
+
+L6  GRID LAW.  All argmaxes of the core share one reduced denominator
+    b_S: 454/454 cores of size >= 2 in the drop universe were unified
+    modulo 20 primitive exceptions of the 524 (3.8%) -- and at census
+    scale ([1..18], all sizes): ~94.8% of primitive sets.  The exceptions
+    are multi-binder argmaxes at grid coincidences (e.g. {1,4,8}: argmaxes
+    1/3 = 3/9 = 4/12 sit on the binder-sum grids 9 = 1+8 and 12 = 4+8
+    simultaneously).  The universal statement is the raw candidate
+    theorem: every argmax lies on the sum/difference grid of a binding
+    pair.  GRID is a zoo-core property, not a universal law.
+
+
+3. WHY COUNTING CANNOT PROVE IT (the factor-2 wall, made precise)
+------------------------------------------------------------------
+COVERING LEMMA (theorem).  At a crossing argmax t* = a/b with value m/b,
+every grid point i in Z_b has some u in V with dist_b(i u) <= m (since
+q_V(i/b) <= m/b).  The speed u covers #{i : dist_b(iu) <= m} =
+gcd(u,b) * (2*floor(m/gcd(u,b)) + 1) <= 2m + 1 indices.  Hence
+
+    b <= (k+1)(2m + 1)        (the counting bound).
+
+Proof: sum the covered counts over the k+1 speeds.  QED.
+
+The C-bound asks for b <= m(k+2) ~ m(k+1) -- exactly HALF the counting
+bound.  The C-half is the assertion that the covering forced by the argmax
+is factor-2 EFFICIENT (near-no-overlap in the index direction), which no
+counting/measure argument can deliver: the measure version gives
+gap >= 1/(2n) vs the conjectured 1/(n+1) -- the same factor 2, i.e. the
+C-half restricted to drops IS the factor-2 problem of LRC in disguise.
+What can still work is ALGEBRA: zoo cores are sum-rich near-APs, their
+dilates a*V mod b stay near-APs (L3: perfect APs exactly at the floor),
+and the deficit measures the deviation from AP.  The proof target is:
+
+    (NET FORM)  at a crossing argmax, the point set {0} u (aV mod b)
+    has average interior gap <= m, equivalently d >= 0.
+
+The empirical support: L1 (94.4% max-gap <= m), L3 (perfect APs at d = 0),
+and the (m,d) structure: d = 0 exactly at the floor, d = 1 in the second
+band (m = 1: value 1/(k+1), 688 entries; m = 2: rung-2, 184; m = 3: the
+inter-rung 3/23, exactly 2 entries at aug = 7 -- the committed census
+vector), rung family d = m - 1 (1,668 of 7,528 rung-form entries; the rest
+are descaled rung values with larger d).
+
+
+4. EXHAUSTIVENESS (the second directive: the verdict)
+-----------------------------------------------------
+Universe: EVERY subset of [1..18], sizes 2..7 (63,003 sets + 18 singleton
+cores), exact gaps; productivity of every (N-1)-subset via the General
+Filler Theorem (X(S, 1/(k+2)) != {}, unbounded filler) for P1 [tight],
+plus an x <= 36 landing-on-ladder scan for P2 [tight or rung at size k+1].
+"V is an extension" := some (N-1)-subset of V is productive.  "Seed" :=
+no productive subset.  "Strict seed" := additionally every removal strictly
+raises the gap (V is a drop from every core -- the reduction-relevant
+case).  "Band" := gap(V) < 1/N (below the previous floor: the range where
+decomposition is needed).
+
+FINDING E-1 (full exhaustiveness is FALSE).  P2-seed rates: N=4: 1,123/
+3,060 = 37%; N=5: 7,464/8,568 = 87%; N=6: 17,245/18,564 = 93%; N=7:
+31,064/31,824 = 97%.  Most sets are NOT extensions of productive cores.
+The program does NOT decompose the whole universe -- and it does not need
+to (E-2, E-3).
+
+FINDING E-2 (BAND EXHAUSTIVENESS -- the version the reduction needs).
+Every set with gap < 1/N has a productive core:
+
+    N=2: 106/106   N=3: 64/64   N=4: 50/50   N=5: 22/22
+    N=6: 20/21     N=7: 14/14
+
+with the SINGLE exception at N = 6:
+
+    V = {1, 5, 6, 11, 16, 17},  gap = 5/33,
+
+a strict seed sitting in the inter-rung window (1/7, 2/13).  Its core
+{1,5,6,11,16} (gap 4/17, a descaled rung-4) is zoo-productive ONLY via the
+inter-rung extension x = 17 (5/33): under tight/rung productivity it is
+unproductive, under FULL-ZOO productivity (tight + rung + inter-rung,
+recursive) it is productive and the exception disappears.
+
+FINDING E-3 (THE SEED-BAND LAW).  gap(seed) >= 1/N -- seeds never sink
+below the previous floor: verified at N = 2..5 and N = 7 (min seed gap =
+1/N exactly, attained by descaled-tight plateaus); at N = 6 the unique
+violator is the inter-rung inhabitant (5/33 < 1/6), i.e. exactly E-2's
+exception.  Seed gaps concentrate on the (N-1)-ladder values (N=5: 2/9 x73,
+3/13 x92, 4/17 x106, 1/5 x9; N=6: 1/5 x1032, 2/11 x107, 3/16 x75, 4/21
+x65, 1/6 x21, 5/33 x1) -- seeds are touch-plateaus and descaled towers on
+the zoo one level down, plus the inter-rung exception.
+
+FINDING E-4 (the corrected reduction).  With the full-zoo productivity
+notion:
+
+    LRC(N)  <=  (band-exhaustiveness: every V with gap(V) < 1/N is a
+                 full-zoo-productive extension)
+              + (C-half for full-zoo cores)
+              + (Q-half).
+
+Sets with gap >= 1/N are automatically safe (>= 1/N > 1/(N+1)).  The n=7
+inter-rung inhabitants are covered: {1,2,3,4,5,7,18}'s core {1,2,3,4,5,7}
+has the tight extension x=12 (P1-productive); {1,3,4,5,7,13,18}'s core is
+P2-productive.  The N=6 inhabitant is the unique set that forces the
+inter-rung level into the productive class.
+
+
+5. THE C-HALF PATCH (closing the hole the census found)
+-------------------------------------------------------
+The drop experiment scanned tight cores only; E-2 shows the C-half must
+also hold for inter-rung-productive cores.  lrc_chalf_patch.py scanned:
+
+    {1,5,6,11,16}      (k=5, gap 4/17): x in [1..80]: SILENT = 0,
+                       min deficit d = 2;
+    {1,3,4,5,7,13}     (k=6):            SILENT = 0, min d = 1;
+    {1,2,3,4,5,7}      (k=6, tight@6):   SILENT = 0, min d = 1;
+    {1,5,6,11,16,17}   (k=6, 5/33):      SILENT = 0, min d = 1;
+
+with the pole law and residue law machine-verified on every crossing.
+The C-bound now holds on 20,804 + 297 (patch) pairs across the full zoo
+productivity class at small scale.  (Erratum to the drop audit: its E1
+said "8,922 drops"; the record file recount is 9,679 drops + 8,105 touches
+= 17,784, matching its own table.)
+
+
+6. WHAT IS PROVED / WHAT IS OPEN (the honest boundary)
+------------------------------------------------------
+PROVED (this note): the pole law (mixed slopes at any argmax); the covering
+lemma and its factor-2 gap (why counting cannot reach the C-bound); the
+overshoot law as an iff-package; the equivalence chain C* >= 1/(k+2) <=>
+b <= m(k+2) <=> average interior gap <= m; C-bound for consecutive cores
+= the rung family theorem (previous note).
+
+VERIFIED, NOT PROVED: the C-bound itself (20,804 + 297 crossings, zero
+violations); the m-net law (94.4%); the perfect-AP structure at d = 0; the
+binder-cohort law (93.2%); band-exhaustiveness and the seed-band law
+(N <= 7, universe [1..18], x <= 36 for the rung part of P2).
+
+The C-half in the drop regime is exactly the factor-2 problem of LRC, now
+in three equivalent arithmetic forms (deficit / average gap / net
+efficiency).  The evidence says the truth is algebraic (near-AP dilates),
+not combinatorial (counts).
+
+
+7. OPEN PROBLEMS
+----------------
+O1  Prove the NET FORM: at a crossing argmax the dilate a*V mod b has
+    average interior gap <= m.  Strategy indicated by L3/L4: zoo cores are
+    sum-rich near-APs; show dilates of near-APs with binder-pole structure
+    stay near-APs with the right spacing.  The consecutive case is the
+    rung family theorem; the next case is "consecutive + one modification"
+    (the {1,2,3,4,5,7}-type cores).
+O2  Prove the seed-band law (gap(seed) >= 1/N), which replaces full
+    exhaustiveness in the reduction.  The seed census here (touch-plateaus
+    + descaled towers + the inter-rung exception) is the starting
+    classification.
+O3  Extend the patch: all inter-rung-productive cores at n = 7, 8 (the
+    full-zoo class), larger x-ranges, m=9/10 cores.
+O4  The m-net law (G <= m, 94.4%): prove or find its exact failure
+    boundary (it implies the C-bound; failures all have d >= 3).
+
+STATUS: the advisor's three steps are executed (divisibility: theorem;
+explicit integer: theorem with the pole law; the bound: verified with the
+deficit law and isolated as the factor-2 wall in a new equivalent form).
+Exhaustiveness is verified in the band where the reduction needs it, with
+one exception that forces the full-zoo productive class -- and that class
+now passes the C-half at small scale.  The residue is unchanged and sharp:
+prove d >= 0.

@@ -1,0 +1,4 @@
+C1 {1,5,6,11,16} (descaled rung-4, core of 5/33): x in [1..80] minus S: 75 pairs, touch=43, drop=32, SILENT=0, floor-landings=0, inter-rung-band drops=75, min deficit d=2
+C2 {1,3,4,5,7,13} (core of 2nd 3/23 class): x in [1..80] minus S: 74 pairs, touch=61, drop=13, SILENT=0, floor-landings=0, inter-rung-band drops=74, min deficit d=1
+C3 {1,2,3,4,5,7} (tight@6, core of 1st 3/23 class): x in [1..80] minus S: 74 pairs, touch=61, drop=13, SILENT=0, floor-landings=2, inter-rung-band drops=72, min deficit d=1
+C4 {1,5,6,11,16,17} (the 5/33 inhabitant as core): x in [1..80] minus S: 74 pairs, touch=52, drop=22, SILENT=0, floor-landings=0, inter-rung-band drops=74, min deficit d=1

@@ -321,3 +321,46 @@ Reproduction (~6 min, pure Python):
   for i in 0 1; do python3 drop_experiment/lrc_drop_experiment.py \
       --stage zoo --shard $i/2; done
   python3 drop_experiment/lrc_drop_analyze.py
+
+=== C-HALF ATTACK AND EXHAUSTIVENESS ===
+Files: ../"the C-half attack and exhaustiveness.txt" (audit),
+chalf_exhaust/lrc_chalf_probe.py, chalf_exhaust/lrc_chalf_patch.py,
+chalf_exhaust/lrc_exhaust_check.py, chalf_exhaust/chalf_probe_report.txt,
+chalf_exhaust/chalf_rows.json (20,804 crossing dissections),
+chalf_exhaust/chalf_patch_report.txt, chalf_exhaust/exhaust_N{2..7}.txt.
+
+The advisor's directive: attack the C-half via the residue law (three
+steps: b | explicit expression; C* = integer/b; integer >= b/(k+2)) and
+verify exhaustiveness separately.
+
+C-half arithmetic: m := C* * b; deficit d := m(k+2) - b; the C-half IS
+d >= 0.  POLE LAW (new theorem): at any argmax the residues a*V mod b
+attain BOTH poles m and b-m exactly (mixed-slope proof; verified
+20,804/20,804 + patch).  DEFICIT LAW: d >= 0 on all 20,804 crossings of
+the drop experiment and all inter-rung patch crossings -- zero violations;
+d = 0 exactly at floor landings (perfect m-AP residue structure), d = 1 in
+the second band (m=1: 1/(k+1)-values; m=2: rung-2; m=3: the inter-rung
+3/23 with exactly 2 entries = the census vector), rung family d = m-1.
+COVERING LEMMA (theorem): counting gives only b <= (k+1)(2m+1) -- the
+C-bound is exactly the factor-2-efficient covering assertion (= the
+factor-2 problem of LRC); equivalently average interior residue gap <= m
+(the NET FORM, the new proof target).  Binder-cohort law: 93.2% of
+crossing partners are the core's own argmax binders; overshoot law:
+droppers = explicit residue classes mod b_S along the argmax index set.
+
+EXHAUSTIVENESS (all subsets of [1..18], sizes 2..7, 63,003 sets): full
+exhaustiveness FALSE (37-97% P2-seeds); BAND EXHAUSTIVENESS TRUE: every
+set with gap < 1/N has a productive core at N=2..5,7 with ZERO exceptions
+and at N=6 with exactly ONE: {1,5,6,11,16,17} @ 5/33 (strict seed, the
+inter-rung inhabitant; its core is productive only via the inter-rung
+extension).  SEED-BAND LAW: gap(seed) >= 1/N (same unique exception).
+Corrected reduction: LRC(N) <= band-exhaustiveness + C-half(full-zoo
+cores) + Q-half.  PATCH: the C-half verified on the inter-rung core
+families ({1,5,6,11,16}, {1,3,4,5,7,13}, {1,2,3,4,5,7}, {1,5,6,11,16,17}):
+SILENT=0, min d=1, all laws checked.  Erratum: drop count is 9,679 (not
+8,922 as in the drop audit's E1).
+
+Reproduction (~12 min total, pure Python, exact fractions):
+  python3 chalf_exhaust/lrc_chalf_probe.py            # needs drop_records.jsonl
+  for N in 2 3 4 5 6 7; do python3 chalf_exhaust/lrc_exhaust_check.py --size $N; done
+  python3 chalf_exhaust/lrc_chalf_patch.py

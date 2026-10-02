@@ -1,0 +1,6 @@
+EXHAUSTIVENESS  universe=[1..18]  N=3  (floor 1/4, rung-2 2/7)
+cores of size 2: 153 total, 153 to compute
+  P1(tight): 21/153   P2(ladder, x<=36): 153/153
+N-sets: 816  extension-like: P1 293, P2 816 | seed-like: P1 523, P2 0 (strict P2-seeds: 0)
+(all P1-seeds are P2-extensions)
+[GRID at scale] N=3: unified 707/816; primitive-only: 668/712
