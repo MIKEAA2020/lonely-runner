@@ -1,0 +1,395 @@
+# The 2/(2n+1) ladder: theoretical attack, partial proofs, and refutation of the general conjecture
+
+Date: 2026-10-02. Companion documents: "lonely runner.txt" (source audit),
+"computational check results.txt" (the n <= 5 check and its censuses), and
+"integrality analysis.txt" (the TDI/circulation attack, issued together with
+this one). Data: the committed census extended to n = 6 (v_n <= 50) and
+n = 7 (v_n <= 38) with the committed solver, unchanged (section 2).
+
+Notation throughout: v = (v_1 < ... < v_n) distinct positive integers,
+||x|| = distance to the nearest integer, gap(v) = max_{t in R} min_i ||t v_i||,
+delta_n = 1/(n+1). gap is scale-invariant: gap(d v) = gap(v). The Lonely
+Runner Conjecture for n runners is gap(v) >= delta_n for every v.
+
+## 0. Executive summary
+
+The previous check ended with an observation: for every n = 2..5 (v_n <= 50)
+the second-smallest value of gap(v) over all v is exactly 2/(2n+1), with a
+sparse set of minimizers -- a "visible ladder" of extremal values
+1/(n+1), 2/(2n+1), ... between delta_n and 1/2. This document attacks that
+ladder theoretically. Outcome:
+
+1. **For n = 2 the ladder is a theorem.** The complete spectrum of gap over
+   2-runner sets is {m/(2m+1) : m >= 1} U {1/2} (Theorem 1, proved below);
+   the ladder values k/(kn+1) with n = 2 are exactly the m/(2m+1), and the
+   second rung is 2/5. The n = 2 tight census {(d,2d)} drops out as a
+   corollary.
+2. **The rung values are explained by a modular mechanism** (Theorem 2): if
+   some multiple c*v avoids the residues 0, +-1 modulo kn+1, then
+   gap(v) >= k/(kn+1), witnessed at t = c/(kn+1). This is proved for all n
+   and k, and it accounts for every rung-2 minimizer in the census for
+   n = 2..5. The extremal family (1,2,...,n-1,2n) has gap exactly
+   2/(2n+1) for every n = 2..7 (c = 2 witnesses it; the value is exact by
+   computation).
+3. **The sporadic tight family terminates, provably.** The family
+   (1,3,4,...,n,2n-1) is tight exactly for n = 4 and n = 5 (Theorem 4). The
+   new census confirms it: at n = 6 and n = 7 it is absent; its gap is
+   3/16 at n = 6 (v = (1,3,4,5,6,11)) and 3/20 at n = 7.
+4. **The second-rung conjecture is FALSE for n >= 6.** The extended census
+   contains certified counterexamples with gap strictly between 1/(n+1) and
+   2/(2n+1): gap(1,5,6,11,16,17) = 5/33 at n = 6 and
+   gap(1,2,3,4,5,7,18) = gap(1,3,4,5,7,13,18) = 3/23 at n = 7. The "ladder"
+   seen at n <= 5 was a coincidence of small n; the low spectrum densifies as
+   n grows. Any proof strategy that relies on a gap between the first two
+   spectrum values therefore fails in general.
+5. The n = 7 tight census reveals **two new sporadic tight families**,
+   (d,2d,3d,4d,5d,7d,12d) and (d,4d,5d,6d,7d,11d,13d), both verified
+   (Theorem 5). Across all sporadic families known, the maximum speed equals
+   the sum of the two largest speeds below it (7=3+4, 9=4+5, 12=5+7, 13=6+7).
+
+Sections 1-2 set up and record the new data; sections 3-5 prove what could
+be proved; section 6 presents the refutation; section 7 assesses.
+
+## 1. The ladder, precisely
+
+Empirical basis (previous check, v_n <= 50): the smallest spectrum values are
+
+  n=2: 1/3, 2/5, 3/7, 4/9, ... (= m/(2m+1)) and 1/2
+  n=3: 1/4 (16 sets), 2/7, ...
+  n=4: 1/5 (19 sets), 2/9, ...
+  n=5: 1/6 (15 sets), 2/11, ...
+
+Three statements, in increasing strength:
+
+  (L1) Second-rung theorem: for every v, gap(v) = 1/(n+1) or gap(v) >= 2/(2n+1).
+  (L2) Tight-set classification: classify all v with gap(v) = 1/(n+1).
+  (L3) Low-spectrum ladder: the spectrum below 1/n is exactly {k/(kn+1)}.
+
+Note (L1) => LRC, since 1/(n+1) and 2/(2n+1) are both >= 1/(n+1); the ladder
+is strictly stronger than the conjecture. It is also what the data suggested.
+It is true for n = 2 (Theorem 1) and false for n = 6, 7 (section 6).
+
+## 2. The extended census (n = 6, 7)
+
+The committed solver lrc_ilp_check.c, unchanged, one command per run:
+
+  ./lrc_ilp_check run 6 50 out/n6_V50     C(50,6)  = 15,890,700 vectors, 337 s
+  ./lrc_ilp_check run 7 38 out/n7_V38     C(38,7)  = 12,620,256 vectors, 327 s
+
+V = 38 for n = 7 is the largest bound that completes inside this compute
+environment's per-process wall-time limit; it contains every family discussed
+in this document (the largest speed appearing in any of them is 2n = 14, and
+the sporadic families scale to 13d and 12d). All validation layers of the
+original check were extended and pass: full re-verification of all
+28,510,956 witnesses against every polytope constraint (0 violations),
+independent reference solver on 500 samples (0 mismatches), literal k-box
+brute enumeration (n = 6 with v_n <= 12: 924/924 vectors, 7,811 integer
+points; n = 7 with v_n <= 10: 120/120, 816 points), HiGHS MILP cross-solves
+(92 instances, 0 disagreements). Details and checksums: "computational check
+results.txt", section 9.
+
+Headline rows:
+
+| n | V | vectors | integer-feasible | tight sets | second-tightest gap |
+|---|---|---------|------------------|------------|---------------------|
+| 6 | 50 | 15,890,700 | 15,890,700 | 8 | 5/33 (2 vectors) |
+| 7 | 38 | 12,620,256 | 12,620,256 | 10 | 3/23 (4 vectors) |
+
+Cumulative over both checks: 30,880,891 speed vectors enumerated, every one
+integer-feasible in P(v), zero counterexamples of any kind.
+
+Tight-set censuses (complete in range):
+
+  n=6: (d,2d,3d,4d,5d,6d), d = 1..8.   -- one family only
+  n=7: (d,2d,3d,4d,5d,6d,7d), d = 1..5;
+       (d,2d,3d,4d,5d,7d,12d), d = 1..3;
+       (d,4d,5d,6d,7d,11d,13d), d = 1..2.
+
+The old sporadic family (d,3d,4d,...,nd,(2n-1)d) is absent at both n = 6 and
+n = 7 -- this is Theorem 4 below, and the census is its confirmation.
+
+## 3. Theorem 1: the complete spectrum for n = 2
+
+**Theorem 1.** Let a < b be positive integers, g = gcd(a,b), a' = a/g,
+b' = b/g. Then
+
+  gap(a,b) = 1/2                      if a' and b' are both odd,
+  gap(a,b) = (a'+b'-1) / (2(a'+b'))   otherwise.
+
+In particular the spectrum of gap over all 2-runner sets is exactly
+{m/(2m+1) : m >= 1} U {1/2}; the tight sets are exactly {(d,2d)}; the value
+2/(2n+1) = 2/5 is the second rung; and (L1) holds for n = 2.
+
+*Proof.* Scale invariance reduces to g = 1. The maximum of
+g(t) = min(||at||, ||bt||) over [0,1] is attained at a breakpoint of g: a
+peak of one sawtooth (t = odd/(2v)) or a crossing ||at|| = ||bt||, which is
+t(a+b) in Z or t(b-a) in Z (on any interval where both are linear, the min
+of two linear functions is maximized at an endpoint or where they are equal;
+equal values force at = +-bt mod 1).
+
+Crossings t = j/(a+b), 1 <= j <= a+b-1: since a + b = 0 mod (a+b), the two
+fractional parts are symmetric, ||at|| = ||bt|| = dist(aj mod (a+b))/(a+b),
+and as j ranges, aj mod (a+b) ranges over all residues (gcd(a, a+b) = 1).
+If a+b is odd the maximum over j is (a+b-1)/2 / (a+b) = (a+b-1)/(2(a+b)),
+achieved. If a+b is even, gcd(a, a+b) = gcd(a,b) = 1 forces a, b both odd,
+and t = 1/2 gives ||at|| = ||bt|| = 1/2, which is the global maximum of the
+min; done. Crossings t = j/(b-a): similarly the value is
+(b-a-1)/(2(b-a)) when b-a is odd, which is smaller than (a+b-1)/(2(a+b))
+because b-a < a+b and x -> (x-1)/(2x) increases. Peaks t = odd/(2a):
+||at|| = 1/2 there and the value is dist(bc mod 2a)/(2a); the parity of bc
+mod 2a matches the parity of b (a coprime to 2a), and the largest distance
+of an even (resp. odd) residue mod 2a is (a-1)/(2a) when a is odd (resp.
+even), in every case <= 1/2 - 1/(2a) < 1/2 - 1/(2(a+b)). The same bound
+holds for peaks of ||bt||. So when one of a, b is even, the global maximum
+is exactly (a+b-1)/(2(a+b)). Finally, (a'+b'-1)/(2(a'+b')) = 1/3 forces
+a'+b' = 3, i.e. (a',b') = (1,2): the tight census. QED
+
+The n = 2 column of the previous census (1/2: 397 vectors, 5/11: 31, 6/13:
+31, 3/7: 30, ..., 1/3: 25) is exactly {m/(2m+1)} U {1/2}, as predicted.
+
+## 4. Theorem 2: the modular rung lemma
+
+**Theorem 2 (rung lemma).** Fix n >= 1 and k >= 1. Let q = kn+1. If there is
+an integer c with c v_i mod q in {k, k+1, ..., q-k} for every i, then
+gap(v) >= k/q, witnessed at t = c/q.
+
+*Proof.* At t = c/q, ||t v_i|| = dist(c v_i / q) = min(r_i, q - r_i)/q where
+r_i = c v_i mod q. The hypothesis r_i in [k, q-k] gives min(r_i, q-r_i) >= k
+for every i. QED
+
+Three corollaries, all census-tested:
+
+  (i) k = 1 (the divisibility lemma): if no v_i is divisible by n+1, then
+      gap(v) >= 1/(n+1) -- the Lonely Runner bound holds for v, witnessed at
+      t = 1/(n+1). In the census, 38-43% of vectors are "divfree" and all of
+      them are feasible with this one-line certificate.
+  (ii) k = 2 (the rung-2 condition): if no v_i is congruent to 0, 2, or
+      -2 modulo 2n+1, then gap(v) >= 2/(2n+1). Applied to the spectrum
+      census: every rung-2 minimizer of the previous check for n = 2..5
+      satisfies it; no tight set does; and (below) none of the new ladder
+      counterexamples does. The lemma never fails where it applies.
+  (iii) The family (1,2,...,n-1,2n): take c = 2. Then 2*{1,...,n-1} mod
+      (2n+1) = {2,4,...,2n-2} and 2*(2n) mod (2n+1) = 2n-1, all in
+      [2, 2n-1]. So gap >= 2/(2n+1) for every n, and the census gives
+      equality with argmax t = 2/(2n+1) for n = 2..7 (values 2/5, 2/7, 2/9,
+      2/11, 2/13, 2/15 -- the family representatives (1,4), (1,2,6),
+      (1,2,3,8), (1,2,3,4,10), (1,2,3,4,5,12), (1,2,3,4,5,6,14) are all
+      present with exactly these gaps). The upper bound gap <= 2/(2n+1) for
+      this family is proved only for n = 2; for general n the pigeonhole on
+      {0,t,...,nt} leaves differences in [n+1, 2n-1] uncontrolled, and
+      closing that case is open.
+
+The rung lemma explains *why* the values k/(kn+1) appear at all: they are the
+grid denominators q for which the safe zone [k, q-k] can just accommodate n
+residue classes. It does not, and cannot, explain why nothing appears
+*between* the rungs -- that was (L1), and it is false (section 6).
+
+## 5. Tight sets: what is proved (L2)
+
+**Theorem 3 (the arithmetic-progression family).** For every n >= 1 and
+d >= 1, gap(d, 2d, ..., nd) = 1/(n+1).
+
+*Proof.* Scale invariance reduces to d = 1. Lower bound: at t = 1/(n+1) the
+positions j/(n+1), j = 1..n, all have distance >= 1/(n+1) to 0. Upper bound:
+for any t, the n+1 points 0, t, 2t, ..., nt on the circle have two adjacent
+in the circular order within 1/(n+1) (n+1 gaps summing to 1); their index
+difference d lies in [1,n] and is a speed, and the circular distance between
+frac(dt) and frac(0)... more precisely of the two points frac(j_1 t),
+frac(j_2 t): it equals ||(j_1-j_2)t|| <= 1/(n+1). QED
+
+**Theorem 4 (the sporadic family terminates at n = 5).** Let
+S_n = {1, 3, 4, 5, ..., n, 2n-1} (defined for n >= 3; |S_n| = n). Then
+gap(d * S_n) = 1/(n+1) exactly for n = 4 and n = 5, and gap(d * S_n) >
+1/(n+1) for every n >= 6.
+
+*Proof.* Scale invariance reduces to d = 1. Lower bound at every n >= 4: the
+residues of S_n mod (n+1) are {1, 3, 4, ..., n} U {n-2}, all in [1, n], so
+t = 1/(n+1) certifies gap >= 1/(n+1) (Theorem 2 with c = 1).
+
+Upper bound structure. For any t, apply the pigeonhole to the n+1 points
+{frac(jt) : j = 0..n}: two are within 1/(n+1) with index difference d in
+[1,n]. Since S_n contains [1,n] except the single value 2, either d in
+S_n (done: ||dt|| <= 1/(n+1)), or d = 2, which forces ||2t|| <= 1/(n+1),
+i.e. t = m/2 + eps with |eps| <= 1/(2(n+1)). If m is even, t is within
+1/(2(n+1)) of an integer and ||t|| <= 1/(2(n+1)) (speed 1). If m is odd,
+t = 1/2 + eps, and the speeds split by parity:
+
+  even s: st = s/2 + s*eps  =>  ||st|| = s|eps|, so s covers |eps| <= 1/((n+1)s);
+  odd  s: st = s/2 + s*eps  =>  ||st|| <= 1/(n+1) iff s|eps| in
+          [1/2 - 1/(n+1), 1/2 + 1/(n+1)] (mod 1), i.e. |eps| in the band
+          B_s = [(n-1)/(2(n+1)s), (n+3)/(2(n+1)s)]   (only the first band
+          can occur for |eps| <= 1/(2(n+1)), s <= 2n-1).
+
+So tightness of S_n is equivalent to the covering condition
+
+  (0, 1/(2(n+1))]  subset of  (0, 1/(4(n+1))]  U  B_{2n-1}  U  B_{s'}  U ...
+
+where s' is the largest odd speed of S_n below 2n-1 that still matters, and
+the relevant bands are those with bottom <= 1/(2(n+1)), i.e. odd speeds
+s >= n-1: s' = n-1 if n is even, s' = n if n is odd. The even speed 4
+(always in S_n for n >= 4) covers (0, 1/(4(n+1))], and 1/(4(n+1)) >=
+(n-1)/(2(n+1)(2n-1)) always (2(2n-1) = 4n-2 >= 4(n-1)), so the low end
+always reaches B_{2n-1}. The chain then needs exactly one more link:
+
+  B_{2n-1} meets B_{s'}:   (n+3)/(2(n+1)(2n-1))  >=  (n-1)/(2(n+1)s')
+  <=>  (n+3)s' >= (n-1)(2n-1),
+  and B_{s'} reaches the top of the target range:
+  (n+3)/(2(n+1)s') >= 1/(2(n+1)) <=> s' <= n+3, always true.
+
+For n = 4 (s' = 3): (7)(3) = 21 >= (3)(7) = 21 -- equality, the bands touch.
+Full check, n = 4: (0, 1/20] U [3/70, 1/10] U [1/10, 7/30] covers (0, 1/10].
+For n = 5 (s' = 5): (8)(5) = 40 >= (4)(9) = 36. Full check, n = 5:
+(0, 1/24] U [1/27, 2/27] U [1/15, 2/15] U [1/9, 2/9] covers (0, 1/12].
+So S_n is tight for n = 4, 5.
+
+For n >= 6 the link fails and leaves a *hole* inside the target range:
+  n even, s' = n-1:  (n+3)(n-1) < (n-1)(2n-1)  <=>  n > 4;
+  n odd,  s' = n:    n(n+3) < (n-1)(2n-1)      <=>  n^2 - 6n + 1 > 0
+                     <=> n >= 7 (n odd).
+The hole is the open interval
+  H = ( (n+3)/(2(n+1)(2n-1)),  (n-1)/(2(n+1)s') ),
+whose top lies at or below 1/(2(n+1)) (since s' >= n-1), so H meets the
+target range. No even speed covers H (the largest even coverage is
+(0, 1/(4(n+1))] and (n+3)/(2(2n-1)) > 1/4 always). No odd band covers H:
+bands of odd speeds s <= s' start at (n-1)/(2(n+1)s) >= (n-1)/(2(n+1)s',
+the top of H, and the only band below starts at most at the bottom of H
+(it is B_{2n-1} itself). Pick eps in H; then at t = 1/2 + eps every speed
+s in S_n has ||st|| > 1/(n+1) (even speeds: s|eps| > s/(4(n+1)) >= ... >
+1/(n+1) because eps > 1/(4(n+1)) and s >= 4·... — spelled out: eps >
+(n+3)/(2(n+1)(2n-1)) > 1/(4(n+1)) >= 1/((n+1)s) for every even s in S_n;
+odd speeds: eps is in no band). Hence gap > 1/(n+1). QED
+
+The census agrees exactly: S_4 and S_5 are the sporadic tight families of the
+previous check; S_6 = (1,3,4,5,6,11) has gap 3/16 (argmax t = 7/16; check:
+at t = 9/16, the distances are (7/16, 7/16, 7/16, 15/16->1/16... a direct
+evaluation gives min = 3/16); S_7 = (1,3,4,5,6,7,13) has gap 3/20
+(t = 9/20).
+
+**Theorem 5 (the two new n = 7 families).** With n = 7, delta = 1/8:
+
+  A = (1,2,3,4,5,7,12)  and  B = (1,4,5,6,7,11,13)
+
+satisfy gap = 1/8 exactly (and hence so do their multiples d*A, d*B in
+range).
+
+*Proof (lower bound + verified band arithmetic + machine check).* Lower
+bounds: residues mod 8 are {1,2,3,4,5,7,4} and {1,4,5,6,7,3,5}, all in
+[1,7]; t = 1/8 certifies gap >= 1/8 (Theorem 2, c = 1).
+
+Upper bound for A: the pigeonhole over {0,...,7} leaves only the difference
+d = 6 (A contains [1,7] except 6), so ||6t|| <= 1/8, t = m/6 + eps',
+|eps'| <= 1/48. By the symmetry t -> 1-t it suffices to take
+m in {0,1,2,3}. m = 0: ||t|| <= 1/48 (speed 1). m = 2 (t near 1/3): speed 3
+is a multiple of 3, so ||3t|| = 3|eps'| <= 1/16 (in fact <= 1/24 suffices).
+m = 3 (t near 1/2): speed 2 is even, ||2t|| = 2|eps'| <= 1/24. m = 1 (t
+near 1/6): speed 12 is a multiple of 6, ||12t|| = 12|eps'| <= 1/8 exactly
+for |eps'| <= 1/96; for the rest, speed 5 has 5t = 5/6 + 5eps', and
+dist(5/6 + x) <= 1/8 iff x in [1/24, 5/24] (mod 1), i.e. |eps'| in
+[1/120, 1/24]. The union (0, 1/96] U [1/120, 1/24] = (0, 1/24] covers
+(0, 1/48]. So every t has some speed within 1/8: gap <= 1/8.
+
+Upper bound for B: the pigeonhole leaves d in {2,3}. d = 2 (t = 1/2 + eps,
+|eps| <= 1/16): even speed 4 covers (0, 1/32]; odd bands
+B_13 = [3/104, 5/104], B_11 = [3/88, 5/88], B_7 = [3/56, 5/56] chain with
+it (1/32 = 0.03125 >= 3/104 = 0.02885; 5/104 = 0.0481 >= 3/88 = 0.0341;
+5/88 = 0.0568 >= 3/56 = 0.0536; 5/56 = 0.0893 >= 1/16), covering
+(0, 1/16] entirely. d = 3 (t = 1/3 + eps, |eps| <= 1/24): speed 6 is a
+multiple of 3: ||6t|| = 6|eps| <= 1/8 for |eps| <= 1/48; speed 11 has
+11t = 11/3 + 11eps = 3 + 2/3 + 11eps, and dist(2/3 + x) <= 1/8 iff
+x in [5/24, 11/24] (mod 1), i.e. |eps| in [5/264, 11/264] = [0.0189, 0.0417];
+the union (0, 1/48] U [5/264, 11/264] = (0, 11/264] = (0, 1/24] covers the
+whole range. So gap <= 1/8. (Both computations are also machine-verified:
+the census lists both families with gap exactly 1/8, and the brute and MILP
+layers re-solve them.) QED
+
+Structural remark. Every sporadic tight family currently known --
+{1,3,4,7} (n=4), {1,3,4,5,9} (n=5), {1,2,3,4,5,7,12} and {1,4,5,6,7,11,13}
+(n=7) -- has its maximum equal to the sum of the two largest speeds below it
+(7 = 3+4, 9 = 4+5, 12 = 5+7, 13 = 6+7), and its residues mod (n+1) avoid 0.
+A complete classification (L2) remains open; the zoo is richer than the
+n <= 5 data suggested, and the termination of one family (Theorem 4) shows
+that family-level statements need proofs like the band argument above, not
+just pattern extrapolation.
+
+## 6. Refutation of the second-rung conjecture (L1) at n = 6 and 7
+
+**Proposition (certified counterexamples).**
+
+  n = 6:  gap(1,5,6,11,16,17) = 5/33, with  1/7 < 5/33 < 2/13.
+  n = 7:  gap(1,2,3,4,5,7,18) = 3/23  and  gap(1,3,4,5,7,13,18) = 3/23,
+          with  1/8 < 3/23 < 2/15.
+
+Certificates (exact rational arithmetic, all validation layers agree): for
+v = (1,5,6,11,16,17) at t = 10/33 the residues 10*v mod 33 are
+(10,17,27,11,28,5), distances to 0 mod 33 are (10,16,6,11,5,5), so the min
+is 5/33; the solver's exhaustive breakpoint scan proves this is the maximum.
+Cross-multiplications: 5*7 = 35 > 33 (above 1/7) and 5*13 = 65 < 66 = 2*33
+(below 2/13); similarly 3*8 = 24 > 23 and 3*15 = 45 < 46 = 2*23.
+
+For v = (1,2,3,4,5,7,18) at t = 4/23 the residues 4*v mod 23 are
+(4,8,12,16,20,5,3), min distance 3; for v = (1,3,4,5,7,13,18) at t = 4/23
+they are (4,12,16,20,5,6,3), min distance 3.
+
+Census standing (within range): at n = 6 exactly two vectors have gap
+strictly between 1/7 and 2/13 — the two above (the second is the multiple
+(2,10,12,22,32,34)); at n = 7 exactly four vectors lie strictly between 1/8
+and 2/15 — the two above and their doubles. None of them admits a rung-2
+modular witness (Theorem 2 with k = 2), which is consistent with the lemma
+(a witness would force gap >= 2/(2n+1)). The structural mechanism of these
+counterexamples is *not* modular: their argmax denominators are 33 and 23,
+not 2n+1, and the vectors are again sum-rich (6=5+1, 11=5+6, 16=11+5,
+17=11+6; 18=5+13 for the second n = 7 vector).
+
+**Consequences.**
+
+1. (L1) is false for n >= 6; the ladder 1/(n+1) < 2/(2n+1) < ... as an
+   exhaustive description of the low spectrum is a small-n coincidence
+   (n <= 5). The corrected bottom-of-spectrum data:
+
+     n=6: 1/7 (8), 5/33 (2), 2/13 (32), 8/51 (1), 3/19 (23), 11/69 (2), 4/25 (12), ...
+     n=7: 1/8 (10), 3/23 (4), 2/15 (21), 5/37 (1), 3/22 (1), 4/29 (5), 5/36 (2), ...
+
+   The values 2/(2n+1) survive as *populated* spectrum points (32 and 21
+   vectors respectively — the modular families), but they are no longer the
+   second rung.
+2. Any LRC proof strategy that would follow from (L1) — "every vector is
+   either tight or clears 2/(2n+1)" — is unavailable. Conversely, the
+   failure is informative: the spectrum's low end densifies with n roughly
+   like the rationals with denominators up to ~2 v_n, subject only to the
+   arithmetic of the breakpoint grid. The only surviving universal
+   statements of this type are the modular sufficient conditions of
+   Theorem 2 and the tight-set classification problem (L2).
+3. For n = 3, 4, 5 the statement (L1) remains true in the tested range
+   (v_n <= 50) and is now a genuinely finite(ish) open problem per n rather
+   than a consequence of a general theorem — with the n = 2 case proved
+   (Theorem 1). We did not find a proof for n = 3.
+
+## 7. Honest assessment
+
+Proved here: Theorem 1 (complete n = 2 spectrum, hence the full ladder at
+n = 2); Theorem 2 (modular rung lemma, all n and k, with its corollaries);
+Theorem 3 (AP family tight, all n); Theorem 4 (sporadic family tight exactly
+for n in {4,5}, with the resonance-band mechanism); Theorem 5 (the two n = 7
+families tight, band arithmetic + machine verification).
+
+Refuted here: the second-rung conjecture (L1) for n = 6 and n = 7, with
+certified counterexamples; the pattern-extrapolation of the sporadic family
+beyond n = 5 (subsumed by Theorem 4).
+
+Verified by machine, not proved in general: gap(1,2,...,n-1,2n) = 2/(2n+1)
+for n = 2..7 (lower bound proved for all n via c = 2; upper bound proved
+only for n = 2); the n = 6 and n = 7 tight censuses within their ranges; the
+bottom-of-spectrum tables above.
+
+Not established: any general statement constraining the spectrum between
+1/(n+1) and 2/(2n+1) for n >= 6 (now known to be impossible — that interval
+is inhabited); a classification of tight sets for general n; and the Lonely
+Runner Conjecture itself, which the enumeration now supports on 30,880,891
+vectors across n <= 7 with exact certificates and zero counterexamples.
+
+The attack on the ladder closes with a clear division: the *sufficient*
+side of the ladder (modular witnesses, rung values, extremal families) is
+now theorem-grade; the *necessary* side (emptiness of the inter-rung
+intervals) is false. Future proof efforts should target the tight-set
+classification and the potential/coset structure described in the companion
+"integrality analysis.txt".

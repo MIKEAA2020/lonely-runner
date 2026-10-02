@@ -1,0 +1,323 @@
+# TDI and circulation arguments on P(v): attempt, refutations, and a precise diagnosis
+
+Date: 2026-10-02. Companion documents: "lonely runner.txt" (the source audit,
+whose section 5 lists four candidate arguments for proving integrality),
+"computational check results.txt" (the n <= 5 check; section 2.1 proves the
+LP relaxation is always non-empty), and "ladder analysis.txt" (issued
+together with this one). All experiments below use the committed census
+(tight lists and dumps for n = 1..5 at v_n <= 50, extended here to n = 6 at
+v_n <= 50 and n = 7 at v_n <= 38) as test data, exactly as the source
+document's next-step #3 proposed.
+
+The four candidate arguments from the source document:
+
+  (a) total dual integrality (TDI) of Ax <= b;
+  (b) recognition of the constraint matrix as a network / circulation matrix;
+  (c) a rounding argument from a real point of P(v);
+  (d) a unimodular transformation U making AU totally unimodular.
+
+Outcome in one line each: (a) and (d) are refuted for the full system
+(Theorem 2); (b) succeeds as a *reformulation* — P(v) is a potential
+polytope of a complete digraph (Theorem 1) — but the integrality it gives
+for free lives on the flow side, not the side the conjecture needs, and the
+exact obstruction is the Smith normal form (Theorem 4); (c) fails at the LP
+center always (Theorem 3) but the census shows the actual integer points
+live at box corners and in sub-unit "fibers" (section 6), which is the
+data-driven shape a future rounding proof must take.
+
+Throughout: v = (v_1 < ... < v_n), delta = 1/(n+1), and
+
+  P(v) = { k in R^n : 0 <= k_i <= v_i - 1,
+           (n+1)(v_j k_i - v_i k_j) <= n v_i - v_j   for all i != j }.
+
+Integer feasibility of P(v) is equivalent to the Lonely Runner Conjecture
+for v (the source document's reduction, re-verified computationally in the
+prior check on 30,880,891 vectors including this extension's 28,510,956).
+So "P(v) always contains an integer point" is not a lemma one can hope to
+finish here; the goal of this document is to determine exactly which of the
+four proposed mechanisms can carry such a proof, and to fix the obstruction
+the others run into.
+
+## 1. Theorem 1: P(v) is a network potential polytope
+
+Set a_i = 1/((n+1) v_i) and substitute
+
+  z_i = (k_i + delta) / v_i        (the left endpoint of runner i's time
+                                    window; the "w_i" of the prior check),
+  so that  k_i = v_i z_i - delta.
+
+**Theorem 1.** Under this affine substitution P(v) becomes
+
+  Z(v) = { z in R^n :  z_i - z_j <= (n-1) a_j   for all i != j,
+                      a_i <= z_i <= 1 - n a_i   for all i },
+
+a difference-constraint system: the potential polyhedron of the directed
+graph on nodes {0, 1, ..., n} (node 0 fixed at z_0 = 0) with arc lengths
+
+  arc j -> i (runners i != j):   (n-1) a_j,
+  arc 0 -> i (upper bound):      1 - n a_i,
+  arc i -> 0 (lower bound):      -a_i,
+
+where an arc u -> w of length L encodes the constraint z_w <= z_u + L.
+
+*Proof.* Divide the pair constraint (n+1)(v_j k_i - v_i k_j) <= n v_i - v_j
+by (n+1) v_i v_j: k_i/v_i - k_j/v_j <= (n v_i - v_j)/((n+1) v_i v_j)
+= (n-1)/((n+1) v_j) - ... expanding, k_i/v_i - k_j/v_j = (z_i - a_i) -
+(z_j - a_j), and the right side simplifies to (n-1) a_j - (z-terms cancel)
+... direct computation:
+
+  (n+1) v_i v_j (z_i - z_j) = (n+1)(v_i k_j - v_j k_i) + (v_i - v_j)
+                             <= (n v_j - v_i) + (v_i - v_j)
+                             = (n-1) v_j,
+so z_i - z_j <= (n-1) a_j. The box 0 <= k_i <= v_i - 1 becomes
+a_i <= z_i <= a_i + (v_i - 1)/v_i = 1 - n a_i. QED
+
+Two corollaries, both of which recover prior results transparently.
+
+**Corollary 1.1 (the LP relaxation is never empty — a new proof).** Every
+cycle in the constraint graph has nonnegative length, so Z(v) <> {} by the
+no-negative-cycle criterion for difference-constraint systems. Indeed:
+cycles among runners only (arcs j -> i) have length (n-1) sum a_j > 0; a
+cycle through the source, 0 -> i_1 -> i_2 -> ... -> i_m -> 0, has length
+(1 - n a_{i_1}) + (n-1)(a_{i_1} + ... + a_{i_{m-1}}) - a_{i_m}
+= 1 - a_{i_1} - a_{i_m} + (n-1) sum_{2..m-1} a_{i_t} >= 1 - 2/(n+1) > 0.
+The prior check's explicit point k_i = (v_i - v_1)/((n+1) v_1) is exactly
+the constant potential z_i = a_1 (all windows sharing the time t = a_1).
+
+**Corollary 1.2 (the bounded-speed one-line proof, recovered).** k = 0 is
+feasible iff z_i = a_i for all i is feasible iff a_i <= n a_j for all
+i != j iff v_j <= n v_i for all i < j iff v_n <= n v_1. In window terms:
+each window starts at a_i and the pairwise compatibility of the left
+endpoints is exactly the bounded-speed condition.
+
+So the network picture is genuinely the right language for P(v): the source
+document's guess that the matrix "resembles the incidence matrix of a
+complete directed graph with edge weights v_i" is correct in the precise
+sense that the *scaled* system is a difference-constraint (potential)
+system on the complete digraph. What the network structure does and does
+not give is the subject of the rest of this document.
+
+## 2. Theorem 2: the full system is not TDI, and no unimodular repair exists
+
+The system defining P(v) has integral coefficients and integral right-hand
+sides: (n+1) v_j, -(n+1) v_i, n v_i - v_j, and the box bounds are all
+integers. For such a system, TDI would imply that P(v) is an *integral
+polytope* (every vertex integral), and the same conclusion would follow if
+some unimodular U made the full constraint matrix totally unimodular.
+
+**Theorem 2.** P(v) has fractional vertices in general. Examples, verified
+in exact rational arithmetic:
+
+  v = (1,3),   n = 2:   P = { (0, k_2) : 1/3 <= k_2 <= 5/3 }
+                         — vertices (0, 1/3) and (0, 5/3), both fractional,
+                           while the only integer point is (0, 1);
+  v = (1,2,3), n = 3:   (0, 0, 7/8) is a vertex (tight rows: k_1 = 0,
+                         k_2 = 0, and the pair (3,2) constraint, which is
+                         an equality there);
+  v = (1,3,4,5,9), n = 5 (a *tight* census vector): (0, 2, 3, 4, 22/3) is
+                         a vertex.
+
+Consequently the full system is not TDI, and no unimodular U makes it TU.
+
+Systematic counts (exact vertex enumeration via the network structure of
+Theorem 1: the vertices of Z(v) are the feasible potentials of oriented
+spanning trees of the constraint graph, enumerated over all Pruefer trees
+and orientations; see the experiment script):
+
+| n | vectors enumerated | total vertices | integral vertices | vectors with >= 1 fractional vertex |
+|---|--------------------|----------------|-------------------|--------------------------------------|
+| 2 | 66 (all v_n <= 12) | 302 | 94 | 56 |
+| 3 | 84 (all v_n <= 9)  | 1172 | 108 | 84 |
+| 4 | 21 (19 tight + 2) | 866 | 26 | 21 |
+| 5 | 3 (census vectors) | 162 | 4 | 3 |
+
+Even the tight vectors — the ones where an integer point sits at a
+distinguished corner — have fractional vertices elsewhere in the polytope.
+So integrality of *points* (the conjecture) is strictly weaker than
+integrality of the *polytope*, and any argument of type (a) or (d), which
+would prove the stronger statement, is dead as stated. (TDI of a
+*sub*system, or TDI after adding cuts, remains logically possible but would
+no longer be the proposed argument; nothing in the census currently
+supports a specific version of it.)
+
+## 3. Theorem 3: rounding at the LP center never works
+
+The source document's candidate (c) suggested rounding a real point of
+P(v) to a nearby integer point and controlling the error by the slack. At
+the natural real point — the LP center z = (a_1, ..., a_1), equivalently
+k_i = (v_i - v_1)/((n+1) v_1) — this provably cannot work.
+
+**Theorem 3.** Round each k_i to a nearest integer, |Delta k_i| <= 1/2,
+hence |Delta z_i| <= 1/(2 v_i). The pair constraint z_i - z_j <= (n-1) a_j
+has slack exactly (n-1) a_j = (n-1)/((n+1) v_j) at the center. Feasibility
+of the rounded point would require, in the worst case,
+
+  1/(2 v_i) + 1/(2 v_j) <= (n-1)/((n+1) v_j)
+  <=> v_j <= v_i (n-3)/(n+1) < v_i,
+
+which contradicts v_j > v_i. In fact the worst-case perturbation exceeds
+the slack by at least the factor (n+1)/(n-1) for every v and every pair.
+So nearest-neighbor rounding of the LP center is never certified — for any
+speed vector whatsoever. QED
+
+This confirms and sharpens the source document's warning that "the slack is
+of order 1/n, which may be too small for naive rounding": at the center the
+deficit is a constant factor, not a small one. Section 6 shows where the
+integer points actually sit — far from the center.
+
+## 4. Theorem 4: the Smith normal form of the pair matrix
+
+The arithmetic content of the pair constraints is captured by the Smith
+normal form of the constraint matrix. Let W(v) be the n(n-1) x n matrix
+with rows v_j e_i - v_i e_j over ordered pairs i != j, so that the pair
+part of the system is ((n+1) W(v)) k <= b.
+
+**Theorem 4.** Let g = gcd(v_1, ..., v_n). The invariant factors of W(v)
+are g, g, ..., g (n-1 of them), and those of (n+1) W(v) are
+(n+1) g, ..., (n+1) g. In particular the row lattice — equivalently, the
+lattice of achievable integer pair-data
+
+  { ((n+1)(v_j k_i - v_i k_j))_{i != j} : k in Z^n }  C  Z^{n(n-1)}
+
+— has index ((n+1) g)^{n-1} in its saturation, and the kernel of W on Z^n
+is Z (v/g).
+
+*Proof.* Write v = g v' with gcd(v') = 1, so W(v) = g W(v'), and every k x k
+minor of W(v) is g^k times a k x k minor of W(v'). We show the gcd of the
+k x k minors of W(v') is 1 for every 1 <= k <= n-1. Fix a "center" index i
+and k distinct other indices j_1, ..., j_k (possible since k <= n-1). The k
+rows (i, j_1), ..., (i, j_k) restricted to the k columns j_1, ..., j_k form
+a diagonal matrix with entries -v'_i (row (i, j) has entry -v_i in column j
+and its only other nonzero, +v_j, sits in the excluded column i). So
++- (v'_i)^k is a k x k minor for every i, and the gcd of all k x k minors
+divides gcd((v'_1)^k, ..., (v'_n)^k) = (gcd v')^k = 1. Hence Delta_k(W(v'))
+= 1, so Delta_k(W(v)) = g^k and Delta_k((n+1)W(v)) = ((n+1) g)^k, and the
+invariant factors d_k = Delta_k / Delta_{k-1} are g resp. (n+1) g. The
+kernel claim: W k = 0 iff k is proportional to v over Q, and the integer
+such vectors are Z (v/g). QED
+
+Machine verification: sympy's smith_normal_form on 14 samples
+(v = (1,2), (2,3), (2,4), (6,10), (1,2,3), (1,3,4), (2,4,6), (6,10,15),
+(1,2,3,4), (1,3,4,7), (2,4,6,8), (1,2,3,4,5), (1,3,4,5,9),
+(10,20,30,40,50)), including non-primitive ones — all match the closed form
+exactly (e.g. (2,4,6) -> (8,8); (10,20,30,40,50) -> (60,60,60,60)).
+
+**What this quantifies.** The constraint values are not free integers: the
+achievable left-hand sides live on a lattice coarse by the factor (n+1) g in
+each of the n-1 independent directions (the row space is v^perp). The
+geometry of Z(v) supplies slack (Corollary 1.1), and the arithmetic of the
+achievable pair-data consumes it; the conjecture asserts that the supply
+always covers the demand. Any proof must see both sides at once — this is
+why purely geometric arguments (network feasibility) and purely arithmetic
+ones (lattice granularity) are individually insufficient, and it is the
+precise sense in which the "circulation" program (b) falls short: see the
+next section.
+
+## 5. The circulation attempt: what is free and what is blocked
+
+Difference-constraint systems are the duals of flow problems: z is a
+feasible potential iff the associated arc-length network has no negative
+cycle (Corollary 1.1), and by Hoffman's circulation theorem the feasibility
+of a network with lower and upper bounds is equivalent to a circulation
+existing, which when the bounds are integral can be taken integral. So the
+*flow side* of the lonely-runner network has integrality for free.
+
+The conjecture's integrality, however, lives on the *potential side*: the
+integer points of P(v) are exactly the potentials z satisfying the coset
+conditions
+
+  z_i in a_i + (1/v_i) Z   for every i      ( k_i = v_i z_i - delta in Z ).
+
+The dictionary between the two sides is the rescaling
+k_i = v_i z_i - delta: potentials of a network with integral arc lengths
+are integral (up to translation) because spanning-tree potentials are sums
+of arc lengths; here every arc length is a rational with denominator
+(n+1) v_j, no spanning tree has integral length sum, and the rescaling
+diag(v) that returns to k-coordinates is not unimodular (it is exactly a
+change of lattice). Unimodular transformations preserve potential
+integrality; diag(v) destroys it. In lattice terms (Theorem 4), the
+achievable pair-data is coarser than its saturation by ((n+1) g)^{n-1},
+and that index is the exact arithmetic footprint of the rescaling.
+
+So candidate (b), executed precisely, yields: a clean reformulation
+(Theorem 1), two recovered theorems (Corollaries 1.1, 1.2), and the open
+core isolated as a transference-type statement:
+
+  (*) for every v, the potential region Z(v) of a no-negative-cycle
+      network meets the grid  prod_i (a_i + (1/v_i) Z).
+
+Statement (*) is equivalent to the Lonely Runner Conjecture. The network
+gives no tools to force a grid hit: grids and polyhedra are transverse
+objects in general, and the census below records how special the successful
+hits are.
+
+## 6. What the census says about where integer points sit
+
+Three experiments on the committed data (scripts and raw JSON committed
+alongside; n = 6 and n = 7 data from this extension).
+
+**E2a — tight witnesses and their tight systems.** Across all 93 tight-set
+witnesses in the censuses n = 2..7, every witness has *exactly one* tight
+pair constraint (never two; both orientations of a pair cannot be tight
+simultaneously for n >= 2, since the two right-hand sides sum to
+(n-1)(v_i + v_j) > 0 while the left-hand sides sum to 0), and every other
+tight row is a box row. The tight system therefore has exactly n rows:
+n box rows (box-corner witnesses) or n-1 box rows plus the single tight
+pair (the others).
+
+**E2b — box corners and squeezed points.** Every witness is of one of two
+kinds (counts: n=2: 25+0, n=3: 16+0, n=4: 12+7, n=5: 10+5, n=6: 8+0,
+n=7: 5+5 — total 76 + 17):
+
+  - *box-corner vertices*: k_i in {0, v_i - 1} for every i (76 witnesses,
+    e.g. all AP-family witnesses k = 0). These are automatically vertices
+    of P(v) (n independent tight box rows) and automatically integral.
+  - *squeezed points*: exactly one coordinate is interior, and with the
+    other coordinates held at their witness values, its feasible interval
+    has width < 1 (observed maxima: 3/5 at n = 4, 2/3 at n = 5, 3/4 at
+    n = 7) and contains the witness as its *unique* integer. Example:
+    v = (2,6,8,14), k = (0,0,0,1): the pair constraints pin k_4 into
+    [3/5, 6/5], width 3/5, unique integer 1.
+
+For comparison, witnesses of *non-tight* vectors have room to spare: the
+rung-2 family (1,2,3,4,5,12) has witness k = (0,0,0,0,0,1) with fiber
+width 37/35 > 1; (1,2,3,4,5,6,14) has 25/24; the terminated sporadic
+family (1,3,4,5,6,11) has mixed fibers 58/77, 59/77, 235/231, 61/77,
+31/28. Tightness and sub-unit fibers co-occur exactly.
+
+**E3 — modular witnesses (from the companion ladder analysis).** 58-66% of
+all vectors carry a rung-2 modular witness (Theorem 2 of the ladder
+document); no tight set does; none of the ladder counterexamples does; and
+the divisibility certificate (no v_i divisible by n+1) covers 38-43% of
+vectors. These sufficient conditions never misfire on 30,880,891 vectors.
+
+**The shape of a proof, according to the data.** Theorem 3 shows the LP
+center is the wrong anchoring point; the census shows the right one.
+Integer points occur (i) at box corners — where integrality is trivial and
+the work is proving the corner feasible (the bounded-speed criterion is
+exactly the k = 0 corner; Corollary 1.2) — or (ii) in sub-unit fibers
+pinned by a *single* tight pair plus box rows. A potential proof of (*)
+would therefore aim to show: for every v, either some box corner (a sign
+pattern s_i in {0, v_i - 1}) is feasible, or the n "one-coordinate-free"
+slabs (n-1 coordinates at corners) contain a rational point of the grid
+whose free coordinate is then forced to its unique integer. Both branches
+are finite, combinatorial in the box corners, and compatible with the SNF
+granularity; neither is carried out here.
+
+## 7. Honest assessment
+
+Established here: the potential/network reformulation and its two corollaries
+(Theorem 1, 1.1, 1.2); the refutation of TDI and of unimodular TU-repair for
+the full system, with exact fractional vertices including one on a tight
+census vector (Theorem 2); the impossibility of center rounding (Theorem 3);
+the exact Smith normal form of the pair matrix and its interpretation as the
+arithmetic obstruction (Theorem 4); and the census regularities of section 6
+(box corners / sub-unit unique-integer fibers, exactly one tight pair per
+witness).
+
+Not established: statement (*), hence the Lonely Runner Conjecture. The
+circulation idea does not fail for a fixable reason — it locates the
+difficulty exactly (potential-side integrality under a non-unimodular
+rescaling, with granularity ((n+1) g)^{n-1}), and the census regularities
+suggest the two concrete attack shapes above. Whether either shape can be
+pushed to a theorem is open.

@@ -1,0 +1,524 @@
+{
+ "E1_vertices": {
+  "n2": {
+   "vectors": 66,
+   "total_vertices": 302,
+   "integral_vertices": 94,
+   "vectors_with_fractional_vertex": 56,
+   "first_fractional_vertex": {
+    "v": [
+     1,
+     3
+    ],
+    "vertex_k": [
+     "0",
+     "5/3"
+    ]
+   }
+  },
+  "n3": {
+   "vectors": 84,
+   "total_vertices": 1172,
+   "integral_vertices": 108,
+   "vectors_with_fractional_vertex": 84,
+   "first_fractional_vertex": {
+    "v": [
+     1,
+     2,
+     3
+    ],
+    "vertex_k": [
+     "0",
+     "0",
+     "7/8"
+    ]
+   }
+  },
+  "n4": {
+   "vectors": 21,
+   "total_vertices": 866,
+   "integral_vertices": 26,
+   "vectors_with_fractional_vertex": 21,
+   "first_fractional_vertex": {
+    "v": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "vertex_k": [
+     "0",
+     "0",
+     "0",
+     "13/15"
+    ]
+   }
+  },
+  "n5": {
+   "vectors": 3,
+   "total_vertices": 162,
+   "integral_vertices": 4,
+   "vectors_with_fractional_vertex": 3,
+   "first_fractional_vertex": {
+    "v": [
+     1,
+     3,
+     4,
+     5,
+     9
+    ],
+    "vertex_k": [
+     "0",
+     "2",
+     "3",
+     "4",
+     "22/3"
+    ]
+   }
+  }
+ },
+ "E2_witnesses": {
+  "n2": {
+   "witnesses": 25,
+   "all_box_boundary": 25,
+   "tight_pair_edges_distribution": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "all_forests": true,
+   "max_edges": 1
+  },
+  "n3": {
+   "witnesses": 16,
+   "all_box_boundary": 16,
+   "tight_pair_edges_distribution": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "all_forests": true,
+   "max_edges": 1
+  },
+  "n4": {
+   "witnesses": 19,
+   "all_box_boundary": 12,
+   "tight_pair_edges_distribution": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "all_forests": true,
+   "max_edges": 1
+  },
+  "n5": {
+   "witnesses": 15,
+   "all_box_boundary": 10,
+   "tight_pair_edges_distribution": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "all_forests": true,
+   "max_edges": 1
+  },
+  "n6": {
+   "witnesses": 8,
+   "all_box_boundary": 8,
+   "tight_pair_edges_distribution": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "all_forests": true,
+   "max_edges": 1
+  },
+  "n7": {
+   "witnesses": 10,
+   "all_box_boundary": 5,
+   "tight_pair_edges_distribution": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "all_forests": true,
+   "max_edges": 1
+  }
+ },
+ "E3_modular": {
+  "n4": {
+   "V": 50,
+   "total": 230300,
+   "tight": 19,
+   "gap_strictly_between_rung1_rung2": 0,
+   "rung2_modular_witness_fraction": 0.5776,
+   "ladder_counterexamples_with_witness": 0,
+   "tight_with_rung2_witness": 0,
+   "divfree_fraction": 0.3968,
+   "tight_divfree": 16
+  },
+  "n5": {
+   "V": 50,
+   "total": 2118760,
+   "tight": 15,
+   "gap_strictly_between_rung1_rung2": 0,
+   "rung2_modular_witness_fraction": 0.616,
+   "ladder_counterexamples_with_witness": 0,
+   "tight_with_rung2_witness": 0,
+   "divfree_fraction": 0.4015,
+   "tight_divfree": 5
+  },
+  "n6": {
+   "V": 50,
+   "total": 15890700,
+   "tight": 8,
+   "gap_strictly_between_rung1_rung2": 2,
+   "rung2_modular_witness_fraction": 0.6613,
+   "ladder_counterexamples_with_witness": 0,
+   "tight_with_rung2_witness": 0,
+   "divfree_fraction": 0.3836,
+   "tight_divfree": 7
+  },
+  "n7": {
+   "V": 38,
+   "total": 12620256,
+   "tight": 10,
+   "gap_strictly_between_rung1_rung2": 4,
+   "rung2_modular_witness_fraction": 0.6169,
+   "ladder_counterexamples_with_witness": 0,
+   "tight_with_rung2_witness": 0,
+   "divfree_fraction": 0.4263,
+   "tight_divfree": 6
+  }
+ },
+ "E4_snf": [
+  {
+   "n": 2,
+   "v": [
+    1,
+    2
+   ],
+   "invariant_factors": [
+    3
+   ],
+   "predicted": [
+    3
+   ],
+   "match": true
+  },
+  {
+   "n": 2,
+   "v": [
+    2,
+    3
+   ],
+   "invariant_factors": [
+    3
+   ],
+   "predicted": [
+    3
+   ],
+   "match": true
+  },
+  {
+   "n": 2,
+   "v": [
+    2,
+    4
+   ],
+   "invariant_factors": [
+    6
+   ],
+   "predicted": [
+    6
+   ],
+   "match": true
+  },
+  {
+   "n": 2,
+   "v": [
+    6,
+    10
+   ],
+   "invariant_factors": [
+    6
+   ],
+   "predicted": [
+    6
+   ],
+   "match": true
+  },
+  {
+   "n": 3,
+   "v": [
+    1,
+    2,
+    3
+   ],
+   "invariant_factors": [
+    4,
+    4
+   ],
+   "predicted": [
+    4,
+    4
+   ],
+   "match": true
+  },
+  {
+   "n": 3,
+   "v": [
+    1,
+    3,
+    4
+   ],
+   "invariant_factors": [
+    4,
+    4
+   ],
+   "predicted": [
+    4,
+    4
+   ],
+   "match": true
+  },
+  {
+   "n": 3,
+   "v": [
+    2,
+    4,
+    6
+   ],
+   "invariant_factors": [
+    8,
+    8
+   ],
+   "predicted": [
+    8,
+    8
+   ],
+   "match": true
+  },
+  {
+   "n": 3,
+   "v": [
+    6,
+    10,
+    15
+   ],
+   "invariant_factors": [
+    4,
+    4
+   ],
+   "predicted": [
+    4,
+    4
+   ],
+   "match": true
+  },
+  {
+   "n": 4,
+   "v": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "invariant_factors": [
+    5,
+    5,
+    5
+   ],
+   "predicted": [
+    5,
+    5,
+    5
+   ],
+   "match": true
+  },
+  {
+   "n": 4,
+   "v": [
+    1,
+    3,
+    4,
+    7
+   ],
+   "invariant_factors": [
+    5,
+    5,
+    5
+   ],
+   "predicted": [
+    5,
+    5,
+    5
+   ],
+   "match": true
+  },
+  {
+   "n": 4,
+   "v": [
+    2,
+    4,
+    6,
+    8
+   ],
+   "invariant_factors": [
+    10,
+    10,
+    10
+   ],
+   "predicted": [
+    10,
+    10,
+    10
+   ],
+   "match": true
+  },
+  {
+   "n": 5,
+   "v": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "invariant_factors": [
+    6,
+    6,
+    6,
+    6
+   ],
+   "predicted": [
+    6,
+    6,
+    6,
+    6
+   ],
+   "match": true
+  },
+  {
+   "n": 5,
+   "v": [
+    1,
+    3,
+    4,
+    5,
+    9
+   ],
+   "invariant_factors": [
+    6,
+    6,
+    6,
+    6
+   ],
+   "predicted": [
+    6,
+    6,
+    6,
+    6
+   ],
+   "match": true
+  },
+  {
+   "n": 5,
+   "v": [
+    10,
+    20,
+    30,
+    40,
+    50
+   ],
+   "invariant_factors": [
+    60,
+    60,
+    60,
+    60
+   ],
+   "predicted": [
+    60,
+    60,
+    60,
+    60
+   ],
+   "match": true
+  }
+ ]
+}

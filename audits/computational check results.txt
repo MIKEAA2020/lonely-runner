@@ -278,3 +278,96 @@ test data.
   n5: d392093526519b63130811923a27f48db7ab1bd1667156e93d652e912c9ba435
 - Environment: gcc 14.2.0 (-O2), Python 3.12, numpy 2.1.3, scipy 1.14.1
   (HiGHS), Intel Xeon, single thread. Random seeds: 20261002.
+
+## 9. Extension to n = 6 and n = 7 (the document's own next step #1)
+
+Date: 2026-10-02, same day. The committed program, unchanged, one command per
+run:
+
+  ./lrc_ilp_check run 6 50 out/n6_V50      C(50,6) = 15,890,700 vectors, 337 s
+  ./lrc_ilp_check run 7 38 out/n7_V38      C(38,7) = 12,620,256 vectors, 327 s
+
+V = 38 for n = 7 (instead of 50) is the largest bound that completes within
+this environment's per-process wall-time limit; it contains every family
+discussed in the companion analyses (largest speed in any of them: 2n = 14;
+sporadic families scale to 13d and 12d). Cumulative over both checks:
+**30,880,891 speed vectors, every one integer-feasible, zero counterexamples
+of any kind.**
+
+### 9.1 Headline rows
+
+| n | V | vectors (exact) | integer-feasible | tight (gap = 1/(n+1)) | second-tightest gap |
+|---|---|---|---|---|---|
+| 6 | 50 | 15,890,700 | 15,890,700 | 8 | 5/33 (2 vectors) |
+| 7 | 38 | 12,620,256 | 12,620,256 | 10 | 3/23 (4 vectors) |
+
+### 9.2 Tight-set census (complete in range)
+
+  n=6: (d,2d,3d,4d,5d,6d), d = 1..8. -- one family only.
+  n=7: (d,2d,3d,4d,5d,6d,7d), d = 1..5;
+       (d,2d,3d,4d,5d,7d,12d), d = 1..3;
+       (d,4d,5d,6d,7d,11d,13d), d = 1..2.
+
+Two findings against the n <= 5 pattern: the sporadic family
+(d,3d,4d,...,nd,(2n-1)d) is **absent** at n = 6 and n = 7 (it is now *proved*
+tight exactly for n in {4,5} — "ladder analysis.txt", Theorem 4 — with
+gap(1,3,4,5,6,11) = 3/16 and gap(1,3,4,5,6,7,13) = 3/20); and n = 7 has
+**two** new sporadic families, both proved tight in the companion document
+(Theorem 5).
+
+### 9.3 The second-tightest gap: the 2/(2n+1) ladder is refuted at n >= 6
+
+The n <= 5 observation "second-tightest = 2/(2n+1)" does **not** extend:
+
+  n=6: 1/7 < 5/33 < 2/13, attained by v = (1,5,6,11,16,17) and its multiple
+       (2,10,12,22,32,34) (t = 10/33; residues 10v mod 33 =
+       (10,17,27,11,28,5), min distance 5).
+  n=7: 1/8 < 3/23 < 2/15, attained by v = (1,2,3,4,5,7,18),
+       (1,3,4,5,7,13,18) and their doubles (t = 4/23).
+
+Exactly 2 (resp. 4) vectors lie strictly between 1/(n+1) and 2/(2n+1); none
+admits a modular rung-2 witness. The modular rung-2 families themselves
+still sit exactly on the rung — gap(1,2,3,4,5,12) = 2/13 with argmax
+t = 2/13, gap(1,2,3,4,5,6,14) = 2/15 with t = 2/15 — consistent with the
+rung lemma. Full analysis, proofs, and the corrected spectrum picture:
+"ladder analysis.txt".
+
+### 9.4 Validation layers for the new runs
+
+- **L1 (full re-verification):** all 28,510,956 dumped witnesses re-checked
+  against every polytope constraint with numpy exact integer arithmetic:
+  0 violations, 0 feasibility-flag mismatches.
+- **L2 (independent reference):** fresh pure-Python exact solver, 250 random
+  vectors per n: 0 gap mismatches, 0 feasibility mismatches. (An earlier
+  draft of the reference had a variable-shadowing bug, caught by exactly
+  this layer and fixed before these numbers were recorded — the layer is
+  load-bearing.)
+- **L3 (literal k-box brute enumeration):** n=6, all v with v_n <= 12: 924
+  vectors, 924 with solutions, 7,811 integer points, every reported first_k
+  re-verified exactly; n=7, all v with v_n <= 10: 120 vectors, 120 with
+  solutions, 816 points. 100% agreement.
+- **L4 (HiGHS MILP):** 46 solves per n (40 random + the theory-critical
+  families): 0 failures, 0 invalid returned points.
+- Machine-readable results: computational-check/stats67.json; theory
+  experiment data (vertex enumeration, Smith normal forms, witness
+  structure, modular census): computational-check/theory_experiments.json.
+
+### 9.5 Reproducibility for this section
+
+  gcc -O2 -o lrc_ilp_check lrc_ilp_check.c
+  mkdir -p out
+  ./lrc_ilp_check run 6 50 out/n6_V50     # ~5.5 min single core
+  ./lrc_ilp_check run 7 38 out/n7_V38     # ~5.5 min single core
+  python3 lrc_extend67.py                 # L1-L4 + census stats -> stats67.json
+  python3 lrc_theory_experiments.py       # E1-E4 -> theory_experiments.json
+
+SHA-256 of the regenerated dumps:
+  n6 (V=50): 731a898405f78dcd6c41f7a9d554205dd4c3446f9dc3c03c4ae25b066e069577
+  n7 (V=38): a01a55641c2f54592729a9b8b5526ded686d50bf9f1b57e58159ce07c4f6c456
+Dumps are 508 MB and 404 MB and are not committed (regenerable in ~11
+minutes total). Seeds: 20261002.
+
+The theoretical work that this data enabled — the ladder attack and the
+TDI/circulation attempt, both using the committed censuses as test data —
+is in "ladder analysis.txt" and "integrality analysis.txt" in this
+directory.
