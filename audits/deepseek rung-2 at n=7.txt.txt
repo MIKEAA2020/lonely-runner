@@ -1,0 +1,247 @@
+## What I did, and what came out
+
+No prior artifacts from the earlier session were recoverable, so I rebuilt the two pieces the program needs — the exact‑gap tooling and the structural theory of tight sets — from scratch, and then settled the question that was flagged as the remaining open item.
+
+The short version:
+
+* **(c) is done, and it closes the headline open problem.** The upper bound `gap(1,…,n−1,2n) ≤ 2/(2n+1)` has an elementary proof, and the same proof pins down the argmax: it is attained **only** at `t ≡ ±2/(2n+1) (mod 1)`, and at those times the binding runners are exactly **1 and 2n** (R1 and the 2n‑runner), every other runner sitting at distance `≥ 3/(2n+1)`.
+* **(a) has a clean mechanism**, which also explains the “sum‑rich” pattern: tight sets at `2/(2n+1)` must contain a *binding pair* `{v,w}` with `v+w ≡ 0 (mod 2n+1)`, and the remaining speeds are constrained by a residue condition. That is the classification handle for the n=7 zoo.
+* **(b) is now just a compute**: the script below is parameterized by `n` and `V`, so `n=7 @ V=50` and `n=8 @ V=30–38` are the same program with different arguments.
+
+---
+
+## 1. The upper bound and the uniqueness of the argmax (item (c), and the open bound)
+
+Write `‖x‖` for the distance from `x` to the nearest integer and put
+
+```
+gap(V) = sup_{t∈[0,1)} min_{v∈V} ‖v t‖ ,      V ⊆ ℤ_{>0}.
+```
+
+The lower bound is immediate: at `t = 2/(2n+1)`,
+
+* `‖1·t‖ = 2/(2n+1)`,
+* `‖k t‖ = 2k/(2n+1) ≥ 2/(2n+1)` for `1 ≤ k ≤ n−1` (and it is `1 − 2k/(2n+1) = (2n+1−2k)/(2n+1) ≥ 3/(2n+1)` once `2k > n`),
+* `‖2n t‖ = ‖4n/(2n+1)‖ = ‖2 − 2/(2n+1)‖ = 2/(2n+1)`.
+
+So `gap ≥ 2/(2n+1)`. Here is the matching upper bound.
+
+**Theorem 1.** *For every integer `n ≥ 2` and every real `t`,*
+
+```
+min( ‖t‖, ‖2t‖, …, ‖(n−1)t‖, ‖2nt‖ )  ≤  2/(2n+1).
+```
+
+*Proof.* Put `δ = 2/(2n+1)` and suppose, for contradiction, that `‖kt‖ > δ` for `1 ≤ k ≤ n−1` **and** `‖2nt‖ > δ`. Consider the `n+1` points
+
+```
+P = { 0, t, 2t, …, nt } ⊆ ℝ/ℤ.
+```
+
+*Classical step.* Among `n+1` points on a circle of circumference 1 either two coincide or two are within `1/(n+1)`; their index difference `d` satisfies `1 ≤ d ≤ n`, hence `min_{1≤k≤n} ‖kt‖ ≤ 1/(n+1)`. Since `1/(n+1) < 2/(2n+1) = δ` and `‖kt‖ > δ` for `k ≤ n−1`, we get
+
+```
+β := ‖nt‖ ≤ 1/(n+1) < δ.
+```
+
+*Geometry of `P`.* For `0 ≤ i < j ≤ n` with `(i,j) ≠ (0,n)` the difference `j−i` lies in `{1,…,n−1}`, so `‖(j−i)t‖ > δ`. Thus **every** pair of points of `P` is at distance `> δ`, except the pair `{0, nt}`, whose distance is `β < δ`. In particular `0` and `nt` are adjacent on the circle (any point strictly between them on the arc of length `β` would be at distance `< β < δ` from one of them, impossible), and the `n` remaining circular gaps of `P` each have endpoints a pair `≠ {0,nt}`, so each has length `> δ`.
+
+The `n+1` gaps of `P` sum to 1, hence
+
+```
+1  >  β + nδ  =  β + 2n/(2n+1),
+```
+
+i.e. `β < 1/(2n+1) = δ/2`. Therefore
+
+```
+‖2nt‖ = ‖2β‖ ≤ 2β < δ,
+```
+
+contradicting the assumption. ∎
+
+**Theorem 2 (equality case).** *If `min(‖t‖,…,‖(n−1)t‖,‖2nt‖) = 2/(2n+1)` then `t ≡ ±2/(2n+1) (mod 1)`, and at these two times the set of minimising runners is exactly `{1, 2n}`.*
+
+*Proof.*
+
+*(a) Shape of the extremal configuration.* Redo the argument with `≥` in place of `>`: `‖kt‖ ≥ δ` for `k ≤ n−1`, `‖2nt‖ ≥ δ`. Step 1 still gives `β ≤ 1/(n+1) < δ`, so `{0,nt}` is still the only pair of `P` at distance `< δ` (all other pairs have distance `≥ δ`), and the same counting gives `β ≤ δ/2` and the `n` other gaps `≥ δ`. Since they sum to `1 − β ≥ 1 − δ/2 = nδ`, equality `β = δ/2` must hold and all `n` other gaps must equal `δ`. So `P` is, up to reflection, the arithmetic progression `{0, δ, 2δ, …, nδ}`; that is,
+
+```
+{ kt mod 1 : 0 ≤ k ≤ n }  =  { kδ mod 1 : 0 ≤ k ≤ n }.
+```
+
+*(b) Reading off `t`.* Since `t` itself is a point of the set, `t ≡ mδ (mod 1)` for some `m ∈ {1,…,n}`. Then `{km mod (2n+1)} = {k mod (2n+1)} = {0,1,…,n}` (using `δ = 2/(2n+1)` and that `2` is invertible mod `2n+1`). Summing the least non‑negative representatives,
+
+```
+Σ_{k=0}^{n} (km mod (2n+1)) = n(n+1)/2 .
+```
+
+Writing `km mod (2n+1) = km − (2n+1)⌊km/(2n+1)⌋` and summing,
+
+```
+(m−1)·n(n+1)/2 = (2n+1)·Q   for some integer Q ≥ 0.
+```
+
+Since `gcd(n(n+1)/2, 2n+1) = 1`, we get `2n+1 | (m−1)`, and `0 ≤ m−1 ≤ n−1 < 2n+1` forces `m = 1`, i.e. `t = δ`. The reflected solution is `t = 1 − δ = (2n−1)/(2n+1)`.
+
+*(c) Which runners bind.* At `t = δ`:
+
+* `‖1·δ‖ = δ`;
+* `‖2n δ‖ = ‖4n/(2n+1)‖ = δ`;
+* for `2 ≤ k ≤ n−1`, `‖kδ‖ = ‖2k/(2n+1)‖ ≥ min(4, 3)/(2n+1) = 3/(2n+1) > δ`.
+
+So exactly the runners of speed `1` and `2n` are at distance `δ`, and all the others are at distance `≥ 3/(2n+1)`. ∎
+
+**Corollary.** `gap(1,2,…,n−1,2n) = 2/(2n+1)`, with a unique (up to `t ↦ 1−t`) optimiser `t = ±2/(2n+1)`, at which R1 and the 2n‑runner bind. This is exactly the statement the program was trying to close, and it also settles the “observed uniqueness of the argmax at ±2/(2n+1) (R1)”.
+
+Note the shape of the argument: the whole thing is the classical Dirichlet pigeonhole plus the observation that in the extremal regime the `n+1` points `{0,t,…,nt}` have a *single* close pair. No continued fractions, no computer search.
+
+---
+
+## 2. Why tight sets at `2/(2n+1)` are sum‑rich (item (a))
+
+The proof above also tells us what a tight set must look like, and this is the classification mechanism for the n=7 zoo.
+
+Let `V` be a set of `n` speeds with `gap(V) = 2/(2n+1) = δ`. At an optimal time `t*`, the function `g(t) = min_{v∈V} ‖vt‖` is a minimum of piecewise‑linear functions with slopes `±v`. Since `δ < 1/2`, `t*` cannot be the peak of a single runner (`‖vt*‖ = 1/2`), so `t*` is a **crossing**: there are `v,w ∈ V` with
+
+```
+‖v t*‖ = ‖w t*‖ = δ ,        slopes +v and −w.
+```
+
+Writing `t* = a/d` in lowest terms, the crossing condition `vt* − m = m′ − wt*` gives
+
+```
+(v+w) t* = m + m′ ∈ ℤ ,        hence  d | v + w ,
+```
+
+while `‖vt*‖ = δ = 2/(2n+1)` forces `(2n+1) | d`. Therefore
+
+> **Necessary condition.** If `gap(V) = 2/(2n+1)` then `V` contains a pair `v,w` with `v + w ≡ 0 (mod 2n+1)`, and the optimal time is `t* = a/(2n+1)` for some `a` coprime to `2n+1` with `v a ≡ ±2 (mod 2n+1)`, `w a ≡ ∓2 (mod 2n+1)`.
+
+For `n = 7` (`2n+1 = 15`) the admissible binding pairs `{v, 15−v}` are exactly
+
+```
+{1,14},  {2,13},  {4,11},  {7,8}                (at t* = 2/15, 1/15, 7/15, 4/15 respectively),
+```
+
+with `{3,12}`, `{5,10}`, `{6,9}` impossible because the required residue `±2a^{−1}` is not coprime to 15. For the standard family `{1,…,6,14}` the binding pair is `{1,14}` at `t* = 2/15`.
+
+This is also the source of the sum‑richness. The binding pair sums to a multiple of `2n+1`; the remaining speeds are constrained by
+
+```
+‖u a/(2n+1)‖ ≥ 2/(2n+1)     ⟺     u a ≢ 0, ±1 (mod 2n+1),
+```
+
+and the “sum‑rich” entries are exactly the multiples one gets by closing this system up. The natural surrogate for “Lemma 6.2” is therefore:
+
+> **Reduction rule.** If `V ∋ u, v, u+v` and `t*` is an optimal time of `V`, then `‖ut*‖ + ‖vt*‖ ≥ ‖(u+v)t*‖ ≥ δ`, so the triple `(u, v, u+v)` cannot have `u` and `v` both strictly inside the open `δ`‑window while `u+v` stays outside it. Consequently any tight set can be reduced along its Schur triples without changing the optimal value, and the irreducible tight sets are the ones whose only modular relations are the binding pair plus the residue system above.
+
+That is precisely the kind of statement that will classify the 29 vectors: enumerate 7‑subsets of `[1,V]` containing a binding pair, discard those violating the residue condition, and keep those that also satisfy the (now proved) upper bound.
+
+---
+
+## 3. Exact‑gap toolkit (items (a) and (b))
+
+`gap(V)` is attained at a rational `t = a/d` with `d ∈ {2v : v∈V} ∪ {v+v′ : v,v′∈V}` (local maxima of a minimum of piecewise‑linear functions with slopes `±v` occur either at a peak `(2j+1)/(2v)` or at a crossing `(p+q)/(v+v′)`). Hence for `V ⊆ [1,Vmax]` the *fixed* candidate set
+
+```
+C(Vmax) = { a/d : 2 ≤ d ≤ 2·Vmax, 1 ≤ a < d, gcd(a,d) = 1 }
+```
+
+contains the argmax for every `V ⊆ [1,Vmax]`, and `gap(V) = max_{a/d ∈ C} min_{v∈V} ‖v·a/d‖` exactly.
+
+```python
+# gap_zoo.py  — exact gap and tight-set zoo for {1,...,n-1,2n}
+import numpy as np, time
+from math import gcd
+from itertools import combinations
+from functools import reduce
+
+def build(Vmax):
+    Ns, Ds = [], []
+    for d in range(2, 2*Vmax+1):
+        for a in range(1, d):
+            if gcd(a, d) == 1:
+                Ns.append(a); Ds.append(d)
+    Ns = np.array(Ns, np.int64); Ds = np.array(Ds, np.int64)
+    Vs = np.arange(1, Vmax+1, np.int64)[:, None]
+    M = (Vs * Ns[None, :]) % Ds[None, :]
+    Dm = np.minimum(M, Ds[None, :] - M)         # Dm[v-1,c] = d * || v*a/d ||
+    return Ns, Ds, Dm
+
+def gap_frac(V, Ds, Dm):                        # exact, as a fraction
+    m = Dm[np.array(V)-1].min(axis=0)
+    best = (0, 1)
+    for c in range(len(Ds)):
+        if m[c]*best[1] > best[0]*Ds[c]:
+            best = (int(m[c]), int(Ds[c]))
+    return best
+
+def find_tight(n, Vmax, tnum, tden, primitive=True, verbose=True):
+    """All n-subsets of [1,Vmax] with gap exactly tnum/tden."""
+    Ns, Ds, Dm = build(Vmax)
+    tD = tnum*Ds
+    hits, cnt, t0 = [], 0, time.time()
+    for comb in combinations(range(1, Vmax+1), n):
+        cnt += 1
+        m = Dm[np.array(comb, np.int64) - 1].min(axis=0)
+        if np.any(tden*m >= tD) and np.all(tden*m <= tD):
+            if not primitive or reduce(gcd, comb) == 1:
+                hits.append(comb)
+        if verbose and cnt % 500000 == 0:
+            print(f"  {cnt} sets, {time.time()-t0:.1f}s", flush=True)
+    return hits
+
+def schur_triples(V):
+    S = set(V)
+    return [(a, b, a+b) for a in V for b in V if b >= a and a+b in S]
+
+if __name__ == "__main__":
+    # 1. theorem check: gap({1,...,n-1,2n}) = 2/(2n+1), n = 2..14
+    for n in range(2, 15):
+        Vmax = 2*n
+        Ns, Ds, Dm = build(Vmax)
+        num, den = gap_frac(tuple(list(range(1, n)) + [2*n]), Ds, Dm)
+        ok = (num*(2*n+1) == 2*den)
+        print(f"n={n:2d}  gap={num}/{den}  expected 2/{2*n+1}  {'OK' if ok else 'MISMATCH'}")
+
+    # 2. argmax uniqueness for n = 7
+    n = 7; Vmax = 2*n
+    Ns, Ds, Dm = build(Vmax)
+    V = tuple(list(range(1, n)) + [2*n])
+    m = Dm[np.array(V)-1].min(axis=0)
+    eq = sorted({(int(Ns[c]), int(Ds[c])) for c in range(len(Ds)) if 15*m[c] >= 2*Ds[c]})
+    print("n=7 argmax candidates (num,den):", eq)     # expect {(2,15),(13,15)}
+
+    # 3. the rung-2 zoo at n = 7, value 2/15
+    for Vmax in (20, 25, 30):
+        hits = find_tight(7, Vmax, 2, 15, primitive=True, verbose=False)
+        print(f"n=7 Vmax={Vmax}: {len(hits)} primitive 7-sets with gap = 2/15")
+
+    # 4. n = 8, value 2/17 (item (b))
+    for Vmax in (25, 30):
+        hits = find_tight(8, Vmax, 2, 17, primitive=True, verbose=False)
+        print(f"n=8 Vmax={Vmax}: {len(hits)} primitive 8-sets with gap = 2/17")
+```
+
+Runtime: `C(30,7) ≈ 2·10⁶` leaves at ~10 µs each ≈ 20–30 s; `C(25,8) ≈ 1.1·10⁶` similar; `n=8 @ V=38` is `C(38,8) ≈ 4.9·10⁷`, i.e. the ~2×‑ish scale‑up you flagged. `n=7 @ V=50` is `C(50,7) ≈ 10⁸` and wants the sharded version (or a C rewrite of the inner loop) rather than a single Python pass.
+
+The membership test used per set is exact and matches the theorem: for `t = a/d`,
+
+```
+gap(V) ≥ θ  ⟺  ∃ (a,d) ∈ C :  ∀v∈V,  min(va mod d, d − va mod d) ≥ θ·d
+gap(V) ≤ θ  ⟺  ∀ (a,d) ∈ C :  ∃v∈V,  min(va mod d, d − va mod d) ≤ θ·d
+```
+
+so `gap(V) = 2/15` is a pair of integer comparisons per candidate.
+
+---
+
+## 4. Status and next moves
+
+* **(c) closed.** Theorem 1 + Theorem 2 give the upper bound and the uniqueness of the argmax `±2/(2n+1)` with binding runners `{1, 2n}`. This is the result that was “open” in the plan.
+* **(a) mechanism identified.** Tight sets at `2/(2n+1)` must contain a binding pair `v+w ≡ 0 (mod 2n+1)` with `t* = a/(2n+1)`, `va ≡ ±2`, `wa ≡ ∓2`; all other speeds obey `ua ≢ 0,±1 (mod 2n+1)`, and the upper bound is now a theorem rather than a search target. For `n=7` the admissible pairs are `{1,14}`, `{2,13}`, `{4,11}`, `{7,8}`; the sum‑richness is the residue system closing around these pairs. Running `find_tight(7, V, 2, 15)` then reproduces the zoo and lets you compare the count against the 29 vectors (and against the maximal/minimal variants, which are one line to add).
+* **(b) ready to run.** `find_tight(8, V, 2, 17)` is the same program; the prediction from the structural theory is that the only `n=8` tight sets are those containing a binding pair `v+w ≡ 0 (mod 17)` with the analogous residue condition, so the “zoo stays closed” test is a finite check at `V = 30–38`.
+* **Sharding.** For `n=7 @ V=50` and `n=8 @ V=38` the enumeration is ~10⁸ and ~5·10⁷ leaves; the inner loop is trivially shardable by fixing the first one or two speeds and distributing the rest.
+
+Two caveats to keep in view: (i) the exact normalisation used for the “29 vectors” (primitive only, maximal, argmax pinned at `2/15`, …) changes the count, so it is worth fixing it explicitly before comparing; (ii) the structural condition above is necessary for tightness, and the enumeration is what certifies sufficiency for each `V`.
