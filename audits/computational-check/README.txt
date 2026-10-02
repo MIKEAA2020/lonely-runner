@@ -364,3 +364,50 @@ Reproduction (~12 min total, pure Python, exact fractions):
   python3 chalf_exhaust/lrc_chalf_probe.py            # needs drop_records.jsonl
   for N in 2 3 4 5 6 7; do python3 chalf_exhaust/lrc_exhaust_check.py --size $N; done
   python3 chalf_exhaust/lrc_chalf_patch.py
+
+================================================================================
+diag2/ -- THE TWO DIAGNOSTICS (k=3 residue-proof architecture; deficit-law
+hunt at k=8,9).  See audits/"the two diagnostics.txt" and the standalone
+note audits/"the two diagnostics note.pdf".
+================================================================================
+
+Machinery: lrc_diag_gap.py -- GapEngine, exact gap via the PAIR-SUM
+CANDIDATE THEOREM (argmax attained at t = j/(u+w); proved in the note),
+validated against lrc_gap_lib.gap_int on 2,500 random sets + all committed
+census values.  Deficit bookkeeping d = m(n+1) - b at the reduced argmax.
+
+T2 (k=8,9): exhaustive scans of EVERY n-subset of [1..M], n=3..8 @ M=18,
+n=9 @ M=20 (167,960 sets), n=10 @ M=21 (352,716 sets) -- 627,266 sets
+total, ZERO violations, min gap = 1/(n+1) exactly, pole law + covering
+wall hold at every argmax (0 failures).  Hill-climb (M<=60): 102,122 +
+53,260 evaluations, floor exactly 1/10 and 1/11, zero violations.
+Critical census: non-regular critical sets exist at n=4,5,7
+({1,3,4,7}; {1,3,4,5,9}; {1,2,3,4,5,7,12}; {1,4,5,6,7,11,13}) but NONE at
+n=8,9,10 within M<=60 (targeted hunt lrc_diag_critical_hunt.py; zoo
+tight-8 census at V<=50 = regular multiples only, cross-check).
+
+BRIDGE ATTRIBUTION (lrc_diag_bridge.py): 143,892 would-be-violation
+configs (m(n+1) < b <= n(2m+1)+1) across n=3..10: the ORBIT condition
+(the full b-grid necessary condition, Lemma B of the note) kills a stable
+~94-99% at every size; the residual dies by off-grid pair-sum crossings
+(all winners have D = u+w NOT divisible by b); ZERO realized violations.
+The residual concentrates in the shallow bridge (small m, |d| <= 3).
+
+T1 (k=3): complete residual case book (lrc_diag_casebook.py): 116
+orbit-survivors at n=4 (m<=8, all lifts), 323 at n=5 -- all killed, none
+realized.  DILATION LAW: m=2 survivors are within +1 of 2x-dilations of
+the eight m=1 patterns (20/20); m=3: 10/10; exact dilations carry
+identical witnesses.  TOP-PAIR RESCUE LAW (lrc_diag_rescue.py): the two
+largest residues' pair-sum family beats m/b in 116/116 residual cases at
+n=4 (canonical lift), coverage per-lift 92.8% (n=4) rising to 98.6%
+(n=10); failures always have 2+ backup winning pairs.
+
+Reproduction (fast: n=10 scan 52 s, everything else seconds):
+  python3 lrc_diag_gap.py                                # validation
+  for n in 3 4 5 6 7 8; do python3 lrc_diag_scan.py $n 18 out/scan.json; done
+  python3 lrc_diag_scan.py 9 20 out/scan9.json; python3 lrc_diag_scan.py 10 21 out/scan10.json
+  python3 lrc_diag_climb.py 9 60 60 250 out/climb9.json; python3 lrc_diag_climb.py 10 60 40 200 out/climb10.json
+  python3 lrc_diag_critical_hunt.py out/hunt.json
+  python3 lrc_diag_bridge.py out/bridge.json; python3 lrc_diag_casebook.py out/casebook.json
+  python3 lrc_diag_rescue.py out/rescue.json
+Outputs in diag2/out/*.json.

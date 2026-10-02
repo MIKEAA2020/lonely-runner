@@ -1,0 +1,41 @@
+{
+ "n": 9,
+ "M": 60,
+ "restarts": 60,
+ "steps": 250,
+ "evals": 102122,
+ "bound": "1/10",
+ "best_gap": "1/10",
+ "violations": [],
+ "violation_count": 0,
+ "critical_count": 1,
+ "critical_examples": [
+  [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ]
+ ],
+ "critical_nonregular": [],
+ "critical_nonregular_count": 0,
+ "elite_examples": [
+  [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ]
+ ],
+ "seconds": 20.2
+}

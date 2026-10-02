@@ -1,0 +1,338 @@
+THE TWO DIAGNOSTICS: an independent residue proof attempt at k=3,
+and a counterexample hunt for the deficit law at k=8 and k=9.
+===================================================================
+(continuation of "the C-half attack and exhaustiveness.txt")
+
+Advisor's frame (this turn): the deficit law d = m(k+2) - b at the argmax
+is LRC in residue form; its value is the FRAME (the factor-2 obstruction,
+isolated cleanly), not the statement. Two diagnostics were ordered:
+
+  T1. Prove the deficit law for k = 3 (four speeds) independently of the
+      classical LRC proof. Verdict rule: genuinely shorter / more
+      generalizable => the reformulation has content; re-derivation =>
+      translation, and the factor-2 obstruction is the only new thing.
+
+  T2. Search for a counterexample to the deficit law at k = 8 or 9
+      (nine or ten speeds), where LRC is known (Rosenfeld and
+      Trakulthongchai) but not by residue methods. Outcomes: holds =>
+      consistency check; fails => major finding (bug or counterexample);
+      holds with exceptions => the exceptions are the interesting objects.
+
+  Decision rule: both tests neutral => pivot to the group-language
+  (kernel/character) track.
+
+This audit reports: new machinery (a pair-sum candidate theorem), the
+full T2 sweep (627,266 exhaustive sets + 155,382 adversarial evaluations,
+zero violations), a new experiment (the bridge attribution) that measures
+the tractability gradient of the residue reformulation across n = 3..10,
+the complete residual case book at n = 4 and 5, two new lemmas (orbit,
+divisor) with proofs, a new empirical law (the top-pair rescue) with
+measured coverage 92.8% -> 98.6% (rising) across n = 4..10, and the
+verdict.
+
+
+0. MACHINERY: the pair-sum candidate theorem
+--------------------------------------------
+Let V be a set of n distinct positive speeds, f(t) = min_{v in V} ||v t||,
+gap(V) = max_{t in [0,1)} f(t).
+
+THEOREM (pair-sum candidates). gap(V) is attained at some t0 = j/(u+w)
+with u, w in V and 0 <= j < u + w.
+
+Proof. The max is attained in (0,1) (f vanishes at 0; some t has f(t) > 0).
+At a maximizing t0 = a/b (reduced), let A = {v : ||v t0|| = f(t0)} be the
+active set; near t0, f = min over A only (inactive speeds stay strictly
+above). Since t0 is an interior local max, A cannot consist only of
+up-slope members (residue in (0, b/2): slope +v) nor only of down-slope
+members (residue in (b/2, b): slope -v). If some active v sits at its pole
+(residue b/2) then f(t0) = 1/2 forces every speed to 1/2, and (v + v')t0
+= 1 in Z for every pair, so t0 lies on the (v+v')-grid. Otherwise A
+contains u with residue m0 in (0, b/2) and w with residue b - m0; then
+(u + w)a = m0 + (b - m0) = 0 (mod b), and since gcd(a, b) = 1, b | u + w,
+so t0 = a/b = j/(u + w). QED
+
+Implementation: GapEngine (scripts/lrc_diag_gap.py) evaluates the exact
+gap as a max over the pair-sum families only, with a precomputed dist
+tensor; validated against lrc_gap_lib.gap_int (the repo's Lemma-6.1
+candidate solver with peaks and difference-crossings) on 2,500 random
+sets -- exact agreement on gap values, and every reference argmax time
+satisfies the pair-sum property. All previously committed census values
+reproduce (3/23 for {1,2,3,4,5,7,18}; 5/33 for the N=6 exception
+{1,5,6,11,16,17}; 1/9 for {1..8}; etc.).
+
+Deficit bookkeeping: at a reduced argmax t* = a/b, m = b * gap(V), the
+deficit is d = m(n+1) - b; the deficit law (d >= 0) is equivalent to
+gap(V) >= 1/(n+1), i.e. LRC(n). The choice among tied argmaxes does not
+affect the sign of d (gap = m/b at every argmax).
+
+
+1. TEST 2: the deficit law at k = 8 and k = 9
+----------------------------------------------
+1.1 Exhaustive scans (every n-subset of [1..M]).
+
+  n   M      sets       min gap   violations  d_min  critical(normalized)
+  3   18        816      1/4          0         0     1
+  4   18      3,060      1/5          0         0     2  ({1,2,3,4}, {1,3,4,7})
+  5   18      8,568      1/6          0         0     2  ({1,2,3,4,5}, {1,3,4,5,9})
+  6   18     18,564      1/7          0         0     1
+  7   18     31,824      1/8          0         0     3  (+{1,2,3,4,5,7,12}, {1,4,5,6,7,11,13})
+  8   18     43,758      1/9          0         0     1
+  9   20    167,960      1/10         0         0     1
+ 10   21    352,716      1/11         0         0     1
+
+  Total 627,266 sets. Every violation candidate was re-verified with the
+  independent reference implementation before reporting (none occurred).
+  The pole law (residues attain both m and b - m) and the covering wall
+  (b <= n(2m+1)+1) hold at the argmax of every single set scanned: 0
+  failures for both across all 627,266 sets -- the two theorems of the
+  previous turn now verified at k = 8, 9 scale.
+
+1.2 Adversarial hill-climb (gap-minimizing random-restart search, M <= 60).
+  n = 9: 102,122 evaluations, best = 1/10 (the bound), 0 violations.
+  n = 10: 53,260 evaluations, best = 1/11 (the bound), 0 violations.
+  The search bottoms out exactly at the LRC floor.
+
+1.3 Critical-set hunt beyond the scanned universes.
+  Non-regular critical sets (gap exactly 1/(n+1), gcd-normalized set not
+  equal to {1..n}) exist at n = 4,5,7 inside M = 18 ({1,3,4,7};
+  {1,3,4,5,9}; {1,2,3,4,5,7,12}; {1,4,5,6,7,11,13}) -- all of them are
+  floor-landing extensions of rung-2 / tight cores, the mechanism the drop
+  experiment called tight extensions. A targeted hunt at n = 8, 9, 10
+  (M <= 60; seeds = all critical and rung-2 sets at n-1 and n-2 grown by
+  one or two fillers) found NO non-regular critical set at any of n = 8,
+  9, 10. Cross-check: the zoo's tight-8 census at V <= 50
+  (n8_V50_tight.txt) contains exactly the six regular multiples
+  c*{1..8}, c = 1..6 -- nothing else. The floor at k = 8, 9 is ISOLATED
+  to the regular family in every reachable universe.
+
+1.4 T2 verdict. The deficit law holds with zero violations, zero
+  exceptions, and zero machinery bugs at nine and ten speeds. This is the
+  consistency outcome the advisor anticipated. The interesting object is
+  not an exception but an isolation phenomenon: the non-regular critical
+  sets that populate the floor at n = 4..7 thin out and vanish by n = 8,
+  so at k = 8, 9 the residue-critical configurations are exactly the
+  regular ones -- the "hard instance" census at the floor is a single
+  point. Any proof of the deficit law at k = 8, 9 must essentially only
+  handle the regular configuration and the shallow bridge above it (see
+  Section 2).
+
+
+2. THE BRIDGE ATTRIBUTION: measuring the clothing against the body
+------------------------------------------------------------------
+This new experiment measures, for every n, how much of the would-be
+violation region is closed by the b-grid arithmetic alone (the residue
+"clothing") versus by off-grid crossing structure (the "body").
+
+Setup. The bridge region for size n is m(n+1) < b <= n(2m+1)+1: below it
+the deficit law holds trivially for the configuration, above it the
+covering union bound kills trivially. A bridge CONFIG is a residue set
+R = {m} U interiors U {b - m} (distinct interiors in (m, b-m)) at time
+a/b. Kill levels:
+  L2 (orbit / b-grid): some j in [1, b-1] has min_i dist(j r_i, 0) > m --
+      a violation of the necessary condition of Lemma B below;
+  L3 (off-grid crossings): for every unit s mod b, the canonical lift
+      speeds c_i = s r_i mod b (in [1, b-1]) has gap > m/b;
+  REALIZED: some lift has gap = m/b exactly -- an actual violation.
+
+Results (m in {1,2,3} for n >= 5; m in {1..8} for n = 4; complete
+enumeration up to 500 configs per (m,b), seeded sampling beyond; full
+unit enumeration for n <= 7, 12 sampled units for n >= 8; b <= 80):
+
+  n    configs    L2 kills (share)   L3 kills   realized
+  3       192        186  (96.9%)         6        0
+  4    45,144     45,035  (99.8%)       109        0
+  5    14,075     13,781  (97.9%)       294        0
+  6    22,321     21,535  (96.5%)       786        0
+  7    27,923     26,611  (95.3%)     1,312        0
+  8    10,019      9,448  (94.3%)       571        0
+  9    11,414     10,725  (94.0%)       689        0
+ 10    12,804     12,073  (94.3%)       731        0
+
+  Total 143,892 bridge configs, zero realized.
+
+Findings.
+  (i) STABILITY. The orbit share does not decay with n: ~94% at n = 8, 9,
+      10, the same as at n = 5, 6, 7. The b-grid arithmetic keeps its
+      covering power at every size; what decays is nothing -- the
+      covering wall is simply not where the difficulty lives.
+  (ii) L2 anatomy: ~55% of orbit kills are available at non-units j
+      (gcd(j, b) > 1) -- the divisor lemma below -- and ~45% need unit
+      multipliers.
+  (iii) L3 anatomy: every killing crossing sits on a pair whose sum
+      D = u + w is NOT divisible by b (D = b would put the whole family
+      on the b-grid, capped by the orbit condition; D = 2b is impossible
+      for speeds < b). Winners split between D < b and b < D < 2b roughly
+      evenly; winning values typically lie in (m/b, 2m/b) -- the kills
+      are decisive, not marginal.
+  (iv) The L3 survivors concentrate in the SHALLOW bridge: small m and
+      |d| = b - m(n+1) <= ~3, i.e. near-regular residue patterns. The
+      deep bridge (b near the covering wall) is entirely closed by the
+      orbit condition.
+
+
+3. TEST 1: the residue proof at k = 3 (four speeds)
+---------------------------------------------------
+3.1 The lemma chain (proved).
+
+LEMMA B (orbit lemma). Let t* = a/b be an argmax of f with value m/b and
+residues r_i = v_i a mod b. Then for every j in {1, ..., b-1}:
+min_i dist(j r_i, 0) <= m. Consequently the b - 1 multipliers are covered
+by n sets of size at most 2m + 1, whence b <= n(2m + 1) + 1 (the covering
+wall).
+
+Proof. f((j a / b) mod 1) <= gap = m/b, and ||v_i (j a / b)|| =
+dist(j r_i, 0)/b. QED (two lines; the covering wall is its union-bound
+corollary -- the orbit lemma is strictly stronger, and the 94% figure
+above measures exactly how much stronger it is in the bridge).
+
+LEMMA C (divisor lemma). If d is a proper divisor of b with dm < b, then
+d divides some residue r_i.
+
+Proof. Apply Lemma B at j = b/d: dist((b/d) r_i, 0) = (b/d) (r_i mod d)
+up to reflection, which is <= m iff (r_i mod d) <= dm/b or
+(r_i mod d) >= d - dm/b; both force r_i = 0 (mod d) when dm/b < 1. QED
+
+Example kill: n = 4, b = 12, m = 1. The divisors 2, 3, 4, 6 of 12 must
+each divide one of the residues {1, r, s, 11}; since 11 is prime to 12
+and 1 is trivial, r or s must be divisible by lcm(6, 4) = 12 -- impossible
+inside (1, 11). So b = 12, m = 1 dies before any crossing is examined.
+
+LEMMA D (prime counting). For prime b, each residue r_i covers exactly
+the 2m + 1 multipliers r_i^{-1} {-m, ..., m}; hence b - 1 <= n(2m + 1),
+with equality forcing an exact tiling (an extremely rigid structure).
+
+3.2 The residual case load at n = 4 (complete; m = 1..8, all b in the
+bridge, all configs, all unit lifts). Exactly 116 configs survive the
+orbit lemma. All 116 are killed by off-grid pair-sum crossings; zero are
+realized. The m = 1 layer in full (8 configs, canonical lift, killing
+witness):
+
+  b=6  R={1,2,3,5}   killed at t=1/4  (pair {1,3},  D=4,  value 1/4)
+  b=6  R={1,3,4,5}   killed at t=4/9  (pair {4,5},  D=9,  value 2/9)
+  b=7  R={1,2,3,6}   killed at t=1/4  (pair {1,3},  D=4,  value 1/4)
+  b=7  R={1,2,4,6}   killed at t=3/8  (pair {2,6},  D=8,  value 1/4)
+  b=7  R={1,3,5,6}   killed at t=5/11 (pair {5,6},  D=11, value 3/11)
+  b=7  R={1,4,5,6}   killed at t=4/9  (pair {4,5},  D=9,  value 2/9)
+  b=8  R={1,3,4,7}   killed at t=1/5  (pair {1,4},  D=5,  value 1/5)
+  b=8  R={1,4,5,7}   killed at t=1/3  (pair {1,5},  D=6,  value 1/3)
+
+3.3 The dilation law. The m = 2 survivors (20 of them) are all within +1
+(per gap) of 2x-dilations of the eight m = 1 patterns; the m = 3
+survivors (10) are all within +1 of 3x-dilations; 8 of the 20 at m = 2
+are exact dilations. Exact dilations carry identical witnesses (a
+dilated set is a scaled set; the gap is scale-invariant and the killing
+time divides). So the residual case load is PARAMETRIC in m: eight base
+patterns plus bounded perturbations -- the "consecutive + one
+modification" structure guessed in the previous turn's O1 is confirmed
+and is the whole story at k = 3.
+
+3.4 The top-pair rescue law (new, empirical). For a bridge config
+surviving the orbit lemma, let c_1 < ... < c_n be any unit lift
+(c_i = s r_i mod b). CLAIM: the pair-sum crossing family of the two
+LARGEST speeds (the residues nearest the down-pole b - m) contains a
+time where the envelope exceeds m/b. Measured coverage over all
+orbit-surviving (config, lift) pairs:
+
+  n = 4: 1,798 pairs, coverage 92.8%     n = 8: 5,280 pairs, 97.7%
+  n = 5: 3,006 pairs, coverage 94.9%     n = 9: 6,966 pairs, 98.3%
+  n = 6: 8,208 pairs, coverage 97.1%     n =10: 7,194 pairs, 98.6%
+  n = 7: 15,212 pairs, coverage 97.0%
+
+Coverage RISES with n. At n = 4 on the canonical lift specifically the
+top pair kills 116/116 residual cases; at n = 5 it kills 320/323, and the
+three exceptions fall to the bottom pair / mixed pairs. Whenever the top
+pair fails, there are always at least 2 (typically 3 at n = 4; 5-35 at
+n = 10) other winning pairs: the kill is robust, never a fragile
+witness.
+
+3.5 Assembly status at k = 3. The residue proof architecture is:
+
+    deficit law at n = 4  =  Lemma B (2 lines)
+                          + Lemma C (3 lines)
+                          + top-pair rescue for the 8 base patterns and
+                            their bounded perturbations (one uniform
+                            statement, verified for m <= 8 and all unit
+                            lifts; NOT yet proved in general m).
+
+  Lemmas B and C are proved and n-uniform. The rescue is the single
+  remaining gap. It is exactly where the factor-2 wall re-enters: the
+  shallow-bridge near-dilate configurations are the residue-language
+  image of the hard cases of the classical proofs.
+
+3.6 Honest comparison with the classical proof. The classical proofs of
+  LRC at four speeds (and the Barajas-Serra machinery up to seven) are
+  covering / potential arguments with n-specific case analysis; the
+  pigeonhole content in them is the union bound b <= n(2m+1)+1, which is
+  strictly weaker than Lemma B. The residue chain does not re-derive the
+  classical proof: its two proved lemmas kill 99.8% of the n = 4 bridge
+  without any case analysis, and the residual is a parametric family with
+  a uniform (if unproved) witness rule. HOWEVER: the work that the
+  classical proofs spend on their hard cases is not avoided here -- it is
+  relocated into the single rescue statement. So the honest verdict on
+  T1 is BETWEEN "translation" and "content": the reformulation produces
+  a genuinely different and n-uniform proof ARCHITECTURE with measured
+  covering power (94-99.8%), but completing it requires proving the
+  rescue law, which is precisely the factor-2 obstruction in disguise.
+
+
+4. VERDICT AND RECOMMENDATION
+-----------------------------
+T1: not a pure translation (the orbit lemma is strictly stronger than
+classical covering and kills what covering cannot reach; the divisor
+lemma and the top-pair rescue law have no classical counterpart; the
+residual is parametric, not explosive). Not a completed proof either
+(the rescue law is empirical). The factor-2 wall is LOCALIZED -- to the
+shallow bridge, |d| <= ~3, near-regular residue patterns -- not removed.
+
+T2: clean hold at k = 8 and 9 (627,266 exhaustive sets, 155,382
+adversarial evaluations, 143,892 bridge configs: zero violations, zero
+exceptions), plus the isolation census: at n >= 8 the floor belongs to
+the regular family alone.
+
+The clothing/body measurement: the residue clothing closes ~94% of the
+body at every size n = 3..10; the remaining ~6% -- the shallow bridge --
+is where LRC actually lives in this language, and it is a thin, highly
+structured set (near-dilates of eight base patterns at n = 4).
+
+Recommendation. The advisor's decision rule (both neutral => pivot) is
+not quite triggered: the tests returned "mildly positive, unproved".
+Two moves are now well-posed, in order:
+
+  R1 (one bounded residue-track mile): prove the top-pair rescue lemma.
+      It is a single uniform statement with 92.8-98.6% measured support,
+      a clean failure structure (2+ backup witnesses always exist), and
+      it would complete the k = 3 proof and give the architecture for
+      k = 4, 5. The statement to attack: for a bridge config with
+      residues c_1 < ... < c_n < b (any unit lift), the family
+      {j / (c_{n-1} + c_n)} contains t with min_i ||c_i t|| > m/b.
+
+  R2 (the pivot, sharpened): the orbit lemma is itself a covering
+      statement in the group language: "the dilates jR of the residue
+      set always meet the arc [-m, m]". This is exactly the covering
+      formulation of the kernel dictionary (bridge prospectus, Step 1).
+      So the group-language track and the residue track MEET at Lemma B:
+      additive-combinatorial bounds on multiplicative covering of arcs in
+      Z_b would simultaneously strengthen the orbit lemma and import the
+      dictionary's first inequality. The pivot is therefore not a
+      departure but a continuation by other means, aimed at the shallow
+      bridge.
+
+  Suggested division: attempt R1 as a bounded side quest; make R2 the
+  main line, carrying the bridge census (this audit, Section 2) as the
+  target map.
+
+
+5. REPRODUCTION
+---------------
+scripts (all in scripts/, mirrored to computational-check/diag2/):
+  lrc_diag_gap.py          engine + validation (vs lrc_gap_lib.gap_int)
+  lrc_diag_scan.py         exhaustive scans (args: n M out.json)
+  lrc_diag_climb.py        adversarial hill-climb (args: n M r s out)
+  lrc_diag_critical_hunt.py targeted critical-set hunt
+  lrc_diag_bridge.py       bridge attribution (orbit vs off-grid kills)
+  lrc_diag_casebook.py     complete residual case book n=4,5
+  lrc_diag_rescue.py       top-pair rescue coverage n=4..10
+outputs: scripts/out/diag2_*.json (scan, climb, critical_hunt, bridge,
+casebook, rescue). Runtimes: scans 0.2-52 s per n; everything else < 10 s.
+Exact rational arithmetic throughout; every violation flag (if any) is
+double-verified with the independent reference solver before reporting.

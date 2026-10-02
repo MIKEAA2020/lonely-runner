@@ -1,0 +1,450 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=darkgray,
+  urlcolor=blue!55!black,
+  bookmarks=true,
+  bookmarksnumbered=true,
+  unicode=true
+]{hyperref}
+
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\gap}{\operatorname{gap}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\hypersetup{
+  pdftitle={The Two Diagnostics: Residue Proof Architecture at k=3 and the Deficit Law at k=8,9},
+  pdfauthor={MIKEAA2020},
+  pdfsubject={Lonely Runner Conjecture, deficit law, bridge attribution, orbit lemma, top-pair rescue},
+  pdfkeywords={lonely runner, deficit law, orbit lemma, divisor lemma, top-pair rescue, bridge attribution}
+}
+
+\begin{document}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}\label{sec:intro}
+
+For a finite set $V$ of $n$ distinct positive integer speeds, the loneliness of $V$ is
+\[
+  \gap(V) \;=\; \max_{t \in [0,1)} \; \min_{v \in V} \norm{v t},
+\]
+where $\norm{x}$ denotes the distance from $x$ to the nearest integer. The Lonely Runner
+Conjecture (LRC) asserts $\gap(V) \ge 1/(n+1)$ for every $V$. In the preceding audit
+(``the C-half attack and exhaustiveness''), the program reduced LRC, conditionally on a
+decomposition exhaustiveness statement, to the \emph{deficit law}: at a reduced argmax
+$t^{*} = a/b$ of $f_V(t) = \min_v \norm{v t}$, with $m = b \cdot \gap(V)$, the integer
+\[
+  d \;=\; m(n+1) - b
+\]
+satisfies $d \ge 0$. The deficit law is equivalent to $\gap(V) \ge 1/(n+1)$; it is LRC in
+residue form. Its empirical status was: verified with zero violations on $20{,}804 + 297$
+crossings of the drop experiment, not proved; the covering argument of the previous turn
+reaches only $b \le n(2m+1)+1$, a factor-$2$ short of the target $b \le m(n+1)$.
+
+The advisor's assessment of that turn isolated the value of the program in the
+\emph{frame} --- the clean statement of the factor-$2$ obstruction --- and prescribed two
+diagnostics, which this note executes completely.
+
+\begin{enumerate}[label=\textbf{D\arabic*.}, leftmargin=*]
+\item \textbf{Independent residue proof at $k = 3$.} Attempt to prove the deficit law for
+four speeds by residue methods, without importing the classical LRC proof. If the proof
+is genuinely shorter or more generalizable, the reformulation has content; if it merely
+re-derives the classical argument, the reformulation is a translation and the factor-$2$
+obstruction is the only new thing.
+\item \textbf{Counterexample hunt at $k = 8, 9$.} Search for violations of the deficit
+law at nine and ten speeds, where LRC is known (Rosenfeld and Trakulthongchai) but not by
+residue methods. A failure would be a major finding (bug or counterexample); exceptions,
+if any, would be the interesting objects.
+\end{enumerate}
+
+Between the two diagnostics we interpose a new experiment, the \emph{bridge attribution}
+(Section~\ref{sec:bridge}), which measures --- for every $n = 3, \dots, 10$ --- how much
+of the would-be-violation region is closed by the $b$-grid residue arithmetic alone, and
+how much requires the off-grid crossing structure. This measurement is what turns the
+``clothing versus body'' question into a number.
+
+All computations use exact rational arithmetic. Every would-be violation flagged by the
+fast engine is re-verified with the repository's independent reference solver
+(\texttt{lrc\_gap\_lib.gap\_int}, the Lemma-6.1 candidate implementation) before being
+reported. Reproduction details are collected in Section~\ref{sec:repro}.
+
+\section{The pair-sum candidate theorem}\label{sec:machinery}
+
+The engine behind both diagnostics rests on a sharpened form of the candidate theorem.
+
+\begin{theorem}[pair-sum candidates]\label{thm:pairsum}
+Let $V$ be a set of $n \ge 2$ distinct positive speeds. The maximum of
+$f_V(t) = \min_{v \in V} \norm{v t}$ over $[0,1)$ is attained at some $t_0 = j/(u+w)$
+with $u, w \in V$ and $0 \le j < u + w$.
+\end{theorem}
+
+\begin{proof}
+The maximum is positive and attained in the open interval $(0,1)$: $f(0) = 0$, and $f$
+is strictly positive at, e.g., an odd multiple of $1/(2v)$ minus an epsilon avoiding
+the finitely many zeros of the other speeds. Let $t_0 = a/b$ (in lowest terms) be a
+maximizing point and $A = \{v \in V : \norm{v t_0} = f_V(t_0)\}$ the active set. In a
+neighborhood of $t_0$ the inactive speeds stay strictly above $f_V(t_0)$, so locally
+$f_V = \min_{v \in A} \norm{v t}$.
+
+Suppose first that some $v \in A$ sits at its pole, i.e.\ $v t_0 \equiv 1/2 \pmod 1$.
+Then $f_V(t_0) = 1/2$ forces $\norm{v' t_0} \ge 1/2$, hence $= 1/2$, for every
+$v' \in V$; thus $(v + v') t_0 \equiv 0 \pmod 1$ for every pair, and $t_0$ lies on the
+$(v+v')$-grid.
+
+Otherwise all members of $A$ are smooth at $t_0$ with signs determined by their residues
+$v a \bmod b$: residue in $(0, b/2)$ gives slope $+v$, residue in $(b/2, b)$ gives slope
+$-v$. An interior local maximum cannot have all active slopes of one sign (all $+$
+admits an increase to the right; all $-$ admits an increase to the left). Hence $A$
+contains $u$ with residue $m_0 \in (0, b/2)$ and $w$ with residue $b - m_0$, where
+$m_0 = b \cdot f_V(t_0)$. Then
+\[
+  (u + w) a \;\equiv\; m_0 + (b - m_0) \;\equiv\; 0 \pmod b .
+\]
+Since $\gcd(a, b) = 1$, we get $b \mid u + w$, so $t_0 = a/b = j/(u+w)$ with
+$j = a (u+w)/b$.
+\end{proof}
+
+\begin{remark}
+The peak candidates $\mathrm{odd}/(2v)$ and the difference-crossings $j/(w - u)$ of the
+Lemma-6.1 candidate list never carry a strict maximum alone: peaks force the all-poles
+case, which is on a pair-sum grid, and difference-crossings pair equal residues, i.e.\
+equal slopes, which cannot bound a local maximum from both sides. The theorem was
+validated empirically: on $2{,}500$ random sets the pair-sum-only engine agrees exactly
+with the reference implementation, and every reference argmax time satisfies the
+pair-sum property.
+\end{remark}
+
+The engine (\texttt{GapEngine}) precomputes the distance tensor
+$T[j, D, v] = \min(vj \bmod D,\; D - vj \bmod D)$ over all pair sums $D \le 2M + 1$ and
+reduces each evaluation to a gather and two reductions; it processes $10^5$--$10^6$
+exact gap evaluations per minute on two cores.
+
+\section{Diagnostic 2: the deficit law at nine and ten speeds}\label{sec:t2}
+
+\subsection{Exhaustive scans}
+
+Every $n$-subset of $[1..M]$ was scanned with the exact engine. Table~\ref{tab:scan}
+summarizes the outcome.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrrrl}
+\toprule
+$n$ & $M$ & sets & $\min \gap$ & violations & $d_{\min}$ & critical sets (normalized) \\
+\midrule
+3 & 18 & 816 & $1/4$ & 0 & 0 & 1 \\
+4 & 18 & 3{,}060 & $1/5$ & 0 & 0 & 2 \\
+5 & 18 & 8{,}568 & $1/6$ & 0 & 0 & 2 \\
+6 & 18 & 18{,}564 & $1/7$ & 0 & 0 & 1 \\
+7 & 18 & 31{,}824 & $1/8$ & 0 & 0 & 3 \\
+8 & 18 & 43{,}758 & $1/9$ & 0 & 0 & 1 \\
+9 & 20 & 167{,}960 & $1/10$ & 0 & 0 & 1 \\
+10 & 21 & 352{,}716 & $1/11$ & 0 & 0 & 1 \\
+\bottomrule
+\end{tabular}
+\caption{Exhaustive deficit-law scans: $627{,}266$ sets, zero violations. ``Critical
+sets'' are gcd-normalized sets achieving $\gap = 1/(n+1)$ exactly. At $n = 4, 5, 7$
+they are $\{1,\dots,n\}$ plus $\{1,3,4,7\}$, $\{1,3,4,5,9\}$,
+$\{1,2,3,4,5,7,12\}$, $\{1,4,5,6,7,11,13\}$.}
+\label{tab:scan}
+\end{table}
+
+Two structural laws of the previous turn were re-verified at the argmax of every single
+set: the \emph{pole law} (the residues $v_i a \bmod b$ attain both $m$ and $b - m$) and
+the \emph{covering wall} $b \le n(2m+1) + 1$: zero failures across all $627{,}266$ sets,
+including all $520{,}676$ sets at nine and ten speeds.
+
+\subsection{Adversarial search and critical isolation}
+
+A gap-minimizing random-restart hill-climb with plateau walks ($M \le 60$) performed
+$102{,}122$ evaluations at $n = 9$ and $53{,}260$ at $n = 10$: the search bottoms out at
+exactly $1/10$ and $1/11$ respectively, with zero violations.
+
+The critical census deserves its own statement. Non-regular critical sets (gap exactly
+$1/(n+1)$, normalized set $\ne \{1, \dots, n\}$) exist at $n = 4, 5, 7$ inside $M = 18$;
+each is a floor-landing extension of a rung-2 or tight core, the mechanism the drop
+experiment called a tight extension. A targeted hunt at $n = 8, 9, 10$ (growing all
+critical and rung-2 seeds at $n-1$ and $n-2$ by one or two fillers, $M \le 60$) found
+\emph{no} non-regular critical set; the repository's tight-8 census at $V \le 50$
+independently contains exactly the six regular multiples $c\{1,\dots,8\}$. The floor at
+$k = 8, 9$ is isolated to the regular family.
+
+\begin{remark}[isolation]
+The thinning of the critical census with $n$ is the $k = 8, 9$ analogue of the
+``exception'' question in D2: the deficit law holds with no exceptions, and the class
+of extremal configurations shrinks to a single point. Any proof of the deficit law at
+these sizes must, in residue terms, handle only the regular configuration and the
+shallow bridge above it (Section~\ref{sec:bridge}).
+\end{remark}
+
+\section{The bridge attribution: clothing versus body, measured}\label{sec:bridge}
+
+The \emph{bridge region} for size $n$ is
+\[
+  m(n+1) \;<\; b \;\le\; n(2m+1) + 1 :
+\]
+below it the deficit law holds trivially for a configuration; above it the covering
+union bound kills trivially. The bridge is where the factor-$2$ obstruction lives. A
+\emph{bridge configuration} is a residue set
+$R = \{m\} \cup \{\text{interiors}\} \cup \{b - m\}$ at time $a/b$, with distinct
+interiors in $(m, b - m)$. Each configuration is tested at three levels:
+\begin{itemize}[leftmargin=*]
+\item \textbf{L2 (orbit / $b$-grid):} some $j \in [1, b-1]$ has
+$\min_i \dist(j r_i, 0) > m$ --- a violation of the necessary condition of Lemma~B
+below;
+\item \textbf{L3 (off-grid crossings):} for every unit $s \bmod b$, the canonical lift
+$c_i = s\,r_i \bmod b \in [1, b-1]$, viewed as a speed set, has $\gap > m/b$;
+\item \textbf{realized:} some lift has $\gap = m/b$ exactly --- an actual violation of
+the deficit law.
+\end{itemize}
+
+Table~\ref{tab:bridge} gives the kill profile across $n = 3, \dots, 10$ ($m \in \{1,2,3\}$
+for $n \ge 5$, $m \in \{1,\dots,8\}$ at $n = 4$; complete enumeration up to 500
+configurations per $(m, b)$, seeded sampling beyond; all units for $n \le 7$, 12 sampled
+units for $n \ge 8$; $b \le 80$).
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrr}
+\toprule
+$n$ & configs & L2 orbit kills & L3 off-grid kills & realized \\
+\midrule
+3 & 192 & 186 \; (96.9\%) & 6 & 0 \\
+4 & 45{,}144 & 45{,}035 \; (99.8\%) & 109 & 0 \\
+5 & 14{,}075 & 13{,}781 \; (97.9\%) & 294 & 0 \\
+6 & 22{,}321 & 21{,}535 \; (96.5\%) & 786 & 0 \\
+7 & 27{,}923 & 26{,}611 \; (95.3\%) & 1{,}312 & 0 \\
+8 & 10{,}019 & 9{,}448 \; (94.3\%) & 571 & 0 \\
+9 & 11{,}414 & 10{,}725 \; (94.0\%) & 689 & 0 \\
+10 & 12{,}804 & 12{,}073 \; (94.3\%) & 731 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Bridge attribution: $143{,}892$ would-be-violation configurations. The
+$b$-grid necessary condition (the residue ``clothing'') kills a stable $\sim$94--99\%
+of the bridge at every size; the residue of the residual concentrates in the shallow
+bridge (small $m$, $|d| \le 3$).}
+\label{tab:bridge}
+\end{table}
+
+Three findings. First, \emph{stability}: the orbit share does not decay with $n$; the
+$b$-grid arithmetic keeps its covering power at every size. Second, \emph{L2 anatomy}:
+about 55\% of orbit kills are available at non-unit multipliers (the divisor lemma,
+Lemma~C below), the rest need unit multipliers. Third, \emph{L3 anatomy}: every killing
+crossing sits on a pair whose sum $D = u + w$ is not divisible by $b$ (a pair with
+$D = b$ lies wholly on the $b$-grid and is capped by the orbit condition; $D = 2b$ is
+impossible for speeds below $b$); winners split between $D < b$ and $b < D < 2b$ roughly
+evenly, and winning values typically lie in $(m/b,\, 2m/b)$: the kills are decisive.
+The L3 survivors concentrate in the \emph{shallow bridge} --- small $m$ and
+$|d| = b - m(n+1) \le 3$ --- which is to say: near-regular residue patterns. The deep
+bridge is entirely closed by the orbit condition.
+
+\section{Diagnostic 1: the residue proof architecture at \texorpdfstring{$k=3$}{k=3}}\label{sec:t1}
+
+\subsection{Two lemmas with proofs}
+
+\begin{lemma}[orbit]\label{lem:orbit}
+Let $t^{*} = a/b$ be an argmax of $f_V$ with value $m/b$ and residues
+$r_i = v_i a \bmod b$. Then for every $j \in \{1, \dots, b-1\}$,
+\[
+  \min_i \dist\!\big(j\, r_i,\; 0\big) \;\le\; m .
+\]
+Consequently $\bigcup_i \{\, j : \dist(j r_i, 0) \le m \,\} \supseteq \{1, \dots, b-1\}$
+and therefore $b \le n(2m+1) + 1$.
+\end{lemma}
+
+\begin{proof}
+For every time $t$, $f_V(t) \le \gap(V) = m/b$. Apply this at $t = (j a / b) \bmod 1$:
+$\norm{v_i \, j a / b} = \dist(j r_i, 0)/b$, so $\min_i \dist(j r_i, 0)/b \le m/b$.
+The second statement is the union bound over the $n$ sets
+$\{j : \dist(j r_i, 0) \le m\}$, each of size at most $2m+1$.
+\end{proof}
+
+The union-bound corollary is the covering wall of the previous turn; Lemma~\ref{lem:orbit}
+itself is strictly stronger, and Table~\ref{tab:bridge} measures by exactly how much:
+the wall leaves the entire bridge open, while the pointwise orbit condition closes
+$\sim$94\% of it.
+
+\begin{lemma}[divisor]\label{lem:divisor}
+Let $d$ be a proper divisor of $b$ with $dm < b$. Then $d$ divides some residue $r_i$.
+\end{lemma}
+
+\begin{proof}
+Apply Lemma~\ref{lem:orbit} at $j = b/d$. Writing $\rho_i = r_i \bmod d$, we have
+$(b/d) r_i \equiv (b/d)\rho_i \pmod b$, so $\dist((b/d) r_i, 0) = (b/d) \cdot
+\min(\rho_i, d - \rho_i)$. For this to be at most $m$ we need
+$\rho_i \le dm/b$ or $\rho_i \ge d - dm/b$; under $dm/b < 1$ both force $\rho_i = 0$.
+\end{proof}
+
+\begin{example}
+At $n = 4$, $b = 12$, $m = 1$: the divisors $2, 3, 4, 6$ of $12$ must each divide one of
+the residues $\{1, r, s, 11\}$; since $11$ is coprime to $12$, one of $r, s$ must be
+divisible by $\operatorname{lcm}(4, 6) = 12$ --- impossible inside $(1, 11)$. The
+configuration dies before any crossing is examined.
+\end{example}
+
+\begin{lemma}[prime counting]\label{lem:prime}
+If $b$ is prime, each residue $r_i$ covers exactly the $2m+1$ multipliers
+$r_i^{-1}\{-m, \dots, m\}$; hence $b - 1 \le n(2m+1)$, and equality forces an exact
+tiling of $\Z_b^{\times}$ by the reflected inverse pairs $\pm r_i^{-1}$.
+\end{lemma}
+
+\subsection{The residual case load, completely enumerated}
+
+At $n = 4$ with $m = 1, \dots, 8$, all bridge values of $b$, and all configurations:
+exactly \textbf{116} configurations survive the orbit lemma. All 116 are killed by
+off-grid pair-sum crossings of their canonical lifts; none is realized. The $m = 1$
+layer, in full, with killing witnesses:
+\[
+\begin{array}{lllll}
+b=6:\ \{1,2,3,5\} & t = 1/4 & (u,w) = (1,3), & \text{value } 1/4; &
+\{1,3,4,5\} \quad t = 4/9 \\
+b=7:\ \{1,2,3,6\} & t = 1/4 & (u,w) = (1,3), & \text{value } 1/4; &
+\{1,2,4,6\} \quad t = 3/8 \\
+b=7:\ \{1,3,5,6\} & t = 5/11 & (u,w) = (5,6), & \text{value } 3/11; &
+\{1,4,5,6\} \quad t = 4/9 \\
+b=8:\ \{1,3,4,7\} & t = 1/5 & (u,w) = (1,4), & \text{value } 1/5; &
+\{1,4,5,7\} \quad t = 1/3
+\end{array}
+\]
+(every value exceeds the target $m/b = 1/6, \dots, 1/8$ by at least a factor
+$3/2$). The case count is completed by two structural laws.
+
+\paragraph{The dilation law.}
+The 20 survivors at $m = 2$ are all within $+1$ (per gap) of $2\times$-dilations of the
+eight $m = 1$ patterns; the 10 survivors at $m = 3$ are all within $+1$ of
+$3\times$-dilations; 8 of the 20 at $m = 2$ are exact dilations. Exact dilations carry
+identical witnesses (a dilated set is a scaled set, the gap is scale-invariant, and the
+killing time divides). The residual case load is therefore \emph{parametric} in $m$:
+eight base patterns plus bounded perturbations --- the ``consecutive plus one
+modification'' structure guessed in the previous turn's open problem O1 is confirmed and
+is the whole story at $k = 3$.
+
+\paragraph{The top-pair rescue law.}
+For a bridge configuration surviving the orbit lemma, let $c_1 < \dots < c_n$ be any
+unit lift. Claim: the pair-sum crossing family of the two \emph{largest} speeds (the
+residues nearest the down-pole $b - m$) contains a time at which the envelope exceeds
+$m/b$. Measured coverage over all orbit-surviving (configuration, lift) pairs:
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+$n$ & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\midrule
+(config, lift) pairs & 1{,}798 & 3{,}006 & 8{,}208 & 15{,}212 & 5{,}280 & 6{,}966 & 7{,}194 \\
+top-pair coverage & 92.8\% & 94.9\% & 97.1\% & 97.0\% & 97.7\% & 98.3\% & 98.6\% \\
+\bottomrule
+\end{tabular}
+\caption{Top-pair rescue coverage, rising with $n$. On the canonical lift the top pair
+kills $116/116$ residual cases at $n = 4$ and $320/323$ at $n = 5$; the three exceptions
+fall to bottom and mixed pairs. Whenever the top pair fails, at least two (typically
+three at $n = 4$; five to thirty-five at $n = 10$) other winning pairs exist.}
+\label{tab:rescue}
+\end{table}
+
+\subsection{Assembly status and the honest comparison}
+
+The residue proof architecture at $k = 3$ is:
+\[
+\text{deficit law at } n = 4
+\;=\; \underbrace{\text{Lemma~\ref{lem:orbit}}}_{2 \text{ lines}}
+\;+\; \underbrace{\text{Lemma~\ref{lem:divisor}}}_{3 \text{ lines}}
+\;+\; \text{top-pair rescue,}
+\]
+where the last term is the top-pair rescue for eight base patterns and their bounded
+perturbations.
+The first two lemmas are proved and $n$-uniform. The rescue is the single remaining gap:
+one uniform statement, verified for $m \le 8$ and all unit lifts at $n = 4$, and with
+the measured coverage of Table~\ref{tab:rescue} at every size.
+
+Compared with the classical proofs at four speeds (and the Barajas--Serra machinery up
+to seven), which are covering/potential arguments with $n$-specific case analysis whose
+pigeonhole content is the union bound $b \le n(2m+1)+1$: the residue chain does not
+re-derive them. Its two proved lemmas kill $99.8\%$ of the $n = 4$ bridge with no case
+analysis at all, and the residual is a parametric family with a uniform witness rule
+that has no classical counterpart. But the work is not avoided --- it is relocated into
+the single rescue statement, which is precisely the factor-$2$ obstruction in disguise.
+The verdict on D1 is therefore \emph{between} ``translation'' and ``content'': the
+reformulation yields a genuinely different, $n$-uniform proof \emph{architecture} with
+measured covering power, and it localizes the difficulty to a thin, highly structured
+set --- but completing the proof requires proving the rescue law.
+
+\section{Verdict and recommendation}\label{sec:verdict}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{D1 (residue proof at $k=3$): not a pure translation, not a proof.} The
+orbit lemma is strictly stronger than classical covering (it kills what the union bound
+cannot reach); the divisor lemma and the top-pair rescue law are new; the residual is
+parametric. The factor-$2$ wall is \emph{localized} --- to the shallow bridge,
+$|d| \le 3$, near-regular residue patterns --- not removed.
+\item \textbf{D2 (counterexample hunt at $k = 8, 9$): clean hold.} $627{,}266$
+exhaustive sets, $155{,}382$ adversarial evaluations, $143{,}892$ bridge
+configurations: zero violations, zero exceptions, zero machinery discrepancies. The
+floor at $n \ge 8$ is regular-isolated.
+\item \textbf{Clothing versus body:} the residue clothing closes $\sim$94\% of the body
+at \emph{every} size $n = 3, \dots, 10$; the remaining $\sim$6\% --- the shallow bridge
+--- is where LRC actually lives in this language.
+\end{itemize}
+
+The advisor's decision rule (both tests neutral $\Rightarrow$ pivot) is not quite
+triggered: the tests returned mildly positive but unproved. Two moves are now
+well-posed.
+
+\paragraph{R1 (one bounded residue-track mile).} Prove the top-pair rescue lemma: for a
+bridge configuration with residues $c_1 < \dots < c_n < b$ (any unit lift), the family
+$\{j/(c_{n-1} + c_n)\}$ contains $t$ with $\min_i \norm{c_i t} > m/b$. Success completes
+the $k = 3$ proof and gives the architecture for $k = 4, 5$.
+
+\paragraph{R2 (the pivot, sharpened).} The orbit lemma is itself a covering statement in
+the group language: \emph{the dilates $jR$ of the residue set always meet the arc
+$[-m, m]$}. This is exactly the covering formulation of the kernel dictionary (bridge
+prospectus, Step 1). The group-language track and the residue track therefore meet at
+Lemma~\ref{lem:orbit}: additive-combinatorial bounds on multiplicative covering of arcs
+in $\Z_b$ would simultaneously strengthen the orbit lemma and import the dictionary's
+first inequality. The pivot is a continuation by other means, aimed at the shallow
+bridge, with Table~\ref{tab:bridge} as the target map.
+
+\section{Reproduction}\label{sec:repro}
+
+All scripts live in \texttt{scripts/} (mirrored to \texttt{computational-check/} \allowbreak
+\texttt{diag2/}) with outputs in \texttt{scripts/out/} \allowbreak
+\texttt{diag2\_*.json}: \texttt{lrc\_diag\_gap.py} (engine + validation),
+\texttt{lrc\_diag\_scan.py} (exhaustive scans), \texttt{lrc\_diag\_climb.py}
+(adversarial hill-climb), \texttt{lrc\_diag\_critical\_hunt.py} (critical-set hunt),
+\texttt{lrc\_diag\_bridge.py} (bridge attribution), \texttt{lrc\_diag\_casebook.py}
+(complete residual case book at $n = 4, 5$), \texttt{lrc\_diag\_rescue.py} (top-pair
+rescue coverage). Runtimes: the $n = 10$ scan is $52$~s; everything else runs in
+seconds to a minute on two cores; exact rational arithmetic throughout.
+
+\end{document}

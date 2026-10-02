@@ -1,0 +1,56 @@
+{
+ "8": {
+  "seeds_from": 17,
+  "extensions_checked": 10547,
+  "nonregular_critical": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ]
+  ],
+  "nonregular_critical_count": 1
+ },
+ "9": {
+  "seeds_from": 16,
+  "extensions_checked": 14092,
+  "nonregular_critical": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  ],
+  "nonregular_critical_count": 1
+ },
+ "10": {
+  "seeds_from": 9,
+  "extensions_checked": 8109,
+  "nonregular_critical": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  ],
+  "nonregular_critical_count": 1
+ }
+}
