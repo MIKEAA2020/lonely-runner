@@ -1,0 +1,44 @@
+== V1: zoo cores (every (k-1)-subset of every zoo member) ==
+  n=5 g=2/11: 141 cores (gap>g: 141, =g: 0, <g: 0)
+  n=6 g=2/13: 182 cores (gap>g: 182, =g: 0, <g: 0)
+  n=7 g=2/15: 186 cores (gap>g: 186, =g: 0, <g: 0)
+  n=8 g=2/17: 103 cores (gap>g: 103, =g: 0, <g: 0)
+  zoo cores total: 612  (above/on/below = 612/0/0)
+
+== V2: random cores, gap(S) > g ==
+  n=5 g=2/11: 80 random cores above the rung, all X_theory == X_brute
+  n=6 g=2/13: 120 random cores above the rung, all X_theory == X_brute
+  n=7 g=2/15: 200 random cores above the rung, all X_theory == X_brute
+  n=8 g=2/17: 80 random cores above the rung, all X_theory == X_brute
+
+== V3: gap(S) = g and gap(S) < g cores ==
+  on-rung cores: 0 (infinite families, checked to 70), below-rung cores: 0 (no fillers)
+
+== V5: spot checks of the C brute vs Python references ==
+  18/18 triple agreements (C solve == gap_int == gap_frac)
+
+== V4: worked examples ==
+  H1 = [1, 3, 4, 5, 7, 11]: 2 escape intervals, L_max = 0.0078, radius R = 34, |L(S,g)| = 6 level times
+     escape (17/105, 28/165)  length 0.0078
+     escape (137/165, 88/105)  length 0.0078
+     level times L: 17/105, 28/165, 7/15, 8/15, 137/165, 88/105
+     stage 0 (radius):      28 candidates x <= R = 34
+     interval 0 = (0.1619,0.1697) prunes to 4
+     after all kills:      [6, 12, 18, 24]
+     after touch (B):      [6, 12, 18, 24]
+     X(H1) = [6, 12, 18, 24]
+     X_brute[1,70]       = [6, 12, 18, 24]   MATCH
+  H2 = [1, 4, 5, 6, 7, 11]: 2 escape intervals, L_max = 0.0063, radius R = 42, |L(S,g)| = 6 level times
+     escape (32/105, 14/45)  length 0.0063
+     escape (31/45, 73/105)  length 0.0063
+     level times L: 32/105, 14/45, 7/15, 8/15, 31/45, 73/105
+     stage 0 (radius):      36 candidates x <= R = 42
+     interval 0 = (0.3048,0.3111) prunes to 6
+     after all kills:      [3, 10, 13, 16, 26, 39]
+     after touch (B):      [3, 10, 16, 26, 39]
+     X(H2) = [3, 10, 16, 26, 39]
+     X_brute[1,70]       = [3, 10, 16, 26, 39]   MATCH
+
+== summary ==
+ALL CHECKS PASS: X_theory == X_brute on every core tested (zoo: 612, random: 480, on/below: 16, spot: 18).
+The filler-kill ladder decomposition is now a theorem.

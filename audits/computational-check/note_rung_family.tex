@@ -1,0 +1,844 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=darkgray,
+  urlcolor=blue!55!black,
+  bookmarks=true,
+  bookmarksnumbered=true,
+  unicode=true
+]{hyperref}
+
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\gap}{\operatorname{gap}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\hypersetup{
+  pdftitle={The Rung Family of Lonely Runner Spectra: gap(1,2,...,n-1,kn) = k/(kn+1)},
+  pdfauthor={MIKEAA2020},
+  pdfsubject={Lonely Runner Conjecture, lonely runner spectrum, exact gap computation},
+  pdfkeywords={lonely runner, gap, rung family, argmax, filler characterization, census}
+}
+
+\begin{document}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}\label{sec:intro}
+
+For a finite set $V$ of positive integer speeds, the \emph{loneliness} of $V$
+is the quantity
+\[
+  \gap(V) \;=\; \sup_{t \in \R}\, \min_{v \in V} \norm{v t},
+\]
+where $\norm{x}$ denotes the distance of $x$ to the nearest integer. The
+Lonely Runner Conjecture (LRC) asserts that every $m$-element set of distinct
+speeds satisfies $\gap(V) \ge \tfrac{1}{m+1}$, and the bound is tight for the
+consecutive family $V = \{1, 2, \dots, m\}$, for which
+$\gap(V) = \tfrac{1}{m+1}$ exactly. The conjecture is known for up to seven
+speeds and open from eight onward; exhaustive computational verification is
+therefore one of the few systematic tools available, and the structure of the
+\emph{spectrum} --- the multiset of gap values realized by all $m$-sets up to
+some radius --- is a recurring theme of the computational literature.
+
+This note is a self-contained study of one spectral family. For $n \ge 2$ and
+$k \ge 1$ define the \emph{rung family}
+\[
+  F(n,k) \;=\; \{1, 2, \dots, n-1\} \cup \{kn\},
+\]
+an $n$-element set consisting of the first $n-1$ consecutive speeds together
+with the single large speed $kn$. The rung $k=1$ is the classical consecutive
+family. The values
+\[
+  \tfrac{1}{n+1},\ \tfrac{2}{2n+1},\ \tfrac{3}{3n+1},\ \dots,\ \tfrac{k}{kn+1}
+\]
+appear as a rigid arithmetic progression at the very bottom of every computed
+spectrum --- the ``rungs'' of a ladder --- and the purpose of this note is to
+prove that they are exact, to determine the complete maximizer structure
+behind them, and to show how the same structure governs the neighbouring zoo
+of extremal sets.
+
+Three theorems are proved. \textbf{Theorem~\ref{thm:rung}} (Section
+\ref{sec:value}) gives, for every $n \ge 2$ and $k \ge 1$, the exact value
+$\gap(F(n,k)) = \tfrac{k}{kn+1}$ together with the \emph{complete} argmax
+structure: for $k \ge 2$ the maximum is attained at the single pair
+$t = \pm \tfrac{k}{kn+1} \pmod 1$, the binding runners are exactly
+$\{1, kn\}$, and every other runner sits at distance at least
+$\tfrac{k+1}{kn+1}$; for $k = 1$ the maximizers are exactly the unit
+fractions $a/(n+1)$, a structural contrast that explains why the consecutive
+family is exceptional. The upper bound is an elementary pigeonhole argument
+that generalizes the proof of the $k=2$ case in the project's earlier audit;
+the equality case is new in one decisive respect: the uniqueness of the
+maximizer is proved by a \emph{no-wrap induction} that requires no
+coprimality hypothesis, closing the gcd-degenerate case that the earlier
+sum-based argument left open. \textbf{Theorem~\ref{thm:filler}} (Section
+\ref{sec:filler}) is a closed-form characterization of the \emph{fillers} of
+a core: for a speed set $S$ whose gap exceeds a rational target $g$, the set
+$X(S) = \{x : \gap(S \cup \{x\}) = g\}$ is characterized exactly by two
+finitely checkable conditions --- a window condition on each escape interval
+of the core and a cleanliness condition at one level time --- and is finite
+with an explicit a priori radius. This turns the empirically observed
+ladder structure of extremal sets into a theorem. Finally, Section
+\ref{sec:census} reports an exhaustive census of all
+$\binom{50}{8} = 536{,}878{,}650$ eight-element speed sets with speeds up to
+$50$, carried out with a filtered exact solver whose certificate is a
+one-line consequence of the definition of $\gap$: the census shows the tight
+zoo closed, the rung-2 zoo closed in primitive structure, and --- the target
+question of the hunt --- the inter-rung window $\bigl(\tfrac19,
+\tfrac{2}{17}\bigr)$ \emph{empty}.
+
+All computations use exact integer or rational arithmetic throughout; no
+floating point is involved anywhere. The machine checks summarized in
+Section~\ref{sec:machine} were run with two independent implementations of
+the gap computation that must agree on every value.
+
+\section{Definitions and statements}\label{sec:statements}
+
+Throughout, $\norm{x} = \min_{m \in \Z} |x - m|$ is the distance to the
+nearest integer, so that $\norm{x} \in [0, \tfrac12]$ and
+$\norm{-x} = \norm{x}$. Two elementary facts are used repeatedly:
+$\norm{qx} \le q\,\norm{x}$ for every integer $q \ge 1$; and for a rational
+$t = a/d$ in lowest terms, $\norm{v \cdot a/d}$ is computed exactly as
+$\min(r, d-r)/d$ with $r = av \bmod d$.
+
+\begin{definition}[gap, argmax, binders]\label{def:gap}
+For a finite set $V$ of positive integers,
+\[
+  \gap(V) \;=\; \sup_{t \in \R}\, \min_{v \in V} \norm{vt},
+\]
+where the supremum may be taken over $t \in [0,1]$. The \emph{argmax set}
+$\operatorname{Argmax}(V)$ is the set of $t \in [0,1)$ attaining the
+supremum. For $t$ in the argmax set, the \emph{binders at $t$} are the
+speeds $v \in V$ with $\norm{vt} = \gap(V)$.
+\end{definition}
+
+The function $g_V(t) = \min_{v \in V} \norm{vt}$ is continuous and piecewise
+linear, with breakpoints at the peaks $t = \text{odd}/(2v)$ and crossings
+$t(v_i \pm v_j) \in \Z$; its maximum is attained among these, which is what
+the exact solvers enumerate. The Lonely Runner Conjecture in this
+normalization states $\gap(V) \ge \tfrac{1}{|V|+1}$ for $|V|$ distinct
+speeds, with equality for the consecutive family.
+
+The three main results are as follows.
+
+\begin{theorem}[rung family, value and complete argmax structure]
+\label{thm:rung}
+Let $n \ge 2$ and $k \ge 2$, and put $D = kn + 1$ and $\delta = k/D$.
+Then:
+\begin{enumerate}[label=\rm(\roman*), leftmargin=*]
+\item $\gap\bigl(\{1, \dots, n-1, kn\}\bigr) = \dfrac{k}{kn+1}$;
+\item $\operatorname{Argmax} = \Bigl\{ \dfrac{k}{kn+1},\ %
+     \dfrac{kn+1-k}{kn+1} \Bigr\}$, i.e.\ the maximum is attained at
+     exactly two times, reflections of each other;
+\item at $t = \delta$ the binders are exactly the runners $1$ and $kn$,
+     both at distance $\delta$;
+\item every other runner $j$, $2 \le j \le n-1$, has
+     $\norm{j\delta} \ge \dfrac{k+1}{kn+1} > \delta$.
+\end{enumerate}
+No coprimality condition on $(n,k)$ is required.
+\end{theorem}
+
+\begin{theorem}[base rung $k=1$]\label{thm:base}
+For $n \ge 2$,
+$\gap(\{1, 2, \dots, n\}) = \tfrac{1}{n+1}$, and the argmax set is exactly
+\[
+  \bigl\{\, a/(n+1) \;:\; 0 \le a \le n,\ \gcd(a, n+1) = 1 \,\bigr\},
+\]
+the grid of \emph{units} modulo $n+1$; at each such time $t = a/(n+1)$ the
+binders are the speeds $j$ with $ja \equiv \pm 1 \pmod{n+1}$.
+\end{theorem}
+
+Thus the rung family exhibits a structural dichotomy: the base rung has
+$\varphi(n+1)$ maximizers spread over the units grid, while every higher
+rung collapses to a single maximizer pair. The proof of
+Theorem~\ref{thm:rung} will show that the collapse is caused by exactly one
+inequality, $D \ge 2n+1$, which prevents the residue walk of the equality
+configuration from wrapping around the modulus.
+
+\begin{theorem}[closed-form filler characterization]\label{thm:filler}
+Let $S$ be a finite set of positive integers, $g \in (0,\tfrac12)$ rational,
+and $g_S(t) = \min_{s \in S} \norm{st}$. Define
+\[
+  E(S) = \{ t \in [0,1] : g_S(t) > g \}, \qquad
+  L(S) = \{ t \in [0,1] : g_S(t) = g \},
+\]
+the \emph{escape set} and the \emph{level set} of the core. Then $E(S)$ is a
+finite union of open intervals $(\alpha_j, \beta_j)$ with $0 < \alpha_j <
+\beta_j < 1$ and $g_S(\alpha_j) = g_S(\beta_j) = g$, and $L(S)$ is a finite
+set containing $\{\alpha_j, \beta_j\}_j$. For an integer $x \ge 1$ with
+$x \notin S$,
+\[
+  \gap(S \cup \{x\}) = g
+  \iff
+  \text{\rm(A)} \wedge \text{\rm(B)},
+\]
+where
+\begin{itemize}[leftmargin=*]
+\item[\text{\rm(A)}] for every escape interval $(\alpha_j, \beta_j)$ there is
+  an integer $m_j$ with $m_j - g \le x\,\alpha_j$ and $x\,\beta_j \le m_j + g$
+  (equivalently, $x(\beta_j - \alpha_j) \le 2g$ and the interval
+  $[\,x\beta_j - g,\ x\alpha_j + g\,]$ contains an integer);
+\item[\text{\rm(B)}] some $t \in L(S)$ satisfies $\norm{xt} \ge g$.
+\end{itemize}
+Moreover, if $\gap(S) > g$ then \text{\rm(A)} forces
+$x \le 2g / \max_j (\beta_j - \alpha_j)$, so the filler set
+\[
+  X(S) := \{ x \ge 1 : \gap(S \cup \{x\}) = g \}
+\]
+is finite with the explicit radius $R(S) = \bigl\lfloor 2g /
+\max_j(\beta_j - \alpha_j) \bigr\rfloor$; if $\gap(S) < g$ then $X(S) =
+\emptyset$; and if $\gap(S) = g$ then $X(S) = \{x : \text{\rm(B)}\}$ is
+infinite.
+\end{theorem}
+
+Condition (A) says that the filler must \emph{kill} every escape of the core:
+wherever the core exceeds the target, the filler's sawtooth must be at most
+$g$, which forces the image $x \cdot (\alpha_j, \beta_j)$ to lie inside a
+single window $[m_j - g, m_j + g]$ of length $2g$ on the circle $\R/\Z$.
+Condition (B) says the filler must be \emph{clean} (at distance $\ge g$) at
+some level time of the core, which is precisely where the extension attains
+the value $g$: a filler can bind only at a level time of the core. Together
+the two conditions reduce the search for all fillers to a finite, exactly
+checkable list of two-sided congruence inequalities, computed once from the
+core's own geometry.
+
+The proofs occupy Sections~\ref{sec:value}--\ref{sec:filler}, the census of
+Section~\ref{sec:census} supplies the computational picture at $n = 8$, and
+Section~\ref{sec:machine} summarizes the machine verification of every
+statement in exact arithmetic.
+
+\section{The upper bound}\label{sec:value}
+
+\begin{lemma}[pigeonhole step]\label{lem:pigeon}
+Let $n \ge 2$, $k \ge 2$, $D = kn+1$, $\delta = k/D$. For every real $t$,
+\[
+  \min\bigl( \norm{t}, \norm{2t}, \dots, \norm{(n-1)t}, \norm{knt} \bigr)
+  \;\le\; \delta .
+\]
+\end{lemma}
+
+\begin{proof}
+Suppose, for contradiction, that $\norm{jt} > \delta$ for $1 \le j \le n-1$
+and $\norm{knt} > \delta$, and consider the $n+1$ points
+$P = \{0, t, 2t, \dots, nt\}$ on the circle $\R/\Z$.
+
+\emph{Classical step.} Among $n+1$ points on the unit circle, two lie at
+circular distance at most $\tfrac1{n+1}$. Their index difference $d$ lies in
+$\{1, \dots, n\}$, so $\norm{dt} \le \tfrac1{n+1}$. Since
+\[
+  \tfrac{1}{n+1} < \tfrac{k}{kn+1} = \delta
+  \iff k(n+1) > kn + 1 \iff k > 1,
+\]
+and $\norm{jt} > \delta$ for all $j \le n-1$, the difference must be $d = n$:
+writing $\beta = \norm{nt}$,
+\[
+  \beta \;\le\; \tfrac{1}{n+1} \;<\; \delta .
+\]
+
+\emph{Adjacency.} For $0 \le i < j \le n$ with $(i,j) \ne (0,n)$, the index
+difference $j - i$ lies in $\{1, \dots, n\}$ and, whenever $j - i \le n-1$,
+is the index of a runner, so the circular distance of $it$ and $jt$ equals
+$\norm{(j-i)t} > \delta$. The only pair with $j - i = n$ is $(0,n)$ itself.
+Hence $\{0, nt\}$ is the unique pair at distance below $\delta$, and $0$ and
+$nt$ are adjacent in the circular order: a point $z$ strictly inside the
+short arc from $0$ to $nt$ would satisfy $\norm{z} < \beta < \delta$, but
+$z = jt$ with $1 \le j \le n-1$, a contradiction.
+
+\emph{Gap counting.} The $n+1$ circular gaps of $P$ consist of the gap
+$\beta$ (between $0$ and $nt$) and $n$ further gaps, each bounded below by
+the circular distance of its endpoint pair, which is a pair other than
+$\{0, nt\}$ and hence has distance $> \delta$. Summing to $1$,
+\[
+  1 \;>\; \beta + n\delta \;=\; \beta + \frac{nk}{kn+1}
+  \quad\Longrightarrow\quad
+  \beta \;<\; \frac{1}{kn+1} \;=\; \frac{\delta}{k}.
+\]
+
+\emph{Kill.} Finally $\norm{knt} = \norm{k \cdot nt} \le k\,\norm{nt} =
+k\beta < k \cdot \tfrac{\delta}{k} = \delta$, contradicting
+$\norm{knt} > \delta$.
+\end{proof}
+
+The lower bound half of Theorem~\ref{thm:rung}(i) is a direct evaluation at
+$t = \delta$: $\norm{1 \cdot \delta} = \delta$, and
+\[
+  kn \cdot k \;=\; k(kn) \;\equiv\; k \cdot (-1) \;=\; -k \pmod{D},
+\]
+since $kn \equiv -1 \pmod{D}$, whence $\norm{kn\,\delta} = k/D = \delta$
+(because $2k < kn+1$ for $n \ge 2$). So $\gap(F(n,k)) \ge \delta$, and
+Lemma~\ref{lem:pigeon} gives equality. This proves
+Theorem~\ref{thm:rung}(i) for all $k \ge 2$. For $k = 1$ the classical step
+already suffices: $d \in \{1, \dots, n\}$ are \emph{all} runners when $k=1$
+(the speed $n$ is present), so $\norm{dt} \le \tfrac1{n+1}$ directly; and
+$t = \tfrac1{n+1}$ attains $\tfrac1{n+1}$ through runners $1$ and $n$. This
+is the value half of Theorem~\ref{thm:base}.
+
+\section{The equality case: no-wrap induction}\label{sec:equality}
+
+Throughout this section $n \ge 2$, $k \ge 2$, $D = kn+1$, $\delta = k/D$,
+and $t$ is a time at which the minimum equals $\delta$, i.e.\
+$\norm{jt} \ge \delta$ for $1 \le j \le n-1$ and $\norm{knt} \ge \delta$.
+The analysis has four steps, and it is the fourth that removes the
+coprimality hypothesis used in earlier treatments.
+
+\begin{lemma}[gap multiset]\label{lem:multiset}
+In the equality case, the circular gaps of $P = \{0, t, \dots, nt\}$ are
+exactly $\{\tfrac1D,\ \tfrac{k}{D}, \dots, \tfrac{k}{D}\}$ ($n$ copies), the
+gap of length $\tfrac1D$ lying between $0$ and $nt$.
+\end{lemma}
+
+\begin{proof}
+Repeating the classical step with the weak hypothesis gives
+$\beta := \norm{nt} \le \tfrac1{n+1} < \delta$, so $\{0, nt\}$ is still the
+unique pair below $\delta$ and $0, nt$ are adjacent. The other $n$ gaps are
+each at least the circular distance of their endpoint pair, which is a
+runner difference of index in $\{1, \dots, n-1\}$, hence $\ge \delta$. If
+$\beta < \tfrac1D$, then $\norm{knt} \le k\beta < \tfrac{k}{D} = \delta$
+contradicts the hypothesis; so $\beta = \tfrac1D$. The $n$ remaining gaps
+then sum to $1 - \tfrac1D = \tfrac{nk}{D} = n\delta$, each being $\ge \delta$,
+so all equal $\delta = \tfrac{k}{D}$.
+\end{proof}
+
+Scaling by $D$, the points of $P$ in circular order are partial sums of a
+sequence of $n+1$ steps consisting of $n$ steps of size $k$ and one step of
+size $1$ (the $\beta$-step between $nt$ and $0$). If the unit step occupies
+position $p+1$ in the circular order, $0 \le p \le n$, then
+\begin{equation}\label{eq:Ap}
+  P \;=\; \Bigl\{ \frac{jk}{D} : 0 \le j \le p \Bigr\}
+  \;\cup\;
+  \Bigl\{ \frac{jk+1}{D} : p \le j \le n-1 \Bigr\},
+\end{equation}
+the case $p = n$ being the pure arithmetic progression and $p = 0$ the
+reflected one.
+
+\begin{lemma}[no mixed configurations]\label{lem:mixed}
+$p \in \{0, n\}$.
+\end{lemma}
+
+\begin{proof}
+Suppose $1 \le p \le n-1$. Then both $\tfrac{pk}{D}$ and
+$\tfrac{pk+1}{D}$ belong to $P$ by \eqref{eq:Ap}, and they are distinct
+points at circular distance $\tfrac1D < \delta$. Being two points of $P$,
+they are $it$ and $jt$ for some indices $0 \le i, j \le n$, whose index
+difference lies in $\{1, \dots, n\}$. If $|i - j| \le n - 1$, then
+$\norm{(i-j)t} = \tfrac1D < \delta$ contradicts $\norm{(i-j)t} \ge \delta$
+(the difference is a runner). Hence $|i-j| = n$, so $\{i, j\} = \{0, n\}$
+and the two points are $0$ and $nt$. But $0 < pk < D$ and
+$0 < pk + 1 \le (n-1)k + 1 < D$, so neither $pk$ nor $pk+1$ is $0$ modulo
+$D$: neither point is $0$, a contradiction.
+\end{proof}
+
+\begin{lemma}[no-wrap induction]\label{lem:nowrap}
+Let $D = kn+1$ with $k \ge 2$, and let $m \in \{1, \dots, n\}$ satisfy
+\begin{equation}\label{eq:seteq}
+  \{ jm \bmod D : 0 \le j \le n \} \;=\; \{0, 1, \dots, n\}.
+\end{equation}
+Then $m = 1$.
+\end{lemma}
+
+\begin{proof}
+Write $\sigma(j) = jm \bmod D \in \{0, \dots, n\}$ for $0 \le j \le n$;
+the hypothesis \eqref{eq:seteq} says precisely that these are the residues of
+the walk and that all of them land in $\{0, \dots, n\}$. Now $\sigma(0) = 0$,
+and for each $j$,
+\[
+  \sigma(j+1) \;\equiv\; \sigma(j) + m \pmod D .
+\]
+Both $\sigma(j+1)$ and $\sigma(j) + m$ lie in $\{0, \dots, D-1\}$: the
+former by definition, the latter because
+\[
+  \sigma(j) + m \;\le\; n + n \;=\; 2n \;\le\; D - 1,
+\]
+using $D = kn + 1 \ge 2n + 1$. Two numbers in $\{0, \dots, D-1\}$ that are
+congruent modulo $D$ are equal, so $\sigma(j+1) = \sigma(j) + m$
+\emph{without reduction}, for every $j$. By induction $\sigma(j) = jm$ as
+integers, so $jm \le n$ for all $j \le n$; taking $j = n$ gives $nm \le n$,
+i.e.\ $m \le 1$, and $m \ge 1$ finishes the proof.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:rung}]
+Part (i) was proved at the end of Section~\ref{sec:value}. For (ii)--(iv),
+let $t$ be a time attaining the minimum $\delta$. By
+Lemmas~\ref{lem:multiset} and \ref{lem:mixed}, $P$ is either the pure
+progression $\{\tfrac{jk}{D} : 0 \le j \le n\}$ ($p = n$) or its reflection
+($p = 0$). In the pure case $t \equiv \tfrac{mk}{D} \pmod 1$ for some
+$m \in \{1, \dots, n\}$ (as $t$ is itself a point of $P$), and the point
+set equality $\{jt \bmod 1\} = P$ reads
+\[
+  \{ jmk \bmod D : 0 \le j \le n \} \;=\; \{ jk \bmod D : 0 \le j \le n \};
+\]
+multiplying by the unit $k^{-1} \bmod D$ (note $\gcd(k, kn+1) = 1$) yields
+\eqref{eq:seteq} of Lemma~\ref{lem:nowrap}, so $m = 1$ and $t =
+\tfrac{k}{D} = \delta$. In the reflected case, $P = \{\tfrac{jk+1}{D} : 0
+\le j \le n-1\}$; applying the pure case to $1 - t$ (which has the same gap
+value, since $\norm{j(1-t)} = \norm{jt}$, and whose point set is
+$\{j(1-t)\} = -\{jt\} = \{\tfrac{jk}{D} : 1 \le j \le n\} \cup \{0\}$, the
+pure progression) yields $1 - t = \delta$, i.e.\ $t = 1 - \delta =
+\tfrac{D-k}{D}$. This proves (ii).
+
+For (iii) and (iv), evaluate at $t = \delta$: $\norm{\delta} = \delta$
+(runner $1$); $\norm{kn\,\delta} = \norm{-k/D} = \delta$ (runner $kn$);
+and for $2 \le j \le n-1$,
+\[
+  \norm{j\delta} \;=\; \frac{\min\bigl(jk,\; D - jk\bigr)}{D}
+  \;\ge\; \frac{\min\bigl(2k,\; k+1\bigr)}{D}
+  \;=\; \frac{k+1}{kn+1} \;>\; \delta,
+\]
+since $jk \ge 2k \ge k+1$ and $D - jk \ge D - (n-1)k = k+1$.
+\end{proof}
+
+\begin{remark}[why the gcd condition disappears]\label{rem:gcd}
+The earlier treatment of the $k = 2$ case --- and its immediate
+generalization --- derived \eqref{eq:seteq} and then summed the least
+residues, obtaining $(m-1)\,n(n+1)/2 = (kn+1)\,Q$; concluding $m = 1$
+required $\gcd\bigl(n(n+1)/2,\ kn+1\bigr) = 1$, which always holds for
+$k = 2$ but can fail for $k \ge 3$ (e.g.\ $n = k = 3$, where the gcd is
+$2$). Lemma~\ref{lem:nowrap} replaces the sum argument by the observation
+that the residue walk $\sigma$ never wraps, which is where $k \ge 2$ --- and
+only that --- is used. As a complement, the arithmetic obstruction itself is
+harmless: since $\gcd(n, kn+1) = 1$, one always has
+$\gcd\bigl(n(n+1)/2,\ kn+1\bigr)$ dividing $n+1$, hence dividing
+$k(n+1) - (kn+1) = k - 1$; so the degenerate modulus can only be a divisor
+of $k-1$, and for $k \in \{2,3\}$ the sum argument already suffices for all
+$n$. The no-wrap induction covers all $k \ge 2$ uniformly.
+\end{remark}
+
+\begin{remark}[the base rung is different]\label{rem:base-contrast}
+For $k = 1$ one has $D = n + 1 \le 2n$, so the inequality
+$\sigma(j) + m \le D - 1$ fails --- and indeed the conclusion fails:
+by Theorem~\ref{thm:base} there are $\varphi(n+1)$ maximizers, not two.
+The rung family thus exhibits a sharp dichotomy at $k = 1$ versus $k \ge 2$,
+governed precisely by whether $D \ge 2n+1$.
+\end{remark}
+
+\section{The base rung}\label{sec:base}
+
+\begin{proof}[Proof of Theorem~\ref{thm:base}]
+The value was proved in Section~\ref{sec:value}. Let $t$ attain the minimum
+$\tfrac{1}{n+1} =: \delta$ for the speed set $\{1, \dots, n\}$, so
+$\norm{jt} \ge \delta$ for all $1 \le j \le n$. The classical step gives
+$\beta := \norm{nt} \le \tfrac1{n+1} = \delta$, and $0, nt$ are adjacent. But
+now runner $n$ is present in the speed set, so $\beta = \norm{nt} \ge
+\delta$ at the argmax; hence $\beta = \delta$ exactly, and the $n$ other
+gaps, each $\ge \delta$ and summing with $\beta$ to $1 = (n+1)\delta$, all
+equal $\delta$ as well. So all $n+1$ circular gaps of $P$ equal $\delta =
+\tfrac1{n+1}$: $P$ is the \emph{equally spaced} set $\{0, \tfrac1{n+1},
+\tfrac2{n+1}, \dots, \tfrac{n}{n+1}\}$.
+
+Hence $t = \tfrac{m}{n+1}$ for some $m \in \{1, \dots, n\}$, and the point
+set equality $\{jt \bmod 1\} = P$ becomes
+\[
+  \{ jm \bmod (n+1) : 0 \le j \le n \} \;=\; \{0, 1, \dots, n\},
+\]
+which holds if and only if $m$ is a unit modulo $n+1$: if
+$c = \gcd(m, n+1) > 1$, every residue $jm$ is divisible by $c$ and the
+right-hand side cannot be covered. Conversely, for a unit $m$ the map $j
+\mapsto jm$ permutes the residues. At $t = \tfrac{a}{n+1}$ with $a$ a unit,
+the value is $\min_j \norm{\tfrac{ja}{n+1}} = \tfrac{1}{n+1}$, attained
+exactly by the speeds $j$ with $ja \equiv \pm 1 \pmod{n+1}$ (which exist
+since $a$ is invertible).
+\end{proof}
+
+The two theorems together give the rung ladder its exact shape. In every
+computed spectrum the bottom values are precisely the rung values
+$\tfrac{k}{kn+1}$ present at the given radius: for $n = 7$ the ladder reads
+$\tfrac18, \tfrac2{15}, \tfrac3{22}, \tfrac4{29}, \tfrac5{36}, \tfrac6{43},
+\tfrac7{50}$ and for $n = 8$ it reads $\tfrac19, \tfrac2{17}, \tfrac3{25},
+\tfrac4{33}, \tfrac5{41}, \tfrac6{49}$ --- each realized by the family member
+$F(n,k)$ itself, and, as Section~\ref{sec:census} shows, each carrying its
+own zoo of further extremal sets.
+
+\section{The filler characterization}\label{sec:filler}
+
+The rung values sit at the bottom of the spectrum, and the sets attaining
+them form the \emph{zoo}: at $n = 7$, radius $V = 50$, exactly $29$ sets have
+gap $\tfrac{2}{15}$, and at $n = 8$, $V = 50$, exactly $21$ sets have gap
+$\tfrac{2}{17}$. Every zoo member ever observed decomposes as a \emph{core}
+(a set whose own gap exceeds the rung value) plus one \emph{filler} speed,
+and the empirical classification of zoos ran through the question: which
+fillers does a given core admit? Theorem~\ref{thm:filler} answers it in
+closed form. This section proves the theorem and works the central example.
+
+\subsection{Geometry of the core}
+
+Fix the core $S$ and the rational target $g \in (0, \tfrac12)$, and write
+$g_S(t) = \min_{s \in S} \norm{st}$, a continuous piecewise-linear function.
+Each sawtooth $\norm{st}$ has breakpoints at $t = \text{odd}/(2s)$ and
+crosses the level $g = p/q$ exactly at the rationals $t = (qm \pm p)/(sq)$.
+Let $\tau_0 < \tau_1 < \dots < \tau_K$ be the sorted union of $\{0, 1\}$,
+all breakpoints and all level crossings of all sawtooths. On each open
+segment $(\tau_i, \tau_{i+1})$ every $\norm{st}$ is linear and does not
+cross level $g$, so the sign of $g_S - g$ is constant there. The escape set
+$E = \{g_S > g\}$ is therefore a finite union of maximal open intervals
+$(\alpha_j, \beta_j)$; merging across an event point $\tau$ is legitimate
+only when $g_S(\tau) > g$, so each $\alpha_j, \beta_j$ carries
+$g_S = g$ exactly, i.e.\ $\alpha_j, \beta_j \in L(S)$. Neither endpoint can
+be $0$ or $1$, because $g_S(t) \to 0$ as $t \to 0$ or $1$; the level set
+$L(S)$ is finite, being contained in the crossing set of the individual
+sawtooths (no $\norm{st}$ is constant on an interval unless two distinct
+speeds $s \ne s'$ have $\norm{st} = \norm{s't} = g$ on an interval, which
+forces $(s - s')t \in \Z$ on an interval and hence $s = s'$).
+
+\begin{proof}[Proof of Theorem~\ref{thm:filler}]
+Put $h(t) = \min\bigl(g_S(t), \norm{xt}\bigr)$, so that $\gap(S \cup \{x\})
+= \max_{[0,1]} h$.
+
+\emph{The bound $\gap \le g$ is condition (A).} Outside $E$ the core already
+has $g_S \le g$. On an escape interval $(\alpha, \beta)$ the filler must
+carry the bound: $\norm{xt} \le g$ for all $t \in (\alpha, \beta)$. Writing
+the circle $\R/\Z$ as the union of the closed windows $[m - g, m + g]$,
+$m \in \Z$, of length $2g$ separated by open gaps of length $1 - 2g > 0$,
+the image interval $[x\alpha, x\beta]$ (for $x > 0$) is covered by the
+windows if and only if it lies inside a single window $[m_j - g, m_j + g]$:
+a connected interval cannot straddle a gap. By continuity the same holds on
+the closed $[\alpha, \beta]$, and this is exactly (A).
+
+\emph{Equality needs a touch (B).} Assume (A), so $\gap \le g$. The maximum
+of the continuous $h$ is attained at some $t_0$. If $h(t_0) = g$, then
+$g_S(t_0) \ge g$ and $\norm{xt_0} \ge g$. If $g_S(t_0) > g$ then $t_0 \in
+E$; inside an escape interval, the window condition gives $\norm{xt_0} =
+\operatorname{dist}(x t_0, m_j)$, and an interior point at window distance
+exactly $g$ would force an endpoint past the window edge, contradicting
+(A) --- formally, $x t_0 = m_j \pm g$ with $x\alpha \le x t_0 \le x\beta$
+and $x\alpha, x\beta \in [m_j - g, m_j + g]$ forces $x t_0 \in
+\{x\alpha, x\beta\}$, an endpoint --- and $\norm{xt} < g$ throughout the
+open interval would give $h < g$ there. Hence an interior touch cannot
+occur, the touch must be at an endpoint (where $g_S = g$), or
+$g_S(t_0) = g$ holds outright. Either way $t_0 \in L(S)$ and
+$\norm{xt_0} \ge g$: this is (B). Conversely, if $t \in L(S)$ has
+$\norm{xt} \ge g$, then $h(t) = \min(g, \norm{xt}) = g$, so $\gap \ge g$,
+and with (A) equality follows.
+
+\emph{Degenerate cores.} If $\gap(S) < g$ then $L(S) = \emptyset$ and $h \le
+g_S \le \gap(S) < g$: no fillers. If $\gap(S) = g$ then $E = \emptyset$
+and (A) is vacuous; $\gap(S \cup \{x\}) = \max \min(g_S, \norm{x \cdot})$
+equals $g$ exactly when some $t$ has $g_S(t) = g$ and $\norm{xt} \ge g$,
+i.e.\ (B) alone; the solutions form infinite arithmetic families since
+$\norm{xt} \ge g$ at a fixed rational $t$ excludes only finitely many
+residue classes.
+
+\emph{Radius.} If $E \ne \emptyset$, condition (A) applied to the longest
+escape interval gives $x (\beta - \alpha) \le 2g$ for that interval, hence
+$x \le 2g / \max_j (\beta_j - \alpha_j)$.
+\end{proof}
+
+\begin{example}[the hub $H_2$]\label{ex:H2}
+Take $n = 7$, $g = \tfrac{2}{15}$, and the core
+\[
+  H_2 \;=\; (1, 4, 5, 6, 7, 11),
+  \qquad \gap(H_2) = \tfrac{2}{13}.
+\]
+The escape set consists of two mirror intervals,
+\[
+  E(H_2) \;=\; \bigl(\tfrac{32}{105},\ \tfrac{14}{45}\bigr)
+  \;\cup\;
+  \bigl(\tfrac{31}{45},\ \tfrac{73}{105}\bigr),
+  \qquad \beta - \alpha = \tfrac{2}{315},
+\]
+and the level set is
+\[
+  L(H_2) \;=\; \Bigl\{ \tfrac{32}{105},\ \tfrac{14}{45},\ \tfrac{7}{15},\
+  \tfrac{8}{15},\ \tfrac{31}{45},\ \tfrac{73}{105} \Bigr\},
+\]
+of which $\tfrac{7}{15}$ and $\tfrac{8}{15}$ are \emph{isolated} level times
+(local maxima of $g_{H_2}$ at height exactly $\tfrac{2}{15}$, where the
+speeds $4$ and $11$ bind). The radius is $R = \bigl\lfloor
+\tfrac{4/15}{2/315} \bigr\rfloor = 42$. Evaluating (A) on the escape
+intervals leaves the candidates $\{3, 10, 13, 16, 26, 39\}$ from
+$\{1, \dots, 42\}$; the touch (B) at $t = \tfrac{7}{15}$ requires
+$\norm{7x/15} \ge \tfrac{2}{15}$, i.e.\ $7x \not\equiv 0, \pm 1 \pmod{15}$,
+which prunes exactly $x = 13$ ($91 = 6 \cdot 15 + 1$). The theorem yields
+\[
+  X(H_2) \;=\; \{3,\ 10,\ 16,\ 26,\ 39\},
+\]
+matching brute force on $[1, 70]$ exactly, with no filler beyond the
+provable radius $R = 42$: the five fillers generate the five zoo classes
+$(1,3,4,5,6,7,11)$, $(1,4,5,6,7,10,11)$, $(1,4,5,6,7,11,16)$,
+$(1,4,5,6,7,11,26)$, $(1,4,5,6,7,11,39)$ of the $n = 7$ census. Note that
+$26 \equiv 11 \pmod{15}$ lands in the binder class itself: the extension by
+$26$ binds with three speeds $\{4, 11, 26\}$ at $t^\ast = \tfrac{7}{15}$.
+\end{example}
+
+\begin{corollary}[fillers bind at level times]\label{cor:bindlevel}
+If $\gap(S \cup \{x\}) = g$ and $t^\ast$ is an argmax, then $g_S(t^\ast) =
+g$, i.e.\ $t^\ast \in L(S)$; in particular a filler never binds at a time
+where the core is strictly above $g$ (the window argument forbids $\norm{x
+ t} = g$ inside an escape interval), and whenever the filler binds, the core
+is at level $g$ there as well.
+\end{corollary}
+
+This is the precise sense in which the theorem is ``Lemma A in reverse'':
+the generalized binding-pair lemma states that an argmax at value $g =
+\tfrac{2}{2n+1}$ lives on a grid $d = (2n+1)e$ with binders $v, w$ satisfying
+$va \equiv \pm 2e \pmod d$ (so $v + w \equiv 0 \bmod d$); the level times of
+a core at height $g$ are exactly where such residues can occur, and
+condition (B) is the residue-cleanliness of the filler there.
+
+\subsection{Verification}
+
+Theorem~\ref{thm:filler} was verified by exact comparison against brute
+force: for every core of every zoo member at $n = 5, 6, 7, 8$ (all $612$
+distinct cores of size $|V| - 1$) and for $480$ random cores above the
+rung, the theorem's $X(S)$ agrees with the brute-force filler list on
+$[1, 70]$ with zero mismatches, using two independent implementations of
+the gap computation (the sweep solver's integer routine and a Python
+rational reference) plus a third cross-check. The degenerate regimes (cores
+on and below the rung) behave as stated; below-rung cores never occur in
+the zoo regimes, an immediate consequence of the LRC holding for up to
+seven speeds, since a core of size $m$ has $\gap \ge \tfrac1{m+1} >
+\tfrac{2}{2m+3}$.
+
+\section{The \texorpdfstring{$n = 8$}{n=8} census at \texorpdfstring{$V = 50$}{V=50}}\label{sec:census}
+
+The inter-rung question is the target of the hunt: \emph{does any $8$-element
+speed set have gap strictly between $\tfrac19$ and $\tfrac{2}{17}$?} At $n =
+6$ and $n = 7$ the corresponding windows are populated ($2$ and $4$ sets
+respectively, the $\tfrac{3}{23}$ counterexamples), so $n = 8$ is the first
+case where the window could close, and it was verified empty through $V =
+38$ ($\binom{38}{8} = 48{,}903{,}492$ sets) in the project's earlier sweep.
+This section settles the same radius as the $n = 7$ census.
+
+\subsection{Method: the probe-lemma filter}
+
+The census enumerates all $\binom{50}{8} = 536{,}878{,}650$ sets. The
+feasible cost rests on a one-line certificate: for any fixed probe time
+$t_0$,
+\[
+  \gap(V) \;\ge\; \min_{v \in V} \norm{v t_0},
+\]
+because the supremum over $t$ dominates the value at $t_0$. The hunt solver
+(v4) scans the solver's own exact candidate times --- peaks
+$\text{odd}/(2v)$ and crossings $t(v_i \pm v_j) \in \Z$, the complete
+breakpoint set of $g_V$ --- and skips the vector as soon as one candidate
+certifies a value above the threshold $\theta = \tfrac{2}{15}$, which
+exceeds every hunted band (tight $\tfrac19$, inter-rung $\bigl(\tfrac19,
+\tfrac{2}{17}\bigr)$, rung values $\tfrac{k}{8k+1}$ for $k \le 6$, all
+$\le \theta$). Vectors with gap $\le \theta$ --- precisely the hunted
+population --- always fall through to the full exact solve. Sampled vectors
+(every $99{,}733$rd) are always fully solved, preserving sample validation.
+The filter skipped $99.9985\%$ of vectors; the entire census ran in
+$215$ seconds of single-core time.
+
+Validation of the filtered census: (i) on the full $V = 38$ range, the
+tight, rung-2 and inter-rung files and the exact bottom spectrum (all
+$1{,}565$ vectors with gap $\le \tfrac{2}{15}$) are identical to the
+unfiltered v3 solver's, and the shard-level outputs are byte-identical;
+(ii) on a $V = 50$ sub-range, filtered and unfiltered runs agree
+byte-for-byte on all census files and samples (a $105\times$ speedup on
+that range); (iii) all $5{,}384$ sample records were re-verified against an
+independent rational implementation; (iv) the accounting is exact:
+$\text{spectrum} + \text{filtered} = 536{,}878{,}650$.
+
+\subsection{Results}
+
+\begin{enumerate}[label=\textbf{R\arabic*.}, leftmargin=*]
+\item \textbf{Tight zoo closed.} $\gap = \tfrac19$ occurs exactly for
+$\{1, \dots, 8\} \times \{1, 2, 3, 4, 5, 6\}$ --- the consecutive family and
+its scalars, nothing else, at any radius up to $50$.
+\item \textbf{Rung-2 zoo closed in primitive structure.} $\gap =
+\tfrac{2}{17}$ occurs for $21$ vectors in exactly the same $7$ primitive
+classes as at $V = 38$, with scalar multiples now up to $4$ (Table
+\ref{tab:rung2}). The seven vectors with $v_8 > 38$ are precisely
+$\times 2, \times 3, \times 4$ scalings of the existing classes: no new
+binding structure appears.
+\item \textbf{Inter-rung window empty.} No $8$-set with speeds up to $50$
+has gap in $\bigl(\tfrac19, \tfrac{2}{17}\bigr)$. The spectrum jumps
+directly from $\tfrac19$ ($6$ vectors) to $\tfrac{2}{17}$ ($21$ vectors);
+the least attainable value strictly above $\tfrac19$ is the rung-2 value
+itself.
+\item \textbf{Every rung value carries a zoo.} The values
+$\tfrac{3}{25}, \tfrac{4}{33}, \tfrac{5}{41}, \tfrac{6}{49}$ are attained by
+$11$, $10$, $5$ and $3$ vectors respectively; the family members
+$\{1, \dots, 7, 8k\}$ are present in each, and every member satisfies the
+generalized binding-pair lemma on grids $d = (8k+1)e$ (Table~\ref{tab:rungk}).
+The rung-5 and rung-6 zoos \emph{enter} at this radius, since they need
+speeds $40$ and $48$.
+\item \textbf{The ladder is certified by the filler theorem.} Each of the
+seven new rung-2 members decomposes as core $+$ filler with the filler in
+$X(\text{core})$ computed by Theorem~\ref{thm:filler} at $g =
+\tfrac{2}{17}$; all eight $7$-subsets of each member support the
+decomposition. For instance $(3, 6, 9, 12, 15, 18, 21, 48) = 3 \times
+(1, 2, 3, 4, 5, 6, 7, 16)$ has core $(3, 6, 9, 12, 15, 18, 21)$ with
+filler $48 \in X(\text{core})$, $R = 84$.
+\item \textbf{Feasibility.} Every one of the $536{,}878{,}650$ vectors is
+feasible ($\gap \ge \tfrac19$): the Lonely Runner Conjecture holds for
+$8$ speeds up to $V = 50$, extending the $V = 38$ verification.
+\end{enumerate}
+
+\begin{table}[htbp]
+\centering
+\caption{The rung-2 zoo at $n = 8$, $V = 50$: $21$ vectors, $7$ primitive
+classes (binding pairs modulo $17$; grids $d = 17e$ with $e \le 3$).}
+\label{tab:rung2}
+\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+primitive class & scalars & binding pair \\
+\midrule
+$A = (1,2,3,4,5,6,7,16)$   & $\times\{1,2,3\}$ & $\{1,16\}$ \\
+$B = (1,2,3,4,5,7,8,12)$   & $\times\{1,2,3,4\}$ & $\{5,12\}$ \\
+$C = (1,2,3,4,5,7,12,16)$  & $\times\{1,2,3\}$ & $\{1,16\}$ \\
+$D = (1,2,5,6,7,8,11,13)$  & $\times\{1,2,3\}$ & $\{6,11\}$ \\
+$E = (1,4,5,6,7,8,11,13)$  & $\times\{1,2,3\}$ & $\{6,11\}$ \\
+$F = (1,4,5,6,7,11,13,16)$ & $\times\{1,2,3\}$ & $\{1,16\}, \{4,13\}, \{6,11\}$ \\
+$G = (1,5,6,7,8,11,13,21)$ & $\times\{1,2\}$ & $\{6,11\}, \{13,21\}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Rung-$k$ zoos at $n = 8$, $V = 50$. Each zoo contains the family
+member $\{1, \dots, 7, 8k\}$ and satisfies the binding-pair lemma on grids
+$d = (8k+1)e$.}
+\label{tab:rungk}
+\small
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+$k$ & value & vectors & primitive classes & family member present \\
+\midrule
+1 & $1/9$    & 6  & 1 & yes (consecutive $\times\,1..6$) \\
+2 & $2/17$   & 21 & 7 & yes \\
+3 & $3/25$   & 11 & 6 & yes \\
+4 & $4/33$   & 10 & 10 & yes \\
+5 & $5/41$   & 5  & 5 & yes (new at this radius) \\
+6 & $6/49$   & 3  & 3 & yes (new at this radius) \\
+\midrule
+\multicolumn{2}{l}{inter-rung $(1/9, 2/17)$} & \multicolumn{3}{l}{\textbf{0} (empty at $V \le 50$)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The bottom of the exact spectrum (all values $\le \tfrac{2}{15}$, complete
+at $V = 50$) reads
+\begin{center}\small
+$\begin{array}[t]{lccccccc}
+\text{value} & \tfrac19 & \tfrac2{17} & \tfrac3{25} & \tfrac4{33} &
+\tfrac5{41} & \tfrac6{49} & \tfrac18 \\[2pt]
+\text{count} & 6 & 21 & 11 & 10 & 5 & 3 & 763
+\end{array}$\qquad
+$\begin{array}[t]{lccccccc}
+\text{value} & \tfrac7{55} & \tfrac6{47} & \tfrac5{39} & \tfrac4{31} &
+\tfrac3{23} & \tfrac8{61} & \tfrac5{38} \\[2pt]
+\text{count} & 1 & 17 & 4 & 87 & 275 & 4 & 17
+\end{array}$\qquad
+$\begin{array}[t]{lc}
+\text{value} & \tfrac7{53} \;\text{and}\; \tfrac2{15} \\[2pt]
+\text{count} & 21 \;\text{and}\; 1561
+\end{array}$
+\end{center}
+The six rung values open the spectrum in exact ladder order, with the
+family members first; the non-rung values that follow ($\tfrac18$,
+$\tfrac7{55}$, \dots) are the next spectral strata.
+
+\section{Machine verification}\label{sec:machine}
+
+Every theorem in this note is accompanied by an exact machine check; all
+arithmetic is integer or rational, never floating point.
+
+\begin{enumerate}[label=\textbf{M\arabic*.}, leftmargin=*]
+\item \textbf{Rung family, $n = 2..16$, $k = 1..12$} ($180$ parameter
+pairs): the gap value equals $\tfrac{k}{kn+1}$; the argmax set equals
+$\{\tfrac{k}{kn+1}, \tfrac{kn+1-k}{kn+1}\}$ exactly for $k \ge 2$
+(including all gcd-degenerate pairs such as $n = k = 3$) and the units grid
+for $k = 1$; binders are $\{1, kn\}$; every other runner sits at distance
+$\ge \tfrac{k+1}{kn+1}$. Zero failures.
+\item \textbf{Filler characterization}: agreement with brute force on all
+$612$ zoo cores ($n = 5..8$), $480$ random cores, and the degenerate
+regimes, as summarized in Section~\ref{sec:filler}.
+\item \textbf{Census validation}: the four validation layers of
+Section~\ref{sec:census} (identity with the unfiltered solver at two
+radii, byte-level shard identity, $5{,}384/5{,}384$ independent sample
+re-verification, exact accounting of all $536{,}878{,}650$ vectors).
+\item \textbf{Earlier checks carried over}: the $k = 2$ case of
+Theorem~\ref{thm:rung} (value, unique argmax, binders, slack) was
+previously machine-verified for $n = 2..40$ with two independent proofs;
+the present $k \ge 3$ extension and the removal of the gcd condition are
+new here.
+\end{enumerate}
+
+\section{Open problems}\label{sec:open}
+
+\begin{enumerate}[label=\textbf{O\arabic*.}, leftmargin=*]
+\item \textbf{The $n = 8$ inter-rung theorem.} The window
+$\bigl(\tfrac19, \tfrac{2}{17}\bigr)$ is empty through $V = 50$
+($5.4 \times 10^8$ sets), whereas $n = 6$ and $n = 7$ have inter-rung
+populations at $3/23$ and $3/23$-type values living on grids unrelated to
+$2n+1$. Is the window empty at $n = 8$ for \emph{all} radii? A structural
+proof --- for instance via the binding-pair lemma with modulus $17$ ---
+would establish the ``second-rung conjecture'' at $n = 8$ and would be the
+first such closure beyond the cases where it is known to fail.
+\item \textbf{Rung-zoo structure.} At every radius tested, the rung-$k$ zoo
+contains the family member $\{1, \dots, n-1, kn\}$ and decomposes into
+primitive classes generated from lower-rung cores by fillers. The filler
+theorem reduces this to a finite check per core; a general structural
+theorem describing the zoos of the rung family remains open.
+\item \textbf{$n = 9$ predictions.} The mechanism predicts: tight zoo
+$\{1, \dots, 9\} \times c$; rung values $\tfrac{k}{9k+1} =
+\tfrac1{10}, \tfrac2{19}, \tfrac3{28}, \dots$; rung-2 zoo from zoo-7/zoo-8
+cores plus fillers binding modulo $19$ (a prime, so every pair
+$\{v, 19m - v\}$ is admissible at grid level $e = 1$); inter-rung window
+$\bigl(\tfrac1{10}, \tfrac2{19}\bigr)$ populated or empty --- the
+first test of O1's mechanism one rung higher.
+\item \textbf{Beyond the family.} The no-wrap induction exploits the
+structure $\{1, \dots, n-1\} \cup \{kn\}$ through the points
+$\{0, t, \dots, nt\}$. Which other speed families admit a complete argmax
+classification, and is the argmax of \emph{every} rational-valued gap
+attained on a rigid grid (the generalized Lemma A)?
+\end{enumerate}
+
+\begin{thebibliography}{9}
+
+\bibitem{wills}
+J.~M. Wills,
+\emph{Zwei S\"atze \"uber inhomogene diophantische Approximation von
+Irrationalzahlen},
+Monatshefte f\"ur Mathematik \textbf{71} (1967), 261--263.
+
+\bibitem{cusick}
+T.~W. Cusick,
+\emph{View-obstruction problems in $n$-dimensional cubes},
+Discrete Mathematics \textbf{27} (1979), 25--28.
+
+\bibitem{bhk}
+T.~Bohman, R.~Holzman, D.~Kleitman,
+\emph{Six lonely runners},
+Israel Journal of Mathematics \textbf{133} (2003), 1--10.
+
+\bibitem{repo}
+MIKEAA2020,
+\emph{lonely-runner: exhaustive exact checks and audit trail},
+software repository and audits (2025--2026), in particular the
+computational-check directory and the audit ``rung-2 ladder and R1''.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,172 @@
+rung family note: the closed-form filler characterization X(S), the
+n = 8 @ V = 50 inter-rung hunt, and the standalone rung-family write-up
+
+This audit records the three items requested after the rung-2 ladder /
+R1 audit: the closed-form filler characterization X(S), the n = 8
+inter-rung hunt at V = 50, and the standalone note proving the rung-family
+theorem gap(1,...,n-1,kn) = k/(kn+1).  The full mathematical write-up is
+the PDF "rung family note.pdf" (source: computational-check/
+note_rung_family.tex); this file summarizes results and reproduction.
+
+Status: all three items COMPLETE.  The filler characterization is now a
+theorem (machine-verified on 1,092 cores); the V = 50 hunt ran all
+536,878,650 vectors with a probe-lemma filtered solver (validated
+byte-identical against the unfiltered solver) and the inter-rung window
+(1/9, 2/17) is EMPTY; the note proves the rung family with COMPLETE argmax
+structure for all k >= 2 with NO coprimality condition -- the
+gcd-degenerate open case is closed by a no-wrap induction.
+
+--------------------------------------------------------------------------------
+
+## 1. The closed-form filler characterization X(S) (item 1)
+
+THEOREM.  Let S be a finite set of positive integers, g in (0,1/2)
+rational, g_S(t) = min_{s in S} ||s t||.  With
+
+    E(S) = { t : g_S(t) > g }   (escape set; finite union of open
+                                 intervals (alpha_j, beta_j)),
+    L(S) = { t : g_S(t) = g }   (level set; finite, contains the
+                                 interval endpoints),
+
+for an integer x >= 1, x not in S:
+
+    gap(S + {x}) = g  <=>  (A) and (B)
+
+    (A) [kill]   for every escape interval there is an integer m_j with
+                 m_j - g <= x*alpha_j  and  x*beta_j <= m_j + g
+                 (equivalently x*(beta_j - alpha_j) <= 2g and the interval
+                 [x*beta_j - g, x*alpha_j + g] contains an integer);
+    (B) [touch]  some t in L(S) has ||x t|| >= g.
+
+Consequences: cores with gap(S) > g have FINITE filler lists with the
+explicit radius R(S) = floor(2g / max_j (beta_j - alpha_j)); gap(S) = g
+cores have infinite families (x clean at a level time); gap(S) < g cores
+have none (never occurs in zoo regimes: LRC for <= 7 speeds gives
+gap >= 1/(m+1) > 2/(2m+3)); fillers BIND only at level times of the core.
+
+Worked example (hub H2 = (1,4,5,6,7,11), g = 2/15): escape intervals
+(32/105, 14/45) and mirror, length 2/315, R = 42; level set
+{32/105, 14/45, 7/15, 8/15, 31/45, 73/105} with 7/15 the isolated level
+time where {4,11} bind; kills leave {3,10,13,16,26,39}; the touch prunes
+x = 13 (7*13 = 91 = 1 mod 15); X(H2) = {3,10,16,26,39} = brute force
+exactly, and no filler exists beyond the provable radius 42.
+
+Verification (lrc_xs_theory.py + lrc_xs_batch.c, exact arithmetic):
+  V1  all 612 zoo cores (every (k-1)-subset of every zoo member at
+      n = 5,6,7,8): X_theory == X_brute on [1,70], zero mismatches;
+  V2  480 random cores above the rung (n = 5..8): same;
+  V3  degenerate regimes behave as stated;
+  V5  C brute (solve() verbatim from the sweep solver) triple-checked
+      against the independent Python implementations.
+The ladder decomposition of the zoos is now a theorem: every zoo member
+is core + filler with the filler in X(core).
+
+## 2. The n = 8 @ V = 50 inter-rung hunt (item 2)
+
+Method.  v4 of the solver (lrc_ilp_check_v4.c): solve(), enumeration,
+records, tight/rung2/interrung emission and sampling are UNTOUCHED from
+v3; v4 adds a probe-lemma filter: gap(v) >= min_j ||v_j t0|| at any fixed
+probe time, so if any of the solver's own candidate times certifies a
+value > theta (theta = 2/15), the vector's gap is > theta and the full
+solve is skipped.  Everything <= theta -- tight 1/9, inter-rung
+(1/9, 2/17), rung values k/(8k+1) <= 6/49 -- stays exact.  The filter
+skipped 99.9985% of vectors; the whole census ran in 213 s single-core
+(8 shards).
+
+Validation: (i) full V = 38 range: tight/rung2/interrung files and the
+exact bottom spectrum (1,565 vectors <= 2/15) identical to v3; shard-level
+outputs byte-identical (2.84 s vs 215.27 s on the same shard); (ii) V = 50
+sub-range: filtered vs unfiltered byte-identical censuses and samples
+(1.62 s vs 169.54 s); (iii) 5,384/5,384 sample records re-verified against
+the independent Python reference; (iv) accounting exact:
+spectrum + filtered = 536,878,650 = C(50,8).
+
+Results (n8_V50_analysis.txt, all checks pass):
+  * TIGHT zoo CLOSED: gap = 1/9 exactly for (1..8) x {1,...,6}.
+  * RUNG-2 zoo: 21 vectors, the SAME 7 primitive classes as at V = 38,
+    scalars now up to 4; the 7 vectors with v_8 > 38 are pure x2/x3/x4
+    scalings -- no new binding structure (Lemma A holds for all 21 on
+    grids d = 17e).
+  * INTER-RUNG WINDOW (1/9, 2/17): EMPTY.  The spectrum jumps from 1/9
+    (6 vectors) straight to 2/17 (21 vectors); the least attainable value
+    above the tight value is the rung-2 value itself.  (n = 6 had 2
+    inter-rung vectors, n = 7 had 4.)
+  * RUNG-k ZOOS for k = 3..6: 11/10/5/3 vectors, family members
+    (1..7,8k) present, generalized Lemma A holds on grids d = (8k+1)e.
+    Rung-5 and rung-6 zoos enter at this radius (need speeds 40, 48).
+  * LADDER: every new rung-2 member = core + filler with filler in
+    X(core) (Theorem above), all eight 7-subsets supporting.
+  * FEASIBILITY: all 536,878,650 vectors feasible -- LRC verified for
+    8 speeds up to V = 50.
+
+## 3. The standalone rung-family note (item 3)
+
+"rung family note.pdf" (12 pages; source note_rung_family.tex in
+computational-check/): a self-contained write-up of
+
+  Theorem 1 (rung family): for all n >= 2, k >= 1,
+      gap(1,...,n-1,kn) = k/(kn+1);
+    for k >= 2 the argmax set is EXACTLY {k/(kn+1), (kn+1-k)/(kn+1)},
+    binders exactly {1, kn}, every other runner >= (k+1)/(kn+1);
+    NO coprimality condition.  The equality case runs: gap multiset
+    {1/D, k/D x n} -> no mixed configurations -> set equality
+    {jm mod D} = {0..n} -> NO-WRAP INDUCTION (sigma(j+1) = sigma(j) + m
+    never wraps because sigma(j) + m <= 2n <= D - 1 for k >= 2) -> m = 1.
+    This closes the gcd-degenerate case (e.g. n = k = 3) left open in the
+    previous audit; the old sum argument needed gcd(n(n+1)/2, kn+1) = 1,
+    which in fact always divides k - 1.
+  Theorem 2 (base rung k = 1): gap(1..n) = 1/(n+1) with argmax set the
+    UNITS grid {a/(n+1) : gcd(a, n+1) = 1} (phi(n+1) maximizers) -- the
+    structural dichotomy with k >= 2 is exactly D >= 2n+1.
+  Theorem 3: the filler characterization above, with proof, the H2 worked
+    example, and the verification summary.
+  Plus: the V = 50 census (tables of the zoos and the spectrum bottom),
+  the machine-verification summary, and open problems (the n = 8
+  inter-rung theorem; rung-zoo structure; n = 9 predictions).
+
+Machine check (lrc_rung_family_check.py, extended): n = 2..16, k = 1..12
+(180 pairs): value, EXACT argmax set, binders {1, kn}, slack
+>= (k+1)/(kn+1) -- ZERO failures, including all gcd-degenerate pairs.
+
+--------------------------------------------------------------------------------
+
+## 4. Files, reproduction
+
+New artifacts under audits/computational-check/:
+
+  lrc_ilp_check_v4.c        hunt mode: probe-lemma filter + low-gap
+                            census + rung-k emission (solve() untouched)
+  lrc_xs_batch.c            batch X(S) brute force (solve() verbatim)
+  lrc_xs_theory.py          filler theorem + exact verification (V1-V5)
+  lrc_n8v50_analyze.py      V = 50 hunt analysis (H1-H8)
+  lrc_rung_family_check.py  extended rung-family machine check
+  note_rung_family.tex      source of the standalone note
+  n8_V50_{tight,rung2,rung3,rung4,rung5,rung6,interrung,lowgap}.txt
+  n8_V50_analysis.txt       full hunt report (all checks pass)
+  lrc_xs_theory_output.txt  filler-theorem verification output
+
+audits/: "rung family note.pdf", "rung family note cover.html".
+
+Reproduction (2 cores):
+  gcc -O2 -o lrc_ilp_check_v4 lrc_ilp_check_v4.c
+  for i in 0 1 2 3 4 5 6 7; do
+    ./lrc_ilp_check_v4 hunt 8 50 out/n8_V50_s$i 8 $i 2 15 nodump; done
+  gcc -O2 -o lrc_xs_batch lrc_xs_batch.c
+  python3 lrc_xs_theory.py; python3 lrc_n8v50_analyze.py
+  python3 lrc_rung_family_check.py
+  (tectonic) python3 pdf.py convert.latex note_rung_family.tex --runs 2
+
+## 5. What is still open
+
+  * The n = 8 inter-rung theorem: empty through V = 50 (5.4e8 sets);
+    a structural proof via the binding-pair lemma (modulus 17) would
+    close the "second-rung conjecture" at n = 8 -- the first case beyond
+    those where it is known to fail (n = 6, 7 have 3/23-type
+    counterexamples).
+  * Rung-zoo structure in general: the zoos of the rung family as
+    theorems (the filler theorem reduces this to finite checks per core).
+  * n = 9: tight {1..9} x c; rung values k/(9k+1); rung-2 zoo from
+    zoo-7/zoo-8 cores + fillers binding mod 19 (prime: every pair
+    {v, 19m - v} admissible at e = 1); inter-rung window (1/10, 2/19).
+  * Families beyond {1..n-1, kn}: which other speed sets admit a complete
+    argmax classification?

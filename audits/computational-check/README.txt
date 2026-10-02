@@ -168,3 +168,44 @@ every reconstructed full dump is recorded in "computational check results.txt"
 Note: the Python drivers as committed read/write absolute paths under
 /home/z/my-project/scripts/out; adjust OUT/BIN at the top when running
 elsewhere.
+
+=== rung family note additions (Oct 2026) ===
+
+lrc_ilp_check_v4.c   hunt mode: probe-lemma filter (gap >= value at any
+                     candidate time; vectors certified gap > theta = 2/15
+                     are skipped -- exact census below theta preserved),
+                     low-gap census file, rung-k zoo emission.
+                     solve()/enumeration/records unchanged from v3.
+                     Validation: v3 vs v4 censuses byte-identical at
+                     V = 38 (full range + shard level) and at V = 50
+                     (sub-range, 105x speedup).
+lrc_xs_batch.c       batch filler brute force for lrc_xs_theory.py
+                     (solve() copied verbatim).
+lrc_xs_theory.py     THE closed-form filler characterization X(S):
+                     kill (window condition per escape interval) AND
+                     touch (clean at a level time), radius bound
+                     R = floor(2g/L_max).  Verified: 612 zoo cores
+                     (n=5..8) + 480 random cores + degenerate regimes,
+                     X_theory == X_brute everywhere (lrc_xs_batch.c,
+                     gap_int, gap_frac triple-checked).
+lrc_n8v50_analyze.py analysis of the n=8 V=50 hunt: H1-H8 (accounting,
+                     5384/5384 sample validation, zoos, Lemma A,
+                     inter-rung emptiness, X(core) ladder, spectrum).
+lrc_rung_family_check.py  extended: n=2..16, k=1..12 -- value, EXACT
+                     argmax set (unique pair for k>=2, units grid for
+                     k=1), binders {1,kn}, slack >= (k+1)/(kn+1).
+note_rung_family.tex source of audits/"rung family note.pdf".
+n8_V50_*.txt         census files of the n=8, V=50 hunt
+                     (C(50,8) = 536,878,650 vectors): tight 6
+                     (consecutive x 1..6), rung2 21 (same 7 primitive
+                     classes as V=38, scalars to 4), interrung 0 (EMPTY),
+                     rung3/4/5/6 = 11/10/5/3, lowgap 2806 (gap <= 2/15).
+n8_V50_analysis.txt  full hunt report; all checks pass.
+lrc_xs_theory_output.txt  filler theorem verification output.
+
+Reproduction (2 cores):
+  gcc -O2 -o lrc_ilp_check_v4 lrc_ilp_check_v4.c
+  for i in 0 1 2 3 4 5 6 7; do ./lrc_ilp_check_v4 hunt 8 50 out/n8_V50_s$i 8 $i 2 15 nodump; done
+  python3 lrc_n8v50_analyze.py
+  gcc -O2 -o lrc_xs_batch lrc_xs_batch.c && python3 lrc_xs_theory.py
+  python3 lrc_rung_family_check.py

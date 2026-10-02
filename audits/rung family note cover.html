@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    @page { size: 794px 1123px; margin: 0; }
+    :root {
+      --c-bg: #121210;
+      --c-accent: #ddc787;
+      --c-text: #f2f2f1;
+      --c-muted: #8f8c85;
+      --c-footer: #6c675f;
+    }
+    html, body { margin: 0; padding: 0; width: 794px; height: 1123px; background: var(--c-bg); color: var(--c-text); font-family: 'Inter', sans-serif; }
+    @media screen {
+      html { height: auto; display: flex; justify-content: center; min-height: 100vh; background: var(--c-bg); }
+      body { transform-origin: top center; scale: min(1, calc(100vw / 794), calc(100vh / 1123)); margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.3); }
+    }
+    .cover { width: 794px; height: 1123px; position: relative; box-sizing: border-box; }
+    .vline { position: absolute; left: 57px; top: 76px; bottom: 120px; width: 2.5px; background: var(--c-accent); }
+    .content { position: absolute; left: 101px; right: 76px; top: 0; bottom: 0; }
+    .label { position: absolute; top: 132px; font-size: 9pt; color: var(--c-accent); letter-spacing: 3px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+    .title { position: absolute; top: 228px; font-size: 31pt; font-weight: 700; line-height: 1.28; font-family: 'Playfair Display', serif; color: var(--c-text); max-width: 580px; }
+    .titlemath { position: absolute; top: 372px; font-size: 20pt; font-style: italic; font-family: 'Playfair Display', serif; color: var(--c-accent); max-width: 580px; }
+    .subtitle { position: absolute; top: 560px; font-size: 12pt; line-height: 1.55; color: var(--c-muted); max-width: 520px; }
+    .authors { position: absolute; top: 730px; font-size: 12pt; color: var(--c-text); letter-spacing: 0.5px; }
+    .institution { position: absolute; top: 764px; font-size: 10pt; color: var(--c-muted); line-height: 1.5; }
+    .results { position: absolute; top: 880px; font-size: 9.5pt; color: var(--c-muted); line-height: 1.7; max-width: 540px; }
+    .results b { color: var(--c-accent); font-weight: 500; }
+    .footer { position: absolute; bottom: 76px; left: 0; right: 0; display: flex; justify-content: space-between; font-size: 9pt; color: var(--c-footer); }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="vline"></div>
+    <div class="content">
+      <div class="label">Research Note &middot; Lonely Runner</div>
+      <div class="title">The Rung Family of<br>Lonely Runner Spectra</div>
+      <div class="titlemath">gap(1, 2, &hellip;, n&minus;1, kn) = k/(kn+1)</div>
+      <div class="subtitle">An elementary proof with complete argmax structure, the closed-form filler characterization X(S), and the exhaustive n&nbsp;=&nbsp;8 census at V&nbsp;=&nbsp;50 &mdash; 536,878,650 speed sets, exact arithmetic throughout.</div>
+      <div class="authors">MIKEAA2020</div>
+      <div class="institution">lonely-runner project &middot; computational-check<br>companion to the audit &ldquo;rung-2 ladder and R1&rdquo;</div>
+      <div class="results">
+        <b>Unique argmax</b> &plusmn;k/(kn+1) for every k&nbsp;&ge;&nbsp;2 &mdash; no coprimality condition (no-wrap induction)<br>
+        <b>Filler theorem</b> &mdash; kill &amp; touch, with an explicit radius R(S); verified on 1,092 cores<br>
+        <b>Inter-rung window</b> (1/9,&nbsp;2/17) <b>empty</b> at V&nbsp;&le;&nbsp;50; tight and rung-2 zoos closed
+      </div>
+      <div class="footer">
+        <span>October 2026</span>
+        <span>rung-family theorem &middot; standalone note</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
