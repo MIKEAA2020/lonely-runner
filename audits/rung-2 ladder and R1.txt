@@ -1,0 +1,460 @@
+rung-2 ladder and R1: the argmax uniqueness proved, the 29 vectors at
+n = 7 classified, and the n = 8 closure test
+
+This audit settles the three items left open after the sharded n = 7,
+V = 50 sweep:
+
+  (a) a rung-2 classification at n = 7 (the 29 vectors at 2/15, the
+      "sum-rich" structure, Lemma 6.2's mechanism);
+  (b) an n = 8 sweep at V = 30-38 testing whether the tight-set zoo
+      stays closed;
+  (c) R1, the observed uniqueness of the argmax at +-2/(2n+1).
+
+Status: (c) is now a theorem (two independent elementary proofs, both
+re-verified line by line here, plus a machine check for n = 2..40);
+(a) is complete: the 29 vectors decompose into 11 primitive classes x
+scalar multiples, every one carries the generalized binding-pair
+structure of Lemma A below, and the classes organize into an explicit
+ladder zoo_5 -> zoo_6 -> zoo_7 -> zoo_8 with quantified single-speed
+lifts; (b) is complete: the n = 8, V = 38 sweep ran (48,903,492 vectors,
+8 shards, 31.6 min CPU, exact arithmetic, zero verification failures),
+the tight zoo stays closed, the rung-2 zoo has 14 vectors in 7 primitive
+classes all classified by the same mechanism, and -- a surprise -- the
+inter-rung window (1/9, 2/17) is empty at V <= 38, whereas n = 7 had
+4 inter-rung vectors (the 3/23 counterexamples).
+
+Everything is exact integer arithmetic throughout; no floating point
+anywhere.
+
+--------------------------------------------------------------------------------
+
+## 1. R1: the upper bound and the unique argmax (item (c))
+
+Theorem 6 in "ladder analysis.txt" proves gap(1,...,n-1,2n) = 2/(2n+1)
+from Lemma 6.1 (the argmax of a set containing 1 and an even speed sits
+at a sum-crossing) and Lemma 6.2 (the residue kill-lemma for denominators
+up to 3n-1). The uniqueness of the maximizer was left as the observed
+remark R1 ("an exact scan ... finds that the maximum is attained ONLY at
+t = +-2/(2n+1) mod 1 -- observed, not proved"). The deepseek audit
+("deepseek rung-2 at n=7.txt.txt") and the GLM audit ("glm thought")
+each found an elementary proof that closes this. The two proofs are
+independent (pigeonhole/gap-counting vs. jump-values/gamma-slivers); both
+were re-verified here line by line, and one implicit step in the deepseek
+equality argument (exclusion of "mixed" gap configurations) is made
+explicit below. The deepseek version is reproduced in cleaned form.
+
+**Theorem 1.** For every integer n >= 2 and every real t,
+
+    min( ||t||, ||2t||, ..., ||(n-1)t||, ||2nt|| )  <=  2/(2n+1).
+
+*Proof.* Put delta = 2/(2n+1) and suppose ||kt|| > delta for
+1 <= k <= n-1 and ||2nt|| > delta. Consider the n+1 points
+P = {0, t, 2t, ..., nt} on the circle R/Z.
+
+Classical step. Among n+1 points either two coincide or two lie within
+1/(n+1) circular distance; their index difference d lies in {1,...,n},
+so min_{1<=k<=n} ||kt|| <= 1/(n+1) < delta. Since ||kt|| > delta for
+k <= n-1, the difference must be d = n:
+
+    beta := ||nt|| <= 1/(n+1) < delta.
+
+Geometry of P. For 0 <= i < j <= n with (i,j) != (0,n) the circular
+distance between it and jt is ||(j-i)t|| > delta (indices in {1..n-1});
+the pair {0, nt} has distance beta < delta. Hence 0 and nt are adjacent
+in the circular order: a point z strictly inside the short arc from 0 to
+nt (length beta) would satisfy ||z - 0|| < beta < delta, but z = kt with
+k in {1..n-1}, contradicting ||kt|| > delta. The n+1 circular gaps of P
+therefore consist of the gap beta (between 0 and nt) and n gaps each
+bounded below by the circular distance of its endpoint pair, which is a
+pair != {0, nt}, hence > delta. Summing to 1:
+
+    1 > beta + n*delta = beta + 2n/(2n+1),
+
+so beta < 1/(2n+1) = delta/2. Then ||2nt|| <= 2||nt|| = 2beta < delta,
+contradicting ||2nt|| > delta. QED
+
+**Theorem 2 (equality case = R1).** If
+min(||t||,...,||(n-1)t||,||2nt||) = 2/(2n+1), then t = +-2/(2n+1) mod 1,
+and at those two times the binding runners are exactly {1, 2n}, every
+other runner sitting at distance >= 3/(2n+1).
+
+*Proof.* Redo the argument with >=. Step 1 still gives
+beta <= 1/(n+1) < delta, so {0, nt} is the unique pair below delta and
+0, nt are adjacent; 1 >= beta + n*delta forces beta <= 1/(2n+1) = delta/2.
+If beta < delta/2 then ||2nt|| <= 2beta < delta contradicts the assumed
+minimum, so beta = delta/2 exactly, and since the n other gaps are each
+>= delta and sum to 1 - delta/2 = n*delta, all n equal delta exactly.
+
+So the multiset of circular gaps of P is {delta/2, delta x n}. The
+delta/2 gap is the one between 0 and nt. Write the points in circular
+order as partial sums of the gaps: with the delta/2 gap in position i,
+the point set is {j*delta : j < i} U {(2j-1)/(2n+1) : i <= j <= n}
+(even multiples below 2i, odd multiples above). If 2 <= i <= n, the
+points 2(i-1)/(2n+1) and (2i-1)/(2n+1) differ by 1/(2n+1) < delta,
+and they form a pair {kt, k't} with |k-k'| in {1..n-1} -- contradicting
+||(k-k')t|| >= delta. [This is the step that was implicit in the deepseek
+write-up; it excludes all "mixed" configurations.] Hence i = 1 or
+i = n+1: the point set is {0} U {odd multiples} (reflection case) or
+{0, delta, 2*delta, ..., n*delta} (AP case).
+
+AP case: t is a point of P, so t = m*delta mod 1 with m in {1..n}. The
+set equality {kt mod 1} = {k*delta mod 1} gives, multiplying by the
+inverse of 2 mod 2n+1,
+
+    { km mod (2n+1) : 0 <= k <= n }  =  { 0, 1, ..., n }.
+
+Summing least non-negative representatives and writing
+km mod (2n+1) = km - (2n+1)*floor(km/(2n+1)):
+
+    (m-1) * n(n+1)/2 = (2n+1) * Q,   Q integer >= 0.
+
+Since gcd(n(n+1)/2, 2n+1) = 1 (any prime p | 2n+1 is odd and divides
+neither n nor n+1), 2n+1 | m-1, and 0 <= m-1 <= n-1 < 2n+1 forces m = 1:
+t = delta = 2/(2n+1). The reflection case reduces to this by the symmetry
+t -> 1-t (||k(1-t)|| = ||kt||), giving t = 1 - delta = (2n-1)/(2n+1).
+
+Binders at t = delta: ||delta|| = delta (runner 1);
+||2n*delta|| = ||4n/(2n+1)|| = ||2 - 2/(2n+1)|| = delta (runner 2n); and
+for 2 <= k <= n-1, ||k*delta|| = ||2k/(2n+1)|| with 2k <= 2n-2 and
+2n+1-2k >= 3, so ||k*delta|| >= 3/(2n+1) > delta (equality exactly at
+k = n-1). QED
+
+**Corollary.** gap(1,...,n-1,2n) = 2/(2n+1) (lower bound: the two
+runners above; upper bound: Theorem 1), with a unique maximizer up to
+reflection, t = +-2/(2n+1), binding runners exactly {1, 2n}. This is
+R1 as a theorem.
+
+Machine check (lrc_thm_r1_check.py, exact rational arithmetic):
+for every n = 2..40 -- gap value; the full argmax set equals
+{2/(2n+1), (2n-1)/(2n+1)}; binders {1, 2n}; the slack
+min_{2<=k<=n-1} ||k*delta|| >= 3/(2n+1); and the equality configuration
+of P (gap multiset {delta/2, delta x n}). All pass. The GLM jump-value
+proof independently derives the same statements; its Step 4 (successor
+existence forces A+B = n) and equality analysis were checked and are
+sound.
+
+**Remark (the rung family).** The same proof, with 2n replaced by kn and delta = k/(kn+1), shows for
+ every k >= 2:
+
+    gap(1, 2, ..., n-1, kn) = k/(kn+1),
+
+with binding runners {1, kn} at t = k/(kn+1): the classical step needs
+1/(n+1) < k/(kn+1), true for k >= 2; the final step gives
+beta < 1/(kn+1) and ||kn*t|| <= k*beta < delta. This explains the rung
+ladder k/(kn+1) seen in the spectra (n = 7: 1/8, 2/15, 3/22, 4/29,
+5/36, 6/43, 7/50; n = 8: 1/9, 2/17, 3/25, 4/33, 5/39, 6/47) as exact
+family values, complementing the rung lemma (Theorem 2 of the ladder
+analysis), which gives the lower bound k/(kn+1) from residue avoidance.
+Verified numerically (lrc_rung_family_check.py) for n = 2..12,
+k = 2..6: value always exact, argmax unique at +-k/(kn+1) throughout
+the tested range (the gcd degeneracy that could in principle break
+uniqueness, e.g. n = k = 3 with gcd(6,10) = 2, did not materialize).
+
+--------------------------------------------------------------------------------
+
+## 2. Lemma A: the binding-pair mechanism, generalized (the tool for (a))
+
+Lemma 6.1's mechanism at a value below 1/2: the argmax of
+g(t) = min ||vt|| is a sum-crossing -- two active sawtooths with opposite
+slopes, (v+ + v-)t* an integer. Combined with the rung-2 value this
+forces rigid residue structure. The deepseek audit stated this at the
+grid d = 2n+1; the n = 7 census shows argmaxes on higher grids
+d = (2n+1)e as well (first seen at v = (1,4,5,6,7,11,39), t* = 14/45,
+binding pair {6,39}, 6+39 = 45 = 3*15). The general statement:
+
+**Lemma A.** Let V be a speed set with gap(V) = 2/(2n+1), attained at
+t*. Write t* = a/d in lowest terms. Then:
+
+  (i) (2n+1) | d -- say d = (2n+1)e;
+  (ii) there are binders v, w in V with
+         va = +2e mod d,   wa = -2e mod d,
+       in particular v + w = 0 mod d (so v + w = 0 mod 2n+1);
+  (iii) every u in V has dist(ua mod d, d) >= 2e, i.e.
+        ua is not congruent to 0, +-1, ..., +-(2e-1) mod d.
+
+*Proof.* The value 2/(2n+1) lies strictly between 0 and 1/2, so t* is
+neither a valley (value 0) nor a peak (value 1/2), and it cannot be a
+same-sign crossing (just past it the min would still increase, just
+before it still decrease -- the local max structure fails on both
+sides). So t* is a crossing of active sawtooths with opposite slopes:
+v+ t* = p + gamma and v- t* = q + 1 - gamma with gamma = 2/(2n+1) and
+p, q integers. Adding, (v+ + v-)t* = p + q + 1 in Z, so d | v+ + v-.
+Subtracting d*p: v+ a - d*p = gamma*d = 2d/(2n+1), an integer, so
+(2n+1) | 2d, and 2n+1 being odd, (2n+1) | d: d = (2n+1)e and
+v+ a = 2e mod d; likewise v- a = -2e mod d. Then
+(v+ + v-)a = 0 mod d and gcd(a,d) = 1 give d | v+ + v-.
+(iii) restates ||u t*|| >= gap = 2e/d for every u. QED
+
+This is Lemma 6.2's residue-coverage mechanism read at the argmax: the
+binding pair IS the residue statement "v = +-2a^{-1} mod d". At e = 1
+the admissible binding pairs are the unit pairs {u, (2n+1)-u}: for
+n = 7 (mod 15) exactly {1,14}, {2,13}, {4,11}, {7,8}; the non-units
+{3,12}, {5,10}, {6,9} cannot bind at e = 1 (3a, 5a, 6a never hit +-2
+mod 15) -- but they DO bind at higher grids: {6,39} at e = 3, d = 45.
+For prime modulus (n = 8, mod 17) every nonzero residue is a unit, so
+every pair {v, 17m - v} is admissible at e = 1.
+
+--------------------------------------------------------------------------------
+
+## 3. The rung-2 zoo at n = 7, classified (item (a))
+
+Census input: the 29 vectors of tight_n7_V50_rung2.txt (gap exactly
+2/15, v_7 <= 50, the sharded V = 50 sweep). Reference re-verification
+(lrc_rung2_classify.py, two independent exact implementations): all 29
+confirmed, and Lemma A holds for every argmax of every vector, at grid
+levels e in {1,2,3,4}.
+
+**Primitivity.** The 29 vectors are exactly 11 primitive classes and
+their scalar multiples (gap(cV) = gap(V) by t -> ct):
+
+  P1  (1,2,3,4,5,6,14)    x {1,2,3}     binding {1,14}  t* = 2/15
+  P2  (1,3,4,5,6,7,11)    x {1,2,3,4}   binding {4,11}  t* = 7/15
+  P3  (1,3,4,5,7,11,12)   x {1,2,3,4}   binding {4,11}  t* = 7/15
+  P4  (1,3,4,5,7,11,18)   x {1,2}       binding {4,11}  t* = 7/15
+  P5  (1,3,4,5,7,11,24)   x {1,2}       binding {4,11}  t* = 7/15
+  P6  (1,3,4,5,13,14,18)  x {1,2}       binding {1,14}  t* = 2/15
+  P7  (1,4,5,6,7,10,11)   x {1,2,3,4}   binding {4,11}  t* = 7/15
+  P8  (1,4,5,6,7,11,16)   x {1,2,3}     binding {4,11}  t* = 7/15
+  P9  (1,4,5,6,7,11,26)   x {1}         binding {4,11},{4,26}  t* = 7/15
+  P10 (1,4,5,6,7,11,39)   x {1}         binding {4,11} at 7/15 AND
+                                          {6,39} at 14/45 (e = 3)
+  P11 (2,6,7,8,10,13,14)  x {1,2,3}     binding {7,8}   t* = 4/15
+
+2 x P1 binds via {2,28} (30 = 2*15) on grids e in {1,2}; 3 x P1 via
+{3,42} (45) at e = 3 with six argmaxes a/45, a = +-2 mod 15; the
+{4,11}-classes scale to {8,22}, {12,33}, {16,44}; P11 scales to
+{14,16}, {21,24}. Mirrors t* -> 1 - t* throughout.
+
+**Minimality (antichain).** For every zoo vector V, no proper subset
+S of V has gap(S) <= 2/15 (all 2^7 - 1 subsets checked, exactly). So
+the zoo is an inclusion antichain: no member is explained by a smaller
+killer inside it; the kill is a property of the full 7-speed structure.
+
+**Hub decomposition.** Two 6-element hub cores generate 8 of the 11
+classes by single-speed extension (lrc_core_extension.py):
+
+  H1 = (1,3,4,5,7,11), gap 1/6, argmaxes 1/6, 5/6:
+       extensions X(H1) = {6, 12, 18, 24}  -> P2, P3, P4, P5
+  H2 = (1,4,5,6,7,11), gap 2/13 -- H2 is itself a zoo_6 member
+       (rung 2 at n = 6):
+       extensions X(H2) = {3, 10, 16, 26, 39} -> P2, P7, P8, P9, P10
+
+P1 is the Theorem 6 family itself: rung-1 core (1,2,3,4,5,6) (gap 1/7,
+the n = 6 tight value) + the filler 14 = 2n. P6 and P11 are sporadic at
+this radius: every one of their 6-subsets that supports an extension
+carries a lower-rung gap (4/23, 2/11, 2/9, 1/4); e.g.
+P6 = (1,3,4,5,13,18) [gap 4/23] + 14 = (1,3,4,5,13,14) [2/9] + 18 =
+(1,3,4,5,14,18) [2/11] + 13, and
+P11 = (2,6,7,8,10,13) [4/23] + 14 (see the full extension table in
+scripts/out/rung2_n7_classification.json).
+
+**Why exactly these fillers (the mechanism, Lemma 6.2 in reverse).**
+A filler x must do two jobs. First, it must be residue-clean at the
+exhibited rung-2 time of the extension, t* = 7/15 (Lemma A(iii):
+x*7 not congruent to 0, +-1 mod 15). Second, it must KILL the core's
+escape times: everywhere the core's min exceeds 2/15 the filler must
+sit at distance <= 2/15. For H2 this starts at the core's own argmaxes
+4/13 and 9/13 (gap 2/13 > 2/15), where the kill forces
+x = 0, +-10 mod 13 -- leaving x in {3,10,13,16,23,26,29,36,39,42,49}
+up to 50 -- and then must hold at every other super-level time of H2.
+The residue condition at 7/15 prunes x = 13 (13*7 = 91 = 1 mod 15);
+the full kill prunes 23, 29, 36, 42, 49 (clean at 7/15, but H2's
+escape set extends past where their sawtooths drop below 2/15). The
+survivors are exactly X(H2) = {3,10,16,26,39}. Note 26 = 11 mod 15
+lands in the binder class: P9 binds with THREE speeds {4,11,26}.
+So: necessary conditions are modular at the exhibited time;
+sufficiency (the kill) is genuinely arithmetic and is what the
+enumeration certifies.
+
+**Sum-richness (the user's observation).** Every one of the 29 vectors
+carries Schur triples u+v=w; the fillers close the additive structure:
+12 = 5+7 and 11 = 4+7 in P3; 18 = 7+11 in P4; 16 = 5+11 in P8;
+26 and 39 continue the 13-multiples; P11 has 8 = 2+6, 10 = 2+8,
+13 = 6+7, 14 = 6+8 = 7+7. The binding pairs themselves sum to
+multiples of 15 (Lemma A(ii)), and the Schur structure of the core is
+what the filler's kill condition feeds on: a filler equal to a core sum
+u+v automatically tracks the crossings of u and v (the candidate
+denominators u+v are where escapes live). The full Schur census per
+vector is in scripts/out/rung2_n7_classification.json.
+
+--------------------------------------------------------------------------------
+
+## 4. The ladder zoo_5 -> zoo_6 -> zoo_7 -> zoo_8 (items (a)+(b))
+
+Full rung-2 censuses at V = 50 for n = 5, 6 (new runs, v3 solver) and
+the committed n = 7 census; n = 8 at V = 38. All satisfy Lemma A.
+
+  n    value   vectors   primitive classes   grid levels e
+  5    2/11    32        6                   {1..7}
+  6    2/13    32        8                   {1..6}
+  7    2/15    29        11                  {1..4}
+  8    2/17    14        7                   {1,2,3}
+
+Primitive classes:
+
+  zoo_5:  (1,2,3,4,10) {1,10}; (1,2,3,5,8) {3,8}; (1,3,4,5,7) {4,7};
+          (1,3,4,5,18) {4,18} at e = 2; (1,3,4,7,10) {1,10};
+          (1,4,5,6,7) {5,6}
+  zoo_6:  (1,2,3,4,5,12) {1,12}; (1,2,5,6,7,8) {5,8};
+          (1,3,4,5,6,9) {4,9}; (1,3,4,5,9,12) {1,12};
+          (1,4,5,6,7,11) {6,7}; (1,4,5,6,7,22) {6,7};
+          (1,6,7,8,9,15) {6,7}; (2,5,6,8,10,11) {2,11}
+  zoo_8:  A (1,2,3,4,5,6,7,16) {1,16}; B (1,2,3,4,5,7,8,12) {5,12};
+          C (1,2,3,4,5,7,12,16) {1,16}; D (1,2,5,6,7,8,11,13) {6,11};
+          E (1,4,5,6,7,8,11,13) {6,11}; F (1,4,5,6,7,11,13,16)
+          {1,16},{4,13},{6,11}; G (1,5,6,7,8,11,13,21) {6,11},{13,21}
+
+At the fixed radius V = 38 (apples-to-apples):
+
+  n    tight   rung2 (primitive)   inter-rung
+  5    11      22  (6)             0
+  6    6       23  (8)             2
+  7    10      21  (10)            4
+  8    4       14  (7)             0
+
+**Single-speed lifts** (zoo member + one speed = next zoo member;
+lrc_ladder_table.py):
+
+  5 -> 6: 6 lifts. The hub (1,4,5,6,7) lifts by +11 and +22; the
+          2x, 3x, 4x orbits lift by +22, +33, +44 respectively.
+  6 -> 7: 13 lifts. H2 = (1,4,5,6,7,11) lifts by +{3,10,16,26,39}
+          (P2, P7, P8, P9, P10); 2xH2 by +{6,20,32}; 3xH2 by +{9,30,48};
+          4xH2 by +{12,40}. These 13 lifts are exactly the
+          {P2,P7,P8} x {1,2,3,4} orbit block of zoo_7.
+  7 -> 8: 2 lifts. (1,4,5,6,7,11,16) + 13 = F and its double
+          (2,8,10,12,14,22,32) + 26. So zoo_7 member P8 lifts directly,
+          and it is the only one.
+
+The rest of zoo_8 extends lower structures: 11 of the 14 members
+contain a zoo_6 core; B, C extend the n = 7 TIGHT cores
+(1,2,3,4,5,7,12) (gap 1/8) by +{8,16}; E extends (1,4,5,6,7,11,13)
+(gap 1/8, the third n = 7 tight vector) by +8; A extends the
+consecutive core (1,...,7) by 16 = 2n (Theorem 6); G extends the gap-
+3/19 core (1,5,6,7,8,11,13) by +21. In other words the whole rung-2
+zoo at n = 8 is assembled from zoo_6/zoo_7 and rung-1 cores by the
+filler-kill mechanism -- the ladder, not new structure.
+
+--------------------------------------------------------------------------------
+
+## 5. The n = 8 sweep (item (b)): does the tight-set zoo stay closed?
+
+Method. v3 of the committed solver (lrc_ilp_check_v3.c): the v2
+enumeration, argmax and exact gap computation are untouched (dumps and
+tight lists remain byte-identical); v3 adds
+  <prefix>_rung2.txt     gap exactly 2/(2n+1), with the recorded argmax
+                         and binding speeds;
+  <prefix>_interrung.txt 1/(n+1) < gap < 2/(2n+1).
+Regression: n = 7, V = 20 and V = 38 reproduce the committed censuses
+exactly (tight 4/10, rung2 8/21, interrung 2/4, all sets equal).
+
+Runs (2 cores, shard mode, nodump):
+  n = 8, V = 30: 5,852,925 vectors, 182 s.
+  n = 8, V = 38: 48,903,492 vectors, 8 shards x ~236 s, 1897 s CPU.
+  n = 6, V = 50: 15,890,700 vectors, 4 shards (zoo_6 census).
+  n = 5, V = 50: 2,118,760 vectors (zoo_5 census).
+All new-run vectors
+(72,765,877 over n = 5..8) plus the committed 99,884,400 (n = 7, V = 50):
+feasible, zero verification failures.
+
+Validation of the n = 8, V = 38 sweep (lrc_n8_validate.py):
+  S1  the merged reduced gap histogram sums to exactly 48,903,492;
+  S2  496/496 sampled records (every 99733rd vector, all shards)
+      match the independent Python reference exactly (gap, argmax,
+      feasibility, witness k);
+  S3  census sizes and values re-verified (tight 4, rung2 14, inter 0);
+  V2  all 14 rung-2 vectors satisfy Lemma A (mod 17, grids 17e).
+V = 30 vs V = 38 reconciliation: the 10 rung-2 and 3 tight vectors at
+V = 30 are exactly the V = 38 census filtered to v_8 <= 30.
+
+Results.
+
+* **Tight zoo: CLOSED, and stricter than n = 7.** gap = 1/9 occurs
+  exactly for (1,2,...,8) x {1,2,3,4} -- the classical consecutive
+  family and its scalars, nothing else. Contrast n = 7, where the
+  tight census already has three primitive classes at small V
+  ({1,...,7}, {1,2,3,4,5,7,12}, {1,4,5,6,7,11,13}): at n = 8 no
+  non-consecutive tight 8-set exists at V <= 38 at all.
+
+* **Rung-2 zoo: 14 vectors, 7 primitive classes, all classified** as in
+  section 4 -- no new binding structure (all pairs are {v, 17m - v},
+  which at prime modulus is automatic), grid levels e <= 3, and the
+  ladder decomposition accounts for every member.
+
+* **Inter-rung window EMPTY.** No vector has gap strictly between 1/9
+  and 2/17 at V <= 38. Contrast: n = 6 had 2 inter-rung vectors and
+  n = 7 had 4 (the 3/23 counterexamples to the second-rung conjecture,
+  which first appear at n = 6). The first n = 8 inter-rung value, if
+  any, will be some p/q with 2/17 > p/q > 1/9; the spectrum bottom
+  shows the next values above 2/17 are 3/25 (7 vectors; the rung-3
+  value -- the family (1,...,7,24) attains it, and six further
+  vectors do as well, so a rung-3 zoo exists) and 4/33 (10 vectors),
+  so an inter-rung population, if it exists at all, lives beyond
+  V = 38.
+
+* Spectrum bottom at n = 8, V = 38 (full merged histogram):
+  1/9 (4), 2/17 (14), 3/25 (7), 4/33 (10), 1/8 (420), 6/47 (4),
+  5/39 (3), 4/31 (57), 3/23 (197), 5/38 (16), 7/53 (4), 2/15 (829), ...
+  The rung values k/(8k+1) are all present as family values
+  (Theorem 1').
+
+--------------------------------------------------------------------------------
+
+## 6. Files, reproduction, seeds
+
+New committed artifacts under audits/computational-check/:
+
+  lrc_ilp_check_v3.c        solver v3 (run/shard/brute + rung-2 and
+                            inter-rung emission; solve() untouched)
+  lrc_gap_lib.py            exact gap machinery, two independent
+                            implementations (integer + Fraction)
+  lrc_thm_r1_check.py       Theorem 1/2 machine check, n = 2..40
+  lrc_rung2_classify.py     n = 7 classification (Lemma A, argmaxes,
+                            Schur census, minimal cores)
+  lrc_core_extension.py     hub-core decomposition, extension lists
+  lrc_n56_check.py          Lemma A verification for zoo_5, zoo_6
+  lrc_rung_family_check.py  Theorem 1' (rung family) check
+  lrc_n8_analyze.py         n = 8 zoo analysis (V1-V5)
+  lrc_n8_validate.py        n = 8 sweep validation (S1-S3)
+  lrc_ladder_table.py       ladder tables, direct lifts, cross-checks
+  lrc_run_n8v38.sh          sharded n = 8, V = 38 driver
+  n5_V50_rung2.txt          zoo_5: 32 vectors at 2/11
+  n6_V50_rung2.txt          zoo_6: 32 vectors at 2/13
+  n8_V30_rung2.txt          n = 8, V = 30: 10 vectors at 2/17
+  n8_V38_rung2.txt          n = 8, V = 38: 14 vectors at 2/17
+  n8_V38_tight.txt          n = 8, V = 38: 4 tight vectors at 1/9
+
+Reproduction (2 cores):
+  gcc -O2 -o lrc_ilp_check_v3 lrc_ilp_check_v3.c
+  ./lrc_ilp_check_v3 run 5 50 out/n5_V50
+  for i in 0 1 2 3; do ./lrc_ilp_check_v3 shard 6 50 out/n6_V50_s$i 4 $i & done; wait
+  ./lrc_ilp_check_v3 run 8 30 out/n8_V30
+  ./lrc_run_n8v38.sh
+  python3 lrc_thm_r1_check.py; python3 lrc_rung2_classify.py
+  python3 lrc_core_extension.py; python3 lrc_n56_check.py
+  python3 lrc_rung_family_check.py; python3 lrc_n8_analyze.py
+  python3 lrc_n8_validate.py; python3 lrc_ladder_table.py
+
+(The Python drivers read/write absolute paths under
+/home/z/my-project/scripts/out -- adjust OUT at the top when running
+elsewhere, as with the committed drivers.)
+
+--------------------------------------------------------------------------------
+
+## 7. What is still open
+
+* The sufficiency side of the rung-2 classification is empirical: the
+  filler-kill condition (a filler must cover the core's entire
+  super-level set above 2/15) is checkable per core but has no closed
+  form. A characterization of X(S) from the core's escape-time geometry
+  would turn the ladder decomposition into a theorem.
+* The inter-rung question at n = 8: does ANY 8-set have gap strictly in
+  (1/9, 2/17)? Empty through V = 38; a sharded V = 50 run
+  (C(50,8) = 5.4e8, ~5.5x the present sweep) would settle the same
+  radius as the n = 7 census.
+* Uniqueness of the argmax in the rung family at the gcd-degenerate
+  parameters (k >= 3 with gcd(n(n+1)/2, kn+1) > 1): holds throughout
+  the tested range; a proof would need the equality-case sum argument
+  sharpened.
+* n = 9 rung-2 prediction (mechanism): tight zoo {1..9} x c; rung-2
+  zoo from zoo_7/zoo_8 cores + fillers binding mod 19; rung values
+  k/(9k+1) = 1/10, 2/19, 3/28, ...

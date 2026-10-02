@@ -1,6 +1,9 @@
 Computational check of the Lonely Runner polytope integrality (n <= 5, v_n <= 50)
 Extended to n = 6 (v_n <= 50) and n = 7 (v_n <= 38)
 Extended to n = 7 (v_n <= 50, sharded) and Theorem 6 machine-checked
+Extended to the rung-2 ladder: R1 proved and machine-checked, zoos at
+n = 5/6 (V = 50) and n = 8 (V = 30 and V = 38, sharded) -- see
+"../rung-2 ladder and R1.txt"
 ================================================================================
 
 Contents
@@ -24,6 +27,16 @@ Contents
                     Build: gcc -O2 -o lrc_ilp_check lrc_ilp_check.c
                     (v2 adds shard mode; run/brute are behavior-identical to
                     the v1 binary -- verified byte-for-byte.)
+  lrc_ilp_check_v3.c
+                    v3: identical enumeration, argmax and exact gap
+                    (solve() untouched; dumps and tight lists byte-
+                    identical to v2), plus two census outputs in run and
+                    shard modes: <prefix>_rung2.txt (gap exactly
+                    2/(2n+1), with recorded argmax and binding speeds)
+                    and <prefix>_interrung.txt (1/(n+1) < gap <
+                    2/(2n+1)). Regression: n = 7, V = 20 and V = 38
+                    reproduce the committed censuses exactly (tight
+                    4/10, rung2 8/21, interrung 2/4).
   lrc_verify.py     validation driver for the n <= 5 check (see "computational
                     check results.txt" sections 3-8).
   lrc_extend67.py   extension driver for n = 6 / n = 7 (V = 38): witness
@@ -54,6 +67,33 @@ Contents
                     checks; C independent reference on all sampled and census
                     vectors; D HiGHS MILP; E Theorem 6 anchors; F sample/dump
                     consistency -> n7v50_validation.jsonl.
+  lrc_gap_lib.py            exact gap machinery, two independent
+                    implementations (integer arithmetic mirroring the C
+                    solver + Fraction reference), all-argmax extraction.
+  lrc_thm_r1_check.py       Theorem 1 / Theorem 2 (R1) machine check,
+                    n = 2..40: gap value, unique argmax pair, binders
+                    {1, 2n}, slack >= 3/(2n+1), equality configuration.
+  lrc_rung2_classify.py     n = 7 rung-2 classification: Lemma A
+                    verification on all argmaxes of the 29 vectors,
+                    Schur census, minimal cores ->
+                    rung2_n7_classification.json.
+  lrc_core_extension.py     hub-core decomposition and extension lists
+                    X(S) for every 6-subset of every zoo member.
+  lrc_n56_check.py          Lemma A verification for zoo_5 / zoo_6.
+  lrc_rung_family_check.py  Theorem 1' (rung family gap(1..n-1,kn) =
+                    k/(kn+1)) check, n = 2..12, k = 2..6.
+  lrc_n8_analyze.py         n = 8 zoo analysis layers V1-V5 (shard
+                    reconciliation, reference re-verification, structure,
+                    ladder/hub decomposition, spectrum) ->
+                    rung2_n8_classification.json.
+  lrc_n8_validate.py        n = 8, V = 38 sweep validation: S1 spectrum
+                    sums to C(38,8); S2 496/496 sampled records match the
+                    Python reference; S3 census sizes and values.
+  lrc_ladder_table.py       ladder tables at V = 38, cross-checks vs the
+                    committed censuses, single-speed lifts 5->6->7->8.
+  lrc_run_n8v38.sh          sharded n = 8, V = 38 driver (8 shards, two at
+                    a time; adapt to a foreground chunk runner if the
+                    sandbox reaps background processes).
   stats.json        machine-readable results, n <= 5.
   stats67.json      machine-readable results, n = 6 / n = 7 (V = 38).
   stats_n7v50.json  machine-readable results, n = 7, V = 50 (per-shard times,
@@ -72,6 +112,33 @@ Contents
                     at n = 7, v_n <= 50 (the known 3/23 counterexamples).
   gap_spectrum_n7_V50.txt   complete reduced gap-value histogram of the
                     99,884,400 vectors (930 distinct values).
+  n5_V50_rung2.txt  zoo_5: all 32 vectors with gap exactly 2/11 at n = 5,
+                    v_n <= 50 (6 primitive classes x scalars).
+  n6_V50_rung2.txt  zoo_6: all 32 vectors with gap exactly 2/13 at n = 6,
+                    v_n <= 50 (8 primitive classes x scalars).
+  n8_V30_rung2.txt  n = 8, V = 30: all 10 vectors with gap exactly 2/17.
+  n8_V38_rung2.txt  n = 8, V = 38: all 14 vectors with gap exactly 2/17
+                    (7 primitive classes x scalars; binding pairs mod 17).
+  n8_V38_tight.txt  n = 8, V = 38: all 4 tight vectors (gap 1/9) --
+                    exactly {1,...,8} x {1,2,3,4} (tight zoo closed).
+  rung2_n7_classification.json / rung2_n8_classification.json
+                    machine-readable classifications (argmaxes, binders,
+                    residues, Schur triples, cores).
+
+Reproducing the rung-2 ladder extension (~25 min on 2 cores):
+  gcc -O2 -o lrc_ilp_check_v3 lrc_ilp_check_v3.c
+  ./lrc_ilp_check_v3 run 5 50 out/n5_V50
+  for i in 0 1 2 3; do ./lrc_ilp_check_v3 shard 6 50 out/n6_V50_s$i 4 $i nodump & done; wait
+  ./lrc_ilp_check_v3 run 8 30 out/n8_V30
+  ./lrc_run_n8v38.sh
+  python3 lrc_thm_r1_check.py
+  python3 lrc_rung2_classify.py
+  python3 lrc_core_extension.py
+  python3 lrc_n56_check.py
+  python3 lrc_rung_family_check.py
+  python3 lrc_n8_analyze.py
+  python3 lrc_n8_validate.py
+  python3 lrc_ladder_table.py
 
 Reproducing the full sweep (about 30 seconds, single core, n <= 5):
   gcc -O2 -o lrc_ilp_check lrc_ilp_check.c
