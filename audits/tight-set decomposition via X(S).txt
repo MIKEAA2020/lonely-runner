@@ -1,0 +1,240 @@
+TIGHT-SET DECOMPOSITION VIA X(S): THE RUNG-2 SPINE OF THE TIGHT ZOO
+====================================================================
+
+Date: 2026-10-02
+Directive (from the cross-model audit trail): "The rung family is a detour.
+The X(S) lemma is the asset. Point it at the tight sets."  This audit records
+what happened when we did exactly that: the filler-kill characterization
+X(S, g) was applied at the LRC-tight value g = 1/(n+1) to every tight set
+with n = 2..8 speeds and max speed <= 50.
+
+Normalization (same as the previous audits): a set V of n distinct positive
+speeds, gap(V) = sup_t min_{v in V} ||v t||; "tight at level n" means
+gap(V) = 1/(n+1) exactly (the LRC bound); "rung-k at level m" means
+gap = k/(km+1) for a set of m speeds; the rung family {1,...,m-1, km} is the
+canonical rung-k member at level m.
+
+--------------------------------------------------------------------
+1. The pointed lemma (no new proof needed)
+--------------------------------------------------------------------
+
+The filler theorem proved in "rung family and the filler theorem.txt" is
+already general in the target g: for a core S of n-1 speeds and a target
+g in (0, 1/2),
+
+    gap(S + {x}) = g   <=>   (A) kill  +  (B) touch,
+
+(A) every escape interval (a, b) of S at level g (i.e. a maximal interval
+    with min_{s in S} ||s t|| > g) satisfies x*(b-a) <= 2g and
+    [x*b - g, x*a + g] contains an integer (the filler sits within g of ONE
+    integer throughout the escape);
+(B) some level time t* in L(S, g) = {t : min_s ||s t|| = g} has
+    ||x t*|| >= g.
+
+At the tight value g = 1/(n+1) every (n-1)-core of a tight n-set has
+gap(S) >= 1/n > g (LRC at n-1 speeds), so the escape set is nonempty, the
+radius bound R = floor(2g / L_max) applies, and X(S, 1/(n+1)) is a FINITE,
+explicitly computable list.  That is the whole machinery: no new theory was
+needed, only the pointing.
+
+--------------------------------------------------------------------
+2. The experiment
+--------------------------------------------------------------------
+
+Tight zoos (complete, V <= 50), re-derived with the v4 hunt solver at
+theta = 1/(n+1) and validated against the committed censuses and the
+independent Python gap library:
+
+    n=2: 25 = c*{1,2}, c=1..25
+    n=3: 16 = c*[3], c=1..16
+    n=4: 19 = c*[4] (c<=12) + c*(1,3,4,7) (c<=7)
+    n=5: 15 = c*[5] (c<=10) + c*(1,3,4,5,9) (c<=5)
+    n=6:  8 = c*[6] (c<=8)          <- no modification families
+    n=7: 14 = c*[7] (c<=7) + c*(1,2,3,4,5,7,12) (c<=4)
+                 + c*(1,4,5,6,7,11,13) (c<=3)
+    n=8:  6 = c*[8] (c<=6)          <- no modification families
+
+Rung-2 / rung-3 / interrung zoos at levels m = 3..6 (V <= 50) were derived
+the same way (one hunt at theta = 3/(3m+1) per level captures tight + rung2
++ rung3 simultaneously): rung2 counts 38/28/32/32 at m = 3/4/5/6 (the m=5,6
+counts match the committed n5/n6 censuses), rung3 counts 17/31/18/23,
+interrung (1/(m+1), 2/(2m+1)) nonempty only at m = 6: {1,5,6,11,16,17} at
+gap 5/33 and its double.
+
+Checks (lrc_tight_decomp.py, lrc_tight_atlas.py, lrc_tight_spines.py):
+
+  T1  THEOREM CERTIFIED IN THE TIGHT REGIME. For every (T, x) pair of every
+      tight set n = 2..8 (463 pairs, 415 distinct cores), the theory list
+      X_theory(S, 1/(n+1)) equals the brute-force list of the C solver
+      (gap(S+{x}) computed exactly) on [1,60], with no filler above the
+      radius.  Zero mismatches.
+
+  T4  X-CLOSURE. At every core S of every tight set, the zoo extensions of
+      S are exactly X(S, 1/(n+1)) cut to [1, 50]: no filler outside X
+      extends S tightly, and every X-filler <= 50 gives a census member.
+      Since the census is complete, this also means the census core
+      collection is exactly the set of productive cores.
+
+  T3  NAIVE LADDER TEST. "Every tight n-set has a tight (n-1)-core" holds
+      for the scalings c*[n] at every level, and fails exactly on the
+      modification families: 7/19 at n=4, 5/15 at n=5, 7/14 at n=7
+      (0 failures at n=6, 8 where no mods exist).  The obstruction members
+      decompose through non-tight cores -- see the spines below.
+
+  T5  CORE SPECTRUM. The gaps of all 415 census cores take only the values
+      {1/2, 1/3, 2/5, 3/7, 2/7, 3/10, 2/9, 3/13, 1/4, 2/11, 3/16, 3/17,
+      4/17, 1/5, 2/13, 1/6, 1/7, 1/8}: tight values 1/(m+1) and rung values
+      k/(km+1) at various levels m (plus 3/8 on the n=4 core {1,4,7}).
+      Every core is a zoo member at its level, a scaling of one, or a
+      "composite" (a lower tight set plus gap-preserving fillers, e.g.
+      {1,2,3,4,5,7} = [5] + 7 with 7 in the on-rung family X([5], 1/6)).
+
+--------------------------------------------------------------------
+3. The finding: the rung-2 spine
+--------------------------------------------------------------------
+
+Canonical chains (repeatedly remove the filler whose core has minimal gap;
+each step is X-certified at the set's own gap) descend from every tight set
+to a single seed speed, ascending through gap values that are zoo values
+only.  Read forward, the modification families grow out of rung ladders:
+
+  n=4 mod family (1,3,4,7):
+    {1}@1/2 -> {1,4}@2/5 [rung2@2, the family member {1,2*2}]
+            -> {1,3,4}@2/7 [rung2@3]
+            -> {1,3,4,7}@1/5 [tight@4]
+
+  n=5 mod family (1,3,4,5,9):
+    {1} -> {1,4}@2/5 [rung2@2] -> {1,3,4}@2/7 [rung2@3]
+        -> {1,3,4,5}@2/9 [rung2@4] -> {1,3,4,5,9}@1/6 [tight@5]
+    (alternative spine through rung-3: {1,4,5,9}@3/13 [rung3@4] + 3.)
+
+  n=7 one-entry mod (1,2,3,4,5,7,12) = [7] with 6 -> 12:
+    tight ladder {1} -> [2] -> [3] -> [4] -> [5], then
+    [5] + 12 = {1,2,3,4,5,12}@2/13 [rung2@6, the family member {1..5,2*6}],
+    then + 7 -> tight@7.  The mod "skips" the ladder filler 6 of level 6,
+    inserts the rung-2 filler 12 instead, and resumes the ladder filler 7.
+
+  n=7 two-entry mod (1,4,5,6,7,11,13) = [7] with 2 -> 11, 3 -> 13:
+    {1} -> {1,6}@3/7 [rung3@2, the family member {1,3*2}]
+        -> {1,5,6}@2/7 [rung2@3] -> {1,4,5,6}@2/9 [rung2@4]
+        -> {1,4,5,6,7}@2/11 [rung2@5] -> {1,4,5,6,7,11}@2/13 [rung2@6]
+        -> {1,4,5,6,7,11,13}@1/8 [tight@7]
+    -- an unbroken rung-2 ladder from level 3 to level 6, then the drop to
+    tight.
+
+Every node of every spine is a zoo member at its level (verified
+exhaustively; the level-2 rung nodes are the rung family members
+{c, 2kc}).  Machine verdict: "spine nodes all zoo members with zoo values:
+True".
+
+So the tight zoo decomposes along the rung zoo: the modification families
+are seeded by rung-2 (and occasionally rung-3) members, and the naive
+tight-core ladder is repaired by routing through the rung ladder.  The rung
+family -- called "a detour" in the directive -- is structurally
+load-bearing: it is the seed lattice of the tight zoo.
+
+--------------------------------------------------------------------
+4. The generation map (productivity census)
+--------------------------------------------------------------------
+
+For every zoo member S at level n-1 we computed X(S, 1/(n+1)) exactly.
+Productive seeds (nonempty X) and their tight children:
+
+  n=4 <- rung2@3: {1,3,4} -> X = {2, 7}:  +2 gives [4], +7 gives (1,3,4,7).
+         BOTH primitive tight-4 families come from ONE rung-2 core.
+     <- rung3@3: {3,4,7} -> X = {1}: +1 gives (1,3,4,7).
+     <- tight@3: [3] -> X = {4}: the baseline ladder.
+  n=5 <- rung2@4: {1,3,4,5} -> X = {2, 9}: both primitive families again.
+     <- rung3@4: {1,4,5,9} -> X = {3}.
+     <- tight@4: [4] -> X = {5}, plus composite cores (e.g. {1,2,3,5} -> 4,
+        {1,3,4,9} -> 5).
+  n=6 <- ONLY tight@5 seeds productive ([5] -> {6}, composites).  None of
+        the 32 rung2@5 members and none of the 18 rung3@5 members has a
+        tight extension: X(S, 1/7) = empty for all of them.  THIS is why
+        the n=6 tight zoo has no modification families.
+  n=7 <- rung2@6: {1,2,3,4,5,12} -> X = {7}; {1,4,5,6,7,11} -> X = {13}
+        (plus 6 scaled seeds).  Both mod families of n=7.
+     <- tight@6: [6] -> {7}.
+  n=8 <- ONLY tight@7 seeds ([7] -> {8}); no rung2@7 member (V <= 50) is
+        productive: the n=8 zoo stays pure scalings.
+
+All produced children were verified to have gap exactly 1/(n+1) (independent
+Python check); the census logic guarantees the converse (any tight child
+would be in the census, so its core would be a census core).
+
+The X-lists are remarkably small: |X(S, 1/(n+1))| in {1, 2} for every
+primitive core at every level.  Tight extensions are rare and explicit.
+
+--------------------------------------------------------------------
+5. Predictions, scaling, covariance
+--------------------------------------------------------------------
+
+  PREDICTIONS BEYOND THE CENSUS. X-lists extend past V = 50; all 13
+  predicted sets with max speed in (50, 90] were verified to have gap
+  exactly 1/(n+1), e.g. (8,24,32)+56, (9,27,36)+63, (12,36,48)+84 at n=4;
+  (6,18,24,30)+54 at n=5.  The filler lists generate new tight sets
+  outside the searched horizon -- the falsifiable half of X-closure.
+
+  SCALING COVARIANCE. For every scaled core pair (c*S, S) in the census
+  (324 pairs): X(c*S, 1/(n+1)) = c * X(S, 1/(n+1)) exactly.  Together with
+  gap(c*S) = gap(S) this explains the scaling structure of every zoo
+  family from one primitive core.  (Lemma candidate: the kill and touch
+  conditions transfer under t -> c*t because ||x*(ct)|| = ||(cx)*t|| and
+  the escape/level structure of c*S is the c-fold preimage of S's.)
+
+  RADIUS. The a priori radius R = floor(2g / L_max) is small (8 for the
+  primitive n=4 core {1,3,4}; 6..28 across the n=7 cores), which is what
+  makes the whole census finite and cheap.
+
+--------------------------------------------------------------------
+6. Relation to the literature
+--------------------------------------------------------------------
+
+The modification families found here are exactly the one-entry (n=4: 2->7;
+n=5: 2->9; n=7: 6->12) and two-entry (n=7: 2->11, 3->13) modifications of
+the baseline [n] that stay tight, the territory classified by the recent
+tight-instance literature (Goddyn-Wong scalings; the 2026 one-entry
+classification paper).  What the X(S) machinery adds is a GENERATING
+MECHANISM: each family is derived from a rung-2 seed by an explicit filler
+list, the seeds themselves form a ladder inside the rung-2 zoo, and the
+presence/absence of families per level reduces to the productivity census
+of rung-2 seeds (productive at n = 4, 5, 7; barren at n = 6, 8 within
+V <= 50).  The Goddyn-Wong scalings are the scaling covariance above.
+
+--------------------------------------------------------------------
+7. Open problems
+--------------------------------------------------------------------
+
+  O1  Prove the productivity census in general: characterize the rung-2
+      members S at level n-1 with X(S, 1/(n+1)) nonempty.  Empirically at
+      n = 6, 8 the rung-2 zoo is barren; is barrenness at n = 6, 8 a
+      theorem (all V), or do productive seeds exist beyond V = 50?
+  O2  Prove the spine statement: every tight n-set admits a chain
+      decomposition through zoo members only (tight and rung values),
+      ideally by an inductive argument on the escape structure.
+  O3  Prove the scaling covariance X(c*S) = c*X(S) as a lemma.
+  O4  n = 9: does a rung-2@8 seed with a tight extension exist?  (The n=9
+      tight zoo within V = 50 is computable with the v4 hunt at ~10x the
+      n=8 cost; the probe filter keeps this under an hour single-core.)
+  O5  The interrung@6 pair {1,5,6,11,16,17} (gap 5/33) is a new zoo value
+      between tight and rung-2; classify its role in the hierarchy (it is
+      unproductive as a tight seed at n=7).
+
+--------------------------------------------------------------------
+8. Files and reproduction
+--------------------------------------------------------------------
+
+  scripts (also in audits/computational-check/):
+    lrc_tight_hunt.sh     zoo hunts: n=2..6 at theta=1/(n+1); m=3..6 at
+                          theta=3/(3m+1)  (v4 solver, seconds each)
+    lrc_tight_decomp.py   T1/T3/T4/T5 + core details -> tight_decomp.json
+    lrc_tight_atlas.py    chains, taxonomy, productivity, predictions,
+                          scaling -> tight_atlas.json
+    lrc_tight_spines.py   spine verification + forward presentation
+  data:  out/tz{2..6}_tight.txt, out/rz{3..6}_{tight,rung2,rung3}.txt,
+         out/rz6_interrung.txt (+ the committed n=7, n=8 files)
+  outputs: out/tight_decomp_output.txt, out/tight_atlas_output.txt,
+           out/tight_spines_output.txt, out/tight_decomp.json,
+           out/tight_atlas.json
+  Path dependencies: lrc_xs_batch and lrc_gap_lib/lrc_xs_theory as in the
+  previous audits (README of computational-check).

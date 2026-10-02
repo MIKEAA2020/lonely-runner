@@ -1,0 +1,54 @@
+/home/z/my-project/scripts/lrc_tight_decomp.py:4: SyntaxWarning: invalid escape sequence '\ '
+  x in T, let S = T \ {x} (an (n-1)-core).  By the filler theorem,
+== n=2  target g=1/3  V<= 50  zoo=25 pairs=50 distinct cores=38
+   core classes: {'tight': 38}
+   naive ladder: 25/25 tight sets have a tight core; 0 do not
+   T1 theory-vs-brute failures: 0   T4 X-closure failures: 0
+   core gap spectrum: {'1/2': 50}
+   chains reach n=2 seed: 25/25  lengths {1: 25}
+
+== n=3  target g=1/4  V<= 50  zoo=16 pairs=48 distinct cores=48
+   core classes: {'tight': 16, 'other:1/2': 16, 'rung2': 16}
+   naive ladder: 16/16 tight sets have a tight core; 0 do not
+   T1 theory-vs-brute failures: 0   T4 X-closure failures: 0
+   core gap spectrum: {'1/3': 16, '2/5': 16, '1/2': 16}
+   chains reach n=2 seed: 16/16  lengths {2: 16}
+
+== n=4  target g=1/5  V<= 50  zoo=19 pairs=76 distinct cores=69
+   core classes: {'tight': 12, 'other:1/3': 24, 'rung2': 12, 'other:1/2': 7, 'other:3/8': 7, 'rung3': 7}
+   naive ladder: 12/19 tight sets have a tight core; 7 do not
+   T1 theory-vs-brute failures: 0   T4 X-closure failures: 0
+   core gap spectrum: {'1/4': 12, '2/7': 19, '3/10': 7, '1/3': 24, '3/8': 7, '1/2': 7}
+   chains reach n=2 seed: 0/19  lengths {2: 12, 1: 7}
+
+== n=5  target g=1/6  V<= 50  zoo=15 pairs=75 distinct cores=70
+   core classes: {'tight': 10, 'other:1/4': 15, 'other:1/3': 10, 'rung2': 10, 'other:1/2': 5, 'rung3': 5, 'other:2/7': 15}
+   naive ladder: 10/15 tight sets have a tight core; 5 do not
+   T1 theory-vs-brute failures: 0   T4 X-closure failures: 0
+   core gap spectrum: {'1/5': 10, '2/9': 15, '3/13': 5, '1/4': 15, '2/7': 15, '1/3': 10, '1/2': 5}
+   chains reach n=2 seed: 0/15  lengths {2: 10, 1: 5}
+
+== n=6  target g=1/7  V<= 50  zoo=8 pairs=48 distinct cores=48
+   core classes: {'tight': 8, 'other:1/5': 16, 'other:1/4': 16, 'other:2/9': 8}
+   naive ladder: 8/8 tight sets have a tight core; 0 do not
+   T1 theory-vs-brute failures: 0   T4 X-closure failures: 0
+   core gap spectrum: {'1/6': 8, '1/5': 16, '2/9': 8, '1/4': 16}
+   chains reach n=2 seed: 0/8  lengths {2: 8}
+
+== n=7  target g=1/8  V<= 50  zoo=14 pairs=98 distinct cores=94
+   core classes: {'tight': 7, 'other:1/6': 7, 'rung2': 7, 'other:1/5': 14, 'other:1/4': 10, 'other:3/17': 4, 'other:2/11': 21, 'other:4/17': 7, 'other:3/16': 3, 'other:1/3': 3, 'other:2/9': 11}
+   naive ladder: 7/14 tight sets have a tight core; 7 do not
+   T1 theory-vs-brute failures: 0   T4 X-closure failures: 0
+   core gap spectrum: {'1/7': 7, '2/13': 7, '1/6': 11, '3/17': 4, '2/11': 21, '3/16': 3, '1/5': 14, '2/9': 11, '4/17': 7, '1/4': 10, '1/3': 3}
+   chains reach n=2 seed: 0/14  lengths {2: 7, 1: 7}
+
+== n=8  target g=1/9  V<= 50  zoo=6 pairs=48 distinct cores=48
+   core classes: {'tight': 6, 'other:1/7': 6, 'other:1/6': 6, 'other:1/5': 12, 'other:2/13': 12, 'other:2/11': 6}
+   naive ladder: 6/6 tight sets have a tight core; 0 do not
+   T1 theory-vs-brute failures: 0   T4 X-closure failures: 0
+   core gap spectrum: {'1/8': 6, '1/7': 6, '2/13': 12, '1/6': 6, '2/11': 6, '1/5': 12}
+   chains reach n=2 seed: 0/6  lengths {2: 6}
+
+======================================================================
+ALL PASS: X(S,1/(n+1)) certified on every decomposition of every tight set n=2..8; zoo is X-closed at every core.
+wrote /home/z/my-project/scripts/out/tight_decomp.json

@@ -1,0 +1,23 @@
+census cores that are zoo members (or singles): 100; non-zoo (composite) cores: 277
+
+== forward spines: every node's gap and zoo membership ==
+  n=4 mod: [1]@1/2[SEED] -> [1, 4]@2/5[rung2@2] -> [1, 3, 4]@2/7[rung2@3] -> [1, 3, 4, 7]@1/5[tight@4]
+  n=5 mod: [1]@1/2[SEED] -> [1, 4]@2/5[rung2@2] -> [1, 3, 4]@2/7[rung2@3] -> [1, 3, 4, 5]@2/9[rung2@4] -> [1, 3, 4, 5, 9]@1/6[tight@5]
+  n=5 modB: [1]@1/2[SEED] -> [1, 4, 5, 9]@3/13[rung3@4] -> [1, 3, 4, 5, 9]@1/6[tight@5]
+  n=7 mod1: [1]@1/2[SEED] -> [1, 2]@1/3[tight@2,rung1@2] -> [1, 2, 3]@1/4[tight@3] -> [1, 2, 3, 4]@1/5[tight@4] -> [1, 2, 3, 4, 5]@1/6[tight@5] -> [1, 2, 3, 4, 5, 12]@2/13[rung2@6] -> [1, 2, 3, 4, 5, 7, 12]@1/8[tight@7]
+  n=7 mod2: [1]@1/2[SEED] -> [1, 6]@3/7[rung3@2] -> [1, 5, 6]@2/7[rung2@3] -> [1, 4, 5, 6]@2/9[rung2@4] -> [1, 4, 5, 6, 7]@2/11[rung2@5] -> [1, 4, 5, 6, 7, 11]@2/13[rung2@6] -> [1, 4, 5, 6, 7, 11, 13]@1/8[tight@7]
+  n=8 base: [1]@1/2[SEED] -> [1, 2]@1/3[tight@2,rung1@2] -> [1, 2, 3]@1/4[tight@3] -> [1, 2, 3, 4]@1/5[tight@4] -> [1, 2, 3, 4, 5]@1/6[tight@5] -> [1, 2, 3, 4, 5, 6]@1/7[tight@6] -> [1, 2, 3, 4, 5, 6, 7]@1/8[tight@7] -> [1, 2, 3, 4, 5, 6, 7, 8]@1/9[tight@8]
+
+spine nodes all zoo members with zoo values: True
+
+== productivity summary (level n-1 zoo -> tight children) ==
+  n=4 <- rung2 seeds: 12 productive (1 primitive: [[1, 3, 4]])
+  n=4 <- rung3 seeds: 7 productive (0 primitive: [])
+  n=4 <- tight seeds: 16 productive (1 primitive: [[1, 2, 3]])
+  n=5 <- rung2 seeds: 10 productive (1 primitive: [[1, 3, 4, 5]])
+  n=5 <- rung3 seeds: 5 productive (1 primitive: [[1, 4, 5, 9]])
+  n=5 <- tight seeds: 12 productive (1 primitive: [[1, 2, 3, 4]])
+  n=6 <- tight seeds: 10 productive (1 primitive: [[1, 2, 3, 4, 5]])
+  n=7 <- rung2 seeds: 8 productive (2 primitive: [[1, 2, 3, 4, 5, 12], [1, 4, 5, 6, 7, 11]])
+  n=7 <- tight seeds: 8 productive (1 primitive: [[1, 2, 3, 4, 5, 6]])
+  n=8 <- tight seeds: 7 productive (1 primitive: [[1, 2, 3, 4, 5, 6, 7]])

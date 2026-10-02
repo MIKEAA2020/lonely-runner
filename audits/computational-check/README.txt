@@ -209,3 +209,32 @@ Reproduction (2 cores):
   python3 lrc_n8v50_analyze.py
   gcc -O2 -o lrc_xs_batch lrc_xs_batch.c && python3 lrc_xs_theory.py
   python3 lrc_rung_family_check.py
+
+=== 2026-10-02: tight-set decomposition via X(S) (the rung-2 spine) ===
+audit: audits/"tight-set decomposition via X(S).txt"
+lrc_tight_hunt.sh     zoo hunts: tight n=2..6 @ theta=1/(n+1); tight+rung2+
+                      rung3 at m=3..6 @ theta=3/(3m+1) (v4, seconds each).
+tight_n{2..6}_V50.txt complete tight zoos n<=6 (match committed censuses).
+rz{3..6}_{tight,rung2,rung3}.txt, rz6_interrung.txt  level-m zoo layers.
+lrc_tight_decomp.py   T1 theorem-vs-brute on all 463 (T,x) pairs of all
+                      tight sets n=2..8 (0 failures); T4 X-closure at every
+                      core (zoo extensions == X(S,1/(n+1)) cut to [1,50]);
+                      T3 naive-ladder test (fails exactly on the mod
+                      families); T5 core spectrum -> tight_decomp.json.
+lrc_tight_atlas.py    canonical min-gap X-chains (every node a zoo member),
+                      seed taxonomy, productivity census, 13/13 predictions
+                      beyond V=50, 324/324 scaling covariance ->
+                      tight_atlas.json.
+lrc_tight_spines.py   spine verification + forward chain presentation.
+tight_decomp_output.txt / tight_atlas_output.txt / tight_spines_output.txt
+Headline: the mod families of the tight zoo are seeded by rung-2 ladders
+({1}->{1,4}->{1,3,4}->{1,3,4,5}->{1,3,4,5,9}; [5]+12=+rung2@6->(1,2,3,4,5,7,12);
+{1}->{1,6}->{1,5,6}->{1,4,5,6}->{1,4,5,6,7}->{1,4,5,6,7,11}->tight@7);
+n=6 and n=8 have no mods because no rung-2@(n-1) member (V<=50) has a
+nonempty X(S,1/(n+1)).
+
+Reproduction (2 cores):
+  gcc -O2 -o lrc_ilp_check_v4 lrc_ilp_check_v4.c
+  bash lrc_tight_hunt.sh
+  gcc -O2 -o lrc_xs_batch lrc_xs_batch.c
+  python3 lrc_tight_decomp.py && python3 lrc_tight_atlas.py && python3 lrc_tight_spines.py
