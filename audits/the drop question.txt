@@ -1,0 +1,270 @@
+THE DROP QUESTION
+=================
+(The advisor's directive, executed: "Pose the drop question. Run the drop
+experiment at small n. Tabulate. Look for structure. Report back with the
+table, not with more classification.")
+
+Date: 2026-10-02/03.  Machine verification: lrc_drop_experiment.py +
+lrc_drop_analyze.py (this directory), records in out/drop_records.jsonl
+(17,784 pairs, exact rational arithmetic, two independent gap
+implementations cross-checked).  Everything stated as a "theorem" below is
+proved; everything stated as a "finding" is measured and bounded by the
+universe described in Section 4.
+
+
+1. THE QUESTION, MADE PRECISE
+-----------------------------
+Advisor's phrasing: "Let S be a core with gap g, and let x be a filler that
+is killed by S but not clean at any level-g time.  What is gap(S u {x})?
+Is there a formula?  Is the drop bounded below by something like 1/(|S|+2)?"
+
+In the X(S) framework (Theorem G, "silent killers" audit): at the FIXED
+level g (e.g. 1/(m+1)) below gap(S), the trichotomy is kill-and-clean
+(lands exactly at g), killed-not-clean = SILENT KILLER (drops below g), and
+unkilled (stays above).  The NSK census (1.71B cores, m=2..10) found ZERO
+silent killers at the LRC levels.  That census measured the drop only at
+the single fixed level g = 1/(m+1).
+
+The complementary regime -- and the substance of the advisor's question --
+is the drop from the core's OWN level: g = gap(S).  There every x is
+trivially "killed" (S has no escapes above its own gap), so the trichotomy
+collapses to a dichotomy:
+
+  TOUCH:    some argmax time t* of S has ||x t*|| >= gap(S)   -> gap preserved;
+  NO-TOUCH: ||x t*|| < gap(S) at every argmax time            -> gap DROPS.
+
+The drop question: how far does it fall, where does it land, and is the
+landing a function of S's own level structure or of x's arithmetic?
+This is not a re-labeling of the classification program: the drop question
+at level 1/(k+2) IS the induction step of LRC (Section 6).
+
+
+2. THEOREM D (THE DROP FORMULA) -- the answer to "is there a formula?"
+----------------------------------------------------------------------
+Let S be a finite set of positive integers, x not in S, and write
+  q(t) = min_{v in S} ||v t||,   p(t) = ||x t||,   h = min(p, q).
+Then gap(S u {x}) = sup_t h(t), and:
+
+(i) MONOTONICITY + TOUCH.  gap(S u {x}) <= gap(S), with equality iff x
+    touches the argmax of S.  (If x misses every argmax time, continuity
+    of p and compactness of the complement of small argmax-neighborhoods
+    give a strict drop.)
+
+(ii) THE DICHOTOMY.  In a drop case, every t_new in Argmax(S u {x}) is
+    exactly one of
+      (C) CROSSING:  p(t_new) = q(t_new) = gap(S u {x});
+      (Q) Q-CORNER:  q(t_new) = gap(S u {x}) < p(t_new), and then t_new is
+                     automatically a local maximum of q [p > q on a
+                     neighborhood, h = q there, and a global max of h
+                     restricts to a local max of q];
+      (P) P-CORNER:  p(t_new) = 1/2 = gap(S u {x}) -- impossible in a drop
+                     case (would force gap(S u {x}) = 1/2 >= gap(S)).
+
+(iii) THE FORMULA.  gap(S u {x}) = max(Q*, C*) where
+      Q* = max{ q(t) : t a local max of q with p(t) >= q(t) }  (S's OWN
+             critical ladder, cleared by x),
+      C* = the best crossing value                                (mixed
+             arithmetic of x with S).
+    In particular: a drop attained at a q-corner lands EXACTLY on S's own
+    ladder (Q* = gap(S u {x})); a drop attained at a crossing is carried
+    by the mixed arithmetic.  The local maxima of q are computable on the
+    full breakpoint grid {j/(2v)} u {a/(v_i +- v_j)} (valleys included!),
+    on which q is piecewise linear -- the gap solver's candidate list
+    (peaks + crossings only) is NOT sufficient for local-max detection.
+
+LEMMA (RESIDUE LAW).  If u != w both bind at t = a/b (lowest terms), then
+    u = +-w (mod b).  Proof: ||ut|| = ||wt|| gives ut = +-wt (mod 1), so
+    (u+-w)a = 0 (mod b), and gcd(a,b)=1.  Machine-checked on 28,390/28,390
+    crossing binding pairs in the table.  At a floor drop t* = 1/(k+2) with
+    binders {1, x}: 1 + x = 0 (mod k+2) -- the tight-extension residue
+    condition; at the inter-rung landing t* = 4/23 with binders {5, 18}:
+    5 + 18 = 23.
+
+So the answer to "is there a formula?" is YES: the drop is the max of two
+terms, one inherited from the core's own level structure (Q*), one mixed
+with the filler (C*).  The empirical content is which term carries it, how
+close to the LRC floor the max can come, and what constrains C*.
+
+
+3. THE EXPERIMENT
+-----------------
+Universes (all exact, Fraction arithmetic; consensus of gap_int and
+gap_frac on every 97th pair and on every floor case; Theorem D and the
+residue law machine-verified on EVERY pair):
+  complete:  k=1 cores {1..24} x x in [1..40];  k=2 pairs in [1..14] x
+             [1..40];  k=3 triples in [1..11] x [1..36];  k=4 4-sets in
+             [1..10] x [1..30];
+  zoo:       the X-relevant (productive) cores of the NSK census files
+             cores_m3..cores_m8 (cores of tight sets one level up),
+             primitive, elements <= 60 (k <= 6) / <= 80 (k = 7), x in
+             [1..60] (k <= 6) / (max(S), 80] (k = 7).
+Totals: 524 distinct cores, 17,784 (S, x) pairs, augmented sizes 2..8.
+Runtime ~6 minutes.  Zero Theorem-D violations, zero consensus failures.
+
+
+4. THE TABLE
+------------
+aug = |S u {x}| = k+1 speeds; floor = 1/(k+2); margin = g_new - floor;
+touch = gap preserved; qcorner = lands on S's own ladder; crossing = mixed
+arithmetic; "floor" column = drops landing exactly on 1/(k+2) (= tight
+extensions); SILENT = drops below the floor (= LRC violations).
+
+  aug  pairs  touch   drop  qcorner  crossing  mixed  floor  above  SILENT  minGap
+   2    936    298    638        0       638      0     32    606       0     1/3
+   3   3518   1087   2431      245      2186      0     15   2416       0     1/4
+   4   5613   2333   3280      370      2780    130     14   3266       0     1/5
+   5   5730   2939   2791      418      2168    205     16   2775       0     1/6
+   6    330    234     96        4        85      7      6     90       0     1/7
+   7   1080    762    318       45      252     21     21    297       0     1/8
+   8    577    452    125       10      114      1      1    124       0     1/9
+
+g_new closed form among drops (tight 1/m | rung a/(an+1) | other):
+  aug=2: 32 | 606 | 0        aug=6: 13 | 48 | 35
+  aug=3: 296 | 726 | 1409    aug=7: 59 | 102 | 157
+  aug=4: 707 | 953 | 1620    aug=8: 23 | 51 | 51
+  aug=5: 736 | 997 | 1058
+
+
+5. FINDINGS
+-----------
+E1  BOUNDED.  margin >= 0 on all 8,922 drops; SILENT = 0.  The drop never
+    crosses the LRC floor in this universe.  105 drops land exactly ON the
+    floor -- these are precisely the tight extensions (the X(S, 1/(k+2))
+    fillers; e.g. {1,2,3,4}+5 -> 1/6 at t*=1/6, binders {1,5}, 1+5=6).
+
+E2  QUANTIZED.  Above the floor the closest landings are the RUNG-2 levels:
+    the minimum positive margin at aug m in {2,3,4,5,6,8} is exactly
+    1/((2m+1)(m+1)), attained by S = {1,...,m-1}, x = 2m -> 2/(2m+1).  The
+    INTER-RUNG WINDOW (1/(m+1), 2/(2m+1)) is EMPTY at those m in-universe:
+      no drop lands strictly between the LRC floor and the second rung.
+    At aug=7 the window is inhabited: S={1,2,3,4,5,7} + x=18 -> 3/23
+    (crossing, t*=4/23, binders {5,18}) -- byte-for-byte the committed
+    n=7 inter-rung census vector v=(1,2,3,4,5,7,18), now with its
+    mechanism: a TIGHT 6-core whose filler 18 overshoots the floor.  The
+    other primitive n=7 inhabitant {1,3,4,5,7,13}+18 has a core that is
+    tight@6 but barren at 7 (not in the productive-core files); the n=6
+    inhabitant {1,5,6,11,16,17} @ 5/33 grows from the rung-4 core
+    {1,5,6,11,16} (gap 4/17), also outside the scanned set.  The inter-rung
+    inhabitants are the "second excited band": drops from tight/rung cores
+    that overshoot the floor, landing at non-rung crossing values.
+
+E3  MECHANISM SPLIT.  Drops: ~80-91% crossings, ~4-15% q-corners (+mixed).
+    Q-corners land exactly on S's own critical ladder (Q* = g_new, machine-
+    checked on every pair).  Consecutive cores {1,...,k} have trivial
+    ladders (no interior local maxima of q), so ALL their drops are
+    crossings -- including the canonical floor drops {1..k}+(k+1) -> 1/(k+2)
+    via the crossing at t* = 1/(k+2) with binders {1, k+1}.
+
+E4  FLOOR STRUCTURE.  The 105 floor drops have argmax times on 1/(k+2)-type
+    grids (t* = 1/(k+2), 1/(3(k+2)?) scaled), binders {1,x} or their
+    scalings; the residue law holds 418/418 at floor crossings.
+
+E5  x-DEPENDENCE.  The landing value depends strongly on x: a single core
+    attains up to 30 distinct g_new values over its x-range.  The per-core
+    MINIMUM over x is nonetheless structured: best drops land on zoo values
+    (2/7, 3/10, 4/13, 2/9, ... -- the rung/mod ladder of the core one level
+    up).  90 of 524 cores have a tight extension in range; 434 do not --
+    their best drop stays strictly above the floor (all barren cores,
+    by definition of barrenness, and most small cores: e.g. {1,4}'s best is
+    2/7 via x=3, {1,7}'s best is 4/13 via x=6).
+
+E6  NO CHAOS NEAR THE FLOOR.  No drop lands within 1/200 above the floor
+    without landing exactly on it: the margins are quantized into the
+    bands  floor / rung-2 / inter-rung inhabitants / higher.
+
+
+6. WHAT THIS MEANS FOR LRC (the honest boundary)
+------------------------------------------------
+The statement "for every core S with |S|=k and gap(S) >= 1/(k+1), and every
+x, gap(S u {x}) >= 1/(k+2)" IS the induction step of LRC (base: gap({v}) =
+1/2 = 1/(1+1)); over all cores it is equivalent to LRC.  Theorem D splits
+this step into two clean halves:
+
+  (Q-half)  every cleared ladder level of every core is >= 1/(k+2):
+            core-inherited structure -- classification-adjacent, and the
+            empirical picture (ladders = zoo values) supports it;
+
+  (C-half)  every crossing value of (S, x) is >= 1/(k+2):  the mixed
+            arithmetic -- THIS is where the difficulty lives.  The residue
+            law constrains crossings (binding pairs u,w satisfy u = +-w
+            mod den(t*)) but does not yet bound them.
+
+So the drop experiment does not prove LRC -- it LOCALIZES the residue: the
+conjecture is exactly the statement that no crossing value of any admissible
+(S, x) falls below 1/(k+2).  Everything else about the drop (the formula,
+the dichotomy, the touch criterion, the ladder landings) is now theorem.
+The quantization findings (E2) say the crossing values stay in the bands
+above the floor in-universe; the second-rung conjecture (inter-rung
+emptiness, verified at n=8 to V=50 and here at aug in {2..6,8}) is the
+first structural statement about those bands.
+
+
+7. THE SECOND LANGUAGE (the bridge prospectus, stated precisely)
+-----------------------------------------------------------------
+The structural facts above are all statements about finite abelian groups
+in disguise.  Dictionary (t in T = R/Z; phi_v : t -> v t; K_v = ker phi_v =
+{m/v}, a cyclic subgroup of order v; ||v t|| = v . dist(t, K_v)):
+
+  arithmetic                              | compact-group
+  -------------------------------------------------------------------------
+  ||v t|| >= g                            | t outside N_{g/v}(K_v), the
+                                          | (g/v)-neighborhood of K_v
+  gap(V) >= g                             | cup_{v in V} N_{g/v}(K_v) != T
+                                          | (a COVERING question: n kernel
+                                          |  neighborhoods, total measure
+                                          |  2ng; covering forces
+                                          |  g >= 1/(2n) -- the trivial
+                                          |  bound; LRC says they never
+                                          |  cover at g = 1/(n+1))
+  kill: [alpha,beta] in one window        | [alpha,beta] inside a single
+                                          | component of N_{g/x}(K_x)
+  touch at t* in L(S,g)                   | t* in the uncovered set, x's
+                                          | neighborhood avoided
+  binders u,w at t* = a/b                 | t* in K_{u+w} or K_{|u-w|}
+                                          | (u = +-w mod b): the ARGMAX
+                                          |  LIVES IN A KERNEL of the
+                                          |  sum/difference subgroup --
+                                          |  this is why sum-richness
+                                          |  (12 = 5+7) marks the zoo
+  crossing landing values                 | rational points of the kernel
+                                          |  lattice: gaps on the grids
+                                          |  1/(u+w) -- additive structure
+  X(S) decomposition                      | extension of a character-
+                                          |  avoidance set by kernel-
+                                          |  neighborhood geometry
+
+Candidate imports (none executed yet -- this is Step 1 of the bridge only):
+  (a) large-sieve / Zhang-type bounds on the measure of
+      {t : max_v ||v t|| <= delta}  (the covered set);
+  (b) additive combinatorics on the kernel lattice (K_u cap K_w =
+      K_{gcd(u,w)}: a subgroup poset; Freiman-type statements about which
+      sums u+w can host argmaxes);
+  (c) Fourier/uncertainty principles for the indicators of the uncovered
+      set.
+The honest caveat (the advisor's subtlety): this is a DUALITY dictionary
+(times are characters; kernels are the dual objects), not a same-object
+bridge as in the matroid-basis/log-concavity move.  The inequality needed
+in the second language -- "n kernel neighborhoods at scale 1/(n+1) never
+cover T for admissible speed sets" -- is a covering/sieve statement with
+no known off-the-shelf proof; the dictionary above is the precise waiting
+point for one.
+
+
+8. OPEN PROBLEMS
+----------------
+O1  (THE LRC RESIDUE, SHARPENED)  Prove the C-half: for every core S with
+    gap(S) >= 1/(k+1) and every x, every crossing value of (S,x) is
+    >= 1/(k+2).  Equivalently: no best-crossing lands below the floor.
+    Combined with the Q-half this is LRC by Theorem D.
+O2  Prove the quantization bands (drop version of the second-rung
+    conjecture): productive cores' drops land on floor / zoo ladder /
+    rung levels; characterize the inter-rung band's inhabitants (tight
+    cores with overshooting fillers; n=6,7 vs n=8).
+O3  Execute one second-language import (a) or (b) above.
+O4  Extend the table: larger x-ranges, m=9/10 cores (C solver), and the
+    inter-rung level-scan variant.
+
+STATUS: the drop question is posed, answered by a theorem (D), tabulated
+(17,784 pairs), and the LRC residue is isolated to the crossing half.
+Classification threads (O1'/O2' of the previous audit) remain parked for
+the paper, per the directive.

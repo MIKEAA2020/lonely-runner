@@ -1,0 +1,115 @@
+THE DROP TABLE  (all pairs; margin = gap(S+x) - 1/(k+2))
+==============================================================================
+aug   pairs   touch    drop  qcorner   cross  mixed   floor   above  SILENT   minGap
+------------------------------------------------------------------------------------
+  2     936     298     638        0     638      0      32     606       0      1/3
+  3    3518    1087    2431      245    2186      0      15    2416       0      1/4
+  4    5613    2333    3280      370    2780    130      14    3266       0      1/5
+  5    5730    2939    2791      418    2168    205      16    2775       0      1/6
+  6     330     234      96        4      85      7       6      90       0      1/7
+  7    1080     762     318       45     252     21      21     297       0      1/8
+  8     577     452     125       10     114      1       1     124       0      1/9
+
+g_new closed form among drops (tight 1/m | rung a/(an+1) | other):
+  aug=2: tight=32 rung=606 other=0
+  aug=3: tight=296 rung=726 other=1409
+  aug=4: tight=707 rung=953 other=1620
+  aug=5: tight=736 rung=997 other=1058
+  aug=6: tight=13 rung=48 other=35
+  aug=7: tight=59 rung=102 other=157
+  aug=8: tight=23 rung=51 other=51
+
+floor-margin drops (gap(S+x) == 1/(k+2) exactly) by mechanism:
+  aug=2: qcorner=0 crossing=32 mixed=0
+  aug=3: qcorner=4 crossing=11 mixed=0
+  aug=4: qcorner=0 crossing=0 mixed=14
+  aug=5: qcorner=10 crossing=6 mixed=0
+  aug=6: qcorner=0 crossing=0 mixed=6
+  aug=7: qcorner=8 crossing=0 mixed=13
+  aug=8: qcorner=0 crossing=0 mixed=1
+
+Q1  IS THE DROP BOUNDED?  margin = g_new - 1/(k+2) >= 0 ?
+    SILENT (margin < 0, i.e. LRC violation) count: 0
+    => the drop never crosses the LRC floor in this universe (17,784 pairs).
+    margin = 0 exactly (= tight extension) count: 105
+
+Q2  IS THE DROP A FUNCTION OF THE LEVEL STRUCTURE AT gap(S)?
+    qcorner = lands exactly on S's own critical ladder (Qstar == g_new, machine-checked);
+    crossing = mixed arithmetic (p = q = g_new at the new argmax).
+    aug=2: qcorner 0 (0.0%), crossing 638 (100.0%), mixed 0
+    aug=3: qcorner 245 (10.1%), crossing 2186 (89.9%), mixed 0
+    aug=4: qcorner 370 (11.3%), crossing 2780 (84.8%), mixed 130
+    aug=5: qcorner 418 (15.0%), crossing 2168 (77.7%), mixed 205
+    aug=6: qcorner 4 (4.2%), crossing 85 (88.5%), mixed 7
+    aug=7: qcorner 45 (14.2%), crossing 252 (79.2%), mixed 21
+    aug=8: qcorner 10 (8.0%), crossing 114 (91.2%), mixed 1
+
+Q4  DEPENDS ONLY ON S, OR ON x TOO?
+    distinct g_new values per core S (over its x-range): histogram {1: 1, 2: 6, 3: 16, 4: 16, 5: 24, 6: 35, 7: 20, 8: 24, 9: 32, 10: 36, 11: 43, 12: 40, 13: 32, 14: 31, 15: 28, 16: 21, 17: 23, 18: 15, 19: 25, 20: 24, 21: 7, 22: 5, 23: 7, 24: 6, 25: 2, 26: 1, 27: 1, 29: 2, 30: 1}
+    per core size k: tight extension within x-range? {(1, 'has_tight_ext'): 22, (1, 'no_tight_ext_in_range'): 2, (2, 'has_tight_ext'): 15, (2, 'no_tight_ext_in_range'): 76, (3, 'has_tight_ext'): 12, (3, 'no_tight_ext_in_range'): 153, (4, 'has_tight_ext'): 14, (4, 'no_tight_ext_in_range'): 196, (5, 'has_tight_ext'): 6, (6, 'has_tight_ext'): 20, (7, 'has_tight_ext'): 1, (7, 'no_tight_ext_in_range'): 7}
+    per-S minimum g_new over x (cores attaining the floor):
+      cores WITH a tight extension in range: 90
+      cores WITHOUT (best drop stays above the floor): 434
+        S=[21] gap=1/2 best_drop=2/5 (margin 1/15) via x in [14] over 20 x's
+        S=[23] gap=1/2 best_drop=12/25 (margin 11/75) via x in [2] over 20 x's
+        S=[1, 4] gap=2/5 best_drop=2/7 (margin 1/28) via x in [3] over 24 x's
+        S=[1, 5] gap=1/2 best_drop=2/7 (margin 1/28) via x in [6] over 20 x's
+        S=[1, 6] gap=3/7 best_drop=2/7 (margin 1/28) via x in [2, 5] over 29 x's
+        S=[1, 7] gap=1/2 best_drop=4/13 (margin 3/52) via x in [6] over 20 x's
+        S=[1, 8] gap=4/9 best_drop=3/10 (margin 1/20) via x in [9] over 31 x's
+        S=[1, 9] gap=1/2 best_drop=3/10 (margin 1/20) via x in [2, 8] over 20 x's
+        S=[1, 10] gap=5/11 best_drop=6/19 (margin 5/76) via x in [9] over 33 x's
+        S=[1, 11] gap=1/2 best_drop=4/13 (margin 3/52) via x in [12] over 20 x's
+        S=[1, 12] gap=6/13 best_drop=4/13 (margin 3/52) via x in [2, 11] over 33 x's
+        S=[1, 13] gap=1/2 best_drop=8/25 (margin 7/100) via x in [12] over 20 x's
+        S=[1, 14] gap=7/15 best_drop=5/16 (margin 1/16) via x in [15] over 35 x's
+        S=[2, 5] gap=3/7 best_drop=2/7 (margin 1/28) via x in [3] over 28 x's
+        S=[2, 7] gap=4/9 best_drop=5/16 (margin 1/16) via x in [9] over 31 x's
+
+Q1b  MINIMUM POSITIVE MARGIN per aug (closest non-floor calls):
+    aug=2: min positive margin = 1/15  (S=[1] x=4 1/2 -> 2/5, crossing)
+    aug=3: min positive margin = 1/28  (S=[1, 2] x=6 1/3 -> 2/7, crossing)
+    aug=4: min positive margin = 1/45  (S=[1, 2, 3] x=8 1/4 -> 2/9, crossing)
+    aug=5: min positive margin = 1/66  (S=[1, 2, 3, 4] x=10 1/5 -> 2/11, crossing)
+    aug=6: min positive margin = 1/91  (S=[1, 2, 3, 4, 5] x=12 1/6 -> 2/13, crossing)
+    aug=7: min positive margin = 1/184  (S=[1, 2, 3, 4, 5, 7] x=18 1/6 -> 3/23, crossing)
+    aug=8: min positive margin = 1/153  (S=[1, 2, 3, 4, 5, 6, 7] x=16 1/8 -> 2/17, crossing)
+
+Q1c  INTER-RUNG WINDOW (1/(m+1), 2/(2m+1)) per aug -- drops landing inside:
+    aug=2: window (1/3, 2/5) width 1/15: 0 drops inside (EMPTY: min drop above floor = rung-2 level)
+    aug=3: window (1/4, 2/7) width 1/28: 0 drops inside (EMPTY: min drop above floor = rung-2 level)
+    aug=4: window (1/5, 2/9) width 1/45: 0 drops inside (EMPTY: min drop above floor = rung-2 level)
+    aug=5: window (1/6, 2/11) width 1/66: 0 drops inside (EMPTY: min drop above floor = rung-2 level)
+    aug=6: window (1/7, 2/13) width 1/91: 0 drops inside (EMPTY: min drop above floor = rung-2 level)
+    aug=7: window (1/8, 2/15) width 1/120: 1 drops inside -- e.g. S=[1, 2, 3, 4, 5, 7] x=18 -> 3/23
+        S=[1, 2, 3, 4, 5, 7] + 18: gap 1/6 -> 3/23 (crossing, t*=4/23, binders=[5, 18])
+    aug=8: window (1/9, 2/17) width 1/153: 0 drops inside (EMPTY: min drop above floor = rung-2 level)
+
+CROSSING STRUCTURE AT THE LRC FLOOR (margin = 0, crossing):
+    new-argmax denominators (aug, denom): {(2, 3): 28, (2, 6): 12, (2, 9): 36, (2, 12): 8, (2, 15): 16, (2, 18): 18, (2, 21): 36, (2, 24): 8, (2, 27): 36, (2, 30): 8, (2, 33): 40, (2, 36): 12, (2, 39): 24, (2, 42): 12, (2, 45): 24, (2, 51): 32, (2, 54): 18, (3, 4): 10, (3, 12): 8, (3, 16): 8}
+    binding pairs with v+w = 0 or |v-w| = 0 mod denom: 418/418
+
+NEAR-FLOOR DROPS (0 < margin < 1/200), the closest calls:
+
+REPRESENTATIVE Q-CORNER DROPS (land on S's own ladder):
+    S=[1, 6] x=2 gap 3/7 -> 2/7 (Qstar=2/7, margin 1/28)
+    S=[1, 7] x=4 gap 1/2 -> 3/8 (Qstar=3/8, margin 1/8)
+    S=[1, 9] x=8 gap 1/2 -> 3/10 (Qstar=3/10, margin 1/20)
+    S=[1, 12] x=2 gap 6/13 -> 4/13 (Qstar=4/13, margin 3/52)
+    S=[1, 12] x=35 gap 6/13 -> 5/13 (Qstar=5/13, margin 7/52)
+    S=[1, 13] x=4 gap 1/2 -> 5/14 (Qstar=5/14, margin 3/28)
+    S=[2, 9] x=8 gap 5/11 -> 4/11 (Qstar=4/11, margin 5/44)
+    S=[2, 11] x=8 gap 6/13 -> 5/13 (Qstar=5/13, margin 7/52)
+    S=[2, 12] x=10 gap 3/7 -> 2/7 (Qstar=2/7, margin 1/28)
+    S=[3, 9] x=6 gap 1/2 -> 1/4 (Qstar=1/4, margin 0)
+    S=[3, 13] x=10 gap 1/2 -> 5/16 (Qstar=5/16, margin 1/16)
+    S=[3, 14] x=4 gap 8/17 -> 6/17 (Qstar=6/17, margin 7/68)
+
+REPRESENTATIVE FLOOR DROPS (gap(S+x) = 1/(k+2) exactly):
+    S=[1] x=2 gap 1/2 -> 1/3 (crossing, t*=1/3, binders=[1, 2])
+    S=[1, 2] x=3 gap 1/3 -> 1/4 (crossing, t*=1/4, binders=[1, 3])
+    S=[2, 4, 6] x=8 gap 1/4 -> 1/5 (mixed, t*=1/10, binders=[2, 8])
+    S=[1, 3, 4, 9] x=5 gap 1/4 -> 1/6 (crossing, t*=1/6, binders=[1, 5])
+    S=[1, 2, 3, 4, 6] x=5 gap 1/5 -> 1/7 (mixed, t*=1/7, binders=[1, 6])
+    S=[1, 2, 3, 4, 5, 12] x=7 gap 2/13 -> 1/8 (mixed, t*=1/8, binders=[1, 7])
+    S=[1, 2, 3, 4, 5, 6, 7] x=8 gap 1/8 -> 1/9 (mixed, t*=1/9, binders=[1, 8])

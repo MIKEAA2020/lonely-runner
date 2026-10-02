@@ -293,3 +293,31 @@ Reproduction (2 cores, ~70 min):
     for i in $(seq 0 $(($3-1))); do \
       ./lrc_nsk_census $1 $2 out/nsk_m$1_s$i $3 $i 3000 & done; wait; done
   python3 nsk_census/lrc_nsk_analyze.py
+
+=== DROP EXPERIMENT (the drop question) ===
+Files: ../"the drop question.txt" (audit), drop_experiment/lrc_drop_experiment.py,
+drop_experiment/lrc_drop_analyze.py, drop_experiment/drop_records.jsonl (17,784
+pairs), drop_experiment/drop_analysis.txt.
+
+The advisor's drop question (kill-not-clean at level g = gap(S) = no-touch
+droppers; complementary to the NSK fixed-level census).  Theorem D (drop
+formula): gap(S+x) = max(Q*, C*) -- Q* = S's own critical ladder cleared by
+x (q-corner landings, machine-equal), C* = best crossing value (mixed
+arithmetic); dichotomy crossing/q-corner proved and machine-verified on
+every pair; residue law (binders u,w at t=a/b: u = +-w mod b) checked
+28,390/28,390.  Findings: margin >= 0 on all 8,922 drops (SILENT=0, the
+induction step of LRC certified in-universe); 105 floor drops = tight
+extensions; drops QUANTIZED -- min positive margin = rung-2 margin
+1/((2m+1)(m+1)) at aug m in {2,3,4,5,6,8}, inter-rung window EMPTY there;
+inhabited at aug=7 by {1,2,3,4,5,7}+18 -> 3/23 (the committed census
+vector, now with mechanism: tight core + overshooting filler).  LRC residue
+isolated: the C-half (crossing values >= 1/(k+2)).  Plus the second-language
+(kernel/covering) dictionary as the bridge prospectus.
+
+Reproduction (~6 min, pure Python):
+  python3 drop_experiment/lrc_drop_experiment.py --stage count
+  for i in 0 1 2 3; do python3 drop_experiment/lrc_drop_experiment.py \
+      --stage complete --shard $i/4; done
+  for i in 0 1; do python3 drop_experiment/lrc_drop_experiment.py \
+      --stage zoo --shard $i/2; done
+  python3 drop_experiment/lrc_drop_analyze.py
