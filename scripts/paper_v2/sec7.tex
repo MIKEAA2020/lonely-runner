@@ -1,0 +1,310 @@
+% ======================================================================
+% Section 7 — Reproducibility and soundness record
+% ======================================================================
+
+\section{Reproducibility and soundness record}\label{sec:sound}
+
+Every empirical and classification claim in this paper rests on exact
+integer computation, and every computation is paired with a control or an
+independent reimplementation. This section records the checks; the
+committed scripts, logs, and experiment notes are bundled with the paper
+\cite{prog-artifacts}. The record matters beyond convention here: a
+measurement program on $10^6$-scale corpora is exactly the setting where
+silent bugs masquerade as findings, and the discipline below is what
+separates the two.
+
+\begingroup
+\footnotesize
+\setlength{\LTcapwidth}{\textwidth}
+\begin{longtable}{@{}p{3.7cm}>{\raggedright\arraybackslash}p{8.2cm}>{\raggedright\arraybackslash}p{3.1cm}@{}}
+\caption{The verification record. All counts are of exact checks with the
+stated outcome; ``0 mismatches'' means exact agreement of two independent
+computations.}\label{tab:sound}\\
+\toprule
+check & scope & outcome \\
+\midrule
+\endfirsthead
+\multicolumn{3}{l}{\footnotesize Table~\ref{tab:sound} (continued)}\\
+\toprule
+check & scope & outcome \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+size law (Lem.~\ref{lem:size}) & all residues, $N\le111$ ($T{=}6$),
+  $N\le31$ ($T{=}5$) & 0 violations \\
+classification predicate $\iff$ mask covering & exhaustive over unit
+  multisets at $7,11,13,17,19,37$ ($126$--$82{,}251$ per modulus) &
+  0 mismatches \\
+$K_{19}$/$K_{37}$ class list $\iff$ covering & all unit
+  $4$-multisets, both directions ($5{,}985$ and $82{,}251$) &
+  0 mismatches \\
+battery soundness (flag $\Rightarrow$ certify) & exhaustive
+  $N\le31$ ($46{,}371$ at $n{=}4$; $324{,}626$ at $n{=}5$);
+  exhaustive $N\in\{37,49,81,95\}$ ($91{,}390$; $270{,}725$;
+  $1{,}929{,}501$; $3{,}612{,}280$); exhaustive $N\in\{99,111\}$
+  ($4{,}249{,}575$; $6{,}672{,}876$); random $32$--$95$ ($256{,}000$);
+  random $96$--$111$ ($64{,}000$) &
+  0 violations \\
+polygon constructive witness & sampled across all corpora & 0 failures \\
+reduced-optimum cross-check & direct grid maximization vs.\ bitmask,
+  sampled & 0 mismatches \\
+lift law (Lem.~\ref{lem:lift}) & random lifts & 0/2{,}727 \\
+equality theorem (Thm.~\ref{thm:equality}) & fresh non-circular check
+  (folklore breakpoints vs.\ pair lattices), $885/885$; from-scratch
+  independent reimplementation (time domain, differences included,
+  $n=2$--$6$, $v\le200$), with exact anchors & $2{,}870/2{,}870$ \\
+ground truth of $(\mathrm{TAU}$-$_5)$ & every primitive $5$-set,
+  $v\le56$ & $3{,}712{,}576/3{,}712{,}576$ \\
+trichotomy proof, line by line & every intermediate claim of Lemma~T
+  (non-wrapping, span bounds, two-lattice descent, two-block identity)
+  at all primes $p\le250$, plus the run lemmas at $p\le37$ & 0 violations \\
+colliding-unit ground truth & all $\pm$-colliding $(1K,3U)$ families,
+  both collision topologies, $p\le43$ & $3{,}3$\,M families, 0 coverings \\
+shear linearity & per-fiber $t$-space offsets of colliding lifts,
+  all $v_2,m,j$ at $p\le37$ & 0 violations of $\sigma_3-\sigma_2=-\bar u mj$ \\
+boundary finite case analyses & Lemma~B at $11$; Lemma~A at $19$: every
+  viable configuration certified, independent brute force in
+  agreement (and reproducing the known failures $50$ at $7$, $2$ at $13$
+  as witness-tuple counts; the $17,31,37$ analyses of the earlier draft
+  are now redundant with the extended proof ranges) & exact \\
+group-ring identity (Thm.~\ref{thm:GT}) & $36{,}308$ checks: all $52$
+  Lemma~A exceptions ($E$-profiles exactly as classified), every covering
+  of the $15$-prime census ($12{,}256$), $24{,}000$ random configurations
+  incl.\ non-coverings (sharp signed form; sign~$\Leftrightarrow$~covering;
+  kernel~$=\Z\overline\Phi_p$) & all pass \\
+covering census (Prop.~\ref{prop:census}) & all critical coverings over
+  all $(d_2,d_3)\in(\Z_p^*)^2$, normal form, $p\in\{5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61\}$
+  & four families, counts constant in $p$; $0$ $\pm$-distinct coverings at
+  $p\ge11$ \\
+foot census (Input E) & every prime $p\le419$, both classes, every
+  critical $(s_1,s)$, $\pm$-reps $d\ge2$: one/two-foot viable sets;
+  the M4/M5 consumed pairs; Lemma B's contained census at $(6,6)$ &
+  consumed form clean from $p\ge31$; now \emph{proved}
+  (Lemma~\ref{lem:E}) \\
+Lemma E machinery (Lemmas~\ref{lem:E0}--\ref{lem:E}) & every $(p,d,s)$
+  with $p\le500$ ($45$ primes, $10{,}410$ triples): column decomposition,
+  band and block identities, the pair-sum identity as an \emph{exact}
+  equality, the auxiliary bounds; the theorem direct to $p\le2000$
+  ($136{,}806$) and, via the identity, to $p\le4000$ ($367{,}986$);
+  endpoint/dirty-prime values exact; $76$/$76$ viable-set agreement with
+  the foot census & all hold \\
+parity mechanism (Prop.~\ref{prop:pindep}) & every census $(2,2)$ solution
+  at $p\in\{23,29,41,31,37,43\}$: integer-parity runs, non-wrapping,
+  spills $\le\mathrm{ov}$ in $A_1$; per-(multiset, family) counts &
+  $100\%$; counts $=$ Table~\ref{tab:permultiset} \\
+$pq$ translation (Thm.~\ref{thm:R}) & constants; footprint formula
+  ($4{,}394$ set equalities, $8$ moduli); row census ($24$ resp.\ $312$,
+  $14$ primes); $(1,1,2)$ cells ($143{,}733$ checks, $10$ moduli);
+  $(1K,3U)$ cells ($989{,}000$ checks); pinning ($37{,}672$ rows,
+  $\le6$ good rows); $T$-10 reproduction at $77,91$ &
+  all pass; $0$ coverings \\
+higher-rung machinery (Lem.~\ref{lem:rungT}) & three-tier arc law vs the
+  committed $T=6$ tables ($p\le37$, both classes) and at $19$ primes of
+  $T=7/T=8$ (all residue classes, every $a_0$); footprint formula vs
+  direct $Z_{p^2}$ enumeration; drift identity at $T\in\{7,8\}$ &
+  $957/957$; $3{,}528/3{,}528$ \\
+$T=8$-critical census (Prop.~\ref{prop:T8census}) & $17$ primes, all four
+  odd $\epsilon$ classes, $k\le17$: exactly $11$ families, counts
+  $288$ ($\epsilon\in\{3,7\}$) resp.\ $2{,}784$ ($\epsilon\in\{1,5\}$)
+  constant in $p$; $0$ $\pm$-distinct in the mechanism range & exact \\
+$T=7$ census (Prop.~\ref{prop:T7census}) & $18$ primes, all six
+  $\epsilon$ classes, $k\le11$: core-eleven dominance ($\approx90\%$ at
+  $k\ge6$), tail decay $183\to43$, $0$ $\pm$-distinct at $k\ge4$/$k\ge2$ &
+  exact \\
+higher-rung cells (Prop.~\ref{prop:shearT78}) & $(1K,4U)$ at $T=7$:
+  census-restricted ground truth (distinctness-filtered) at every prime
+  $11\le p\le61$ --- $0$ coverings, best exit $2$; brute-force control at
+  $p\in\{5,7,11\}$ agreeing exactly at the degenerate $p=5$ ($8$
+  coverings both ways); $(2K,4U)$ at $T=8$ at $17\le p\le43$ --- $0$
+  coverings; sampled controls $20$K families at four primes & exact \\
+\midrule
+$n=4$ control & full record incl.\ the open set $=(3,5,8,13)$ &
+  exact \\
+range controls, both batteries & $V=16/24/32/40/48$, all tiers, unflagged
+  pair totals and decompositions & exact vs.\ committed logs \\
+capability controls & zones, counts $20/68/16/64/32$, safety of
+  $48$--$111$ & exact \\
+independent capability recounts & set-based scanner at all danger moduli
+  ($27$ moduli) & exact agreement \\
+\end{longtable}
+\endgroup
+
+\subsection{Controls}
+
+Every experiment run begins with hard assertions against previously
+committed numbers before any new number is produced: the $n=4$ corpus
+reproduces the committed record (including the identity of the open
+set); the $n=5$ corpora at $V=16,24,32,40,48$ reproduce every committed
+tier count for both batteries, the corpus-wide unflagged-pair totals and
+decompositions included; the capability scan reproduces the committed
+zones, the per-modulus covering counts, and the safety of $48$--$111$ (the
+composite range extended twice, both times with the new moduli re-derived
+by the independent set-based scanner); and the signature-capability maps
+for $48$--$79$ and $80$--$95$ match the committed dictionaries exactly. The classifications were additionally anchored by hand: the
+$\Z_{17}$ covering of Example~\ref{ex:17} was expanded by hand, the
+$D_3$ falsifier $(1,1,2,3)$ on $\Z_7$ and its exclusion
+$N\equiv1\pmod6$ were checked by hand, and the $K_{19}$/$K_{37}$
+covering counts were reproduced by three independent implementations
+(bitmask, frozenset, exponent-space).
+
+\subsection{The cross-validation discipline}
+
+The program's standing rule is that every empirical claim must be checked
+against committed data or a reference implementation before being cited.
+The rule earned its keep: across the program's lifetime it caught, before
+any affected number was recorded, a divisibility test written as a
+bitwise OR; a sampling artifact in which a $720$-point time grid silently
+missed denominators like $11$ and briefly masqueraded as counterexamples
+to the equality theorem; an unsound counting bound for mixed-order
+residues ($245$ flagged-but-non-certifying pairs, all caught by the
+flag-implies-certify sweep); an off-by-one in the capability scanner that
+contradicted the committed $n=4$ zone; a flag-parsing slip; a
+verified-tier flag leaking into a proved tier (caught by a too-good
+``$100\%$''); a diagnostic accumulating corpus-wide instead of
+per-tier (caught by an impossible count); a mislabeled canonicalization
+of cyclic translate classes (contains-$0$ representatives are not orbit
+representatives on $\Z_m$); and an unsound attempt to quotient the
+classification by negation ($B_{-w}=B_w$, so negation is not a symmetry);
+an off-by-one in the minimal-arc length of the census fit test (caught by
+the assertion that every enumerated covering has $E\ge0$, fixed, and then
+confirmed against a no-prune brute force); and a count-semantics
+reconciliation forced by the census run (the earlier $50$/$2$ at
+$p=7$/$13$ are witness-tuple counts, one per $(d_2,d_3,a_2)$ with a
+completing placement, while the true solution counts are $272$
+normalized configurations $=$ $68$ set-triples and $8$ $=$ $2$ --- the
+brute force confirms both readings, and the identity check ran on the full
+solution set).
+Each fix was verified by the control that caught it. We report these not
+as penance but as evidence that the numbers above survived an adversarial
+process.
+
+\subsection{Artifacts}
+
+\begingroup\sloppy
+The bundle \cite{prog-artifacts} contains the equality-theorem
+verifications (\texttt{V1\_equality\_fresh\_check.py} and the
+from-scratch \texttt{EQ\_independent\_verify.py}); the independent
+capability cross-checks (\texttt{N5\_prime\_scan\_crosscheck.py} and the
+set-based scanners); the literature-search scripts and raw results; the
+experiment notes summarizing each stage; and the corpus and battery
+engines with their controls, one per stability extension, each with its
+full run log:
+\begin{itemize}[leftmargin=2.2em,itemsep=1pt,topsep=2pt]
+  \item \texttt{N5\_leverage\_experiment.py} (the committed $n=5$
+        battery and rigid-zone scan),
+  \item \texttt{N6\_stability\_experiment.py} (the $V=32/40$ extension
+        and the composite capability completion to $N\le79$),
+  \item \texttt{N7\_classify\_19\_37.py} (the $K_{19}$/$K_{37}$
+        classifications and the augmented re-measurement),
+  \item \texttt{N8\_v48\_extension.py} (the $V=48$ data point, both
+        batteries, capability to $N\le95$),
+  \item \texttt{N9\_v56\_extension.py} (the $V=56$ data point, both
+        batteries, capability to $N\le111$; staged execution with
+        per-stage state persistence and hard controls re-asserted at
+        every stage),
+  \item \texttt{ap\_lemmas\_verify.py} (the trichotomy/Lemma~A/B
+        verification of the companion note: exact lemma search,
+        censuses, capacity structure, cell anchors; $p\le250$),
+  \item \texttt{trichotomy\_linecheck.py} (the line-by-line machine
+        check of the trichotomy proof, including the general-arc
+        variant),
+  \item \texttt{pm\_colliding\_close.py} (the $\pm$-colliding closure:
+        ground truth, fiber structure, shear linearity, pinning tables,
+        pigeonhole),
+  \item \texttt{boundary\_finite\_cases.py} (the boundary-prime finite
+        case analyses with margin certificates and the independent
+        brute-force cross-check),
+  \item \texttt{groupring\_bridge.py} (the group-ring translation
+        verification: identity checks on all exceptions and census
+        coverings, sharp-form sampling, kernel checks, the four-family
+        census with per-multiset counts, defect statistics, and the
+        witness/solution count reconciliation; output
+        \texttt{out\_groupring\_bridge.json}, log
+        \texttt{groupring\_run.log}),
+  \item \texttt{foot\_census.py} (the Input~E boundary census: one/two-foot
+        viable sets at every prime $p\le419$, the consumed-pair
+        cleanliness, and the Lemma~B $p=17$ form check; output
+        \texttt{out\_foot\_census.json}),
+  \item \texttt{lemmaE\_master.py} (the three-distance foot-count
+        verification, discharging Input~E: column decomposition, band and
+        block identities, the pair-sum identity as an exact equality, the
+        auxiliary bounds of Lemma~\ref{lem:E4}, the theorem of
+        Lemma~\ref{lem:E} direct to $p\le2000$ and via the identity to
+        $p\le4000$, the endpoint and dirty-prime values of
+        Remark~\ref{rem:Esharp}, and the viable-set cross-check against
+        the foot census; output \texttt{out\_lemmaE.json}),
+  \item \texttt{pq\_side.py} / \texttt{pq\_side2.py} / \texttt{parity\_check.py}
+        (the $pq$ translation battery: constants and footprint formula,
+        row censuses, $(1,1,2)$ and $(1K,3U)$ cell enumeration with
+        margins, pinning and drift analysis, and the parity-mechanism
+        structural check; outputs \texttt{out\_pq\_side.json},
+        \texttt{out\_pq\_side2.json}),
+  \item \texttt{higher\_rung\_step1.py} with the resumable
+        \texttt{drive\_step1.py} (the general-$T$ machinery controls and
+        the higher-rung censuses: the $T=7$ four-difference census at
+        $18$ primes with per-family projections, the $T=8$-critical
+        census at $17$ primes, the $T=8$ five-difference probe; output
+        \texttt{out\_higher\_rung\_step1.json}, log
+        \texttt{higher\_rung\_run1.log}),
+  \item \texttt{higher\_rung\_step2.py} (the shear side at the higher
+        rungs: the drift-law verification, the census-restricted and
+        brute-force ground truths for the $(1K,4U)$ cell at $T=7$ and the
+        $(2K,4U)$ cell at $T=8$, the exit-time measurements; output
+        \texttt{out\_higher\_rung\_step2.json}),
+  \item \texttt{higher\_rung\_step3.py} (the sampled family controls for
+        the two frontier cells; output
+        \texttt{out\_higher\_rung\_step3.json}),
+  \item \texttt{pool\_sat.c} with \texttt{gt\_pool\_brute.py} (the pool
+        saturation censuses of \S\ref{sec:scale-pool}: the $m$-general
+        admissibility checker in two cross-validated implementations
+        plus dump/resume stride sampling, and the independent
+        pure-enumeration brute force agreeing on $21/21$ sampled tuples
+        across $p=17/19/23/31$; dumps
+        \texttt{dump\_p\{17,19,23\}.tsv}, \texttt{pool\_T8\_p31.tsv},
+        \texttt{dump\_T9\_p\{29,31\}\_sample.tsv}),
+  \item \texttt{h2\_pair\_check.py} (the zone-resolved cut-quality
+        measurement of Table~\ref{tab:gamma}: per-pair $\gamma$ on the
+        committed cells, $764$ pairs; output
+        \texttt{out\_h2\_pair\_check.json}),
+  \item \texttt{chain\_structure\_check.py} (the chain-class machine
+        checks of Lemmas~\ref{lem:overlapsum}--\ref{lem:chainbox} and
+        Theorem~\ref{thm:chaindilate}: $123{,}240$ solutions, the sum
+        identity, the reach bound, and the count reconciliations),
+  \item \texttt{scaling\_closure\_extract.py} and
+        \texttt{scaling\_closure\_verify.py} (the read-only calibration
+        from the committed JSONs and the targeted lemma verification of
+        \S\ref{sec:scale-cut}: solution-volume probes, two-fiber dilate
+        law, resonance zones, cascade depths at the committed cells,
+        sign robustness; outputs
+        \texttt{out\_scaling\_closure\_extract.json},
+        \texttt{out\_scaling\_closure\_verify.json}),
+  \item \texttt{h1\_t8\_census.py}, \texttt{h1\_t8\_structure.py},
+        \texttt{h1\_t8\_prime.py}, \texttt{h1\_t8\_path.py} (the
+        $T=8$ volume census, mechanism probes, and prime extensions of
+        \S\ref{sec:scale-h1}, with the independent brute-force ground
+        truth ($9/9$ keys) and the renormalization-orbit verification;
+        states \texttt{h1\_t8\_state.json} /
+        \texttt{h1\_t8\_prime\_state.json}, outputs
+        \texttt{out\_h1\_t8\_census.json},
+        \texttt{out\_h1\_t8\_structure.json},
+        \texttt{out\_h1\_t8\_prime.json}).
+\end{itemize}
+All runs are deterministic; every number in
+\S\ref{sec:measure}--\ref{sec:sound} appears verbatim in a committed log.
+\endgroup
+
+\subsection{Data and code availability}
+
+The complete artifact bundle (scripts, committed logs, JSON records, and
+the figures) accompanies this paper and is deposited for public access
+together with the PDF; the sources build with \texttt{tectonic} and a
+single command. The verification scripts have no dependencies beyond
+CPython~3.12 with \texttt{numpy}; each re-derives its controls from
+first principles and asserts them before producing any new number, so
+any single experiment can be re-audited in isolation. This document, its
+companion notes, and the bundle are released under the Creative Commons
+Attribution 4.0 license (CC~BY~4.0), the better to allow the community
+to re-run, refute, or extend the record.

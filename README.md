@@ -12,7 +12,14 @@ false, each refuted by an exact rational witness — (ii) a bounded positive cor
 with exact theorems, and (iii) a machine-reasserted provenance record for every cited
 number (225 items, zero failures).
 
-## The two papers
+## The papers (v2 audit revision — current)
+
+| Paper | File | Contents |
+|---|---|---|
+| **Flagship v2** — *Every Natural Strengthening Examined Is False: Type Mismatch in Lossless Reformulations of the Lonely Runner Conjecture* | `papers/lonely_runner_type_mismatch_paper_v2.pdf` (26 pages) | The audit revision: headline qualified ("examined"); two-worlds framing replaces "four independent"; boundary rows separated from strict refutations with a ">thr?" column; the audit's improved harmonic witness 4183/12288 adopted; exact Sturm verification of h\* real-rootedness; Spearman claims carry p-values; U(C) formula matches the implementation; self-contained verification core (Appendix C); notation collisions fixed; bibliography repaired (Cusick added; Lam–Leung split into its two real papers; phantom de Bruijn–Schoenberg entry replaced). Adjudication: `papers/flagship_audit_adjudication.md`. |
+| **Companion v2** — *Pair-Sum Lattices and a Conditional Scaling-Closure Theorem* | `papers/lonely_runner_pair_sum_lattices_conditional_theorem_paper_v2.pdf` (67 pages) | The Hq repair: Theorem SC restated under three quantified open hypotheses (the multi-fiber survivor inequality Hq — new, replacing the unquantified H0 and subsuming H2m — H1g with its uniform margin, H2r as explicit open); the derivation is now the explicit Hq-induction (Proposition); the independent-extension model relabeled as calibration; scope levels (cells / rungs / rigid-zone) fixed; attainment proof expanded; the half case split into its own lemma; statuses labeled OPEN; bibliography repaired. Adjudication: `papers/companion_audit_adjudication.md`. |
+
+## The two papers (v1 — superseded, kept for the record)
 
 | Paper | File | Contents |
 |---|---|---|
@@ -31,10 +38,10 @@ submitted together as main paper + companion.
 
 ```
 papers/                  Final PDFs (flagship + companion monograph)
-sources/flagship/        LaTeX sources, cover, and the certification/provenance
-                         scripts with their persisted outputs (builds with tectonic)
-sources/companion/       LaTeX sources, figures, cover, and the derivation scripts
-                         with their persisted outputs (builds with tectonic)
+sources/flagship/        v1 LaTeX sources + scripts + persisted outputs
+sources/flagship_v2/     v2 LaTeX sources (audit revision) + outputs
+sources/companion/       v1 LaTeX sources + figures + scripts + outputs
+sources/companion_v2/    v2 LaTeX sources (Hq repair) + outputs
 research_notes/          The 20 dated research notes of the program (T-series record)
 scripts/                 All research/verification scripts and their out_*.json
                          outputs (the canonical provenance record)
@@ -71,6 +78,9 @@ LICENSE                  MIT
   number to script + output file.
 - Provenance re-assertion: `python3 sources/flagship/paper_provenance.py` re-checks all
   225 inherited cited numbers against the persisted JSONs (expected: 0 failures).
+- Audit adjudication verification (v2): `python3 scripts/audit_verify_v2.py` re-checks
+  the auditors' claims (the 4183/12288 witness, Spearman p-values, 16-row exact Sturm
+  real-rootedness, Newton floors, threshold constants).
 
 ## Publishing this repository
 

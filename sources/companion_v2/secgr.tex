@@ -1,0 +1,549 @@
+% ======================================================================
+% Section 5 — The group-ring translation
+% ======================================================================
+
+\section{The group-ring translation}\label{sec:groupring}
+
+The covering lemmas of the $p^2$ programme (Lemmas A and B of the companion
+notes) are statements about three arithmetic progressions covering $\Z_p$.
+This section re-encodes them \emph{exactly} as a statement about one sparse
+identity in the group ring $\Z[\Z_p]\cong\Z[z]/(z^p-1)$: the obstruction
+becomes the coefficient-sign pattern of a quotient of a $24$-term element by
+an $8$-term element. The translation is proved (Theorem~\ref{thm:GT}), not
+merely verified, and it is unconditional --- the identity holds for
+\emph{every} configuration, and covering is exactly a positivity condition on
+its solution. The machine verification then establishes, over an independent
+code path, a census law: at every prime tested, the critical coverings fall
+into exactly four difference families with placement counts \emph{independent
+of $p$} (\S\ref{sec:gt-census}). This is the same pinning phenomenon that the
+shear-rigidity argument measured fiberwise, now visible as a statement about
+the identity itself, and it converts the programme's computational inputs
+from vague debt into precisely stated, named lemmas with identified
+discharge paths (\S\ref{sec:gt-support}) --- one of which, the foot-count
+lemma, is now proved (Lemma~\ref{lem:E}, \S\ref{sec:lemmaE}).
+
+The motive is the classical line connecting covering systems to roots of
+unity: the Mirsky--Newman--Davenport--Rado theorem --- in an exact covering
+system of $\Z$ the largest modulus repeats --- is proved by evaluating a
+generating function at roots of unity and reading off pole structure
+\cite{MirskyNewman}. Lemmas A and B are the cyclic, three-term analogue, and
+the group ring is where that analogy becomes literal.
+
+\subsection{The identity and the translation theorem}\label{sec:gt-identity}
+
+Fix a prime $p$ and a \emph{configuration}: three arithmetic progressions
+$A_i=\{a_i+jd_i \bmod p:0\le j<s_i\}$ in $\Z_p$ with $d_i\in\Z_p^{*}$,
+$s_i\ge 1$. Write $\mathbf 1_i$ for the indicator of $A_i$ and define the
+\emph{signed excess}
+\[
+\varepsilon(x)\;:=\;\sum_{i=1}^{3}\mathbf 1_i(x)-1\;\in\;\{-1,0,1,2\},
+\qquad
+E(z)\;:=\;\sum_{x\in\Z_p}\varepsilon(x)\,z^x .
+\]
+Work in the group ring $R_p:=\Z[z]/(z^p-1)$, and put
+\begin{align*}
+Q(z)\;&:=\;\sum_{i=1}^{3} z^{a_i}\,\bigl(1-z^{d_i s_i}\bigr)
+        \prod_{j\ne i}\bigl(1-z^{d_j}\bigr),\\[\medskipamount]
+P(z)\;&:=\;\prod_{i=1}^{3}\bigl(1-z^{d_i}\bigr).
+\end{align*}
+Both are sparse: $Q$ has at most $8\times 3=24$ terms with coefficients
+$\pm1$ (each summand is the inclusion--exclusion of the box
+$a_i+\{0,d_is_i\}+\{0,d_j\}+\{0,d_k\}$), and $P$ has at most $8$ terms. Let
+$\overline\Phi_p:=\sum_{x\in\Z_p}z^x$ denote the all-ones element of $R_p$
+(the reduction of the cyclotomic polynomial $\Phi_p$).
+
+\begin{theorem}[group-ring translation]\label{thm:GT}
+\;\textup{(i)} For \emph{every} configuration,
+\[
+Q \;=\; E\cdot P \qquad\text{in } R_p .
+\]
+\textup{(ii)} The configuration covers $\Z_p$ if and only if
+$\varepsilon\ge 0$ pointwise. Consequently, writing
+$\mathrm{ov}:=\sum_i s_i-p$, if $\mathrm{ov}=0$ then covering is equivalent
+to $E=0$; if $\mathrm{ov}=1$ to $E=z^e$ for some $e$; and if
+$\mathrm{ov}=2$ to $E\in\{z^e+z^f,\;2z^e\}$.
+\textup{(iii)} The kernel of multiplication by $P$ on $R_p$ is exactly
+$\Z\cdot\overline\Phi_p$, and $E$ is the \emph{unique} $X\in R_p$ with
+$Q=XP$ and $X(1)=\mathrm{ov}$.
+\end{theorem}
+
+\begin{proof}
+(i) Let $\omega=e^{2\pi i/p}$ and evaluate at $z=\omega^\ell$,
+$\ell\in\Z_p$. For $\ell\ne 0$, since $d_i\in\Z_p^{*}$,
+\[
+\widehat{\mathbf 1}_{A_i}(\ell)
+=\sum_{j<s_i}\omega^{\ell(a_i+jd_i)}
+=\omega^{\ell a_i}\,\frac{1-\omega^{\ell d_i s_i}}{1-\omega^{\ell d_i}},
+\]
+a geometric sum with nonzero denominator. Summing the function identity
+$\sum_i\mathbf 1_i=1+\varepsilon$ over $x\in\Z_p$ against $\omega^{\ell x}$
+kills the constant $1$ at $\ell\ne0$, giving
+$\sum_i\widehat{\mathbf 1}_i(\ell)=\widehat\varepsilon(\ell)$; multiplying by
+$P(\omega^\ell)=\prod_j(1-\omega^{\ell d_j})\ne 0$ yields
+$Q(\omega^\ell)=\widehat\varepsilon(\ell)P(\omega^\ell)$, i.e.\ the
+polynomial $Q-E\cdot P$ vanishes at every nontrivial $p$-th root of unity.
+At $\ell=0$ both sides vanish: $Q(1)=0$ because each summand contains the
+factor $1-z^{d_is_i}$ at $z=1$, and $E(1)P(1)=\mathrm{ov}\cdot 0=0$. So
+$Q-E\cdot P$ vanishes at all $p$ roots of $z^p-1$; a polynomial with integer
+coefficients divisible by $z^p-1$ over $\mathbb{Q}$ (the roots are distinct) is
+divisible over $\Z$ (monic divisor, Gauss's lemma), and exponent reduction
+modulo $p$ changes a polynomial by multiples of $z^p-1$. Hence
+$Q=E\cdot P$ in $R_p$, with no hypothesis beyond $d_i\ne 0$.
+
+(ii) Covering means $\min_x\sum_i\mathbf 1_i(x)\ge 1$, i.e.\ $\varepsilon\ge
+0$ pointwise; and $\sum_x\varepsilon(x)=\sum_i s_i-p=\mathrm{ov}$ always.
+Pointwise $0\le\varepsilon\le 2$ with total mass $0$, $1$, $2$ leaves exactly
+the listed profiles.
+
+(iii) Let $X\in\ker(\text{mult.\ by }P)$. Then $X(\omega^\ell)P
+(\omega^\ell)=0$ for all $\ell$, and $P(\omega^\ell)\ne 0$ for $\ell\ne 0$,
+so the coefficient vector $(X_x)_{x\in\Z_p}$ satisfies
+$\sum_x X_x\omega^{\ell x}=0$ for all $\ell\in\Z_p^{*}$. By character
+orthogonality on $\Z_p$, $(X_x)$ lies in the span of the all-ones vector;
+integrality gives $X=t\,\overline\Phi_p$ with $t\in\Z$. Conversely
+$(1-z^{d})\overline\Phi_p\equiv 0$ in $R_p$ for every $d$ (multiplication by
+$z^d$ permutes the all-ones vector), so $\Z\overline\Phi_p\subseteq\ker$.
+Finally, if $Q=XP=EP$ then $X-E=t\overline\Phi_p$ and
+$X(1)-E(1)=t\,p$; the mass condition $X(1)=\mathrm{ov}=E(1)$ forces $t=0$.
+\end{proof}
+
+Part (i) is stronger than the conditional identity one obtains by assuming a
+covering: the $24$-term element $Q$ is \emph{always} divisible by the
+$8$-term element $P$ in $R_p$, and the quotient is always the signed excess.
+Individual summands of $Q$ need not be divisible by $P$ --- the divisibility
+is a cancellation among the three boxes, and that cancellation is the
+arithmetic content of the covering problem. Part (iii) says the covering
+question is a genuine linear-algebra sign question about a uniquely
+determined object:
+\begin{center}
+\emph{the configuration covers $\Z_p$ iff the unique right-mass
+solution $X$ of $Q=XP$ has nonnegative coefficients.}
+\end{center}
+
+\begin{corollary}\label{cor:signform}
+Lemma B of the companion notes is equivalent to: for every normalized
+critical configuration at $p=6k+5$ with pairwise $\pm$-distinct differences,
+the right-mass solution $E$ of $Q=XP$ has a negative coefficient; Lemma A at
+$p=6k+1$ likewise. The lemmas are sign conditions on the quotient
+$Q/P\in R_p$.
+\end{corollary}
+
+\begin{proposition}[normal form]\label{prop:normalform}
+The statement $Q=EP$, the covering property, the sizes, the overlap budget,
+and pairwise $\pm$-distinctness are preserved by \textup{(a)} translation
+$a_i\mapsto a_i+t$, under which $Q\mapsto z^{t}Q$, $E\mapsto z^{t}E$,
+$P\mapsto P$; and \textup{(b)} scaling $(a_i,d_i)\mapsto(\lambda a_i,
+\lambda d_i)$, $\lambda\in\Z_p^{*}$, under which all three transform by the
+ring automorphism $z\mapsto z^{\lambda}$ of $R_p$. Hence every configuration
+is equivalent to one with $a_1=0$, $d_1=1$, and the census below may be run
+in that normal form; reflection $z\mapsto z^{-1}$ permutes the solution set.
+\end{proposition}
+
+\begin{proof}
+Translation: $\varepsilon$ transforms to $x\mapsto\varepsilon(x-t)$, so
+$E\mapsto z^tE$, and each summand of $Q$ gains the factor $z^t$. Scaling:
+$z\mapsto z^\lambda$ is a ring automorphism because $\lambda$ is coprime to
+$p$, and it carries the triple $(z^{a_i},z^{d_is_i},z^{d_j})$ to the scaled
+configuration's data since $s_i$ is unchanged and
+$\lambda(d_is_i)=(\lambda d_i)s_i$. Covering and $\pm$-distinctness are
+properties of the bijections $x\mapsto x+t$ resp.\ $x\mapsto\lambda x$ on
+$\Z_p$. Scaling by $d_1^{-1}$ and translating by $-a_1$ produce the normal
+form.
+\end{proof}
+
+\subsection{Machine verification of the translation}\label{sec:gt-verify}
+
+Theorem~\ref{thm:GT} was verified by an implementation independent of the
+prior harness: $Q$, $P$, $E$ are built directly from their definitions as
+integer arrays over $\Z_p$ (the $24$ terms by explicit inclusion--exclusion
+over the three boxes), the product $E\cdot P$ by circular convolution, and
+the covering property by point counts. The census search uses a
+bit-mask residual-fit enumeration (for each $(d_2,a_2)$ surviving the
+inclusion--exclusion prune, the completing placements $a_3$ are obtained
+from the minimal cyclic arc containing the scaled residual), with a full
+brute-force cross-check at $p=7$ (all placements, no prune, no fit).
+
+\begin{table}[t]
+\centering
+\small
+\caption{Verification of the translation theorem. ``Identity'' is the check
+$Q=E\cdot P$ in $R_p$; ``sharp form'' includes configurations that do not
+cover, where $E$ has negative coefficients.}
+\label{tab:gtverify}
+\begin{tabularx}{\textwidth}{@{}lXXr@{}}
+\toprule
+check & scope & outcome & count \\
+\midrule
+identity, Lemma A exceptions & $p=7,13$ (all $52$) & all hold; $E$-profiles
+exactly $\{z^e\}$, $\{z^e{+}z^f\}$, $\{2z^e\}$ as classified & 52 \\
+identity, census coverings & every covering of \S\ref{sec:gt-census}, all
+$15$ primes $5\le p\le 61$ & all hold; $E\ge 0$ & 12{,}256 \\
+identity, sharp form & $3{,}000$ random configurations per prime, $p\in\{11,
+13,17,19,23,29,31,37\}$, covering or not & all hold (signed $E$) & 24{,}000 \\
+sign $\Leftrightarrow$ covering & same sample & agreement & 24{,}000 \\
+kernel $=\Z\overline\Phi_p$ & same sample, $X=E\pm\overline\Phi_p$ &
+$Q=XP$ holds & 24{,}000 \\
+$\pm$-distinct census & $p\in\{11,\dots,59\}\cup\{19,\dots,61\}$, exhaustive
+& zero coverings & --- \\
+brute-force ground truth & $p=7$, all placements & $272$ normalized
+configurations $=$ $68$ set-triples, matching the fast enumerator & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Two soundness items from this run are recorded in \S\ref{sec:sound}. First,
+the first implementation of the fit test had an off-by-one error in the
+minimal-arc length; it was caught immediately by the assertion that every
+enumerated covering has $E\ge 0$, and after the fix all counts agreed with
+the brute force. Second, the run forced a reconciliation of the prior
+failure counts: the ``$50$ at $p=7$ and $2$ at $p=13$'' of the earlier
+harnesses are \emph{witness-tuple} counts --- one per (ordered sizes,
+$d_2$, $d_3$, $a_2$) with $d_2,d_3$ over positive $\pm$-reps and at least
+one completing $a_3$, the shared convention of the earlier search and its
+brute-force cross-check --- while the true solution counts are $272$
+normalized configurations ($68$ set-triples) at $p=7$ and $8$
+($2$ set-triples) at $p=13$, confirmed by the no-prune brute force. The
+content of the earlier finding (Lemma A is false at $7$ and $13$; the cells
+are closed there by direct verification) is unchanged, and the identity
+check ran on the \emph{full} solution set, not on witnesses.
+
+\subsection{The covering census: four families, pinned placements}
+\label{sec:gt-census}
+
+The census drops the $\pm$-distinctness hypothesis and enumerates
+\emph{all} critical coverings in the normal form $a_1=0$, $d_1=1$: all
+ordered size triples from the class-appropriate critical window with
+$\sum s_i-p$ in the class-appropriate set (Lemma B: sizes
+$\{2k{+}1,2k{+}2\}$, $\mathrm{ov}\in\{0,1\}$; Lemma A: sizes
+$\{2k,2k{+}1,2k{+}2\}$, $\mathrm{ov}\in\{0,1,2\}$), over \emph{all}
+$(d_2,d_3)\in(\Z_p^{*})^2$. Write $\|d\|:=\min(d,-d \bmod p)$ for the
+$\pm$-representative and $q:=(p-1)/2$.
+
+\begin{proposition}[census record, machine]\label{prop:census}
+At every prime $p\equiv5\pmod 6$ with $11\le p\le 59$, and at $p=5$, the
+census returns exactly $144$ normalized coverings, distributed by the
+$\pm$-rep pair $(\|d_2\|,\|d_3\|)$ as
+\[
+(1,1):48,\qquad (1,q):32,\qquad (2,2):32,\qquad (q,1):32,
+\]
+independently of $p$. At every prime $p\equiv1\pmod 6$ with $19\le p\le 61$
+it returns exactly $1368$, distributed as
+\[
+(1,1):504,\qquad (1,q):288,\qquad (2,2):288,\qquad (q,1):288,
+\]
+again independently of $p$. No other family occurs at any of these primes,
+and no $\pm$-distinct covering occurs ($0$ at every prime in range,
+re-deriving Lemmas A and B at those primes by an independent code path).
+At the boundary, $p=5$ already shows the four families (with $q=2$); $p=7$
+shows the $k=1$ collapse (nine families, including $272$ $\pm$-distinct
+configurations --- the $68$ set-triples of the Lemma A failure); $p=13$
+shows the four canonical families with the same counts as at general $p$,
+plus small exceptional families (among them the $8$ $\pm$-distinct
+instances of the two Lemma A failures), totaling $1520$.
+\end{proposition}
+
+\begin{table}[t]
+\centering
+\small
+\caption{Per-multiset family counts, constant in $p$ (Lemma A side, $19\le
+p\le 61$; the Lemma B side gives $24/16/16/16=72$ for each of its two
+multisets). ``ov'' is $\sum s_i-p$.}
+\label{tab:permultiset}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+multiset & ov & $(1,1)$ & $(1,q)$ & $(2,2)$ & $(q,1)$ & total \\
+\midrule
+$\{2k,2k,2k{+}1\}$ & $0$ & 24 & 16 & 16 & 16 & 72 \\
+$\{2k,2k,2k{+}2\}$ & $1$ & 72 & 32 & 32 & 32 & 168 \\
+$\{2k,2k{+}1,2k{+}1\}$ & $1$ & 72 & 48 & 48 & 48 & 216 \\
+$\{2k,2k{+}1,2k{+}2\}$ & $2$ & 288 & 160 & 160 & 160 & 768 \\
+$\{2k{+}1,2k{+}1,2k{+}1\}$ & $2$ & 48 & 32 & 32 & 32 & 144 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Every one of the $12{,}256$ census coverings satisfies the identity of
+Theorem~\ref{thm:GT} with $E\ge0$ (Table~\ref{tab:gtverify}). The four
+families are structural, not merely counted: they are, in order, the
+three-interval family, the parity family, and the two two-block families
+(interval plus two-block, with the two-block on either index). Their
+placement counts per ordered size triple are also $p$-independent --- the
+$(1,1)$ family has $8$ per triple at $\mathrm{ov}=0$ and $24$ at
+$\mathrm{ov}=1$ --- and this is the identity-level form of the pinning that
+the shear-rigidity argument measured fiberwise. The $p$-independence has a
+structural explanation, and it is worth isolating, because it is the
+mechanism a proof of Conjecture~\ref{conj:SL} will exploit.
+
+\begin{proposition}[why the counts are $p$-independent]\label{prop:pindep}
+Fix a family and a multiset of Table~\ref{tab:permultiset}, and $k\ge1$.
+Every census configuration of the parity family $(2,2)$ with at most one
+foot per AP has the \emph{integer-parity parametrization}: each of $A_2,
+A_3$ meets $I_1=[s_1,p-1]$ in a run of consecutive elements of one integer
+parity class of $I_1$, does not wrap, and carries its feet as the one-point
+extensions of that run at either end; consequently the configurations are
+enumerated by a choice set --- parity assignment ($\le2$), orientation of
+each AP ($2$ each), spill slot of each AP ($\le3$ each) --- of cardinality
+bounded independently of $k$, and the per-multiset counts are the constants
+of Table~\ref{tab:permultiset}. Written out: $16$ for both B-side
+multisets, $16$ ($M1$), $48$ ($M2$), $32$ ($M3$), $32$ ($M5$); the $M4$
+count $160$ adds the wrapped spill pair $\{0,2\}$ available at
+$\mathrm{ov}=2$. The $(1,1)$ family is Proposition~\ref{prop:F1}; the
+two-block families obey the same junction arithmetic (verified; the
+$s_1=2k{+}1$ slice is written out in \S\ref{sec:pq-census}).
+\end{proposition}
+
+\begin{proof}
+Let $A=\{a+2j\}$ ($d=\pm2$) have $|A\setminus I_1|\le1$ and meet $I_1$.
+The step-$2$ cycle visits $\dots,p{-}3,p{-}1,1,3,\dots$ (or shifted by
+one): a wrap passes from $p-1$ (or $p-2$) to $0$ (or $1$). If the segment
+wrapped strictly inside, the post-wrap head would contribute at least two
+points of $A_1=[0,s_1-1]$ once it re-enters $I_1$ --- impossible at one
+foot unless the wrap is at an endpoint of the segment; hence the $I_1$-part
+is the pre-wrap tail: consecutive integers of one parity, and the single
+foot (if any) is the adjacent run extension below $s_1$ or above $p-1$
+(after reduction). Covering forces $A_2\cup A_3\supseteq I_1$, and since
+each parity class of $I_1$ can only be covered by the AP of that parity,
+one AP carries the even run, the other the odd run, each extended by its
+spill slots within the foot budget $\mathrm{ov}$. The count is then a
+product of $\{\text{assignment}\}\times\{\text{orientations}\}\times
+\{\text{spill slots}\}$, all bounded by constants; evaluating it per
+multiset (with $|E(I_1)|$, $|O(I_1)|$ determined by $s_1$ alone) gives the
+listed constants, each independent of $k$. E.g.\ the B-side multiset
+$\{2k{+}2,2k{+}2,2k{+}1\}$: at $s_1=2k{+}1$ the parities have $2k{+}2$
+each, both APs are exact runs ($2$ orientations each, $2$ assignments:
+$8$); at $s_1=2k{+}2$ the even run has $2k{+}2$, the odd $2k{+}1$, the
+sizes match forced assignments ($2$ ordered triples $\times2^2$
+parametrizations: $8$); total $16$. The structural claim was verified on
+every census $(2,2)$ solution at six primes ($32$ resp.\ $288$ per prime,
+$100\%$ conformity, spills $\le\mathrm{ov}$ in $A_1$).
+\end{proof}
+
+This is the answer to ``why $p$-independent'': the critical configurations
+live in a finite, $k$-independent choice space of interval-arithmetic
+patterns; the families are its connected components, and the placement
+counts are its component sizes. The same mechanism governs the row census
+of the $pq$ side (\S\ref{sec:pq-census}), where the pinned placement sets
+have $24$ resp.\ $312$ elements at every row modulus --- which is why the
+covering counts $28/68$ of the shear-rigidity input are $p$-independent
+(\S\ref{sec:gt-support}).
+
+\begin{proposition}[the interval family]\label{prop:F1}
+In the normal form, with $d_2,d_3\in\{\pm1\}$ and critical sizes with
+$\mathrm{ov}\in\{0,1\}$ (for $k\ge1$, so that all sizes are $\ge2$; the
+degenerate prime $p=5$ is verified directly), the coverings are exactly the consecutive
+arrangements: at $\mathrm{ov}=0$, the two cyclic orders of the consecutive
+tiling of $I_1=[s_1,p-1]$ by $A_2,A_3$; at $\mathrm{ov}=1$, the six
+arrangements obtained from them by placing the single double point at one of
+three positions --- the interior junction, the left spill into $A_1$ at
+$s_1-1$, or the wrap at $0$ --- each in two orders. Per ordered size triple
+this gives $2$ resp.\ $6$ set-arrangements, each realized by $2^2$
+parametrizations (independent orientation choices $\pm1$ for $A_2$ and
+$A_3$), i.e.\ $8$ resp.\ $24$ configurations, matching the census exactly.
+\end{proposition}
+
+\begin{proof}
+With $d_i=\pm1$ each $A_i$ is a cyclic interval. Let $q=p-s_1=|I_1|$. Since
+$A_1=[0,s_1-1]$, covering is equivalent to $A_2\cup A_3\supseteq I_1$.
+At $\mathrm{ov}=0$ we have $s_2+s_3=q$, so $A_2\cup A_3=I_1$ exactly; both
+intervals lie in $I_1$, and two intervals whose union is the arc $I_1$ are
+its consecutive blocks, in one of the two orders. At $\mathrm{ov}=1$ we have
+$s_2+s_3=q+1$, so $|A_2\cap A_3|=1-(A_2\cup A_3\smallsetminus I_1)$ counts
+the single double point (a triple point would contribute $2$ to the mass,
+exceeding $\mathrm{ov}=1$). If the double point is interior
+($\in I_1$) then $A_2\cup A_3=I_1$ and the two intervals are consecutive
+blocks sharing their junction point. If it lies in $A_1$, then
+$A_2\cap A_3=\varnothing$, and the one point of $(A_2\cup A_3)\cap A_1$
+belongs to exactly one of the intervals: an interval of size $\ge2$
+containing a point $<s_1$ and points of $I_1$ must contain the intervening
+block of $A_1$, so it either starts at $s_1-1$ (left spill) or wraps through
+$0$, in which case it contains $[0,v]$ for some $v$ and $v=0$ is forced.
+Each case occurs in the two orders of $(A_2,A_3)$, giving $3\times2=6$
+set-arrangements. The parametrization count is immediate.
+\end{proof}
+
+The other three families have the same character. The $(2,2)$ family at
+$\mathrm{ov}=0$ is the parity split: the surviving structural pair
+$(E,O)$ of the Lemma B proof --- the two $d=\pm2$ progressions partition
+$I_1$ into its even and odd classes, which is why $\pm$-distinctness is
+exactly what kills it. The $(1,q)$ and $(q,1)$ families are the two-block
+families: one of $A_2,A_3$ is the two-block set of difference $q$
+(the proved two-block structure of the trichotomy: blocks of
+$\lceil s/2\rceil$ and $\lfloor s/2\rfloor$ consecutive integers whose right
+endpoints differ by exactly $q$), and the partner is an interval. The full
+placement windows of these three families are verified but not written out
+as propositions; they are the remaining content of the support lemma below.
+
+\subsection{The support lemma and the computational inputs}
+\label{sec:gt-support}
+
+The census law suggests the all-$p$ statement that the group-ring programme
+targets.
+
+\begin{conjecture}[support lemma: the covering classification]\label{conj:SL}
+Let $p=6k+5$, $k\ge0$ (resp.\ $p=6k+1$, $k\ge3$) be prime. Every critical
+covering configuration at $p$ in the normal form satisfies
+\[
+(\|d_2\|,\|d_3\|)\in\{(1,1),\,(1,q),\,(2,2),\,(q,1)\},
+\qquad q=(p-1)/2,
+\]
+and conversely each family is realized at every such prime with the
+placement counts of Table~\ref{tab:permultiset}, independent of $p$.
+Equivalently: \textup{(i)} no pairwise $\pm$-distinct critical
+configuration covers $\Z_p$ (Lemmas B and A), and \textup{(ii)} every
+critical covering has a $\pm$-collision, the collision patterns being
+exactly the four listed.
+\end{conjecture}
+
+Its status, part by part. Clause (i) is \emph{proved} for $p\equiv5\pmod6$,
+$p\ge17$ (Lemma B; see below), and for $p\equiv1\pmod6$, $p\ge31$
+(Lemma A, unconditionally: its foot-count input is discharged by
+Lemma~\ref{lem:E} of \S\ref{sec:lemmaE}); verified to $p\le251$ (prior
+harness) and $p\le419$ (the foot census), and re-derived independently
+at every prime in $5\le p\le 61$. The $(1,1)$ family is proved (Proposition~\ref{prop:F1}); the $(2,2)$
+family is proved (Proposition~\ref{prop:pindep}); the two-block placement
+structure is proved. What is \emph{not} proved is the exhaustiveness of the
+four families at general $p$ (clause (ii) and the two-block placement
+counts), verified by the fresh census to $p\le61$ on both classes (and at
+$5$, $7$, $13$) and by the prior relaxed census to $p\le250$. The
+$\varepsilon=2$ counts of the interval family are verified but, unlike
+Proposition~\ref{prop:F1}, not written out.
+
+\medskip
+\noindent\textbf{The computational inputs, precisely.} The $p^2$
+closure --- the $(1K,3U)$ cell is empty at every prime $p\ge5$ --- rested,
+at the previous revision, on two named inputs beyond the proved lemmas.
+Both were \emph{unbounded} hypotheses: each asserts something for all
+primes in a mechanism range and is verified only to a finite bound, so
+neither can be discharged by a bounded search, however large; each
+requires a lemma, and each had one identified. The first of the two
+(Input E below) is now \emph{proved} --- Lemma~\ref{lem:E} of
+\S\ref{sec:lemmaE} --- leaving Input S as the closure's single
+unbounded input.
+
+\emph{Input E (the foot-count trichotomy, stated in its consumed form) ---
+discharged in this revision.}
+The kills M4 and M5 of Lemma A consume exactly the \emph{one-foot} case, at
+exactly two size pairs: M4 at $(s_1,s)=(2k{+}2,\,2k{+}1)$, M5 at
+$(2k{+}1,\,2k{+}1)$. The consumed statement is therefore: \emph{at
+$p=6k+1$, any critical-size AP with at most one point outside
+$I_1=[s_1,p-1]$ at these two pairs has $\|d\|\in\{2,(p{-}1)/2\}$} --- at
+the M4 pair the viable set is in fact exactly $\{2\}$, at the M5 pair
+exactly $\{2,(p{-}1)/2\}$, matching the kills' branching. A complete
+census at every prime $p\le419$ gives the exact boundaries: the consumed
+form is clean at every prime $p\equiv1\pmod6$ with $p\ge31$ (dirty at $13$
+and $19$). \emph{The input is now discharged}: Lemma~\ref{lem:E} of
+\S\ref{sec:lemmaE} (the three-distance foot count) proves the consumed
+statement outright at every prime $p\ge31$, by an elementary column
+decomposition of the dilation $j\mapsto jd\bmod p$ with no group-ring
+content, machine-verified against the census ($76$/$76$ viable-set
+agreement at $p\le419$). Consequently \emph{Lemma A is proved for
+$p\ge31$}, with $p=19$ closed by the finite case analysis and $7,13$ by
+direct verification; the all-pairs one-foot version is clean for $p\ge31$
+on the $\epsilon=1$ class and $p\ge41$ on the $\epsilon=5$ class; the two-foot
+version (clean only from $p\ge61$ resp.\ $47$) is consumed by \emph{no}
+current proof --- the earlier ``$p\ge43$'' phrasing bundled the two-foot
+statement with the pair-restricted one, and a previous revision separated
+them. Lemma B, finally, consumes \emph{no} foot-count input: its kills run
+on the contained census (Lemma T, clean for $p\equiv5\pmod6$, $p\ge17$) and
+Corollaries T1--T3, so \emph{Lemma B is proved for $p\ge17$} (the earlier
+$p\ge23$ reflected a pre-T3 draft of the $\beta$-kill; at $p=17$ the
+contained forms at $(s_1,s)=(6,6)$ are exactly $E$ and $T$ with
+$|E\cap T|=4>1$, as the proof requires). The earlier discharge sketch ---
+a wrap of a middle difference $d\in[3,s_1]$ landing in $A_1$, the
+re-entry climb contributing at least $\approx s\cdot s_1/p-2$ points ---
+is superseded by the exact column analysis of \S\ref{sec:lemmaE}, which
+proves the bound outright rather than heuristically.
+
+\emph{Input S (the pinning lemma of the shear-rigidity argument).}
+Statement: in the $\pm$-colliding closure, the per-fiber covering
+configurations of a colliding family are pinned --- the relative-offset
+difference sets have at most $6$ elements, with covering counts $28$ and
+$68$ per collision topology, independent of $p$. Consumer: the
+shear-rigidity theorem for $\pm$-colliding units --- hence the closure for
+colliding unit triples at $p\ge11$. Status: verified at every prime
+$11\le p\le113$; exhaustive ground truth $3.3$ million families at $p\le43$
+with zero coverings; mechanism (exact linear per-fiber drift against
+pinned configurations) proved in general. Discharge: the collision side of
+Conjecture~\ref{conj:SL}. The per-fiber covering configurations are exactly
+critical coverings of the fiber's $t$-space ($\cong\Z_p$) whose three
+differences carry the colliding units' $\pm$-collision; the support lemma
+classifies these into the four families with $p$-independent placement
+sets, and the pinning tables are then a read-off of that classification ---
+which is why the counts are $p$-independent: the families are. The $pq$
+side measures the pinning directly and confirms it: every row configuration
+satisfying the fiber condition is a census solution after normalization
+(Proposition~\ref{prop:pqpinned}), with at most $6$ surviving rows per
+family against fiber arcs of length $\tfrac23 q$.
+
+In this form the technical debt is finite and explicit: the prime-side
+foot-count lemma (Input E, one-foot at two size pairs) is now \emph{proved}
+(Lemma~\ref{lem:E}, \S\ref{sec:lemmaE}); what remains is the support
+lemma's exhaustiveness clause and the shear input --- each with a
+statement, a consumer, a verification range, and a proof strategy; the
+group-ring translation is the machine that proves them, and the $pq$ side
+of \S\ref{sec:pq} adds no further input. After this revision the entire
+programme rests on a single unbounded input, Input S.
+
+\medskip
+Finally, the defect statistics. Define the distance-to-solvability of a
+non-covering $\pm$-distinct critical configuration as $\|Q\|_{0}$ (the
+number of nonzero coefficients of $Q$ in $R_p$) at $\mathrm{ov}=0$, and
+$\min_e\|Q-z^eP\|_{0}$ at $\mathrm{ov}=1$ --- the least $\ell_0$-distance
+from the identity's data to a covering profile. Over $3{,}000$ random
+configurations per prime the sampled minima grow: $5,5,6,7,9$ at
+$p=11,17,23,29,41$ (medians $8,11,13,14,17$), with the minimizers
+concentrated in the overlap-$1$ multiset $\{2k{+}2\}^3$ --- the case of the
+Lemma B proof that needed Corollaries T2/T3 rather than pure parity. The
+obstruction thus \emph{strengthens} with $p$: this is the cyclotomic
+analogue of the shear-rigidity near-miss margin (families failing all but
+two fibers), and it is the quantity a stability argument would bound below.
+
+\subsection{Outlook: cyclotomic tools and the $pq$ side}\label{sec:gt-outlook}
+
+The translation puts the problem in the room of the
+Lam--Leung--de~Bruijn--Schoenberg theory of polynomials with few terms
+divisible by cyclotomic polynomials
+\cite{deBruijnSchoenberg,LamLeung}. The prime-modulus case of that theory is
+elementary and worth recording, since it is the tool any proof of
+Conjecture~\ref{conj:SL} will consume on the nonnegative side:
+
+\begin{lemma}[prime-modulus Lam--Leung structure]\label{lem:LL}
+Let $F\in\Z[z]$ have nonnegative coefficients and satisfy $\Phi_p\mid F$.
+Then, reducing exponents modulo $p$, all $p$ residue classes carry equal
+mass: $F\equiv(F(1)/p)\,\overline\Phi_p$ in $R_p$.
+\end{lemma}
+
+\begin{proof}
+$F=\Phi_pG$ gives $p\mid F(1)$, and $F(\omega^\ell)=0$ for $\ell\ne0$ says
+the reduced coefficient vector is annihilated by all nontrivial characters
+of $\Z_p$; by orthogonality it is constant.
+\end{proof}
+
+The gap between this and our problem is exactly the sign structure: $Q$ is
+a $\pm1$ combination, not a nonnegative one, so Lemma~\ref{lem:LL} does not
+apply directly, and the covering question is a \emph{sign-mixed} sparse
+divisibility problem --- the quotient $E=Q/P$ must be shown to have a
+negative coefficient in the $\pm$-distinct regime, and to be nonnegative
+with the exact four-family profile in the colliding regime. The specific
+structure available beyond general sparsity is that $Q$ is built from
+factors $(1-z^{c})$: these are real-rooted at $z=1$, and their coefficient
+sequences are log-concave; whether that structure propagates through the
+alternating combination $Q$ in the way log-concavity propagates through
+products --- the mechanism by which stability methods turn counting
+statements into theorems \cite{BrandenHuh} --- is the precise question the
+stability route must answer. Conjecture~\ref{conj:SL} is calibrated for it:
+the four families are its tightness examples, and the defect margins of
+\S\ref{sec:gt-support} are its stability margins.
+
+At composite modulus the translation persists with new structure: at
+$N=pq$ the group ring is $\Z[\Z_p\times\Z_q]$, the tensor product of the
+prime-modulus rings, the identity tensors over the CRT components, and the
+kernel of Lemma~\ref{lem:LL} enlarges --- the cyclotomic field of $\Phi_{pq}$
+replaces $\mathbb{Q}(\omega_p)$, and with it the Lam--Leung theory acquires its
+genuine (nontrivial) content \cite{LamLeung}. This is not a black-box
+transfer of the prime side, and it is now carried out: \S\ref{sec:pq}
+proves the row translation (Theorem~\ref{thm:R}), verifies the two-unit
+and three-unit cells at ten semiprime moduli, and reduces their closure to
+the same input structure, now a single unbounded input after the discharge
+of Input E --- the tensor structure is the reason the $pq$ side
+inherits, rather than re-derives, the prime-side obstruction theory.

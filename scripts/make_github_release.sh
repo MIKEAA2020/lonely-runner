@@ -11,9 +11,13 @@ DL=$ROOT/download
 # ---- 1. Curated release content -------------------------------------------
 mkdir -p $REL/papers $REL/research_notes $REL/sources/flagship $REL/sources/companion $REL/scripts
 
-# Final PDFs
+# Final PDFs (v1 and v2 — v2 is the audit revision; v1 kept, never overwritten)
 cp $DL/lonely_runner_type_mismatch_paper.pdf                       $REL/papers/
 cp $DL/lonely_runner_pair_sum_lattices_conditional_theorem_paper.pdf $REL/papers/
+cp $DL/lonely_runner_type_mismatch_paper_v2.pdf                   $REL/papers/
+cp $DL/lonely_runner_pair_sum_lattices_conditional_theorem_paper_v2.pdf $REL/papers/
+cp $DL/flagship_audit_adjudication.md                              $REL/papers/
+cp $DL/companion_audit_adjudication.md                             $REL/papers/
 
 # Research notes (the 20 dated .md notes, not the README)
 for f in $DL/*.md; do
@@ -21,13 +25,21 @@ for f in $DL/*.md; do
   [ "$b" = "README.md" ] || cp "$f" $REL/research_notes/
 done
 
-# Flagship sources (= paper2_sources + merge_cover.py build script)
+# Flagship sources (v1 + v2)
 cp -r $DL/paper2_sources/. $REL/sources/flagship/
+cp -r $DL/paper2_sources_v2/. $REL/sources/flagship_v2/
 cp $ROOT/scripts/paper2/merge_cover.py $REL/sources/flagship/ 2>/dev/null || true
+cp $ROOT/scripts/paper2_v2/merge_cover.py $REL/sources/flagship_v2/ 2>/dev/null || true
 
-# Companion sources (= paper_sources + merge_cover.py build script)
+# Companion sources (v1 + v2)
 cp -r $DL/paper_sources/. $REL/sources/companion/
+cp -r $DL/paper_sources_v2/. $REL/sources/companion_v2/
 cp $ROOT/scripts/paper/merge_cover.py $REL/sources/companion/ 2>/dev/null || true
+cp $ROOT/scripts/paper_v2/merge_cover.py $REL/sources/companion_v2/ 2>/dev/null || true
+
+# The adjudication verification run
+cp $ROOT/scripts/audit_verify_v2.py $REL/scripts/
+cp $ROOT/scripts/out_audit_verify_v2.json $REL/scripts/
 
 # Research scripts + persisted outputs (exclude build dirs + pycache)
 rsync -a --exclude 'paper/' --exclude 'paper2/' --exclude '__pycache__/' \

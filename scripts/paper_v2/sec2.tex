@@ -1,0 +1,299 @@
+% ======================================================================
+% Section 2 — The pair-sum equality theorem
+% ======================================================================
+
+\section{The pair-sum equality theorem}\label{sec:equality}
+
+\subsection{Setup}
+
+Fix $n\ge 2$ and speeds $V=(v_1,\dots,v_n)$, not necessarily distinct in
+this section (no argument below uses distinctness; the conjecture adds it).
+Normalize $\gcd(V)=1$. For $t\in\T$ write
+\[
+f_p(t)=\wnc{v_p t},\qquad
+g(t)=\min_{1\le p\le n} f_p(t),\qquad
+M(V)=\max_{t\in\T} g(t).
+\]
+The function $g$ is continuous on the compact circle, so the maximum is
+attained, and $M(V)>0$: at $t=1/(2v_{\max})$ every $f_p$ equals
+$v_p/(2v_{\max})\le \tfrac12$, whence $g\ge v_{\min}/(2v_{\max})>0$.
+
+\begin{definition}[pairs, lattices, reduced optima]\label{def:pair}
+For an unordered pair of indices $\{u,w\}$, $u\ne w$, the \emph{pair sum}
+is $N=N_{uw}:=v_u+v_w\ (\ge 3)$, and the \emph{pair-sum lattice} of
+$\{u,w\}$ is the set of times $\{k/N : 1\le k\le N-1\}$. The
+\emph{reduced optimum} of the pair is
+\[
+\tau(u,w)\;:=\;\max_{1\le k\le N-1}\;
+\min_{p\ne w}\;\Bigl\lVert \frac{v_p k}{N}\Bigr\rVert .
+\]
+This is the $(n{-}1)$-runner optimal loneliness of the effective residues
+$(v_p\bmod N)_{p\ne w}$ on the cyclic group $\Z_N$: runner $w$ has been
+deleted, and by Lemma~\ref{lem:mirror} below the deleted runner is carried
+by its partner $u$ at every lattice time.
+\end{definition}
+
+\begin{theorem}[pair-sum equality; lossless reduction]\label{thm:equality}
+For every $V$ as above,
+\[
+M(V)\;=\;\max_{\{u,w\}}\;\tau(u,w),
+\]
+the maximum over the $\binom{n}{2}$ unordered pairs. Moreover the maximum
+defining $M(V)$ is attained at a time $t^\ast=k^\ast/N$ on the pair-sum
+lattice of some pair $\{u,w\}$ with $1\le k^\ast\le N-1$; and if
+$M(V)<\tfrac12$ the binding runners at $t^\ast$ can be chosen two-sided,
+one at residue $m^\ast$ and one at residue $-m^\ast$ on $\Z_N$.
+\end{theorem}
+
+\begin{corollary}[lossless reformulation]\label{cor:tau}
+$\mathrm{LRC}$-$_n$ is equivalent to the finite statement
+$(\mathrm{TAU}$-$_n)$: for every $\gcd$-normalized speed set $V$ there is
+a pair $\{u,w\}$ with
+\[
+(n+1)\;\cdot\;\max_{1\le k\le N-1}\min_{p\ne w}
+\Bigl\lVert \frac{v_p k}{N}\Bigr\rVert \;\ge\; N=v_u+v_w .
+\]
+\end{corollary}
+
+The corollary is immediate: $\mathrm{LRC}$-$_n$ asserts $M(V)\ge
+1/(n{+}1)$, i.e.\ $\max_{\{u,w\}}\tau(u,w)\ge 1/T$ with $T=n{+}1$, which
+unfolds to exactly $(\mathrm{TAU}$-$_n)$; the equivalence is an
+\emph{identity} between a continuous maximization and a finite family of
+finite maximizations, so no information is lost in either direction. The
+proof of the theorem occupies the rest of the section.
+
+\subsection{The mirror identity}
+
+\begin{lemma}[mirror / pair collapse]\label{lem:mirror}
+Let $N=v_u+v_w$. For every integer $k$:
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+\item[(i)] $v_u k\equiv -\,v_w k \pmod N$, hence
+  $\lVert v_u k/N\rVert=\lVert v_w k/N\rVert$;
+\item[(ii)] $\min_{p}\lVert v_p k/N\rVert
+  =\min_{p\ne w}\lVert v_p k/N\rVert$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The two speeds sum to $N$, so
+$v_u k+v_w k=Nk\equiv 0 \pmod N$; the two positions are reflections of
+each other through the origin, and distances to the origin coincide.
+(ii) The left side is a minimum over a superset of the index set on the
+right, so it is at most the right side. For the reverse inequality,
+split the full minimum as
+$\min\bigl(\min_{p\notin\{u,w\}} f_p,\,f_u,\,f_w\bigr)$ and replace the
+last two terms by $f_u$ alone, which equals them by (i); the resulting
+expression is exactly the right side, since
+$\{p\ne w\}=\{p\notin\{u,w\}\}\cup\{u\}$.
+\end{proof}
+
+Part (ii) has a reading worth isolating, because the entire finitization
+rests on it: \emph{at every time of the pair-sum lattice, the full
+$n$-runner minimum and the $(n{-}1)$-runner reduced minimum coincide}.
+Deleting runner $w$ costs nothing precisely at the times when $w$ is
+mirrored by $u$. This is the sense in which the pair-sum lattice is the
+natural finite skeleton of the continuous problem.
+
+\subsection{Attainment at a pair-sum time}
+
+\begin{lemma}[attainment]\label{lem:attainment}
+There exist a pair $\{u,w\}$ and an integer $k^\ast$ with
+$1\le k^\ast\le N-1$ such that $g(k^\ast/N)=M(V)$. Specifically, let
+$t^\ast$ be any global argmax, $m:=M(V)=g(t^\ast)$, and let
+$B=\{p: f_p(t^\ast)=m\}$ be the binders. Then:
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt]
+\item[(a)] if $0<m<\tfrac12$: some binder is \emph{rising} (its residue
+  $v_p t^\ast\bmod 1$ lies in $(0,\tfrac12)$) and some binder is
+  \emph{falling} (residue in $(\tfrac12,1)$); choosing $u$ rising and $w$
+  falling, $(v_u+v_w)t^\ast$ is an integer, so
+  $t^\ast=k^\ast/N_{uw}$;
+\item[(b)] if $m=\tfrac12$, the half case of
+Lemma~\ref{lem:halfcase} applies: all speeds are odd, $t^\ast=\tfrac12$,
+and every pair has even $N$ with $k^\ast=N/2$;
+\item[(c)] $m=0$ cannot occur.
+\end{enumerate}
+\end{lemma}
+
+\begin{lemma}[the half case]\label{lem:halfcase}
+If $M(V)=\tfrac12$ then every speed is odd and $t^\ast=\tfrac12$
+attains it; every pair sum is even, so $t^\ast=(N/2)/N$ is a
+pair-lattice time for any pair with $N\ge 4$ (such a pair exists for
+$n\ge2$ unless all speeds equal $1$; in that degenerate case
+$M=\tfrac12=t^\ast$ with $N=2$, $k^\ast=1$).
+\end{lemma}
+
+\begin{proof}
+(c) was noted above ($M(V)>0$).
+
+(a) Assume $0<m<\tfrac12$. Each binder $p\in B$ has residue exactly $m$
+(\emph{rising}: on the arc $(0,\tfrac12)$ the position $x=v_p t\bmod 1$
+satisfies $f_p=x$, which is increasing at slope $+v_p$) or exactly $1-m$
+(\emph{falling}: on $(\tfrac12,1)$, $f_p=1-x$ with slope $-v_p$). No
+binder sits at a peak ($f=\tfrac12$) or a valley ($f=0$) because $m$ is
+neither $\tfrac12$ nor $0$.
+
+\emph{Claim: not all binders rise, and not all binders fall.} Suppose all
+binders rise; the falling case is symmetric. For non-binders let
+$\delta_p=f_p(t^\ast)-m>0$. All $f_p$ are $v_p$-Lipschitz. Choose
+$s>0$ with
+\[
+s<\min\Bigl(\;\min_{p\notin B}\delta_p/v_p,\;\;
+                \min_{p\in B}\tfrac{1}{2}(1/2-m)/v_p\Bigr).
+\]
+Two remarks make the estimates airtight. First, the non-binder bound
+uses only the \emph{global} Lipschitz property
+$f_p(t\pm s)\ge f_p(t)-v_p|s|$, which holds across the cusps of
+$f_p=\wnc{v_pt}$---a non-binder crossing a cusp during the
+perturbation is immaterial, because the one-sided Lipschitz lower
+bound is cusp-free. Second, the binder linearity window: a rising
+binder's position $x_p=v_pt^\ast\bmod 1$ equals $m\in(0,\tfrac12)$,
+and $f_p$ is linear on $(0,\tfrac12)$; the window survives the shift
+iff $x_p+v_ps'<\tfrac12$, which the $s$-bound guarantees per binder
+($v_js'\le\tfrac12\,(\tfrac12-m)<\tfrac12-m$)---this is also where
+binders with \emph{different} slopes are handled: each binder gets its
+own window from the same minimum.
+For binders (all rising), $0<s'\le s$ keeps the position inside
+$(0,\tfrac12)$ where $f_p$ is linear, so
+$f_p(t^\ast+s')=m+v_p s'>m$. For non-binders,
+$f_p(t^\ast+s')\ge f_p(t^\ast)-v_p s'=m+(\delta_p-v_p s')>m$ by the
+choice of $s$. Hence $g(t^\ast+s')>m=M(V)$, contradicting maximality. If
+all binders fall, perturb backwards ($s'<0$); the symmetric argument gives
+the same contradiction. This proves the claim.
+
+Take $u\in B$ rising and $w\in B$ falling. Then
+$v_u t^\ast\equiv m$ and $v_w t^\ast\equiv -m \pmod 1$, so
+$(v_u+v_w)t^\ast\equiv 0 \pmod 1$: the integer
+$k^\ast:=(v_u+v_w)t^\ast$ satisfies $t^\ast=k^\ast/N_{uw}$. Since
+$g(0)=0<m$, $t^\ast\ne 0$; representing $t^\ast\in(0,1)$ gives
+$0<k^\ast<N$, i.e.\ $1\le k^\ast\le N-1$.
+
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:halfcase}]
+If $m=\tfrac12$ then \emph{every} runner binds (no $f_p$ exceeds
+$\tfrac12$), i.e.\ $v_p t^\ast\equiv \tfrac12 \pmod 1$ for all $p$. Write
+$t^\ast=a/b$ in lowest terms. Then $b\mid v_p-v_1$ for all $p$ (as
+$\gcd(a,b)=1$), and $2v_1 a=b(2j+1)$ for some integer $j$, so $b\mid
+2v_1$. If $b$ were odd, $b\mid v_1$, hence $b\mid v_p$ for all $p$, hence
+$b\mid\gcd(V)=1$ and $b=1$---but then $t^\ast=0$, excluded. So $b=2c$ is
+even; then $c\mid v_1$ and $v_p\equiv v_1\pmod{2c}$ forces
+$v_p\equiv 0\pmod c$ for all $p$, so $c\mid\gcd(V)=1$, $c=1$, $b=2$:
+$t^\ast=\tfrac12$. Then $v_1/2\equiv\tfrac12\pmod 1$ forces $v_1$ odd,
+and $v_p\equiv v_1\pmod 2$ makes every speed odd. Conversely, if all
+speeds are odd then $t=\tfrac12$ has $f_p=\tfrac12$ for every $p$,
+which proves attainment.
+\end{proof}
+
+\begin{remark}[which speed convention is proved where]
+The equality theorem and both lemmas above are proved for possibly
+non-distinct speeds; nothing in this section uses distinctness. The
+conjecture itself is stated for distinct speeds (WLOG after collapsing
+equal speeds, which can only decrease $M$), and the covering framework
+downstream assumes distinct speeds where it says so. The half case
+above is the one place where non-distinctness changes the picture
+(all speeds equal $1$), and it is handled inside
+Lemma~\ref{lem:halfcase}.
+\end{remark}
+
+\begin{remark}[which speed convention is proved where]
+The equality theorem and both lemmas above are proved for possibly
+non-distinct speeds; nothing in this section uses distinctness. The
+conjecture itself is stated for distinct speeds (WLOG after collapsing
+equal speeds, which can only decrease $M$), and the covering framework
+downstream assumes distinct speeds where it says so. The half case
+above is the one place where non-distinctness changes the picture
+(all speeds equal $1$), and it is handled inside
+Lemma~\ref{lem:halfcase}.
+\end{remark}
+
+\begin{remark}[what forced two-sidedness means]\label{rem:twosided}
+The perturbation argument is the rigorous form of an empirical
+regularity: in exhaustive scans at $n=4,5,6$, every exact argmax
+breakpoint has binders on both sides ($480/480$ random sets
+\cite{prog-artifacts}). It also shows why the folklore's
+\emph{difference} denominators $|v_u-v_w|$ never have to carry the
+optimum: same-sided binder pairs are exactly the configurations that
+produce difference relations, and Lemma~\ref{lem:attainment}(a) rules out
+their being the only binders. The sharpening is confirmed structurally in
+\S\ref{sec:equality-verify}: in $885$ test sets and, under a from-scratch
+reimplementation, in $2{,}870$ further sets spanning $n=2$ to $6$ and
+speeds to $200$, no unrestricted argmax lies off the pair-sum skeleton.
+\end{remark}
+
+\subsection{Proof of the theorem}
+
+\begin{proof}[Proof of Theorem~\ref{thm:equality}]
+\emph{($\ge$, the constructive bound).} Fix any pair $\{u,w\}$ and any
+$1\le k\le N-1$. Lemma~\ref{lem:mirror}(ii) gives
+$\min_{p\ne w}\lVert v_p k/N\rVert=g(k/N)\le M(V)$; take the max over
+$k$ to get $\tau(u,w)\le M(V)$, hence
+$\max_{\{u,w\}}\tau\le M(V)$.
+
+\emph{($\le$, attainment).} By Lemma~\ref{lem:attainment} there is a pair
+$\{u,w\}$ with $g(k^\ast/N)=M(V)$. Lemma~\ref{lem:mirror}(ii) again:
+\[
+\min_{p\ne w}\Bigl\lVert \frac{v_p k^\ast}{N}\Bigr\rVert
+=g(k^\ast/N)=M(V),
+\]
+so $\tau(u,w)\ge M(V)$. In case (b)---all speeds odd---this works for
+every pair at $k^\ast=N/2$: all runners sit at $\tfrac12$, the mirror is
+trivially exact, and the reduced minimum equals $M(V)$.
+
+Combining both directions, $\max_{\{u,w\}}\tau(u,w)=M(V)$, with equality
+attained at the pair produced by Lemma~\ref{lem:attainment}. The
+two-sided conclusion in the $M<\tfrac12$ case is part (a) of the lemma:
+the rising binder $u$ has residue $m^\ast$ and the falling binder $w$ has
+residue $-m^\ast$.
+\end{proof}
+
+\subsection{Verification and novelty status}\label{sec:equality-verify}
+
+The theorem was verified by two deliberately non-circular computations,
+recorded in the artifact bundle \cite{prog-artifacts}. The first, the
+script \texttt{V1\_equality\_fresh\_check.py}, computes $M$
+\emph{independently} from the folklore breakpoint set
+\[
+D=\{2v_p\}\cup\{v_p+v_q\}\cup\{|v_p-v_q|\},
+\]
+which is exhaustive for the vertices of the piecewise-linear lower
+envelope and carries no pair-sum assumption, and compares it against the
+pair-lattice maxima: on $885$ speed sets ($479$ at $n\le 4$ with
+$v\le 12$; $393$ random at $n=5$ with $v\le 20$; $13$ targeted edge
+cases including all-odd, tight, and the exceptional set
+$(2,6,8,10,11)$), equality holds exactly ($885/885$), every unrestricted
+argmax lies on a pair-sum lattice ($885/885$, and \emph{zero} sets have
+a difference-only argmax), and the all-odd pole case is exact. The
+second, \texttt{EQ\_independent\_verify.py}, is a from-scratch
+reimplementation written against the theorem statement alone---a
+different code path, exact integer arithmetic, time domain: it maximizes
+$g$ over the full candidate set of individual breakpoints $j/(2v_p)$
+together with \emph{all} pairwise crossings $c/(v_p\pm v_q)$, differences
+included, and compares against the pair-sum lattices. On $2{,}870$ sets
+($300$ to $1{,}200$ random primitive sets at each $n=2,\dots,6$, of which
+$1{,}200$ lie in the paper's measurement domain $v\le 56$, plus a
+beyond-corpus probe at $v\le 200$), equality holds exactly
+($2{,}870/2{,}870$), the LRC bound holds on every set, and the anchors
+are exact: the regular sets $(1,\dots,n)$ at $1/(n{+}1)$, the tight sets
+$(1,2,3,5)$, $(1,3,4,7)$, $(1,3,4,5,9)$, and the base rung's open set
+$(3,5,8,13)$, whose exact loneliness is $M=5/21$. The fresh scan adds
+one honest nuance: on $962$ of the $2{,}870$ sets a \emph{difference}
+time also attains the optimum (e.g.\ $t=\tfrac12$ for $V=(1,59)$).
+Difference denominators sometimes carry an argmax, but never a needed
+one; the sharpening, as Lemma~\ref{lem:attainment} states it, is that
+sum lattices alone always suffice, and that is exactly what the
+equality check verifies. Cross-checks with a third method (direct grid
+maximization) and at $n=5,6$ on targeted tight sets bring the total to
+over $3{,}700$ sets checked by at least two independent routes.
+
+On novelty: two literature rounds ($56$ queries, the arXiv ring
+enumerated for 2024--2026) found the ``sum or difference'' denominator
+observation in a comment on Tao's 2015 post \cite{Tao-blog} and nothing
+else at the level claimed here---but the spectrum line computes exact
+optima on infinite families \cite{Cordella}, so pieces may exist in
+another language. The honest position, maintained throughout: the
+technique is folklore; the sum-only sharpening, the exact equality, the
+$(\mathrm{TAU}$-$_n)$ statement, and everything downstream of them are
+not located in the searched literature (two rounds, $56$ queries, the
+arXiv ring enumerated for 2024--2026); the correct prior, given how
+actively the spectrum line computes exact optima \cite{Cordella}, is
+that pieces may exist in another language.

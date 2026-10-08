@@ -1,0 +1,224 @@
+% ======================================================================
+% Section 5 — The witness archive
+% ======================================================================
+
+\section{The witness archive}\label{sec:witness}
+
+The archive has three shelves: exact refutations of the covering-radius
+form (each a single rational point, checkable by one evaluation of
+\eqref{eq:runnerform}), the deepest-hole certification ladder for the
+family $(1,\dots,n{-}1,m)$, and the branch-and-bound certificate method
+introduced in this session, together with its negative-control
+validation. Every entry is re-asserted in the provenance run of
+Appendix~\ref{sec:prov}.
+
+\subsection{Exact refutations of the covering-radius form}
+
+Table~\ref{tab:refute} lists the witnesses. Each witness $c$ is a
+rational point of the quotient torus in $c$-coordinates; the claimed
+value is $D(c)$ from \eqref{eq:runnerform}, computed exactly and
+independently by the linear-form/lattice-search implementation of the
+program's records. The harmonic instances are extremal for the
+$\delta$-form ($\delta=\mathrm{thr}_n$ exactly), so these witnesses kill
+the $\rho$-form at the very instances where the surviving equivalent form
+is tight; the $n=6$, $m=7$ witness kills it at a generic, non-extremal
+instance. The rung-2 instance at $m=12$ sits exactly at the threshold:
+its row is a \emph{boundary} row (zero slack, not a strict refutation),
+recorded because it already separates the deepest hole from the center
+($\delta=9/26<5/14$). Three boundary rows at $n=5$ ($m=6,7,8$, witness
+value exactly $1/3=\mathrm{thr}_5$ against $\delta=3/10$) and one at
+$n=6$ ($m=9$) are recorded in the same spirit in the program data. The
+witnesses are non-torsion in every case: the deepest holes are not the
+center classes.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Exact witnesses against the covering-radius form
+$\rho(V)\le\mathrm{thr}_n$. All values are exact rational lower bounds
+for $\rho$; enclosures from the grid searches are recorded in the
+program's data. Witness points are in $c$-coordinates
+(\S\ref{sec:prelim}). ``$>\mathrm{thr}$?'' marks whether the witness
+\emph{strictly} exceeds the threshold: only strict rows falsify the
+$\rho$-form; boundary rows (equality) are recorded separately because
+they already separate the deepest hole from the center class. The
+$\delta$ entries for non-harmonic instances are computed values, not
+harmonic identities.}
+\label{tab:refute}
+\begin{tabularx}{\textwidth}{@{} l l l >{\raggedright\arraybackslash}X l c @{}}
+\toprule
+$V$ & $\delta=\tfrac12-\lambda$ & $\mathrm{thr}_n$ & witness $c$ &
+$D(c)$ & $>\mathrm{thr}$? \\
+\midrule
+$(1,2,3,4,5)$ & $1/3$ & $1/3$ &
+$(\tfrac{11}{256},\tfrac{163}{256},\tfrac{15}{256},\tfrac{79}{256})$ &
+$607/1792{\approx}.3387$ & yes \\
+$(1,2,3,4,5)$ & $1/3$ & $1/3$ &
+$(\tfrac{465}{4096},\tfrac{605}{1024},\tfrac{1019}{4096},
+\tfrac{315}{4096})$ &
+$4183/12288{\approx}.3404$ & yes \\
+$(1,2,3,4,5)$ & $1/3$ & $1/3$ &
+$(\tfrac1{32},\tfrac{15}{32},\tfrac3{32},\tfrac78)$ &
+$97/288{\approx}.3368$ & yes \\
+$(1,2,3,4,5,6)$ & $5/14$ & $5/14$ &
+$(0,\tfrac5{16},\tfrac{15}{16},\tfrac34,\tfrac12)$ & $29/80=.3625$ &
+yes \\
+$(1,2,3,4,5,7)$ & $1/3$ & $5/14$ &
+$(\tfrac1{16},\tfrac9{16},0,\tfrac38,0)$ & $4/11{\approx}.3636$ & yes
+\\
+$(1,2,3,4,5,12)$ & $9/26$ & $5/14$ &
+$(\tfrac1{16},\tfrac{11}{16},\tfrac18,\tfrac7{16},\tfrac78)$ &
+$5/14=\mathrm{thr}_6$ & no (boundary) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Three further exact refutation families fill out the record---but it
+matters what each refutes. The $n=5$ family $(1,2,3,4,m)$ refutes the
+\emph{modular deepest-hole law}, not the $\rho$-form: the law's
+equality clause (deepest hole at the center when $5\mid m$) fails
+exactly at the multiples $m=5$ ($97/288>1/3$) and $m=15$
+($6/19>5/16=\delta$), while the deepest-hole-at-center property fails
+at all twenty non-multiples (exact witnesses, the largest margins
+$1/3>3/10$ at $m=6,7,8$). The $n=6$ family extinguishes the modular law
+at every tested $m\in\{6,\dots,11,18,24\}$ (all multiples of $6$
+through $4n$ included; the narrowest modular margin is $7/5200$ at
+$m=24$, witness value $71/208$ against $\delta=17/50$); against the
+$\rho$-form itself these witnesses fall short of the threshold
+($6/19<1/3$; $71/208<5/14$) and are recorded as deepest-hole evidence,
+not covering-radius refutations. At $n=6$, $m=9$ the witness sits at
+$\rho\ge\mathrm{thr}_6$ exactly---a boundary row, like the $n=5$
+$m=6,7,8$ rows. A useful way to read the table: the $\rho$-form was
+falsified three times over before this session (the three strict rows:
+$97/288$, $29/80$, $4/11$), and the session's contribution below is on
+the \emph{positive} side of the ladder---certifying where the deepest
+hole genuinely is the center.
+
+\subsection{The deepest-hole certification ladder}
+
+Table~\ref{tab:ladder} records the corrected modular law with its
+certification levels. The law as originally stated (``deepest hole at
+the center iff $n\mid m$'') is a small-$n$ phenomenon, genuine and exact
+at $n=3$, certified at $n=4$, broken at $n=5$ by the harmonic instance
+itself, and extinct at $n=6$; the record below is the version that
+survived the audit, and the two rows improved by this session's
+branch-and-bound method are marked.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{The deepest-hole ladder for $(1,\dots,n{-}1,m)$: when is the
+maximum of $D$ attained at the center class ($\rho=\delta$)?
+``Exact'' = complete exact proof; ``certified'' = complete proof with an
+independent outer loop; ``consistent'' = search-level only.}
+\label{tab:ladder}
+\begin{tabularx}{\textwidth}{@{} c c >{\raggedright\arraybackslash}X @{}}
+\toprule
+$n$ & tested $m$ & status of ``deepest hole at center iff $n\mid m$''
+\\
+\midrule
+$3$ & $3..24$ & exact: holds iff $3\mid m$; exact witnesses against all
+others \\
+$4$ & $4..16$ & certified: holds iff $4\mid m$ ($m=4,8,12$
+away-certified; $m=16$ certified by branch and bound, \emph{this
+session}); exact witnesses against all non-multiples \\
+$5$ & $5..30$ & law false: $m=5$ (harmonic) and $m=15$ fail exactly;
+$m=20,25,30$ certified by branch and bound (\emph{this session});
+$m=10$ open after one serious attempt (\S\ref{sec:bb}); all $20$
+non-multiples fail exactly \\
+$6$ & $6..12,18,24$ & extinct: every tested $m$ fails exactly, including
+every multiple of $6$ through $4n$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The open residue is the $n=5$ multiples that survived the audit:
+$m=10,20,25,30$ carry the hold signature (the torsion center attains
+$\delta$; the $K=32$ grid maximum equals $\delta$ exactly; a flat ridge
+passes through the center; a $288$-start Nelder--Mead search with exact
+re-evaluation finds nothing above $\delta$), but at $d=4$ a global exact
+certificate was beyond the program's earlier arrangement machinery.
+(Only $m=10$ is a rung-2 instance; $m=20,25,30$ are the higher
+multiples of $5$.) This session's branch-and-bound method
+(\S\ref{sec:bb}) upgrades three of the four. At $m=25$ and $m=30$ the
+trees empty in under five minutes each ($10{,}414$ and $10{,}646$
+certified leaves; $\rho=4/13$ and $\rho=19/62$ exactly), and at $m=20$
+the tree empties in sixteen minutes ($37{,}018$ leaves;
+$\rho=13/42$). At $m=10$ the single
+serious attempt ($25$ minutes, $143{,}228$ box evaluations, $61{,}038$
+exact leaf certificates) did not terminate: the unresolved set has
+total volume below $6\times10^{-7}$, the exact depths at its sampled
+centers are at most $1135/3584<7/22$, and the largest exact $U$-bounds
+among the sampled survivors are all exactly
+$571/1792=7/22+9/19712$---a fixed quantization offset, consistent with
+pure minimax loss rather than genuine excess. We stress what this does
+and does not establish: the surviving boxes are exactly the ones the
+method could not resolve, and a residual volume below $6\times10^{-7}$
+does not exclude a deeper point hiding inside it; the reading is a
+diagnostic, not a determination. The status of $m=10$ is therefore:
+\emph{consistent, with the two-sided evidence substantially
+strengthened, and exact equality open at $d=4$}.
+We record it as the archive's one deliberately unfinished row; the odd
+residue ($k\in\{1,3\}$ failing, $k=2$ open, $k\in\{4,5,6\}$
+certified) is noted as an open pattern rather than forced into a law.
+
+\subsection{The branch-and-bound certificate and its negative control}
+\label{sec:bb}
+
+This session introduced a second, independent certification method,
+built on the runner formulation \eqref{eq:runnerform} rather than on
+the arrangement enumeration of the program's records. For a dyadic
+$c$-box $C$ define
+\[
+U(C)\;=\;\min_{\sigma\in[0,1)}\;
+\max\Bigl(\wnc{\sigma},\;\max_{2\le j\le n}\;
+\sup_{c\in C}\wnc{c_j-v_j\sigma}\Bigr),
+\]
+the box-supremum analogue of \eqref{eq:runnerform} itself (the
+$\wnc\sigma$ term is the depth of the first runner, whose coordinate is
+fixed at $0$; the inner maximum runs over $j=2,\dots,n$). It is
+computed exactly: each inner supremum is piecewise linear in $\sigma$
+with a rational kink set, so the minimum of their maximum is attained at
+a rational kink or crossing. By the minimax inequality,
+$\max_C D\le U(C)$, so a box with exact $U(C)\le r$ is \emph{certified}
+to contain no point of depth above $r$; boxes that fail are split
+dyadically. If the tree empties, $\rho\le r$ is exactly certified by a
+finite, auditable leaf list. Two soundness refinements matter in
+practice: the $\sigma$-search is restricted to
+$[0,r]\cup[1-r,1)$, which is lossless because any certifying $\sigma$
+has $\wnc\sigma\le r$; and equality $U(C)=r$ prunes, which the tight
+boxes need.
+
+The method carries its own negative control, and the control behaves
+exactly as it must. Run on the harmonic instance $v=(1,2,3,4,5)$ at
+$r=\delta=\tfrac13$---where the truth is $\rho\ge97/288>\tfrac13$---the
+branch and bound \emph{refuses to certify}: its survivor set persists
+around the true deep holes, and the exact depths at the survivors'
+centers reach $607/1792\approx0.3388>\tfrac13$, at
+$c=(\tfrac{11}{256},\tfrac{163}{256},\tfrac{15}{256},\tfrac{79}{256})$
+---a marginally deeper witness than the recorded $97/288$, found
+incidentally by the box centers and re-asserted exactly in the follow-up
+run, which improves the harmonic lower bound to $\rho\ge607/1792$. The machinery thus demonstrates both halves of its own
+soundness profile on one instance: it certifies only what is true, and
+it localizes the false. The same control distinguishes the two
+$n=5$ worlds sharply: for the harmonic instance the surviving excess
+stays above the threshold by a fixed margin, while for the consistent
+$n=5$ multiples ($m=10$ and the now-certified $m=20,25,30$) the
+surviving excess is pure minimax loss and decays with the box size.
+
+\subsection{Summary of the archive}
+
+The archive's content, stated as a single paragraph: the
+covering-radius strengthening of the Lonely Runner statement is false
+from $n=5$, with three exact strict witnesses at extremal and
+non-extremal instances (plus the audit's improved harmonic record
+$\rho\ge4183/12288$, superseding $607/1792$), boundary rows at
+$n=5$ ($m=6,7,8$) and $n=6$ ($m=9,12$) at exactly the threshold, and a
+modular-law extinction record at $n=6$; the equivalent
+center-depth form survives untouched (it is $\lrc$); the deepest-hole
+modular law is exact at $n=3$, certified at $n=4$ (both sides, all
+tested $m$, including $m=16$ by the new method), false with one open
+residue at $n=5$ (the $k=1,3$ multiples fail exactly; $k=4,5,6$ are now
+certified; $k=2$ is open after a serious attempt), and extinct at $n=6$; and every number in the paragraph is
+re-asserted by a persisted, independent, exact computation. The archive
+is finite, small, and open to inspection; that is the point.
