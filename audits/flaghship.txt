@@ -1,0 +1,376 @@
+opus:
+The arithmetic holds up. The logic around it is where the paper breaks. Everything below is ordered by how much it hurts.
+
+
+
+What checks out (recomputed exactly): All five witness depths (97/288 at σ=31/288, 29/80, 4/11, 607/1792), all the λ and δ values, both loneliness formulas through n=10, every row of Table 4 including S and nS, h*(1)=d!·Σvⱼ, the 3,712,576 corpus count, and 571/1792 = 7/22 + 9/19712. The sum-only equality also held on all 347 small instances I tested.
+
+
+
+Major flaws
+
+The headline claim isn't what the paper shows. "Every natural strengthening is false" only holds for Instance 4 and the V′/V″ part of Instance 3.
+
+Instance 1 only shows that the program's own 34 results contain no margin statement. Not having proved something doesn't make it false.
+Instance 2 shows one particular automaton model can't produce a spectral gap. That doesn't make a gap statement false.
+Table 1's "Status" column mixes "false" with "never proved" as if they were the same thing.
+The four instances aren't independent. Instances 1 to 3 all sit on the same pair-sum cascade. §3.3 calls Instance 2 "the single instrument" of Instance 1, and §6.1's "Fourth" fact admits it's the same as the second. Realistically that's 1.5 settings, not 4.
+The mechanism is either a tautology or false.
+
+Observation 1 says an equivalent rewrite is "as hard as" the original. Equivalent rewrites can absolutely be easier; that's why people make them, and the paper's own finitization is one. "As hard as" is never defined.
+"No instrument invariant under the rewriting can distinguish it" is true by definition, so it proves nothing.
+The §1.1 sentence "strictly stronger than LRC wherever they are false at the extremal instances" is circular.
+"Provably" vs. "hypothesis." The abstract and §3.1 say the toolkit "provably" produces only closures, and call it a "theorem-level audit finding." §3.2 then admits the structural half is just a hypothesis. Pick one.
+Two different statements get treated as one. Showing the deepest hole isn't at the center (ρ > δ) is not the same as refuting the covering-radius form (ρ > thr).
+
+§5.1's "three further refutation families" don't refute the covering-radius form: 6/19 < 1/3 and 71/208 < 5/14.
+So "already falsified three times over" is wrong as written.
+§3.5's "for n ≤ 4 the two statements coincide" makes the same mix-up.
+Table 2's last row isn't a counterexample. At (1,2,3,4,5,12), D = 5/14 = thr exactly, and a counterexample needs D strictly above thr. The same goes for "ρ ≥ thr₆ exactly" at m=9. That row also gives no coordinates, even though the paper says every witness is "checkable by hand."
+m=15 contradiction. §5.1 says the family "fails for every non-multiple of 5… sharpest at m = 15." But 15 is a multiple of 5.
+The Θ(1/n) strictness decay contradicts the paper's own data.
+
+Log-concavity means S ≥ 1, and real-rootedness forces S above Newton's bound (I get about 1.5 at n=10).
+So n·S ≈ 30 would push S below 1 by around n ≈ 31, i.e. S can't actually decay like 1/n.
+The minimum sits at middle k, where Newton's bound itself falls like 1 + 4/d. So most of the "decay" is what any real-rooted family does, not something specific to this problem. The quantity to track is S − 1.
+The claim "nS ≈ 37 at n=3,4" ignores rung-2 at n=3, which is 60.5.
+The Spearman values can't support "no correlation." ρ = +0.32 on 12 points and −0.31 on 8 points give p ≈ 0.31 and 0.46. Those samples can't show there's no correlation (or that there is one), and the "sign flip" is just noise.
+The harmonic hole bound is already beaten. I found D = 4183/12288 ≈ 0.34041 at c = (465/4096, 605/1024, 1019/4096, 315/4096), checked exactly. That's above the "improved" 607/1792 ≈ 0.33873, and it came from just 40 random local searches. It's not a contradiction, since the paper only claims a lower bound. But it makes the search evidence behind m=10's "consistent" label look thin.
+m=10 is overclaimed. "A quantized minimax loss, not an excess" (§5.2) and "characterized as pure minimax loss" (§6.1) aren't proved. Boxes where U > r are, by definition, the ones the method couldn't resolve. A residual volume below 6×10⁻⁷ doesn't rule out a deeper hole hiding in it.
+The paper breaks its own certification ladder.
+Real-rootedness is checked numerically at 45 digits but presented as "exact-integer verification." Sturm sequences would make it actually exact.
+The whole positive core (Thm 4.1 to 4.3, Lemma M, C10, V′) rests on an unpublished companion monograph, so none of it can be checked here.
+Instance 3's numbers undercut it.
+The bound needs a gain of about 250×, but the first measured gain is only 95×.
+The exponent m in c₁ is never defined. Working backwards, 256 = 4⁴, 243 = 3⁵ and 244 ≈ 2.5⁶ mean m−1 is 4, 5 and 6 at the three values of T.
+The U(C) definition in §5.3 drops the ‖σ‖ term. It's only correct because σ is restricted to ‖σ‖ ≤ r, and the paper should say so explicitly.
+
+
+Minor and editorial
+
+B.2 and B.4 say "three scripts" but list four.
+§2.3 says Formula (2) was verified "two ways," but A.1 says three.
+"Normalized volume Σvⱼ" is wrong: Σvⱼ is the relative volume, and normalized volume is d!·Σvⱼ.
+The "gcd of empty set = 0" convention never comes up, since k ≤ d.
+"Known for at most seven runners" sits right next to "8 to 15 runners are computer-assisted," which reads as a contradiction. The paper also never says that n speeds means n+1 runners. And n ≥ 2 in §1.1 becomes n ≥ 3 in §2.1.
+Calling m=20, 25, 30 "rung-2 instances" is wrong; only m=10 is rung-2 at n=5.
+The abstract and Tables 1 and 2 still lead with 97/288 even though §5.3 supersedes it.
+Table 4 writes h*(t) but the text defines h*(z).
+In Table 5, the control row's time is in the wrong column, and its leaf count shows "—".
+References:
+
+Cusick is never cited, and [14] and [15] are never cited in the text.
+"Bränden" should be Brändén.
+The Lam–Leung Φ_pq paper is, as far as I know, Amer. Math. Monthly 103 (1996). The "fiber-count" use sounds more like their vanishing-sums paper.
+de Bruijn–"T. J." Schoenberg looks like it should be I. J., and the Mirsky–Newman citation (a result I believe was never published by them) is worth double-checking.
+
+
+My take: the witness archive is solid and useful, but the framing is far bigger than what the paper proves. Cut it down to "the covering-radius form is false from n=5, plus the archive," and drop "every" and "four independent."
+grok:
+**The paper is a rigorously documented negative-results companion: lossless reformulations of LRC remain as hard as the original, while every toolkit-opening strengthening examined is false (with small exact witnesses).** The four independent instances, the bounded positive core (sum-only equality + rigid-prime classifications + conditional scaling), the certification ladder, and the 225-item provenance ledger are all internally consistent with the stated claims. No new cases of LRC are claimed, and the surviving equivalent forms (\(\delta\)-form, pair-sum form) are correctly identified as carrying the original difficulty.
+
+The “every natural strengthening” headline is an observational summary of a multi-year program, not a meta-theorem; the mechanism (losslessness preserves hardness; strengthenings that would emit a uniform margin/spectral gap/saturated envelope are strictly stronger and fail at the extremal instances) is exhibited four times with checkable witnesses. That is valuable and honestly scoped (see 1.3 and 6.4).
+
+**Line-level gaps, inconsistencies, and small errors**
+
+- **Table 2 vs. “exact refutations” language.** The covering-radius form asserts \(\rho\le\mathrm{thr}_n\). Three of the four listed points give \(D(c)>\mathrm{thr}_n\) and therefore strictly falsify it. The rung-2 point \(v=(1,2,3,4,5,12)\) gives \(D=5/14=\mathrm{thr}_6\) (while the centre has \(\delta=9/26<\mathrm{thr}\)). This is a witness that the deepest hole is not the centre class, but it does not falsify \(\rho\le\mathrm{thr}\). The surrounding prose (“exact refutations”, “the \(\rho\)-form \ldots is false from \(n=5\)”) should distinguish the strict inequalities from the equality case. The later sentence “the rung-2 instance at \(m=12\) sits exactly at the threshold” is accurate; the table caption and the 5.1 opening sentence are slightly overstated.
+
+- **Improved harmonic witness.** The branch-and-bound negative control recovers \(607/1792\approx0.3387>97/288\) at a different rational point. This is correctly reported as an improved lower bound and as a soundness check (the method refuses to certify the false statement \(\rho\le1/3\)). It should be added to Table 2 (or a follow-up table) rather than appearing only in 5.3/B.2.
+
+- **\(\delta\) values in Table 2.** For the non-harmonic \(v=(1,2,3,4,5,7)\) the table lists \(\delta=1/3\). This is possible but should be flagged as “computed \(\delta\)” rather than left looking like a harmonic identity. (The harmonic cases are correctly \(\delta=\mathrm{thr}_n\).)
+
+- **Conditional Theorem 4.3.** The statement is honest (“assume H1g and the dilate-sparsity pair \ldots”) and the ledger is disclosed. A one-sentence reminder that the two growth-in-\(k\) hypotheses are precisely the type that §3 shows never appear in the proved inventory would make the type-mismatch thesis tighter.
+
+- **Minor numerical/typographic.** “97/288 > 1/3 \ldots from \(n=5\) on” is correct for the harmonic family but the covering-radius failure is instance-by-instance; the phrasing is slightly elliptical. Spearman coefficients are given to two decimals with sign-flip; the underlying arrays are in the provenance run, so the claim is checkable. Page numbers in the contents match the supplied pages. All displayed fractions and the \(h^*\) table (Appendix A) are consistent with the identities \(\lambda(1,\dots,n)=1/(n+1)\) and \(\lambda(1,\dots,n-1,2n)=2/(2n+1)\).
+
+- **Self-containedness.** Key equivalences and the sum-only theorem are deferred to the companion monograph [10]. For a negative-results paper this is acceptable, but a reader who has only this document cannot verify the losslessness claims or the 34-statement audit without the other volume.
+
+No arithmetic contradictions, no provenance failures, and no over-claim that LRC itself is false appear.
+
+**Proposed improvements (priority order)**
+
+1. **Tighten the \(\rho\)-form language (highest).** Add a column to Table 2: “strictly \(>\mathrm{thr}_n\)?” (yes/no). Move the improved \(607/1792\) witness into the table. One sentence in 3.5/5.1: “The \(\rho\)-form is therefore false for every tested instance with a hole deeper than the centre; equality at the rung-2 threshold is recorded separately because it already shows the two statements diverge.”
+
+2. **Make the type-mismatch claim slightly more precise.** Replace the title/abstract “every natural strengthening” with “every toolkit-opening strengthening examined in four independent reformulations”. Keep the three-face mechanism (losslessness = as-hard-ness; strengthenings false at extremals; instruments land on closures). This costs nothing in impact and removes a possible referee objection.
+
+3. **One-page self-contained core.** Add a short appendix (or a boxed statement) that records: (a) the elementary identity \(\delta=1/2-\lambda\), (b) the runner formulation (1) with the Lipschitz certificate that \(\|c\|_V\le\|c\|_\infty\), (c) the exact evaluation of \(D\) at the four headline points (the one-line hand calculation already given in B.1 for \(97/288\)). This lets a skeptical reader check the sharpest negative claims without the companion.
+
+4. **Visual and organisational.** A single schematic (four rows: reformulation \(\to\) hoped-for toolkit output type \(\to\) actual output type \(\to\) witness) would make Table 1 even clearer. The \(h^*\) table is already excellent; a tiny plot of \(n\cdot S\) versus \(n\) (both families) would make the \(\Theta(1/n)\) decay immediate.
+
+5. **Provenance already gold-standard; two small additions.** Record the exact rational \(U\)-values of the surviving boxes for the open \(m=10\) run (already in the JSON). Add a one-line “reproduction command” for the four new scripts. The 0-failure 225-item ledger and the negative-control behaviour of the branch-and-bound are the strongest parts of the paper; they should be cited in the abstract.
+
+6. **Tone and scope (already good).** The repeated “this paper proves no new cases \ldots the surviving equivalent forms are as hard as they ever were” is exactly right. Keep it. The residual arithmetic-matroid question (real-rootedness of these \(h^*\)-polynomials) is correctly decoupled; a pointer to the Lorentzian/Tutte literature is already present.
+
+The computational standard (exact rationals, independent implementations of \(D\), certification ladder, persisted scripts, negative controls) is higher than most experimental-mathematics papers. With the \(\rho\)-form wording tightened and the two extra witnesses tabulated, the negative result will be both sharper and harder to misread. The paper already does what it claims: it maps four walls that any future lossless-reformulation attack will hit, and it leaves the original conjecture untouched.
+gemini:
+## Executive Summary & Appraisal
+
+This paper presents a negative structural result concerning the **Lonely Runner Conjecture ($\mathrm{LRC}_n$)**: lossless reformulations (finite cyclic coverings, transfer-matrix cascades, character systems, and quotient-torus zonotopes) cannot be resolved by standard analytical, spectral, or polyhedral toolkits because **every natural strengthening required by those toolkits is strictly false**. The paper establishes this through exact rational counterexamples starting at $n = 5$ (e.g., covering radius $\rho \ge 97/288 > 1/3 = \mathrm{thr}_5$ for $v = (1,2,3,4,5)$).
+
+The conceptual thesis—dubbed the **"type mismatch"**—is compelling, philosophically coherent, and backed by auditable computational provenance. However, the draft suffers from **mathematical notation collisions, missing terms in displayed definitions, orphan bibliography entries, and formatting artifacts**. 
+
+Below is a line-level audit identifying every gap, followed by concrete, drop-in LaTeX improvements.
+
+---
+
+## I. Structural & Mathematical Gaps (Critical Priority)
+
+### 1. Severe Notation Collision: $V$ (Speed Vector) vs. $V$ (Quotient Space)
+* **Location:** Page 4 (§2.1), Page 5 (§2.2, Item 3), Page 10 (§3.5).
+* **The Gap:** In §2.1, the speed vector is defined as $V = (v_1, \dots, v_n) \in \mathbb{Z}_{>0}^n$. But in §2.2 (Item 3), the text states:
+  $$\text{“Let } V = \mathbb{R}^n / \mathbb{R}v, \text{ let } \pi : \mathbb{R}^n \to V \text{ be the projection}\dots \text{and let } \|\cdot\|_V \text{ be the quotient norm}\dots\text{”}$$
+  Then, in the very next sentence:
+  $$\text{“The }\delta\text{-form reads: the center class has quotient-norm depth at most }\mathrm{thr}_n\text{ in every } V.”$$
+  Here, $V$ simultaneously denotes:
+  1. An integer tuple $(v_1, \dots, v_n)$;
+  2. The $(n-1)$-dimensional quotient vector space $\mathbb{R}^n / \mathbb{R}v$;
+  3. The index/subscript for the quotient norm $\|\cdot\|_V$.
+* **Impact:** In §3.5 and §5, $v$ and $V$ are swapped unpredictably (e.g., $\rho(v)$ vs. $\rho(V)$).
+* **Remedy:** Reserve $v = (v_1, \dots, v_n)$ exclusively for the speed vector (or $V$ throughout), and define the quotient space using calligraphic or distinct notation: $\mathcal{X}_v := \mathbb{R}^n / \mathbb{R}v$, with quotient torus $\mathbb{T}_v^{n-1} := \mathcal{X}_v / \pi(\mathbb{Z}^n)$, and norm $\|\cdot\|_{\mathcal{X}_v}$.
+
+---
+
+### 2. Missing $\|\sigma\|$ Term in Branch-and-Bound Upper Bound $U(C)$
+* **Location:** Page 13, §5.3, displayed equation for $U(C)$.
+* **The Gap:** The paper defines $U(C)$ on a dyadic $c$-box $C$ as:
+  $$U(C) = \min_{\sigma \in [0, 1)} \max_j \sup_{c \in C} \|c_j - v_j \sigma\|$$
+  Notice that **$\|\sigma\|$ is missing from the outer maximum**, unlike Eq. (1) on Page 5:
+  $$D(c) = \min_{\sigma \in [0, 1)} \max\left(\|\sigma\|, \max_{j \ge 2} \|c_j - v_j \sigma\|\right)$$
+  If $j$ only runs over $2 \le j \le n$, $U(C)$ drops the coordinate of the first runner ($v_1 = 1, c_1 = 0$), making $U(C)$ strictly smaller than $D(c)$ whenever $\|\sigma\|$ dominates, which violates the minimax bound $\max_C D \le U(C)$.
+* **Textual Evidence of Inconsistency:** Two sentences later, the text states:
+  $$\text{“The }\sigma\text{-search is restricted to }[0, r] \cup [1-r, 1)\text{, which is lossless because any certifying }\sigma\text{ has }\|\sigma\| \le r\dots\text{”}$$
+  This proves the algorithm internally enforces $\|\sigma\| \le r$, but the displayed equation forgot to write $\|\sigma\|$.
+* **Remedy:** Either explicitly write $\max\left(\|\sigma\|, \max_{j=2}^n \sup_{c \in C} \|c_j - v_j \sigma\|\right)$ or specify that $j$ ranges over $\{1, \dots, n\}$ with $c_1 \equiv 0$ and $v_1 = 1$.
+
+---
+
+### 3. Variable Collision in Pair-Sum Bad Sets ($w$ as Pair Member vs. Index)
+* **Location:** Page 7 (§3.2, line 4) and Page 11 (§4.2, line 2).
+* **The Gap:** The text writes:
+  $$\text{“For each unordered pair } \{u, w\}\dots \text{some pair's bad sets } B_w = \{k \in \mathbb{Z}_N : (n+1)\|wk\|_N < N\} \text{ fail to cover } \mathbb{Z}_N\text{”}$$
+  Here, $w$ is defined as one of the two runners forming the pair $\{u, w\}$ (where $N = v_u + v_w$). But $B_w$ indexes the bad set by runner $w$. The bad sets on $\mathbb{Z}_N$ are generated by the *other* runners $p \in [n] \setminus \{u, w\}$.
+* **Remedy:** Change the index to $p$ or $j$:
+  $$B_p = \{k \in \mathbb{Z}_N : (n+1)\|v_p k\|_N < N\}, \quad p \in [n] \setminus \{u, w\}.$$
+
+---
+
+### 4. Under-specified $(n-1)$-Runner Instance $\tau(u, w)$ in Theorem 4.1
+* **Location:** Page 10, §4.1.
+* **The Gap:** Theorem 4.1 defines $\tau(u, w)$ as "the optimal loneliness of the $(n-1)$-runner instance obtained by restricting to the pair-sum lattice of denominator $N = v_u + v_w$."
+* **Impact:** For readers outside the program's companion monograph, this definition is not self-contained. The exact discrete optimization problem needs to be explicitly written out:
+  $$\tau(u, w) := \max_{k \in \mathbb{Z}_N} \min_{p \in [n] \setminus \{w\}} \left\| \frac{v_p k}{v_u + v_w} \right\|.$$
+  The text should explicitly state that because $v_u + v_w = N$, $\|v_u k / N\| = \|-v_w k / N\| = \|v_w k / N\|$, meaning runners $u$ and $w$ achieve identical distances at all lattice points $t = k/N$, collapsing the $n$ distances to $n-1$.
+
+---
+
+### 5. Discrepancy in Headline Witness: $97/288$ vs. $607/1792$
+* **Location:** Abstract (Page 3), §1.2 (Page 4), Table 2 (Page 12), §5.3 (Page 13), §5.4 (Page 13).
+* **The Gap:** 
+  * The Abstract and Table 1/2 highlight $\rho \ge 97/288 \approx 0.336806 > 1/3$ as the headline witness for $v = (1, 2, 3, 4, 5)$.
+  * In §5.3 and §5.4, the branch-and-bound run discovers a strictly deeper rational point:
+    $$c = \left(\frac{11}{256}, \frac{163}{256}, \frac{15}{256}, \frac{79}{256}\right) \implies D(c) = \frac{607}{1792} \approx 0.338728 > \frac{97}{288}.$$
+* **Remedy:** Table 2 should include both witnesses: list $97/288$ as the primary closed-form / easily human-verifiable witness, and add an explicit footnote or secondary row for the branch-and-bound record $607/1792$.
+
+---
+
+### 6. Orphan Bibliography Entries
+* **Location:** Page 18–19, References.
+* **The Gap:**
+  * **[14]** `G. C. Shephard, Combinatorial properties of associated zonotopes (1974)` is in the bibliography but **never cited anywhere in the text**.
+  * **[15]** `G. Frobenius, Über die Bernoullischen Zahlen... (1910)` is in the bibliography but **never cited anywhere in the text**.
+  * Conversely, **T. W. Cusick (1973/1974)** is explicitly named on Page 2 (§1.1: *"posed by Wills in 1967 and independently by Cusick"*), but only Wills [2] and the survey [1] are cited. Cusick's original paper (*View-obstruction problems*, Aequationes Math. 9 (1973), 165–170) is missing from the references.
+* **Remedy:** Add Cusick (1973) to References, cite [14] in §2.3 (Ehrhart volume of zonotopes), and cite [15] in §2.3 (Eulerian polynomials).
+
+---
+
+## II. Line-by-Line Mathematical & Arithmetic Verification
+
+To guarantee zero remaining gaps, we independently verify the paper's key arithmetic claims:
+
+### 1. Exact Verification of Headline Witness $c = (1/32, 15/32, 3/32, 7/8)$ for $v = (1, 2, 3, 4, 5)$
+* In $c$-coordinates: $c_2 = 1/32, c_3 = 15/32, c_4 = 3/32, c_5 = 7/8$.
+* Convert to common denominator $288$:
+  $$c_2 = \frac{9}{288}, \quad c_3 = \frac{135}{288}, \quad c_4 = \frac{27}{288}, \quad c_5 = \frac{252}{288}.$$
+* The claim asserts the minimum in Eq. (1) is attained at $\sigma = 31/288$:
+  * $\|\sigma\| = \frac{31}{288}$.
+  * $\|c_2 - 2\sigma\| = \left|\frac{9 - 62}{288}\right| = \frac{53}{288} \le \frac{97}{288}$.
+  * $\|c_3 - 3\sigma\| = \left|\frac{135 - 93}{288}\right| = \frac{42}{288} \le \frac{97}{288}$.
+  * $\|c_4 - 4\sigma\| = \left|\frac{27 - 124}{288}\right| = \left|-\frac{97}{288}\right| = \mathbf{\frac{97}{288}}$.
+  * $\|c_5 - 5\sigma\| = \left|\frac{252 - 155}{288}\right| = \frac{97}{288} = \mathbf{\frac{97}{288}}$.
+* At $\sigma = 31/288$, runners 4 and 5 achieve opposing slopes ($+4$ and $-5$). Any local shift in $\sigma$ strictly increases $\max(\|c_4 - 4\sigma\|, \|c_5 - 5\sigma\|)$.
+* **Result:** $D(c) = 97/288 > 96/288 = 1/3$. **The witness is mathematically airtight.**
+
+### 2. Exact Verification of Ehrhart Polynomial and $h^*$-Vector for $n = 3$
+* **Harmonic $v = (1, 2, 3)$ ($d = 2$):**
+  * $e_0 = \gcd(1,2,3) = 1$.
+  * $e_1 = \gcd(1,2) + \gcd(1,3) + \gcd(2,3) = 1 + 1 + 1 = 3$.
+  * $e_2 = v_1 + v_2 + v_3 = 1 + 2 + 3 = 6$.
+  * $\operatorname{Ehr}(t) = 1 + 3t + 6t^2$.
+  * Generating function: $\sum_{t \ge 0} (1 + 3t + 6t^2) z^t = \frac{1 + 7z + 4z^2}{(1-z)^3}$.
+  * Table 4: $h^*(t) = 1 + 7t + 4t^2$. **Exact match.**
+  * Strictness ratio: $S = h_1^2 / (h_0 h_2) = 7^2 / (1 \cdot 4) = 49/4 = 12.250$.
+  * $n \cdot S = 3 \cdot 12.25 = 36.75 \approx 36.8$. **Exact match.**
+* **Rung-2 $v = (1, 2, 6)$ ($d = 2$):**
+  * $e_0 = 1$.
+  * $e_1 = \gcd(1,2) + \gcd(1,6) + \gcd(2,6) = 1 + 1 + 2 = 4$.
+  * $e_2 = 1 + 2 + 6 = 9$.
+  * $\operatorname{Ehr}(t) = 1 + 4t + 9t^2 \implies h^*(z) = 1 + 11z + 6z^2$.
+  * Table 4: $h^*(t) = 1 + 11t + 6t^2$. **Exact match.**
+  * $S = 11^2 / (1 \cdot 6) = 121/6 \approx 20.1667$.
+  * $n \cdot S = 3 \cdot 20.1667 = 60.5$. **Exact match.**
+
+---
+
+## III. Line-Level Typographical & Formatting Anomalies
+
+| Page | Location | Current Text | Proposed Correction | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **1** | Title Block | `(97/288> 1/3 at the harmonic instance...` | `(97/288 > 1/3 at the harmonic instance...` | Missing space before `$>$`. |
+| **2** | Contents §4 | `classification at the rigid primes and at p` <br> `2/pq` | `classification at the rigid primes and at $p^2/pq$` | LaTeX math linebreak split superscript. Wrap in `\mbox{}`. |
+| **2** | Contents App A | `The h` <br> `*` <br> `-observations through n = 10` | `The $h^*$-observations through $n = 10$` | Awkward TOC wrap across three lines. |
+| **3** | Abstract, l.1 | `(LRCn)` | `($\mathrm{LRC}_n$)` | Missing math mode formatting. |
+| **3** | Abstract, l.21 | `M(V ) = max{u,w} τ (u, w)` | `M(V) = \max_{\{u,w\}} \tau(u, w)` | Spacing and math font consistency. |
+| **4** | §1.1, para 1 | `M(V ) = maxt∈T g(t)` | `M(V) = \max_{t \in \mathbb{T}} g(t)` | Missing math delimiters. |
+| **4** | §1.2, Inst. 4 | `covering radius ρ(v)... class is δ(v)` | `covering radius $\rho(V)$... class is $\delta(V)$` | Use uppercase vector notation consistently. |
+| **5** | §2.2, Item 3 | `V = Rn/Rv, let π : Rn → V` | `\mathcal{X}_v = \mathbb{R}^n / \mathbb{R}v, \text{ let } \pi : \mathbb{R}^n \to \mathcal{X}_v` | Resolves collision with speed vector $V$. |
+| **6** | §2.3, Eq. (2) | `ek = \sum_{|S|=k} gcd(v_{S^c})` | `e_k = \sum_{S \subseteq [n], |S|=k} \gcd(v_{S^c})` | Clear summation index. |
+| **8** | §3.4, para 4 | `numerically 256, 243, 244 at T = 8, 9, 10` | Clarify whether $T$ is the number of runners $n$. | Collides with circle $\mathbb{T}$ and time $t$. |
+| **11** | §4.3, Thm 4.3 | `frontier cells (1K, T−3U)` | Add brief explanatory parenthetical. | Undefined jargon from companion monograph. |
+| **12** | Table 2, Row 3 | `(1, 2, 3, 4, 5, 7)   1/3   5/14` | Add note highlighting that $\delta < \mathrm{thr}_6$, yet $\rho > \mathrm{thr}_6$. | Crucial demonstration that violation occurs away from boundary. |
+| **13** | §5.3, Eq. | `U(C) = \min_\sigma \max_j \sup_{c \in C} \|c_j - v_j \sigma\|` | Include $\|\sigma\|$ in the maximum. | Critical mathematical fix. |
+| **16** | §A.2, para 1 | `n · S drifting from ≈ 37 at n = 3, 4` | Table 4 has rung-2 at $n=3$ with $nS = 60.5$. | Specify that $37$ applies to the harmonic family. |
+
+---
+
+## IV. Concrete Drop-In Improvements (LaTeX Code)
+
+### 1. Refactoring §2.2 (Quotient-Torus Geometry without Collisions)
+
+```latex
+\subsection{Four forms of the covering statement}
+Write $\delta(V) = \frac{1}{2} - \lambda(V)$ and let $\mathbf{1} = (1, \dots, 1) \in \mathbb{R}^n$. 
+The following forms of $\mathrm{LRC}_n$ are used in the literature and in this program:
+
+\begin{enumerate}
+  \item \textbf{Loneliness form.} $\lambda(V) \ge 1/(n + 1)$ for all $V$.
+  \item \textbf{Center-depth form ($\delta$-form).} $\delta(V) \le \mathrm{thr}_n$, where 
+  $\delta(V) = \operatorname{dist}_\infty\left(\mathbb{R}V, \mathbb{Z}^n + \frac{1}{2}\mathbf{1}\right)$.
+  The elementary identity $\delta = \frac{1}{2} - \lambda$ follows from 
+  $\max_j \|\frac{1}{2} - v_j t\| = \frac{1}{2} - \min_j \|v_j t\|$.
+  \item \textbf{Quotient-torus form.} Let $\mathcal{X}_V = \mathbb{R}^n / \mathbb{R}V$ be the quotient vector space, 
+  $\pi : \mathbb{R}^n \to \mathcal{X}_V$ the projection, $\Lambda = \pi(\mathbb{Z}^n) \cong \mathbb{Z}^{n-1}$ the projected lattice, 
+  and $\|c\|_{\mathcal{X}_V} = \inf_{x \in \pi^{-1}(c)} \|x\|_\infty$ the quotient norm. 
+  Then $\delta(V) = \operatorname{dist}_{\mathcal{X}_V}(c^*, \Lambda)$, where $c^* = \pi(\frac{1}{2}\mathbf{1})$ is the center class 
+  (with coordinates $1/2$ on even speeds and $0$ on odd speeds in standard $c$-coordinates with $v_1 = 1$). 
+  The $\delta$-form asserts: $\|c^* - \Lambda\|_{\mathcal{X}_V} \le \mathrm{thr}_n$ for every $V$.
+  \item \textbf{Covering-radius form ($\rho$-form).} Let $\rho(V) = \max_{c \in \mathcal{X}_V} \operatorname{dist}_{\mathcal{X}_V}(c, \Lambda)$ 
+  be the covering radius of $\Lambda$ in the quotient norm. The $\rho$-form asserts $\rho(V) \le \mathrm{thr}_n$ for all $V$.
+\end{enumerate}
+
+Forms (1)--(3) are equivalent to $\mathrm{LRC}_n$. Form (4) is strictly stronger: since $\delta(V) \le \rho(V)$ always, 
+$\rho(V) \le \mathrm{thr}_n \implies \delta(V) \le \mathrm{thr}_n$.
+```
+
+---
+
+### 2. Fixing the Branch-and-Bound Upper Bound in §5.3
+
+```latex
+\subsection{The branch-and-bound certificate and its negative control}
+This session introduced a second, independent certification method built directly on the runner 
+formulation~\eqref{eq:runner_D}. For a dyadic box $C = \prod_{j=2}^n [a_j, b_j] \subset [0, 1)^{n-1}$, define
+\begin{equation}
+U(C) = \min_{\sigma \in [0, 1)} \max\left( \|\sigma\|, \max_{2 \le j \le n} \sup_{c_j \in [a_j, b_j]} \|c_j - v_j \sigma\| \right).
+\label{eq:UC_correct}
+\end{equation}
+Because each coordinate supremum $\sup_{c_j \in [a_j, b_j]} \|c_j - v_j \sigma\|$ is the maximum of the two endpoint 
+distances $\|a_j - v_j \sigma\|$ and $\|b_j - v_j \sigma\|$, the objective function in~\eqref{eq:UC_correct} is the 
+upper envelope of $2n - 1$ piecewise-linear functions with rational breakpoints in $\sigma$. 
+Its global minimum is attained at a rational crossing or kink, computable in exact rational arithmetic.
+
+By the minimax inequality, $\sup_{c \in C} D(c) \le U(C)$. Therefore, any box satisfying $U(C) \le r$ is rigorously 
+certified to contain no point of depth exceeding $r$. Boxes failing the test are bisected along their widest coordinate.
+```
+
+---
+
+### 3. Formalizing Theorem 4.1 (Sum-Only Equality)
+
+```latex
+\begin{theorem}[Sum-only equality; Theorem 1.1 of~\cite{companion}]
+Let $V = (v_1, \dots, v_n)$ have distinct positive integer entries with $\gcd(V) = 1$ and $0 < M(V) < \frac{1}{2}$. 
+For each unordered pair of indices $\{u, w\} \subset [n]$, let $N_{u,w} = v_u + v_w$ and define the pair-sum lattice loneliness:
+\begin{equation}
+\tau(u, w) := \max_{k \in \mathbb{Z}_{N_{u,w}}} \min_{p \in [n] \setminus \{w\}} \left\| \frac{v_p k}{v_u + v_w} \right\|.
+\end{equation}
+Then
+\begin{equation}
+M(V) = \max_{\{u, w\} \subset [n]} \tau(u, w).
+\end{equation}
+Consequently, $\mathrm{LRC}_n$ holds for all $V$ if and only if for every $V$, there exists a pair $\{u, w\}$ 
+such that $\tau(u, w) \ge 1/(n + 1)$.
+\end{theorem}
+```
+
+---
+
+### 4. Bibliography Corrections
+
+```latex
+% Add missing Cusick reference:
+\bibitem{Cusick1973}
+T.~W. Cusick, \emph{View-obstruction problems}, Aequationes Math. \textbf{9} (1973), 165--170.
+
+% Cite Shephard [14] in §2.3:
+The LR-zonotope of $V$ is $\mathcal{Z}(V) = \pi([0, 1]^n) \subset \mathcal{X}_V$; it is an $(n-1)$-dimensional 
+lattice zonotope with normalized volume $\sum_j v_j$~\cite{Shephard1974}.
+
+% Cite Frobenius [15] in §2.3:
+...explicitly $h^*(z) = \sum_k e_k (1-z)^{d-k} A_k(z)$, where $A_k(z)$ are the Eulerian polynomials~\cite{Frobenius1910}.
+```
+
+---
+
+## V. Strategic Recommendations for Final Publication
+
+1. **Explicate the Non-Extremal Failure ($v = (1,2,3,4,5,7)$):**
+   * Emphasize in the main text of §3.5 that for $v = (1,2,3,4,5,7)$, the center depth is $\delta = 1/3 < 5/14 = \mathrm{thr}_6$. Here, the center class is *strictly lonely* with slack, yet the covering radius is $\rho \ge 4/11 > 5/14$. This decisively refutes the hypothesis that covering-radius failure is an artifact of center-class tightness ($\delta = \mathrm{thr}_n$).
+2. **Harmonize the $T$ Notation:**
+   * In §3.4 and §4.3, $T$ is used for the runner count / rung ($T \ge 8$). Since $n$ is used throughout the rest of the paper for the runner count and $\mathbb{T}$ denotes the unit circle $\mathbb{R}/\mathbb{Z}$, replace $T$ with $n$ everywhere to avoid confusion.
+3. **Decoupled Paper Architecture:**
+   * The observation in Appendix A regarding real-rootedness of $h^*$-polynomials for arithmetic matroids of projected bases is of strong independent interest to algebraic combinatorics. Formatting it as an explicit Open Conjecture (e.g., *"Conjecture A.1: The arithmetic $h^*$-polynomial of any 1-dimensional projection of a hypercube lattice matroid is real-rooted"*) will maximize citation reach in the Lorentzian / matroid community independently of the LRC negative result.
+gemini2:
+The prose is carrying too much weight: it is trying to explain the mathematics, defend the methodology, and preempt peer-review skepticism all in the same breath. 
+
+To give your negative results the punch they deserve, the prose needs to be as clinical and objective as your code. Here are the primary line-level gaps and proposed improvements:
+
+**1. Fracture the "megasentences" (The Abstract)**
+The second sentence of your abstract is a 169-word monolith. It attempts to summarise all four instances of type mismatch, complete with parenthetical proofs, spectral radii, and exact fractional witnesses. It is impossible to parse on a first read.
+*   **Gap (Page 3, Abstract):** *"We exhibit this type mismatch in four independent settings: the finite pair-sum covering reformulation, whose classification toolkit provably emits... [continues for 130 more words] ...and no correlation with covering margins."*
+*   **Improvement:** Use a bulleted list to outline the four settings. 
+    * *Proposed structure:* 
+      "We exhibit this type mismatch in four independent settings:
+      * **The finite pair-sum covering reformulation:** The classification toolkit provably emits only closure, invariance, and exhaustiveness statements. Its single margin-shaped instrument—a transfer-matrix model—is closed by theorem.
+      * **The character-rigidity route:** Orbit-invariance laws are falsified exactly, and marginal envelopes saturate precisely where the missing margin is needed.
+      * **The Lonely Runner zonotope:** The covering radius satisfies a strictly stronger inequality than LRC, but this fails from $n = 5$ onwards (e.g., exact witnesses $\rho \geq 97/288 > 1/3$ at $v = (1, 2, 3, 4, 5)$). Furthermore, Ehrhart $h^*$-polynomial strictness decays without correlation to covering margins."
+
+**2. Remove the defensive meta-commentary**
+As in the previous paper, the text frequently assures the reader of its own integrity. Words like "honest," "deliberately honest," and "audit" appear repeatedly. This meta-commentary weakens your authority; your extensive GitHub/computational records (Appendix B) are your proof of rigour. You do not need to persuade the reader of your honesty in the prose.
+*   **Gap (Page 5, Section 1.3):** *"The paper is deliberately honest about its shape. It is a sharp negative result—a whole class of approaches to a famous problem, and the exact reason each fails..."*
+*   **Improvement:** Strip the preamble and state the fact. 
+    * *Proposed:* "This paper presents a sharp negative result: it details a whole class of approaches to a famous problem and the exact reason each fails..."
+*   **Gap (Page 18, Appendix B):** *"The audit standard adopted for this paper is stated in one sentence: every number cited in the text traces to a script that was actually run and whose output was persisted."*
+*   **Improvement:** Frame this as standard scientific reproducibility rather than a defensive audit.
+    * *Proposed:* "Reproducibility standard: every number cited in this text traces directly to a persisted script output."
+
+**3. Strip redundant inline data dumps**
+In Section 3.5, you list exact coordinates and fractions inline to prove the falsity of the covering-radius toolkit. However, you perfectly tabulate this exact same data later in Table 2 (Page 13). 
+*   **Gap (Page 10, Section 3.5):** *"At the extremal harmonic instance $v = (1, 2, 3, 4, 5)$, the rational point $c = (1/32, 15/32, 3/32, 7/8)$ has $D(c) = 97/288 > 1/3 = \text{thr}_5$: the deepest hole is not the center..."*
+*   **Improvement:** Keep Section 3 focused on the *narrative* of the mechanism, and rely on cross-references to your tables for the raw data.
+    * *Proposed:* "At the extremal harmonic instance $v = (1, 2, 3, 4, 5)$, the deepest hole is not the centre (see Table 2 for exact coordinates and $D(c)$ values), meaning the covering-radius statement fails at the very instance where the $\delta$-form is tight."
+
+**4. Simplify transition mechanics**
+You often use heavy, multi-clause framing devices to move between ideas.
+*   **Gap (Page 8, Section 3.2):** *"The empirical half of the reading (“no proved margin-type statement exists in the inventory”) is thereby settled. The structural half (“no classification toolkit can produce one”) is a hypothesis about tool reach; it is what Instances 2–4 test..."*
+*   **Improvement:** Tighten the pivot.
+    * *Proposed:* "This settles the empirical claim: no margin-type statement exists in the inventory. The structural claim—that no classification toolkit *can* produce one—is a hypothesis about tool reach, which Instances 2–4 now test."
