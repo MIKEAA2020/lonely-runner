@@ -12,7 +12,14 @@ false, each refuted by an exact rational witness — (ii) a bounded positive cor
 with exact theorems, and (iii) a machine-reasserted provenance record for every cited
 number (225 items, zero failures).
 
-## The papers (v2 audit revision — current)
+## The papers (v3 m=10-certification revision — current)
+
+| Paper | File | Contents |
+|---|---|---|
+| **Flagship v3** — *Every Natural Strengthening Is False: Type Mismatch in Lossless Reformulations of the Lonely Runner Conjecture* | `papers/lonely_runner_type_mismatch_paper_v3.pdf` (28 pages) | **The m=10 row is certified: rho(1,2,3,4,10) = 7/22 exactly.** The second, audit-driven certification attempt paired a sound random-local-search screen (~50x the audit's demonstrated search budget in starts: 4,194,304 random points, full dyadic-16/32 grids, 500k torsion points, 2,048 climbs, 64 Nelder–Mead polishes, 188 exact re-evaluations — nothing above 7/22; the deepest verified point is the torsion center itself) with a new exact Lipschitz box certificate (D is 1-Lipschitz in the sup norm; max_C D <= D(center) + half-width; at the first attempt's residual width, 1135/3584 + 1/1024 = 2277/7168 < 7/22). The re-run branch and bound emptied the tree (190,295 box evaluations, 0 survivors), with the negative control refusing again, the n=4 certificates reproducing identically, 846/846 sampled prunes exact-confirmed, and three adversarial deeper-hole boxes refusing the Lipschitz test. Sup-norm Lipschitz lemma + box-certificate corollary + the 7/22 hand check added to Appendix C. Adjudication addendum: `papers/audit_adjudication_addendum_m10.md`. |
+| **Companion v3** — *Pair-Sum Lattices and a Conditional Scaling-Closure Theorem* | `papers/lonely_runner_pair_sum_lattices_conditional_theorem_paper_v3.pdf` (67 pages) | No theorem, lemma, or hypothesis changed; the zonotope-strand record updated (m=10 closed at 7/22; the harmonic lower-bound record harmonized with the audited 4183/12288 witness); version marker recorded. |
+
+## The papers (v2 audit revision — superseded, kept for the record)
 
 | Paper | File | Contents |
 |---|---|---|
@@ -40,8 +47,10 @@ submitted together as main paper + companion.
 papers/                  Final PDFs (flagship + companion monograph)
 sources/flagship/        v1 LaTeX sources + scripts + persisted outputs
 sources/flagship_v2/     v2 LaTeX sources (audit revision) + outputs
+sources/flagship_v3/     v3 LaTeX sources (m=10 certified) + outputs (incl. certify_m10_v2.py + out_certify_m10_v2.json)
 sources/companion/       v1 LaTeX sources + figures + scripts + outputs
 sources/companion_v2/    v2 LaTeX sources (Hq repair) + outputs
+sources/companion_v3/    v3 LaTeX sources (zonotope-strand record update) + outputs
 research_notes/          The 20 dated research notes of the program (T-series record)
 scripts/                 All research/verification scripts and their out_*.json
                          outputs (the canonical provenance record)

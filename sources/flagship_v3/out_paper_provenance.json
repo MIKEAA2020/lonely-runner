@@ -1,0 +1,1355 @@
+{
+ "items": [
+  {
+   "item": "lambda harmonic n=3",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "lambda rung2 n=3",
+   "claimed": "2/7",
+   "recomputed": "2/7",
+   "ok": true
+  },
+  {
+   "item": "lambda harmonic n=4",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "lambda rung2 n=4",
+   "claimed": "2/9",
+   "recomputed": "2/9",
+   "ok": true
+  },
+  {
+   "item": "lambda harmonic n=5",
+   "claimed": "1/6",
+   "recomputed": "1/6",
+   "ok": true
+  },
+  {
+   "item": "lambda rung2 n=5",
+   "claimed": "2/11",
+   "recomputed": "2/11",
+   "ok": true
+  },
+  {
+   "item": "lambda harmonic n=6",
+   "claimed": "1/7",
+   "recomputed": "1/7",
+   "ok": true
+  },
+  {
+   "item": "lambda rung2 n=6",
+   "claimed": "2/13",
+   "recomputed": "2/13",
+   "ok": true
+  },
+  {
+   "item": "lambda harmonic n=7",
+   "claimed": "1/8",
+   "recomputed": "1/8",
+   "ok": true
+  },
+  {
+   "item": "lambda rung2 n=7",
+   "claimed": "2/15",
+   "recomputed": "2/15",
+   "ok": true
+  },
+  {
+   "item": "lambda harmonic n=8",
+   "claimed": "1/9",
+   "recomputed": "1/9",
+   "ok": true
+  },
+  {
+   "item": "lambda rung2 n=8",
+   "claimed": "2/17",
+   "recomputed": "2/17",
+   "ok": true
+  },
+  {
+   "item": "lambda harmonic n=9",
+   "claimed": "1/10",
+   "recomputed": "1/10",
+   "ok": true
+  },
+  {
+   "item": "lambda rung2 n=9",
+   "claimed": "2/19",
+   "recomputed": "2/19",
+   "ok": true
+  },
+  {
+   "item": "lambda harmonic n=10",
+   "claimed": "1/11",
+   "recomputed": "1/11",
+   "ok": true
+  },
+  {
+   "item": "lambda rung2 n=10",
+   "claimed": "2/21",
+   "recomputed": "2/21",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5)",
+   "claimed": "97/288",
+   "recomputed": "97/288",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 10)",
+   "claimed": "7/22",
+   "recomputed": "7/22",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5, 6)",
+   "claimed": "29/80",
+   "recomputed": "29/80",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5, 7)",
+   "claimed": "4/11",
+   "recomputed": "4/11",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 13) (rescan n5 m=13)",
+   "claimed": "5/16",
+   "recomputed": "5/16",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 13) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 13) (rescan)",
+   "claimed": "5/16",
+   "recomputed": "5/16",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 14) (rescan n5 m=14)",
+   "claimed": "11/34",
+   "recomputed": "11/34",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 14) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 14) (rescan)",
+   "claimed": "11/34",
+   "recomputed": "11/34",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 15) (rescan n5 m=15)",
+   "claimed": "6/19",
+   "recomputed": "6/19",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 15) (rescan)",
+   "claimed": "3/16",
+   "recomputed": "3/16",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 15) (rescan)",
+   "claimed": "6/19",
+   "recomputed": "6/19",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 16) (rescan n5 m=16)",
+   "claimed": "49/160",
+   "recomputed": "49/160",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 16) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 16) (rescan)",
+   "claimed": "49/160",
+   "recomputed": "49/160",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 17) (rescan n5 m=17)",
+   "claimed": "49/160",
+   "recomputed": "49/160",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 17) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 17) (rescan)",
+   "claimed": "49/160",
+   "recomputed": "49/160",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 18) (rescan n5 m=18)",
+   "claimed": "99/320",
+   "recomputed": "99/320",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 18) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 18) (rescan)",
+   "claimed": "99/320",
+   "recomputed": "99/320",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 19) (rescan n5 m=19)",
+   "claimed": "49/160",
+   "recomputed": "49/160",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 19) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 19) (rescan)",
+   "claimed": "49/160",
+   "recomputed": "49/160",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 20) (rescan n5 m=20)",
+   "claimed": "13/42",
+   "recomputed": "13/42",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 20) (rescan)",
+   "claimed": "4/21",
+   "recomputed": "4/21",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 20) (rescan)",
+   "claimed": "13/42",
+   "recomputed": "13/42",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 21) (rescan n5 m=21)",
+   "claimed": "5/16",
+   "recomputed": "5/16",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 21) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 21) (rescan)",
+   "claimed": "5/16",
+   "recomputed": "5/16",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 22) (rescan n5 m=22)",
+   "claimed": "4/13",
+   "recomputed": "4/13",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 22) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 22) (rescan)",
+   "claimed": "4/13",
+   "recomputed": "4/13",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 23) (rescan n5 m=23)",
+   "claimed": "49/160",
+   "recomputed": "49/160",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 23) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 23) (rescan)",
+   "claimed": "49/160",
+   "recomputed": "49/160",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 24) (rescan n5 m=24)",
+   "claimed": "49/160",
+   "recomputed": "49/160",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 24) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 24) (rescan)",
+   "claimed": "49/160",
+   "recomputed": "49/160",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 25) (rescan n5 m=25)",
+   "claimed": "4/13",
+   "recomputed": "4/13",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 25) (rescan)",
+   "claimed": "5/26",
+   "recomputed": "5/26",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 25) (rescan)",
+   "claimed": "4/13",
+   "recomputed": "4/13",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 26) (rescan n5 m=26)",
+   "claimed": "11/36",
+   "recomputed": "11/36",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 26) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 26) (rescan)",
+   "claimed": "11/36",
+   "recomputed": "11/36",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 27) (rescan n5 m=27)",
+   "claimed": "39/128",
+   "recomputed": "39/128",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 27) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 27) (rescan)",
+   "claimed": "39/128",
+   "recomputed": "39/128",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 28) (rescan n5 m=28)",
+   "claimed": "19/62",
+   "recomputed": "19/62",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 28) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 28) (rescan)",
+   "claimed": "19/62",
+   "recomputed": "19/62",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 29) (rescan n5 m=29)",
+   "claimed": "73/240",
+   "recomputed": "73/240",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 29) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 29) (rescan)",
+   "claimed": "73/240",
+   "recomputed": "73/240",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 30) (rescan n5 m=30)",
+   "claimed": "19/62",
+   "recomputed": "19/62",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 30) (rescan)",
+   "claimed": "6/31",
+   "recomputed": "6/31",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 30) (rescan)",
+   "claimed": "19/62",
+   "recomputed": "19/62",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5) (rescan n5 m=5)",
+   "claimed": "97/288",
+   "recomputed": "97/288",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 5) (rescan)",
+   "claimed": "1/6",
+   "recomputed": "1/6",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 5) (rescan)",
+   "claimed": "97/288",
+   "recomputed": "97/288",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 6) (rescan n5 m=6)",
+   "claimed": "1/3",
+   "recomputed": "1/3",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 6) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 6) (rescan)",
+   "claimed": "1/3",
+   "recomputed": "1/3",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 7) (rescan n5 m=7)",
+   "claimed": "1/3",
+   "recomputed": "1/3",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 7) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 7) (rescan)",
+   "claimed": "1/3",
+   "recomputed": "1/3",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 8) (rescan n5 m=8)",
+   "claimed": "1/3",
+   "recomputed": "1/3",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 8) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 8) (rescan)",
+   "claimed": "1/3",
+   "recomputed": "1/3",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 9) (rescan n5 m=9)",
+   "claimed": "33/104",
+   "recomputed": "33/104",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 9) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 9) (rescan)",
+   "claimed": "33/104",
+   "recomputed": "33/104",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 10) (rescan n5 m=10)",
+   "claimed": "7/22",
+   "recomputed": "7/22",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 10) (rescan)",
+   "claimed": "2/11",
+   "recomputed": "2/11",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 10) (rescan)",
+   "claimed": "7/22",
+   "recomputed": "7/22",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 11) (rescan n5 m=11)",
+   "claimed": "5/16",
+   "recomputed": "5/16",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 11) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 11) (rescan)",
+   "claimed": "5/16",
+   "recomputed": "5/16",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 12) (rescan n5 m=12)",
+   "claimed": "5/16",
+   "recomputed": "5/16",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 12) (rescan)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 12) (rescan)",
+   "claimed": "5/16",
+   "recomputed": "5/16",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5, 18) (rescan n6 m=18)",
+   "claimed": "11/32",
+   "recomputed": "11/32",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 5, 18) (rescan)",
+   "claimed": "3/19",
+   "recomputed": "3/19",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 5, 18) (rescan)",
+   "claimed": "11/32",
+   "recomputed": "11/32",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5, 7) (rescan n6 m=7)",
+   "claimed": "4/11",
+   "recomputed": "4/11",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 5, 7) (rescan)",
+   "claimed": "1/6",
+   "recomputed": "1/6",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 5, 7) (rescan)",
+   "claimed": "4/11",
+   "recomputed": "4/11",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5, 8) (rescan n6 m=8)",
+   "claimed": "17/48",
+   "recomputed": "17/48",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 5, 8) (rescan)",
+   "claimed": "1/6",
+   "recomputed": "1/6",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 5, 8) (rescan)",
+   "claimed": "17/48",
+   "recomputed": "17/48",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5, 9) (rescan n6 m=9)",
+   "claimed": "5/14",
+   "recomputed": "5/14",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 5, 9) (rescan)",
+   "claimed": "1/6",
+   "recomputed": "1/6",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 5, 9) (rescan)",
+   "claimed": "5/14",
+   "recomputed": "5/14",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5, 10) (rescan n6 m=10)",
+   "claimed": "17/48",
+   "recomputed": "17/48",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 5, 10) (rescan)",
+   "claimed": "1/6",
+   "recomputed": "1/6",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 5, 10) (rescan)",
+   "claimed": "17/48",
+   "recomputed": "17/48",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5, 11) (rescan n6 m=11)",
+   "claimed": "45/128",
+   "recomputed": "45/128",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 5, 11) (rescan)",
+   "claimed": "1/6",
+   "recomputed": "1/6",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 5, 11) (rescan)",
+   "claimed": "45/128",
+   "recomputed": "45/128",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5, 24) (rescan n6 m=24)",
+   "claimed": "71/208",
+   "recomputed": "71/208",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4, 5, 24) (rescan)",
+   "claimed": "4/25",
+   "recomputed": "4/25",
+   "ok": true
+  },
+  {
+   "item": "rho_lo (1, 2, 3, 4, 5, 24) (rescan)",
+   "claimed": "71/208",
+   "recomputed": "71/208",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 3) (n3 sweep)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 4) (n3 sweep)",
+   "claimed": "3/14",
+   "recomputed": "3/14",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 5) (n3 sweep)",
+   "claimed": "3/14",
+   "recomputed": "3/14",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 6) (n3 sweep)",
+   "claimed": "3/14",
+   "recomputed": "3/14",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 7) (n3 sweep)",
+   "claimed": "9/46",
+   "recomputed": "9/46",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 8) (n3 sweep)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 9) (n3 sweep)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 10) (n3 sweep)",
+   "claimed": "3/16",
+   "recomputed": "3/16",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 11) (n3 sweep)",
+   "claimed": "5/26",
+   "recomputed": "5/26",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 12) (n3 sweep)",
+   "claimed": "5/26",
+   "recomputed": "5/26",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 13) (n3 sweep)",
+   "claimed": "15/82",
+   "recomputed": "15/82",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 14) (n3 sweep)",
+   "claimed": "3/16",
+   "recomputed": "3/16",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 15) (rescan B)",
+   "claimed": "3/16",
+   "recomputed": "3/16",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 16) (rescan B)",
+   "claimed": "9/50",
+   "recomputed": "9/50",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 17) (rescan B)",
+   "claimed": "7/38",
+   "recomputed": "7/38",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 18) (rescan B)",
+   "claimed": "7/38",
+   "recomputed": "7/38",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 19) (rescan B)",
+   "claimed": "21/118",
+   "recomputed": "21/118",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 20) (rescan B)",
+   "claimed": "2/11",
+   "recomputed": "2/11",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 21) (rescan B)",
+   "claimed": "2/11",
+   "recomputed": "2/11",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 22) (rescan B)",
+   "claimed": "3/17",
+   "recomputed": "3/17",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 23) (rescan B)",
+   "claimed": "9/50",
+   "recomputed": "9/50",
+   "ok": true
+  },
+  {
+   "item": "rho_exact (1, 2, 24) (rescan B)",
+   "claimed": "9/50",
+   "recomputed": "9/50",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 4) (rescan C)",
+   "claimed": "1/5",
+   "recomputed": "1/5",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 4) (rescan C)",
+   "claimed": "3/10",
+   "recomputed": "3/10",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 8) (rescan C)",
+   "claimed": "2/9",
+   "recomputed": "2/9",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 8) (rescan C)",
+   "claimed": "5/18",
+   "recomputed": "5/18",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 12) (rescan C)",
+   "claimed": "3/13",
+   "recomputed": "3/13",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 12) (rescan C)",
+   "claimed": "7/26",
+   "recomputed": "7/26",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 5) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 5) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 6) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 6) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 7) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 7) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 9) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 9) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 10) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 10) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 11) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 11) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 13) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 13) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 14) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 14) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 15) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 15) (rescan C)",
+   "claimed": "1/4",
+   "recomputed": "1/4",
+   "ok": true
+  },
+  {
+   "item": "lambda (1, 2, 3, 16) (rescan C)",
+   "claimed": "4/17",
+   "recomputed": "4/17",
+   "ok": true
+  },
+  {
+   "item": "D(c*) (1, 2, 3, 16) (rescan C)",
+   "claimed": "9/34",
+   "recomputed": "9/34",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5) (final)",
+   "claimed": "97/288",
+   "recomputed": "97/288",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 10) (final)",
+   "claimed": "7/22",
+   "recomputed": "7/22",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5, 6) (final)",
+   "claimed": "29/80",
+   "recomputed": "29/80",
+   "ok": true
+  },
+  {
+   "item": "witness D (1, 2, 3, 4, 5, 12) (final)",
+   "claimed": "5/14",
+   "recomputed": "5/14",
+   "ok": true
+  },
+  {
+   "item": "spearman correlation_n3",
+   "claimed": "0.32 (stored 0.316195)",
+   "recomputed": "0.316195",
+   "ok": true
+  },
+  {
+   "item": "spearman correlation_n4",
+   "claimed": "-0.31 (stored -0.311740)",
+   "recomputed": "-0.311740",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 3))",
+   "claimed": "12.250000",
+   "recomputed": "12.250000",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 3))",
+   "claimed": "0.000000",
+   "recomputed": "0.000000",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 4))",
+   "claimed": "20.250000",
+   "recomputed": "20.250000",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 4))",
+   "claimed": "0.083333",
+   "recomputed": "0.083333",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 5))",
+   "claimed": "13.500000",
+   "recomputed": "13.500000",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 5))",
+   "claimed": "0.083333",
+   "recomputed": "0.083333",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 6))",
+   "claimed": "20.166667",
+   "recomputed": "20.166667",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 6))",
+   "claimed": "0.035714",
+   "recomputed": "0.035714",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 7))",
+   "claimed": "15.125000",
+   "recomputed": "15.125000",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 7))",
+   "claimed": "0.083333",
+   "recomputed": "0.083333",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 8))",
+   "claimed": "21.125000",
+   "recomputed": "21.125000",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 8))",
+   "claimed": "0.083333",
+   "recomputed": "0.083333",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 9))",
+   "claimed": "16.900000",
+   "recomputed": "16.900000",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 9))",
+   "claimed": "0.050000",
+   "recomputed": "0.050000",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 10))",
+   "claimed": "22.500000",
+   "recomputed": "22.500000",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 10))",
+   "claimed": "0.083333",
+   "recomputed": "0.083333",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 11))",
+   "claimed": "18.750000",
+   "recomputed": "18.750000",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 11))",
+   "claimed": "0.083333",
+   "recomputed": "0.083333",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 12))",
+   "claimed": "24.083333",
+   "recomputed": "24.083333",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 12))",
+   "claimed": "0.057692",
+   "recomputed": "0.057692",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 13))",
+   "claimed": "20.642857",
+   "recomputed": "20.642857",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 13))",
+   "claimed": "0.083333",
+   "recomputed": "0.083333",
+   "ok": true
+  },
+  {
+   "item": "strictness n3 (v=(1, 2, 14))",
+   "claimed": "25.785714",
+   "recomputed": "25.785714",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n3 (v=(1, 2, 14))",
+   "claimed": "0.083333",
+   "recomputed": "0.083333",
+   "ok": true
+  },
+  {
+   "item": "strictness n4 (v=(1, 2, 3, 5))",
+   "claimed": "8.307692",
+   "recomputed": "8.307692",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n4 (v=(1, 2, 3, 5))",
+   "claimed": "0.050000",
+   "recomputed": "0.050000",
+   "ok": true
+  },
+  {
+   "item": "strictness n4 (v=(1, 2, 3, 6))",
+   "claimed": "11.255814",
+   "recomputed": "11.255814",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n4 (v=(1, 2, 3, 6))",
+   "claimed": "0.050000",
+   "recomputed": "0.050000",
+   "ok": true
+  },
+  {
+   "item": "strictness n4 (v=(1, 2, 3, 7))",
+   "claimed": "8.510638",
+   "recomputed": "8.510638",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n4 (v=(1, 2, 3, 7))",
+   "claimed": "0.050000",
+   "recomputed": "0.050000",
+   "ok": true
+  },
+  {
+   "item": "strictness n4 (v=(1, 2, 3, 8))",
+   "claimed": "9.490196",
+   "recomputed": "9.490196",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n4 (v=(1, 2, 3, 8))",
+   "claimed": "0.022222",
+   "recomputed": "0.022222",
+   "ok": true
+  },
+  {
+   "item": "strictness n4 (v=(1, 2, 3, 9))",
+   "claimed": "10.472727",
+   "recomputed": "10.472727",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n4 (v=(1, 2, 3, 9))",
+   "claimed": "0.050000",
+   "recomputed": "0.050000",
+   "ok": true
+  },
+  {
+   "item": "strictness n4 (v=(1, 2, 3, 10))",
+   "claimed": "9.762712",
+   "recomputed": "9.762712",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n4 (v=(1, 2, 3, 10))",
+   "claimed": "0.050000",
+   "recomputed": "0.050000",
+   "ok": true
+  },
+  {
+   "item": "strictness n4 (v=(1, 2, 3, 11))",
+   "claimed": "9.142857",
+   "recomputed": "9.142857",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n4 (v=(1, 2, 3, 11))",
+   "claimed": "0.050000",
+   "recomputed": "0.050000",
+   "ok": true
+  },
+  {
+   "item": "strictness n4 (v=(1, 2, 3, 12))",
+   "claimed": "11.701493",
+   "recomputed": "11.701493",
+   "ok": true
+  },
+  {
+   "item": "delta_margin n4 (v=(1, 2, 3, 12))",
+   "claimed": "0.030769",
+   "recomputed": "0.030769",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 3) (harmonic)",
+   "claimed": "12.25",
+   "recomputed": "12.250000",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 6) (rung2)",
+   "claimed": "20.166666666666668",
+   "recomputed": "20.166667",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 3, 4) (harmonic)",
+   "claimed": "9.257142857142858",
+   "recomputed": "9.257143",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 3, 8) (rung2)",
+   "claimed": "9.490196078431373",
+   "recomputed": "9.490196",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 3, 4, 5) (harmonic)",
+   "claimed": "6.511074984759195",
+   "recomputed": "6.511075",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 3, 4, 10) (rung2)",
+   "claimed": "7.013014119091467",
+   "recomputed": "7.013014",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 3, 4, 5, 6) (harmonic)",
+   "claimed": "5.518363440602943",
+   "recomputed": "5.518363",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 3, 4, 5, 12) (rung2)",
+   "claimed": "5.747915481511581",
+   "recomputed": "5.747915",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 3, 4, 5, 6, 7) (harmonic)",
+   "claimed": "4.3352868104934394",
+   "recomputed": "4.335287",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 3, 4, 5, 6, 14) (rung2)",
+   "claimed": "4.418257525949834",
+   "recomputed": "4.418258",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 3, 4, 5, 6, 7, 8) (harmonic)",
+   "claimed": "3.7909058990393016",
+   "recomputed": "3.790906",
+   "ok": true
+  },
+  {
+   "item": "strictness (1, 2, 3, 4, 5, 6, 7, 16) (rung2)",
+   "claimed": "3.8286899781646375",
+   "recomputed": "3.828690",
+   "ok": true
+  }
+ ],
+ "failures": 0
+}

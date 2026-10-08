@@ -1,0 +1,320 @@
+% ======================================================================
+% Section 1 — Introduction
+% ======================================================================
+
+\begin{abstract}
+\noindent
+We prove an exact identity that reduces the maximum loneliness of a Lonely
+Runner instance to a finite maximum over cyclic groups: for every speed
+vector $V$ of $n$ positive integers,
+$M(V)=\max_{\{u,w\}}\tau(u,w)$, where $\tau(u,w)$ is the optimal loneliness
+on the pair-sum lattice of denominator $N=v_u+v_w$. The analytic core of the
+argument is folklore (it appears in a comment on Tao's 2015 blog post); the
+contributions claimed here are the sharpening that sum lattices alone always
+suffice, the exact equality, and the lossless reformulation of the Lonely
+Runner Conjecture ($\mathrm{LRC}$-$_n$) as the finite statement
+$(\mathrm{TAU}$-$_n)$. The reformulation turns the conjecture into a family
+of covering problems: a pair certifies iff $n-1$ explicit bad sets
+$B_w=\{k\in\Z_N : (n{+}1)\,\wn{wk}<N\}$ fail to cover $\Z_N$. We develop
+this covering geometry: an exact size law, a class-group reduction at prime
+moduli, a lift law, and complete classifications of the unit coverings at
+the prime moduli $7,11,13$ (three bad sets) and $7,13,17,19,37$ (four bad
+sets)---at every such prime, covering is governed by a short explicit list
+of translate classes in a cyclic group. Empirically, these five primes form
+the entire unit-capable \emph{rigid zone} at $n=5$ within the verified range
+(primes $\le 150$, composites $\le 111$), a striking but unproved finiteness
+statement. On the full corpus of $3{,}712{,}576$ primitive speed sets with
+$n=5$ and speeds $\le 56$, proved lemmas close $75.6\%$ of instances
+($78.2\%$ including a coincidence-counting lemma), per-modulus verification
+closes all of them, and the residual obstruction is localized to a single
+named class (mixed order signatures at composite moduli). The proved-coverage
+rate declines as the corpus grows ($93.4\%\to78.2\%$ over $V=24\to56$ on the
+augmented battery, crossing below the continuation threshold at $V=56$);
+the trend does not establish that coverage stabilizes, and its asymptotics
+are unresolved. We report the decline, the localization, and the exact
+verification record as the paper's empirical findings.
+The paper's culminating result is stated as a \emph{conditional}
+theorem (Theorem~\ref{thm:SC}): under three named open hypotheses---the
+multi-fiber survivor inequality Hq (quantified in this revision; it
+subsumes the former dilate-sparsity input H2m as its one-step case),
+the distinct-family volume law H1g with its uniform margin, and the
+resonance budget H2r---the fiber cascade closes the covering
+obstruction at the frontier cells $(1K,T{-}3U)$ of every rung $T\ge 8$
+at $N=p^2$ within a depth that is $T$-flat in practice and never
+exceeds $T+3$ in the worst case. The reduction chain and every other
+input (normal form, reflection fiber, chain-class theorem,
+renormalization lemma, lossless equivalence) are proved or
+machine-validated, and each constant's provenance---derived, measured,
+or fitted, with the data it is fit to---is disclosed in the hypothesis
+ledger.
+That boundary between the proved and the hypothesized has a structural
+type, verified statement-by-statement in \S\ref{sec:scale-status}: every
+proved result in this program is a closure, invariance, exhaustiveness,
+or machine-verification statement, while every remaining obligation is a
+uniform growth-in-$k$ margin over a trivial or measured baseline---a
+statement type no turn of the program has proved. This type mismatch is
+why the paper stops where it stops. The one candidate instrument
+shaped to produce that missing type was a transfer-matrix or automaton
+model of the strand census. It was executed as a proof attempt under a
+pre-committed success criterion and closed by theorem (for automata
+built on the cascade's bijective drift)
+(Lemma~\ref{lem:monomial}). The cascade's constrained transfer
+matrices are partial permutations with a spectral radius of exactly $0$
+or $1$ at every scale. The cyclic product is diagonal, with trace equal
+to the survivor count itself, and the missing margin is provably
+external to the lossless dynamics. The reformulation is bounded by its
+own fidelity: the losslessness that makes it a faithful rewrite is the
+property that withholds the decay a margin would require.
+This is a structural paper: it does not solve or reduce the Lonely
+Runner Conjecture, proves no new cases of it, and claims nothing beyond
+the verified ranges stated in the text; the two hypotheses of
+Theorem~\ref{thm:SC} are open and are not silently established anywhere.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{The conjecture and its status}
+
+Let $n\ge 2$ and let $V=(v_1,\dots,v_n)$ be distinct positive integer
+speeds. Runners start together at the origin of the unit circle
+$\T=\R/\Z$ at time $0$; runner $p$ occupies $v_p t \bmod 1$ at time $t$.
+Write $\wnc{x}$ for the distance of a real number to the nearest integer.
+The \emph{loneliness} of the stationary observer (runner $0$) at time $t$
+is
+\[
+g(t)\;=\;\min_{1\le p\le n}\;\wnc{v_p t},
+\qquad
+M(V)\;=\;\max_{t\in\T}\,g(t).
+\]
+The Lonely Runner Conjecture ($\mathrm{LRC}$-$_n$), posed by Wills in 1967
+and independently by Cusick in the language of view obstruction
+\cite{PS-survey,Wills,Cusick1973}, asserts $M(V)\ge 1/(n{+}1)$ for every $V$ with
+$\gcd(V)=1$; by translation symmetry this is the statement that every
+runner on the track becomes lonely at some time. The conjecture is known
+for at most seven runners (Bohman--Bohman--Holzman and
+Barajas--Serra; see the survey \cite{PS-survey} for history and precise
+references). The frontier has since moved entirely into computer-assisted
+territory: eight runners \cite{Rosenfeld8}, nine and ten runners
+\cite{Trakulthongchai}, eleven through thirteen runners
+\cite{Sungkawichai}, and fourteen and fifteen runners \cite{Allikvere},
+the last with public certificates, resting on the linearly-exponential
+checking bounds of Malikiosis--Santos--Schymura \cite{MSS}.
+
+Two neighboring literatures study the fine structure of the problem rather
+than new rungs. The \emph{spectrum} line computes exact optimal values
+$\mathrm{ML}=p/q$ and their denominators
+\cite{Kravitz,FanSun,GiriKravitz,Cordella}, including tight-instance
+classifications \cite{Zhang}. The \emph{relations} line localizes
+counterexamples and tight instances to low-weight integer hyperplanes in
+parameter space \cite{BeckEverett}. The closest formulation in spirit is
+Rifford's \cite{Rifford}: he studies the \emph{time} it takes a runner to
+become lonely, shows that bounding that time by a number of rounds is
+equivalent to a covering problem in dimension $n-2$ on the continuous torus,
+formulates a covering conjecture there and proves it for $n\le 6$, and
+bounds the one-round gap of loneliness by $1/(2m-1)$. What the two
+formulations share is the move from runners to coverings; what separates
+them is the domain and the mode. Rifford's covering problem is continuous
+and its conjecture is a sufficient condition for a time bound, while the
+present reduction is finite and exact---an identity, not an
+inequality---reducing the threshold question itself to coverings of the
+cyclic groups $\Z_{v_u+v_w}$ by multiplicative bad sets. That finiteness is
+what makes the arithmetic visible: nothing corresponding to the rigid zone,
+the translate-class classifications, or the kernel world appears in, or is
+excluded by, the continuous formulation, and none of our results overlap
+his. The present paper is a reformulation paper whose subject is the
+geometry of the obstruction itself, at small moduli, in residue language.
+
+\subsection{What this paper does}
+
+The starting point is a classical observation: the optimal time is rational,
+and its denominator is the sum or difference of two speeds. In the form
+relevant here---``the maximum is attained at an intersection of two sine
+curves, so the optimal time is rational with denominator the sum or
+difference of two integer velocities''---this appears in a comment on Tao's
+blog post of 13 May 2015 \cite{Tao-blog}. We treat that technique as known
+folklore and cite it as such. What the folklore does not record, and what
+this paper builds on, is the following sharpening and its consequences.
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item \textbf{The sum-only equality theorem}
+  (\S\ref{sec:equality}). At a global optimum with $0<M<\tfrac12$ the
+  binding runners can be chosen two-sided, which forces the optimal time
+  onto the lattice of a \emph{sum} $v_u+v_w$; difference denominators never
+  carry the optimum. On that lattice the two binding runners are exact
+  reflections of each other at \emph{every} lattice time
+  (Lemma~\ref{lem:mirror}), so the $n$-runner minimum there equals an
+  $(n{-}1)$-runner minimum. Together these give the exact identity
+  $M(V)=\max_{\{u,w\}}\tau(u,w)$ of Theorem~\ref{thm:equality}---not an
+  inequality---and the lossless equivalence of
+  Corollary~\ref{cor:tau}: $\mathrm{LRC}$-$_n$ holds iff
+  $(\mathrm{TAU}$-$_n)$ does, a \emph{finite} statement about explicit
+  cyclic groups $\Z_{v_u+v_w}$. The finitization is exact: no information
+  is lost, and nothing about the classical difficulty of the conjecture is
+  claimed to become easier.
+\item \textbf{The covering framework} (\S\ref{sec:covering}). Pair
+  certification becomes a covering question: a pair fails iff its $n-1$ bad
+  sets $B_w=\{k : (n{+}1)\wn{wk}<N\}$ cover $\Z_N$. Five empirically
+  distinct obstruction classes from the program's earlier experiments
+  collapse into \emph{additive orders of one covering phenomenon}
+  (Table~\ref{tab:taxonomy}). The framework yields proved lemmas: an exact
+  size law (Lemma~\ref{lem:size}), a polygonal witness lemma
+  (Lemma~\ref{lem:jgon}), moat counting (Lemma~\ref{lem:counting}), a
+  coincidence-counting lemma (Lemma~\ref{lem:D3}), a lift law
+  (Lemma~\ref{lem:lift}), and a class-group reduction at prime moduli
+  (Lemma~\ref{lem:class}).
+\item \textbf{The rigid zone and its classifications}
+  (\S\ref{sec:rigid}). At each rung $n$ there is a small set of
+  \emph{unit-capable} moduli---those $N$ for which $n-1$ unit bad sets can
+  cover $\Z_N$: $\{7,11,13\}$ at $n=4$ and $\{7,13,17,19,37\}$ at $n=5$
+  within the verified range. We classify the covering configurations
+  completely at every one of these primes
+  (Theorems~\ref{thm:K4}--\ref{thm:K37}): each classification is a short
+  explicit list of translate classes in a cyclic group (antipodal classes,
+  domino tilings, perfect matchings, and at $19$ and $37$ the two classes
+  $\{0,1,2,7\}$, $\{0,2,4,6\}$ and the single class $\{0,2,12,15\}$).
+  This is the paper's central structural finding: \emph{at rigid primes,
+  the covering obstruction is governed by a small translate-class
+  structure}. The measured coverage rates of \S\ref{sec:measure} are a
+  consequence of this structure, not the primary result.
+\item \textbf{The measurement} (\S\ref{sec:measure}). On all
+  $3{,}712{,}576$ primitive $5$-sets with speeds $\le 56$: proved lemmas
+  close $75.6\%$ ($78.2\%$ with the coincidence lemma), per-modulus
+  verification closes $100\%$, and every set has a certifying pair at a
+  never-covering configuration. The proved-coverage rate declines as the
+  corpus grows ($93.4\%\to78.2\%$ over $V=24\to56$ on the augmented
+  battery, crossing below the continuation threshold at $V=56$); the trend
+  does not establish stabilization, and the decline is reported as a
+  finding, with the residual localized to one named class (mixed order
+  signatures at composite moduli).
+\item \textbf{The conditional scaling-closure theorem}
+  (\S\ref{sec:SC}, \S\ref{sec:scale}). The frontier cells
+  $(1K,T{-}3U)$ at $N=p^2$---beyond the reach of enumeration---are
+  attacked structurally: the fiber cascade of \S\ref{sec:higherrung}
+  reduces, exactly, to iterated dilate-intersections of census solution
+  sets (Lemma~\ref{lem:twofiber}), and the closure question becomes a
+  pool-versus-cut arithmetic. What is proved: the pool law, the spacing
+  lemma, the $k$-cancellation, the free reflection fiber
+  (Lemma~\ref{lem:reflect}), the chain-class dilate theorem
+  (Theorem~\ref{thm:chaindilate}), and the renormalization lemma
+  (Lemma~\ref{lem:renorm}). What is measured: the pool saturation at two
+  rungs (the $840$ identity is a $p=17$ accident, disclosed as such),
+  the zone-resolved cut quality, and the $T=8$ volume law with margin
+  growing in $k$. What remains is consolidated into \emph{one} named
+  conditional theorem (Theorem~\ref{thm:SC}) with a six-entry hypothesis
+  ledger, a free-parameter disclosure ($c_1$ data-bounded, $\Lambda_0\approx4$
+  data-chosen, $\gamma_0$ data-bounded, the fitted $R$ retired), and
+  sampled estimates carrying their intervals and \emph{projected} labels.
+  The two open obligations are reduced to named objects: the strand
+  census (for H1g) and the sharp pair-line constants (for H2m).
+  The boundary between those two lists has a structural type, and it
+  explains where the paper stops: every proved result in the
+  program---everything enumerated above and everything in the sections
+  that follow---is a closure, invariance, exhaustiveness, or
+  machine-verification statement, while every remaining obligation (the
+  H1g margin over the trivial bound, the volume law's growth in $k$, the
+  chain class's gap from measured to proved constants) is a uniform
+  growth-in-$k$ margin over a trivial or measured baseline. No turn of
+  the program has proved a statement of the second type; the audit of
+  \S\ref{sec:scale-status} verifies this statement-by-statement,
+  including the one candidate that reads like an exception, the cut
+  law's ``$k$-cancellation,'' which cancels the $k$-dependence---a
+  $k$-invariance, the exact opposite of a growth-in-$k$ margin. The
+  empirical half of the reading is thereby settled; the structural half
+  (that a classification toolkit cannot produce the missing type) is a
+  hypothesis about tool reach. If it is right, the reformulation cannot
+  close the conjecture in its current form: it closes the covering
+  obstruction exactly where classification suffices, and the residual is
+  a growth-in-$k$ margin of a type that has resisted every census-shaped
+  attack the program has tried---a structural gap, not a technical one.
+  The one margin-shaped candidate was then executed as a proof attempt
+  on the committed cells under a pre-committed success criterion
+  ($\rho\le 1-\epsilon$, $\epsilon$ independent of $k$), with the state
+  space and the whole-cascade comparison target fixed beforehand. It
+  closed by theorem for the lossless state space, not by measurement:
+  the constrained transfer
+  matrices of the lossless cascade are partial permutations
+(Lemma~\ref{lem:monomial}), every spectral quantity in the framework
+is exactly $0$ or $1$, the cyclic product is diagonal---its trace is
+the cascade's own survivor count---and the survival-fraction deficit
+the criterion demanded is, in this language, precisely the survivor
+inequality Hq and the volume law H1g restated. The instrument is the
+census in different notation; it consumes the hypotheses it was
+commissioned to prove. That is the mechanism behind the type mismatch:
+losslessness forbids generated decay, and the reformulation is bounded
+by its own fidelity. (The closure theorem covers automata built on the
+cascade's bijective drift---the lossless state space; instruments that
+do not inherit the drift are outside its scope, as
+\S\ref{sec:scale-status} records.)
+\item \textbf{Open problems, and the post-submission structural
+  additions} (\S\ref{sec:open}). The pair-selection law, the kernel world,
+  the composite micro-cases $49=7^2$, $77=7\cdot 11$, $91=7\cdot 13$,
+  rigid-zone termination, and whether the decay is fundamental. The
+  post-submission additions carry the composite side to its current
+  shape: the group-ring translation and the four-family census
+  (\S\ref{sec:groupring}), the $pq$ tensor side (\S\ref{sec:pq}), the
+  discharge of the foot-count input (\S\ref{sec:lemmaE}), and---new in
+  this revision---the higher rungs (\S\ref{sec:higherrung}): the
+  general-$T$ fiber machinery, the $T=8$-critical census with its eleven
+  $p$-independent families, the $T=7$ core--tail census, and the shear
+  step re-established against growing pinned sets, answering the paper's
+  third-rung question affirmatively for the census+shear method; and,
+  completing this revision, the scaling-closure record of
+  \S\ref{sec:scale}---the derivation, calibration, and epistemic status
+  behind Theorem~\ref{thm:SC}. The final revision records the disposition
+  of the third bridge of \S\ref{sec:open}: the zonotope--Ehrhart
+  instrument engaged as a full strand and closed by the same type
+  mismatch (stable arithmetic, false geometric reading), with the
+  negative half of the record---the falsified strengthenings, the exact
+  witnesses, and the certification ladder---published in the companion
+  paper \cite{companion-paper}.
+\end{enumerate}
+
+\subsection{What this paper does not claim}
+
+Because the subject is a famous open problem, the boundary of the claims
+is stated as carefully as the claims themselves. The paper does not solve,
+reduce, or weaken the Lonely Runner Conjecture; the equivalence of
+Corollary~\ref{cor:tau} is exact, so the full difficulty of
+$\mathrm{LRC}$-$_n$ is present in $(\mathrm{TAU}$-$_n)$. It proves no new
+cases of the conjecture at any $n$; the rung results of
+\cite{Rosenfeld8,Trakulthongchai,Sungkawichai,Allikvere} are untouched and
+unaffected. The rigid-zone map of \S\ref{sec:rigid} is an empirical
+finding about a verified range (primes $\le 150$, composites $\le 111$),
+not a theorem of finiteness; the successor conjecture
+(Conjecture~\ref{conj:successor}) is stated as a conjecture. The coverage
+measurements of \S\ref{sec:measure} are measurements; their scaling
+beyond the tested range is explicitly open. Finally, the analytic core of
+the equality theorem is folklore \cite{Tao-blog}; only the sharpening, the
+exact form, and everything built on them are claimed as new, and even
+there the correct prior, given how actively the spectrum line computes
+exact optima \cite{Cordella}, is that pieces of this may exist in another
+language somewhere in the literature we could not reach.
+
+One boundary statement is specific to the conditional theorem.
+Theorem~\ref{thm:SC} is exactly what its name says: its two substantive
+hypotheses (H1g and the H2 pair) are open, are not established anywhere
+in this paper, and no consequence that requires them is claimed
+unconditionally. If both close, the reformulation yields a uniform
+in-$T$ closure of the $p^2$ covering obstruction and hence, by the
+lossless equivalence, the conjecture at the covered rungs; if either
+fails, the reformulation's scope is precisely the bounded statement of
+Theorem~\ref{thm:SC}---a conditional theorem with named hypotheses, not
+a proof. The measured calibration ($T=8,9,10$ at $p\le73$; committed
+ground-truth cells at $p\le61$) is stated with its ranges and is not
+extrapolated beyond them except where explicitly labeled
+\emph{projected}.
+
+\subsection{Notation}
+
+Throughout, $n\ge 2$ is the number of speeds, $T=n+1$ is the loneliness
+target denominator, and $V$ has $\gcd(V)=1$ (dividing by the gcd does
+not change $M$). For a modulus $N$ we write $\wn{x}=\min(x\bmod N,\;
+N-(x\bmod N))$, $\ord_N(w)=N/\gcd(w,N)$ for the additive order of $w$
+in $\Z_N$, and $h=\floor{(N-1)/T}$ for the covering threshold index
+of \S\ref{sec:cover}. The letter $k$ always denotes a lattice time
+index. Computations are exact integer/rational arithmetic wherever a
+theorem or table entry asserts an exact value; the Wilson intervals,
+the fitted $\Lambda_0$, the projected pools of Table~\ref{tab:pool},
+and displayed asymptotics are statistical or asymptotic estimates and
+are labeled as such in the free-parameter disclosure. The verification
+record is the subject of \S\ref{sec:sound}.

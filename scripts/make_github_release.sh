@@ -16,7 +16,10 @@ cp $DL/lonely_runner_type_mismatch_paper.pdf                       $REL/papers/
 cp $DL/lonely_runner_pair_sum_lattices_conditional_theorem_paper.pdf $REL/papers/
 cp $DL/lonely_runner_type_mismatch_paper_v2.pdf                   $REL/papers/
 cp $DL/lonely_runner_pair_sum_lattices_conditional_theorem_paper_v2.pdf $REL/papers/
+cp $DL/lonely_runner_type_mismatch_paper_v3.pdf                   $REL/papers/
+cp $DL/lonely_runner_pair_sum_lattices_conditional_theorem_paper_v3.pdf $REL/papers/
 cp $DL/flagship_audit_adjudication.md                              $REL/papers/
+cp $DL/audit_adjudication_addendum_m10.md                           $REL/papers/
 cp $DL/companion_audit_adjudication.md                             $REL/papers/
 
 # Research notes (the 20 dated .md notes, not the README)
@@ -28,12 +31,16 @@ done
 # Flagship sources (v1 + v2)
 cp -r $DL/paper2_sources/. $REL/sources/flagship/
 cp -r $DL/paper2_sources_v2/. $REL/sources/flagship_v2/
+cp -r $DL/paper2_sources_v3/. $REL/sources/flagship_v3/
+cp $DL/paper2_sources_v3/merge_cover.py $REL/sources/flagship_v3/ 2>/dev/null || true
 cp $ROOT/scripts/paper2/merge_cover.py $REL/sources/flagship/ 2>/dev/null || true
 cp $ROOT/scripts/paper2_v2/merge_cover.py $REL/sources/flagship_v2/ 2>/dev/null || true
 
 # Companion sources (v1 + v2)
 cp -r $DL/paper_sources/. $REL/sources/companion/
 cp -r $DL/paper_sources_v2/. $REL/sources/companion_v2/
+cp -r $DL/paper_sources_v3/. $REL/sources/companion_v3/
+cp $DL/paper_sources_v3/merge_cover.py $REL/sources/companion_v3/ 2>/dev/null || true
 cp $ROOT/scripts/paper/merge_cover.py $REL/sources/companion/ 2>/dev/null || true
 cp $ROOT/scripts/paper_v2/merge_cover.py $REL/sources/companion_v2/ 2>/dev/null || true
 
