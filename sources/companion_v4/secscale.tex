@@ -1,0 +1,1244 @@
+% ======================================================================
+% Section — The scaling-closure lemma: derivation and calibration
+% ======================================================================
+
+\section{The scaling-closure lemma: derivation and calibration}\label{sec:scale}
+
+This section is the derivation record behind Theorem~\ref{thm:SC}. Its
+order is the order of the reduction: the cascade model and the
+dilate-intersection step (\S\ref{sec:scale-model}); the pool law, its
+saturation tables, and the status of the $840$ identity
+(\S\ref{sec:scale-pool}); the cut law---spacing, $k$-cancellation, and
+the conditional comparison that fixes the depth formula's two ends
+(\S\ref{sec:scale-cut}); the two-regime structure of the dilate cuts,
+with the reflection fiber and the chain class proved
+(\S\ref{sec:scale-h2}); the volume law at $T=8$ with its
+threshold form, the renormalization lemma, the character system, the
+reduction of the remaining obligation to the strand
+census, and the transfer-matrix session that closed the third route by
+theorem (\S\ref{sec:scale-h1}); and the epistemic status
+(\S\ref{sec:scale-status}). Throughout, a claim is labeled
+\emph{proved} (with its verification record), \emph{measured} (with its
+scope, sample size, and, where sampled, an interval), or \emph{fit}
+(with the data it is fit to); extrapolations beyond the tested range
+are labeled \emph{projected}; and no claim is made about the number of
+sessions or amount of work needed to close the open obligations.
+
+\subsection{The model: the cascade as a dilate-intersection}\label{sec:scale-model}
+
+Fix the rung $T\ge 8$, the prime $p=Tk+\epsilon$, and the composite
+modulus $N=p^2$. The frontier cell $(1K,mU)$, $m=T-3$, consists of the
+covering families with one kernel member and $m$ unit members; by
+Lemma~\ref{lem:rungT} the kernel covers the fibers of a kernel bad set
+$B_k$ of size $2k+1$, leaving $|U|=(T-2)k+\epsilon-1$ uncovered fibers
+$F_j\cong\Z_p$, and on each fiber the $m$ unit footprints are arithmetic
+progressions whose sizes lie in the two-value window and whose starts
+obey the drift law. In the census normal form---the normalizer arc
+pinned with difference $1$ at the origin, the remaining differences
+canonical in $[2,D]$, $D=(p-1)/2$---the placement on fiber $j$ is the
+relative-start tuple
+\[
+c(j)\;=\;c^0(j)-\mu\,j\;\in\;(\Z_p)^{m-1},
+\]
+where $c^0(j)$ is the residue-determined part (a function of the unit
+residues and the three-tier size assignment $\mathrm{sz}(j)$) and
+$\mu\in(\Z_p)^{m-1}$ is the free drift, one coordinate per moving arc,
+determined by the lifts. The fiber is covered if and only if
+$c(j)\in\mathrm{Sol}(\mathrm{sz}(j))$, the census solution set of the
+size tuple and the family's difference tuple; this is exactly the
+committed ground-truth check. The \emph{fiber cascade} processes the
+uncovered fibers one by one, retaining the anchor placements that
+survive each; the family dies when the survivor set empties, and the
+\emph{cascade depth} is the number of fibers needed.
+
+\begin{lemma}[two-fiber reduction]\label{lem:twofiber}
+Fix an anchor fiber $j_0\in U$ and an anchor solution
+$a\in\mathrm{Sol}(\mathrm{sz}(j_0))$. The anchor determines the drift,
+$\mu=(c^0(j_0)-a)\,j_0^{-1}$. For a second fiber $j$ with
+$\lambda:=j\,j_0^{-1}\bmod p$, the anchor solution $a$ survives fiber
+$j$ if and only if
+\[
+\lambda\,a+\tau\;\in\;\mathrm{Sol}(\mathrm{sz}(j)),
+\qquad
+\tau=c^0(j)-\lambda\,c^0(j_0)\;\in\;(\Z_p)^{m-1}.
+\]
+Hence the two-fiber candidate set is the dilate-intersection
+$\mathrm{Sol}_0\cap\lambda^{-1}(\mathrm{Sol}_j-\tau)$, and the cascade
+after $i$ processed fibers is the iterated intersection
+$\bigcap_{\ell\le i}\lambda_\ell^{-1}(\mathrm{Sol}_\ell-\tau_\ell)$.
+\end{lemma}
+
+\begin{proof}
+Substitute $\mu=(c^0(j_0)-a)\,j_0^{-1}$ into the covering condition
+$c^0(j)-\mu\,j\in\mathrm{Sol}(\mathrm{sz}(j))$ and rearrange; all maps
+are affine over $\Z_p$.
+\end{proof}
+
+The cascade step is thus exactly a \emph{dilate-intersection of census
+solution sets}: the covering constraints across fibers are affine
+conditions on the anchor placement, with dilation ratios
+$\lambda=j/j_0$ given by the fiber set. This is the precise form of the
+picture under which the anchored-core analysis was organized. Write
+$\bar\lambda=\min(\lambda,p-\lambda)$ for the cyclic representative.
+The dilate $\nu\mapsto\lambda\nu$ maps the junction range into itself
+strongly when $\lambda$ is a \emph{small rational}
+($\bar\lambda\le\Lambda_0$, or $\lambda\equiv a/b$ with $a,b\le O(L)$
+for the junction length $L$): these are the \emph{resonant} fibers,
+where the cut is weak. The remaining fibers impose genuine spacing
+(Lemma~\ref{lem:spacing}). At the committed zoo prime ($p=17$, $k=2$)
+the resonance zone $\bar\lambda\le 4$ covers half the dilations---the
+small-$p$ extreme; its fraction vanishes as $p$ grows. The per-pair
+\emph{cut quality} is measured by
+\[
+\gamma\;=\;\frac{\#\bigl(\mathrm{Sol}_0\cap\lambda^{-1}
+(\mathrm{Sol}_j-\tau)\bigr)}
+{|\mathrm{Sol}_0|\,|\mathrm{Sol}_j|\,/p^{m-1}},
+\]
+the survivor count against the random-placement baseline; $\gamma=0$ is
+an \emph{instant kill} (the actual intersection is smaller than the
+random model), $\gamma\approx 1$ is no cut at all, and $\gamma\gg 1$
+marks a resonant pair whose solution sets are too small for the random
+baseline to be meaningful.
+
+\subsection{The pool law}\label{sec:scale-pool}
+
+\begin{lemma}[pool law]\label{lem:pool}
+The family pool after the $\pm$-collision reduction is bounded by the
+distinct canonical difference tuples:
+\[
+P(T,p)\;\le\;(D-1)(D-2)\cdots\bigl(D-(T-4)\bigr)
+\;\le\;\bigl((p-1)/2\bigr)^{T-4},
+\qquad D=(p-1)/2,
+\]
+with difference count $T-4$ (the normalizer's difference is pinned to
+$1$).
+\end{lemma}
+
+\begin{proof}
+The census key of a $\pm$-distinct family is an ordered tuple of
+distinct canonical differences in $[2,D]\subset[1,D]$; the falling
+factorial counts them.
+\end{proof}
+
+The law that is \emph{not} a theorem is the saturation identity
+$P=(D-1)_{T-4}$. The committed zoo point ($T=8$, $(1K,5U)$, $p=17$,
+$k=2$) records exactly $840$ $\pm$-distinct families and
+$840=7\cdot6\cdot5\cdot4$---the bound saturated, every distinct tuple
+admitting a covering placement. Table~\ref{tab:pool} is the verdict at
+the demanded primes, and it is unambiguous: \emph{the identity is a
+local accident of the slackiest prime, and the pool law is
+rung-monotone}.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Pool saturation at the frontier cells. The $T=8$ rows are
+exhaustive censuses (two independent decision procedures, cross-checked
+against a third brute force; \S\ref{sec:scale-sound}). The $T=9$ rows
+are stride-sampled with full decisions per sampled tuple: saturation
+carries a $95\%$ Wilson interval with the stated $n$; the projected
+pools (bound $\times$ sampled fraction, one prime each) are
+\emph{projected}, not established.}
+\label{tab:pool}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r l r l l}
+\toprule
+rung & $p$ & $(k,\epsilon)$ & bound $(D-1)_{T-4}$ & admissible &
+saturation \\
+\midrule
+$T=8$ & $17$ & $(2,1)$ & $840$ & $840$ & $1.000$ \\
+$T=8$ & $19$ & $(2,3)$ & $1{,}680$ & $960$ & $0.571$ \\
+$T=8$ & $23$ & $(2,7)$ & $5{,}040$ & $1{,}800$ & $0.357$ \\
+$T=8$ & $29$ & $(3,5)$ & $17{,}160$ & $2{,}280$ & $0.133$ \\
+$T=8$ & $31$ & $(3,7)$ & $24{,}024$ & $360$ & $0.015$ \\
+\midrule
+$T=9$ & $29$ & $(3,2)$ & $154{,}440$ & --- &
+$0.903\ [0.889,0.915]$ \\
+$T=9$ & $31$ & $(3,4)$ & $240{,}240$ & --- &
+$0.490\ [0.468,0.511]$ \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+Three readings. \emph{First}, the saturation mechanism: a covering by
+arcs with pairwise-distinct differences must waste overlap---the chain
+mechanisms of the repeated-difference core all exploit pairing (the
+interval tiling needs $d=1$ twice, the parity mechanism needs
+$d=d'$, the antipodal needs the $q$-pairs), so saturation requires the
+overlap budget to absorb the \emph{distinctness penalty}. The
+budget-versus-penalty race is lost at $T=7$ (the distinct pool is empty
+for $k\ge 2$: the committed $18$-prime census records $24/24$ at $p=11$
+and $36/60$ at $p=13$ at $k=1$, and zero at every $k\ge2$ prime),
+marginal at $T=8$ (it holds only at $p=17$, the prime with the largest
+overlap window, $\mathrm{ov}\in[3,8]$; it collapses as the window
+tightens and as $k$ grows), and won with margin at $T\ge 9$ (at $T=9$
+the extra arc's budget $\mathrm{ov}\approx(T-6)k+O(1)$ covers the
+penalty for most tuples: $90.3\%$ at the slackier $\epsilon=2$ window,
+$49.0\%$ at the tighter $\epsilon=4$). \emph{Second}, the projected
+$T=9$ pools: $1.39\times10^5$ (interval $[1.37,1.41]\times10^5$) at
+$p=29$ and $1.18\times10^5$ ($[1.12,1.23]\times10^5$) at $p=31$---the
+measured $\sim\!10^5$ pool scale at $T=9$ is (approximately) the
+distinct-tuple pool, and the $T=10$ reading ($\sim\!10^8$ at $k\ge4$,
+the falling factorial times the anchor multiplicity) is consistent with
+the rung-monotone law; the $T=10$ saturation itself (predicted
+$\ge 0.9$ at the $40\%$ budget) is \emph{not measured}, and at
+$k\ge4$ the pools exceed the cascade's reach in any case.
+\emph{Third}, the set-form: admissibility is invariant under permuting
+the differences ($0$ order-conflicts over the $6{,}720$ checked tuples
+at $p=19$ and $p=23$, forced by the size-assignment symmetry of the
+census), so the pool is $\#\text{sets}\times(m-1)!$ with
+$\#\text{sets}\le\binom{D-1}{m-1}$, and the saturation statement
+becomes ``all $\binom{D-1}{m-1}$ sets admissible''---true only at the
+slackiest (rung, prime) pairs, asymptotically in $T$. The absolute
+admissible count at $T=8$ grows across the table
+($840\to960\to1{,}800\to2{,}280$) but collapses at $p=31$ ($360$): the
+pool is real but $\epsilon$-modulated, never a smooth polynomial in
+$p$.
+
+\subsection{The cut law: spacing, \texorpdfstring{$k$}{k}-cancellation, and the comparison}\label{sec:scale-cut}
+
+\begin{lemma}[dilate-count spacing bound]\label{lem:spacing}
+Let $p$ be prime, $\lambda\in\Z_p^*$, $0\le L<p$, $t\in\Z_p$. Then
+\[
+N(\lambda,t)\;:=\;\#\{\nu\in\{0,\dots,L\}:
+(\lambda\nu+t\bmod p)\in\{0,\dots,L\}\;\}
+\;\le\;\lfloor L/b_{\min}\rfloor+1,
+\]
+where $b_{\min}(\lambda,L):=\min\{b\ge 1:\ \|\lambda b\|_p\le L\}$ is
+the first return of the $\lambda$-walk to the $L$-ball ($b_{\min}=L+1$
+if no such $b\le L$ exists, giving $N\le 1$).
+\end{lemma}
+
+\begin{proof}
+Let $\nu_1<\nu_2$ be two solutions. Then
+$\delta=\nu_2-\nu_1\in[1,L]$ satisfies
+$\lambda\delta\equiv(\lambda\nu_2+t)-(\lambda\nu_1+t)$ with both
+right-hand residues in $[0,L]$, so $\|\lambda\delta\|_p\le L$; hence
+$\delta\ge b_{\min}$. The solutions are therefore $b_{\min}$-separated
+in $\nu$, and at most $\lfloor L/b_{\min}\rfloor+1$ of them fit in
+$[0,L]$.
+\end{proof}
+
+The corollary is the resonant/non-resonant split. The survival fraction
+per coordinate is
+$\sigma(\lambda):=\max_t N(\lambda,t)/(L+1)\le 1/b_{\min}+1/(L+1)$:
+for an integer dilate $\bar\lambda\in[2,L]$ one has $b_{\min}=1$ and
+$N\approx(L+1)/\bar\lambda$, so the cut is weak for $\bar\lambda\le 2$
+and real for $\bar\lambda\ge 3$; for a small rational
+$\lambda\equiv a/b$ with $a,b\le O(L)$ one has $b_{\min}\le b$ and the
+cut degrades by the resonance factor, the number of such dilations among
+the fibers being $\le\sum_{b\le B}(2L+1)$ for strength $B$---the
+resonance budget; and otherwise (no good small-rational representative
+---the bulk of the fibers at large $p$) $b_{\min}\gtrsim p/(2L+1)$, so
+$\sigma(\lambda)\lesssim(2L+1)/p+1/(L+1)$, and with $L=Rk$, $p=Tk$:
+$\sigma\lesssim 2R/T$. One regime caveat must be recorded: the box form
+requires $L=Rk<p/2$, i.e.\ $R<T/2$---true for the thin majority of zoo
+families ($R\approx4.8$ at $T=8$) but \emph{false} for the fat top
+families ($R$ up to $\approx10.5$, $k$-free). For those, the cut is
+carried not by the spacing lemma but by the solution sets' own sparsity
+(their volume is far below $p^{m-1}$; the measured instant kills),
+which is exactly H2m's content.
+
+\begin{proposition}[$k$-cancellation]\label{prop:kcanc}
+Assume the volume law in either proved or hypothesized form---for the
+chain class, $|\mathrm{Sol}|\approx\mathrm{ov}^{\,m-1}$ with
+$\mathrm{ov}\approx(T-6)k$ (Lemma~\ref{lem:chainbox}); for general
+families under H1g, $|\mathrm{Sol}|\le c_1\,\mathrm{ov}^{\,m-1}$. Then
+the per-fiber cut ratio at the frontier cell is $k$-free:
+\[
+\mathrm{cut}\;\approx\;\frac{p^{m-1}}{|\mathrm{Sol}|}
+\;\gtrsim\;\Bigl(\frac{T}{T-6}\bigr)^{m-1}\big/\bigl(\text{order and
+tie factors}\bigr).
+\]
+\end{proposition}
+
+\begin{proof}
+The junction volume and the modulus scale together:
+$p^{m-1}=(Tk)^{m-1}$ against $|\mathrm{Sol}|\approx((T-6)k)^{m-1}$,
+so the $k^{m-1}$ in the denominator cancels the $k^{m-1}$ in the
+numerator and the ratio is a function of $T$ alone, up to the order
+factors (the $(m-1)!$ orders and the tie bookkeeping), which are
+$k$-free by the census rigidity.
+\end{proof}
+
+The earlier form of this proposition was stated with a fitted junction
+scale $R$ ($|\mathrm{Sol}|\le(Rk)^{m-2}$, $R\approx4.2$); the chain-class
+analysis of \S\ref{sec:scale-h2} falsified that exponent for the
+dominant family (the correct chain exponent is $m-1$, not $m-2$) and
+\emph{derived} the volume constant from the overlap budget $T-6$. The
+fitted $R$ is retired; under H1g the thin families' constant is $c_1$,
+bounded by data. Either form leaves the cut $k$-free---the cancellation
+is robust to the correction.
+
+\begin{proposition}[comparison; the independent-extension model,
+evaluated under the calibrated constants]
+\label{prop:depth}
+\emph{Model statement, not a cascade theorem}: in the
+independent-extension composition---the idealization in which the
+per-fiber cuts act on independent copies rather than on the actual
+history-dependent survivor sets---the candidate count after $i$
+processed fibers is
+$C_i\approx\bar\gamma^{\,i}\,|\mathrm{Sol}|^{i+1}/p^{(m-1)i}$. The
+actual-cascade statement is Theorem~\ref{thm:SC}'s clause (i) with
+Proposition~\ref{prop:Hq}'s induction, conditional on the quantified
+ledger; the model below is its calibration. In the model, the family
+dies within
+\[
+D\;\le\;\frac{\log\!\bigl(c_1\,\mathrm{ov}^{\,m-1}\bigr)}
+{(m-1)\log\!\bigl(T/(T-6)\bigr)-\log c_1}
+\;+\;N_{\mathrm{res}}\;+\;O(1)
+\]
+fibers, $N_{\mathrm{res}}=1+2\Lambda_0(T-2)/T$. Consequently:
+\emph{(a)} (never super-linear) $D\le(T-4)+N_{\mathrm{res}}+O(1)\le
+T+3$---the linear law with slope $1$ is the worst case;
+\emph{(b)} ($T$-flat at practical $k$) the pool-route term stays in
+$[1.1,2.9]$ for $k\le10$, $8\le T\le20$, so the typical depth is
+$\approx 2$--$3$ plus the tail, $\approx 9$--$12$;
+\emph{(c)} ($k$-logarithmic at fixed $T$) the leading term approaches
+$T-4$ only at $k\gtrsim(T/(T-6))^{T-4}$---beyond any prime where the
+cascade runs;
+\emph{(d)} (closure margin) the worst case $(T-4)+N_{\mathrm{res}}<
+|U|=(T-2)k$ for every $T\ge 8$, $k\ge2$ (at $k=2$: $T+3<2T-4\iff
+T>7$), with margin growing linearly in $k$; the $\gamma$-tolerance for
+closure is $\bar\gamma$ up to $\sim Tk\,(T/(T-6))^{T-4}$, against a
+measured effective $\bar\gamma\le\sim\!10$ at the committed cells.
+\end{proposition}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{The depth calibration at the three rungs. Measured: the
+committed cascade record (maxima over $k\le9/8/3$; medians $2/3/5$).
+Formula: Proposition~\ref{prop:depth} evaluated with derived constants
+($c_1=1$, $\Lambda_0=4$) at the top-of-window overlap; the window
+shifts the leading term by $\pm1.5$ at $T=8$. Worst case: the
+$(T-4)+N_{\mathrm{res}}$ bound. The $T=9$ excess ($11$ measured against
+$9.2$) is within the $\gamma$-tolerance and is localized to
+$\bar\gamma(T)$ or the near-tiling contamination of the $T=10$ median
+($5$ against $2.7$--$4.7$)---decidable only by H2m, not by further
+measurement.}
+\label{tab:depthcal}
+\begin{tabular*}{0.9\textwidth}{@{\extracolsep{\fill}} r r r r r}
+\toprule
+$T$ & $k$ & measured max & formula & worst case \\
+\midrule
+$8$ & $2$ & $9$ & $8.5$ & $\le 11$ \\
+$9$ & $3$ & $11$ & $9.2$ & $\le 12.2$ \\
+$10$ & $3$ & $10$ & $10.1$ & $\le 13.4$ \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+The calibration carries its provenance explicitly: the per-fiber cut
+ratios ($\approx120/960/2{,}160$), the medians, and the maxima of
+Table~\ref{tab:depthcal} are the program's three-rung cascade record
+from the $T=8/9/10$ measurement runs; those runs predate the present
+artifact bundle, whose committed cascade scripts cover the committed
+cells only (depths median $2$, maximum $4$; \S\ref{sec:scale-sound}).
+The three-rung record is therefore \emph{calibration}, not proof input,
+and the derivation of the model rests on the committed machinery
+(Lemmas~\ref{lem:twofiber} and \ref{lem:rungT}) alone. Three rungs
+cannot distinguish a real growth of $\bar\gamma(T)$ from the
+measurement contamination already flagged at $T=10$; what the mechanism
+adds is the \emph{localization}---the growth, if real, lives in
+$\bar\gamma$ (the equidistribution quality of the junction draws across
+fiber dilations) or in the junction fatness, not in the
+pool-versus-cut race, whose terms are pinned by
+Lemmas~\ref{lem:pool}--\ref{prop:kcanc}.
+
+\subsection{The two-regime structure: the measured \texorpdfstring{$\gamma$}{gamma}, the reflection fiber, and the chain class}\label{sec:scale-h2}
+
+The zone-resolved measurement of the cut quality $\gamma$ over the
+committed cells ($764$ admissible fiber pairs; five cells; canonical
+signs; the identical seed reproducing the zoo random-$40$) splits into
+two regimes, and the split is sharp at every cell.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Zone-resolved cut quality $\gamma$ (survivors against the
+random baseline) over the committed cells: pair counts, median, and
+maximum per zone. Mid zone: $\bar\lambda>4$ and $\bar\lambda<p-4$;
+small zone: $\bar\lambda\le 4$. The tail (up to $2.09\times10^4$)
+lives entirely in the small zone; its dominant component at
+$T=8$-critical is the $\lambda=-1$ reflection fiber of
+Lemma~\ref{lem:reflect} (survival fraction exactly $1$).}
+\label{tab:gamma}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r r r r r r}
+\toprule
+& \multicolumn{3}{c}{mid zone ($\bar\lambda>4$)}
+& \multicolumn{3}{c}{small zone ($\bar\lambda\le4$)} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+cell & $n$ & median & max & $n$ & median & max \\
+\midrule
+$T=7$, $p=17$, top-$10$ & $40$ & $0.0$ & $0.0$ & $68$ & $0.0$ & $204.7$ \\
+$T=7$, $p=29$, top-$10$ & $120$ & $0.0$ & $40.6$ & $70$ & $0.0$ & $508.1$ \\
+$T=8$-crit., $p=17$, top-$10$ & $4$ & $0.0$ & $0.0$ & $11$ & $409.4$ & $818.8$ \\
+$T=8$ zoo, $p=17$, top-$10$ & $40$ & $0.0$ & $10.7$ & $70$ & $0.0$ & $193.3$ \\
+$T=8$ zoo, $p=17$, random-$40$ & $128$ & $0.0$ & $17.6$ & $213$ & $0.0$ & $2.09{\times}10^4$ \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+The reading is threefold. \emph{(i)} The non-resonant zone satisfies
+H2m with enormous margin: the median pair is an instant kill---the
+actual intersection is \emph{smaller} than the random model, which is
+the lattice sparsity---and the worst mid-zone excess over all five
+cells is $\gamma=40.6$ (a single pair at $T=7$, $p=29$); a uniform
+$\gamma_0\approx40$ covers every committed mid-zone pair, with
+$90$th percentiles in $14$--$422$. \emph{(ii)} The $\gamma$ tail is
+entirely a $\bar\lambda\le4$ phenomenon. \emph{(iii)} The tail's
+dominant component is proved structure, not noise: at $T=8$-critical
+every small-zone $\gamma\in[205,819]$ is a $\lambda=-1$ fiber with
+survival fraction exactly $1$ (the random baseline is tiny because the
+solution sets there are nearly rigid), and the extreme zoo values
+($\le2.09\times10^4$) occur at pairs with
+$|\mathrm{Sol}_j|\le4$---nearly-rigid size tuples where one or two
+survivors outweigh a minuscule baseline. Cascade depths re-confirmed on
+the same scope: medians $2$ everywhere, maximum $4$ (zoo random-$40$).
+
+\begin{lemma}[the free reflection fiber]\label{lem:reflect}
+The map $x\mapsto-x$ on $\Z_{p^2}$ preserves every bad set
+$B_w=\{x:\wn{wx}\le c\}$ and maps the fiber $F_j$ onto $F_{p-j}$. Hence,
+for every unit system, the covering condition at fiber $j$ is
+equivalent to the reflected covering condition at fiber $p-j$; in
+particular, for every anchor solution $a\in\mathrm{Sol}_0$ with drift
+$\mu$, the reflected placement covers fiber $-j_0$ with the same drift:
+the fiber with dilation $\lambda\equiv-1$ has survival fraction exactly
+$1$ and is never a cut.
+\end{lemma}
+
+\begin{proof}
+$\wn{w(-x)}=\wn{wx}$, so $B_w=-B_w$. For $x=j+pt\in F_j$,
+$-x\equiv(p-j)+p(p-1-t)\in F_{p-j}$: the involution
+$t\mapsto p-1-t$ carries the footprint $B_u\cap F_j$ onto
+$B_u\cap F_{p-j}$. Reflections carry arcs to arcs (an AP with canonical
+difference $d$ reflects to an AP with the same canonical difference),
+sizes transfer (the three-tier arc law is even in $a_0$), and the whole
+fiber covering reflects to a fiber covering; the anchor's drift is a
+property of the composite configuration, which reflects with it.
+\end{proof}
+
+Measured confirmation: survival fraction exactly $1$ at
+$\bar\lambda=1$ in \emph{every} family at \emph{every} committed cell
+($840/840$ for the zoo chain family $(1,1,1,1)$; $6/6$, $12/12$,
+$24/24$ at $T=8$-critical). The resonance budget H2r is then derived
+modulo the one fitted constant: the free fiber contributes the $1$, the
+$\bar\lambda\le\Lambda_0$ dilations among the fiber set contribute
+$\le 2\Lambda_0|U|/(p-1)\approx2\Lambda_0(T-2)/T$, and $\Lambda_0\approx4$
+is where the measured cuts turn on---data-chosen, and disclosed as
+such.
+
+The case class whose structure is exactly known is the all-interval
+chain family $(1,\dots,1)$---the number-one zoo family by placement
+mass, with $123{,}240$ solutions at $p=17$ over all $32$ size tuples.
+For it, the dilate-sparsity reduces to lattice-box counting between
+junction boxes, with the load-bearing invariant the overlap-sum
+identity.
+
+\begin{lemma}[overlap-sum identity]\label{lem:overlapsum}
+For the all-interval family and any size tuple $s$ with
+$\Sigma s=p+\mathrm{ov}$: every covering placement, written in its
+sorted cyclic order $\sigma$, has the overlap vector
+$o_i=s_{\sigma(i)}-(a_{\sigma(i+1)}-a_{\sigma(i)})$ with
+$\sum_i o_i=\mathrm{ov}$ exactly, $o_i\le s_{\sigma(i)}$, and every
+inter-start gap $\le s_{\max}$ (the reach bound: the point before the
+next start is covered by some arc starting at or before the current
+one, whose reach is $\le s_{\max}$ past it).
+\end{lemma}
+
+\begin{lemma}[chain-box parameterization]\label{lem:chainbox}
+$\mathrm{Sol}(s)$ is contained in the union over the $(m-1)!$ cyclic
+orders $\sigma$ of the affine-unimodular images of the boxes
+$\{o\in\Z^m:\ \sum o=\mathrm{ov},\ s_{\sigma(i)}-s_{\max}\le o_i\le
+s_{\sigma(i)}\}$; on the $o\ge0$ stratum the parameterization is exact
+up to start ties, with count
+$\sum_\sigma\#\{o\ge0:\ \sum o=\mathrm{ov},\ o_i\le s_{\sigma(i)}\}$.
+Consequently $|\mathrm{Sol}|\approx\mathrm{ov}^{\,m-1}$---the volume
+law with exponent $m-1=T-4$ and constant derived from the overlap
+budget, $\mathrm{ov}\approx(T-6)k$.
+\end{lemma}
+
+Both lemmas are machine-checked on the full solution set: $0$
+violations of either bound in all $123{,}240$ solutions; the pure-chain
+($o\ge0$) stratum is $120{,}960$ of them ($98.2\%$), the nested excess
+$2{,}280$ ($1.8\%$); the count $131{,}520$ of (order, $o$) pairs
+against $123{,}240$ placements is the tie/degenerate factor; the top
+size tuple $(5,5,5,5,5)$ gives $10{,}080$ pairs against the committed
+maximum $8{,}880$.
+
+\begin{theorem}[chain-class dilate reduction]\label{thm:chaindilate}
+For the all-interval family, the two-fiber survivor set at dilation
+$\lambda$ is contained in
+\[
+\bigcup_{\sigma,\sigma'}\bigl\{o\in\mathrm{Box}_\sigma:\;
+\lambda\,\tilde U_{\sigma,\sigma'}\,o+\tilde v\in
+\mathrm{Box}'_{\sigma'}\pmod p\bigr\},
+\]
+where $\tilde U=A_{\sigma'}^{-1}A_\sigma$ is integer-unimodular
+($A_\sigma$ the lower-triangular chain matrix) and the boxes have
+sides $\le 2s_{\max}$. Substituting $u=\tilde Uo$ (whose box has sides
+$\le 2m\,s_{\max}$), each term is bounded by
+Lemma~\ref{lem:spacing} applied per coordinate:
+\[
+\mathrm{survivors}(\lambda)\;\le\;(m!)^2
+\Bigl(1+\frac{4m\,s_{\max}+1}{b_{\min}(\lambda,\,2s_{\max})}\bigr)^{m}.
+\]
+Consequently the chain-class per-fiber cut is $k$-free and polynomial
+in $b_{\min}$: it exceeds any fixed $\gamma$ once
+$b_{\min}(\lambda,2s_{\max})\ge B(T)$, and the fibers failing this are
+$\le B(4s_{\max}+1)$ in number---a vanishing fraction of $U$ as $k$
+grows. Pulling the $\sigma'$-sum condition back through the dilation
+gives one affine congruence
+$\lambda\,(w^\top_{\sigma,\sigma'}o)\equiv c(\sigma,\sigma')$ per
+order pair; for matched sizes it degenerates to the $o$-independent
+congruence $\lambda\,\mathrm{ov}\equiv c$---either every anchor
+candidate satisfies it or none does: the instant-kill dichotomy,
+measured at $\bar\lambda\in\{2,4\}$ (survival $0$) against the partial
+resonance at $\bar\lambda=3$ (survival $120/840$) in the zoo chain pair
+data.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1} (the parameterization): with $a_1=0$ the sorted cyclic
+order $\sigma$ of the starts has $\sigma(1)=1$; the gaps
+$g_t=x_{t+1}-x_t$ partition $[0,p)$, so $\sum g_t=p$ and the overlap
+vector $o_t=s_{\sigma(t)}-g_t$ sums to $\mathrm{ov}$
+(Lemma~\ref{lem:overlapsum}). For the reach bound: the point
+$y=x_{t+1}-1$ is covered by some arc $[x_i,x_i+s_i)$ with
+$x_i\le x_t$ (no start lies in $(x_t,x_{t+1})$), whence
+$x_{t+1}\le x_i+s_i\le x_t+s_{\max}$. Conversely, given $(\sigma,o)$ in
+the box with $\sum o=\mathrm{ov}$, the chain recursion
+$x_{t+1}=x_t+s_{\sigma(t)}-o_t$ from $x_1=0$ reconstructs the starts
+by a lower-triangular integer map $A_\sigma$ with determinant $\pm1$.
+\emph{Step 2} (the dilate pullback): a surviving pair
+$(a,a')$ with $a\in\mathrm{Sol}_0(s)$ and
+$a'=\lambda a+\tau\in\mathrm{Sol}_j(s')$ writes
+$a=A_\sigma o+b_\sigma$ and $a'=A_{\sigma'}o'+b_{\sigma'}$, so
+$o'=\lambda\tilde U o+\tilde v$ with $\tilde U=A_{\sigma'}^{-1}A_\sigma
+\in\mathrm{GL}_m(\Z)$.
+\emph{Step 3} (the box count): the substitution $u=\tilde Uo$ is a
+bijection of $\Z^m$ carrying the coordinate box (sides $\le s_{\max}$)
+into the box of sides $\le 2m\,s_{\max}$; dropping the sum-slice
+(enlarging), the count factors per coordinate and each factor obeys
+Lemma~\ref{lem:spacing}: $\le|I''|/b_{\min}(\lambda,s'_{\max})+1$.
+Multiplying over the $m$ coordinates and the $((m-1)!)^2$ order pairs
+gives the displayed bound.
+\emph{Step 4} (the sum congruence): for actual solutions
+Lemma~\ref{lem:overlapsum} gives $\sum o'=\mathrm{ov}'$ as integers;
+pulling through the affine expression,
+$\lambda\,(w^\top o)\equiv\mathrm{ov}'-1^\top\tilde v\pmod p$ with
+$w=\tilde U^\top 1$, a necessary congruence per order pair;
+$o$-independent for matched sizes.
+\end{proof}
+
+What the theorem does and does not give. It gives the exact structural
+account of the measured H2 phenomenology for the dominant family: the
+instant kills (the sum-congruence failure), the confinement of the
+resonance to small $\bar\lambda$ (the $b_{\min}$ regime), the
+$k$-freeness of the cut, and the volume law that fixes the depth
+formula's leading constant. It does \emph{not} give the sharp uniform
+$\gamma_0=O(1)$ with clean constants---the order factors
+($(m!)^2$, $4m\,s_{\max}$) are loose by orders of magnitude at $T=8$,
+where the measured mid-zone cut is an instant kill and the bound gives
+$\approx1$; the route to sharpness is to count \emph{on the slice}
+(keep $\sum o=\mathrm{ov}$ in the lattice count---it is load-bearing;
+dropping it is what costs the constants), a geometry-of-numbers lemma
+in the genre of successive minima. And it does not cover the
+distinct-difference families, whose junction structure is not a chain:
+that is H1g, the subject of the next subsection.
+
+\subsection{The volume law at \texorpdfstring{$T=8$}{T=8}: the census, renormalization, and the strand census}\label{sec:scale-h1}
+
+H1g is the volume law with uniform margin,
+$|\mathrm{Sol}(f,\mathrm{sz})|\le c_1\,\mathrm{ov}^{\,m-1}$ for the
+$\pm$-distinct families, with $c_1\le\bigl(T/(T-6)\bigr)^{m-1}e^{-\eta}$
+for an $\eta>0$ uniform in $(T,k,f,\mathrm{sz})$---the margin clause
+that keeps Proposition~\ref{prop:Hq}'s denominator positive. The
+bare-$c_1$ form below is the measured content; the margin clause is
+the open content. It was attacked at the smallest rung where the
+pattern is visible, $T=8$, by full census where the cell admits it:
+$p=17$ ($k=2$, $\epsilon=1$; all $840$ families, all $32$ size tuples,
+$\mathrm{ov}\in[3,8]$; per-family totals median $2{,}981$, $90$th
+percentile $9{,}633$; per-(family, size) maximum $876$ at
+$(5,5,5,5,5)$, $\mathrm{ov}=8$); $p=19$ ($k=2$, $\epsilon=3$; all
+$1{,}680$ families; admissible $960$, exactly the pool saturation of
+Table~\ref{tab:pool} reproduced by an independent code path; totals
+median $102$, $90$th percentile $645$, maximum $801$; per-size maximum
+$108$ at $\mathrm{ov}=6$); and $p=29$ ($k=3$, $\epsilon=5$;
+\emph{targeted}: every cascade-containing set, the doubling-path
+quadruples, the anchors, and a $120$-set random sample---$138$ of the
+$715$ difference sets, $710$ families of the $17{,}160$ total, a scope
+disclosed and not claimed beyond; $20/138$ sets admissible, consistent
+with the full-scope $0.133$; per-size maximum $186$ at
+$(8,8,8,8,8)$, $\mathrm{ov}=11$). Every decision procedure was
+validated against an independent direct brute force (plain $p^4$
+enumeration, no cascade, no pruning) before any number was cited:
+$9/9$ keys match exactly across the three primes, including the chain
+controls $8{,}880/4{,}680/29{,}760$ and zero keys.
+
+\begin{lemma}[renormalization invariance]\label{lem:renorm}
+Let $D=\{1\}\cup S$ be the difference multiset of a census family ($S$
+a $\pm$-distinct $(m-1)$-set), and for $\delta\in D$ let
+$\mathrm{renorm}_\delta(S)=\{\mathrm{canon}(d\,\delta^{-1}\bmod p):
+d\in D,\ d\ne\delta\}$, $\mathrm{canon}(x)=\min(x,p-x)$. Then the total
+covering count summed over all size assignments is equal for $S$ and
+$\mathrm{renorm}_\delta(S)$:
+$\sum_{\mathrm{sz}}|\mathrm{Sol}(S,\mathrm{sz})|
+=\sum_{\mathrm{sz}}|\mathrm{Sol}(\mathrm{renorm}_\delta(S),
+\mathrm{sz})|$.
+\end{lemma}
+
+\begin{proof}
+The covering condition is invariant under the global dilation
+$\varphi(x)=\delta^{-1}x$ of $\Z_p$ (a bijection carrying an arc
+$a+d\,[0,s)$ onto the arc $\delta^{-1}a+(d\,\delta^{-1})[0,s)$). Apply
+$\varphi$ to a covering placement of the family $S$ with size
+assignment $(s_d)_{d\in D}$: the image is a covering placement of the
+family with difference multiset $\delta^{-1}D$, in which the arc that
+had difference $\delta$ now has difference $1$---it is the normalizer
+of the transformed system. Re-anchor at that arc's start (covering is
+translation-invariant) and canonicalize each difference
+$d\mapsto\mathrm{canon}(d)$ (an arc with difference $-d'$ is the
+reflection, $x\mapsto-x$ composed with a translation, of an arc with
+difference $d'$; reflections preserve coverings). The result is a
+census-normal-form covering placement of
+$\mathrm{renorm}_\delta(S)$ with the sizes carried along. Summing over
+all size tuples removes the bookkeeping dependence on which arc
+received which size (the admissible size-tuple set is
+permutation-closed), and the map is a bijection at each size
+assignment.
+\end{proof}
+
+Verified exactly: at $p=17$ the $35$ difference sets partition into
+$7$ renormalization orbits (each of size $5$, one per choice of
+$\delta\in D$), and the $7$ volume classes are precisely these orbits;
+at $p=19$ the $70$ sets form $14$ orbits ($8$ positive, $6$ zero), and
+the $9$ volume classes are exactly the unions of orbits. The volume is
+therefore a function of the dilation class of the difference multiset
+alone---not of the family key. This cuts the family space $5$-to-$1$
+in general and identifies the correct equivalence for any future
+classification: at $T=8$ the census object is not the
+$\binom{D-2}{m-1}$ sets but their renormalization orbits. It is a
+dilation-invariance statement in the spirit of the class reduction at
+prime moduli (Lemma~\ref{lem:class}) and the census law of
+Conjecture~\ref{conj:SL}: it identifies the equivalence; it does not
+count. For the cascade the consequence is load-bearing: the two-fiber
+cut at dilation $\lambda$ compares $\mathrm{Sol}_0$ with a dilate of
+$\mathrm{Sol}_j$, and Lemma~\ref{lem:renorm} says the volumes involved
+are dilation-class invariants---the cut law's input volumes are orbit
+functions, and H1g needs constants uniform over orbits, not over keys.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{The volume law at $T=8$: the worst $\pm$-distinct
+renormalization orbit against the chain benchmark, at the top size
+tuple. Normalized: the maximum divided by $\mathrm{ov}^4$. The uniform
+bound $|\mathrm{Sol}|\le\mathrm{ov}^4$ (that is, $c_1=1$) holds at
+every census prime with margin $4.7\times/12\times/79\times$,
+\emph{growing in $k$}; the distinct class sits
+$10\times/43\times/160\times$ below the chain class at equal
+$\mathrm{ov}$. The $p=29$ top orbit is identified within the targeted
+scope; a family outside it would have to exceed $\mathrm{ov}^4$
+outright to change the law's direction, and the admissibility collapse
+argues against it.}
+\label{tab:volume}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r l r r r r}
+\toprule
+$p$ & top distinct orbit & max @ $\mathrm{ov}$ & normalized &
+chain @ tuple & ratio \\
+\midrule
+$17$ & $\{1,2,3,4,8\}$ & $876$ @ $8$ & $0.214$ & $8{,}880$ & $0.099$ \\
+$19$ & $\{1,2,4,5,8\}$ & $108$ @ $6$ & $0.083$ & $4{,}680$ & $0.023$ \\
+$29$ & $\{1,2,4,7,8\}$ & $186$ @ $11$ & $0.013$ & $29{,}760$ & $0.0063$ \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+The reading of Table~\ref{tab:volume} is fourfold. \emph{(i)} The
+uniform bound with $c_1=1$ holds at every measured prime, with margin
+growing in $k$ (and tightening with the $\epsilon$ window at fixed
+$k$). \emph{(ii)} The distinct class is uniformly \emph{thinner} than
+the chain class at equal $\mathrm{ov}$, by a factor growing from
+$10\times$ to $160\times$. \emph{(iii)} The direction of risk for H1g
+is therefore not a fat counterexample family but proof coverage---the
+opposite of an obstruction. \emph{(iv)} The honest caveats: three
+primes, two $k$-values, both $\epsilon$ classes at $k=2$ but only one
+at $k=3$; the $p=29$ top orbit rests on the targeted scope; the
+measurements fix the law's direction and margin, not its proof.
+
+\begin{proposition}[the threshold form of H1g]\label{prop:threshold}
+The per-coordinate bound $|\mathrm{Sol}(f,\mathrm{sz})|\le p^{\,m-1}$
+is trivial at every cell of the measured family (the
+moving-start space is $\Z_p^{\,m-1}$), and $p/\mathrm{ov}\to T/(T-6)$
+because $\mathrm{ov}=(T-6)k+O(1)$ against $p=Tk+\epsilon$, so the
+trivial bound realizes
+\[
+c_1^{\mathrm{triv}}=\bigl(T/(T-6)+o(1)\bigr)^{\,m-1}
+\]
+in the normalization of the volume law---exactly the value at which
+the depth denominator $(m-1)\log\bigl(T/(T-6)\bigr)-\log c_1$ of
+Theorem~\ref{thm:SC} vanishes. At $m-1=T-4$ the threshold is $256$,
+$243$, $244.1$ at $T=8/9/10$: near-constant across rungs, so neither
+the cascade's task nor the volume law's softens at higher $T$.
+\end{proposition}
+
+\begin{proof}
+The first inequality is the per-coordinate count: a solution is a
+choice of the $m-1$ moving starts, each in $\Z_p$. The second is the
+size window of Lemma~\ref{lem:rungT}: the $m=T-3$ arcs of the
+two-value window give $\mathrm{ov}=\Sigma s-p=(T-6)k+O(1)$ against
+$p=Tk+\epsilon$. Dividing,
+$|\mathrm{Sol}|\le(p/\mathrm{ov})^{\,m-1}\mathrm{ov}^{\,m-1}$, which is
+the volume law with $c_1=(p/\mathrm{ov})^{\,m-1}$; substituting this
+$c_1$ in the depth formula of Theorem~\ref{thm:SC} zeroes its
+denominator, so the trivial bound purchases no cascade depth at all.
+\end{proof}
+
+The threshold form restates what H1g must purchase: not the free
+bound $|\mathrm{Sol}|\le p^{\,m-1}$ but the \emph{margin} over it,
+growing in $k$. Measured, the margins below the trivial box are
+$95\times/1{,}207\times/3{,}803\times$ at $p=17/19/29$ (top distinct
+family at its top size tuple: $17^{4}/876$, $19^{4}/108$,
+$29^{4}/186$---the maxima of Table~\ref{tab:volume}); the committed
+margins over $\mathrm{ov}^{4}$ ($4.7\times/12\times/79\times$) are
+the same fact in volume-law units. The form also unifies the program's
+constant-quality obligations under one numerical criterion: every
+volume constant must beat $\bigl(T/(T-6)\bigr)^{\,T-4}\approx250$.
+Every measured constant clears it---the chain class's
+$2.0$--$3.6$ by roughly two orders of magnitude, the distinct class by
+the factors above---and no proved constant yet does (the chain
+constants of Theorem~\ref{thm:chaindilate} are loose by orders of
+magnitude). The sharp-constants question of \S\ref{sec:scale-h2} and
+H1g are one criterion stated twice.
+
+The mechanism of the top class was probed on the full solution sets.
+Every solution needs all five arcs (essential-arc pattern
+$(1,1,1,1,1)$ in $876/876$): no spectator redundancy. The
+overlap-budget identity
+$\sum_{i<j}O_{ij}=\mathrm{ov}+\sum_x\binom{o(x)}{2}$ holds exactly
+($0$ violations), with pairwise overlaps small (mean $0.5$--$1.5$,
+maximum $2$--$3$) and under the spacing caps with room: no pair
+carries the covering; the arrangement is collective. Coordinate
+projections of the solution set at the probed families sit far from
+full ($[16,17,14,12]$ for the top family; $[9,9,7,8]$ for the minimum
+class)---per-family statistics that initially read as a $T=7$-style
+pinning law persisting at the zoo cell; the exhaustive key-level check
+of the character-system paragraph below shows that reading is an
+artifact, not a law. And the block geometry exhibits
+the mechanism: the interval covers $[0,s_1)$; the $d=2$ arc covers
+every other point of a window of span $2s-1$; the $d=4$ arc every
+fourth point of a span $4(s-1)$; the $d=8$ arc is the antipodal
+two/three-block sampler; the circle closes by interleaving these
+against the interval and each other. The top class is the
+\emph{binary cascade} $\{1,2,4,8\}$ plus a fifth difference---at
+$p=17$ the orbit swallows every fifth value $\{3,5,6,7\}$; at $p=19$
+the fifth is $5$; at $p=29$ it is $7$ (the observed pattern
+``fifth $=\epsilon+2$'' holds at the three primes measured; three
+points, flagged as such, not a law). At $p=29$, where $2$ is a
+primitive root, the canonicalized doubling orbit visits every
+difference and only cascade-containing quadruples survive among the
+path quadruples: resonance structure is necessary for admissibility at
+$k=3$, consistent with the pool collapse.
+
+\paragraph{The character system: the corrected coordinates.}
+The projection reading above was tested as a law and is false in both
+naive forms. Call the \emph{character marginals} of a solution set the
+projection sizes along the coordinate functionals of the moving-start
+space. The two natural invariance readings---(V$'$) the multiset of the
+four singleton marginals is a renormalization-orbit invariant, and
+(V$''$) the same for the six pairwise-difference marginals---are both
+false, each caught by machine check (V$'$: profile multisets differ
+across orbit members at both full primes; V$''$: $0/32$
+$\sigma$-matched size tuples agree at $p=19$). The mechanism was
+pinned by an explicit construction of the renormalization bijection
+(at $p=19$, $S=(2,4,5,8)$, $\delta=5$, with image $S'=(3,4,6,8)$):
+the image of each moving slot is $\delta^{-1}$ times a source slot
+coordinate \emph{minus the anchor coordinate} $a_\delta$, plus a
+size-dependent constant, and the new normalizer is
+$\delta^{-1}a_\delta$---every moving slot is coupled to the anchor.
+Consequently the image's slot singletons are the source's anchor pairs,
+and the image's pairwise differences (in which the anchor cancels) are
+the source's non-anchor singletons and pairs: neither subsystem is
+closed, and the union is.
+
+\begin{lemma}[the extended character system]\label{lem:char10}
+Let $X=\{e_i\}\cup\{e_i-e_j:\ i<j\}$ on the moving-start space
+$\Z_p^{\,m-1}$, so $|X|=(m-1)+\binom{m-1}{2}$ (ten functionals at
+$T=8$). Under the renormalization bijection of Lemma~\ref{lem:renorm},
+each functional of $X$ maps to a nonzero scalar multiple of a
+functional of $X$ plus a size-dependent constant. Consequently the
+multiset of marginal sizes
+$\{|\pi_\chi(\mathrm{Sol}(S,\mathrm{sz}))|:\chi\in X\}$, aggregated
+over the permutation-closed set of size tuples, is a
+renormalization-orbit invariant.
+\end{lemma}
+
+\begin{proof}
+The closure statement is the anchor-mixing computation just recorded,
+verified symbolically and then end-to-end at $p=19$ for
+$S=(2,4,5,8)$: all $801$ images of $\mathrm{Sol}(S,\mathrm{sz})$ land
+in $\mathrm{Sol}(S',\mathrm{sz}\circ\sigma)$, injectively, at every
+size tuple, with per-key counts matching under the explicit $\sigma$
+($0$ mismatches)---which also confirms the per-assignment-bijection
+step of Lemma~\ref{lem:renorm}'s proof at a stronger level than the
+committed record (totals were verified; assignments now are). The
+invariance follows: each character's marginal size is carried to
+another character's marginal size up to the size permutation, so the
+aggregate multiset is constant along the orbit. Verified on the full
+top orbits at both primes---$p=17$: the orbit of $(2,3,4,8)$, five
+members, $9{,}633$ solutions per set; $p=19$: the orbit of
+$(2,4,5,8)$, five members, $801$ per set---with the aggregate
+ten-functional multisets identical across members at both primes; and
+at $k=3$, the two admissible $p=29$ probe sets $(2,4,7,8)$ and
+$(3,4,8,13)$ form one orbit ($\delta=7$) with equal totals $1{,}311$.
+\end{proof}
+
+Two consequences. First, the coordinate system for the census is now
+fixed: any class-level (orbit-level) law must be stated on
+$X$---not on absolute starts, not on pairwise phases alone---so the
+symmetry analysis of the census object is complete
+(Lemma~\ref{lem:renorm} fixes the equivalence, and
+Lemma~\ref{lem:char10} the coordinates in which a law can be stated).
+Second, the \emph{marginal route into the strand census is measured
+dead} at the zoo cell. Across $1{,}678$ admissible keys (exhaustive at
+$p=17$ and $p=19$, targeted at $p=29$; every key inside the committed
+census scope matches it, $1{,}654/1{,}654$, $0$ mismatches), the
+projection envelope over all keys and all ten characters is $p$ itself
+at both $k=2$ primes and $27/29$ at $k=3$ (fullness fractions
+$1.000/1.000/0.931$); a sufficient marginal law on $X$---
+$|\pi_\chi|\le\gamma_0\,\mathrm{ov}$ with
+$\gamma_0^{\,m-1}<\bigl(T/(T-6)\bigr)^{\,m-1}$---would imply the
+volume law, since $\mathrm{Sol}$ is contained in the product of its
+singleton marginals, but it requires the fullness fraction to fall
+below $\gamma_0(T-6)/T$ asymptotically (below $75\%$ already at
+$\gamma_0=3$), and no downward trend is in evidence at the three
+committed primes. The top-family profiles are non-monotone in
+$(k,\epsilon)$ ($[12,17,17,16]\to[4,4,9,8]\to[9,7,10,27]$; the free
+character $27$ at $p=29$ is the $d=8$ antipodal sampler of the block
+geometry above): family- and window-dependent statistics, not a law.
+The only invariant sparsity is \emph{joint}: the median density of
+$\mathrm{Sol}$ inside its own marginal box is $1.5\%/7.4\%/6.9\%$ at
+the three primes---the pointwise no-holes condition along $I$, which
+is what the strand language below encodes.
+
+\paragraph{The strand census: where H1g now lives.}
+The reduction runs in three steps, each elementary. \emph{Step 1}
+(the interval spine): the complement of the normalizer interval is the
+interval $I=[s_1,p)$ of length $\ell=p-s_1\approx(T-2)k$; every
+covering of $\Z_p$ by the interval plus the $m-1$ moving APs restricts
+to a covering of $I$ by the $I$-restrictions of the moving APs (plus
+the two boundary points at the wrap), and the restriction map is
+injective up to the boundary bookkeeping, so an upper bound on the
+$I$-restricted count bounds $|\mathrm{Sol}|$. The moving arcs' total
+size is $(m-1)\cdot2k\approx(T-3)\cdot2k$ against
+$\ell\approx(T-2)k$: a near-exact cover with slack $\mathrm{ov}$.
+\emph{Step 2} (the strands): the $I$-restriction of an AP with step
+$d$ is a union of \emph{strands}---maximal runs of consecutive $t$
+whose points $a+td$ stay inside $I$; within a strand the points sit $d$
+apart. Covering consecutive points of $I$ requires strands of
+different steps to interleave; a pair $(d,d')$ interleaves only at
+compatible phases, and the phase-compatibility condition per pair is
+a three-distance-type statement about $\lambda=d'/d$---exactly the
+Lemma~\ref{lem:E} genre, on the pair lines $td-ud'\equiv\delta$ that
+already govern the pairwise overlaps. \emph{Step 3} (the arrangement
+form): every covering induces a cyclic \emph{arrangement}---the
+maximal runs of $I$ and, for each run, the subset of strands carrying
+it, with the handoffs between runs subject to the pair-phase
+conditions---and the volume decomposes as
+$|\mathrm{Sol}|\le\sum_{\text{arrangements}}(\text{phase freedom of
+the arrangement})$, with boundary corrections.
+
+What is missing for a proof is the uniform count: bound the number of
+arrangements (the handoff patterns) and the phase freedom per
+arrangement, uniformly over the resonance classes of the difference
+set---equivalently, by Lemma~\ref{lem:renorm}, over the
+renormalization orbits. The chain class is the degenerate resonance
+class where all steps coincide and the strand picture collapses to the
+telescoping of Lemmas~\ref{lem:overlapsum}--\ref{lem:chainbox}; the
+binary cascade is the pure ratio-$2$ class; a general orbit mixes
+ratio classes. The three families of necessary conditions already
+available---the overlap budget, the pair spacing caps, and the
+last-arc fit count---do \emph{not} discriminate: random placements
+typically satisfy the budget (the expected total pairwise overlap
+$\approx12$ exceeds $\mathrm{ov}$ at $p=17$). The discriminating
+structure is the pointwise no-holes condition along $I$, which is what
+the strand language encodes. We record the reduction honestly: it is a
+reduction to a named, bounded combinatorial object, the \emph{strand
+census}; the injectivity of the restriction map and the boundary
+corrections are machine-consistent at the census cells but are not
+proved in general, and the strand census is therefore a
+\emph{plausible} reduction of H1g, not an established equivalence. The
+work is class-by-class (per resonance type), and uniformity across
+classes is itself a lemma---the precise shape of the remaining distance.
+
+\paragraph{The transfer-matrix session: the third route, closed by
+theorem.}
+The third candidate route---a transfer-matrix or automaton model of the
+joint density under the arc-covering constraint---was executed as a
+proof attempt under a pre-committed success criterion: a bound on the
+whole-cascade survival fraction, survivors $\le\rho^{\mathrm{depth}}
+\cdot$ initial mass, with $\rho\le 1-\epsilon$ for some $\epsilon>0$
+independent of $k$. Two specifications were fixed before the session,
+as the route's design demanded. \emph{The state space}: the covering
+constraint at fiber $j$ is membership
+$c(j)\in\mathrm{Sol}(\mathrm{sz}(j))$---a function of the placement
+state alone; the cascade is non-consuming (the alive-set semantics is
+a pure intersection), so the constraint is Markovian in the natural
+state $(\Z_p)^{m-1}$, and the theorem below is invariant under state
+augmentation in any case, so no resolution of this specification could
+change the verdict. \emph{The comparison target}: the whole-cascade
+fraction, with both factors' $k$-dependence acknowledged---the initial
+mass is $|\mathrm{Sol}_0|$, and the per-step ratios inherit the
+$k$-scaling of the forbidden sets.
+
+\begin{lemma}[the monomial dichotomy of the cascade]\label{lem:monomial}
+Fix the rung, the prime, and any sequence of fibers $j_1,\dots,j_D$
+from the uncovered set with solution sets
+$\mathrm{Sol}_t=\mathrm{Sol}(\mathrm{sz}(j_t))$, and let $\sigma_t$
+be the affine bijection between consecutive fiber placements of
+Lemma~\ref{lem:twofiber}. Then: \emph{(i)} every constrained
+transition $P_{\mathrm{Sol}_{t+1}}\,\sigma_t\,P_{\mathrm{Sol}_t}$ is
+a partial permutation matrix (at most one nonzero entry, equal to $1$,
+per row and per column), and so is every product along the chain; its
+spectrum is $\{0\}$ (the directed paths) together with the roots of
+unity of the surviving cycle lengths. \emph{(ii)} The affine maps
+compose to the identity around any closed fiber loop (each re-expresses
+the fixed drift $\mu$; the dilation ratios telescope), so the cyclic
+transfer product is a diagonal $0/1$ matrix whose trace is the number
+of placements surviving the loop---the cascade's own survivor
+count---and whose spectral radius is $1$ if that count is positive and
+$0$ otherwise. \emph{(iii)} Consequently every constrained transfer
+matrix obtainable in the framework---open chain, cyclic, homogenized
+single pair, or state-augmented---has spectral radius exactly $0$ or
+$1$: never an interior value, at any $k$.
+\end{lemma}
+
+\begin{proof}
+\emph{(i)} $\sigma_t$ is a bijection; composing with coordinate
+projections leaves at most one nonzero per row and per column, and
+partial permutations are closed under products. The digraph of a
+partial permutation has in- and out-degree at most $1$, hence
+decomposes into directed paths and cycles; paths give nilpotent
+blocks, and a cycle of length $\ell$ gives a cyclic permutation block
+whose spectrum is the $\ell$-th roots of unity.
+\emph{(ii)} Each $\sigma$ is the change of drift coordinates
+$c(j')=(j'/j)\,c(j)+c^0(j')-(j'/j)\,c^0(j)$
+(Lemma~\ref{lem:twofiber}); composing around a loop telescopes the
+dilation ratios to $1$ and the translations to $0$, and deletion only
+zeroes diagonal entries. \emph{(iii)} Augmentation preserves
+determinism (the register update is a function of the state), so the
+augmented constrained matrix is again a partial permutation, and
+parts (i)--(ii) apply verbatim.
+\end{proof}
+
+The machine record runs at three levels. \emph{Generic}:
+$1{,}500/1{,}500$ random constrained systems (random bijections with
+random deletion sets) satisfy the structural dichotomy---the
+partial-permutation premise, and acyclic if and only if
+nilpotent---and $12{,}000$ exact trace fingerprints
+$\mathrm{tr}(Q^t)=\sum_{\ell\mid t}\ell\,c_\ell$ (over $300$ systems,
+$t\le 40$, integer-exact) match the cycle inventory with zero
+mismatches. \emph{Committed objects}: six committed families (the zoo
+chain and top-distinct orbits at $p=17$ and $p=19$; the two committed
+admissible $p=29$ sets), $66$ homogenized pair systems---the route's
+own model, iterating a single pair map $x\mapsto\lambda x+\tau$ under
+the deletion set $\mathrm{Sol}_j$---of which exactly the $6$
+reflection pairs ($\bar\lambda=1$) have $\rho=1$ and all $60$ others
+have $\rho=0$; the loop-composition identity of part (ii) holds
+algebraically and numerically ($500$ random points per family); the
+automaton's per-step survivor counts equal the committed $\mu$-space
+cascade convention at every step (the chain family's depth $2$
+reproduces the committed zoo record); and the end-to-end ground
+truth---$[\sigma(x)\in\mathrm{Sol}_j]$ if and only if the direct
+fiber-covering test accepts $\sigma(x)$---holds on $2{,}800/2{,}800$
+sampled checks, with the committed volume margins reproduced exactly
+(top $|\mathrm{Sol}|=876/108/186$, margins
+$95\times/1{,}207\times/3{,}803\times$ over the trivial box).
+\emph{The reflection fiber in automaton language}: the two-fiber
+survival fraction at $\lambda=-1$ is exactly $1$ at all six families
+across all three primes, and the homogenized reflection sub-shift
+closes the whole of $\mathrm{Sol}_j$ into $2$-cycles---survival flat
+forever: Lemma~\ref{lem:reflect} as a statement about the instrument
+itself, the deletion at the free fiber being empty.
+
+What the instrument measures at the committed cells is equally sharp.
+The iterated-pair survival counts collapse as $[840,120,0]$,
+$[224,1,0]$, $[4{,}680,240,0]$---piecewise extinction within three
+iterates, the intermediate values set by maximal lattice runs of
+solution points along the drift orbits (runs of length at most $2$
+everywhere; extinction confirmed at every horizon to $12$)---the
+three-distance genre of Lemma~\ref{lem:E}, not geometric decay with
+an interior rate. And the $k$-scaling that the obligations need (the
+margins $95\times/1{,}207\times/3{,}803\times$) lives in
+$|\mathrm{Sol}|/p^{m-1}$, in the census counts, and in no spectral
+quantity: the spectral outputs are binary at every prime, with no
+$k$-trend because there is nothing to trend.
+
+Nor does any reformulation of the instrument escape the dichotomy. A
+coarse-grained or weighted automaton (states as classes, class
+multiplicities as weights) can carry an interior spectral radius
+numerically, but for non-negative matrices the radius dominates every
+directed cycle's geometric mean, so $\rho\le 1-\epsilon$ would force
+uniform decay of the weight products along drift orbits---and the
+weights are census counts, so this is the margin itself entering as an
+input rather than an output; the converse fails besides (the $2\times2$
+witness $\left(\begin{smallmatrix}0&0.9\\0.9&0.4\end{smallmatrix}
+\right)$: every directed cycle has geometric mean $\le 0.9$ yet
+$\rho\approx 1.122$---branching resurrects mass), so a second external
+input, a branching control, would be needed as well. Averaged or
+randomized operators collapse to the independent-extension baseline,
+whose deficit is the $\gamma$-correlation---the cascade model's own
+deepest unproved input. Every door leads through an external
+uniform-in-$k$ estimate of exactly the margin type; none generates
+one. In automaton language the whole-cascade survival fraction is the
+product of the consecutive conditional ratios $r_t=|S_t|/|S_{t-1}|$,
+each bounded by $\gamma_0\,|\mathrm{Sol}_{j_t}|/p^{m-1}$ under H2m
+with the thinness of $|\mathrm{Sol}|$ supplied by H1g: under its own
+model the route's output is Proposition~\ref{prop:depth}'s recursion,
+and the uniform deficit it owes is the hypothesis stack it was
+commissioned to prove. The instrument is the census in different
+notation.
+
+The verdict against the pre-committed trichotomy of outcomes: the
+success criterion ($\rho\le 1-\epsilon$) is unattainable by
+theorem---there is no interior spectral radius to bound, in any state
+formulation, at any $k$; and the failure mode is not $\rho\to 1$ as
+$k\to\infty$ but $\rho\in\{0,1\}$ as an identity of the lossless
+dynamics. The type-mismatch reading is thereby upgraded from
+observation to mechanism: bijections preserve measure exactly (the
+monomial structure), deletion filters without dissipating (partial
+permutations carry spectrum in $\{0\}$ together with the unit circle),
+and the loop composition is the identity (the cyclic instrument
+measures alive-or-dead, not decay). Margins require dissipation;
+losslessness forbids generated dissipation. The reformulation is
+bounded by its own fidelity. Lemma~\ref{lem:monomial} is the program's
+third $k$-invariance theorem---after the spacing lemma's
+$k$-cancellation and the character system's closed coordinates---and,
+like them, a closure-type statement: the toolkit's signature holds
+even for the instrument built to break it.
+
+\subsection{The verification record of this section}\label{sec:scale-sound}
+
+Every number above is either an exhaustive census with two independent
+decision procedures, or a sample with its size and interval, or a
+proved statement with its machine check; the records, in the order of
+appearance: the pool censuses (the pruned-cascade and the
+flattened-popcount procedures agree exactly at $p=17/19/23$; an
+independent pure-enumeration brute force agrees on $21/21$ sampled
+tuples across $p=17/19/23/31$, covering both admissible and
+inadmissible branches; the $T=9$ stride samples carry full decisions,
+and the $m=6$ code path shares the cascade code brute-force-verified
+at four $m=5$ primes, with the external consistency check the
+agreement of the projected pools with the independently measured pool
+scale); the zone-resolved $\gamma$ table ($764$ pairs, five committed
+cells, the identical seed reproducing the committed family
+selections); the chain-class machine checks ($123{,}240$ solutions,
+$0$ violations of the sum identity or the reach bound; the count
+reconciliations $131{,}520$ against $123{,}240$ and $10{,}080$ against
+$8{,}880$); the reflection fiber (survival exactly $1$ at every
+$\bar\lambda=1$ pair, every family, every cell); the
+renormalization-orbit law (machine-checked set-by-set at $p=17$ and
+$p=19$); the volume census and its ground truth ($9/9$ brute-force
+keys; the admissibility reproductions $840/840$ and $960/1{,}680$; the
+order-independence of volume across all $24$ orderings); the
+essential-arc, budget-identity, and cap checks on the probed families;
+and the cascade depths at the committed cells (medians $2$, maximum
+$4$); and the character-system record of \S\ref{sec:scale-h1} (the
+rigidity census over $1{,}678$ admissible keys with every key inside
+the committed census scope matching it exactly, $1{,}654/1{,}654$, $0$
+mismatches; the per-assignment renormalization bijection, $801/801$
+images injective with per-key counts matching under the explicit
+$\sigma$; the falsifications of V$'$ and V$''$; the character-system
+aggregate invariance on both full top orbits; the chain controls
+$8{,}880/4{,}680/29{,}760$ reproduced by the same code path). The
+transfer-matrix session's record: the generic dichotomy and trace
+fingerprints ($1{,}500$ systems, $12{,}000$ comparisons, zero
+mismatches); the $66$ homogenized pair systems on the six committed
+families with the closed-form orbit inventories verified by full
+traversal and the finite-horizon survival counts verified by direct
+simulation (zero mismatches); the loop-composition identity
+(algebraic and numeric, $500$ points per family); the per-step
+equality of the automaton's survivor counts with the committed
+$\mu$-space cascade convention (zero mismatches, all steps, all
+families; the committed chain-family depth reproduced); the
+end-to-end fiber-covering ground truth ($2{,}800/2{,}800$); the
+reflection pairs (survival fraction exactly $1$, all six families,
+all three primes); and the reproduction of the committed volume
+margins ($876/108/186$ against $95\times/1{,}207\times/3{,}803\times$).
+The three-rung depth record of Table~\ref{tab:depthcal} is
+calibration from the earlier cascade runs and is labeled as such
+wherever it is used.
+
+\subsection{The epistemic status}\label{sec:scale-status}
+
+The program is either one proof away---H1g and the sharp H2m, both
+reduced to concrete named objects, the strand census and the pair-line
+count---or one systematic obstruction away: a family class whose
+junction structure escapes the $\mathrm{ov}^{\,m-1}$ volume law. For
+the obstruction direction the $T=8$ evidence points the other way: the
+measured margin \emph{grows} with $k$, and no distinct family reaches
+even a tenth of the chain-class volume at equal $\mathrm{ov}$ beyond
+$k=2$. The distinction will be settled by whether the strand census
+closes at $T=8$ with uniform constants, not by further measurement.
+
+One more disclosure belongs in the record. The sequence of named
+obligations has moved: the input structure, then the exhaustiveness of
+the census classification, then the scaling-closure lemma itself, then
+H1-general, now the strand census. Each closure has been real, and
+each new obligation has been at the same scale as the previous one.
+Whether this is a fractal obstruction---each gap revealing a new gap of
+the same size, indefinitely---or a sequence of genuinely decreasing
+obligations that will bottom out is not decidable from the present
+data; after five iterations of the pattern the defensible prior is that
+the reformulation has a stubborn residual, and Theorem~\ref{thm:SC} is
+stated so that the residual is exactly what the hypotheses name. What
+would change the verdict: a family at some $(T=8,k)$ whose per-size
+volume exceeds $\mathrm{ov}^{\,m-1}$---the measured pool collapse
+makes this increasingly unlikely, as admissibility itself dies at
+$13\%$ by $p=29$---or a strand-census proof at $T=8$ with uniform
+constants, which would make H1g a theorem at the rung and supply the
+template for general $T$. No claim is made here about the number of
+sessions, the amount of work, or the likelihood of either outcome; the
+failure modes are stated where the obligations are.
+
+The record since that disclosure adds a sixth attack turn and a change
+in the pattern's shape. The strand census has now been attacked twice
+and has survived both attacks: the necessary-condition families of
+this section (the overlap budget, the spacing caps, the last-arc fit
+count---non-discriminating), and the marginal-rigidity route of
+\S\ref{sec:scale-h1} (the projection envelope measured full, the two
+naive coordinate readings false, the corrected character system closed
+but silent on the count). Both closed as route-closures, and---for the
+first time in the sequence's six attack turns---the named obligation
+did not move: no successor lemma was minted; what moved was the
+obligation's coordinate system (Lemma~\ref{lem:char10}) and its
+numerical form (Proposition~\ref{prop:threshold}). The honest reading
+has tightened accordingly: the residual is not a bookkeeping artifact
+awaiting the right census format; it is resistant to the toolkit that
+produced every proved result in this paper. A structural fact in the
+ledger explains why that may be: the proved results are closures,
+invariances, exhaustiveness statements, and machine verifications,
+while every remaining obligation---H1g's margin over the trivial
+bound, the volume law's unproved growth in $k$, the chain class's gap
+from measured to proved constants---is a growth-in-$k$ margin over a
+trivial or measured baseline, and no turn of this program has proved a
+statement of that type. Both closed routes, moreover, were
+census-shaped attacks on what Proposition~\ref{prop:threshold} shows
+is an inequality-shaped obstruction. Three candidate third routes are
+on record, none attempted here and none with a stated prior:
+pairwise-difference marginals in the corrected $X$ coordinates; a
+combinatorial characterization of the joint support, given its
+measured sparsity ($1.5\%$--$7.4\%$ median density); and a
+transfer-matrix or automaton model of the joint density under the
+arc-covering constraint.
+
+The type-mismatch reading of the preceding paragraph has since been
+verified statement-by-statement against the paper's full proof
+inventory---every lemma, proposition, theorem, and machine record---and
+it holds, with the three statements that could be read as exceptions
+resolved explicitly. First, the spacing lemma (Lemma~\ref{lem:spacing})
+is a packing bound whose slack over its own trivial baseline is the
+factor $b_{\min}$; at the cascade's operating point ($L=Rk$ against
+$p=Tk$) the bulk-fiber value $b_{\min}\gtrsim p/(2L+1)\approx T/(2R)$ is
+$k$-free, so the lemma is invariant under exactly the scaling in which
+the obligations' margins grow, and the ``$k$-cancellation''
+(Proposition~\ref{prop:kcanc}) is a $k$-invariance of the cut,
+conditional on the volume law---the cancellation of the dependence the
+obligations need to grow, not a proof that it grows. Second, part (d) of
+the comparison (Proposition~\ref{prop:depth}) does state a margin
+growing linearly in $k$, but as a consequence of its hypothesis stack
+(H1g included), not as a proved statement about the measured world.
+Third, the chain-class volume law (Lemma~\ref{lem:chainbox}) computes a
+count that grows in $k$, but its margin over the trivial box is the
+$k$-free threshold value of Proposition~\ref{prop:threshold}; the
+growth-in-$k$ content of H1g is precisely the distinct class's extra
+thinness below the chain benchmark ($10\times/43\times/160\times$ at
+equal $\mathrm{ov}$, measured), which the chain-class theorem does not
+touch, while the proved chain constants of Theorem~\ref{thm:chaindilate}
+carry order factors ($4m\,s_{\max}$ with $s_{\max}\approx2k$) whose
+slack grows in $k$---the measured-to-proved constant gap already listed
+among the obligations. With the reading verified, the three candidate
+third routes of the preceding paragraph are typed by output:
+pairwise-difference marginals in the corrected $X$ coordinates and the
+joint-support characterization are census-shaped (classification
+outputs; the same type as the two routes already closed), while the
+transfer-matrix or automaton model is the one margin-shaped
+candidate---the natural output of a transfer-operator argument is a
+spectral quantity uniform in $k$, the missing statement type. The typing
+assigns output types, not success probabilities, and rests on the
+tool-reach half of the reading rather than a theorem; it is the reason
+the automaton route is the only one the record prioritizes, and the
+attempt itself is its test.
+
+The attempt has since been run, under the discipline of a proof
+attempt: the two design specifications fixed beforehand, the success
+criterion pre-committed, and the verdict taken against it. The route
+closed by theorem (Lemma~\ref{lem:monomial} and the analysis following
+it): every spectral quantity the automaton framework can produce is
+exactly $0$ or $1$, the cyclic product's trace is the cascade's own
+survivor count, and the survival-fraction deficit the criterion
+demanded translates exactly into the pair bound H2m and the volume law
+H1g---the instrument consumes the hypotheses it was commissioned to
+prove. The typing's prediction was therefore right about the output
+type and wrong about its shape: the route's natural output is not a
+margin in disguise but a closure about itself, and the expected
+spectral gap was an artifact of the classical analogy (sub-shifts of
+finite type earn their gaps through branching that a lossless,
+sufficient-statistic dynamics cannot have). Three routes into the
+strand census are now closed---the necessary-condition families, the
+marginal-rigidity route, and the automaton---the first two by
+measurement, the third by theorem. The empirical half of the reading
+(S1) is verified a second time by a second instrument: the one
+margin-shaped candidate, fully specified and executed, emitted exact
+census computations and a $k$-invariance, and no margin. The
+tool-reach half (S2) has its first proved instance---every automaton
+built on a bijective drift is census-shaped---which is a mechanism,
+not yet the general claim; instruments that do not inherit the drift
+remain outside its scope, and nothing here is claimed about them. With
+this, the program's state is fixed, and it is the state the
+conditional theorem was stated to name: Theorem~\ref{thm:SC} with its
+ledger; the type-mismatch diagnosis, now with its mechanism
+(losslessness forbids generated decay); and a named residual---the
+growth-in-$k$ margin, uniform over families, size tuples, and
+$k$---that the reformulation's toolkit is provably not the right shape
+to close. The reformulation closes the covering obstruction exactly
+where classification suffices, and the conjecture-level consequence is
+the one stated in the introduction: within this framework the residual
+is a structural gap, not a technical one, and closing it is work for a
+different instrument, not another session of this one.
+
+The disposition of that verdict is now on record, and it fixes the
+program's final state. The natural external instrument for the missing
+margin---the Ehrhart theory of the Lonely-Runner zonotope, the third
+bridge of \S\ref{sec:open}---was engaged as a full strand and executed
+to certificates. Its arithmetic is unimpeachable: the $h^*$-polynomials
+of both canonical families are real-rooted, log-concave, and Newton
+through $n=10$, in exact rational arithmetic throughout. Its geometric
+reading is false: the deepest-hole form fails from $n=5$ with exact
+witnesses (the harmonic instance closed \emph{exactly} in the fourth
+revision, $\rho(1,2,3,4,5)=16/47$; the two $n=6$ boundary rows
+resolved as strict refutations, $\rho\ge17/47$ at $m=12$ and
+$\rho\ge455/1269$ at $m=9$),
+and the modular law it suggested---deepest hole at the center exactly
+when $n\mid m$---holds exactly at $n=3$ ($m\le 24$), is certified at
+$n=4$ (through $m=16$, value $9/34$), breaks at $n=5$ (the harmonic
+$m=5$ and $m=15$ refuted exactly, $\rho\ge 97/288$ and $6/19$; the
+surviving multiples $m=10,20,25,30$ certified at $7/22$, $13/42$,
+$4/13$, and $19/62$ respectively---$m=20,25,30$ in the first
+certification session and $m=10$ closed by the companion paper's
+third-revision attempt, which paired a heavily scaled random-local
+search with an exact Lipschitz box certificate and emptied the tree),
+and is
+extinct at $n=6$ (every tested instance refuted exactly, through the
+$4n$ dilate, the narrowest margin $71/208$ against $17/50$). The
+instrument that most faithfully preserves the instance's arithmetic is
+again the one that cannot produce the margin: the type mismatch is a
+property of the lossless encodings themselves, not of one toolkit.
+The record is accordingly published in two parts---this monograph (the
+exact identities, the classifications, the conditional theorem with
+its ledger) and a companion paper \cite{companion-paper} that works
+out the negative half: the four falsified strengthenings, the witness
+archive, the certification ladder above with its negative control, and
+the $h^*$ addendum. The scope statement of the abstract applies to
+both parts unchanged.

@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage[section]{placeins}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,
+            urlcolor=blue!55!black,bookmarks=true,bookmarksnumbered=true,
+            unicode=true]{hyperref}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\wn}[1]{\lVert #1 \rVert_{N}}
+\newcommand{\wnc}[1]{\lVert #1 \rVert}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\cls}{cls}
+
+\graphicspath{{.}}
+
+\hypersetup{
+  pdftitle={The Lonely Runner Problem on Pair-Sum Lattices: A Lossless
+            Finitization and a Conditional Scaling-Closure Theorem for the
+            Covering Obstruction (v3)},
+  pdfauthor={Anonymous},
+  pdfsubject={Lonely Runner Conjecture; Diophantine approximation;
+              cyclic covering; combinatorics},
+  pdfkeywords={Lonely Runner Conjecture, pair-sum lattice, finitization,
+               covering systems, rigid zone, translate classes, group ring,
+               cyclotomic, tensor translation, higher rungs, fiber cascade,
+               conditional theorem, hypothesis ledger}
+}
+
+\begin{document}
+
+\tableofcontents
+\newpage
+
+\input{sec1}
+\input{secsc}
+\input{sec2}
+\input{sec3}
+\input{sec4}
+\input{secgr}
+\input{sec8}
+\input{sec9}
+\input{secscale}
+\input{sec5}
+\input{sec6}
+\input{sec7}
+
+\input{bib}
+
+\end{document}

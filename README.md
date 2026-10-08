@@ -12,7 +12,14 @@ false, each refuted by an exact rational witness — (ii) a bounded positive cor
 with exact theorems, and (iii) a machine-reasserted provenance record for every cited
 number (225 items, zero failures).
 
-## The papers (v3 m=10-certification revision — current)
+## The papers (v4 harmonic-certification revision — current)
+
+| Paper | File | Contents |
+|---|---|---|
+| **Flagship v4** — *Every Natural Strengthening Examined Is False: Type Mismatch in Lossless Reformulations of the Lonely Runner Conjecture* | `papers/lonely_runner_type_mismatch_paper_v4.pdf` (30 pages) | **The harmonic instance is closed exactly: rho(1,2,3,4,5) = 16/47.** The third certification session found a *balance family* of witnesses — c(k) = (2k+160, 3k-13, 4k+91, 5k)/235, k = 20..35 — on which the three pair-dips of the runner triple {3,4,5} tie at 16/47, forced by the weighted identity 32 r_(3,5) + 27 r_(4,5) + 35 r_(3,4) = 32 (the c-terms cancel). The branch and bound at r = 16/47 emptied only after two new certificates were added: a vertex-checked *sliding-sigma gap certificate* (for a fixed lift vector m, every c in the box admits a valid sigma iff an interval of affine forms intersects S; the gap is concave in c, so 2^d vertex checks certify the whole box — sigma free to slide along the band) and a *triple-identity certificate* (three pair-dips with weights w_(a,b) = v_c(v_a+v_b) whose weighted values sum to a constant <= (sum w) r over the box), together with lattice-aligned splitting at the dip lattice q = 470. Tree: 782,255 box evaluations, 0 survivors, 5,935 s; 4,841 sampled prunes re-confirmed exactly. The two n=6 boundary rows are resolved as strict refutations: rho >= 17/47 > 5/14 at m=12 (triple {2,5,12}: identity 84 r_(2,5) + 70 r_(2,12) + 34 r_(5,12) = 68; witness (0, 27/47, 0, 25/94, 22/47)) and rho >= 455/1269 > 5/14 at m=9 (witness (13/423, 22/47, 58/423, 695/846, 401/846)). The n=5 boundary rows m=6,7,8 remain open. Sources: `sources/flagship_v4/` (includes certify_harmonic_v4.py and out_certify_harmonic_v4.json). |
+| **Companion v4** — *Pair-Sum Lattices and a Conditional Scaling-Closure Theorem* | `papers/lonely_runner_pair_sum_lattices_conditional_theorem_paper_v4.pdf` (67 pages) | No theorem, lemma, or hypothesis changed; the zonotope-strand record updated (the harmonic instance closed exactly at 16/47; the two n=6 boundary rows resolved as strict refutations). Sources: `sources/companion_v4/`. |
+
+## The papers (v3 m=10-certification revision — superseded, kept for the record)
 
 | Paper | File | Contents |
 |---|---|---|

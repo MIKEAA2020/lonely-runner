@@ -1,0 +1,152 @@
+% ======================================================================
+% Appendix B — Computational provenance
+% ======================================================================
+
+\section{Computational provenance}\label{sec:prov}
+
+The reproducibility standard of this paper is one sentence:
+\emph{every number cited in the text traces to a script that was
+actually run and whose output was persisted.} It was applied
+retroactively to all inherited numbers and prospectively to all new
+ones. This appendix is the map.
+
+\subsection{The ledger}
+
+The provenance run (\texttt{scripts/paper\_provenance.py}; output
+\texttt{out\_paper\_provenance.json} and the human-readable
+\texttt{out\_paper\_provenance.txt}) reads the two persisted run records
+of the zonotope program and re-asserts, by independent exact
+computation, every value the paper cites from them: all witness depths
+(evaluating the runner formulation \eqref{eq:runnerform} \emph{and} the
+independent linear-form/lattice-search implementation, asserting exact
+agreement of the two), all recorded $\rho$ values at their recorded
+argmax points, all $\lambda$ and $\delta$ values, both Spearman
+coefficients, both correlation instance arrays (strictness recomputed
+from the Ehrhart coefficients and margins recomputed from exact
+$\lambda$), and the strictness entries of the $n\le8$ table. The
+complete ledger contains $225$ items. The number of failures is $0$.
+
+The two-way witness verification deserves emphasis because it is the
+strongest form of check the program has: every witness value in
+Tables~\ref{tab:refute} and the fail-witness lists of
+\S\ref{sec:witness} was recomputed by two implementations with different
+mathematics (a one-dimensional minimization over the trajectory
+parameter, and a pruned lattice search in the quotient norm's linear
+forms), agreeing exactly. A one-line reproduction of the headline
+witnesses, for the skeptical reader with the runner formulation at
+hand: evaluate
+$\min_\sigma\max(\wnc\sigma,\wnc{c_2-2\sigma},\wnc{c_3-3\sigma},
+\wnc{c_4-4\sigma},\wnc{c_5-5\sigma})$ at
+$c=(\tfrac1{32},\tfrac{15}{32},\tfrac3{32},\tfrac78)$; the minimum is
+attained at $\sigma=\tfrac{31}{288}$ and the value is $97/288$.
+
+\subsection{The new runs of this session}
+
+Four scripts were written and run for this paper (the fourth, the
+survivor-enclosure follow-up, was added after the branch-and-bound
+session); their outputs are persisted alongside the inherited records
+and copied into the paper's artifact bundle.
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item \texttt{hstar\_n9\_n10.py} $\to$ \texttt{out\_hstar\_n9\_n10.json}:
+the $h^*$ extension of Appendix~\ref{sec:hstar} ($n=3..10$, both
+families; Ehrhart asserted three ways; roots at $45$ decimal places on
+exact integer coefficients; strictness, Newton, log-concavity exact;
+$\lambda$ asserted against the classical values).
+\item \texttt{certify\_rung2\_n5.py} $\to$
+\texttt{out\_certify\_rung2.json}: the branch-and-bound certificate of
+\S\ref{sec:bb}, including the cross-validation of the two $D$
+implementations (forty random rational points per instance, exact
+agreement), the controls ($n=3$ and $n=4$ core instances, all
+certified), the negative control (harmonic $n=5$, correctly refusing),
+and the ladder targets (\S\ref{sec:witness}).
+\item \texttt{paper\_provenance.py} $\to$
+\texttt{out\_paper\_provenance.\{json,txt\}}: the $225$-item ledger
+above.
+\item \texttt{certify\_followup.py} $\to$
+\texttt{out\_certify\_followup.json}: the survivor enclosure analysis
+of the open $m=10$ run and the recovered improved harmonic witness
+($607/1792$ at $c=(\tfrac{11}{256},\tfrac{163}{256},
+\tfrac{15}{256},\tfrac{79}{256})$).
+\end{enumerate}
+
+\subsection{Certificates and budgets}
+
+The branch-and-bound certificates are finite objects: a certificate for
+$\rho(V)\le r$ is the pruned dyadic tree, each leaf carrying an exact
+rational $U$-value $\le r$ computed from the kink/crossover enumeration
+of \S\ref{sec:bb}. Budgets and certificate sizes for the runs cited in
+the text are listed in Table~\ref{tab:certs}; the JSON persists leaf
+samples, survivor aggregates (count, bounding box, maximum excess over
+$r$, exact depths at sampled survivor centers), and the exact
+$U$-values, so every certificate can be re-audited without re-running
+the search, and re-running the search reproduces it deterministically.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Branch-and-bound runs cited in the text. ``leaves'' = certified
+boxes (for the first-session runs: each with exact $U\le r$; for the
+marked v3 run: by any of the three sound tests of the second cascade);
+``surv.'' = unresolved boxes at cap; wall-clock seconds in parentheses.}
+\label{tab:certs}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l l l l l}
+\toprule
+instance & $r$ & verdict & leaves & surv. \\
+\midrule
+$(1,2,3)$ & $1/4$ & certified & $14$ $(0.0)$ & $0$ \\
+$(1,2,6)$ & $3/14$ & certified & $20$ $(0.0)$ & $0$ \\
+$(1,2,3,4)$ & $3/10$ & certified & $438$ $(2)$ & $0$ \\
+$(1,2,3,8)$ & $5/18$ & certified & $156$ $(1)$ & $0$ \\
+$(1,2,3,12)$ & $7/26$ & certified & $168$ $(1)$ & $0$ \\
+$(1,2,3,16)$ & $9/34$ & certified & $222$ $(2)$ & $0$ \\
+$(1,2,3,4,5)$ & $1/3$ & \emph{refused} (control) & $17{,}520$
+$(421)$ & $45{,}355$ \\
+$(1,2,3,4,10)$ & $7/22$ & open (first attempt) & $61{,}038$
+$(1501)$ & $21{,}153$ \\
+$(1,2,3,4,10)$ & $7/22$ & \textbf{certified} (v3$^{\ast}$) & $95{,}148$
+$(1286)$ & $0$ \\
+$(1,2,3,4,20)$ & $13/42$ & certified & $37{,}018$ $(981)$ & $0$ \\
+$(1,2,3,4,25)$ & $4/13$ & certified & $10{,}414$ $(231)$ & $0$ \\
+$(1,2,3,4,30)$ & $19/62$ & certified & $10{,}646$ $(274)$ & $0$ \\
+\bottomrule
+\end{tabular*}
+\footnotesize\\
+$^{\ast}$The v3 cascade prunes $9{,}608$ boxes by the cheap grid test,
+$42{,}502$ by the grid-Lipschitz test, and $43{,}038$ by exact $U\le r$
+(the leaf type of the other rows); $95{,}147$ splits, $190{,}295$ box
+evaluations in total, maximum depth $34$. The negative control was
+re-run under the same cascade and refused again ($84{,}986$ box
+evaluations, $38{,}117$ survivors), and the $n=4$ certificates
+re-certified with identical box counts.
+\end{table}
+
+\subsection{Reproduction}
+
+All scripts run under CPython~3.12 with \texttt{fractions},
+\texttt{numpy}, \texttt{scipy}, and \texttt{mpmath}, and take minutes
+to hours on one core; the certificates of Table~\ref{tab:certs} take
+seconds to minutes (the longest, $m=20$, took sixteen minutes; the v3
+$m=10$ run took twenty-two minutes), and the
+refused control was run to its stated budget. The v3 script runs in
+bounded foreground slices with a checkpointed state file; the pop
+sequence is fully determined by the heap priority, so the certificate
+is slice-independent and reproduces deterministically. One-line
+reproduction from the artifact bundle's root (each
+writes its \texttt{out\_*.json} next to itself, deterministically):
+\begin{itemize}[leftmargin=2.2em,itemsep=1pt,topsep=2pt]
+\item \texttt{python3 hstar\_n9\_n10.py}
+\item \texttt{python3 certify\_rung2\_n5.py}
+\item \texttt{python3 paper\_provenance.py}
+\item \texttt{python3 certify\_followup.py}
+\item \texttt{python3 certify\_m10\_v2.py all}
+\end{itemize} The artifact
+bundle accompanying the paper contains the five scripts, their outputs,
+the inherited zonotope records
+(\texttt{out\_lrc\_zono\_final.json},
+\texttt{out\_lrc\_zono\_rescan.json}, and the library
+\texttt{lrc\_zono\_lib.py} they import), and the ledger. Nothing in the
+paper relies on an unlogged computation, a hard-coded constant, or a
+claim of the form ``verified elsewhere'': the audit that motivated this
+standard found exactly those three failure modes in the program's own
+earlier records, and the standard is the response.

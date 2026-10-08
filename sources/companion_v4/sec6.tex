@@ -1,0 +1,230 @@
+% ======================================================================
+% Section 6 — Open problems
+% ======================================================================
+
+\section{Open problems}\label{sec:open}
+
+The reformulation sharpens several questions into finite, explicit form.
+We list them in what we judge to be increasing distance from the present
+state of the framework.
+
+\begin{enumerate}[leftmargin=1.7em,itemsep=4pt]
+
+\item \textbf{The two hypotheses of Theorem~\ref{thm:SC}.} The paper's
+  own frontier, and now the program's closest obligation. H1g is reduced
+  to the \emph{strand census}: bound the number of arrangements and the
+  phase freedom per arrangement, uniformly over the renormalization
+  orbits (\S\ref{sec:scale-h1})---class-by-class work over resonance
+  types, with the ratio-$2$ binary cascade the dominant first class and
+  uniformity across classes itself a lemma. H2m's sharp form is the
+  \emph{pair-line count}: the Lemma~\ref{lem:E} three-distance
+  machinery applied to the junction draws, converting the cut law from
+  hypothesis to theorem and pinning $\gamma_0$ (the chain-class bound of
+  Theorem~\ref{thm:chaindilate} has the right shape with constants loose
+  by orders of magnitude; the route is to count on the
+  $\sum o=\mathrm{ov}$ slice). H0's route is the tangency-codimension
+  argument. If all three close, Theorem~\ref{thm:SC} becomes
+  unconditional and yields a uniform-in-$T$ closure of the $p^2$
+  covering obstruction---hence, by the lossless equivalence, the
+  conjecture at the covered rungs; the honest reading after five
+  iterations of the obligation sequence (\S\ref{sec:scale-status}) is
+  that the reformulation has a stubborn residual, and the theorem is
+  stated so that the residual is exactly what these hypotheses name.
+
+\item \textbf{The pair-selection law.} $(\mathrm{TAU}$-$_n)$ asserts that
+  some pair certifies; the empirical law of \S\ref{sec:measure} says
+  something stronger and unexplained: in every corpus measured, some pair
+  certifies \emph{at a configuration that never covers}---a never-capable
+  $(N,\text{order signature})$. A structural reason for the ubiquity of
+  safe configurations would be the first general theorem of the program
+  beyond the base lemmas, and the last ingredient needed to convert
+  per-modulus verification into uniform proof on the unit side.
+
+\item \textbf{The kernel world.} After the classifications, the entire
+  residual of every corpus is one class: mixed order signatures at
+  composite moduli (an order-$d$ residue contributes a bad set of size
+  $N/d$, so moat counting has slack exactly there). The kernel world
+  already contains the base rung's single open set,
+  $V=(3,5,8,13)$, whose live pair obstruction is the covering of
+  $\Z_{16}$ by the effective triple $(3,5,8)$. \emph{Post-submission
+  (Remark~\ref{rem:postcomposite}):} the structure theory now exists in
+  proved form --- the fibration theorem (kernel bad sets are pullbacks of
+  unit bad sets at reduced moduli with the same threshold, so covering at
+  composite $N$ transfers to the divisor lattice of $N$), together with
+  the no-unit-assistance theorems in their provable part. The $p^2$ side
+  is closed outright (the three-unit cell is empty at every prime; see
+  the next item); the $pq$ side is now carried by the tensor translation
+  of \S\ref{sec:pq} --- verified empty to $N\le143$ and reduced to the
+  same input structure, a single unbounded input after this revision's
+  discharge of Input E --- with the rigid-zone lifts the remaining open
+  piece.
+
+\item \textbf{The composite micro-cases, restated.} The original form of
+  this problem --- ``no covering exists at $49$, $77$, $91$; the
+  obstruction is unexplained'' --- is superseded
+  (Remark~\ref{rem:postcomposite}): kernel-speed coverings exist there and
+  are exactly the transferred rigid-zone configurations, and the unit
+  safety of $77$ is proved. The corrected open problem is the \emph{no
+  unit-assisted covering conjecture}: at $N=p^2$ and $N=pq$ with $p\ge5$,
+  no covering family of at most four distinct bad sets exists in which the
+  kernel subfamily does not already cover. Proved: families with at most
+  two unit members (fiber-cap counting, with the sharp closed-form cap
+  $2\lfloor s/6\rfloor+1+[s\equiv5\pmod6]$ for fibers of prime size $s$);
+  three unit members (an inclusion--exclusion identity forced to an exact
+  partition, killed by the Dirichlet floor $|A\cap\lambda A|\ge2$ on arc
+  intersections); pure-unit families (reduced, via the $p$-multiples,
+  to the rigid zone); and, post-submission, the entire $p^2$ side --- the
+  $(1K,3U)$ cell is empty at every prime $p\ge5$ via the trichotomy
+  lemmas (proved for $p\ge17$ resp.\ $p\ge31$ \emph{unconditionally}: the
+  one-foot input is discharged by Lemma~\ref{lem:E}; finite-case-analyzed
+  at the boundary primes; false and directly checked at $7,13$) plus the
+  shear-rigidity theorem for $\pm$-colliding units
+  (linear per-fiber drift against pinned covering configurations;
+  verified at every prime $11\le p\le113$ with exhaustive ground truth at $p\le43$) --- and, in this revision, the $pq$ side of
+  the two-unit and three-unit cells: the $(1,1,2)$ cell and both
+  $(1K,3U)$ orientations are verified empty at every $N=pq\le143$ ($10$
+  semiprimes, over a million family checks, margins $2$--$18$), and the
+  row translation (Theorem~\ref{thm:R}) reduces their closure to the same
+  remaining input, with the row census and the pinning of
+  \S\ref{sec:pq-census}--\S\ref{sec:pq-verify} as the measured base.
+  Open: the rigid-zone lifts, and the all-$p$ discharge of the single
+  remaining named input. The boundary
+  instance $N=9$ --- a genuine unit-assisted covering in exactly the
+  closed $p^2$ cell shape --- shows the hypothesis $p\ge5$ is necessary.
+  The named computational inputs are now precise
+  objects (\S\ref{sec:gt-support}): the foot-count proposition \emph{in
+  its consumed form} (the one-foot trichotomy at the two size pairs
+  $(2k{+}2,2k{+}1)$ and $(2k{+}1,2k{+}1)$, viable differences confined to
+  $\{2,(p-1)/2\}$) is \emph{proved} --- Lemma~\ref{lem:E}, the
+  three-distance foot count, clean at every prime $p\ge31$ and
+  cross-checked against the census to $p\le419$; the two-foot version is
+  consumed by no current proof --- leaving the
+  pinning-size lemma (relative-offset sets of at most $6$ elements with
+  covering counts $28$ and $68$ independent of $p$, verified to
+  $p\le113$, needed by the shear-rigidity closure, and now confirmed from
+  the $pq$ side by Proposition~\ref{prop:pqpinned}) as the programme's
+  single unbounded input, dischargeable not by
+  bounded search but by the four-family covering classification
+  (Conjecture~\ref{conj:SL}) --- which is the programme's route to an
+  unconditional-in-$p$ statement.
+
+\item \textbf{Rigid-zone termination.} Is the unit-capable set finite at
+  each rung? Within the verified range (primes $\le 150$, composites
+  $\le 111$) the $n=5$ zone is exactly $\{7,13,17,19,37\}$, but no
+  finiteness argument is known, and the $n=4\to n=5$ transition
+  ($11$ out, $\{17,19,37\}$ in) shows the zone is not monotone in the
+  rung. Finiteness at one rung would make the classification program of
+  \S\ref{sec:rigid} literally completable.
+
+\item \textbf{The successor no-covering conjecture}
+  (Conjecture~\ref{conj:successor}): for prime $N\ge 41$, four
+  translates of $S_h$ never cover $\Z_{(N-1)/2}$. Counting never
+  obstructs there ($4(2h+1)-3\ge N$), so the statement is purely
+  multiplicative, the exact analogue one rung up of the $n=4$
+  no-covering statement. The classifications of
+  Theorems~\ref{thm:K4}--\ref{thm:K37} are the complete positive side of
+  the ledger: every capable prime $\le 37$, classified.
+
+\item \textbf{Is the decay fundamental?} The proved-coverage rate
+  declines with range (\S\ref{sec:measure}): on the augmented battery
+  the residual grows $6.56\%\to21.84\%$ over $V=24\to56$, with
+  increments $+3.80$, $+5.36$, $+4.07$, $+2.06$ points per $8$ units of
+  $V$---roughly linear growth with fluctuation, no established trend in
+  either direction. The level fact is sharp: coverage fell below the
+  program's $80\%$ continuation threshold at $V=56$ ($78.16\%$). The
+  alternatives remain: either the decay is intrinsic to the
+  reformulation (proved coverage has a range-dependent ceiling), or it
+  is an artifact of the battery---specifically of the absence of a
+  kernel-world lemma, since the kernel world is $100\%$ of the residual.
+  Five data points do not decide the question; a kernel-world structure
+  theorem would.
+
+\item \textbf{Plain-regime growth.} On the any-pair basis the plain share
+  is stable across rung and range ($38.3\%$ at $n=4$; $34.3\%$--$36.0\%$
+  at $n=5$), but the verified-only sets are all plain, and the
+  polygon lemma's share shrinks structurally as $T$ grows (a residue is
+  polygon-certifiable only when some $j\mid N$ with $j\le T$ avoids all
+  residues). Does the plain share grow with $n$, and at what rate?
+
+\item \textbf{Higher rungs.} At $n=6$ ($T=7$, five bad sets per pair) the
+  rigid zone should be denser (more translates available) and the kernel
+  world larger. The program's method---run the battery, map the new
+  rigid zone, generate the classifications the new level demands, replace
+  the ports that die---is exactly what was executed at $n=5$; whether it
+  survives a third rung is untested. \emph{Post-submission}
+  (\S\ref{sec:higherrung}): the census+shear method \emph{does} survive
+  the third and fourth rungs. At the critical cell of $T=8$ the fiber
+  census is exactly eleven families with placement counts constant in
+  $p$ (Proposition~\ref{prop:T8census}, seventeen primes); the
+  $\pm$-colliding-only law holds at both rungs in the mechanism range;
+  the drift law is $T$-free (Lemma~\ref{lem:rungT}); the shear step
+  survives the growing pinned sets because the growth is dimensional
+  (solution sets $\approx k^2$, projections saturating at $42$ against
+  $|U|=(T-2)k+\epsilon-1$, exit time $\le2$); and the frontier cells are
+  empty --- $(1K,4U)$ at $T=7$ for every prime $11\le p\le61$, $(2K,4U)$
+  at $T=8$ for every prime $17\le p\le43$ tested. The rigid-zone lift
+  itself (pure-unit families) remains open at every rung, as does the
+  $T=8$ $(1K,5U)$ cell, whose five-difference census is a zoo (840
+  $\pm$-distinct families at $k=2$) --- the honest boundary of the port,
+  and now the object of the conditional scaling-closure attack of
+  \S\ref{sec:scale}: Theorem~\ref{thm:SC} closes it under H1g and the
+  H2 pair, with the strand census as the named remaining obligation.
+
+\item \textbf{Bridges to neighboring methods.} Three external toolkits
+  interface naturally with the reformulation's finite statements.
+  (a)~The covering lemmas now have a \emph{proved} bridge: the group-ring
+  translation (\S\ref{sec:groupring}) turns them into sign conditions on
+  a sparse identity in $\Z[\Z_p]$, proved as Theorem~\ref{thm:GT} and
+  machine-verified on every covering in the $p\le61$ census; its census
+  law (four difference families with $p$-independent placement counts,
+  Conjecture~\ref{conj:SL}) is the object the remaining two lemmas must
+  prove, and it sits precisely in the Lam--Leung--de~Bruijn--Schoenberg
+  theory of sparse cyclotomic divisibility.
+  (b)~The no-covering
+  statements (Conjecture~\ref{conj:successor} and its $n=4$ ancestor)
+  concern coverings of cyclic groups by \emph{multiplicative
+  arcs}---images of intervals under multiplication. Additive-combinatorial
+  covering theory (Kneser-type theorems, Cauchy--Davenport and weighted
+  variants) is the classical toolkit for covering questions in $\Z_N$;
+  whether any of its forms applies to multiplicative arcs is open, and a
+  positive answer at prime $N$ would settle the successor conjecture.
+  (c)~Covering-radius problems for lattice zonotopes are governed
+  matroidally, and log-concave polynomial methods have turned matroidal
+  counting statements into general theorems (Mason's ultra-log-concavity
+  conjecture being the template); whether the pair-sum covering problems
+  admit a zonotope--matroid encoding whose associated polynomial has a
+  stability property is the corresponding question here---if they do, the
+  kernel world would be its near-equality cases, and the sign-mixed
+  sparse divisibility of \S\ref{sec:gt-outlook} is the natural first
+  candidate. The first bridge is exploited; the other two are recorded as
+  directions, not claims. \emph{Post-submission} (final revision): the
+  third bridge was subsequently engaged as a full strand and is now
+  closed. The zonotope--Ehrhart encoding exists---the Lonely-Runner
+  zonotope of the instance at denominator $N$, its dilate family
+  $mZ(V)$---and its arithmetic is entirely stable: the $h^*$-polynomials
+  of both canonical families (the harmonic instances $v=(1,\dots,n)$ and
+  the rung-$2$ instances $v=(1,\dots,n{-}1,2n)$) are real-rooted,
+  log-concave, and Newton at every $n\le 10$, verified in exact
+  rational arithmetic at $45$ digits \cite{companion-paper}. The
+  geometric control the bridge asked for, however, is false in its
+  natural form: the deepest-hole reading---the covering optimum
+  attained at the zonotope's center, $\rho=\delta$---fails from $n=5$
+  onward with exact rational witnesses (at the harmonic $n=5$ instance
+  $m=5$, $\rho=16/47>\tfrac13$ \emph{exactly}, closed in the companion
+  paper's fourth revision by a balance-family witness and two new box
+  certificates---the search record
+  $97/288\to607/1792\to4183/12288$ retained as provenance; the two
+  $n=6$ boundary rows resolved as strict refutations, $17/47$ and
+  $455/1269$), the modular law that would
+  govern it (deepest hole at the center exactly when $n\mid m$) breaks
+  at $n=5$ (the odd multiples $5$ and $15$ fail exactly; the even and
+  higher multiples $10,20,25,30$ are certified, $m=10$ closing with
+  the companion paper's third revision) and is extinct at $n=6$, and
+  the strictness of $h^*$ neither
+  tracks nor predicts the covering gap (rank correlation at the noise
+  level). The bridge's question is thus answered in the negative for
+  the natural encoding, and with the same shape as the internal
+  program's boundary: arithmetic fidelity, no margin. The witnesses,
+  the exact certification ladder, and the $h^*$ addendum are the
+  subject of the companion paper \cite{companion-paper}.
+\end{enumerate}

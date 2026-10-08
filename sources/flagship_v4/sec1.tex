@@ -1,0 +1,322 @@
+% ======================================================================
+% Section 1 — Abstract and Introduction
+% ======================================================================
+
+\begin{abstract}
+\noindent
+The Lonely Runner Conjecture ($\lrc_n$) admits many \emph{lossless}
+reformulations---finite, geometric, dynamical, or arithmetic rewrites that
+are exactly equivalent to it. This paper is about a structural fact that
+emerged from a multi-year program of attacking the conjecture through such
+reformulations: \emph{every natural strengthening of a lossless
+reformulation that the program examined---every version of it that would
+open a new toolkit---is false}. The claim is an observational summary of
+four witnessed settings, not a meta-theorem over all conceivable
+strengthenings. A reformulation equivalent to $\lrc$ carries the full
+truth-content of $\lrc$; a strictly stronger version is false, and the
+falsity is visible at small $n$ with exact rational witnesses. We exhibit
+the type mismatch in four settings across two reformulation worlds. The
+finite pair-sum covering reformulation supports three of them: its proved
+inventory, audited statement-by-statement, contains only closure,
+invariance, and exhaustiveness statements (no proved margin-type statement
+exists in it); its single margin-shaped instrument, a transfer-matrix
+model of the solution cascade, is closed by theorem (the constrained
+transfer matrices are partial permutations with spectral radius exactly
+$0$ or $1$); and its character-rigidity route has orbit-invariance laws
+falsified exactly, with marginal envelopes saturated precisely where the
+missing margin would be needed. The fourth setting is independent of the
+cascade: the Lonely Runner zonotope, whose covering radius satisfies a
+strictly stronger inequality than $\lrc$ that is false from $n=5$ on,
+with the extremal harmonic instance's covering radius now certified
+exactly---$\rho(1,2,3,4,5)=16/47>1/3$, the audit's $4183/12288$ witness
+superseded by an exact balance family whose three tied dips obey the
+weighted identity $32\,r_{(3,5)}+27\,r_{(4,5)}+35\,r_{(3,4)}=32$---alongside
+exact witnesses $\rho \ge 29/80 > 5/14$ at $v=(1,2,3,4,5,6)$, $\rho \ge
+4/11 > 5/14$ at the non-extremal instance $v=(1,2,3,4,5,7)$, and, resolved
+in this revision, the two former $n=6$ boundary rows as further strict
+refutations ($\rho\ge17/47>5/14$ at $v=(1,2,3,4,5,12)$ and
+$\rho\ge455/1269>5/14$ at $v=(1,2,3,4,5,9)$), while its
+Ehrhart $h^*$-polynomials are real-rooted and log-concave through
+$n=10$ (verified by exact Sturm sequences) with strictness decaying like
+$\Theta(1/n)$ in the measured range and no statistically distinguishable
+correlation with covering margins at the achievable sample sizes.
+Alongside the negative result we record the program's one bounded positive
+theorem---the sum-only equality $M(V)=\max_{\{u,w\}}\tau(u,w)$, the
+rigid-zone translate-class classifications at the primes
+$7,11,13,17,19,37$, and the composite-side structure at $p^2$ and $pq$,
+stated with their hypothesis ledger---and a finite witness archive with a
+certification ladder: exact deepest-hole classification at $n=3$,
+independent away-certified and branch-and-bound certificates at $n=4$
+(newly including $v=(1,2,3,16)$, $\rho=9/34$), exact refutations at
+$n=5,6$, and, from the certification sessions, deepest-hole equality at
+$n=5$ for every surviving multiple: $m=20,25,30$ in the first session
+($\rho=\delta$ exactly at each) and the final row $m=10$ in the second,
+audit-driven session ($\rho=7/22$ exactly), which paired a
+random-local-search screen scaled roughly $50\times$ beyond the audit's
+demonstrated search budget in starts (and far more in raw evaluations)
+with a new exact Lipschitz box certificate; a third session (this
+revision) then closed the harmonic instance itself,
+$\rho(1,2,3,4,5)=16/47$ exactly, using two further certificates---a
+vertex-checked sliding-$\sigma$ interval test and a triple-identity
+certificate that converts the argmax band's weighted dip identity into a
+box proof. Every number cited in this abstract is re-asserted by a persisted,
+independent, exact computation (a 225-item ledger with zero failures), and
+the certification method carries a negative control that correctly
+refuses a false statement.
+The paper is a negative-results paper and claims no progress on the
+conjecture itself: it proves no new cases of $\lrc$, and the surviving
+equivalent forms are as hard as they ever were. What it contributes is the
+obstruction's anatomy: why four natural toolkits, each correct and each
+productive on its own terms, cannot cross the same gap.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{The conjecture and the reformulation habit}
+
+Let $n\ge 2$ and let $V=(v_1,\dots,v_n)$ be distinct positive integers
+with $\gcd(V)=1$ ($n$ moving runners plus the stationary observer; the
+instances of this paper have $n\ge 3$, the range where the quotient
+geometry of \S\ref{sec:prelim} is nondegenerate). Runners start together
+at the origin of the unit circle
+$\T=\R/\Z$; runner $p$ occupies $v_p t \bmod 1$ at time $t$. Write
+$\wnc{x}$ for the distance of a real number to the nearest integer. The
+\emph{loneliness} of the stationary observer at time $t$ is
+$g(t)=\min_{1\le p\le n}\wnc{v_p t}$, and $M(V)=\max_{t\in\T}g(t)$. The
+Lonely Runner Conjecture, posed by Wills in 1967 and independently by
+Cusick in the language of view obstruction
+\cite{PS-survey,Wills,Cusick1973}, asserts $M(V)\ge 1/(n{+}1)$ for every
+$V$. It is proved for at most seven runners \cite{PS-survey}; for eight
+through fifteen runners only computational verifications of special
+families are known
+\cite{Rosenfeld8,Trakulthongchai,Sungkawichai,Allikvere,MSS}.
+
+Attacking such a conjecture through equivalent rewrites is an old habit.
+The reformulation landscape around the Lonely Runner problem is unusually
+rich: Wills' original inhomogeneous-approximation form; Cusick's view
+obstruction; Rifford's continuous covering problem in dimension $n-2$,
+equivalent to a time-bound version of the problem \cite{Rifford}; and, from
+the program this paper reports on, a finite form---the pair-sum lattice
+reduction---under which the conjecture becomes a family of covering
+statements about explicit cyclic groups \cite{PS-survey,prog-artifacts}.
+Each rewrite is \emph{lossless}: it holds exactly when $\lrc_n$ holds,
+with no residual error term. Each was adopted in the hope that its native
+toolkit---covering combinatorics, spectral theory, harmonic analysis,
+polyhedral geometry, Ehrhart theory---could move the conjecture.
+
+This paper records, in a form we hope is useful beyond this one problem,
+what that hope runs into. The headline is a sharp negative observation,
+exhibited in four settings across two reformulation worlds:
+
+\begin{quote}
+\emph{LRC admits many lossless reformulations, and every natural
+strengthening of them that this program examined and exhibited---every
+reformulation that would open a new toolkit---is false. This is not a
+limitation of one technique; it is a structural pattern, documented in
+four settings (three manifestations of the pair-sum cascade and one
+zonotope--Ehrhart setting) with finite exact witnesses.}
+\end{quote}
+
+The three cascade settings are not independent experiments: they are three
+probes of the same reformulation (an inventory audit, an instrument
+closure, and a rigidity falsification), and the paper counts them
+separately only because each fails for a different reason. Independent of
+the cascade is the fourth setting, the zonotope; the paper's claim is the
+pattern across both worlds, not four unrelated facts.
+
+The mechanism, which we call \emph{type mismatch} and develop in
+\S\ref{sec:tm}, has three faces. First, losslessness transfers truth
+exactly: a proof of the reformulated statement is ipso facto a proof of
+$\lrc$, and conversely. A rewrite may still change tractability---the
+program's own finitization is an equivalent rewrite that made the problem
+computable instance by instance---but it cannot discard the conjecture's
+content, and no lossless rewrite can be simultaneously strictly stronger
+than $\lrc$ and true at the extremal instances. Second, the statements
+that would make a reformulation tractable---a uniform margin, a spectral
+gap, a saturated bound with slack, a monotone scale law---are strictly
+stronger than $\lrc$ (they imply it; the converse fails); at the extremal
+instances the extra margin they demand does not exist, and they are false
+there with exact witnesses. Third, the instruments that a lossless
+reformulation naturally supports (classifications, invariances, exact
+counts) compose into statements of the wrong type: they close everything
+except the one gap that matters. All four settings were probed by exact
+computation, and the witnesses are small, checkable, and archived
+(\S\ref{sec:witness}, Appendices~\ref{sec:prov} and \ref{sec:self}).
+
+\subsection{The four instances in one paragraph each}
+
+\emph{Instance 1: the finite covering reformulation}
+(\S\ref{sec:tm-covering}). The pair-sum equality theorem reduces
+$M(V)$ exactly to a maximum over cyclic groups $\Z_{v_u+v_w}$
+(\S\ref{sec:positive}), turning $\lrc_n$ into a covering question about
+explicit bad sets. The program's classification toolkit (size laws, moat
+counts, class-group reductions, lift laws) closed $75.6\%$ of a
+$3{,}712{,}576$-instance corpus outright and localized the rest to one
+named class---but a statement-by-statement audit of the full proof
+inventory found \emph{zero} proved statements of the missing type (a
+uniform growth-in-$k$ margin over a trivial baseline); every proved
+statement is a closure, invariance, exhaustiveness, or machine
+verification, and the one candidate that reads like an exception (the cut
+law's ``$k$-cancellation'') is a $k$-\emph{invariance}---the exact
+opposite of a growth-in-$k$ margin.
+
+\emph{Instance 2: the transfer-matrix route} (\S\ref{sec:tm-transfer}).
+The single instrument shaped to produce the missing type---a
+transfer-matrix or automaton model of the solution cascade, whose natural
+output is a spectral quantity uniform in scale---was executed as a proof
+attempt under a pre-committed success criterion and closed by theorem:
+every constrained transfer matrix of the lossless cascade is a partial
+permutation with spectral radius exactly $0$ or $1$; the cyclic product is
+diagonal, its trace is the survivor count itself, and at the six
+reflection-symmetric committed families the survival fraction is exactly
+$1$ forever. Losslessness forbids generated decay: bijections preserve
+measure, deletion filters without dissipating, and the reformulation is
+bounded by its own fidelity.
+
+\emph{Instance 3: character rigidity} (\S\ref{sec:tm-char}). The
+harmonic-analytic route phrased the obstruction in terms of a closed
+system of ten characters. Its natural strengthenings---orbit-invariance
+of singleton or pairwise marginal profiles---are \emph{false}, falsified
+by exhaustive exact computation; the marginal envelope saturates (is
+full) exactly at the configurations where the margin is needed, and the
+only invariant sparsity is joint. The trivial bound sits exactly at the
+cascade threshold: beating it by the factor the obligations require
+($\sim\!250$ at every rung) is precisely the open margin, stated twice.
+
+\emph{Instance 4: the Lonely Runner zonotope}
+(\S\ref{sec:tm-zono}). The quotient torus $\R^n/(\R v+\Z^n)$ carries a
+covering radius $\rho(v)$ in the quotient $\ell_\infty$ norm, and the
+Lonely Runner statement for the center class is
+$\delta(v)\le (n{-}1)/(2(n{+}1))$ with $\delta\le\rho$ always. The
+covering-radius form---\emph{every} hole within the threshold, not just
+the center---would open the geometry-of-numbers toolkit. It is false from
+$n=5$: at the extremal harmonic instance $v=(1,2,3,4,5)$ the covering
+radius is now known \emph{exactly}, $\rho=16/47>1/3$
+(\S\ref{sec:bb}), at $v=(1,2,3,4,5,6)$ there is an exact rational point
+at depth $29/80>5/14$, at the non-extremal $v=(1,2,3,4,5,7)$ one at
+$4/11>5/14$, and---resolved in this revision---at
+$v=(1,2,3,4,5,12)$ and $v=(1,2,3,4,5,9)$ points at $17/47$ and
+$455/1269$, both $>5/14$. Meanwhile the Ehrhart $h^*$-polynomials of the zonotopes
+are beautifully behaved---real-rooted, log-concave, Newton, uniformly,
+through $n=10$ in both core families---but their strictness decays like
+$\Theta(1/n)$ and has no measurable correlation with the covering
+margins: the coefficient-level toolkit cannot see the metric hole depth
+at all.
+
+\subsection{What this paper is and is not}
+
+The paper is deliberately plain about its shape. It is a \emph{sharp
+negative result}---a whole class of approaches to a famous problem, and
+the exact reason each fails---plus \emph{one bounded positive theorem}
+carried over from the companion monograph (the equality theorem, the
+rigid-zone classifications, and the $p^2$/$pq$ composite structure,
+\S\ref{sec:positive}) and a \emph{finite witness archive} with an explicit
+certification ladder (\S\ref{sec:witness}). Negative results of this kind
+are genuinely valuable when they come with exact computational evidence
+and a mechanism; the mechanism here (losslessness versus strengthening)
+applies verbatim to any problem with a comparable reformulation culture.
+
+The boundary of the claims is as follows. The paper does not solve,
+reduce, or weaken the Lonely Runner Conjecture; no new cases of $\lrc$
+are proved at any $n$; the rung results of
+\cite{Rosenfeld8,Trakulthongchai,Sungkawichai,Allikvere} are untouched.
+The equivalent forms that survive our audits (the $\delta$-form of the
+covering statement, the pair-sum formulation) are exactly as hard as
+$\lrc$, and we claim no leverage on them. The falsified strengthenings
+are stronger than $\lrc$ by construction, so their falsity implies
+nothing about $\lrc$ itself---which remains open, tight at the harmonic
+instances, and apparently indifferent to every toolkit this program could
+bring to bear. What the archive adds is certainty about where \emph{not}
+to dig: four doors, each closed by exact computation or by theorem, each
+closing for the same reason.
+
+\subsection{Roadmap and conventions}
+
+\S\ref{sec:prelim} fixes notation and the four equivalent forms of the
+covering statement, with the proofs of equivalence deferred to the
+companion monograph where they are long. \S\ref{sec:tm} states the
+type-mismatch mechanism and develops the four instances.
+\S\ref{sec:positive} summarizes the positive core with exact statements.
+\S\ref{sec:witness} presents the witness archive and the certification
+ladder, including the certificates of both certification sessions and
+the audit-driven closure of the $m=10$ row.
+\S\ref{sec:concl} concludes. Appendix~\ref{sec:hstar} records the
+$h^*$-observations (the extension to $n=9,10$ is new here).
+Appendix~\ref{sec:prov} is the provenance ledger: every number cited in
+this paper is re-asserted by independent exact computation in a
+persisted, machine-checkable run (225 items, zero failures), and the
+certification scripts, budgets, and outputs are listed.
+Appendix~\ref{sec:self} is the self-contained verification core: the
+elementary identity behind the four forms, the runner formulation with
+its Lipschitz certificate, the explicit pair-sum statement of
+Theorem~\ref{thm:equality}, and one-line hand checks of the headline
+witnesses, so that a reader with only this paper can verify the sharpest
+negative claims without the companion monograph.
+
+\paragraph{What changed in this revision (v3).}
+The external audit of v2 pressed two points against the record: that
+the search evidence behind the $m=10$ ``consistent'' label was thin
+(forty random local searches had sufficed, elsewhere in the same
+archive, to beat a published lower bound), and that the first
+attempt's ``quantized minimax loss'' reading of the $m=10$ residual
+was a diagnostic, not a determination. This revision closes the row:
+\S\ref{sec:bb} records the second, audit-driven attempt---a heavily
+scaled random-local-search screen (no excess found; the deepest
+verified point is the torsion center itself) and a new exact Lipschitz
+box certificate, together empties the tree and proves
+$\rho(1,2,3,4,10)=7/22$ exactly. Nothing else in the paper's claims
+changes; the four falsified strengthenings, the witness archive, and
+the positive core are untouched, and every v2 number that the second
+attempt supersedes (the residual volume, the $1135/3584$ center
+depths, the $571/1792$ survivor bounds) is retained below as the
+record of the first attempt. The $n=5$ modular-law row now reads:
+multiples $m\in\{5,15\}$ fail exactly, multiples
+$m\in\{10,20,25,30\}$ are certified, all twenty non-multiples fail
+exactly.
+
+\paragraph{What changed in this revision (v4).}
+The third certification session closes the archive's oldest open row:
+the deepest hole of the harmonic instance itself. The second attempt's
+negative control had left $38{,}117$ survivor boxes around the harmonic
+deep holes; their centers, re-used as search seeds, led to a
+\emph{balance family} of witnesses
+$c(k)=(2k{+}160,\,3k{-}13,\,4k{+}91,\,5k)/235$, $k=20\dots35$, at each
+point of which the three pair-dips of the runner triple $\{3,4,5\}$ tie
+at $16/47$---a tie \emph{forced} by the weighted identity
+$32\,r_{(3,5)}+27\,r_{(4,5)}+35\,r_{(3,4)}=32$, whose $c$-terms cancel
+algebraically. A branch and bound at $r=16/47$ initially stranded on the
+band: dyadic boxes cannot align with the family's non-dyadic slice edges,
+and the single-$\sigma$ minimax certificate cannot follow the dip
+$\sigma$ as it slides with $c$ along the band. Two new certificates close
+it. The \emph{sliding-$\sigma$ gap certificate} observes that for a
+fixed integer lift vector $m$, a point $c$ admits a valid $\sigma$ with
+all runner terms $\le r$ iff an interval of affine forms in $c$
+intersects $[0,r]\cup[1-r,1]$; the interval gap is concave in $c$, so
+$2^d$ vertex checks certify the whole box---with $\sigma$ free to slide.
+The \emph{triple-identity certificate} exhibits three pair-dips of a
+runner triple $\{x,y,z\}$ with weights $w_{(a,b)}=v_c(v_a{+}v_b)$ whose
+weighted values sum, over the box, to a constant $\le(\sum w)\,r$
+(the $c$-coefficients cancel exactly); the minimum dip value then bounds
+$D$ from above. With lattice-aligned splitting at the dip lattice
+($q=470$), the tree empties: $782{,}255$ box evaluations, zero
+survivors, $5{,}935$~s on one core; $4{,}841$ sampled prunes
+re-confirmed exactly. The same session resolved the two $n=6$ boundary
+rows as strict refutations: at $v=(1,2,3,4,5,12)$ the balance family of
+the triple $\{2,5,12\}$ gives $\rho\ge17/47>5/14$ (identity
+$84\,r_{(2,5)}+70\,r_{(2,12)}+34\,r_{(5,12)}=68$; witness
+$(0,\tfrac{27}{47},0,\tfrac{25}{94},\tfrac{22}{47})$), and at
+$v=(1,2,3,4,5,9)$ a four-dip chain balance gives
+$\rho\ge455/1269>5/14$ (witness
+$(\tfrac{13}{423},\tfrac{22}{47},\tfrac{58}{423},\tfrac{695}{846},
+\tfrac{401}{846})$). The $n=5$ boundary rows $m\in\{6,7,8\}$ remain
+open. Nothing else in the paper's claims changes.
+
+All computations are exact (rational arithmetic) unless explicitly marked
+as a float enclosure; the one exception class is flagged where it occurs
+(numerical root finding is supplemented by exact Sturm-sequence
+verification, and the statistical statements carry their sample sizes and
+$p$-values). Certification levels are labeled \emph{exact}
+(complete exact proof), \emph{certified} (complete proof with an
+independent numerical outer loop), or \emph{consistent} (search-level
+evidence only), following the ladder fixed in the audit of the underlying
+program records \cite{prog-artifacts}.

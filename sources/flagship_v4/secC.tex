@@ -1,0 +1,231 @@
+% ======================================================================
+% Appendix C — Self-contained verification core
+% ======================================================================
+
+\section{A self-contained verification core}\label{sec:self}
+
+This appendix lets a reader with only this paper verify the sharpest
+negative claims without the companion monograph. It collects the
+elementary identity behind the four forms, the runner formulation with
+its certificate, the explicit statement of the sum-only equality, and
+one-line hand checks of the headline witnesses.
+
+\subsection{The identity and the runner formulation}
+
+\begin{lemma}[depth identity]\label{lem:depthid}
+For every $t\in\T$,
+$\max_{1\le j\le n}\wnc{\tfrac12-v_jt}=\tfrac12-\min_{1\le j\le n}\wnc{v_jt}$.
+Consequently $\delta(V)=\tfrac12-\lambda(V)$ with
+$\delta(V)=\operatorname{dist}_\infty\!\bigl(\R v,\;\Z^n+\tfrac12\mathbf{1}
+\bigr)$, and the $\delta$-form of \S\ref{sec:prelim} is exactly
+$\lrc_n$.
+\end{lemma}
+
+\begin{proof}
+Each map $x\mapsto\wnc{x}$ satisfies
+$\wnc{\tfrac12-x}=\tfrac12-\wnc{x}$: reflecting about $\tfrac12$
+exchanges the two half-intervals and fixes the midpoint. Taking $x=v_jt$
+and maximizing over $j$ gives the displayed identity (a maximum of
+quantities each equal to $\tfrac12$ minus the corresponding term is
+$\tfrac12$ minus the minimum). The distance form is the same statement
+along the trajectory line $tv$, $t\in\R$.
+\end{proof}
+
+The computations of this paper use the \emph{runner formulation}
+\eqref{eq:runnerform}, restated here:
+\[
+D(c)\;=\;\min_{\sigma\in[0,1)}\;\max\Bigl(\wnc{\sigma},\;
+\max_{2\le j\le n}\wnc{c_j-v_j\sigma}\Bigr).
+\]
+Two facts make it auditable. First, it is the quotient-norm depth
+$\operatorname{dist}_{\mathcal{X}_v}(c,\Lambda)$ written in the
+$c$-coordinates of \S\ref{sec:prelim}: the linear forms $\phi^{1j}$,
+$\phi^{ij}$ listed there generate the norm, the parameter $\sigma$ is the
+free coordinate $x_1$ of a lift, and minimizing over $\sigma$ minimizes
+over the lift. Second, it is \emph{Lipschitz-auditable}: each term
+$\wnc{c_j-v_j\sigma}$ is $v_j$-Lipschitz in $\sigma$ and the whole
+objective is piecewise linear with breakpoints at the half-integers
+$c_j-\tfrac12-v_j\sigma\in\Z$, so the minimum is attained at a rational
+breakpoint or crossing and is exactly computable by hand or by exact
+rational arithmetic. The independent linear-form/lattice-search
+implementation of the program agrees with it exactly on every instance
+used in this paper (forty random rational points per instance).
+
+\subsection{The box certificate (Lipschitz in \texorpdfstring{$c$}{c})}
+
+\begin{lemma}[sup-norm Lipschitz]\label{lem:clip}
+For all $c,c'\in\T^{n-1}$,
+$\lvert D(c)-D(c')\rvert\le\lVert c-c'\rVert_\infty$.
+\end{lemma}
+
+\begin{proof}
+Fix $\sigma$. Each term $\wnc{c_j-v_j\sigma}$ differs from
+$\wnc{c'_j-v_j\sigma}$ by at most $|c_j-c'_j|$ (the torus norm is
+$1$-Lipschitz), the $\wnc\sigma$ term is unchanged, and the maximum of
+finitely many functions each moved by at most
+$\lVert c-c'\rVert_\infty$ is itself moved by at most
+$\lVert c-c'\rVert_\infty$. Hence
+$G(c,\sigma)\le G(c',\sigma)+\lVert c-c'\rVert_\infty$ for every
+$\sigma$, and minimizing over $\sigma$ preserves the inequality in
+both directions.
+\end{proof}
+
+\begin{corollary}[box certificate]\label{cor:box}
+Let $C$ be a box with center $c_0$ and half-width
+$h=\max_j\tfrac12(\overline{c_j}-\underline{c_j})$. Then
+$\max_{c\in C}D(c)\le D(c_0)+h$. In particular, if $D(c_0)+h\le r$
+with $D(c_0)$ computed exactly, then $C$ contains no point of depth
+above $r$.
+\end{corollary}
+
+This is the test the first $m=10$ attempt lacked. At the residual
+width it left behind---boxes of $1/512$ per side, so $h=1/1024$, with
+exact center depths at most $1135/3584$---the corollary gives
+\[
+\max_{c\in C}D(c)\;\le\;\tfrac{1135}{3584}+\tfrac{1}{1024}
+\;=\;\tfrac{2277}{7168}\;\approx\;0.31766\;<\;\tfrac{7}{22},
+\]
+closing the gap that the minimax bound $U(C)$ could not. The v3
+branch-and-bound (\S\ref{sec:bb}) interleaves exactly this test with
+the exact minimax
+test; the adversarial soundness check is worth recording here because
+it is a one-line computation in the same style as the hand checks
+below: the $1/512$-box around the $6/19$ witness at
+$v=(1,2,3,4,15)$, $r=5/16$, has exact center depth $6133/19456$, and
+$6133/19456+1/1024>5/16$---the certificate correctly refuses a box
+that contains a true deeper hole. The corresponding checks at the
+harmonic witnesses ($347/1024$ and $1045/3072$ center depths against
+$r=1/3$) refuse identically.
+
+\subsection{The sum-only equality, explicitly}
+
+\begin{theorem}[sum-only equality; explicit form]\label{thm:equality-explicit}
+Let $V=(v_1,\dots,v_n)$ have distinct positive entries with $\gcd(V)=1$
+and $0<M(V)<\tfrac12$. For each unordered pair $\{u,w\}\subset[n]$ write
+$N_{uw}=v_u+v_w$ and
+\[
+\tau(u,w)\;=\;\max_{0\le k<N_{uw}}\;\min_{p\in[n]\setminus\{w\}}\;
+\wnc{\frac{v_pk}{N_{uw}}}.
+\]
+Then $M(V)=\max_{\{u,w\}}\tau(u,w)$, and consequently $\lrc_n$ holds
+for all $V$ if and only if for every $V$ there is a pair $\{u,w\}$ with
+$\tau(u,w)\ge 1/(n+1)$.
+\end{theorem}
+
+The two ingredients (proved in the companion monograph, Theorem~1.1
+there; the finitization is what every instance of \S\ref{sec:tm-covering}
+entered through) are: (i) at a global optimum $t^\ast$ with
+$0<M(V)<\tfrac12$ the binding runners can be chosen two-sided---one
+rising, one falling---which forces $(v_u+v_w)t^\ast\in\Z$ for that pair,
+so $t^\ast$ lies on the \emph{sum} lattice of denominator $v_u+v_w$; and
+(ii) on that lattice the two binding runners are exact reflections
+($\wnc{v_uk/N}=\wnc{v_wk/N}$ for all $k$, since $v_u\equiv-v_w \pmod N$),
+so the $n$-runner minimum equals an $(n-1)$-runner minimum. The
+companion's Lemma~2.1 also records the boundary cases $M(V)=\tfrac12$
+(all speeds odd) and $M(V)=0$ (impossible).
+
+\subsection{Hand checks of the headline witnesses}
+
+All three strict harmonic-family witnesses are one-minute hand
+computations with \eqref{eq:runnerform}.
+
+\emph{The $97/288$ witness.} Take $v=(1,2,3,4,5)$ and
+$c=(\tfrac1{32},\tfrac{15}{32},\tfrac3{32},\tfrac78)$. At
+$\sigma=\tfrac{31}{288}$ (in $288$-ths, with $c=(\tfrac9{288},
+\tfrac{135}{288},\tfrac{27}{288},\tfrac{252}{288})$):
+$\wnc\sigma=\tfrac{31}{288}$;
+$\wnc{c_2-2\sigma}=\wnc{\tfrac{9-62}{288}}=\tfrac{53}{288}$;
+$\wnc{c_3-3\sigma}=\wnc{\tfrac{135-93}{288}}=\tfrac{42}{288}$;
+$\wnc{c_4-4\sigma}=\wnc{\tfrac{27-124}{288}}=\tfrac{97}{288}$;
+$\wnc{c_5-5\sigma}=\wnc{\tfrac{252-155}{288}}=\tfrac{97}{288}$.
+The maximum is $\tfrac{97}{288}$, and it is minimized: runners $4$ and
+$5$ have opposite slopes ($+4$, $-5$), so any local shift of $\sigma$
+increases one of them. Hence $D(c)=97/288>\tfrac13=\mathrm{thr}_5$.
+
+\emph{The $607/1792$ witness.} Take
+$c=(\tfrac{11}{256},\tfrac{163}{256},\tfrac{15}{256},
+\tfrac{79}{256})$ and $\sigma=\tfrac{89}{896}$: the five terms are
+$\tfrac{89}{896}$, $\tfrac{279}{1792}$, $\tfrac{607}{1792}$,
+$\tfrac{607}{1792}$, $\tfrac{337}{1792}$, so $D(c)=607/1792>
+\tfrac13$, the branch-and-bound follow-up's improvement (two terms tie
+at the maximum with opposite effective slopes).
+
+\emph{The audit's $4183/12288$ witness.} Take
+$c=(\tfrac{465}{4096},\tfrac{605}{1024},\tfrac{1019}{4096},
+\tfrac{315}{4096})$ and $\sigma=\tfrac{905}{6144}$: the five terms are
+\[
+\tfrac{905}{6144},\quad \tfrac{2225}{12288},\quad
+\tfrac{1830}{12288},\quad \tfrac{4183}{12288},\quad
+\tfrac{4183}{12288},
+\]
+so $D(c)=4183/12288>\tfrac13$. This point was found during the independent audit of this
+paper (forty random local searches at the harmonic instance, exact
+re-evaluation), and we adopt it as the harmonic family's recorded lower
+bound; its discovery is itself a datum for \S\ref{sec:bb}'s discussion
+of search thoroughness.
+
+\emph{The exact harmonic value $16/47$.} Take
+$c=(\tfrac{46}{47},\tfrac{92}{235},\tfrac{231}{235},\tfrac{35}{47})$
+(the $k=35$ point of the balance family; in $235$-ths,
+$c=(\tfrac{230}{235},\tfrac{92}{235},\tfrac{231}{235},
+\tfrac{175}{235})$). At $\sigma=\tfrac4{235}$:
+$\wnc\sigma=\tfrac4{235}$;
+$\wnc{c_2-2\sigma}=\tfrac{13}{235}$;
+$\wnc{c_3-3\sigma}=\tfrac{80}{235}$;
+$\wnc{c_4-4\sigma}=\tfrac{20}{235}$;
+$\wnc{c_5-5\sigma}=\tfrac{80}{235}$.
+At $\sigma=\tfrac{19}{235}$ the terms are
+$\tfrac{19}{235},\tfrac{43}{235},\tfrac{35}{235},
+\tfrac{80}{235},\tfrac{80}{235}$; at $\sigma=\tfrac{214}{235}$ they
+are $\tfrac{21}{235},\tfrac{37}{235},\tfrac{80}{235},
+\tfrac{80}{235},\tfrac{45}{235}$. Each of the three maxima is exactly
+$\tfrac{80}{235}=\tfrac{16}{47}$, with opposite-slope binding pairs
+$(+3,-5)$, $(+4,-5)$, $(+3,-4)$: hence $D(c)=16/47$, and the weighted
+identity $32\,r_{(3,5)}+27\,r_{(4,5)}+35\,r_{(3,4)}=32$ shows no
+point of the branch region exceeds it; the branch-and-bound of
+\S\ref{sec:bb} certifies the matching upper bound.
+
+\emph{The $17/47$ witness at $m=12$.} Take $v=(1,2,3,4,5,12)$ and
+$c=(0,\tfrac{27}{47},0,\tfrac{25}{94},\tfrac{22}{47})$. At
+$\sigma=\tfrac{17}{94}$ the six terms (over $94$) are
+$17,34,3,26,34,28$; at $\sigma=\tfrac{77}{94}$ they are
+$17,34,11,26,16,34$; at $\sigma=\tfrac{87}{94}$ they are
+$7,14,19,28,34,34$. Each maximum is exactly
+$\tfrac{34}{94}=\tfrac{17}{47}>\tfrac5{14}$, with binding pairs
+$(+2,-5)$, $(+2,-12)$, $(+5,-12)$; the identity
+$84\,r_{(2,5)}+70\,r_{(2,12)}+34\,r_{(5,12)}=68$ forces the tie value
+$68/188=17/47$ on the family.
+
+\emph{The $455/1269$ witness at $m=9$.} Take $v=(1,2,3,4,5,9)$ and
+$c=(\tfrac{13}{423},\tfrac{22}{47},\tfrac{58}{423},
+\tfrac{695}{846},\tfrac{401}{846})$. At $\sigma=\tfrac{247}{1269}$
+the six terms are $\tfrac{247}{1269},\tfrac{455}{1269},
+\tfrac{49}{423},\tfrac{455}{1269},\tfrac{385}{2538},
+\tfrac{5}{18}$: two terms tie at the maximum
+$\tfrac{455}{1269}>\tfrac5{14}$ with opposite effective slopes, so
+$D(c)=455/1269$.
+
+The remaining strict witnesses ($29/80$ at $v=(1,2,3,4,5,6)$ and $4/11$
+at the non-extremal $v=(1,2,3,4,5,7)$) check identically: substitute the
+$c$-coordinates of Table~\ref{tab:refute}, evaluate the five (resp.\ \
+six) terms at the recorded $\sigma$, and read off the balanced maximum.
+
+\emph{The $7/22$ torsion center (the $m=10$ certificate's witness).}
+Take $v=(1,2,3,4,10)$ and $c=(\tfrac12,0,\tfrac12,\tfrac12)$. At
+$\sigma=\tfrac{7}{22}$ the five terms of \eqref{eq:runnerform} are
+$\tfrac{7}{22}$, $\tfrac{3}{22}$, $\tfrac{1}{22}$, $\tfrac{5}{22}$,
+$\tfrac{7}{22}$: explicitly $\wnc\sigma=\tfrac7{22}$;
+$\wnc{\tfrac12-2\sigma}=\tfrac3{22}$;
+$\wnc{-3\sigma}=\tfrac1{22}$;
+$\wnc{\tfrac12-4\sigma}=\tfrac5{22}$; and
+$\tfrac12-10\sigma=-\tfrac{59}{22}\equiv\tfrac7{22}\pmod 1$, so the
+fifth term is $\tfrac7{22}$. The maximum is $\tfrac7{22}$, and it is
+minimized: the binding terms are the $\sigma$-term (slope $+1$) and
+the fifth term (slope $-10$), opposite signs, so any local shift of
+$\sigma$ increases one of them. Hence $D(c^\ast)=7/22$, and the v3
+certificate of \S\ref{sec:bb} ($\rho\le7/22$) upgrades this to
+$\rho(1,2,3,4,10)=\tfrac{7}{22}$ exactly.
+
+Every value in Table~\ref{tab:refute} was additionally re-asserted by
+two independent implementations in the provenance run
+(Appendix~\ref{sec:prov}).

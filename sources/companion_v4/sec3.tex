@@ -1,0 +1,261 @@
+% ======================================================================
+% Section 3 — The covering framework
+% ======================================================================
+
+\section{The covering framework}\label{sec:covering}
+
+\subsection{Bad sets and certification}
+
+Fix a pair $\{p,q\}$ with $N=v_p+v_q$ and recall
+$T=n+1$, $h=\floor{(N-1)/T}$. The \emph{effective residues} of the pair are
+the $n-1$ residues
+\[
+\mathrm{eff}(p,q)\;=\;\bigl(v_p,\; (v_i)_{i\ne p,q}\bigr)\bmod N ,
+\]
+runner $q$ having been deleted; since $v_q\equiv -v_p\pmod N$, its bad set
+coincides with that of $v_p$ and carries no independent information
+(Lemma~\ref{lem:mirror}). The pair \emph{certifies} $(\mathrm{TAU}$-$_n)$
+iff some lattice time $k$ has
+$\min_w \wn{wk}\ge N/T$ for all effective residues $w$---that is, iff the
+\emph{bad sets}
+\[
+B_w\;=\;\{\,k\in\Z_N \;:\; T\,\wn{wk}<N\,\}
+     \;=\;\{\,k\in\Z_N \;:\; \wn{wk}\le h\,\}
+\]
+of the $n-1$ effective residues do \emph{not} cover $\Z_N$. All covering
+questions in this paper are finite and decidable by exact bitmask
+arithmetic; on the corpora of \S\ref{sec:measure} they are decided for
+every pair of every set.
+
+Every bad set contains $0$, and each $B_w$ is antipodal-saturated
+($k\in B_w\Rightarrow -k\in B_w$, as $\wn{-wk}=\wn{wk}$). The single most
+useful structural parameter of a residue is its \emph{additive order}
+$\ord_N(w)=N/\gcd(w,N)$, because multiplication by $w$ maps $\Z_N$ onto
+the cyclic subgroup $\langle w\rangle$ of order $j=\ord_N(w)$, with kernel
+of size $N/j$. Consequently $B_w$ is a union of cosets of that kernel, and
+its exact size depends only on $j$:
+
+\begin{lemma}[exact size law]\label{lem:size}
+For every residue $w\in\Z_N$ with $\ord_N(w)=j$,
+\[
+|B_w|\;=\;\frac{N}{j}\,\Bigl(2\,\floor{\tfrac{j-1}{T}}+1\Bigr).
+\]
+In particular $j\le T$ forces $|B_w|=N/j$ and $B_w$ is \emph{exactly} the
+subgroup $\tfrac{N}{j}\Z_N$; and $w$ invertible ($j=N$) forces
+$|B_w|=2h+1$, a dilated copy of the arc $A=\{x:\wn{x}\le h\}$.
+\end{lemma}
+
+\begin{proof}
+Multiplication by $w$ maps $\Z_N$ onto
+$\langle w\rangle=\{tN/j : 0\le t<j\}$, each image value having exactly
+$N/j$ preimages (a coset of the kernel). Hence
+$|B_w|=\tfrac{N}{j}\,\bigl|A\cap\langle w\rangle\bigr|$. Now
+$\wn{tN/j}=\tfrac{N}{j}\min(t,\,j-t)$, so membership
+$\wn{tN/j}<N/T$ is equivalent to $\min(t,j-t)<j/T$. For
+$t\in\{1,\dots,j-1\}$ the inequality $t<j/T$ holds for exactly
+$\floor{(j-1)/T}$ values of $t$ (whether or not $T$ divides $j$), and by
+the symmetry $t\mapsto j-t$ the same count holds on the other side; the
+two ranges are disjoint because $t=j-t$ would give
+$\min=j/2\ge j/T$ for $T\ge 2$. With $t=0$ included,
+$|A\cap\langle w\rangle|=2\floor{(j-1)/T}+1$. For $j\le T$ this equals
+$1$, so $B_w$ is the single coset containing $0$, i.e.\ the kernel
+subgroup $\tfrac{N}{j}\Z_N$ itself.
+\end{proof}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{The obstruction taxonomy: five empirically distinct obstruction
+classes of the program's earlier experiments are five additive orders of
+one covering phenomenon. ``World'' is the idiom used in
+\S\ref{sec:rigid}--\ref{sec:measure}.}
+\label{tab:taxonomy}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l l l l}
+\toprule
+$\ord_N(w)=j$ & $B_w$ & exact size (Lem.~\ref{lem:size}) & world \\
+\midrule
+$1$ ($w\equiv0$) & all of $\Z_N$ & $N$ & stuck \\
+$2$ & $\tfrac N2\Z_N$ & $N/2$ & half \\
+$3$ & $\tfrac N3\Z_N$ & $N/3$ & third \\
+$4\le j\le T$ & $\tfrac Nj\Z_N$ & $N/j$ & polygon \\
+$T<j<N$ & union of $2\floor{\frac{j-1}{T}}+1$ kernel cosets &
+  $\tfrac Nj\bigl(2\floor{\tfrac{j-1}{T}}+1\bigr)$ & kernel \\
+$j=N$ (unit) & dilated arc $w^{-1}A$ & $2h+1$ & covering \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+Table~\ref{tab:taxonomy} is the framework's unification statement: what
+the earlier experiments had classified as five unrelated failure modes
+(stuck, half, third, blocked, covering) is one phenomenon---bad sets
+covering $\Z_N$---organized by the additive order of the effective
+residues. The polygon rows are order and nothing more; the kernel row is
+where sizes have slack; the unit row is where the multiplicative structure
+of $\Z_N$ enters, and it is the subject of \S\ref{sec:rigid}.
+
+\subsection{Proved certification lemmas}
+
+The battery of \S\ref{sec:measure} draws on the following lemmas, each
+proved uniformly in $N$ (no per-modulus computation). Their combined
+soundness---every fired flag implies certification---is itself verified
+exhaustively in \S\ref{sec:sound}.
+
+\begin{lemma}[polygon witness]\label{lem:jgon}
+Let $j\mid N$ with $2\le j\le T$, and suppose every effective residue
+satisfies $w\not\equiv 0\pmod j$. Then $k=N/j$ certifies the pair:
+$\wn{wk}\ge N/j\ge N/T$ for every effective residue $w$.
+\end{lemma}
+
+\begin{proof}
+Write $r=w\bmod j\in\{1,\dots,j-1\}$ and $N=j\,m$ with $k=m$. Then
+$wm\equiv rm\pmod{jm}=N$, and
+$\wn{rm}=m\cdot\min(r,\,j-r)\ge m=N/j$ because
+$1\le r\le j-1$. Since $j\le T$, $N/j\ge N/T$.
+\end{proof}
+
+The witness $k=N/j$ is constructive, and its regular-polygon
+geometry---the $n{+}1$ lattice points $\{0,m,2m,\dots,(j{-}1)m\}$ visited
+by the residues at speed multiples---explains the classical tightness of
+regular speed sets $\{1,\dots,n\}$: the pair $(1,n)$ on $N=n+1$ has all
+residues invertible and every lattice time pinned to the polygon. In the
+corpora, the polygon lemma alone certifies the large majority of pairs at
+small $V$.
+
+\begin{lemma}[moat counting]\label{lem:counting}
+If $\sum_w |B_w|-(n-2)<N$, the sum over the $n-1$ effective residues, then
+the pair certifies.
+\end{lemma}
+
+\begin{proof}
+All $n-1$ bad sets contain $0$; adding them one at a time, each set after
+the first contributes at most $|B_w|-1$ new elements to the union, so
+$|\bigcup_w B_w|\le \sum_w|B_w|-(n-2)<N$ and the union cannot be all of
+$\Z_N$.
+\end{proof}
+
+With Lemma~\ref{lem:size} the hypothesis is computable from the order
+signature alone, which is what makes the counting lemma cheap and uniform.
+Its weakness is equally structural: in the kernel world the sizes have
+slack (an order-2 residue already contributes $N/2$), so counting certifies
+nothing there---that slack is precisely the residual measured in
+\S\ref{sec:measure}.
+
+\begin{lemma}[coincidence counting]\label{lem:D3}
+Suppose all effective residues are invertible and span $p_m$ distinct
+antipodal classes. Then
+$\bigl|\bigcup_w B_w\bigr|\le p_m(2h+1)-(p_m-1)$; in particular the pair
+certifies whenever $p_m(2h+1)-(p_m-1)<N$. At $T=6$: $p_m=2$ always
+certifies, and $p_m=3$ certifies iff $N\not\equiv 1\pmod 6$.
+\end{lemma}
+
+\begin{proof}
+If $w'\equiv\pm w$ then $B_{w'}=B_w$, so the union is unchanged by merging
+antipodal partners; it is a union of at most $p_m$ distinct bad sets, each
+of size exactly $2h+1$ by Lemma~\ref{lem:size} (invertible case), all
+containing $0$, whence the bound as in Lemma~\ref{lem:counting}. At $T=6$,
+$h=\floor{(N-1)/6}$: for $p_m=2$,
+$4h+1\le\tfrac{2(N-1)}{3}+1<N$ for all $N\ge 2$; for $p_m=3$,
+$6h+1<N$ fails exactly when $h=(N-1)/6$, i.e.\ $N\equiv1\pmod 6$.
+\end{proof}
+
+Lemma~\ref{lem:D3} is the sound replacement for a port that died, and the
+manner of its death is instructive. At $n=4$ the statement ``two effective
+residues coincide or are antipodal $\Rightarrow$ the pair certifies'' holds
+(verified for all $N\le 80$). At $n=5$ it is false: the effective residues
+$(1,1,2,3)$ on $\Z_7$ contain a coincidence, yet
+$B_1\cup B_2\cup B_3=\{0,\pm1\}\cup\{0,\pm4\}\cup\{0,\pm5\}=\Z_7$---three
+distinct bad sets suffice to cover because their antipodal classes
+$\{1,6\},\{3,4\},\{2,5\}$ exhaust $\Z_7^\ast$. The replacement keeps the
+true part (coincidence shrinks the number of \emph{distinct} bad sets) and
+adds the counting hypothesis that fails exactly at the falsifier:
+$N=7\equiv 1 \pmod 6$ is the excluded case of the $p_m=3$ bound. This
+pattern---the language generating the correction of its own over-reach
+when a rung changes---recurred at every rung of the program.
+
+\begin{lemma}[lift law]\label{lem:lift}
+Let $M\ge 2$, $m\ge 2$, and let $w_1,\dots,w_{n-1}$ be residues mod $M$.
+Then $(w_i)$ admits a covering of $\Z_M$ by bad sets iff
+$(mw_i)$ admits a covering of $\Z_{mM}$ by bad sets (same $T$).
+\end{lemma}
+
+\begin{proof}
+Let $\pi:\Z_{mM}\to\Z_M$ be reduction. For $k\in\Z_{mM}$,
+$(mw_i)k\bmod mM=m\,(w_i\,\pi(k)\bmod M)$, so
+$\lVert (mw_i)k\rVert_{mM}=m\,\lVert w_i\,\pi(k)\rVert_{M}$ and
+$T\lVert (mw_i)k\rVert_{mM}<mM\iff T\lVert w_i\pi(k)\rVert_{M}<M$. Thus
+$B^{(mM)}_{mw_i}=\pi^{-1}\bigl(B^{(M)}_{w_i}\bigr)$, and since $\pi$ is
+surjective, $\bigcup_i B^{(mM)}_{mw_i}=\Z_{mM}$ iff
+$\bigcup_i B^{(M)}_{w_i}=\Z_M$.
+\end{proof}
+
+The lift law explains the composite half of the capability map of
+\S\ref{sec:rigid}: every covering-capable composite modulus in range is a
+lift of a smaller \emph{base} modulus (at $n=4$ the base covering moduli
+for sum-triples are exactly $\{6,7,8,11,13,16\}$), so the primitive
+obstructions live at the base moduli, and the interesting question is which
+moduli are base.
+
+\subsection{The class reduction at prime moduli}
+
+At a prime modulus $N$ every nonzero residue is invertible, and the
+multiplicative structure enters through the \emph{class group}
+$C=\Z_N^\ast/\{\pm1\}\cong\Z_m$ with $m=(N-1)/2$. Write
+$\cls(x)=\{x,-x\}$ for the antipodal class of $x$.
+
+\begin{lemma}[class reduction]\label{lem:class}
+Let $N$ be prime and let $w\ne 0$. Then
+\[
+B_w\;=\;\{0\}\;\cup\;\bigcup_{j=1}^{h}\ \cls\!\bigl(j\,w^{-1}\bigr).
+\]
+Consequently, $n-1$ unit bad sets cover $\Z_N$ iff the class sets
+$X_w\cdot S_h$ cover $C$, where $X_w=\cls(w^{-1})$ and
+$S_h=\{\cls(1),\dots,\cls(h)\}$.
+\end{lemma}
+
+\begin{proof}
+For $k\ne 0$: $k\in B_w\iff \wn{wk}\le h\iff wk\equiv \pm j$ for some
+$1\le j\le h\iff k\equiv \pm j\,w^{-1}$. Since $N$ is prime, every nonzero
+$k$ is a unit, so $\Z_N\setminus\{0\}$ is the disjoint union of the $m$
+antipodal classes; $0$ lies in every $B_w$. Thus the bad sets cover iff
+their nonzero parts cover every class, and the nonzero part of $B_w$ is
+the translate $X_w\cdot S_h$ of the class segment $S_h$.
+\end{proof}
+
+At composite $N$ the reduction breaks, and where it breaks is exactly
+where the composite landscape of \S\ref{sec:rigid} lives: a unit bad set
+reaches only elements $k\equiv\pm j\,w^{-1}$ with $1\le j\le h$, so a
+non-unit element can be covered only through a $j\le h$ sharing its gcd
+with $N$. This gives the composite safety mechanism.
+
+\begin{proposition}[composite reachability]\label{prop:reach}
+Let $N$ be composite. In any covering of $\Z_N$ by unit bad sets, every
+non-unit antipodal class must be of the form $\cls(j\,u)$ with
+$1\le j\le h$, $\gcd(j,N)>1$, and $u$ a unit. If some non-unit class is
+not of this form, no such covering exists. If $N$ is even, no covering by
+unit bad sets exists at all.
+\end{proposition}
+
+\begin{proof}
+A unit bad set $B_w$ contains exactly the classes $\cls(j\,w^{-1})$ with
+$1\le j\le h$ (the computation of Lemma~\ref{lem:class} is valid for any
+$N$ as long as $w$ is invertible). The class $\cls(j\,w^{-1})$ is
+non-unit iff $\gcd(j,N)>1$, and as $w$ ranges over units, $\cls(w^{-1})$
+ranges over all unit classes; hence the non-unit classes reachable by unit
+bad sets are exactly the classes $\cls(j\,u)$ with $1\le j\le h$,
+$\gcd(j,N)>1$, $u$ a unit, and a covering must cover every class. For
+even $N$: if all $n-1$ effective residues are units, they are all odd,
+hence nonzero mod $2$; since $2\mid N$ and $2\le 2\le T$,
+Lemma~\ref{lem:jgon} at $j=2$ exhibits the certifying time $k=N/2$, so
+no unit tuple covers.
+\end{proof}
+
+\begin{remark}[the two-runner base]\label{rem:tworunner}
+The $n=4$ run of the program also isolated a two-residue law used as a
+base case: for all $N\in[3,80]$ and all residue pairs $(a,b)$,
+$\max_k\min(\wn{ak},\wn{bk})\ge N/5$, with equality exactly at the
+pentagon configuration $(1,2)$ on $\Z_{5m}$. The case $5\mid N$ is proved
+(pentagon times $k=jN/5$ when $5\nmid$ the ratio, a kernel-coset argument
+otherwise); the rest is verified per modulus. We record it because the
+pentagon extremal reappears as the tight case of the whole framework:
+$V=\{1,2,3,4\}$ has $M=\tau=1/5$ exactly.
+\end{remark}
