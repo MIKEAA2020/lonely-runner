@@ -1,0 +1,1977 @@
+{
+ "meta": {
+  "p_full": [
+   5,
+   7,
+   11,
+   13,
+   17,
+   19,
+   23,
+   29,
+   31,
+   37,
+   41,
+   43
+  ],
+  "p_struct": [
+   11,
+   13,
+   17,
+   19,
+   23,
+   29,
+   31,
+   37
+  ],
+  "p_drift": [
+   11,
+   13,
+   17,
+   19,
+   23,
+   29
+  ],
+  "p_pin": [
+   7,
+   11,
+   13,
+   17,
+   19,
+   23,
+   29,
+   31,
+   37,
+   41,
+   43,
+   53,
+   59,
+   61,
+   67,
+   71,
+   73,
+   79,
+   83,
+   89,
+   97,
+   101,
+   103,
+   107,
+   109,
+   113
+  ],
+  "p_near": [
+   11,
+   17,
+   23,
+   29,
+   41
+  ]
+ },
+ "ground_truth": {
+  "5": {
+   "p": 5,
+   "n_typeA": 120,
+   "n_typeB": 108,
+   "n_coverings": 0,
+   "covers": []
+  },
+  "7": {
+   "p": 7,
+   "n_typeA": 504,
+   "n_typeB": 480,
+   "n_coverings": 0,
+   "covers": []
+  },
+  "11": {
+   "p": 11,
+   "n_typeA": 3300,
+   "n_typeB": 3240,
+   "n_coverings": 0,
+   "covers": []
+  },
+  "13": {
+   "p": 13,
+   "n_typeA": 6552,
+   "n_typeB": 6468,
+   "n_coverings": 0,
+   "covers": []
+  },
+  "17": {
+   "p": 17,
+   "n_typeA": 19584,
+   "n_typeB": 19440,
+   "n_coverings": 0,
+   "covers": []
+  },
+  "19": {
+   "p": 19,
+   "n_typeA": 30780,
+   "n_typeB": 30600,
+   "n_coverings": 0,
+   "covers": []
+  },
+  "23": {
+   "p": 23,
+   "n_typeA": 66792,
+   "n_typeB": 66528,
+   "n_coverings": 0,
+   "covers": []
+  },
+  "29": {
+   "p": 29,
+   "n_typeA": 170520,
+   "n_typeB": 170100,
+   "n_coverings": 0,
+   "covers": []
+  },
+  "31": {
+   "p": 31,
+   "n_typeA": 223200,
+   "n_typeB": 222720,
+   "n_coverings": 0,
+   "covers": []
+  },
+  "37": {
+   "p": 37,
+   "n_typeA": 455544,
+   "n_typeB": 454860,
+   "n_coverings": 0,
+   "covers": []
+  },
+  "41": {
+   "p": 41,
+   "n_typeA": 688800,
+   "n_typeB": 687960,
+   "n_coverings": 0,
+   "covers": []
+  },
+  "43": {
+   "p": 43,
+   "n_typeA": 834372,
+   "n_typeB": 833448,
+   "n_coverings": 0,
+   "covers": []
+  }
+ },
+ "structure": {
+  "11": {
+   "p": 11,
+   "eps": 5,
+   "k": 1,
+   "bad": 0,
+   "kinds": [
+    "ball",
+    "ball-1",
+    "off"
+   ],
+   "fiber": {
+    "p": 11,
+    "checked": 1210,
+    "bad": 0
+   }
+  },
+  "13": {
+   "p": 13,
+   "eps": 1,
+   "k": 2,
+   "bad": 0,
+   "kinds": [
+    "ball",
+    "ball-1",
+    "off"
+   ],
+   "fiber": {
+    "p": 13,
+    "checked": 2028,
+    "bad": 0
+   }
+  },
+  "17": {
+   "p": 17,
+   "eps": 5,
+   "k": 2,
+   "bad": 0,
+   "kinds": [
+    "ball",
+    "ball-1",
+    "off"
+   ],
+   "fiber": {
+    "p": 17,
+    "checked": 4624,
+    "bad": 0
+   }
+  },
+  "19": {
+   "p": 19,
+   "eps": 1,
+   "k": 3,
+   "bad": 0,
+   "kinds": [
+    "ball",
+    "ball-1",
+    "off"
+   ],
+   "fiber": {
+    "p": 19,
+    "checked": 6498,
+    "bad": 0
+   }
+  },
+  "23": {
+   "p": 23,
+   "eps": 5,
+   "k": 3,
+   "bad": 0,
+   "kinds": [
+    "ball",
+    "ball-1",
+    "off"
+   ],
+   "fiber": {
+    "p": 23,
+    "checked": 11638,
+    "bad": 0
+   }
+  },
+  "29": {
+   "p": 29,
+   "eps": 5,
+   "k": 4,
+   "bad": 0,
+   "kinds": [
+    "ball",
+    "ball-1",
+    "off"
+   ]
+  },
+  "31": {
+   "p": 31,
+   "eps": 1,
+   "k": 5,
+   "bad": 0,
+   "kinds": [
+    "ball",
+    "ball-1",
+    "off"
+   ]
+  },
+  "37": {
+   "p": 37,
+   "eps": 1,
+   "k": 6,
+   "bad": 0,
+   "kinds": [
+    "ball",
+    "ball-1",
+    "off"
+   ]
+  }
+ },
+ "drift": {
+  "11": {
+   "p": 11,
+   "checked": 12100,
+   "bad": 0,
+   "badP2": 0
+  },
+  "13": {
+   "p": 13,
+   "checked": 24336,
+   "bad": 0,
+   "badP2": 0
+  },
+  "17": {
+   "p": 17,
+   "checked": 73984,
+   "bad": 0,
+   "badP2": 0
+  },
+  "19": {
+   "p": 19,
+   "checked": 116964,
+   "bad": 0,
+   "badP2": 0
+  },
+  "23": {
+   "p": 23,
+   "checked": 256036,
+   "bad": 0,
+   "badP2": 0
+  },
+  "29": {
+   "p": 29,
+   "checked": 659344,
+   "bad": 0,
+   "badP2": 0
+  }
+ },
+ "pinning": {
+  "7": {
+   "eps": 1,
+   "k": 1,
+   "nU": 4,
+   "sig1_vals": [
+    5,
+    6
+   ],
+   "combos": [
+    [
+     3,
+     3
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "P1": {
+    "n_coverings": 88,
+    "per_delta": {
+     "1": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "2": [
+      1,
+      3,
+      4,
+      6
+     ],
+     "3": [
+      2,
+      5
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 88,
+    "per_delta": {
+     "1": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "2": [
+      3,
+      4
+     ],
+     "3": [
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": false,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": false,
+   "in_mechanism_range": false
+  },
+  "11": {
+   "eps": 5,
+   "k": 1,
+   "nU": 8,
+   "sig1_vals": [
+    9,
+    10
+   ],
+   "combos": [
+    [
+     3,
+     4
+    ],
+    [
+     4,
+     4
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      3,
+      4,
+      7,
+      8
+     ],
+     "2": [
+      1,
+      10
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      3,
+      4,
+      7,
+      8
+     ],
+     "5": [
+      5,
+      6
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "13": {
+   "eps": 1,
+   "k": 2,
+   "nU": 8,
+   "sig1_vals": [
+    10,
+    11
+   ],
+   "combos": [
+    [
+     5,
+     5
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "P1": {
+    "n_coverings": 72,
+    "per_delta": {
+     "1": [
+      3,
+      4,
+      5,
+      8,
+      9,
+      10
+     ],
+     "2": [
+      1,
+      3,
+      10,
+      12
+     ],
+     "4": [
+      2,
+      11
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 72,
+    "per_delta": {
+     "1": [
+      3,
+      4,
+      5,
+      8,
+      9,
+      10
+     ],
+     "3": [
+      6,
+      7
+     ],
+     "6": [
+      5,
+      6,
+      7,
+      8
+     ]
+    }
+   },
+   "P1_delta_extras": [
+    4
+   ],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "17": {
+   "eps": 5,
+   "k": 2,
+   "nU": 12,
+   "sig1_vals": [
+    14,
+    15
+   ],
+   "combos": [
+    [
+     5,
+     6
+    ],
+    [
+     6,
+     6
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      5,
+      6,
+      11,
+      12
+     ],
+     "2": [
+      1,
+      16
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      5,
+      6,
+      11,
+      12
+     ],
+     "8": [
+      8,
+      9
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "19": {
+   "eps": 1,
+   "k": 3,
+   "nU": 12,
+   "sig1_vals": [
+    15,
+    16
+   ],
+   "combos": [
+    [
+     7,
+     7
+    ],
+    [
+     7,
+     6
+    ],
+    [
+     6,
+     7
+    ]
+   ],
+   "P1": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      5,
+      6,
+      7,
+      12,
+      13,
+      14
+     ],
+     "2": [
+      1,
+      3,
+      16,
+      18
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      5,
+      6,
+      7,
+      12,
+      13,
+      14
+     ],
+     "9": [
+      8,
+      9,
+      10,
+      11
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "23": {
+   "eps": 5,
+   "k": 3,
+   "nU": 16,
+   "sig1_vals": [
+    19,
+    20
+   ],
+   "combos": [
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     8
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      7,
+      8,
+      15,
+      16
+     ],
+     "2": [
+      1,
+      22
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      7,
+      8,
+      15,
+      16
+     ],
+     "11": [
+      11,
+      12
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "29": {
+   "eps": 5,
+   "k": 4,
+   "nU": 20,
+   "sig1_vals": [
+    24,
+    25
+   ],
+   "combos": [
+    [
+     9,
+     10
+    ],
+    [
+     10,
+     10
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      9,
+      10,
+      19,
+      20
+     ],
+     "2": [
+      1,
+      28
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      9,
+      10,
+      19,
+      20
+     ],
+     "14": [
+      14,
+      15
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "31": {
+   "eps": 1,
+   "k": 5,
+   "nU": 20,
+   "sig1_vals": [
+    25,
+    26
+   ],
+   "combos": [
+    [
+     11,
+     11
+    ],
+    [
+     11,
+     10
+    ],
+    [
+     10,
+     11
+    ]
+   ],
+   "P1": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      9,
+      10,
+      11,
+      20,
+      21,
+      22
+     ],
+     "2": [
+      1,
+      3,
+      28,
+      30
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      9,
+      10,
+      11,
+      20,
+      21,
+      22
+     ],
+     "15": [
+      14,
+      15,
+      16,
+      17
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "37": {
+   "eps": 1,
+   "k": 6,
+   "nU": 24,
+   "sig1_vals": [
+    30,
+    31
+   ],
+   "combos": [
+    [
+     13,
+     13
+    ],
+    [
+     13,
+     12
+    ],
+    [
+     12,
+     13
+    ]
+   ],
+   "P1": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      11,
+      12,
+      13,
+      24,
+      25,
+      26
+     ],
+     "2": [
+      1,
+      3,
+      34,
+      36
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      11,
+      12,
+      13,
+      24,
+      25,
+      26
+     ],
+     "18": [
+      17,
+      18,
+      19,
+      20
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "41": {
+   "eps": 5,
+   "k": 6,
+   "nU": 28,
+   "sig1_vals": [
+    34,
+    35
+   ],
+   "combos": [
+    [
+     13,
+     14
+    ],
+    [
+     14,
+     14
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      13,
+      14,
+      27,
+      28
+     ],
+     "2": [
+      1,
+      40
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      13,
+      14,
+      27,
+      28
+     ],
+     "20": [
+      20,
+      21
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "43": {
+   "eps": 1,
+   "k": 7,
+   "nU": 28,
+   "sig1_vals": [
+    35,
+    36
+   ],
+   "combos": [
+    [
+     15,
+     15
+    ],
+    [
+     15,
+     14
+    ],
+    [
+     14,
+     15
+    ]
+   ],
+   "P1": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      13,
+      14,
+      15,
+      28,
+      29,
+      30
+     ],
+     "2": [
+      1,
+      3,
+      40,
+      42
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      13,
+      14,
+      15,
+      28,
+      29,
+      30
+     ],
+     "21": [
+      20,
+      21,
+      22,
+      23
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "53": {
+   "eps": 5,
+   "k": 8,
+   "nU": 36,
+   "sig1_vals": [
+    44,
+    45
+   ],
+   "combos": [
+    [
+     17,
+     18
+    ],
+    [
+     18,
+     18
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      17,
+      18,
+      35,
+      36
+     ],
+     "2": [
+      1,
+      52
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      17,
+      18,
+      35,
+      36
+     ],
+     "26": [
+      26,
+      27
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "59": {
+   "eps": 5,
+   "k": 9,
+   "nU": 40,
+   "sig1_vals": [
+    49,
+    50
+   ],
+   "combos": [
+    [
+     19,
+     20
+    ],
+    [
+     20,
+     20
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      19,
+      20,
+      39,
+      40
+     ],
+     "2": [
+      1,
+      58
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      19,
+      20,
+      39,
+      40
+     ],
+     "29": [
+      29,
+      30
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "61": {
+   "eps": 1,
+   "k": 10,
+   "nU": 40,
+   "sig1_vals": [
+    50,
+    51
+   ],
+   "combos": [
+    [
+     21,
+     21
+    ],
+    [
+     21,
+     20
+    ],
+    [
+     20,
+     21
+    ]
+   ],
+   "P1": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      19,
+      20,
+      21,
+      40,
+      41,
+      42
+     ],
+     "2": [
+      1,
+      3,
+      58,
+      60
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      19,
+      20,
+      21,
+      40,
+      41,
+      42
+     ],
+     "30": [
+      29,
+      30,
+      31,
+      32
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "67": {
+   "eps": 1,
+   "k": 11,
+   "nU": 44,
+   "sig1_vals": [
+    55,
+    56
+   ],
+   "combos": [
+    [
+     23,
+     23
+    ],
+    [
+     23,
+     22
+    ],
+    [
+     22,
+     23
+    ]
+   ],
+   "P1": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      21,
+      22,
+      23,
+      44,
+      45,
+      46
+     ],
+     "2": [
+      1,
+      3,
+      64,
+      66
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      21,
+      22,
+      23,
+      44,
+      45,
+      46
+     ],
+     "33": [
+      32,
+      33,
+      34,
+      35
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "71": {
+   "eps": 5,
+   "k": 11,
+   "nU": 48,
+   "sig1_vals": [
+    59,
+    60
+   ],
+   "combos": [
+    [
+     23,
+     24
+    ],
+    [
+     24,
+     24
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      23,
+      24,
+      47,
+      48
+     ],
+     "2": [
+      1,
+      70
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      23,
+      24,
+      47,
+      48
+     ],
+     "35": [
+      35,
+      36
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "73": {
+   "eps": 1,
+   "k": 12,
+   "nU": 48,
+   "sig1_vals": [
+    60,
+    61
+   ],
+   "combos": [
+    [
+     25,
+     25
+    ],
+    [
+     25,
+     24
+    ],
+    [
+     24,
+     25
+    ]
+   ],
+   "P1": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      23,
+      24,
+      25,
+      48,
+      49,
+      50
+     ],
+     "2": [
+      1,
+      3,
+      70,
+      72
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      23,
+      24,
+      25,
+      48,
+      49,
+      50
+     ],
+     "36": [
+      35,
+      36,
+      37,
+      38
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "79": {
+   "eps": 1,
+   "k": 13,
+   "nU": 52,
+   "sig1_vals": [
+    65,
+    66
+   ],
+   "combos": [
+    [
+     27,
+     27
+    ],
+    [
+     27,
+     26
+    ],
+    [
+     26,
+     27
+    ]
+   ],
+   "P1": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      25,
+      26,
+      27,
+      52,
+      53,
+      54
+     ],
+     "2": [
+      1,
+      3,
+      76,
+      78
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      25,
+      26,
+      27,
+      52,
+      53,
+      54
+     ],
+     "39": [
+      38,
+      39,
+      40,
+      41
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "83": {
+   "eps": 5,
+   "k": 13,
+   "nU": 56,
+   "sig1_vals": [
+    69,
+    70
+   ],
+   "combos": [
+    [
+     27,
+     28
+    ],
+    [
+     28,
+     28
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      27,
+      28,
+      55,
+      56
+     ],
+     "2": [
+      1,
+      82
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      27,
+      28,
+      55,
+      56
+     ],
+     "41": [
+      41,
+      42
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "89": {
+   "eps": 5,
+   "k": 14,
+   "nU": 60,
+   "sig1_vals": [
+    74,
+    75
+   ],
+   "combos": [
+    [
+     29,
+     30
+    ],
+    [
+     30,
+     30
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      29,
+      30,
+      59,
+      60
+     ],
+     "2": [
+      1,
+      88
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      29,
+      30,
+      59,
+      60
+     ],
+     "44": [
+      44,
+      45
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "97": {
+   "eps": 1,
+   "k": 16,
+   "nU": 64,
+   "sig1_vals": [
+    80,
+    81
+   ],
+   "combos": [
+    [
+     33,
+     33
+    ],
+    [
+     33,
+     32
+    ],
+    [
+     32,
+     33
+    ]
+   ],
+   "P1": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      31,
+      32,
+      33,
+      64,
+      65,
+      66
+     ],
+     "2": [
+      1,
+      3,
+      94,
+      96
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      31,
+      32,
+      33,
+      64,
+      65,
+      66
+     ],
+     "48": [
+      47,
+      48,
+      49,
+      50
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "101": {
+   "eps": 5,
+   "k": 16,
+   "nU": 68,
+   "sig1_vals": [
+    84,
+    85
+   ],
+   "combos": [
+    [
+     33,
+     34
+    ],
+    [
+     34,
+     34
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      33,
+      34,
+      67,
+      68
+     ],
+     "2": [
+      1,
+      100
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      33,
+      34,
+      67,
+      68
+     ],
+     "50": [
+      50,
+      51
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "103": {
+   "eps": 1,
+   "k": 17,
+   "nU": 68,
+   "sig1_vals": [
+    85,
+    86
+   ],
+   "combos": [
+    [
+     35,
+     35
+    ],
+    [
+     35,
+     34
+    ],
+    [
+     34,
+     35
+    ]
+   ],
+   "P1": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      33,
+      34,
+      35,
+      68,
+      69,
+      70
+     ],
+     "2": [
+      1,
+      3,
+      100,
+      102
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      33,
+      34,
+      35,
+      68,
+      69,
+      70
+     ],
+     "51": [
+      50,
+      51,
+      52,
+      53
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "107": {
+   "eps": 5,
+   "k": 17,
+   "nU": 72,
+   "sig1_vals": [
+    89,
+    90
+   ],
+   "combos": [
+    [
+     35,
+     36
+    ],
+    [
+     36,
+     36
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      35,
+      36,
+      71,
+      72
+     ],
+     "2": [
+      1,
+      106
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      35,
+      36,
+      71,
+      72
+     ],
+     "53": [
+      53,
+      54
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "109": {
+   "eps": 1,
+   "k": 18,
+   "nU": 72,
+   "sig1_vals": [
+    90,
+    91
+   ],
+   "combos": [
+    [
+     37,
+     37
+    ],
+    [
+     37,
+     36
+    ],
+    [
+     36,
+     37
+    ]
+   ],
+   "P1": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      35,
+      36,
+      37,
+      72,
+      73,
+      74
+     ],
+     "2": [
+      1,
+      3,
+      106,
+      108
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 68,
+    "per_delta": {
+     "1": [
+      35,
+      36,
+      37,
+      72,
+      73,
+      74
+     ],
+     "54": [
+      53,
+      54,
+      55,
+      56
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 6,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 6,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  },
+  "113": {
+   "eps": 5,
+   "k": 18,
+   "nU": 76,
+   "sig1_vals": [
+    94,
+    95
+   ],
+   "combos": [
+    [
+     37,
+     38
+    ],
+    [
+     38,
+     38
+    ]
+   ],
+   "P1": {
+    "n_coverings": 28,
+    "per_delta": {
+     "1": [
+      37,
+      38,
+      75,
+      76
+     ],
+     "2": [
+      1,
+      112
+     ]
+    }
+   },
+   "P2": {
+    "n_coverings": 20,
+    "per_delta": {
+     "1": [
+      37,
+      38,
+      75,
+      76
+     ],
+     "56": [
+      56,
+      57
+     ]
+    }
+   },
+   "P1_delta_extras": [],
+   "P1_max_diffset": 4,
+   "P1_pigeonhole_ok": true,
+   "P2_max_diffset": 4,
+   "P2_pigeonhole_ok": true,
+   "in_mechanism_range": true
+  }
+ },
+ "nearmiss": {
+  "11": {
+   "p": 11,
+   "n_families": 40,
+   "min_failing_fibers": 6,
+   "witness": [
+    12,
+    23
+   ],
+   "|U|": 8
+  },
+  "17": {
+   "p": 17,
+   "n_families": 40,
+   "min_failing_fibers": 10,
+   "witness": [
+    18,
+    35
+   ],
+   "|U|": 12
+  },
+  "23": {
+   "p": 23,
+   "n_families": 40,
+   "min_failing_fibers": 14,
+   "witness": [
+    24,
+    47
+   ],
+   "|U|": 16
+  },
+  "29": {
+   "p": 29,
+   "n_families": 40,
+   "min_failing_fibers": 18,
+   "witness": [
+    30,
+    59
+   ],
+   "|U|": 20
+  },
+  "41": {
+   "p": 41,
+   "n_families": 40,
+   "min_failing_fibers": 26,
+   "witness": [
+    42,
+    83
+   ],
+   "|U|": 28
+  }
+ },
+ "anchors": {
+  "ground_truth_clean": true,
+  "arcs_clean": true,
+  "tsets_clean": true,
+  "drift_clean": true,
+  "pigeonhole_P1": true,
+  "pigeonhole_P2": true
+ },
+ "violations": {}
+}

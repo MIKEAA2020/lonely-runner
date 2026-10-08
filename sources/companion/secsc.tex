@@ -1,0 +1,262 @@
+% ======================================================================
+% Section — The main theorem, stated conditionally
+% ======================================================================
+% Placed after the introduction. The gloss keeps the statement
+% self-contained; the derivation and calibration are in sec "scale".
+
+\section{The main theorem, stated conditionally}\label{sec:SC}
+
+The closures of \S\ref{sec:rigid}--\S\ref{sec:higherrung} settle the
+covering obstruction at the base rung, at the composite micro-cases, and
+at the critical cells of the higher rungs. What remains is the frontier:
+the $(1K,5U)$ cell at $T=8$ and its generalizations $(1K,T{-}3U)$ at
+every $T\ge 8$, the cells whose five-and-more-difference censuses are too
+large to enumerate and whose closure must therefore be structural. This
+section states the program's central result in what we judge its only
+honest form: a single named conditional theorem, preceded by a ledger of
+hypotheses in which every input carries its status---proved, measured,
+or derived from a disclosed fitted constant. The theorem is the
+consolidation of the conditional statements scattered through the
+cascade analysis of \S\ref{sec:scale}; stating it once, with named
+hypotheses, is the point of this section.
+
+The statement needs the higher-rung vocabulary of
+\S\ref{sec:higherrung}, which follows later; we give the gloss here and
+defer all derivations. At $N=p^2$ with $p=Tk+\epsilon$ prime, a covering
+family consists of \emph{kernel} members (speeds divisible by $p$) and
+\emph{unit} members (speeds coprime to $p$); a cell $(aK,bU)$ collects
+the families with $a$ kernel and $b$ unit members. The kernel covers the
+fibers of a kernel bad set and leaves $|U|=(T-2)k+\epsilon-1$ uncovered
+fibers $F_j\cong\Z_p$; on each, the $b$ unit footprints are arithmetic
+progressions which must cover $\Z_p$ (Lemma~\ref{lem:rungT}). The
+\emph{census normal form} pins the normalizer arc's difference to $1$
+and takes canonical differences in $[2,D]$, $D=(p-1)/2$; for the
+frontier cell, $m=T-3$ arcs carry a two-value size window
+$\{2k,2k+1\}$ or $\{2k+1,2k+2\}$ and an \emph{overlap budget}
+$\mathrm{ov}=\Sigma s-p\approx(T-6)k+O(1)$. A family is
+\emph{census-admissible} if it admits at least one covering placement in
+the normal form; the \emph{fiber cascade} is the iterated filter of
+\S\ref{sec:scale-model}, which retains the anchor placements surviving
+the uncovered fibers one by one and kills the family when the survivor
+set empties.
+
+\begin{theorem}[scaling closure; conditional]\label{thm:SC}
+Assume the hypotheses $\mathrm{NF}$, $\mathrm{H0}$, $\mathrm{H1g}$,
+$\mathrm{H2m}$, $\mathrm{H2r}$ of Table~\ref{tab:ledger} (statuses as in
+the table), together with the committed equivalence $\mathrm{EQ}$ of the
+same table. Let $T\ge 8$, let $p=Tk+\epsilon$ be prime with $k\ge 2$
+(so $p\ge p_0(T)$, the least such prime; $p_0(8)=17$), and let the
+frontier cell $(1K,T{-}3U)$ at $N=p^2$ be given, with $m=T-3$ unit
+arcs, the two-value size window of Lemma~\ref{lem:rungT}, and overlap
+budget $\mathrm{ov}=\Sigma s-p\approx(T-6)k+O(1)$. Then:
+\smallskip
+\emph{(i)} every census-admissible family in the cell dies in the fiber
+cascade within
+\begin{multline*}
+C(T,k)\;=\;
+\frac{\log\!\bigl(c_1\,\mathrm{ov}^{\,m-1}\bigr)}
+     {(m-1)\,\log\!\bigl(T/(T-6)\bigr)-\log c_1}\\
++\;\frac{2\Lambda_0\,(T-2)}{T}\;+\;1\;+\;O(1)
+\end{multline*}
+fibers---numerically a $T$-flat plateau $\approx 9$, $9.2$, $10.1$ at
+$T=8,9,10$ (at $k=2,3,3$)---with the never-exceeded worst case
+\[
+(T-4)+N_{\mathrm{res}}+O(1)\;\le\;T+3,
+\qquad
+N_{\mathrm{res}}=1+\tfrac{2\Lambda_0(T-2)}{T};
+\]
+\smallskip
+\emph{(ii)} since $C(T,k)\ll|U|=(T-2)k$ for every $T\ge 8$, $k\ge 2$,
+with a margin growing linearly in $k$, the cascade exhausts the fiber
+budget: no census-admissible family admits a covering placement valid on
+all of $U$, and hence
+\smallskip
+\emph{(iii)} the cell $(1K,T{-}3U)$ at $p^2$ is empty; and by the
+lossless reformulation equivalence, $\mathrm{LRC}$ holds at that rung.
+The measured range of the calibration is $T=8,9,10$ at $p\le 73$, with
+committed ground-truth cells at $p\le 61$ for $T\in\{7,8\}$; the
+statement at primes beyond the calibration is exactly what H1g and H2m
+purchase.
+\end{theorem}
+
+\paragraph{What is conditional and what is not.}
+The reduction chain \emph{(i)}$\to$\emph{(ii)}$\to$\emph{(iii)} is
+proved from committed machinery: the two-fiber reduction
+(Lemma~\ref{lem:twofiber}: the cascade step \emph{is} a
+dilate-intersection of census solution sets), the drift law
+(Lemma~\ref{lem:rungT}, machine-verified $3{,}528/3{,}528$), the
+$T$-free fiber machinery, and the lossless equivalence of
+Corollary~\ref{cor:tau}. The arithmetical content---that the per-fiber
+cut beats the pool within $C(T,k)$ fibers---is proved \emph{given} the
+ledger's inputs. None of those inputs is silently established, and none
+is silently weakened: that is the content of Table~\ref{tab:ledger}. The
+$pq$ side of the composite frontier is carried by the row translation
+(Theorem~\ref{thm:R}) with the same input structure; Theorem~\ref{thm:SC}
+is stated for the $p^2$ side only.
+
+\paragraph{The hypothesis ledger.}
+Each row of Table~\ref{tab:ledger} names one input, its precise form,
+its status, and its evidence or attack route. Two of the six (H1g and
+the H2 pair) are the substantive open content; the others are proved,
+machine-validated structure (NF), a committed theorem (EQ), or measured
+benign in the tested range with a named route (H0). The statuses are
+stated once here and are not restated with each citation.
+
+{\small
+\begin{longtable}{@{}p{0.075\textwidth}p{0.355\textwidth}
+                   p{0.155\textwidth}p{0.315\textwidth}@{}}
+\caption{The hypothesis ledger of Theorem~\ref{thm:SC}. Statuses:
+\emph{proved} (with the verification record), \emph{measured} (with the
+tested range), or \emph{derived} from a disclosed constant. The two
+substantive open inputs are H1g and the H2 pair; everything else is
+proved, committed, or measured benign in range.}\label{tab:ledger}\\
+\toprule
+& hypothesis (precise form) & status & evidence / route \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l@{}}{\itshape Table~\ref{tab:ledger}, continued}\\
+\toprule
+& hypothesis (precise form) & status & evidence / route \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+$\mathrm{NF}$ &
+Census normal-form completeness: every covering family at an uncovered
+fiber is census-admissible (the normal form---normalizer difference
+$1$, canonical differences, two-tier sizes---loses no coverings). &
+proved in structure, machine-validated &
+The footprint and arc derivations are $T$-free and verified
+$957/957$ against direct $\Z_{p^2}$ enumeration; the $T=7$
+census-restricted search equals brute force at the boundary prime
+$p=5$ (the $8$-covering control); the $T=8$ zoo census is the measured
+object. \\
+$\mathrm{H0}$ &
+Sequential composition: the per-fiber cuts compose,
+$C_i\approx\bar\gamma^{\,i}\,|\mathrm{Sol}|^{i+1}/p^{(m-1)i}$; no
+tangent-drift trajectory stays inside the solution family for many
+fibers. &
+measured benign in range &
+Depths $\le 4$ at the committed cells ($764$-pair record); $\le 11$
+across the three calibration rungs; exit time $\le 2$ exhaustive over
+admissible families at $T=7$ and $T=8$-critical. Route: tangency
+codimension $\ge 1$. \\
+$\mathrm{H1g}$ &
+Distinct-family volume law:
+$|\mathrm{Sol}(f,\mathrm{sz})|\le c_1\,\mathrm{ov}^{\,m-1}$ for every
+$\pm$-distinct family $f$ and admissible size tuple, with
+$c_1=O(1)$ uniform in $(T,k,f)$; equivalently
+(Proposition~\ref{prop:threshold}), $|\mathrm{Sol}|$ beats the trivial
+bound $p^{\,m-1}$ by a factor growing in $k$, over the threshold
+$c_1=\bigl(T/(T-6)\bigr)^{\,m-1}$ ($256/243/244.1$ at $T=8/9/10$). &
+measured, margin growing in $k$; chain class proved; three attack
+routes closed (the automaton route by theorem) &
+At $T=8$: worst ratio $|\mathrm{Sol}|/\mathrm{ov}^4$ of
+$0.214/0.083/0.013$ at $p=17/19/29$ (chain-class benchmark
+$2.17/3.61/2.03$); measured margins over the trivial box
+$95\times/1{,}207\times/3{,}803\times$. Remaining distance: the strand
+census (\S\ref{sec:scale-h1})---necessary-condition and
+marginal-rigidity routes measured closed, the coordinates fixed by
+Lemma~\ref{lem:char10}, and the transfer-matrix/automaton route closed
+by Lemma~\ref{lem:monomial}: the instrument computes the census exactly
+(its cyclic trace \emph{is} the survivor count) and consumes H1g rather
+than proving it, every spectral quantity in the framework being exactly
+$0$ or $1$. \\
+$\mathrm{H2m}$ &
+Mid-region dilate-sparsity:
+$|\mathrm{Sol}_0\cap\lambda^{-1}(\mathrm{Sol}_j-\tau)|\le
+\gamma_0\,|\mathrm{Sol}_0|\,|\mathrm{Sol}_j|/p^{m-1}$ for every fiber
+pair with $\bar\lambda>\Lambda_0$, $\gamma_0=O(1)$ uniform. &
+measured; proved for the chain class (loose constants) &
+$764$ pairs at $5$ committed cells: mid-zone $\gamma$ median $0$
+(instant kills), max $40.6$. Chain class proved
+(Theorem~\ref{thm:chaindilate}) with constants $(m!)^2\cdot 4m\cdot
+s_{\max}$---loose by orders of magnitude. Route: the
+Lemma~\ref{lem:E} three-distance pair-line count. \\
+$\mathrm{H2r}$ &
+Resonance budget: the weak-cut fibers ($\bar\lambda\le\Lambda_0$ or
+small-rational $\lambda$) number
+$\le 2\Lambda_0(T-2)/T+1$, $k$-free; the $\lambda=-1$ fiber is never a
+cut. &
+derived given $\Lambda_0$; the $\lambda=-1$ clause proved &
+Lemma~\ref{lem:reflect} (the $x\mapsto-x$ involution; survival
+fraction exactly $1$ at every committed family and cell); the count is
+a Gauss-circle-type small-rational dilation count;
+\emph{$\Lambda_0\approx 4$ is data-chosen}. \\
+$\mathrm{EQ}$ &
+Lossless reformulation: the cell emptiness at the rung implies
+$\mathrm{LRC}$ there. &
+committed theorem &
+The pair-collapse equality
+$M(V)=\max_{\{u,w\}}\tau(u,w)$ (Theorem~\ref{thm:equality},
+machine-verified with a $2{,}870/2{,}870$ independent re-verification);
+the fibration threshold-compatibility. \\
+\end{longtable}
+}
+
+\paragraph{The free-parameter disclosure.}
+Standing practice for this paper, applied to every constant entering
+Theorem~\ref{thm:SC}: a claim is called \emph{derived} only when it is
+derived outright, and a formula containing a fitted constant is labeled
+as such. The constants are:
+\begin{itemize}[leftmargin=2.2em,itemsep=2pt,topsep=2pt]
+\item \emph{$c_1$ (H1g):} bounded by data only---$\le 0.214$ at $T=8$
+  over the three census primes $p=17,19,29$, tightening with $k$
+  (Table~\ref{tab:volume}); \emph{not proved}. The chain class, the only
+  proved case, carries $c_1\approx 2.0$--$3.6$. The threshold the
+  constant must beat is structural, not fitted: the trivial bound
+  realizes $c_1=\bigl(T/(T-6)\bigr)^{\,m-1}$
+  (Proposition~\ref{prop:threshold}), so the content of H1g is the
+  margin over $\approx250$---which every measured constant carries and
+  no proved constant yet does.
+\item \emph{$\Lambda_0\approx 4$ (H2r and the resonance tail of $C$):}
+  data-chosen---the $\bar\lambda$ zone in which the measured per-fiber
+  cuts at the committed cells first exceed the random model by
+  $\sim 10\times$. The formula
+  $N_{\mathrm{res}}=1+2\Lambda_0(T-2)/T$ is therefore \emph{a derived
+  formula containing one fitted constant}: partially derived, not
+  derived outright.
+\item \emph{$\gamma_0$ (H2m):} bounded by data ($\le 41$ in the
+  non-resonant zone over the committed cells); proved only for the chain
+  class, with loose constants.
+\item \emph{$R$ (a junction-volume scale fitted at $4.2$ in an earlier
+  formulation):} \emph{retired}. For the chain class it is replaced by
+  the derived overlap budget $T-6$; for the thin families it is
+  superseded by $c_1$ under H1g. No fitted $R$ remains in
+  Theorem~\ref{thm:SC}.
+\end{itemize}
+The depth formula's remaining constants are structural: the leading
+term is built from the overlap budget $T-6$ and the modulus $T$, and
+the tail from Lemma~\ref{lem:reflect} (proved) plus the $\Lambda_0$
+count above.
+
+\paragraph{The sampled numbers, with intervals.}
+Theorem~\ref{thm:SC}'s calibration rests on exhaustive censuses where
+the cells are enumerable and on disclosed samples where they are not.
+The $T=8$ saturation figures of Table~\ref{tab:pool}
+($1.000/0.571/0.357/0.133/0.015$ at $p=17/19/23/29/31$) are exhaustive
+censuses and carry no sampling error. The $T=9$ figures are
+stride-sampled with full decisions per sampled tuple: at $p=29$,
+saturation $0.903$, $95\%$ Wilson interval $[0.889,0.915]$
+($n=2{,}005$), projected pool $1.39\times10^5$ with interval
+$[1.37,1.41]\times10^5$; at $p=31$, saturation $0.490$,
+$[0.468,0.511]$ ($n=2{,}002$), projected pool $1.18\times10^5$,
+$[1.12,1.23]\times10^5$. Both pools are \emph{projected}---the
+falling-factorial bound times the sampled fraction, at one prime
+each---and the rung-monotone reading rests on two primes with
+$\epsilon\in\{2,4\}$, whose modulation ($0.90$ against $0.49$) is large
+and unmodeled. The $T=10$ saturation (predicted $\ge 0.9$ at the
+$40\%$ budget) is \emph{not measured}. Cascade-depth figures at the
+committed cells are exact runs (median $2$, maximum $4$ over the zoo
+random-$40$); the maxima $9/11/10$ are the measured plateau across
+$k\le 9/8/3$ at the three rungs, quoted as measurements.
+
+\paragraph{Where the derivation lives.}
+Section~\ref{sec:scale} derives the cascade model and proves the proved
+pieces (Lemmas~\ref{lem:twofiber}, \ref{lem:pool}, \ref{lem:spacing},
+\ref{lem:reflect}, \ref{lem:renorm}; Theorem~\ref{thm:chaindilate});
+reports the measurements with their scopes and ground-truth records;
+states the two open obligations (the strand census for H1g, the sharp
+pair-line constants for H2m) in their reduced forms; and closes with
+the epistemic status. Theorem~\ref{thm:SC} should be read as the
+summary of that section, not as an independent result.

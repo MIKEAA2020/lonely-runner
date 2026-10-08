@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://www.openproblemgarden.org",
+    "name": "Lonely runner conjecture",
+    "snippet": "Jun 24, 2007 — 3 $ runners are easy to check. The $ k=4 $ case was proved independently by Betke and Wills [BW] and by Cusick . The $ k=5 $ case was first ...",
+    "host_name": "www.openproblemgarden.org",
+    "rank": 0,
+    "date": "Jun 24, 2007",
+    "favicon": ""
+  },
+  {
+    "url": "https://cdm.ucalgary.ca",
+    "name": "SOME REMARKS ON THE LONELY RUNNER CONJECTURE",
+    "snippet": "by T Tao · 2018 · Cited by 50 — The lonely runner conjecture of Wills and Cusick , in its most popular formulation, asserts that if n runners with distinct con- stant speeds run around a unit ...",
+    "host_name": "cdm.ucalgary.ca",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://dml.cz",
+    "name": "On the lonely runner conjecture",
+    "snippet": "by RK Pandey · 2010 · Cited by 2 — The Lonely Runner Conjecture states that there is a time at which a given runner is at distance at least $1/(k+1)$ from all the others. ( 1973 ), American ...",
+    "host_name": "dml.cz",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "Eleven, twelve, and thirteen lonely runners",
+    "snippet": "Apr 28, 2026 — The Lonely Runner Conjecture of Wills and Cusick states that if k+1 runners start running at distinct constant speeds around a unit-length ... Read more",
+    "host_name": "www.researchgate.net",
+    "rank": 3,
+    "date": "Apr 28, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://scispace.com",
+    "name": "The lonely runner problem for many runners",
+    "snippet": "Mar 12, 2010 — The conjecture originally comes from the paper of Wills ([17]), where it is stated for integer vi's. Independently, this problem was considered ...",
+    "host_name": "scispace.com",
+    "rank": 4,
+    "date": "Mar 12, 2010",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org",
+    "name": "[PDF] Random runners are very lonely",
+    "snippet": "The lonely runner conjecture of Wills and Cusick asserts that if $n$ runners with distinct constant speeds run around a a circular unit length track ... Read more",
+    "host_name": "www.semanticscholar.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://web.math.pmf.unizg.hr",
+    "name": "The lonely runner problem for many runners",
+    "snippet": "by A Dubickas · 2011 · Cited by 19 — The lonely runner conjecture asserts that for any positive integer n and any positive numbers v1 < ... < vn there exists a positive number t such that ||vi t|| ... Read more",
+    "host_name": "web.math.pmf.unizg.hr",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  }
+]

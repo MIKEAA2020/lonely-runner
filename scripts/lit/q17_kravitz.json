@@ -1,0 +1,47 @@
+[
+  {
+    "url": "https://vixra.org",
+    "name": "When atmost one runner prevents loneliness",
+    "snippet": "The Lonely Runner Conjecture (LRC) and the Shifted LRC (SLRC) with n runners , both ask whether there exists a time at which there are no moving runners in an ...",
+    "host_name": "vixra.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org",
+    "name": "[PDF] Relative Lonely Runner spectra",
+    "snippet": "Nov 19, 2024 — The structure of Lonely Runner spectra · V. GiriNoah Kravitz ; The Lonely Runner Conjecture turns 60 · G. PerarnauOriol Serra ; Odd denominators ...",
+    "host_name": "www.semanticscholar.org",
+    "rank": 1,
+    "date": "Nov 19, 2024",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "[2111.13688] On the time for a runner to get lonely",
+    "snippet": "by L Rifford · 2021 · Cited by 5 — Finally, we show that the so-called gap of loneliness in one round (with respect to the Lonely Runner Conjecture), where we have m+1 runners ...",
+    "host_name": "arxiv.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Lonely Runner Conjecture: Does aligning others at 0 via",
+    "snippet": "May 4, 2026 — When some runners are “co-dependent” (e.g. 1/2 and 1/4), they naturally form a tight cluster whenever the independent runners are aligned at 0.",
+    "host_name": "math.stackexchange.com",
+    "rank": 3,
+    "date": "May 4, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.combinatorics.org",
+    "name": "Nine and Ten Lonely Runners",
+    "snippet": "by T Trakulthongchai · 2026 · Cited by 10 — The Lonely Runner Conjecture of Wills and Cusick states that if runners start running at distinct constant speeds around a unit-length ...",
+    "host_name": "www.combinatorics.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  }
+]

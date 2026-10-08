@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://arxiv.org",
+    "name": "Amending the Lonely Runner Spectrum Conjecture",
+    "snippet": "Jan 30, 2026 — The Lonely Runner Conjecture asserts that all runners will sooner or later become lonely regardless of the speeds, possibly at different times. Read more",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "Jan 30, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.sciencedirect.com",
+    "name": "The Lonely Runner Conjecture turns 60",
+    "snippet": "by G Perarnau · 2025 · Cited by 13 — The conjecture states that, for each runner, there is a time where she is lonely , precisely, at distance at least 1 / n on the circle from all the other runners ... Read more",
+    "host_name": "www.sciencedirect.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.combinatorics.org",
+    "name": "Amending the Lonely Runner Spectrum Conjecture",
+    "snippet": "by HT Fan · 2026 · Cited by 6 — At a particular moment in time, a runner is considered “ lonely ” if he or she is at least 1 n units of distance away from every other instances ...",
+    "host_name": "www.combinatorics.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Lonely runner conjecture",
+    "snippet": "Runners colored black have not yet been lonely . The white arcs, of length 2/n, indicate that a runner is currently lonely . Yellow runners have experienced  ...",
+    "host_name": "en.wikipedia.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "On the lonely runner conjecture",
+    "snippet": "May 25, 2026 — The lonely runner conjecture states that there is a time at which all runners are at least 1/(k + 1 ) from their common starting point. The ... Read more",
+    "host_name": "www.researchgate.net",
+    "rank": 4,
+    "date": "May 25, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.quantamagazine.org",
+    "name": "New Strides Made on Deceptively Simple 'Lonely Runner",
+    "snippet": "Mar 6, 2026 — Wills' conjecture is equivalent to saying that each runner will always end up lonely at some point, no matter what the other runners ' speeds ...",
+    "host_name": "www.quantamagazine.org",
+    "rank": 5,
+    "date": "Mar 6, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://meetings.ams.org",
+    "name": "Amending and Continuing the Lonely Runner Spectrum",
+    "snippet": "by HT Fan · Cited by 6 — The main results of this paper are: Disproving the Loneliness Spectrum Conjecture for with an explicitly constructed family of countercases ; Proposing an ... Read more",
+    "host_name": "meetings.ams.org",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ui.adsabs.harvard.edu",
+    "name": "Amending the Lonely Runner Spectrum Conjecture - ADS",
+    "snippet": "by H Tin Fan · 2023 — $$ We disprove the Loneliness Spectrum Conjecture for $n = 4 $ with an infinite family of counterexamples and propose an alternative conjecture. We confirm ... Read more",
+    "host_name": "ui.adsabs.harvard.edu",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

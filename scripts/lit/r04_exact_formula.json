@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://cdm.ucalgary.ca",
+    "name": "SOME REMARKS ON THE LONELY RUNNER CONJECTURE",
+    "snippet": "by T TAO · Cited by 46 — The lonely runner conjecture of Wills and Cusick, each runner will at some time … denote the maximal value of min(tv1 R/Z ,...,tvn R/Z ) as t ranges in R/Z; note ...",
+    "host_name": "cdm.ucalgary.ca",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.maplesoft.com",
+    "name": "Lonely Runner Conjecture - Maple Help",
+    "snippet": "The Lonely Runner Conjecture imagines a finite number of runners , each with a distinct (constant) speed, running around a circular track of unit length.",
+    "host_name": "www.maplesoft.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Would this proof strategy work for proving the lonely runner",
+    "snippet": "Aug 30, 2015 — The problem is the lonely runner conjecture. This conjecture states that if k runners begin running down a circle of unit circumference with random speeds, ...",
+    "host_name": "math.stackexchange.com",
+    "rank": 2,
+    "date": "Aug 30, 2015",
+    "favicon": ""
+  },
+  {
+    "url": "https://blogs.ams.org",
+    "name": "The Lonely Runner Conjecture | - AMS Blogs",
+    "snippet": "Aug 22, 2013 — The Lonely Runner Conjecture (1967): As of 2008, the conjecture has been proved for every value of k up to 7.",
+    "host_name": "blogs.ams.org",
+    "rank": 3,
+    "date": "Aug 22, 2013",
+    "favicon": ""
+  },
+  {
+    "url": "http://holzman.technion.ac.il",
+    "name": "Six Lonely Runners",
+    "snippet": "by T Bohman · 2001 · Cited by 87 — It has been shown that if there are less than or equal to five runners on the track then every runner gets lonely [BGGST], [CP].",
+    "host_name": "holzman.technion.ac.il",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org",
+    "name": "[PDF] The Lonely Runner Conjecture",
+    "snippet": "Nov 11, 2012 — A detailed survey of the Lonely Runner Conjecture and its connection between Diophantine approximation and View-obstruction problems.",
+    "host_name": "www.semanticscholar.org",
+    "rank": 5,
+    "date": "Nov 11, 2012",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.wolframcloud.com",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "May 23, 2014 — The Lonely Runner conjecture states that each runner becomes lonely at some time[1]. The conjecture has been proven for up to seven runners [2]. Read more",
+    "host_name": "www.wolframcloud.com",
+    "rank": 6,
+    "date": "May 23, 2014",
+    "favicon": ""
+  }
+]

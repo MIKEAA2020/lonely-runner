@@ -1,0 +1,776 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/X1bRQWUmm8n43eIclVFh8V4YqPw</id>
+  <title>arXiv Query: search_query=all:"lonely runner"&amp;id_list=&amp;start=0&amp;max_results=40</title>
+  <updated>2026-10-03T09:28:10Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22lonely+runner%22&amp;start=0&amp;max_results=40&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>44</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.36220v1</id>
+    <title>Hadwiger--Nelson Problem for Typical Norms</title>
+    <updated>2026-09-28T20:18:36Z</updated>
+    <link href="https://arxiv.org/abs/2609.36220v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.36220v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The classical Hadwiger-Nelson problem asks for the chromatic number of the unit distance graph of the Euclidean plane. Over the years, this problem has been considered for a variety of other normed spaces, with higher-dimensional Euclidean space $\mathbb{R}^d$ being perhaps the most natural and well-studied. Alon, Bucić, and Sauermann proved that, for a typical norm on $\mathbb{R}^d$, the chromatic number of the unit distance graph is at most $2^d$. We improve this exponential bound to a linear one by showing that the chromatic number of a typical norm on $\mathbb{R}^d$ is at most $2d$ and that this is tight. This shows a stark difference in the behavior compared to the Euclidean case, where there is an exponential lower bound.
+  One of the key ingredients is a certain high-dimensional, matrix generalization of the Lonely runner conjecture, which also allows us to completely settle the so-called view-obstruction conjecture of Schoenberg from 1978 and a more recent covering-radius conjecture of Henze and Malikiosis.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-28T20:18:36Z</published>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Noga Alon</name>
+    </author>
+    <author>
+      <name>Matija Bucić</name>
+    </author>
+    <author>
+      <name>James Davies</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.23952v1</id>
+    <title>More (shifted) runners, less loneliness</title>
+    <updated>2026-09-20T23:49:55Z</updated>
+    <link href="https://arxiv.org/abs/2609.23952v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.23952v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The shifted lonely runner conjecture was recently disproved by Blanco, Criado and Santos. We give quantitative bounds on its failure as the number of runners grows. The loneliness of a configuration is the maximum, over time, of the distance from the origin to the nearest runner. We write $1/(n+1+E_n)$ for the infimum of loneliness over configurations of $n$ runners on the unit circle with distinct positive integer velocities and arbitrary initial shifts. We prove $E_n\ge\lfloor n/287\rfloor$, which together with the elementary bound $E_n\leq n-1$ implies that $E_n$ grows linearly in $n$. We also show that $E_n\geq1$ for every $n\geq95$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-20T23:49:55Z</published>
+    <arxiv:comment>7 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Daria Poliakova</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.06259v2</id>
+    <title>Lonely Runner Relations</title>
+    <updated>2026-09-23T04:21:05Z</updated>
+    <link href="https://arxiv.org/abs/2609.06259v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.06259v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study the Lonely Runner Conjecture (LRC), conceived by Jörg M. Wills in the 1960's: Given positive integers $n_1, n_2, \dots, n_k$, there exists a positive real number $t$ such that for all $1 \le j \le k$ the distance of $t \,n_j$ to the nearest integer is at least $\frac{ 1 }{ k+1 }$. We prove that for any counterexample or tight instance $\mathbf{n}$ of LRC, $\mathbf{m} \cdot \mathbf{n} = 0$ for some $\mathbf{m} \in \mathbb{Z}^k$ with $0 &lt; \| \mathbf{m} \|_1 \le \min(2k+3, \ \frac{ k+1 }{ k-1 } \mathrm{flt}(k))$ where $\mathrm{flt}(k)$ denotes Khinchin's (1948) flatness constant limiting the lattice width of a $k$-dimensional convex body without interior integer points. In other words, potential counterexamples to LRC lie on a finite set of hyperplanes in the parameter space. Our proofs use Fourier analysis and a geometric reformulation of LRC, and our results generalize to the situation of shifted lonely runners of varying measures of loneliness. Our results imply and generalize a theorem of Czerwiński (2012) that when we choose $\mathbf{n}$ at random then, with probability tending to 1, the measure of loneliness $\frac{1}{ k+1 }$ can be replaced by $\frac 1 2 - ε$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-05T20:57:27Z</published>
+    <arxiv:comment>10 pages, 0 figures</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Matthias Beck</name>
+    </author>
+    <author>
+      <name>Samuel Everett</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.03444v2</id>
+    <title>Odd denominators in the Lonely Runner spectrum for six speeds</title>
+    <updated>2026-09-08T17:40:57Z</updated>
+    <link href="https://arxiv.org/abs/2609.03444v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.03444v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For distinct positive integers v_1, ..., v_n let ML(v_1, ..., v_n) be the largest number L such that at some time t every t vi is at distance at least L from the nearest integer; the Lonely Runner Conjecture asserts that ML &gt;= 1/(n+1). Write ML = p/q in lowest terms. Kravitz conjectured that whenever ML &lt; 1/n one has q = np + 1; Fan and Sun found counterexamples for n = 4, conjectured that q = np + k with 1 &lt;= k &lt;= n always holds, and observed that in their data for n = 6 only k = 1 and k = 3 occur. We explain this observation. For six speeds we show that all but finitely many tuples with ML &lt; 1/6 satisfy ML = (P-1)/(6P) for an integer P congruent to 1 or 5 modulo 6; in particular k is 1 or 3 and the denominator q is odd. The proof determines the three infinite two-parameter families of tuples on which such values concentrate, computes ML exactly on each family, and describes exactly where k = 3 occurs. An exhaustive search over the 2 x 10^9 sextuples with speeds at most 110 finds no exception. For five speeds the same method, together with Chen's classification of the tuples attaining ML = 1/5, shows that all but finitely many tuples with ML &lt; 1/5 satisfy Kravitz's original conjecture. The computations are exact and the code is provided.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-03T07:01:37Z</published>
+    <arxiv:comment>18 pages, 1 figure. v2: corrected the value reported in Question 6.6. Code: https://doi.org/10.5281/zenodo.2225216</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Francesco Cordella</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.02604v2</id>
+    <title>Fourteen and fifteen lonely runners</title>
+    <updated>2026-09-24T11:58:42Z</updated>
+    <link href="https://arxiv.org/abs/2609.02604v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.02604v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove the Lonely Runner Conjecture for fourteen and fifteen runners. Our proof combines a stronger bound on the speed product in a primitive counterexample with exhaustive computations modulo primes. To obtain the bound, we work with a projected lattice basis and use cases of the conjecture with fewer runners to bound partial sums of its squared Gram-Schmidt lengths. For fifteen runners, the product bound derived from the work of Malikiosis, Santos, and Schymura gives a logarithmic threshold of about $810$; ours reduces this to about $415$, making the computation feasible. For fourteen runners, the new bound reduces the required number of primes from $111$ to $61$. The computations start with a complete two-branch covering search, followed by binary lifting. Since $14$ and $15$ are composite, the polynomial argument used in earlier work does not apply directly. We finish the fourteen-runner case by a direct search. For fifteen runners, we use the factorisation $15=3\cdot5$ and a shifting argument when all but a few speeds share a common divisor. The code and certificates are publicly archived.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-02T13:46:56Z</published>
+    <arxiv:comment>15 pages. v2: adds the fifteen-runner case and a sharper speed-product bound (logarithmic threshold about 415 instead of 810 for fifteen runners; 61 instead of 111 primes for fourteen); v1 covered fourteen runners only. Certificates, code and audit scripts: doi:10.5281/zenodo.22066772 (fourteen runners) and doi:10.5281/zenodo.22667683 (fifteen runners)</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Jaan Allikvere</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.18818v2</id>
+    <title>Lonely Runners over Function Fields: Quantized Phase--Riesz product</title>
+    <updated>2026-08-21T17:15:20Z</updated>
+    <link href="https://arxiv.org/abs/2608.18818v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.18818v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $C_k(q)$ be the least cardinality of a family of nonzero polynomials over $\mathbb F_q$ whose associated codimension-$k$ partial-circulant kernels cover the full coefficient space. Chow and Rimani'c conjectured that $C_k(q)=1+q+\cdots+q^k$. We disprove the unrestricted conjecture by constructing thirteen monic polynomials over $\mathbb F_2$ whose $k=3$ kernels cover $\mathbb F_2^7$; in particular, $C_3(2)\le 13&lt;15$. For a general covering family of size $N=q^k+S$ and $\mathbb F_q$-linear rank $d$, we prove $S\gg d^{2/3}\left(\frac{\log(2q)}{\log(eNq^k/S)}\right)^{2/3}$. Consequently, for every fixed $k\ge 2$ and all sufficiently large $q$, $C_k(q)\ge q^k+c_kq^{2/3}$. When $k=2$, an integer-multiplicity refinement of the second-moment covering argument yields $\liminf_{q\to\infty}(C_2(q)-q^2)/q\ge \widetilde c_2$, where $\widetilde c_2$ is an explicit one-variable variational constant with numerical value $\widetilde c_2=0.5829944375\ldots$. We also classify triples admitting two independent low-degree polynomial syzygies and prove a conditional packet-free lower bound of size $q^k+(1/2-o(1))q^{k-1}$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-19T11:15:35Z</published>
+    <arxiv:comment>25 pages, no figures. Work-in-progress formalization and related code will be developed and maintained at https://github.com/hxypqr/lonely-runners-function-fields. Corrected the historical attribution in the Introduction. No mathematical changes</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Xiyu Hu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13599v2</id>
+    <title>Tight instances of the Lonely Runner Conjecture: complete classification of one-entry modifications, a new infinite family, and the growth bound</title>
+    <updated>2026-08-31T10:29:48Z</updated>
+    <link href="https://arxiv.org/abs/2608.13599v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13599v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For a set V of n-1 distinct positive integers write LR(V) = max_t min_{v in V} ||vt||, where ||x|| is the distance from x to the nearest integer; V is tight if LR(V) = 1/n, the value predicted by the Lonely Runner Conjecture. The baseline [n-1] = {1,...,n-1} is tight for every n, and Perarnau and Serra list the characterization of tight instances as Problem 1 of their survey, noting no further progress since Goddyn and Wong, who classified the multiple case and proved finiteness for each fixed deleted speed. We settle the one-entry case completely: ([n-1] minus {r}) union {w} with w &gt; n-1 is tight if and only if either 2r &gt; n-1, r divides w and the Goddyn-Wong gcd criterion holds, or (n,r,w) = (5,2,7) or (6,2,9). In particular no tight one-entry modification exists for 3 &lt;= r &lt;= (n-1)/2, and the only tight cases beyond the Goddyn-Wong multiples are the two sporadic sets of Wills, {1,3,4,7} and {1,3,4,5,9}. The proof is purely theoretical: the connected components of the uncovered region U(n,r) are determined exactly in both regimes 2r &gt; n-1 and 2r &lt;= n-1, yielding the effective bound w &lt;= 4rI/(2s-I), with s = n-r and I the least integer of [s, n-1] coprime to r; a single inequality, proved via the Jacobsthal function, closes the mid-range without computation. Tight one-entry modifications also satisfy max V &lt;= 0.60 n log n + 52 n unconditionally, with sharp leading constant 1/2 along n = p#+2 (p# the primorial), so no linear bound confines tight instances. We further isolate an explicit CRT doubling subfamily of the Goddyn-Wong multi-acceleration theorem and prove for two-speed replacements that no tight instance contains a removed speed q with 2 &lt;= q &lt;= n/10 when n &gt;= max(40,10q), whatever the second removal and the inserted speeds. An exact census over all n &lt;= 140, w &lt;= 8n finds only two tight two-swaps, the Wills set {1,4,5,6,7,11,13} and the Goddyn-Wong doubling at n = 74.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-01T11:25:47Z</published>
+    <arxiv:comment>27 pages, 1 figure. v2, major replacement of the r = 2 paper: the classification is now complete for every r, and a growth bound, an explicit doubling subfamily of the Goddyn-Wong multi-acceleration theorem, two-swap results, and the shifted variant are added. Code and data: https://github.com/Qinrayn/lonely-runner-tight-II</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Yuhan Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.16082v2</id>
+    <title>Lonely runners in real life: Sharp bounds for time-dependent velocities</title>
+    <updated>2026-07-24T16:16:42Z</updated>
+    <link href="https://arxiv.org/abs/2607.16082v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.16082v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Motivated by the celebrated Lonely Runner Conjecture, we study a variant in which the runners have time-dependent velocities. Let $n \geq 3$ runners start from the same point on the unit circle, where each runner $i\in[n]$ has a locally integrable velocity function $ν_i\in L^1_{\mathrm{loc}}(\mathbb{R}_{&gt;0})$. Assume that their velocities are strictly ordered almost everywhere and that the relative distance between every pair diverges.
+  We prove that each of the slowest and fastest runners is at a distance strictly larger than $2^{-n+1}$ from every other runner at some time. Moreover, we show that the distance $2^{-n+1}$ is optimal. On the other hand, we construct examples in which every intermediate runner remains arbitrarily close to another runner at all times. As a consequence, we also obtain a sharp nonlinear analogue of a classical theorem of Schoenberg on billiard ball motion in the unit cube.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-17T16:14:12Z</published>
+    <arxiv:comment>15 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Hyunwoo Lee</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.27941v1</id>
+    <title>Mixed thresholds in the Lonely Runner Conjecture</title>
+    <updated>2026-05-27T04:27:10Z</updated>
+    <link href="https://arxiv.org/abs/2605.27941v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.27941v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Lonely Runner Conjecture states that if $k+1$ runners start at the same point on a unit-length circular track and run with distinct constant speeds, then each runner is at some time at least $1/(k+1)$-distant from every other runner. Equivalently, for every tuple of $k$ distinct positive integer speeds $s_1,\ldots,s_k$, there is a real number $t$ such that $\|s_i t\|\geq \frac{1}{k+1}$ for all $i$.
+  We introduce and study a version of the conjecture in which the required distances may vary with $i$. For $\mathbf d=(d_1,\ldots,d_k)\in(0,1/2]^k$, let $\mathsf{MLPS}_k$ be the set of vectors such that, for every choice of distinct positive integer speeds $s_1,\ldots,s_k$, there is a real number $t$ with $\|s_i t\|\geq d_i$ for all $i$.
+  We give an exact characterization of $\mathsf{MLPS}_2$. We also use Fourier series for distance-threshold indicator functions to obtain an arithmetic progression summation formula and an exact two-function integral formula for unequal thresholds.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-27T04:27:10Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Alathea Jensen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.23906v2</id>
+    <title>Eleven, twelve, and thirteen lonely runners</title>
+    <updated>2026-09-01T00:09:24Z</updated>
+    <link href="https://arxiv.org/abs/2604.23906v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.23906v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Wills conjectured that, for any non-zero integers $u_1,\ldots,u_k$, there is a real number $t$ such that, for all $i=1,\ldots,k$, \[\lVert tu_i\rVert\geq\frac{1}{k+1},\] where $\lVert x\rVert$ is the distance from $x$ to the closest integer. This statement is known as the Lonely Runner Conjecture. A computational method developed by Rosenfeld and the second author verified the conjecture for $k\leq9$. We further refine this method with new sieving techniques and employ a polynomial method argument to show that any $(u_1,\ldots,u_k)\equiv(1,2,\ldots,k)\pmod{p}$ with $\gcd(u_1,\ldots,u_k)=1$ satisfies the conjecture when $k+1$ and $p &gt; k^2+k$ are both odd primes. Ultimately, we provide a computer-assisted proof of the Lonely Runner Conjecture for $k\in\{10,11,12\}$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.DM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-26T22:50:05Z</published>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Touch Sungkawichai</name>
+    </author>
+    <author>
+      <name>Tanupat Trakulthongchai</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.24784v2</id>
+    <title>Coloopless zonotopes and counterexamples to the Shifted Lonely Runner Conjecture</title>
+    <updated>2026-04-27T16:48:03Z</updated>
+    <link href="https://arxiv.org/abs/2603.24784v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.24784v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Henze and Malikiosis (2017) have shown that the Lonely Runner Conjecture (LRC) can be restated as a convex-geometric question on the so-called LR zonotopes, lattice zonotopes with one more generator than their dimension. This relation naturally suggests a more generel statement, the "shifted" LRC, the zonotopal version of which concerns a classical parameter, the covering radius.
+  Theorems A and B in Malikiosis-Schymura-Santos (2025) use the zonotopal restatements of both the original and the shifted LRC to prove a linearly-exponential bound on the size of the (integer) speeds for which the conjectures need to be checked in order to establish them for each fixed number of runners; in the shifted version their statement and proof rely on a certain assumption on two-dimensional rational vector configurations, the so-called "Lonely Vector Property".
+  In this paper we do two things:
+  We push the analogies between the two versions of LRC and their zonotopal counterparts, in particular highlighting that the proofs of Theorems A and B in Malikiosis-Schymura-Santos are more transparent, and the statments more general, if regarded in terms of two quite general classes of lattice zonotopes: the coloopless zonotopes that we introduce here and the cosimple ones, already defined by them. These classes contain all primitive zonotopes of widths at least two and at least three, respectively.
+  We show explicit counterexamples to both the shifted Lonely Runner Conjecture (starting at $n=5$) and to the Lonely Vector Property (starting at $n=12$).</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-25T19:57:12Z</published>
+    <arxiv:comment>44 pages, 8 figures. Main change from v1: more experimental results in Section 5. Other changes: title, minor corrections</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Mónica Blanco</name>
+    </author>
+    <author>
+      <name>Francisco Criado</name>
+    </author>
+    <author>
+      <name>Francisco Santos</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.01912v2</id>
+    <title>The lonely runner conjecture holds for nine runners</title>
+    <updated>2026-01-27T09:35:30Z</updated>
+    <link href="https://arxiv.org/abs/2512.01912v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.01912v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove that the lonely runner conjecture holds for nine runners. Our proof is based on a couple of improvements of the method we used to prove the conjecture for eight runners.</summary>
+    <category term="cs.DM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-01T17:30:31Z</published>
+    <arxiv:primary_category term="cs.DM"/>
+    <author>
+      <name>Matthieu Rosenfeld</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.22427v2</id>
+    <title>Nine and ten lonely runners</title>
+    <updated>2026-04-18T16:20:51Z</updated>
+    <link href="https://arxiv.org/abs/2511.22427v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.22427v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Lonely Runner Conjecture of Wills and Cusick states that if $k+1$ runners start running at distinct constant speeds around a unit-length circular track, then for each runner there is a time when he/she is at least $1/(k+1)$ away from all other runners. Rosenfeld recently obtained a computer-assisted proof of the conjecture for $8$ runners. By refining his approach with a sieve, we obtain proofs (also computer-assisted) for $9$ and $10$ runners.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.DM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-27T13:08:42Z</published>
+    <arxiv:comment>Updated theorem numbering to match with journal version; added references</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Tanupat Trakulthongchai</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.16636v1</id>
+    <title>Riesz products and the Lonely Runner Conjecture: A wider gap of loneliness</title>
+    <updated>2025-11-20T18:42:05Z</updated>
+    <link href="https://arxiv.org/abs/2511.16636v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.16636v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The lonely runner conjecture of Wills and Cusick asserts that if $n$ runners with distinct constant speeds run around a a circular unit length track, starting at a common time and place, then each runner will at some time be separated by a distance of at least $\frac{1}{n}$ from all other runners. A weaker lower bound of $\frac{1}{2n-2}$ follows from the so-called trivial union bound, and subsequent work upgraded this to bounds of the form $\frac{1}{2n}+\frac{c}{n^2}$ for various constants $c&gt;0$. Tao strengthened this to $\frac{1}{2n}+\frac{(\log n)^{1-o(1)}}{n^2}$. In this paper, we obtain a polynomial improvement of the form $$\frac{1}{2n}+\frac{1}{n^{5/3+o(1)}}.$$</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-20T18:42:05Z</published>
+    <arxiv:comment>22 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Benjamin Bedert</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.14111v2</id>
+    <title>The lonely runner conjecture holds for eight runners</title>
+    <updated>2025-10-16T09:49:26Z</updated>
+    <link href="https://arxiv.org/abs/2509.14111v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.14111v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove that the lonely runner conjecture holds for eight runners. Our proof relies on a computer verification and on recent results that allow bounding the size of a minimal counterexample. We note that our approach also applies to the known cases with 4, 5, 6, and 7 runners. We expect that minor improvements to our approach could be enough to solve the cases of 9 or 10 runners.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.DM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-17T15:55:06Z</published>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Matthieu Rosenfeld</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.13379v1</id>
+    <title>Covering radii of $3$-zonotopes and the shifted Lonely Runner Conjecture</title>
+    <updated>2025-06-16T11:39:39Z</updated>
+    <link href="https://arxiv.org/abs/2506.13379v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.13379v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We show that the shifted Lonely Runner Conjecture (sLRC) holds for 5 runners. We also determine that there are exactly 3 primitive tight instances of the conjecture, only two of which are tight for the non-shifted conjecture (LRC). Our proof is computational, relying on a rephrasing of the sLRC in terms of covering radii of certain zonotopes (Henze and Malikiosis, 2017), and on an upper bound for the (integer) velocities to be checked (Malikiosis, Santos and Schymura, 2024+).
+  As a tool for the proof, we devise an algorithm for bounding the covering radius of rational lattice polytopes, based on constructing dyadic fundamental domains.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-16T11:39:39Z</published>
+    <arxiv:primary_category term="math.CO"/>
+    <arxiv:journal_ref>Experimental Mathematics, prepublished May 2026</arxiv:journal_ref>
+    <author>
+      <name>David Alcántara</name>
+    </author>
+    <author>
+      <name>Francisco Criado</name>
+    </author>
+    <author>
+      <name>Francisco Santos</name>
+    </author>
+    <arxiv:doi>10.1080/10586458.2026.2651085</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1080/10586458.2026.2651085" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2411.12684v2</id>
+    <title>Relative Lonely Runner spectra</title>
+    <updated>2024-12-09T19:00:16Z</updated>
+    <link href="https://arxiv.org/abs/2411.12684v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2411.12684v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For a subtorus $T \subseteq (\mathbb{R}/\mathbb{Z})^n$, let $D(T)$ denote the $L^\infty$-distance from $T$ to the point $(1/2, \ldots, 1/2)$. For a subtorus $U \subseteq (\mathbb{R}/\mathbb{Z})^n$, define $\mathcal{S}_1(U)$, the Lonely Runner spectrum relative to $U$, to be the set of all values of $D(T)$ as $T$ ranges over the $1$-dimensional subtori of $U$ not contained in the union of the coordinate hyperplanes of $(\mathbb{R}/\mathbb{Z})^n$. The relative spectrum $\mathcal{S}_1((\mathbb{R}/\mathbb{Z})^n)$ is the ordinary Lonely Runner spectrum that has been studied previously.
+  Giri and the second author recently showed that the relative spectra $\mathcal{S}_1(U)$ for $2$-dimensional subtori $U \subseteq (\mathbb{R}/\mathbb{Z})^n$ essentially govern the accumulation points of the Lonely Runner spectrum $\mathcal{S}_1((\mathbb{R}/\mathbb{Z})^n)$. In the present work, we prove that such relative spectra $\mathcal{S}_1(U)$ have a very rigid arithmetic structure, and that one can explicitly find a complete characterization of each such relative spectrum with a finite calculation; carrying out this calculation for a few specific examples sheds light on previous constructions in the literature on the Lonely Runner Problem.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-11-19T17:42:06Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Vanshika Jain</name>
+    </author>
+    <author>
+      <name>Noah Kravitz</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2411.06903v2</id>
+    <title>Linearly-exponential checking is enough for the Lonely Runner Conjecture and some of its variants</title>
+    <updated>2025-06-21T11:53:01Z</updated>
+    <link href="https://arxiv.org/abs/2411.06903v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2411.06903v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Tao (2018) showed that in order to prove the Lonely Runner Conjecture (LRC) up to $n+1$ runners it suffices to consider positive integer velocities in the order of $n^{O(n^2)}$. Using the zonotopal reinterpretation of the conjecture due to the first and third authors (2017) we here drastically improve this result, showing that velocities up to $\binom{n+1}{2}^{n-1} \le n^{2n}$ are enough.
+  We prove the same finite-checking result, with the same bound, for the more general \emph{shifted} Lonely Runner Conjecture (sLRC), except in this case our result depends on the solution of a question, that we dub the \emph{Lonely Vector Problem} (LVP), about sumsets of $n$ rational vectors in dimension two. We also prove the same finite-checking bound for a further generalization of sLRC that concerns cosimple zonotopes with $n$ generators, a class of lattice zonotopes that we introduce.
+  In the last sections we look at dimensions two and three. In dimension two we prove our generalized version of sLRC (hence we reprove the sLRC for four runners), and in dimension three we show that to prove sLRC for five runners it suffices to look at velocities adding up to $195$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-11-11T12:01:31Z</published>
+    <arxiv:comment>36 pages, 3 figures. Main changes from v1: Former Section 8 almost completely removed. Various edits, particularly in the introduction, some suggested by anonymous referees</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <arxiv:journal_ref>Forum of Mathematics, Sigma , Volume 13 (2025) , e164, 1-32</arxiv:journal_ref>
+    <author>
+      <name>Romanos Diogenes Malikiosis</name>
+    </author>
+    <author>
+      <name>Francisco Santos</name>
+    </author>
+    <author>
+      <name>Matthias Schymura</name>
+    </author>
+    <arxiv:doi>10.1017/fms.2025.10107</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1017/fms.2025.10107" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2409.20160v3</id>
+    <title>The Lonely Runner Conjecture turns 60</title>
+    <updated>2025-08-12T15:02:51Z</updated>
+    <link href="https://arxiv.org/abs/2409.20160v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2409.20160v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Lonely Runner Conjecture originated in Diophantine approximation is turning 60. Even if the conjecture is still widely open, the flow of partial results, innovative tools and connections to different problems and applications has been steady on its long life. This survey attempts to give a panoramic view of the status of the problem, trying to highlight the contributions of the many papers that it has originated.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-09-30T10:13:07Z</published>
+    <arxiv:comment>42 pages; minor corrections and new Open Problems section</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Guillem Perarnau</name>
+    </author>
+    <author>
+      <name>Oriol Serra</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2306.10417v2</id>
+    <title>Amending the Lonely Runner Spectrum Conjecture</title>
+    <updated>2026-01-30T00:12:40Z</updated>
+    <link href="https://arxiv.org/abs/2306.10417v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2306.10417v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $||x||$ be the absolute distance from $x$ to the nearest integer. For a set of distinct positive integral speeds $v_1, \ldots, v_n$, we define its maximum loneliness, also known as the gap $δ$, to be
+  $$ML(v_1,\ldots,v_n) = \max_{t \in \mathbb{R}}\min_{1 \leq i \leq n} || tv_i||.$$
+  The Loneliness Spectrum Conjecture, recently proposed by Kravitz (2021), asserts that
+  $$\exists s \in \mathbb{N}, \text{ML}(v_1,\ldots,v_n) = \frac{s} {sn + 1} \text{ or } \text{ML}(v_1,\ldots,v_n) \geq \frac{1}{n}.
+  $$
+  We disprove the Loneliness Spectrum Conjecture for $n = 4$ with an infinite family of counterexamples and propose an alternative conjecture. We confirm the amended conjecture for $n = 4$ whenever there exists a pair of speeds with a common factor of at least $3$ and also prove some related results.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-06-17T20:19:23Z</published>
+    <arxiv:comment>23 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Ho Tin Fan</name>
+    </author>
+    <author>
+      <name>Alec Sun</name>
+    </author>
+    <arxiv:doi>10.37236/13840</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.37236/13840" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2304.01462v4</id>
+    <title>The structure of Lonely Runner spectra</title>
+    <updated>2025-03-30T18:29:23Z</updated>
+    <link href="https://arxiv.org/abs/2304.01462v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2304.01462v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For each subtorus $T$ of $(\mathbb{R}/\mathbb{Z})^n$, let $D(T)$ denote the (infimal) $L^\infty$-distance from $T$ to the point $(1/2,\ldots, 1/2)$. The $n$-th Lonely Runner spectrum $\mathcal{S}(n)$ is defined to be the set of all values achieved by $D(T)$ as $T$ ranges over the $1$-dimensional subtori of $(\mathbb{R}/\mathbb{Z})^n$ that are not contained in the coordinate hyperplanes. The Lonely Runner Conjecture predicts that $\mathcal{S}(n) \subseteq [0,1/2-1/(n+1)]$. Rather than attack this conjecture, we study the structure of the sets $\mathcal{S}(n)$. The main purpose of this note is to show that the set of accumulation points of $\mathcal{S}(n)$ is precisely $\mathcal{S}(n-1)$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-04-04T02:02:58Z</published>
+    <arxiv:comment>Fixed error from previous version</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Vikram Giri</name>
+    </author>
+    <author>
+      <name>Noah Kravitz</name>
+    </author>
+    <arxiv:doi>10.1017/S0305004125101497</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1017/S0305004125101497" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2301.12182v1</id>
+    <title>Deep lattice points in zonotopes, lonely runners, and lonely rabbits</title>
+    <updated>2023-01-28T12:46:39Z</updated>
+    <link href="https://arxiv.org/abs/2301.12182v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2301.12182v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $K \subseteq \mathbb{R}^d$ be a convex body and let $\mathbf{w} \in \operatorname{int}(K)$ be an interior point of $K$. The coefficient of asymmetry $\operatorname{ca}(K,\mathbf{w}) := \min\{ λ\geq 1 : \mathbf{w} - K \subseteq λ(K - \mathbf{w}) \}$ has been studied extensively in the realm of Hensley's conjecture on the maximal volume of a $d$-dimensional lattice polytope that contains a fixed positive number of interior lattice points. We study the coefficient of asymmetry for lattice zonotopes, i.e., Minkowski sums of line segments with integer endpoints. Our main result gives the existence of an interior lattice point whose coefficient of asymmetry is bounded above by an explicit constant in $Θ(d \log\log d)$, for any lattice zonotope that has an interior lattice point. Our work is both inspired by and feeds on Wills' lonely runner conjecture from Diophantine approximation: we make intensive use of a discrete version of this conjecture, and reciprocally, we reformulate the lonely runner conjecture in terms of the coefficient of asymmetry of a zonotope.</summary>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-01-28T12:46:39Z</published>
+    <arxiv:comment>17 pages</arxiv:comment>
+    <arxiv:primary_category term="math.MG"/>
+    <arxiv:journal_ref>International Mathematics Research Notices 2024, no. 8, 6553-6578</arxiv:journal_ref>
+    <author>
+      <name>Matthias Beck</name>
+    </author>
+    <author>
+      <name>Matthias Schymura</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2212.02496v1</id>
+    <title>Cosine Sign Correlation</title>
+    <updated>2022-12-05T18:58:34Z</updated>
+    <link href="https://arxiv.org/abs/2212.02496v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2212.02496v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Fix $\left\{a_1, \dots, a_n \right\} \subset \mathbb{N}$, and let $x$ be a uniformly distributed random variable on $[0,2π]$. The probability $\mathbb{P}(a_1,\ldots,a_n)$ that $\cos(a_1 x), \dots, \cos(a_n x)$ are either all positive or all negative is non-zero since $\cos(a_i x) \sim 1$ for $x$ in a neighborhood of $0$. We are interested in how small this probability can be. Motivated by a problem in spectral theory, Goncalves, Oliveira e Silva, and Steinerberger proved that $\mathbb{P}(a_1,a_2) \geq 1/3$ with equality if and only if $\left\{a_1, a_2 \right\} = \gcd(a_1, a_2)\cdot \left\{1, 3\right\}$. We prove $\mathbb{P}(a_1,a_2,a_3)\geq 1/9$ with equality if and only if $\left\{a_1, a_2, a_3 \right\} = \gcd(a_1, a_2, a_3)\cdot \left\{1, 3, 9\right\}$. The pattern does not continue, as $\left\{1,3,11,33\right\}$ achieves a smaller value than $\left\{1,3,9,27\right\}$. We conjecture multiples of $\left\{1,3,11,33\right\}$ to be optimal for $n=4$, discuss implications for eigenfunctions of Schrödinger operators $-Δ+ V$, and give an interpretation of the problem in terms of the lonely runner problem.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-12-05T18:58:34Z</published>
+    <arxiv:comment>9 pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="math.CA"/>
+    <author>
+      <name>Shilin Dou</name>
+    </author>
+    <author>
+      <name>Ansel Goh</name>
+    </author>
+    <author>
+      <name>Kevin Liu</name>
+    </author>
+    <author>
+      <name>Madeline Legate</name>
+    </author>
+    <author>
+      <name>Gavin Pettigrew</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2211.08749v3</id>
+    <title>A few more Lonely Runners</title>
+    <updated>2023-07-28T08:19:18Z</updated>
+    <link href="https://arxiv.org/abs/2211.08749v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2211.08749v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Lonely Runner Conjecture, proposed by Jörg M. Wills and so nomenclatured by Luis Goddyn, has been an object of interest since it was first conceived in 1967 : Given positive integers $k$ and $n_1,n_2,\ldots,n_k$ there exists a positive real number $t$ such that the distance of $t\cdot n_j$ to the nearest integer is at least $\frac{1}{k+1}$, $\forall~~1\leq j\leq k$. In a recent article Beck, Hosten and Schymura described the Lonely Runner polyhedron and provided a polyhedral approach to identifying families of lonely runner instances. We revisit the Lonely Runner polyhedron and highlight some new families of instances satisfying the conjecture. In addition, we relax the sufficiency of existence of an integer point in the Lonely Runner polyhedron to prove the conjecture. Specifically, we propose that it suffices to show the existence of a lattice point of certain superlattices of the integer lattice in the Lonely Runner polyhedron.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-11-16T08:18:06Z</published>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Avinash Bhardwaj</name>
+    </author>
+    <author>
+      <name>Vishnu Narayanan</name>
+    </author>
+    <author>
+      <name>Hrishikesh Venkataraman</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2204.04731v1</id>
+    <title>Maximal density and the kappa values for the families $\{a,a+1,2a+1,n\}$ and $\{a,a+1,2a+1,3a+1,n\}$</title>
+    <updated>2022-04-10T17:23:39Z</updated>
+    <link href="https://arxiv.org/abs/2204.04731v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2204.04731v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $M$ be a set of positive integers. We study the maximal density $μ(M)$ of the sets of nonnegative integers $S$ whose elements do not differ by an element in $M$. In 1973, Cantor and Gordon established a formula for $μ(M)$ for $|M|\leq 2$. Since then, many researchers have worked upon the problem and found several partial results in the case $|M|\geq 3$, including some results in the case, $M$ is an infinite set. In this paper, we study the maximal density problem for the families $M=\{a,a+1,2a+1,n\}$ and $M=\{a,a+1,2a+1,3a+1,n\}$, where $a$ and $n$ are positive integers. In most of the cases, we find bounds for the parameter \textit{kappa}, denoted by $κ(M)$, which actually serves as a lower bound for $μ(M)$. The parameter $κ(M)$ has already got its importance due to its rich connection with the problems such as the "lonely runner conjecture" in Diophantine approximations and coloring parameters such as "circular coloring" and "fractional coloring" in graph theory.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-04-10T17:23:39Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Ram Krishna Pandey</name>
+    </author>
+    <author>
+      <name>Neha Rai</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2111.13688v2</id>
+    <title>On the time for a runner to get lonely</title>
+    <updated>2022-02-16T16:14:38Z</updated>
+    <link href="https://arxiv.org/abs/2111.13688v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2111.13688v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Lonely Runner Conjecture asserts that if $n$ runners with distinct constant speeds run on the unit circle $\mathbb{R}/\mathbb{Z}$ starting from $0$ at time $0$, then each runner will at some time $t&gt;0$ be lonely in the sense that she/he will be separated by a distance at least $1/n$ from all the others at time $t$. In investigating the size of $t$, we show that an upper bound for $t$ in terms of a certain number of rounds (which, in the case where the lonely runner is static, corresponds to the number of rounds of the slowest non-static runner) is equivalent to a covering problem in dimension $n-2$. We formulate a conjecture regarding this covering problem and prove it to be true for $n=3,4,5,6$. Then, we use our method of proof to demonstrate that the Lonely Runner Conjecture with Free Starting Positions is satisfied for $n=3,4$. Finally, we show that the so-called gap of loneliness in one round (with respect to the Lonely Runner Conjecture), where we have $m+1$ runners including one static runner, is bounded from below by $1/(2m-1)$ for all integer $m\geq 2$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-11-25T20:07:42Z</published>
+    <arxiv:comment>59 pages, 14 figures</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Ludovic Rifford</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2111.07157v1</id>
+    <title>Coprime matchings</title>
+    <updated>2021-11-13T17:25:48Z</updated>
+    <link href="https://arxiv.org/abs/2111.07157v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2111.07157v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove that there is a matching between 2 intervals of positive integers of the same even length, with corresponding pairs coprime, provided the intervals are in $[n]$ and their lengths are $&gt;c(\log n)^2$, for a positive constant $c$. This improves on a recent result of Bohman and Peng. As in their paper, the result has an application to the lonely runner conjecture.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-11-13T17:25:48Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Carl Pomerance</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2109.09860v1</id>
+    <title>Coprime Mappings and Lonely Runners</title>
+    <updated>2021-09-20T21:48:35Z</updated>
+    <link href="https://arxiv.org/abs/2109.09860v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2109.09860v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For $x$ real, let $ \{ x \}$ be the fractional part of $x$ (i.e. $\{x\} = x - \lfloor x \rfloor $). The lonely runner conjecture can be stated as follows: for any $n$ positive integers $ v_1 &lt; v_2 &lt; \dots &lt; v_n $ there exists a real number $t$ such that $ 1/(n+1) \le \{ v_i t\} \le n/(n+1) $ for $ i = 1, \dots, n$. In this paper we prove that if $ ε&gt;0 $ and $n$ is sufficiently large (relative to $ε$) then such a $t$ exists for any collection of positive integers $ v_1 &lt; v_2 &lt; \dots &lt; v_n$ such that $ v_n &lt; (2-ε)n$. This is an approximate version of a natural next step for the study of the lonely runner conjecture suggested by Tao.
+  The key ingredient in our proof is a result on coprime mappings. Let $A$ and $B$ be sets of integers. A bijection $ f:A \to B$ is a coprime mapping if $ a $ and $f(a)$ are coprime for every $ a \in A$. We show that if $A,B \subset [n]$ are intervals of length $2m$ where $ m = e^{ Ω({(\log\log n)}^2)}$ then there exists a coprime mapping from $A$ to $B$. We do not believe that this result is sharp.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-09-20T21:48:35Z</published>
+    <arxiv:comment>26 pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Tom Bohman</name>
+    </author>
+    <author>
+      <name>Fei Peng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2010.02271v2</id>
+    <title>Bounds for the Lonely Runner Problem via Linear Programming</title>
+    <updated>2020-10-11T08:40:05Z</updated>
+    <link href="https://arxiv.org/abs/2010.02271v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2010.02271v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this note we develop a linear programming framework to produce upper and lower bounds for the lonely runner problem.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-10-05T18:30:08Z</published>
+    <arxiv:comment>6 pages, 1 figure; plot was fixed and improved, acknowledgements added</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Felipe Gonçalves</name>
+    </author>
+    <author>
+      <name>João P. G. Ramos</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2009.12080v2</id>
+    <title>Computing the covering radius of a polytope with an application to lonely runners</title>
+    <updated>2021-10-12T08:35:05Z</updated>
+    <link href="https://arxiv.org/abs/2009.12080v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2009.12080v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We are concerned with the computational problem of determining the covering radius of a rational polytope. This parameter is defined as the minimal dilation factor that is needed for the lattice translates of the correspondingly dilated polytope to cover the whole space. As our main result, we describe a new algorithm for this problem, which is simpler, more efficient and easier to implement than the only prior algorithm of Kannan (1992). Motivated by a variant of the famous Lonely Runner Conjecture, we use its geometric interpretation in terms of covering radii of zonotopes, and apply our algorithm to prove the first open case of three runners with individual starting points.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-09-25T08:08:43Z</published>
+    <arxiv:comment>22 pages, 4 tables, 2 figures, revised version</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <arxiv:journal_ref>Combinatorica, Vol. 42, Issue 4, 463-490 (2022)</arxiv:journal_ref>
+    <author>
+      <name>Jana Cslovjecsek</name>
+    </author>
+    <author>
+      <name>Romanos Diogenes Malikiosis</name>
+    </author>
+    <author>
+      <name>Márton Naszódi</name>
+    </author>
+    <author>
+      <name>Matthias Schymura</name>
+    </author>
+    <arxiv:doi>10.1007/s00493-020-4633-8</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s00493-020-4633-8" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1912.06034v1</id>
+    <title>Barely lonely runners and very lonely runners</title>
+    <updated>2019-12-12T15:34:21Z</updated>
+    <link href="https://arxiv.org/abs/1912.06034v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1912.06034v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce a sharpened version of the well-known Lonely Runner Conjecture of Wills and Cusick. Given a real number $x$, let $\Vert x \Vert$ denote the distance from $x$ to the nearest integer. For each set of positive integer speeds $v_1, \ldots, v_n$, we define the associated maximum loneliness to be $\text{ML}(v_1, \ldots, v_n)=\max_{t \in \mathbb{R}}\min_{1 \leq i \leq n} \Vert tv_i \Vert$. The Lonely Runner Conjecture asserts that $\text{ML}(v_1, \ldots, v_n) \geq 1/(n+1)$ for all choices of $v_1, \ldots, v_n$. If the Lonely Runner Conjecture is true, then the quantity $1/(n+1)$ is the best possible, for there are known equality cases with $\text{ML}(v_1, \ldots, v_n)=1/(n+1)$. A natural but (to our knowledge) hitherto unasked question is: If $v_1, \ldots, v_n$ satisfy the Lonely Runner Conjecture but are not an equality case, must $\text{ML}(v_1, \ldots, v_n)$ be uniformly bounded away from $1/(n+1)$? We conjecture that, contrary to what one might expect, this question has an affirmative answer that reflects an underlying rigidity of the problem. More precisely, we conjecture that for each choice of $v_1, \ldots, v_n$, we have either $\text{ML}(v_1, \ldots, v_n)=s/(ns+1)$ for some $s \in \mathbb{N}$ or $\text{ML}(v_1, \ldots, v_n) \geq 1/n$. Our main results are: confirming this stronger conjecture for $n \leq 3$; and confirming it for $n=4$ and $n=6$ in the case where one speed is much faster than the rest. We also obtain a number of related results.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-12-12T15:34:21Z</published>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Noah Kravitz</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1908.02153v4</id>
+    <title>Distribution of boundary points of expansion and application to the lonely runner conjecture</title>
+    <updated>2026-03-11T07:31:46Z</updated>
+    <link href="https://arxiv.org/abs/1908.02153v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1908.02153v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we study the distribution of the boundary points of expansion. As an application, we say something about the lonely runner problem. We show that given $k$ runners $\mathcal{S}_i$ round a unit circular track with the condition that at some time $||\mathcal{S}_i-\mathcal{S}_{i+1}||=||\mathcal{S}_{i+1}-\mathcal{S}_{i+2}||$ for all $i=1,2\ldots,k-2$, then at that time we have $$ ||\mathcal{S}_{i+1}-\mathcal{S}_i||&gt;\frac{\mathcal{D}(n)π}{k-1} $$ for all $i=1,\ldots,k-1$ and where $1&gt;\mathcal{D}(n)&gt;0$ is a constant depending on the degree of a certain polynomial of degree $n$. In particular, we show that given at most eight $\mathcal{S}_i$~($i=1,2,\ldots, 8$) runners running around a unit circular track with distinct constant speed and the additional condition $||\mathcal{S}_i-\mathcal{S}_{i+1}||=||\mathcal{S}_{i+1}-\mathcal{S}_{i+2}||$ for all $1\leq i\leq 6$ at some time $s&gt;1$, then at that time their mutual distance must satisfy the lower bound $$ ||\mathcal{S}_{i}-\mathcal{S}_{i+1}||&gt;\frac{Cπ}{7} $$ for some constant $1&gt;C&gt;0$ for all $1\leq i\leq 7$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-08-05T16:15:12Z</published>
+    <arxiv:comment>12 pages; the paper has been reformatted and introduction greatly expanded; ideas remain unchanged</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Theophilus Agama</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1711.01207v2</id>
+    <title>Lonely runners in function fields</title>
+    <updated>2018-12-26T10:00:50Z</updated>
+    <link href="https://arxiv.org/abs/1711.01207v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1711.01207v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The lonely runner conjecture, now over fifty years old, concerns the following problem. On a unit length circular track, consider $m$ runners starting at the same time and place, each runner having a different constant speed. The conjecture asserts that each runner is lonely at some point in time, meaning distance at least $1/m$ from the others. We formulate a function field analogue, and give a positive answer in some cases in the new setting.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-11-03T15:27:17Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Mathematika 65 (2019) 677-701</arxiv:journal_ref>
+    <author>
+      <name>Sam Chow</name>
+    </author>
+    <author>
+      <name>Luka Rimanic</name>
+    </author>
+    <arxiv:doi>10.1112/S002557931900007X</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/S002557931900007X" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1701.02048v4</id>
+    <title>Some remarks on the lonely runner conjecture</title>
+    <updated>2017-11-02T01:53:45Z</updated>
+    <link href="https://arxiv.org/abs/1701.02048v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1701.02048v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The lonely runner conjecture of Wills and Cusick, in its most popular formulation, asserts that if $n$ runners with distinct constant speeds run around a unit circle ${\bf R}/{\bf Z}$ starting at a common time and place, then each runner will at some time be separated by a distance of at least $\frac{1}{n+1}$ from the others. In this paper we make some remarks on this conjecture. Firstly, we can improve the trivial lower bound of $\frac{1}{2n}$ slightly for large $n$, to $\frac{1}{2n} + \frac{c \log n}{n^2 (\log\log n)^2}$ for some absolute constant $c&gt;0$; previous improvements were roughly of the form $\frac{1}{2n} + \frac{c}{n^2}$. Secondly, we show that to verify the conjecture, it suffices to do so under the assumption that the speeds are integers of size $n^{O(n^2)}$. We also obtain some results in the case when all the velocities are integers of size $O(n)$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-01-09T01:29:03Z</published>
+    <arxiv:comment>31 pages, no figures. To appear, Contrib. Disc. Math. Some corrections (suggested by Anthony Quas) have been implemented</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Terence Tao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1611.03940v2</id>
+    <title>Sequences of Integers with Three Missing Separations</title>
+    <updated>2017-12-20T19:14:04Z</updated>
+    <link href="https://arxiv.org/abs/1611.03940v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1611.03940v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Fix a set $D$ of positive integers. We study the maximum density $μ(D)$ of sequences of integers in which the separation between any two terms does not fall in $D$. The $D$-sets considered in this article are of the form $\{1,j,k\}$. The closely related function $κ(D)$, the parameter involved in the "lonely runner conjecture," is also investigated. Exact values of $κ(D)$ and $μ(D)$ are found for some families of $D=\{1,j,k\}$. We prove that the boundary conditions in two earlier results of Haralambis are sharp. Consequently, our results declaim two conjectures posted recently, and extend some results by Gupta.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-11-12T02:36:17Z</published>
+    <arxiv:comment>18 pages; added new related results</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Daphne Der-Fen Liu</name>
+    </author>
+    <author>
+      <name>Grant Robinson</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1609.01939v1</id>
+    <title>On the covering radius of lattice zonotopes and its relation to view-obstructions and the lonely runner conjecture</title>
+    <updated>2016-09-07T11:09:51Z</updated>
+    <link href="https://arxiv.org/abs/1609.01939v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1609.01939v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The goal of this paper is twofold; first, show the equivalence between certain problems in geometry, such as view-obstruction and billiard ball motions, with the estimation of covering radii of lattice zonotopes. Second, we will estimate upper bounds of said radii by virtue of the Flatness Theorem. These problems are similar in nature with the famous lonely runner conjecture.</summary>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-09-07T11:09:51Z</published>
+    <arxiv:comment>18 pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="math.MG"/>
+    <arxiv:journal_ref>Aequationes mathematicae, Volume 91, Issue 2, pp. 331-352 (2017)</arxiv:journal_ref>
+    <author>
+      <name>Matthias Henze</name>
+    </author>
+    <author>
+      <name>Romanos-Diogenes Malikiosis</name>
+    </author>
+    <arxiv:doi>10.1007/s00010-016-0458-3</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s00010-016-0458-3" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1606.01783v4</id>
+    <title>Lonely Runner Polyhedra</title>
+    <updated>2019-03-05T15:11:21Z</updated>
+    <link href="https://arxiv.org/abs/1606.01783v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1606.01783v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study the \emph{Lonely Runner Conjecture}, conceived by Jörg M.~Wills in the 1960's: Given positive integers $n_1, n_2, \dots, n_k$, there exists a positive real number $t$ such that for all $1 \le j \le k$ the distance of $t \, n_j$ to the nearest integer is at least $\frac{ 1 }{ k+1 }$. Continuing a view-obstruction approach by Cusick and recent work by Henze and Malikiosis, our goal is to promote a polyhedral \emph{ansatz} to the Lonely Runner Conjecture. Our results include geometric proofs of some folklore results that are only implicit in the existing literature, a new family of affirmative instances defined by the parities of the speeds, and geometrically motivated conjectures whose resolution would shed further light on the Lonely Runner Conjecture.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-06-06T15:16:12Z</published>
+    <arxiv:comment>9 pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <arxiv:journal_ref>Integers: the Electronic Journal of Combinatorial Number Theory 19 (2019), A 29</arxiv:journal_ref>
+    <author>
+      <name>Matthias Beck</name>
+    </author>
+    <author>
+      <name>Serkan Hosten</name>
+    </author>
+    <author>
+      <name>Matthias Schymura</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1407.3381v3</id>
+    <title>Correlation among runners and some results on the Lonely Runner Conjecture</title>
+    <updated>2015-09-12T11:16:40Z</updated>
+    <link href="https://arxiv.org/abs/1407.3381v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1407.3381v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Lonely Runner Conjecture was posed independently by Wills and Cusick and has many applications in different mathematical fields, such as diophantine approximation. This well-known conjecture states that for any set of runners running along the unit circle with constant different speeds and starting at the same point, there is a moment where all of them are far enough from the origin. We study the correlation among the time that runners spend close to the origin. By means of these correlations, we improve a result of Chen on the gap of loneliness and we extend an invisible runner result of Czerwinski and Grytczuk. In the last part, we introduce dynamic interval graphs to deal with a weak version of the conjecture thus providing some new results.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-07-12T12:43:31Z</published>
+    <arxiv:comment>18 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Guillem Perarnau</name>
+    </author>
+    <author>
+      <name>Oriol Serra</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1302.0917v1</id>
+    <title>A density Chinese Remainder Theorem</title>
+    <updated>2013-02-05T01:56:35Z</updated>
+    <link href="https://arxiv.org/abs/1302.0917v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1302.0917v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given collections A and B of residue classes modulo m and n, respectively, we investigate conditions on A and B that ensure that, for at least some a in A and b in B, the linear system x = a mod m, x = b mod n has an integer solution, and we quantify the number of such admissible pairs (a,b). The special case where A and B consist of intervals of residue classes has application to the Lonely Runner Conjecture.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-02-05T01:56:35Z</published>
+    <arxiv:comment>9 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jason Gibson</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1211.2482v1</id>
+    <title>The Lonely Runner Conjecture</title>
+    <updated>2012-11-11T23:58:22Z</updated>
+    <link href="https://arxiv.org/abs/1211.2482v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1211.2482v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A detailed survey of the Lonely Runner Conjecture and its connection between Diophantine approximation and View-obstruction problems.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-11-11T23:58:22Z</published>
+    <arxiv:comment>22 pages, 20 figures</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Clayton Barnes</name>
+    </author>
+  </entry>
+</feed>

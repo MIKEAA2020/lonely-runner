@@ -1,0 +1,126 @@
+% ======================================================================
+% Section 4 — The positive core
+% ======================================================================
+
+\section{The positive core: classification at the rigid primes and at
+\boldmath$p^2$/$pq$}\label{sec:positive}
+
+The program's attacks were launched from a positive base, and that base
+survives the negative results intact. This section states it with
+precision; the full proofs, the verification records, and the
+measurement methodology are the subject of the companion monograph
+\cite{prog-artifacts}, and nothing here improves or weakens them. What
+matters for this paper's thesis is that the positive core is exactly as
+bounded as it is: everything it proves is a closure, classification, or
+identity, and its one conditional theorem wears its hypotheses on its
+sleeve.
+
+\subsection{The sum-only equality theorem}
+
+The analytic folklore (recorded in a comment on Tao's weblog
+\cite{Tao-blog}) is that the optimal time is rational with denominator
+the sum or difference of two speeds. The sharpening the program proved
+is that \emph{sums alone suffice}.
+
+\begin{theorem}[Sum-only equality; Theorem 1.1 of the companion
+monograph]\label{thm:equality}
+Let $V=(v_1,\dots,v_n)$ have distinct positive entries with
+$\gcd(V)=1$ and $0<M(V)<\tfrac12$. For each unordered pair $\{u,w\}$
+let $\tau(u,w)$ denote the optimal loneliness of the
+$(n-1)$-runner instance obtained by restricting to the pair-sum lattice
+of denominator $N=v_u+v_w$. Then
+\[
+M(V)\;=\;\max_{\{u,w\}}\tau(u,w),
+\]
+and consequently $\lrc_n$ holds for all $V$ if and only if the finite
+statement $(\taust_n)$ does: for every $V$, some pair-sum lattice
+carries an optimal value $\ge 1/(n+1)$. The finitization is exact; no
+information is lost, and nothing about the classical difficulty is
+claimed to become easier.
+\end{theorem}
+
+The two ingredients are that the binding runners at a global optimum can
+be chosen two-sided, forcing the optimal time onto a \emph{sum} lattice
+(difference denominators never carry the optimum), and a mirror lemma:
+on that lattice the two binding runners are exact reflections of each
+other at every lattice time, so the $n$-runner minimum there equals an
+$(n-1)$-runner minimum. The equivalence of Corollary form
+($\lrc_n\iff\taust_n$) is the lossless gateway through which every
+instance of \S\ref{sec:tm-covering} entered.
+
+\subsection{The covering framework and the rigid zone}
+
+Under the equality theorem, a pair \emph{certifies} an instance unless
+its $n-1$ bad sets $B_w=\{k\in\Z_N:(n{+}1)\wn{wk}<N\}$ cover $\Z_N$.
+The framework that follows is finite and exact, and its proved pieces
+include a size law for the bad sets, a polygonal witness lemma, moat
+counting, a coincidence-counting lemma, a lift law, and a class-group
+reduction at prime moduli (Lemma 2.2--2.7 of the companion
+monograph). Five empirically distinct obstruction classes from the
+program's early experiments collapse, in this language, into additive
+orders of one covering phenomenon.
+
+\begin{theorem}[Rigid-zone classifications; Theorems 3.1--3.5 of the
+companion monograph]\label{thm:rigid}
+At rung $n=4$ the unit-capable moduli---those $N$ for which $n-1$ unit
+bad sets can cover $\Z_N$---are $7,11,13$; at rung $n=5$ they are
+$7,13,17,19,37$ within the verified range (primes $\le150$, composites
+$\le111$). At every one of these primes the covering configurations are
+classified completely by a short explicit list of translate classes in
+the cyclic group: antipodal classes and domino tilings at $7$ and $11$;
+perfect matchings at $13$; the classes $\{0,1,2,7\}$, $\{0,2,4,6\}$ at
+$17$ and $19$ (together with one further class at $19$); and the single
+class $\{0,2,12,15\}$ at $37$.
+\end{theorem}
+
+This is the program's central structural finding: \emph{at rigid primes,
+the covering obstruction is governed by a small translate-class
+structure}, and the classification is what closes $75.6\%$ of the
+$3{,}712{,}576$-instance corpus outright. The residual obstruction is
+localized (mixed order signatures at composite moduli), and the composite
+side carries the structure that the next subsection records.
+
+\subsection{The composite side: group ring, tensor, and the fiber
+cascade}
+
+Beyond the unit capable moduli, at $N=p^2$ and $N=pq$, the program built
+the composite-side structure that the scaling question lives on. The
+group-ring translation expresses the covering count as a cyclotomic
+coefficient problem; the $pq$ side decomposes as a tensor problem whose
+Lam--Leung-type structure \cite{LamLeung} fixes the admissible
+fiber-count signatures; and the foot-count input to the cascade was
+discharged by an exact identity verified on $10{,}410$ triples with the
+fixed threshold at $p=31$. The higher rungs carry a general-$T$ fiber
+machinery, an exact dilate-intersection lemma, a reflection-fiber
+invariance, a chain-class dilate theorem, and a renormalization lemma;
+the Mirsky--Newman and de Bruijn--Schoenberg covering-system identities
+\cite{MirskyNewman,deBruijnSchoenberg} play the classical supporting
+roles.
+
+Everything above is proved and machine-verified. What is \emph{not}
+proved is the scaling closure itself, and the program consolidated it
+into a single conditional statement with a disclosed ledger.
+
+\begin{theorem}[Conditional scaling closure; Theorem 5.1 of the
+companion monograph]\label{thm:SC}
+Assume the distinct-family volume law H1g and the dilate-sparsity pair
+H2m/H2r. Then the fiber cascade closes the covering obstruction at the
+frontier cells $(1K,T{-}3U)$ of every rung $T\ge8$ at $N=p^2$, within a
+depth that is $T$-flat in practice and never exceeds $T+3$ in the worst
+case. The reduction chain and every other input are proved or
+machine-validated; each constant's provenance---derived, measured, or
+fitted, with the data it is fit to---is disclosed in the six-entry
+hypothesis ledger, and the two obligations are reduced to named objects:
+the strand census (for H1g) and the sharp pair-line constants (for
+H2m).
+\end{theorem}
+
+We do not restate the ledger here. Its relevance to this paper is its
+shape: the proved side of the ledger is all closures and identities; the
+open side is exactly the two growth-in-$k$ margins whose type-mismatch
+career occupies \S\ref{sec:tm}. Theorem~\ref{thm:SC} is what the positive
+core amounts to when stated at its honest strength, and it is why the
+program's claim to a positive result is deliberately the bounded one:
+\emph{the obstruction is completely classified where classification
+suffices, and the residual is a named margin of a type no turn of the
+program ever proved}.

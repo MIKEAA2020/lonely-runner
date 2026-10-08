@@ -1,0 +1,29 @@
+[
+  {
+    "url": "https://rsiratchet.com",
+    "name": "Review queue - RSI Ratchet",
+    "snippet": "Sep 13, 2026 — The paper proposes a hybrid detection system that improves calibrated localization of hallucinated spans in LVLM outputs, i.e., a mitigation/ ... Read more",
+    "host_name": "rsiratchet.com",
+    "rank": 0,
+    "date": "Sep 13, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://research.counterproof.io",
+    "name": "Agentic Stemmatics: Collation, Provenance, and Conservation",
+    "snippet": "This paper proposes treating model outputs as testimony and draws on stemmatics, the branch of philology that studies relationships among surviving textual ...",
+    "host_name": "research.counterproof.io",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.confviews.com",
+    "name": "NeurIPS 2022 - Bird's-eye views of conference proceedings",
+    "snippet": "Our main result reveals a fundamental trichotomy of interactive learning rates, We present LARC, the … how to solve ARC tasks using language alone , which ...",
+    "host_name": "www.confviews.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  }
+]

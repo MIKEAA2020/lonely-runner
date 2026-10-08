@@ -1,0 +1,2035 @@
+{
+ "primes": {
+  "p17": {
+   "k": 2,
+   "eps": 1,
+   "cls": "off-",
+   "sizes": [
+    4,
+    5
+   ],
+   "n_sets": 35,
+   "n_orbits": 7,
+   "n_positive_orbits": 7,
+   "vprime_ok": false,
+   "gt_hit": 1010,
+   "gt_miss": 0,
+   "gt_skip": 0,
+   "pinning_envelope": 17,
+   "envelope_key": [
+    [
+     2,
+     3,
+     4,
+     5
+    ],
+    "(4, 5, 5, 5, 5)"
+   ],
+   "density_median": 0.015104895104895105,
+   "density_max": 1.0,
+   "orbits": [
+    {
+     "rep": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "members": [
+      [
+       2,
+       3,
+       4,
+       5
+      ],
+      [
+       2,
+       6,
+       7,
+       8
+      ],
+      [
+       3,
+       4,
+       5,
+       8
+      ],
+      [
+       3,
+       4,
+       6,
+       7
+      ],
+      [
+       4,
+       5,
+       6,
+       7
+      ]
+     ],
+     "total_volume": 17515,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       4,
+       5,
+       6,
+       7,
+       7
+      ],
+      "resonant_pairs": 6,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      4,
+      6
+     ],
+     "members": [
+      [
+       2,
+       3,
+       4,
+       6
+      ],
+      [
+       2,
+       3,
+       7,
+       8
+      ],
+      [
+       2,
+       5,
+       6,
+       7
+      ],
+      [
+       3,
+       5,
+       6,
+       8
+      ],
+      [
+       4,
+       5,
+       7,
+       8
+      ]
+     ],
+     "total_volume": 12360,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       4,
+       6,
+       7,
+       7,
+       7
+      ],
+      "resonant_pairs": 6,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      4,
+      7
+     ],
+     "members": [
+      [
+       2,
+       3,
+       4,
+       7
+      ],
+      [
+       2,
+       3,
+       5,
+       7
+      ],
+      [
+       2,
+       5,
+       7,
+       8
+      ],
+      [
+       4,
+       5,
+       6,
+       8
+      ],
+      [
+       5,
+       6,
+       7,
+       8
+      ]
+     ],
+     "total_volume": 14905,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       7,
+       7,
+       8
+      ],
+      "resonant_pairs": 4,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      4,
+      8
+     ],
+     "members": [
+      [
+       2,
+       3,
+       4,
+       8
+      ],
+      [
+       2,
+       4,
+       5,
+       8
+      ],
+      [
+       2,
+       4,
+       6,
+       8
+      ],
+      [
+       2,
+       4,
+       7,
+       8
+      ],
+      [
+       3,
+       5,
+       6,
+       7
+      ]
+     ],
+     "total_volume": 48165,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       4,
+       4,
+       7,
+       7,
+       8
+      ],
+      "resonant_pairs": 7,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      5,
+      6
+     ],
+     "members": [
+      [
+       2,
+       3,
+       5,
+       6
+      ],
+      [
+       2,
+       3,
+       6,
+       8
+      ],
+      [
+       2,
+       4,
+       5,
+       6
+      ],
+      [
+       3,
+       4,
+       7,
+       8
+      ],
+      [
+       3,
+       6,
+       7,
+       8
+      ]
+     ],
+     "total_volume": 600,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       5,
+       6,
+       6,
+       7,
+       8
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      5,
+      8
+     ],
+     "members": [
+      [
+       2,
+       3,
+       5,
+       8
+      ],
+      [
+       2,
+       4,
+       6,
+       7
+      ],
+      [
+       3,
+       4,
+       5,
+       6
+      ],
+      [
+       3,
+       4,
+       5,
+       7
+      ],
+      [
+       4,
+       6,
+       7,
+       8
+      ]
+     ],
+     "total_volume": 16795,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       3,
+       3,
+       4,
+       4,
+       5,
+       5,
+       6,
+       7,
+       8
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      6,
+      7
+     ],
+     "members": [
+      [
+       2,
+       3,
+       6,
+       7
+      ],
+      [
+       2,
+       4,
+       5,
+       7
+      ],
+      [
+       2,
+       5,
+       6,
+       8
+      ],
+      [
+       3,
+       4,
+       6,
+       8
+      ],
+      [
+       3,
+       5,
+       7,
+       8
+      ]
+     ],
+     "total_volume": 12845,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       5,
+       6,
+       7,
+       7,
+       8
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 4
+     }
+    }
+   ],
+   "top_orbit_detail": {
+    "rep": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "top_szt": [
+     5,
+     5,
+     5,
+     5,
+     5
+    ],
+    "n": 423,
+    "proj": [
+     17,
+     11,
+     17,
+     15
+    ],
+    "rel": [
+     26,
+     23,
+     24
+    ],
+    "marginals": [
+     [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+     ],
+     [
+      0,
+      3,
+      6,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+     ],
+     [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+     ],
+     [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16
+     ]
+    ]
+   }
+  },
+  "p19": {
+   "k": 2,
+   "eps": 3,
+   "cls": "off-",
+   "sizes": [
+    4,
+    5
+   ],
+   "n_sets": 70,
+   "n_orbits": 14,
+   "n_positive_orbits": 8,
+   "vprime_ok": false,
+   "gt_hit": 620,
+   "gt_miss": 0,
+   "gt_skip": 0,
+   "pinning_envelope": 19,
+   "envelope_key": [
+    [
+     3,
+     5,
+     6,
+     7
+    ],
+    "(5, 5, 5, 5, 5)"
+   ],
+   "density_median": 0.07421875,
+   "density_max": 1.0,
+   "orbits": [
+    {
+     "rep": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "members": [
+      [
+       2,
+       3,
+       4,
+       5
+      ],
+      [
+       2,
+       7,
+       8,
+       9
+      ],
+      [
+       3,
+       4,
+       7,
+       8
+      ],
+      [
+       4,
+       5,
+       6,
+       9
+      ],
+      [
+       5,
+       6,
+       7,
+       8
+      ]
+     ],
+     "total_volume": 1730,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       4,
+       5,
+       5,
+       6,
+       7,
+       8,
+       8
+      ],
+      "resonant_pairs": 4,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      4,
+      6
+     ],
+     "members": [
+      [
+       2,
+       3,
+       4,
+       6
+      ],
+      [
+       2,
+       3,
+       8,
+       9
+      ],
+      [
+       2,
+       5,
+       6,
+       7
+      ],
+      [
+       3,
+       6,
+       7,
+       9
+      ],
+      [
+       4,
+       5,
+       8,
+       9
+      ]
+     ],
+     "total_volume": 0,
+     "vprime_profile_multiset_equal": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       4,
+       5,
+       6,
+       8,
+       8
+      ],
+      "resonant_pairs": 6,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      4,
+      7
+     ],
+     "members": [
+      [
+       2,
+       3,
+       4,
+       7
+      ],
+      [
+       2,
+       6,
+       8,
+       9
+      ],
+      [
+       3,
+       4,
+       5,
+       9
+      ],
+      [
+       3,
+       5,
+       6,
+       8
+      ],
+      [
+       4,
+       5,
+       6,
+       7
+      ]
+     ],
+     "total_volume": 0,
+     "vprime_profile_multiset_equal": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       4,
+       5,
+       6,
+       7,
+       8
+      ],
+      "resonant_pairs": 6,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      4,
+      8
+     ],
+     "members": [
+      [
+       2,
+       3,
+       4,
+       8
+      ],
+      [
+       2,
+       4,
+       5,
+       9
+      ],
+      [
+       2,
+       4,
+       8,
+       9
+      ],
+      [
+       2,
+       5,
+       7,
+       9
+      ],
+      [
+       5,
+       6,
+       7,
+       9
+      ]
+     ],
+     "total_volume": 2730,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       3,
+       4,
+       4,
+       5,
+       8,
+       8,
+       9
+      ],
+      "resonant_pairs": 6,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      4,
+      9
+     ],
+     "members": [
+      [
+       2,
+       3,
+       4,
+       9
+      ],
+      [
+       2,
+       4,
+       6,
+       8
+      ],
+      [
+       2,
+       5,
+       8,
+       9
+      ],
+      [
+       3,
+       5,
+       6,
+       7
+      ],
+      [
+       4,
+       5,
+       7,
+       9
+      ]
+     ],
+     "total_volume": 1910,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       5,
+       5,
+       7,
+       8,
+       9
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      5,
+      6
+     ],
+     "members": [
+      [
+       2,
+       3,
+       5,
+       6
+      ],
+      [
+       2,
+       6,
+       7,
+       8
+      ],
+      [
+       3,
+       4,
+       6,
+       9
+      ],
+      [
+       3,
+       7,
+       8,
+       9
+      ],
+      [
+       4,
+       5,
+       7,
+       8
+      ]
+     ],
+     "total_volume": 0,
+     "vprime_profile_multiset_equal": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       3,
+       5,
+       5,
+       6,
+       7,
+       8,
+       8
+      ],
+      "resonant_pairs": 4,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      5,
+      7
+     ],
+     "members": [
+      [
+       2,
+       3,
+       5,
+       7
+      ],
+      [
+       2,
+       3,
+       5,
+       8
+      ],
+      [
+       4,
+       6,
+       7,
+       8
+      ],
+      [
+       4,
+       7,
+       8,
+       9
+      ],
+      [
+       6,
+       7,
+       8,
+       9
+      ]
+     ],
+     "total_volume": 0,
+     "vprime_profile_multiset_equal": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       7,
+       8,
+       8,
+       9
+      ],
+      "resonant_pairs": 3,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      5,
+      9
+     ],
+     "members": [
+      [
+       2,
+       3,
+       5,
+       9
+      ],
+      [
+       2,
+       4,
+       6,
+       9
+      ],
+      [
+       2,
+       4,
+       7,
+       8
+      ],
+      [
+       3,
+       6,
+       7,
+       8
+      ],
+      [
+       5,
+       7,
+       8,
+       9
+      ]
+     ],
+     "total_volume": 3225,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       3,
+       5,
+       5,
+       7,
+       8,
+       8,
+       9
+      ],
+      "resonant_pairs": 4,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      6,
+      7
+     ],
+     "members": [
+      [
+       2,
+       3,
+       6,
+       7
+      ],
+      [
+       2,
+       3,
+       6,
+       9
+      ],
+      [
+       2,
+       4,
+       6,
+       7
+      ],
+      [
+       3,
+       5,
+       8,
+       9
+      ],
+      [
+       3,
+       6,
+       8,
+       9
+      ]
+     ],
+     "total_volume": 0,
+     "vprime_profile_multiset_equal": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       4,
+       6,
+       6,
+       7,
+       8
+      ],
+      "resonant_pairs": 6,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      6,
+      8
+     ],
+     "members": [
+      [
+       2,
+       3,
+       6,
+       8
+      ],
+      [
+       2,
+       4,
+       5,
+       7
+      ],
+      [
+       2,
+       6,
+       7,
+       9
+      ],
+      [
+       3,
+       4,
+       8,
+       9
+      ],
+      [
+       3,
+       5,
+       6,
+       9
+      ]
+     ],
+     "total_volume": 510,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       5,
+       6,
+       8,
+       8,
+       9
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      7,
+      8
+     ],
+     "members": [
+      [
+       2,
+       3,
+       7,
+       8
+      ],
+      [
+       2,
+       5,
+       7,
+       8
+      ],
+      [
+       3,
+       5,
+       7,
+       8
+      ],
+      [
+       4,
+       6,
+       7,
+       9
+      ],
+      [
+       4,
+       6,
+       8,
+       9
+      ]
+     ],
+     "total_volume": 0,
+     "vprime_profile_multiset_equal": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       3,
+       4,
+       4,
+       6,
+       7,
+       7,
+       8,
+       8,
+       9
+      ],
+      "resonant_pairs": 4,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      3,
+      7,
+      9
+     ],
+     "members": [
+      [
+       2,
+       3,
+       7,
+       9
+      ],
+      [
+       2,
+       4,
+       5,
+       6
+      ],
+      [
+       3,
+       4,
+       5,
+       8
+      ],
+      [
+       3,
+       4,
+       6,
+       7
+      ],
+      [
+       5,
+       6,
+       8,
+       9
+      ]
+     ],
+     "total_volume": 615,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       3,
+       3,
+       4,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 3
+     }
+    },
+    {
+     "rep": [
+      2,
+      4,
+      5,
+      8
+     ],
+     "members": [
+      [
+       2,
+       4,
+       5,
+       8
+      ],
+      [
+       2,
+       4,
+       7,
+       9
+      ],
+      [
+       2,
+       5,
+       6,
+       9
+      ],
+      [
+       3,
+       4,
+       6,
+       8
+      ],
+      [
+       3,
+       5,
+       7,
+       9
+      ]
+     ],
+     "total_volume": 4005,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       5,
+       6,
+       6,
+       7,
+       8
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 6
+     }
+    },
+    {
+     "rep": [
+      2,
+      5,
+      6,
+      8
+     ],
+     "members": [
+      [
+       2,
+       5,
+       6,
+       8
+      ],
+      [
+       3,
+       4,
+       5,
+       6
+      ],
+      [
+       3,
+       4,
+       5,
+       7
+      ],
+      [
+       3,
+       4,
+       7,
+       9
+      ],
+      [
+       4,
+       5,
+       6,
+       8
+      ]
+     ],
+     "total_volume": 45,
+     "vprime_profile_multiset_equal": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       3,
+       4,
+       5,
+       5,
+       5,
+       6,
+       6,
+       7,
+       8
+      ],
+      "resonant_pairs": 3,
+      "min_ratio_order": 6
+     }
+    }
+   ],
+   "top_orbit_detail": {
+    "rep": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "top_szt": [
+     5,
+     5,
+     5,
+     5,
+     5
+    ],
+    "n": 76,
+    "proj": [
+     6,
+     7,
+     6,
+     3
+    ],
+    "rel": [
+     15,
+     18,
+     10
+    ],
+    "marginals": [
+     [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     [
+      2,
+      5,
+      6,
+      9,
+      12,
+      15,
+      18
+     ],
+     [
+      1,
+      2,
+      5,
+      6,
+      9,
+      17
+     ],
+     [
+      6,
+      11,
+      16
+     ]
+    ]
+   }
+  },
+  "p29": {
+   "k": 3,
+   "eps": 5,
+   "cls": "off+",
+   "sizes": [
+    7,
+    8
+   ],
+   "n_probe_sets": 19,
+   "n_admissible": 2,
+   "gt_hit": 24,
+   "gt_miss": 0,
+   "gt_skip": 24,
+   "pinning_envelope": 27,
+   "envelope_key": [
+    [
+     2,
+     4,
+     7,
+     8
+    ],
+    "(8, 8, 8, 7, 8)"
+   ],
+   "density_median": 0.06944444444444445,
+   "density_max": 1.0,
+   "sets": [
+    {
+     "set": [
+      2,
+      3,
+      4,
+      8
+     ],
+     "total_volume": 0,
+     "cascade": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       3,
+       4,
+       4,
+       7,
+       8,
+       11,
+       13
+      ],
+      "resonant_pairs": 6,
+      "min_ratio_order": 7
+     }
+    },
+    {
+     "set": [
+      2,
+      4,
+      5,
+      8
+     ],
+     "total_volume": 0,
+     "cascade": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       5,
+       6,
+       8,
+       10,
+       12
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "set": [
+      2,
+      4,
+      6,
+      8
+     ],
+     "total_volume": 0,
+     "cascade": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       3,
+       4,
+       4,
+       6,
+       8,
+       11,
+       13
+      ],
+      "resonant_pairs": 6,
+      "min_ratio_order": 7
+     }
+    },
+    {
+     "set": [
+      2,
+      4,
+      7,
+      8
+     ],
+     "total_volume": 1311,
+     "cascade": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       3,
+       4,
+       4,
+       7,
+       8,
+       9,
+       11
+      ],
+      "resonant_pairs": 6,
+      "min_ratio_order": 7
+     }
+    },
+    {
+     "set": [
+      2,
+      4,
+      8,
+      9
+     ],
+     "total_volume": 0,
+     "cascade": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       5,
+       8,
+       9,
+       10,
+       12
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "set": [
+      2,
+      4,
+      8,
+      10
+     ],
+     "total_volume": 0,
+     "cascade": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       5,
+       6,
+       8,
+       10,
+       12
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "set": [
+      2,
+      4,
+      8,
+      11
+     ],
+     "total_volume": 0,
+     "cascade": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       5,
+       8,
+       9,
+       10,
+       11
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 7
+     }
+    },
+    {
+     "set": [
+      2,
+      4,
+      8,
+      12
+     ],
+     "total_volume": 0,
+     "cascade": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       3,
+       4,
+       4,
+       6,
+       8,
+       12,
+       13
+      ],
+      "resonant_pairs": 6,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "set": [
+      2,
+      4,
+      8,
+      13
+     ],
+     "total_volume": 0,
+     "cascade": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       2,
+       4,
+       4,
+       4,
+       8,
+       8,
+       13
+      ],
+      "resonant_pairs": 7,
+      "min_ratio_order": 7
+     }
+    },
+    {
+     "set": [
+      2,
+      4,
+      8,
+      14
+     ],
+     "total_volume": 0,
+     "cascade": true,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       7,
+       8,
+       9,
+       11,
+       14
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 7
+     }
+    },
+    {
+     "set": [
+      3,
+      4,
+      8,
+      13
+     ],
+     "total_volume": 1311,
+     "cascade": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       4,
+       4,
+       7,
+       8,
+       11,
+       13,
+       14
+      ],
+      "resonant_pairs": 5,
+      "min_ratio_order": 7
+     }
+    },
+    {
+     "set": [
+      3,
+      5,
+      6,
+      12
+     ],
+     "total_volume": 0,
+     "cascade": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       12,
+       14
+      ],
+      "resonant_pairs": 4,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "set": [
+      3,
+      6,
+      8,
+      13
+     ],
+     "total_volume": 0,
+     "cascade": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       6,
+       7,
+       7,
+       8,
+       11,
+       13,
+       14
+      ],
+      "resonant_pairs": 3,
+      "min_ratio_order": 7
+     }
+    },
+    {
+     "set": [
+      3,
+      6,
+      12,
+      13
+     ],
+     "total_volume": 0,
+     "cascade": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       3,
+       4,
+       6,
+       7,
+       11,
+       12,
+       13,
+       14
+      ],
+      "resonant_pairs": 4,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "set": [
+      5,
+      6,
+      10,
+      12
+     ],
+     "total_volume": 0,
+     "cascade": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       5,
+       6,
+       7,
+       7,
+       8,
+       10,
+       12,
+       14
+      ],
+      "resonant_pairs": 2,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "set": [
+      5,
+      9,
+      10,
+      11
+     ],
+     "total_volume": 0,
+     "cascade": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       4,
+       4,
+       5,
+       8,
+       9,
+       10,
+       11,
+       14
+      ],
+      "resonant_pairs": 4,
+      "min_ratio_order": 7
+     }
+    },
+    {
+     "set": [
+      5,
+      9,
+      10,
+      12
+     ],
+     "total_volume": 0,
+     "cascade": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       4,
+       5,
+       7,
+       9,
+       10,
+       11,
+       12,
+       14,
+       14
+      ],
+      "resonant_pairs": 2,
+      "min_ratio_order": 4
+     }
+    },
+    {
+     "set": [
+      7,
+      9,
+      10,
+      11
+     ],
+     "total_volume": 0,
+     "cascade": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       4,
+       7,
+       7,
+       9,
+       10,
+       11,
+       11,
+       14,
+       14
+      ],
+      "resonant_pairs": 2,
+      "min_ratio_order": 7
+     }
+    },
+    {
+     "set": [
+      7,
+      9,
+      11,
+      14
+     ],
+     "total_volume": 0,
+     "cascade": false,
+     "resonance": {
+      "lam_spectrum": [
+       2,
+       2,
+       4,
+       7,
+       7,
+       8,
+       9,
+       11,
+       14,
+       14
+      ],
+      "resonant_pairs": 3,
+      "min_ratio_order": 7
+     }
+    }
+   ]
+  }
+ },
+ "meta": {},
+ "chain_control": [
+  {
+   "p": 17,
+   "k": 2,
+   "top_szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "ov": 8,
+   "n": 8880,
+   "proj": [
+    17,
+    17,
+    17,
+    17
+   ],
+   "rel": [
+    31,
+    31,
+    31
+   ]
+  },
+  {
+   "p": 19,
+   "k": 2,
+   "top_szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "ov": 6,
+   "n": 4680,
+   "proj": [
+    19,
+    19,
+    19,
+    19
+   ],
+   "rel": [
+    31,
+    31,
+    31
+   ]
+  },
+  {
+   "p": 29,
+   "k": 3,
+   "top_szt": [
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "ov": 11,
+   "n": 29760,
+   "proj": [
+    29,
+    29,
+    29,
+    29
+   ],
+   "rel": [
+    49,
+    49,
+    49
+   ]
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+two-sided exactly-2-binder failing points: 824
+
+[T1] some pair containing the MAX-SPEED runner rescues: 824/824
+[T2] the two-largest-speeds pair rescues: 788/824
+[T3] some MIXED (binder+interior) pair rescues: 824/824
+[T4] pentagon lemma (5|N, no effective speed 0 mod 5) rescues: 586/586
+
+[T5] obstruction taxonomy over ALL failing pairs (a point contributes 6 pairs):
+   stuck+smallN             834
+   covering+smallN          398
+   5blocked+smallN          200
+   half+smallN              150
+   third+smallN             132
+   covering                 86
+   half                     8
+
+[T6] winning-k structure for max-speed pairs (pentagon alignment):
+   other                    1014
+   pentagon_near            904
+   pentagon_exact           306

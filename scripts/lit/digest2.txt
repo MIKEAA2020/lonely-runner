@@ -1,0 +1,319 @@
+### r01_denominator_sum  (6 results)
+- [Solution to the Lonely Runner Conjecture] (https://openproblemgarden.org) Oct 20, 2012
+  Oct 20, 2012 — If DELTA is greater than 1/n then the nth runner is “ Lonely ”. If DELTA is less than 1/n we can repeat the process and examine the situation at ... Read more
+- [[PDF] The Lonely Runner Conjecture turns 60] (https://www.semanticscholar.org) 
+  We prove that the lonely runner conjecture holds for nine runners . Our proof is based on a couple of improvements of the method we used to prove the conjecture ... Read more
+- [A few notes on the Lonely Runner problem] (https://mathforums.com) May 31, 2024
+  May 31, 2024 — This means that each runner is at the positions that satisfy the problem after a time t = 1. A time t = 1 means exactly the first initial cycle. Read more
+- [Proof of Lonely Runner Conjecture | PDF | Euclidean Vector] (https://www.scribd.com) 
+  The document summarizes work on proving the Lonely Runner Conjecture for almost all points. It shows that for any vector of runner velocities that are ... Read more
+- [[2111.13688] On the time for a runner to get lonely] (https://arxiv.org) 
+  by L Rifford · 2021 · Cited by 5 — We formulate a conjecture regarding this covering problem and prove it to be true for n=3,4,5,6. Then, we use our method of proof to demonstrate ... Read more
+- [The Lonely Runner Conjecture] (https://www.wolframcloud.com) May 23, 2014
+  May 23, 2014 — The Lonely Runner conjecture states that each runner becomes lonely at some time [1]. The conjecture has been proven for up to seven runners [ 2 ]. Read more
+
+### r02_finite_cyclic  (5 results)
+- [Mathematics Jun 2023] (http://arxiv.org) 
+  Title: Amending the Lonely Runner Spectrum Conjecture . Ho Tin ... Title: Centralizers of Hamiltonian finite cyclic group actions on rational ruled surfaces. Read more
+- [San Francisco, January 3–6, 2024 Abstracts of the 1192nd] (https://www.ams.org) 
+  Various results and conjectures, such as the norm residue isomorphism theorem and the cyclicity conjecture ... finite cyclic action. The intersection theory of. Read more 758 pages
+- [Numerical Methods for Scientific Computing | PDF] (https://www.scribd.com) 
+  If 𝑟 is a primitive root, then so is 𝑟 −1 . Example. The figure on the next page shows the finite cyclic groups of order 𝑛 = 13. We can see that 𝑟 = 2 ... Read more
+- [Characters in Low-Dimensional Topology: A Conference] (https://dokumen.pub) 
+  ... ﬁnite cyclic subgroups, each of square-free order. An integral lattice is ... conjecture is that they are all equivalent . (We note that Gabai includes ... Read more
+- [discussion_sol_AV_NLP] (https://www.kaggle.com) 
+  ... conjecture matrices exist odd orders additionally prove new ... finite cyclic group actions razak jacelon algebra observation analogous fact ... Read more
+
+### r03_dilate_cover  (8 results)
+- [Tanja Eisner Bálint Farkas Markus Haase Rainer Nagel] (https://ndl.ethernet.edu.et) 
+  As an application of the JdLG-decomposition, we prove the existence of arithmetic progressions of length 3 in certain subsets of N, i.e., the first nontrivial
+- [arXiv:1602.08379v2 [math.GR] 15 Aug 2017] (https://arxiv.org) 
+  by N Brady · 2016 · Cited by 7 — In this paper we are concerned with the geometry of subgroups of CAT(0) groups . of exotic or unusual group -theoretic behavior. distorted cyclic ...
+- [I M A G I N G   T H E   K H E I S   T E R R A N] (https://search.proquest.com) 
+  Gravity contour map covering the seismic profile region between Avondale and Roscoe. Mathematical variables and constants ・ are directed northeast and/or ・ ...
+- [GOD OPERATOR RIEMANN COMBO] (https://zenodo.org) Nov 15, 2025
+  Nov 15, 2025 — underlying all integer arithmetic . eliminates divergences. The renormalization group becomes a derived concept, not a foundational one. This is ...
+- [ABSTRACTS] (https://www.ams.org) 
+  The abstracts for each meeting are sorted by the two-digit 2010 Mathematics Subject. Classification chosen by the author and appear in the order received. See ... Read more
+- [Geometric Approximations in 2- and 3-dimensional Space - Refubium] (https://refubium.fu-berlin.de) 
+  In this thesis we study approximation problems for curves and surfaces. The goal of geometric approximation is to replace a given complex geometric object.
+- [Program] (https://u.math.biu.ac.il) 
+  We explore an analogous problem for additive configurations contained in dense subsets of the cyclic group $Z_p$. ... arithmetic progression of size $\leq 2|A|-3$ ... Read more
+- [Newton's Principia] (https://pages.jh.edu) 
+  Wallis s Arithmetic of Infinites, until the progression end in the biggest particles, 594 pages
+
+### r04_exact_formula  (7 results)
+- [SOME REMARKS ON THE LONELY RUNNER CONJECTURE] (https://cdm.ucalgary.ca) 
+  by T TAO · Cited by 46 — The lonely runner conjecture of Wills and Cusick, each runner will at some time … denote the maximal value of min(tv1 R/Z ,...,tvn R/Z ) as t ranges in R/Z; note ...
+- [Lonely Runner Conjecture - Maple Help] (https://www.maplesoft.com) 
+  The Lonely Runner Conjecture imagines a finite number of runners , each with a distinct (constant) speed, running around a circular track of unit length.
+- [Would this proof strategy work for proving the lonely runner] (https://math.stackexchange.com) Aug 30, 2015
+  Aug 30, 2015 — The problem is the lonely runner conjecture. This conjecture states that if k runners begin running down a circle of unit circumference with random speeds, ...
+- [The Lonely Runner Conjecture | - AMS Blogs] (https://blogs.ams.org) Aug 22, 2013
+  Aug 22, 2013 — The Lonely Runner Conjecture (1967): As of 2008, the conjecture has been proved for every value of k up to 7.
+- [Six Lonely Runners] (http://holzman.technion.ac.il) 
+  by T Bohman · 2001 · Cited by 87 — It has been shown that if there are less than or equal to five runners on the track then every runner gets lonely [BGGST], [CP].
+- [[PDF] The Lonely Runner Conjecture] (https://www.semanticscholar.org) Nov 11, 2012
+  Nov 11, 2012 — A detailed survey of the Lonely Runner Conjecture and its connection between Diophantine approximation and View-obstruction problems.
+- [The Lonely Runner Conjecture] (https://www.wolframcloud.com) May 23, 2014
+  May 23, 2014 — The Lonely Runner conjecture states that each runner becomes lonely at some time[1]. The conjecture has been proven for up to seven runners [2]. Read more
+
+### r05_zhang  (8 results)
+- [Fractional chromatic number and circular] (https://www.researchgate.net) Aug 12, 2026
+  Aug 12, 2026 — The motivating idea is that one can obtain small maximum loneliness values with n runners by starting with a tight speed set for n − 1 runners ... Read more
+- [Brynnum Chaney let his “I'm Him” back plate do the talking on] (https://www.facebook.com) 
+  Brynnum Chaney let his “I'm Him” back plate do the talking on Friday night. The Eagles senior running back tallied 190 yards and four ...
+- [Progress in nanoparticle-based electrochemical biosensors] (https://pubs.rsc.org) Oct 21, 2024
+  Oct 21, 2024 — Focus is placed on the nanoparticles employed and the successive electrode modification developed in order to improve detection sensitivity and ...
+- [Concord McNair Scholars Research Journal] (https://www.concord.edu) Apr 15, 2007
+  Apr 15, 2007 — Statements are occasionally repeated with minor changes in order to asses response set . Examples include “Politics is something that I can ... 205 pages
+- [Arbitration Study] (https://www.troutman.com) 
+  Í»½¬·±² ï. ×²¬®±¼«½¬·±² ¿²¼ Û¨»½«¬·ª» Í«³³¿®§. Í»½¬·±² î. Ø±© °®»ª¿´»²¬ ¿®» °®»ó¼·-°«¬» ¿®¾·¬®¿¬·±² ½´¿«-»-. ¿²¼ ©¸¿¬ ¿®» ¬¸»·® ³¿·² º»¿¬«®»-á. Í»½¬·±² í. Read more 728 pages
+- [How do forelimb long bones adapt in rhinoceroses? An in] (https://hal.science) Jun 5, 2026
+  Jun 5, 2026 — This study provides a detailed investigation of the we have imaged entirely all the three forelimb long bones from 23 specimens of rhinos, ...
+- [VLM-Driven Intelligence for Autonomous UAV Navigation: A] (https://papers.ssrn.com) 
+  This study presents a cross-modal framework in which a UAV streams live video to an off-board ground station. reached 73.3% accuracy at 1.34 s latency.
+- [His Music is the Message: Interview with Brad Corrigan] (https://www.thegovernorsacademy.org) May 1, 2008
+  May 1, 2008 — admission revisit day, this “list” created much uproar from our tight -knit community. became upset, but also angry. 14 pages
+
+### r06_perarnau_serra  (8 results)
+- [Odd denominators in the Lonely Runner spectrumfor six] (https://arxiv.org) Sep 3, 2026
+  Sep 3, 2026 — We refer to the survey of Perarnau and Serra [16] for the history of the problem . Kravitz [14] proposed to study not only the minimum but ... Read more
+- [The lonely runner conjecture turns 60] (https://www.recercat.cat) 
+  This survey attempts to give a panoramic view of the status of the problem , trying to highlight the contributions of the many papers that it has originated.
+- [Oriol Serra's research works | Polytechnic University of] (https://www.researchgate.net) 
+  This survey attempts to give a panoramic view of the status of the problem , We refer to the survey of Perarnau and Serra [16] for the history of the problem .  ...
+- [Lonely runners in function fields - WRAP: Warwick] (https://wrap.warwick.ac.uk) 
+  by SAM CHOW · Cited by 7 — Recently Perarnau and Serra [PS16] extended this result by showing that there exists a time when either a runner is lonely or four runners are “almost lonely ”. Read more
+- [What's new | Updates on my research and expository papers] (https://terrytao.wordpress.com) 
+  I've just uploaded to the arXiv my paper “Some remarks on the lonely runner conjecture“, submitted to Contributions to discrete mathematics. I had blogged about ...
+- [Guillem Perarnau - Scholar] (https://www.bohrium.com) 
+  Abstract: A detailed survey of the Lonely Runner Conjecture and its connection between Diophantine approximation and View-obstruction problems . Speeding up ...
+- [In what area of study does one encounter this principle] (https://mathoverflow.net) Sep 25, 2017
+  Sep 25, 2017 — The Lonely Runners Conjecture. Perhaps this could be classified as a mixture of number theory and combinatorics. Lonely Guillem Perarnau , Oriol ...
+- [Row 12 recon: the lonely runner conjecture, and the Birkhoff] (https://solveathome.org) 
+  Small n moved a great deal in the last twelve months, and entirely by compute. Perarnau – Serra (2025) records the conjecture as known for n ≤ 6 (seven runners ).
+
+### r07_rosenfeld_10  (2 results)
+- [Coloopless zonotopes and counterexamples to the Shifted] (https://arxiv.org) 
+  Lonely Runner Conjecture (LRC) use the zonotopal restatements. Rosenfeld ( 2025 ) The lonely runner conjecture holds for eight runners . T. Trakulthongchai (2026) ...
+- [Circular chromatic number of distance graphs with] (https://www.researchgate.net) May 5, 2026
+  May 5, 2026 — This study investigates the circular chromatic number. Nine and Ten Lonely Runners . Trakulthongchai The
+
+### r08_kravitz_tight  (8 results)
+- [Springer Series in Social Psychology] (https://link.springer.com) 
+  David A. Kravitz 179 Classification of Coalition Situations. Minimum power theory generally predicts that larger coalitions will be more likely than smaller ...
+- [Peer-Reviewed Abstracts] (https://www.tandfonline.com) 
+  The most reliably classified stages were preparation (57%), precontemplation (72.5%), and maintenance (80%).
+- [Song List - Sorted By Song - Encore Entertainment] (https://www.encoresound.com) 
+  Seasons Of Loneliness Boys II Men Boys. Lonely Yet Yoakam, Dwight Last Chance For A Thousand Years CD
+- [Prediction of Ecological Function in the Microbiome Using] (https://search.proquest.com) 
+  by RY Neches · 2017 — A classifier trained on 51 interactions with known ecology and 100 simulated controls was used predict the ecological function in the microbimes of 14 species ... Read more
+- [UNIVERSITY OF IBADAN LIBRARY] (http://adhlui.com.ui.edu.ng) 
+  Various medical societies and orgnnizations have attempted to categorize hypertension based on the systolic nnd diastolic blood pressure vnlues.
+- [Best Music of the 2010s] (https://www.theminorsecond.com) 
+  Top 100 albums of the 2010's. I am going to be counting down my favorite Music albums and Movies of the 2010-2019 decade until December 31st, one entry at a ... Read more
+- [Iron & Lightning // Grishaverse & Gangs RP // CS (adv.)] (https://www.rpnation.com) Dec 24, 2021
+  Dec 24, 2021 — If she's caught in a tight situation she won't hesitate to make a decision. If it's kill or be killed, Mireli is choosing to kill. Mireli is ... Read more
+- [No Angel in the Classroom] (https://www.inlibra.com) 
+  The love, encouragement, and inspiration of many people enabled me to stick with this project, but, more than anyone, my life partner Linda Na-. Read more
+
+### r09_spectrum_fan  (6 results)
+- [View of Correlation Among Runners and Some Results on] (https://www.combinatorics.org) 
+  by G Perarnau · 2016 · Cited by 20 — View of Correlation Among Runners and Some Results on the Lonely Runner Conjecture
+- [A remark on the lonely runner conjecture - Terence Tao] (https://terrytao.wordpress.com) May 13, 2015
+  May 13, 2015 — The lonely runner conjecture is the following open problem: runner is “lonely” in the sense that it is separated by a distance at least {1/n} ...
+- [The Lonely Runner Conjecture] (https://www.wolframcloud.com) May 23, 2014
+  May 23, 2014 — The Lonely Runner conjecture states that each runner becomes lonely at some time [1]. The conjecture has been proven for up to seven runners[2]. Read more
+- [Some remarks on the Lonely Runner Conjecture] (https://www.scribd.com) 
+  The lonely runner conjecture asserts that if n runners run around a unit circle at distinct constant speeds, there will always be a time where each runner is ...
+- [Solution to the Lonely Runner Conjecture] (https://openproblemgarden.org) Oct 20, 2012
+  Oct 20, 2012 — If DELTA is greater than 1/n then the nth runner is “ Lonely ”. If DELTA is less than 1/n we can repeat the process and examine the situation at ... Read more
+- [On the lonely runner conjecture] (https://eudml.org) 
+  by RK Pandey · 2010 · Cited by 2 — The Lonely Runner Conjecture states that there is a time at which a given runner is at distance at least $1/(k+1 )$ from all the others. The conjecture has ... Read more
+
+### r10_lattice_attained  (8 results)
+- [open_problem] (https://explorer-production-64a5.up.railway.app) Sep 2, 2026
+  Sep 2, 2026 — The lonely runner conjecture – if k {\displaystyle runners with pairwise distinct speeds run round a track of unit length, will every runner be ...
+- [(PDF) Science Research Papers] (https://www.academia.edu) 
+  These papers provide a breadth of information about scientific research that is generally useful and interesting from a scientific information perspective.
+- [essays of michel de montaigne] (https://www.gutenberg.org) 
+  PREFACE. The present publication is intended to supply a recognised deficiency in our literature—a library edition of the Essays of Montaigne. Read more
+- [Pursuit and Evasion Strategies in the Predator–Prey] (https://www.researchgate.net) Jul 15, 2026
+  Jul 15, 2026 — We found that both species intercept targets on near time - optimal courses. To investigate the guidance laws that could underlie this ... Read more
+- [ANNUAL REPORT 2022-23 PAGE 63 KIRORI MAL COLLEGE] (https://www.kmc.du.ac.in) Mar 23, 2023
+  Mar 23, 2023 — The formation of structures in the Universe is a complex process that has been shaped by various forces, including gravity, dark matter, and ...
+- [Essays of Michel de Montaigne - A.J.H. Computer Services] (https://ajhw.co.uk) 
+  PREFACE. The present publication is intended to supply a recognised deficiency in our literature—a library edition of the Essays of Montaigne. Read more
+- [buletin ştiinţific - volumul xi – 2008 colegiul de redacţie] (https://www.anmb.ro) 
+  This work investigates a novel speed sensorless control of a permanent magnet synchronous motor. The proposed control strategy is based on a Reference Adaptive ...
+- [County Dublin] (https://jesuitarchives.ie) 
+  He retired to Mungret in failing health. This brought about his death with great speed , and he died there 13 April 1910.
+
+### r11_arxiv_2026  (6 results)
+- [Correlation among runners and some results on the Lonely] (https://ui.adsabs.harvard.edu) 
+  We study the correlation among the time that runners spend close to the origin. By means of these correlations, we improve a result of Chen on the gap of ... Read more
+- [Eleven, twelve, and thirteen lonely runners] (https://www.alphaxiv.org) 
+  Submitted 26 Apr 2026 Eleven, This statement is known as the Lonely Runner Conjecture . we provide a computer - assisted proof of the Lonely Runner Conjecture
+- [Improved Bounds Towards the Lonely Runner Conjecture] (https://mathematics.stanford.edu) 
+  The Lonely Runner Conjecture , due to Wills and Cusick, asserts that if n runners with distinct constant speeds run around a unit length track, all starting ...
+- [Would this proof strategy work for proving the lonely runner] (https://math.stackexchange.com) Aug 30, 2015
+  Aug 30, 2015 — The problem is the lonely runner conjecture. This conjecture states that if k runners begin running down a circle of unit circumference with random speeds, ...
+- [The Lonely Runner Conjecture] (https://epoch.ai) 
+  The conjecture states: For any such set of n runners , there exists a time t at which every runner is at distance at least 1/(n+1) from the starting position 0. Read more
+- [Has the following problem, resembling the lonely runner] (https://mathoverflow.net) May 24, 2022
+  May 24, 2022 — Given n, what is the smallest value δn satisfying the following:  For any group of n runners with constant but distinct speeds, starting from the same ...
+
+### r12_bohus_wong  (6 results)
+- [New Strides Made on Deceptively Simple 'Lonely Runner] (https://www.quantamagazine.org) Mar 6, 2026
+  Mar 6, 2026 — A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions. Read more
+- [Lonely runner conjecture] (https://en.wikipedia.org) 
+  The lonely runner conjecture states that each runner is lonely at some time, no matter the choice of speeds .
+- [[PDF] TIGHT INSTANCES OF THE LONELY RUNNER] (https://www.semanticscholar.org) 
+  It is shown that to verify the lonely runner conjecture, it suffices to do so under the assumption that the speeds are integers of size $n^{O(n^2)}$.
+- [Some remarks on the lonely runner conjecture - Terence Tao] (https://terrytao.wordpress.com) Jan 10, 2017
+  Jan 10, 2017 — Proof : It is not difficult to see that for any non-zero velocity {v} the speeds of the runners would be w = 6 + c, 5 + c, c, for some c ...
+- [The lonely runner conjecture holds for eight runners] (https://arxiv.org) Sep 17, 2025
+  Sep 17, 2025 — We prove that the lonely runner conjecture holds for eight runners . Our proof relies on a computer verification and on recent results that allow ... Read more
+- [The lonely runner conjecture: the case for 6 runners] (https://www.ihes.fr) 
+  Specifically, we will prove that we can reduce the problem for n runners to the problems for n and n − 1 runners where we only consider integer speeds , as ... Read more 12 pages
+
+### r13_mirror_pair  (7 results)
+- [New Strides Made on Deceptively Simple 'Lonely Runner] (https://www.quantamagazine.org) Mar 6, 2026
+  Mar 6, 2026 — A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions. Read more
+- [The Lonely Runner Conjecture] (https://arxiv.org) Nov 11, 2012
+  Nov 11, 2012 — Imagine two runners traveling, at distinct integer speeds , in the same direction along a circular track of unit perimeter. Read more
+- [Small question about the Lonely runner conjecture] (https://math.stackexchange.com) Feb 17, 2021
+  Feb 17, 2021 — A runner is said to be lonely at time t if they are at a distance of at least 1k from every other runner at time t. The lonely runner conjecture
+- [Math Encounters: "The Lonely Runner: an unsolved] (https://momath.org) Apr 13, 2022
+  Apr 13, 2022 — The Lonely Runner Conjecture is an (in)famous open problem if n runners with different (constant) speeds move around a circular track of length
+- [Has the following problem, resembling the lonely runner] (https://mathoverflow.net) May 24, 2022
+  May 24, 2022 — Given n, what is the smallest value δn satisfying the following:  For any group of n runners with constant but distinct speeds, starting from the same ...
+- [Nine and ten lonely runners] (https://www.combinatorics.org) 
+  by T Trakulthongchai · 2026 · Cited by 11 — The Lonely Runner Conjecture predicts that regardless of the runners ' speeds , each runner will become lonely at some time .
+- [The Lonely Runner Conjecture] (https://epoch.ai) 
+  A runner is lonely at time if, at time , they are far away from every other runner . Is every runner sometimes lonely ? The lonely runner conjecture says that the ... Read more
+
+### r14_gap_formulation  (8 results)
+- [Fractional chromatic number and circular] (https://www.researchgate.net) Aug 12, 2026
+  Aug 12, 2026 — The motivating idea is that one can obtain small maximum loneliness values with n runners by starting with a tight speed set for n − 1 runners ... Read more
+- [Number Theory] (https://vixra.org) 
+  The Lonely Runner conjecture finds its mathematical description in winding the runner's linear paths into the complete cycle, c-cycle, on the unit track circle . Read more
+- [2020 SURF / SEMS Projects - Mathematical Sciences] (https://www.cmu.edu) 
+  The lonely runner conjecture states that each runner is lonely at some time. We show that this holds when the speeds differ by at most (2− ... Read more
+- [Iowa State University Department of Mathematics] (https://pabloraulstinga.github.io) 
+  The parameter m(D) is closely related to the parameter k(D) involved in the so called " lonely runner conjecture" [Wills 1967, and Bienia et al. 1998], and ... Read more
+- [Humans | CU Experts - University of Colorado Boulder] (https://experts.colorado.edu) 
+  Study of Frailty, Isolation, Worry, and Loneliness Among Aging Adults. Maximum - speed curve-running biomechanics of sprinters. GAP JUNCTION PROTEINS
+- [Comparative study on the accuracy of solitary wave] (https://www.sciencedirect.com) 
+  by A Farhadi · 2016 · Cited by 31 — Rayleigh predicts the maximum runup accurately. speed , paddle motion, “Rayleigh” is the most accurate one in predicting the maximum runup. compare the maximum ...
+- [Upcoming Events at MoMath] (https://momath.org) 
+  The Lonely Runner Conjecture is an (in)famous open problem in combinatorial number theory: if n runners with different (constant) speeds move around a circular ... Read more
+- [Nonreciprocal many-body physics] (https://arxiv.org) 
+  Abstract. Reciprocity is a fundamental symmetry present in many natural phenomena and engineered systems. Distinct situations where this symmetry is broken ... Read more
+
+### r15_cusick_covering  (8 results)
+- [Modular forms and Galois representations] (https://swc-math.github.io) 
+  by A Caraiani — the multiplicative group is described by the law G(x, y) = x + y + xy. Using the addition law, we can define multiplication by any integer. 13 pages
+- [Understanding Discrete Structures: Key Concepts and Proof] (https://www.coursehero.com) Mar 28, 2025
+  Mar 28, 2025 — Discrete Structures Lecture. A set can be defined by simply listing its members inside curly braces.
+- [Closed Geodesics on the Punctured Torus] (https://digital.fandm.edu) 
+  Abstract. We examine the behavior of geodesics on the punctured torus. We first consider simple geodesics and the results of [I]. Read more 14 pages
+- [Multiplicity of automorphic representation] (https://mathoverflow.net) Aug 3, 2014
+  Aug 3, 2014 — The only discrete spectrum is cuspidal or made from residues of cuspidal-data Eisenstein series. In the continuous spectrum, the same ... Read more
+- [Lecture 22] (https://www.cs.cornell.edu) 
+  Lecture 22 22hiddensurf.pdf
+- [(PDF) A computational theory of da Vinci stereopsis] (https://www.researchgate.net) Feb 27, 2026
+  Feb 27, 2026 — discrete representations of neuronal firing rates. Our model suggests new directions for creating cooperative stereo systems that incorporate  ...
+- [Confusion with intersection multiplicities of curves] (https://math.stackexchange.com) Nov 21, 2021
+  Nov 21, 2021 — I am reading Gathmann's notes on plane algebraic curves and I have a presumably very simple confusion with the intersection multiplicities. Read more
+- [Nonbinary multiplication-phase cocycles in projector-] (https://www.emergentmind.com) 
+  cocycle can produce an essential contextuality obstruction beyond the binary case, rather than having the obstruction already arise at the incidence level
+
+### r16_regular_time  (8 results)
+- [Proposals for polymath projects] (https://mathoverflow.net) Sep 30, 2015
+  Sep 30, 2015 — Background  Polymath projects are a form of open Internet collaboration aimed towards a major mathematical goal, usually to settle a major mathematical ...
+- [Affect Theory and Literary Critical Practice] (https://link.springer.com) 
+  The recent surge of interest in affect and emotion has productively crossed disciplinary boundaries within and between the humanities, social sciences,. 261 pages
+- [Open Problems That Might Be Easy] (https://rjlipton.com) Sep 3, 2015
+  Sep 3, 2015 — Can we put tight bounds on the size of {M} Can we solve the lonely runner problem? Or at least improve the number of runners that it is known ...
+- [The Structure and Function of Complex Networks] (https://epubs.siam.org) Oct 31, 2024
+  Oct 31, 2024 — First, it aims to find and highlight statistical properties, such as path lengths and degree distributions, that characterize the structure and ...
+- [Lecture Notes in Economics and Mathematical Systems] (https://pure.iiasa.ac.at) 
+  by A Lewandowski · 1989 · Cited by 4 — tight upper bound qn. Note that the main group of equality constraints (2.2) represents typical network relations. The inequalities (2.3) and (3.5) are  ...
+- [Literary Retrospectives: The 1890s and the Reconstruction of] (https://etd.ohiolink.edu) 
+  Hutchinson's career at the Tribune provides some insight into how she earned the co-editorial equality that made her such an influential force on the Library.
+- [A rhetorical analysis of American cultural values in the] (https://scholarworks.umt.edu) 
+  by RW Gill · 1999 — American culture and the game of baseball have a long standing, reciprocal relationship. The means through which this study examines this relationship is ...
+- [wnNounsyn_v7.owl] (http://www.w3.org) 
+  ... bound in blue shoulder of a hog usually smoked a storage pile accumulated ... equality : 'the growing inequality between rich and poor' type genus of ...
+
+### r17_scholar_denom  (8 results)
+- [zeno's paradoxes.acardinal problem] (https://arxiv.org) 
+  by K Verelst · 2006 · Cited by 11 — half a given time is equal to its double. The fallacy lies in assuming that a body takes an equal time to pass with equal velocity a body that ...
+- [Vol. 3] (http://www.pmena.org) 
+  Victor and Ana are running around a track. They run equally fast. How much time should be scheduled to complete the job? (Lamon, 1999a). -value proportional ...
+- [The Structure and Function of Complex Networks] (https://epubs.siam.org) Oct 31, 2024
+  Oct 31, 2024 — The sum in the denominator is equal to the mean degree of the network, Optimal time -varying coupling function can enhance synchronization in ...
+- [ESSENTIALS OF BEHAVIORAL RESEARCH: - Harvard DASH] (https://dash.harvard.edu) 
+  Interrupted Time Series. Optimal Design and the Allocation of Sample Sizes. From time to time , scientists have ignored the evidence, tolerated inconsistencies, ...
+- [Untitled] (https://link.springer.com) 
+  ... Ideal of Science. Universal Science vs. Science of an Elite. This manuscript is published here for the first time , along with some shorter materials. G ... Read more 279 pages
+- [Print] (https://prizmah.org) 
+  Community and Jewish Identity High school can be a lonely time for students. The test is set up in a “video game” format that tracks memory, reaction time ,  ...
+- [ATTACHMENT L] (https://www.badriver-nsn.gov) 
+  Lacks administration, transparency and BMPs for invasive species management mixes. Denominator Amount , or Resolution Amount
+- [Explaining the scaling of transport costs: The role of stride] (https://www.researchgate.net) 
+  We examine the role of both stride frequency and stride length in determining the scaling of the cost of transport. Slopes for regressions between stride ... Read more
+
+### r18_cyclic_reduction  (8 results)
+- [An invitation to General Algebra and Universal Constructions] (https://math.berkeley.edu) 
+  ... construction of free groups will be our first example. We will prepare for it in Chapter 1 by making precise some concepts such as that of a group -theoretic.
+- [Machine-checked computer-aided mathematics] (https://theses.hal.science) 
+  by A Mahboubi · 2021 · Cited by 2 — G is called the order of the group . Examples of finite groups include the cyclic group Z/nZ of integers modulo n under addition, with ... Read more
+- [Almost-tight Identity Based Encryption against Selective Opening] (https://eprint.iacr.org) 
+  Given a finite cyclic group G, we use X ← G to denote the process of sampling a random element in. G. In particular, the notation is for the so-called “lazy ...
+- [Drinfeld Doubles for Finite Subgroups of SU(2) and] (https://arxiv.org) 
+  by R Coquereaux · 2012 · Cited by 6 — Abstract. Drinfeld doubles of finite subgroups of SU(2) and SU(3) are investigated in detail. Their modular data – S, T and fusion matrices ... Read more
+- [A Birthday Paradox for Markov chains, with an optimal bound for] (https://tetali.math.gatech.edu) 
+  The classical discrete logarithm problem on a cyclic group deals with computing the exponents, given the generator of the group; more precisely, given a ...
+- [Lecture Notes Universal Algebra 2 Spring term 2022] (https://www.mff.cuni.cz) 
+  Our goal is to find an algorithm that solves the above problem.1 Unfortunately there is no algorithm that solves Decide(E) in general - in fact, ...
+- [From Optimal Measurement to Efficient Quantum Algorithms for] (https://sfi-edu.s3.amazonaws.com) 
+  This reduction alone is enough to solve the hsp over some semidirect product groups . For example, the hsp over the wreath product groups Zn . 2 oZ2 (for which ...
+- [Journal of Software for Algebra and Geometry] (https://msp.org) Sep 14, 2023
+  Sep 14, 2023 — ABSTRACT: We describe algorithms and their implementations that calculate local and global Schur indices of ordinary irreducible characters ... Read more
+
+### r19_pair_structure  (8 results)
+- [Volume/tome 49, issue/numéro 3 March/mars 2023] (https://cms.math.ca) Mar 3, 2023
+  Mar 3, 2023 — The Lonely Runner Conjecture … runners having distinct constant speeds start at a common point. Prove that at least one of the two numbers k ...
+- [The Structure and Function of Complex Networks] (https://epubs.siam.org) Oct 31, 2024
+  Oct 31, 2024 — the first true proof in the theory of networks, edges are added so as to complete triangles, thereby increasing the denominator in (3.3) and so ...
+- [r] (https://www.ojp.gov) 
+  by MC Escher — Specialized equations exist to test the significance of an RL , for the unique contribution to a criterion of a single predictor … considered evidence of real ...
+- [THL2.SPAN.6th.Final.pdf] (https://tea4avcastro.tea.state.tx.us) Jun 1, 2020
+  Jun 1, 2020 — felt lonely walking through Africa ・ the an astounding 40 feet per second (27.51 mph). person's legs flex and the muscles stretch and then ... 567 pages
+- [Altruistically Inclined? - Scholar Commons] (https://scholarcommons.scu.edu) 
+  Pairs of chro- mosomes trade segments before the final random assignment by meiotic division of one or the other of each recombined pair to produce germ cells ... 391 pages
+- [Vol. 3] (http://www.pmena.org) 
+  Implicative analysis of strategies in solving proportional and nonproportional problems … geometrical proof competency. A tool for mathematical problem solving ...
+- [******************t] (https://files.eric.ed.gov) 
+  by D Worsley · 1989 · Cited by 26 — The rigor of the formal two-column proof in geometry often causes stu- dents to develop a mental block that makes them unable to complete a proof . 218 pages
+- [Track Coach #224] (https://trackandfieldnews.com) Jun 30, 2018
+  Jun 30, 2018 — As runners im- prove and raise their fitness levels, they will cover more distance during specific time periods. proof of qualification
+
+### r20_four_exact  (7 results)
+- [Nine and ten lonely runners] (https://arxiv.org) Apr 18, 2026
+  Apr 18, 2026 — The Lonely Runner Conjecture of Wills and Cusick states that if k + 1 k+1 runners start running at distinct constant speeds around a unit- ...
+- [lonely runners in function fields] (https://ora.ox.ac.uk) 
+  by S Chow · 2019 · Cited by 7 — The conjecture asserts that each runner is lonely at some point in time , meaning distance at least 1/m from the others.
+- [New Strides Made on Deceptively Simple 'Lonely Runner] (https://www.quantamagazine.org) Mar 6, 2026
+  Mar 6, 2026 — A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions. Read more
+- [Lonely runner conjecture] (https://en.wikipedia.org) 
+  The lonely runner conjecture states that each runner is lonely at some time , no matter the choice of speeds.
+- [The Lonely Runner Conjecture] (https://av.tib.eu) 
+  A runner is lonely whenever there is no other runner closer than 1/N of a lap. then restated by Cusick in 73. solved for four runners . this problem is exactly ...
+- [Correlation among runners and some results on the Lonely] (https://www.combinatorics.org) 
+  by G Perarnau · 2016 · Cited by 20 — By using this model we can show that either there is a runner alone at some time or at least four runners are almost alone at the same time . Read more
+- [The Lonely Runner Conjecture] (https://epoch.ai) 
+  The lonely runner conjecture says that the answer is yes: every runner is sometimes lonely . Formally, the lonely runner conjecture says that for every set of ... Read more

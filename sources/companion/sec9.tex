@@ -1,0 +1,242 @@
+% ======================================================================
+% Section 7 — The higher rungs: T=7 and T=8
+% ======================================================================
+
+\section{The higher rungs: $T=7$ and $T=8$}\label{sec:higherrung}
+
+The closures of \S\ref{sec:rigid}--\S\ref{sec:pq} live at the rung $T=6$
+($n=5$): four bad sets per pair, the frontier cell $(1K,3U)$, and the
+fiber problem is the three-AP census classified by Conjecture~\ref{conj:SL}.
+Open Problem~9 asked whether the method survives a third rung. This
+section answers affirmatively, with measurements: the machinery, the
+classification, and the shear mechanism all port, and at the \emph{critical}
+cell of $T=8$ the census is sharper than at $T=6$ --- exactly eleven
+families with placement counts \emph{constant in $p$}. The higher rungs
+are also where the pinned sets grow, and the shear step must be
+re-established as a growth comparison; we measure that growth and the
+drift-exit mechanism that keeps it harmless.
+
+\subsection{The rung map and the general-\texorpdfstring{$T$}{T} fiber machinery}
+
+At rung $T=n+1$ the composite modulus is $N=p^2$ with $c=\floor{(N-1)/T}$
+and bad sets $B_w=\{x:\wn{wx}\le c\}$. Writing $p=Tk+\epsilon$
+($\epsilon=p\bmod T$), a kernel member $pa$ covers exactly the fibers of
+$a^{-1}B_k$, where $B_k=\{r:\min(r,p-r)\le k\}$ has $2k+1$ elements, so
+the uncovered set has $|U|=(T-2)k+\epsilon-1$. Cells are families of
+$n-1=T-2$ bad sets; the frontier cells are
+\[
+T=7:\ (1K,4U)\ \text{(overlap }k+O(1)\text{)},\qquad
+T=8:\ (2K,4U)\ \text{(overlap }O(1)\text{)}\ \text{and}\ (1K,5U),
+\]
+$(2K,3U)$ at $T=7$ and $(3K,3U)$ at $T=8$ being dead by size
+($3(2k+2)<p$ for $k$ past a small boundary). The $T=8$ cell $(2K,4U)$ is
+\emph{critical} in the $T=6$ sense --- four footprints of size
+$2k+1\approx p/4$ sum to $p+O(1)$ --- which is why its census mirrors
+(and sharpens) the base rung's.
+
+The fiber machinery is $T$-free in form; we record it once.
+
+\begin{lemma}[footprints, the three-tier arc, and the drift at rung $T$]
+\label{lem:rungT}
+Fix rung $T$, $p=Tk+\epsilon$ prime, and a unit $u$ with residue
+$r=u\bmod p$ and lift $m$ ($u=r+pm$). On the fiber $F_j=\{j+pt\}$, writing
+$uj=a_1p+a_0$, the trace $B_u\cap F_j$ in the $t$-coordinate is an AP
+with difference $\bar u=u^{-1}\bmod p$, size
+\[
+L(a_0)\in\{2k,\ 2k+1,\ 2k+2\}
+\]
+given by the \emph{three-tier arc law}: with $M=k\epsilon+\delta_0$,
+$\delta_0=\floor{(\epsilon^2-1)/T}$, one has $L=2k+1$ on the ball $B_k$
+\emph{and} on two shallow off-bands, $L=2k+2$ on the deep band
+$a_0\in(p-1-M,\,M]$ when $2M\ge p-1$, and $L=2k$ on the deep band
+$a_0\in(M,\,p-1-M]$ when $2M\le p-2$. At $\epsilon\equiv\pm1\pmod T$ the
+deep band is the whole off-ball (the phenomenon of \S\ref{sec:rigid});
+at intermediate $\epsilon$ a shallow band of width $|M-k|$ carries the
+on-size. Consequently the occurring footprint sizes are exactly two
+values, $\{2k,2k+1\}$ for $\epsilon<T/2$ and $\{2k+1,2k+2\}$ for
+$\epsilon>T/2$. The starts obey the \emph{drift law}
+\[
+\sigma_u(j)\;=\;\sigma_r^0(j)-\bar u\,m\,j\pmod p,
+\qquad \sigma_r^0(j)=\bar u\,(S_2(a_0)-\floor{rj/p}),
+\]
+so the lift acts by per-fiber $t$-translation linear in $j$; for a
+$\pm$-colliding pair $w=u+pm$ the relative drift
+$\sigma_w(j)-\sigma_u(j)=-\bar u\,m\,j$ is exactly linear, injective in
+$j$, and vanishes only when $B_w=B_u$.
+\end{lemma}
+
+\begin{proof}
+The footprint computation is the one of \S\ref{sec:composites} verbatim
+with $6$ replaced by $T$: $x\in B_u$ iff $a_0+p\,s$ (with
+$s=(a_1+ut)\bmod p$) lands in $[-c,c]$ modulo $p^2$, and the good $s$
+form the cyclic interval $[S_2,p-1]\cup[0,S_1]$ with
+$S_1=k+\floor{(M-a_0)/p}$, $S_2=p-k-\floor{(M+a_0)/p}$, which gives the
+three-tier law by the case split on $a_0$ relative to $M$ and $p-1-M$.
+The drift law follows from $\floor{(r+pm)j/p}=\floor{rj/p}+mj$ and the
+$a_0$-dependence of the arc being $r$-only. Machine-verified: the law
+reproduces the committed $T=6$ tables boundary for boundary
+($p\le37$, both classes); it holds for every $a_0$ at $19$ primes of
+$T=7/T=8$ (all residue classes); the footprint formula matches direct
+$Z_{p^2}$ enumeration ($957/957$); the drift identity holds in
+$3{,}528/3{,}528$ checks at $T\in\{7,8\}$.
+\end{proof}
+
+\subsection{The critical census at \texorpdfstring{$T=8$}{T=8}: eleven families, constant counts}
+
+The $(2K,4U)$ fiber problem --- four APs with sizes in the two-value
+window covering $\Z_p$, normal form $(0,1,s_1)$ plus three moving APs
+with canonical differences --- is the exact analogue of the
+Conjecture~\ref{conj:SL} census one rung up, and it is \emph{finite}.
+
+\begin{proposition}[the 4-difference partner representatives; machine]
+\label{prop:T8census}
+At every prime $p=8k+\epsilon$ tested --- seventeen primes
+$p\in\{19,29,31,41,43,47,59,61,67,71,73,79,89,97,103,137\}$ plus the
+boundary $p=17$, covering all four odd $\epsilon$ classes with $k$ up to
+$17$ --- the census of four-AP coverings in the normal form returns
+\emph{exactly eleven difference families}:
+\[
+(1,1,1),\quad\text{the permutations of }(1,1,t),\ (1,2,2),\ (1,q,q),
+\quad(3,3,3),
+\]
+where $q=(p-1)/2$ is the antipode and $t=\floor{(p+1)/3}$ (equivalently
+$t\equiv\pm3^{-1}\bmod p$, $3t\in\{p-1,p+1\}$). The placement counts are
+independent of $p$ and depend only on the class:
+$48$ for $(1,1,1)$, $24$ for each other family at $\epsilon\in\{3,7\}$
+(total $288$); $528$, $232$, $216$ at $\epsilon\in\{1,5\}$ (total
+$2{,}784$). No pairwise $\pm$-distinct covering occurs at any $k\ge2$
+($\epsilon\in\{3,5,7\}$) or $k\ge5$ ($\epsilon=1$); the $k=2$ boundary
+carries twelve $\pm$-distinct configurations, all enumerated. At
+$\epsilon=5$, $k=3$ only, twelve further families with six placements
+each occur; they are gone by $k=7$.
+\end{proposition}
+
+The five mechanisms are hand-derived, and each count is the junction
+arithmetic of a placement-rigid structure --- the Corollary~T1
+phenomenon two rungs up. \textbf{(M1)} \emph{Four intervals} $(1,1,1)$:
+the partition multiset $\{2k+1,(2k+2)^3\}$ gives $4$ ordered size
+tuples $\times\,3!=6$ cyclic arrangements $=24$ exact tilings; the
+one-overlap multiset $(2k+2)^4$ gives $3!\times4=24$; total $48$.
+\textbf{(M2)} \emph{Two intervals + the parity split} $(1,2,2)$: the
+intervals tile an arc of length $4k+3$; the complementary arc of length
+$4k+4$ splits into its two parity classes, each \emph{being} a 2-AP of
+size $2k+2$ --- the $(2,2)$ mechanism of \S\ref{sec:gt-census}, one rung
+up, with an interval pair in place of the single interval.
+\textbf{(M3)} \emph{Three intervals + the three-block sampler}
+$(1,1,t)$: since $t\equiv\pm3^{-1}$, the $t$-AP decomposes into three
+interleaved strands --- three short blocks spaced $\approx p/3$ apart
+--- the wrapped two-block one block up; the three intervals tile the
+complement of the three holes. This is why the \emph{third-point}
+replaces the antipode in the double-interval family: three intervals
+leave three holes. \textbf{(M4)} \emph{Intervals + antipodal
+two-blocks} $(1,q,q)$: the $q$-AP is the wrapped two-block of
+\S\ref{sec:gt-census} verbatim; the interval plugs its gap structure.
+\textbf{(M5)} \emph{The thickened arc} $(3,3,3)$: three 3-APs with
+starts spaced $1,2$ have union a contiguous arc of length $3s-2=6k+4$;
+the normalized interval covers the complementary arc of length $2k+3$.
+Every count is $p$-free because each configuration is determined by its
+junction pattern.
+
+\subsection{The \texorpdfstring{$T=7$}{T=7} census: the core, the tail, and the growing pinned sets}
+
+At $T=7$ the frontier cell $(1K,4U)$ carries structural linear slack
+(the overlap window is $[k-\epsilon+4,\,k-\epsilon+8]$), and the census
+is a \emph{core--tail} object rather than a finite list.
+
+\begin{proposition}[the $T=7$ census; machine]\label{prop:T7census}
+At eighteen primes $p=7k+\epsilon$, all six $\epsilon$ classes, $k$ up
+to $11$: (i) \emph{no pairwise $\pm$-distinct four-AP covering occurs}
+at any $k\ge4$ ($\epsilon\le3$) resp.\ $k\ge2$ ($\epsilon\ge4$) --- the
+clause-(i) analogue of Conjecture~\ref{conj:SL} one rung up; the
+boundary dirt at $k\le3$ is finite and enumerated. (ii) The same eleven
+families as Proposition~\ref{prop:T8census} --- with
+$t=\floor{(p+1)/3}$, $q=(p-1)/2$ --- are the top eleven by
+configuration count at every prime and carry $\approx90\%$ of all
+configurations at $k\ge6$. (iii) The core's placement counts grow with
+the overlap window (the $(1,1,1)$ count is
+$528,2160,5712,11952,21648,35568$ at $k=2,\dots,11$: quadratic growth,
+the junction freedom under the slack; the count depends only on the
+window, whence exact coincidences between primes with equal windows).
+(iv) Beyond the core, $30$--$44$ tail families occur at $k\ge5$ (down
+from $120$--$170$ at $k\le4$), with rational-anchor differences
+($\{4,5,6,12,14,18,28,33\}$ at $p=71$) and counts a factor $15$--$50$
+below the core.
+\end{proposition}
+
+This is the measured form of the ``growing pinned sets'': the solution
+sets grow $\approx k^2$ (two-dimensional families), and the $T=6$
+pigeonhole $|\Delta|\le6<|U|$ must be replaced by a growth comparison.
+The replacement is supplied by the projections and the exit time.
+
+\subsection{The shear step at the higher rungs}
+
+\begin{proposition}[projections, exit, and the empty cells; machine]
+\label{prop:shearT78}
+\textup{(i)} The one-coordinate projections of the census solution sets
+(starts and relative offsets) have maximum size
+\[
+11,\,12,\,18,\,24,\,24,\,30,\,36,\,36,\,42,\,42,\,42
+\quad\text{at }k=1,\dots,11,
+\]
+that is, \emph{saturating at $42$}, while
+$|U|=5k+\epsilon-1$ grows linearly ($20\to60$ over the same range); the
+pigeonhole $|U|>\text{maxproj}$ holds at every $k\ge5$ except the single
+case $(p{=}29,\epsilon{=}1,k{=}4)$, where $20<24$. \textup{(ii)} The
+exit time of an affine drift line from a census solution family is at
+most $2$ consecutive fibers, over all drift vectors fixed by the first
+fiber (top-ten families at $p\in\{17,29,43\}$; all admissible families
+in the ground-truth runs). \textup{(iii)} Ground truth, exhaustive over
+census-admissible families with the bad-set distinctness filter: the
+$(1K,4U)$ cell at $T=7$ is \emph{empty} at every prime
+$11\le p\le61$ (all six $\epsilon$ classes; best exit $2$); the
+$(2K,4U)$ cell at $T=8$ is \emph{empty} at every prime $17\le p\le43$
+tested (best exit $\le1$; at $p=29,41$ no admissible family even passes
+the per-fiber size profile). Controls: brute force at $p\in\{5,7,11\}$
+(all unit triples, distinct bad sets, no census restriction) finds
+$262{,}350$ triples and $0$ coverings at $p=11$, and $8$ coverings at
+the degenerate $p=5$ ($k=0$) --- exactly the $8$ found by the
+restricted search; $0$ at the $\epsilon=0$ prime $p=7$.
+\end{proposition}
+
+The closure architecture is the $T=6$ one, rung-shifted: the census
+forces a $\pm$-collision (Propositions~\ref{prop:T8census}--\ref{prop:T7census});
+the colliding pair's relative offset drifts exactly linearly and
+injectively (Lemma~\ref{lem:rungT}); the relative-offset projections are
+bounded --- measured at $\le42$, with the bound's mechanism the
+span-exact junction arithmetic of M1--M5, the same analysis that proves
+Corollary~T1 --- and $|U|$ is linear in $k$; the drift line exits the
+solution family within two fibers. The degenerate $p=5$ ($k=0$) is the
+boundary phenomenon, recorded as at $T=6$.
+
+The $(1K,5U)$ cell named below is the object of the conditional
+closing attack of \S\ref{sec:scale} (Theorem~\ref{thm:SC}); the honest
+boundary recorded here is the measured boundary there.
+
+\subsection{The honest boundary of the port}
+
+Three things do not port, and we record them. \emph{First}, the
+$(1K,5U)$ cell at $T=8$: the five-difference census at $k=2$ has $8{,}168$
+families and $32.5$M configurations, $840$ of them $\pm$-distinct --- the
+collision-only law fails at the fifth difference, the census restriction
+does not confine this cell, and its closure (sampled: best run $2$ over
+$20{,}000$ random families at $p\in\{17,19\}$; heuristic: solution
+families of dimension $3$ in a $4$-coordinate relative space still meet a
+generic affine line boundedly) is the rung's open piece. \emph{Second},
+the $T=7$ tail: the family count decays ($183\to43$) but is not proved
+to die; only the $T=8$-critical census is a finite exact list.
+\emph{Third}, the pinning lemma --- projections $\le42$ --- is measured
+with the mechanisms identified but not yet proved; the span-exactness
+proof per family is the recorded obligation, the direct analogue of the
+$T=6$ pinning-size lemma (Input~S's fiberwise form).
+
+For the programme's single unbounded input the meaning is this: the
+four-family classification of Conjecture~\ref{conj:SL} is not a $T=6$
+accident. One rung up the same anchors occur ($1$, $2$, $q$) with a new
+pair ($3$, $t$); the counts stay $p$-independent; the exhaustiveness
+clause survives; and the shear mechanism that consumes the
+classification is $T$-free in its linear part. The two-page computation
+that would discharge Input~S now has its higher-rung shape: prove the
+eleven-family exhaustiveness at $T=8$-critical first (a finite, exactly
+verified statement), then the projection bound, and the $T=6$ statement
+--- the base rung of the same phenomenon --- follows by the same
+mechanism analysis at one lower rung.

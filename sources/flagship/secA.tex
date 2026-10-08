@@ -1,0 +1,125 @@
+% ======================================================================
+% Appendix A — h* observations
+% ======================================================================
+
+\appendix
+\section{The \boldmath$h^*$-observations through \boldmath$n=10$}
+\label{sec:hstar}
+
+This appendix records the Ehrhart observations on the LR-zonotopes,
+extended by this session to $n=9$ and $n=10$ in both core families. The
+extension was executed as a one-day addendum with a narrow purpose:
+establish whether the real-rootedness and log-concavity observed at
+$n\le8$ continue, and whether the strictness decay and the
+non-correlation with covering margins persist. Both answers are yes. The
+appendix closes with the statement we regard as the residual question of
+independent interest.
+
+\subsection{The table}
+
+Table~\ref{tab:hstar} lists, for each family and $n$: the
+$h^*$-polynomial, real-rootedness (verified at $45$ decimal places on
+the exact integer coefficients, with a companion-matrix check agreeing),
+log-concavity and Newton's inequalities (exact rational arithmetic), and
+the minimum ratio $h_k^2/(h_{k-1}h_{k+1})$, which is the
+\emph{strictness} of log-concavity. Every row's Ehrhart data was
+verified three ways (Eulerian expansion, standard inversion, and an
+independent depth-first coset count at $t=1,2$), the volume identity
+$e_{n-1}=\sum v_j$ was asserted exactly, and the loneliness identities
+$\lambda=1/(n{+}1)$ (harmonic) and $\lambda=2/(2n{+}1)$ (rung-2) were
+re-asserted exactly. The $n\le8$ rows reproduce the program's earlier
+records digit for digit; the $n=9,10$ rows are new.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{$h^*$-polynomials of the LR-zonotopes, $n=3..10$, both core
+families. ``RR'' = real-rooted (exact-integer verification at 45 dps);
+``LC/Nw'' = log-concave and Newton (exact rational arithmetic);
+$S$ = $\min_k h_k^2/(h_{k-1}h_{k+1})$; $nS$ = $n\cdot S$. The $n\le8$
+rows reproduce the program's earlier records digit for digit; the
+$n=9,10$ rows are new (this session).}
+\label{tab:hstar}
+\begin{tabularx}{\textwidth}{@{} l c >{\raggedright\arraybackslash}X c c r r @{}}
+\toprule
+family & $n$ & $h^*(t)$ & RR & LC/Nw & $S$ & $nS$ \\
+\midrule
+harm. & 3 & $1+7t+4t^2$ & y & y & $12.250$ & $36.8$ \\
+rung2 & 3 & $1+11t+6t^2$ & y & y & $20.167$ & $60.5$ \\
+harm. & 4 & $1+18t+35t^2+6t^3$ & y & y & $9.257$ & $37.0$ \\
+rung2 & 4 & $1+22t+51t^2+10t^3$ & y & y & $9.490$ & $38.0$ \\
+harm. & 5 & $1+37t+179t^2+133t^3+10t^4$ & y & y & $6.511$ & $32.6$ \\
+rung2 & 5 & $1+45t+239t^2+181t^3+14t^4$ & y & y & $7.013$ & $35.1$ \\
+harm. & 6 & $1+78t+744t^2+1286t^3+399t^4+12t^5$ & y & y & $5.518$
+& $33.1$ \\
+rung2 & 6 & $1+86t+920t^2+1682t^3+535t^4+16t^5$ & y & y & $5.748$
+& $34.5$ \\
+harm. & 7 & $1+147t+2522t^2+8948t^3+7323t^4$\newline
+$+1201t^5+18t^6$ & y & y & $4.335$ & $30.3$ \\
+rung2 & 7 & $1+161t+3024t^2+11144t^3+9295t^4$\newline
+$+1551t^5+24t^6$ & y & y & $4.418$ & $30.9$ \\
+harm. & 8 & $1+290t+8317t^2+51458t^3+82947t^4$\newline
+$+35270t^5+3135t^6+22t^7$ & y & y & $3.791$ & $30.3$ \\
+rung2 & 8 & $1+298t+9277t^2+60986t^3+102275t^4$\newline
+$+44798t^5+4095t^6+30t^7$ & y & y & $3.829$ & $30.6$ \\
+harm. & 9 & $1+559t+25519t^2+258901t^3+734059t^4$\newline
+$+631993t^5+155305t^6+8035t^7+28t^8$ & y & y & $3.293$ & $29.6$ \\
+rung2 & 9 & $1+585t+28885t^2+305035t^3+880149t^4$\newline
+$+764143t^5+188659t^6+9789t^7+34t^8$ & y & y & $3.323$ & $29.9$ \\
+harm. & 10 & $1+1098t+77550t^2+1213626t^3+5529648t^4$\newline
+$+8309694t^5+4180482t^6+626910t^7+19359t^8+32t^9$ & y & y & $2.987$
+& $29.9$ \\
+rung2 & 10 & $1+1114t+83790t^2+1377794t^3+6457600t^4$\newline
+$+9866694t^5+5017826t^6+758710t^7+23631t^8+40t^9$ & y & y & $3.004$
+& $30.0$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The sweep families behave identically: every instance of $(1,2,m)$,
+$m\le14$, and $(1,2,3,m)$, $m\le12$, tested by the program was
+real-rooted, log-concave, and Newton.
+
+\subsection{Strictness decay and non-correlation}
+
+Two quantitative facts were already in the program's records at $n\le8$
+and persist through the new rows. First, the strictness $S$ decays
+monotonically in $n$ in both families, with $n\cdot S$ drifting from
+$\approx37$ at $n=3,4$ to $\approx29.6$--$30.0$ at $n=9,10$: the decay
+is $\Theta(1/n)$ with a slowly drifting constant, so there is no growing
+quantitative margin in the coefficient structure to spend. Second, the
+strictness carries no correlation with the covering margins: across the
+$n=3$ sweep (twelve instances, $(1,2,m)$, $m=3..14$) the Spearman
+coefficient of strictness against the margin is $+0.32$; across the
+$n=4$ sweep (eight instances, $(1,2,3,m)$, $m=5..12$) it is $-0.31$.
+The sign flips between adjacent rungs; the harmonic family has margin
+identically $0$ at every $n$ while its strictness varies by a factor of
+four over the table. Both correlations were recomputed in the provenance
+run from the persisted instance data and reproduce exactly.
+
+The two facts close the bridge in the coefficient direction, and the
+falsity of the covering-radius statement (\S\ref{sec:tm-zono}) closes it
+in the metric direction: the statement that strict log-concavity would
+have needed to feed is false at the extremal instances, and the
+coefficient structure cannot see the metric hole depth that falsifies
+it. There is no mechanism, and the arithmetic is clean enough that the
+absence of the mechanism is itself a datum.
+
+\subsection{The residual question}
+
+What survives is a question of independent arithmetic interest, and we
+state it decoupled from the Lonely Runner problem entirely. The
+Ehrhart data of the LR-zonotopes is governed by the gcd structure
+\eqref{eq:ehr} of the projected basis---the arithmetic matroid of the
+configuration \cite{dAMoci}. In every instance tested (two core
+families through $n=10$, sweeps through $m\le14$ at $n=3$ and $m\le12$
+at $n=4$), the arithmetic $h^*$-polynomial is real-rooted. The natural
+conjecture-shaped question is whether this holds for the projected
+bases of the form $(1,\dots,n-1,m)$ or beyond, and the natural home for
+it is the real-rootedness and Lorentzian literature for arithmetic
+matroid Tutte specializations \cite{BrandenHuh,dAMoci,StanleyEC}. We
+flag it as a question, record the data, and deliberately do not pursue
+it further here: the extension to $n=9,10$ was executed to complete the
+record, and the record's reading is that the question is real but
+belongs to a different subject. It is not a bridge, and treating it as
+one would repeat the pattern this paper documents.

@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://explorer-production-64a5.up.railway.app",
+    "name": "open_problem",
+    "snippet": "Sep 2, 2026 — The lonely runner conjecture – if k {\\displaystyle k} runners with pairwise distinct speeds run round a track of unit length, will every runner ... Read more",
+    "host_name": "explorer-production-64a5.up.railway.app",
+    "rank": 0,
+    "date": "Sep 2, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.scribd.com",
+    "name": "Christoph Molnar - Interpretable Machine Learning-Lulu",
+    "snippet": "There are several ways to encode a categorical feature, and the choice influences the interpretation of the weights. The standard in linear regression models is ... Read more",
+    "host_name": "www.scribd.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://dokumen.pub",
+    "name": "Hollywood Chemistry: When Science Met Entertainment",
+    "snippet": "Hollywood and science have found each other, and seem to have formed the strongest bond to date. The increasing use of s...",
+    "host_name": "dokumen.pub",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "http://www.aussieai.com",
+    "name": "Generative AI in C++",
+    "snippet": "Across the whole spectrum of creative endeavors, there are also numerous AI products that create images, animations, 3D models, and videos.",
+    "host_name": "www.aussieai.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://slatestarcodex.com",
+    "name": "OT55: Thready For Hillary - Slate Star Codex",
+    "snippet": "Jul 31, 2016 — This is the bi-weekly visible open thread. There are hidden threads every few days here. Post about anything you want, ask random questions, ... Read more",
+    "host_name": "slatestarcodex.com",
+    "rank": 4,
+    "date": "Jul 31, 2016",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.pelicancrossing.net",
+    "name": "net.wars: Net life Archives - Wendy M. Grossman",
+    "snippet": "Jan 20, 2023 — With concurrent sessions in probably six different rooms and only one with the basic capability to support remote participants, it's clear that ... Read more",
+    "host_name": "www.pelicancrossing.net",
+    "rank": 5,
+    "date": "Jan 20, 2023",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,139 @@
+% ======================================================================
+% Section 2 — Preliminaries
+% ======================================================================
+
+\section{Preliminaries}\label{sec:prelim}
+
+\subsection{Notation}
+
+Throughout, $n\ge 3$ is the number of speeds, $V=(v_1,\dots,v_n)$ has
+distinct positive integer entries with $\gcd(V)=1$ and $v_1=1$ when a
+coordinate model is in use, and $\wnc{x}=\min(x-\floor{x},
+\floor{x}+1-x)$ is the distance to the nearest integer. We write
+$\lambda(V)=\max_{t\in\T}\min_p \wnc{v_p t}$ for the optimal loneliness
+and $M(V)$ for the same quantity; the two notations are interchangeable
+and we keep $\lambda$ in metric contexts and $M$ in the
+pair-sum context. The threshold is
+$\mathrm{thr}_n=(n-1)/(2(n+1))=1/2-1/(n+1)$. Two speed families recur:
+the \emph{harmonic} family $V=(1,2,\dots,n)$ and the \emph{rung-2}
+family $V=(1,\dots,n-1,2n)$. For these, $\lambda$ is classical:
+$\lambda(1,\dots,n)=1/(n+1)$ exactly (the harmonic family is extremal,
+with zero margin against the conjecture), and
+$\lambda(1,\dots,n-1,2n)=2/(2n+1)$ exactly (the rung-2 family is not
+extremal; its margin is $1/((n+1)(2n+1))$). Both identities are
+re-asserted exactly for $n\le 10$ in the provenance run of
+Appendix~\ref{sec:prov}.
+
+\subsection{Four forms of the covering statement}
+
+Write $\delta(V)=\tfrac12-\lambda(V)$ and let $\mathbf{1}=(1,\dots,1)$.
+The following forms of $\lrc_n$ are used interchangeably in the
+literature and in this program, and it is essential to keep their
+strengths apart.
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item \textbf{Loneliness form.} $\lambda(V)\ge 1/(n+1)$ for all $V$.
+\item \textbf{Center-depth form ($\delta$-form).}
+$\delta(V)\le \mathrm{thr}_n$, where
+$\delta(V)=\operatorname{dist}_\infty\!\bigl(\R v,\;\Z^n+\tfrac12\mathbf{1}\bigr)$
+is the $\ell_\infty$ distance from the trajectory line to the shifted
+lattice. The identity
+$\delta=\tfrac12-\lambda$ is elementary: for every $t$,
+$\max_j \wnc{\tfrac12-v_jt}=\tfrac12-\min_j\wnc{v_jt}$.
+\item \textbf{Quotient-torus form.} Let $V=\R^n/\R v$, let
+$\pi\colon\R^n\to V$ be the projection, $\Lambda=\pi(\Z^n)\cong\Z^{n-1}$,
+and let $\|\cdot\|_V$ be the quotient norm
+$\|c\|_V=\operatorname{dist}_\infty(x,\R v)$ for any lift $x$ of $c$.
+Then $\delta(V)=\operatorname{dist}_V(c^*,\Lambda)$ where
+$c^*=\pi(\tfrac12\mathbf{1})$ is the \emph{center class}, a $2$-torsion
+point whose coordinates are $\tfrac12$ on even speeds and $0$ on odd
+speeds. The $\delta$-form reads: the center class has quotient-norm
+depth at most $\mathrm{thr}_n$ in every $V$.
+\item \textbf{Covering-radius form ($\rho$-form).}
+Let $\rho(V)=\max_{c\in V}\operatorname{dist}_V(c,\Lambda)$ be the
+covering radius of $\Lambda$ in the quotient norm. The $\rho$-form of the
+conjecture asserts $\rho(V)\le\mathrm{thr}_n$ for all $V$.
+\end{enumerate}
+
+Forms (1)--(3) are equivalent to $\lrc_n$: this is the content of the
+shift identity above together with the standard quotient-torus dictionary,
+and the equivalence is asserted computationally, exactly, on every
+instance of the program (the geometric pipeline is validated end to end
+in the runs of Appendix~\ref{sec:prov}). Form (4) is \emph{strictly
+stronger}. Since the maximum defining $\rho$ ranges over all classes and
+$\delta$ is the depth of one class, $\delta(V)\le\rho(V)$ always; hence
+$\rho\le\mathrm{thr}_n$ implies the $\delta$-form and thus $\lrc_n$. The
+converse fails, and the failure is not an artifact of small examples: it
+begins exactly at $n=5$ and persists (\S\ref{sec:tm-zono},
+\S\ref{sec:witness}). At the harmonic instances the $\delta$-form is
+tight ($\delta=\mathrm{thr}_n$), so the $\rho$-form has no slack to
+absorb the difference between the center and the deepest hole: the
+two statements coincide on all tested instances for $n\le 4$---which is
+why the identification was easy to believe---and separate from $n=5$ on,
+with exact witnesses.
+
+For computations we use two further standard facts, both proved and
+machine-validated in the program's records \cite{prog-artifacts}. First,
+in \emph{$c$-coordinates} $c_j=x_j-v_jx_1$ ($j=2,\dots,n$; valid when
+$v_1=1$) the lattice is exactly $\Z^{n-1}$ and the quotient norm is the
+maximum of the finitely many linear forms
+\[
+\phi^{1j}=\frac{c_j}{1+v_j},\qquad
+\phi^{ij}=\frac{v_jc_i-v_ic_j}{v_i+v_j}\quad(2\le i<j),
+\]
+each of $\ell_1$-norm at most $1$; hence
+$\|c\|_V\le\|c\|_\infty$ and Lipschitz certification needs no
+norm-equivalence constant. Second, the depth function admits the
+one-parameter \emph{runner formulation}
+\begin{equation}\label{eq:runnerform}
+D(c)\;=\;\min_{\sigma\in[0,1)}\;\max\Bigl(\wnc{\sigma},\;
+\max_{j\ge 2}\wnc{c_j-v_j\sigma}\Bigr),
+\end{equation}
+which is the distance of $c$ to $\Lambda$ on the quotient torus; this is
+the form used by the branch-and-bound certifier of \S\ref{sec:witness},
+and it was validated against the independent linear-form/lattice-search
+implementation on random rational points for every instance used in this
+paper (forty points per instance, exact agreement throughout).
+
+\subsection{The Lonely Runner zonotope and its Ehrhart theory}
+
+The \emph{LR-zonotope} of $V$ is $Z(V)=\pi([0,1]^n)\subset V$; it is an
+$(n{-}1)$-dimensional lattice zonotope with respect to $\Lambda$, with
+normalized volume $\sum_j v_j$. Its lattice-point geometry encodes the
+covering problem above: holes of the $\Lambda$-covering correspond to
+classes of large quotient depth. Its Ehrhart theory is arithmetic and
+clean \cite{BeckRobins,dAMoci,StanleyEC}. Writing $d=n-1$, the Ehrhart
+polynomial of $Z(V)$ is
+\begin{equation}\label{eq:ehr}
+\mathrm{Ehr}_{Z(V)}(t)\;=\;\sum_{k=0}^{d} e_k\,t^k,\qquad
+e_k\;=\;\sum_{\substack{S\subseteq[n]\\|S|=k}}\gcd\!\bigl(v_{S^c}\bigr),
+\qquad e_d=\sum_j v_j,
+\end{equation}
+with $\gcd$ of the empty set $0$, and the $h^*$-polynomial is obtained
+from the Eulerian expansion
+$\sum_{t\ge0}\mathrm{Ehr}(t)z^t=h^*(z)/(1-z)^{d+1}$; explicitly
+$h^*(z)=\sum_k e_k\,(1-z)^{d-k}A_k(z)$ with $A_k$ the Eulerian
+polynomials. Formula \eqref{eq:ehr} was derived in the program's records
+and verified in two independent ways on every instance used here (a DFS
+coset count and the standard Ehrhart inversion;
+Appendix~\ref{sec:prov}). The gcd structure is that of the arithmetic
+matroid of the projected basis \cite{dAMoci}, which is why the
+arithmetic-matroid literature is the natural home for the residual
+positive question in Appendix~\ref{sec:hstar}.
+
+\subsection{The certification ladder}
+
+Every classification claim in this paper carries one of three labels.
+\emph{Exact}: a complete proof in rational arithmetic (the $d=2$
+arrangement enumerations; all refuting witnesses, which are single
+evaluations of $D$ at rational points). \emph{Certified}: a complete
+proof in which an outer numerical loop (a grid or a branch-and-bound
+frontier) is combined with an exact inner analysis and a rigorous
+one-sided error bound (the $d=3$ away-certifications; the
+branch-and-bound certificates of \S\ref{sec:witness}). \emph{Consistent}:
+search-level evidence only (grid maxima equal to the claimed value,
+multi-start optimization finding nothing above it), with no completeness
+claim. The labels were introduced by the audit of the program's earlier
+records precisely because enclosure-level evidence had been presented as
+proof; the ladder is applied uniformly here, including to the results of
+this session.

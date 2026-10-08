@@ -1,0 +1,889 @@
+{
+ "meta": {
+  "lemmaB_primes": [
+   11,
+   17
+  ],
+  "lemmaA_primes": [
+   19,
+   31,
+   37
+  ]
+ },
+ "primes": {
+  "11": {
+   "k": 1,
+   "cls": 5,
+   "multisets": [
+    [
+     3,
+     4,
+     4
+    ],
+    [
+     4,
+     4,
+     4
+    ]
+   ],
+   "dmax": 5,
+   "tables": {
+    "(3, 4, 4)": {
+     "d=2,h=0": {
+      "n": 6,
+      "min_margin": 3
+     },
+     "d=3,h=0": {
+      "n": 1,
+      "min_margin": 2
+     },
+     "d=4,h=0": {
+      "n": 1,
+      "min_margin": 2
+     },
+     "d=5,h=0": {
+      "n": 6,
+      "min_margin": 3
+     }
+    },
+    "(4, 4, 4)": {
+     "d=2,h=0": {
+      "n": 1,
+      "min_margin": 3
+     },
+     "d=2,h=1": {
+      "n": 4,
+      "min_margin": 3
+     },
+     "d=3,h=1": {
+      "n": 6,
+      "min_margin": 2
+     },
+     "d=4,h=1": {
+      "n": 6,
+      "min_margin": 2
+     },
+     "d=5,h=0": {
+      "n": 1,
+      "min_margin": 3
+     },
+     "d=5,h=1": {
+      "n": 4,
+      "min_margin": 3
+     }
+    }
+   },
+   "onefoot": {
+    "2": {
+     "n": 4,
+     "min_margin": 3
+    },
+    "3": {
+     "n": 6,
+     "min_margin": 2
+    },
+    "4": {
+     "n": 6,
+     "min_margin": 2
+    },
+    "5": {
+     "n": 4,
+     "min_margin": 3
+    }
+   },
+   "totals": {
+    "n_viable": 36,
+    "n_contained": 16,
+    "n_onefoot": 20,
+    "min_margin": 2
+   },
+   "onefoot_trichotomy_ds": [
+    2,
+    5
+   ],
+   "onefoot_middle_ds": [
+    3,
+    4
+   ],
+   "brute_solutions": 0
+  },
+  "17": {
+   "k": 2,
+   "cls": 5,
+   "multisets": [
+    [
+     5,
+     6,
+     6
+    ],
+    [
+     6,
+     6,
+     6
+    ]
+   ],
+   "dmax": 8,
+   "tables": {
+    "(5, 6, 6)": {
+     "d=2,h=0": {
+      "n": 6,
+      "min_margin": 5
+     },
+     "d=8,h=0": {
+      "n": 6,
+      "min_margin": 5
+     }
+    },
+    "(6, 6, 6)": {
+     "d=2,h=0": {
+      "n": 1,
+      "min_margin": 5
+     },
+     "d=2,h=1": {
+      "n": 4,
+      "min_margin": 5
+     },
+     "d=4,h=1": {
+      "n": 4,
+      "min_margin": 6
+     },
+     "d=5,h=1": {
+      "n": 2,
+      "min_margin": 5
+     },
+     "d=7,h=1": {
+      "n": 2,
+      "min_margin": 5
+     },
+     "d=8,h=0": {
+      "n": 1,
+      "min_margin": 5
+     },
+     "d=8,h=1": {
+      "n": 4,
+      "min_margin": 5
+     }
+    }
+   },
+   "onefoot": {
+    "2": {
+     "n": 4,
+     "min_margin": 5
+    },
+    "4": {
+     "n": 4,
+     "min_margin": 6
+    },
+    "5": {
+     "n": 2,
+     "min_margin": 5
+    },
+    "7": {
+     "n": 2,
+     "min_margin": 5
+    },
+    "8": {
+     "n": 4,
+     "min_margin": 5
+    }
+   },
+   "totals": {
+    "n_viable": 30,
+    "n_contained": 14,
+    "n_onefoot": 16,
+    "min_margin": 5
+   },
+   "onefoot_trichotomy_ds": [
+    2,
+    8
+   ],
+   "onefoot_middle_ds": [
+    4,
+    5,
+    7
+   ],
+   "brute_solutions": 0
+  },
+  "19": {
+   "k": 3,
+   "cls": 1,
+   "multisets": [
+    [
+     6,
+     6,
+     7
+    ],
+    [
+     6,
+     6,
+     8
+    ],
+    [
+     6,
+     7,
+     7
+    ],
+    [
+     6,
+     7,
+     8
+    ],
+    [
+     7,
+     7,
+     7
+    ]
+   ],
+   "dmax": 9,
+   "tables": {
+    "(6, 6, 7)": {
+     "d=2,h=0": {
+      "n": 6,
+      "min_margin": 5
+     },
+     "d=9,h=0": {
+      "n": 6,
+      "min_margin": 5
+     }
+    },
+    "(6, 6, 8)": {
+     "d=2,h=0": {
+      "n": 4,
+      "min_margin": 4
+     },
+     "d=2,h=1": {
+      "n": 10,
+      "min_margin": 5
+     },
+     "d=3,h=1": {
+      "n": 2,
+      "min_margin": 6
+     },
+     "d=4,h=1": {
+      "n": 8,
+      "min_margin": 5
+     },
+     "d=5,h=1": {
+      "n": 8,
+      "min_margin": 5
+     },
+     "d=6,h=1": {
+      "n": 2,
+      "min_margin": 6
+     },
+     "d=7,h=1": {
+      "n": 4,
+      "min_margin": 6
+     },
+     "d=8,h=1": {
+      "n": 4,
+      "min_margin": 6
+     },
+     "d=9,h=0": {
+      "n": 4,
+      "min_margin": 4
+     },
+     "d=9,h=1": {
+      "n": 10,
+      "min_margin": 5
+     }
+    },
+    "(6, 7, 7)": {
+     "d=2,h=0": {
+      "n": 3,
+      "min_margin": 5
+     },
+     "d=2,h=1": {
+      "n": 12,
+      "min_margin": 5
+     },
+     "d=4,h=1": {
+      "n": 7,
+      "min_margin": 5
+     },
+     "d=5,h=1": {
+      "n": 7,
+      "min_margin": 5
+     },
+     "d=7,h=1": {
+      "n": 2,
+      "min_margin": 6
+     },
+     "d=8,h=1": {
+      "n": 2,
+      "min_margin": 6
+     },
+     "d=9,h=0": {
+      "n": 3,
+      "min_margin": 5
+     },
+     "d=9,h=1": {
+      "n": 12,
+      "min_margin": 5
+     }
+    },
+    "(6, 7, 8)": {
+     "d=2,h=0": {
+      "n": 4,
+      "min_margin": 4
+     },
+     "d=2,h=1": {
+      "n": 16,
+      "min_margin": 4
+     },
+     "d=2,h=2": {
+      "n": 28,
+      "min_margin": 5
+     },
+     "d=3,h=2": {
+      "n": 60,
+      "min_margin": 4
+     },
+     "d=4,h=1": {
+      "n": 8,
+      "min_margin": 4
+     },
+     "d=4,h=2": {
+      "n": 47,
+      "min_margin": 4
+     },
+     "d=5,h=1": {
+      "n": 8,
+      "min_margin": 4
+     },
+     "d=5,h=2": {
+      "n": 47,
+      "min_margin": 4
+     },
+     "d=6,h=2": {
+      "n": 60,
+      "min_margin": 4
+     },
+     "d=7,h=1": {
+      "n": 2,
+      "min_margin": 5
+     },
+     "d=7,h=2": {
+      "n": 51,
+      "min_margin": 3
+     },
+     "d=8,h=1": {
+      "n": 2,
+      "min_margin": 5
+     },
+     "d=8,h=2": {
+      "n": 51,
+      "min_margin": 3
+     },
+     "d=9,h=0": {
+      "n": 4,
+      "min_margin": 4
+     },
+     "d=9,h=1": {
+      "n": 16,
+      "min_margin": 4
+     },
+     "d=9,h=2": {
+      "n": 28,
+      "min_margin": 5
+     }
+    },
+    "(7, 7, 7)": {
+     "d=2,h=1": {
+      "n": 4,
+      "min_margin": 5
+     },
+     "d=2,h=2": {
+      "n": 4,
+      "min_margin": 5
+     },
+     "d=3,h=2": {
+      "n": 8,
+      "min_margin": 5
+     },
+     "d=4,h=1": {
+      "n": 1,
+      "min_margin": 4
+     },
+     "d=4,h=2": {
+      "n": 8,
+      "min_margin": 5
+     },
+     "d=5,h=1": {
+      "n": 1,
+      "min_margin": 4
+     },
+     "d=5,h=2": {
+      "n": 8,
+      "min_margin": 5
+     },
+     "d=6,h=2": {
+      "n": 8,
+      "min_margin": 5
+     },
+     "d=7,h=2": {
+      "n": 8,
+      "min_margin": 3
+     },
+     "d=8,h=2": {
+      "n": 8,
+      "min_margin": 3
+     },
+     "d=9,h=1": {
+      "n": 4,
+      "min_margin": 5
+     },
+     "d=9,h=2": {
+      "n": 4,
+      "min_margin": 5
+     }
+    }
+   },
+   "onefoot": {
+    "2": {
+     "n": 74,
+     "min_margin": 4
+    },
+    "3": {
+     "n": 70,
+     "min_margin": 4
+    },
+    "4": {
+     "n": 79,
+     "min_margin": 4
+    },
+    "5": {
+     "n": 79,
+     "min_margin": 4
+    },
+    "6": {
+     "n": 70,
+     "min_margin": 4
+    },
+    "7": {
+     "n": 67,
+     "min_margin": 3
+    },
+    "8": {
+     "n": 67,
+     "min_margin": 3
+    },
+    "9": {
+     "n": 74,
+     "min_margin": 4
+    }
+   },
+   "totals": {
+    "n_viable": 614,
+    "n_contained": 34,
+    "n_onefoot": 580,
+    "min_margin": 3
+   },
+   "onefoot_trichotomy_ds": [
+    2,
+    9
+   ],
+   "onefoot_middle_ds": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "brute_solutions": 0
+  },
+  "31": {
+   "k": 5,
+   "cls": 1,
+   "multisets": [
+    [
+     10,
+     10,
+     11
+    ],
+    [
+     10,
+     10,
+     12
+    ],
+    [
+     10,
+     11,
+     11
+    ],
+    [
+     10,
+     11,
+     12
+    ],
+    [
+     11,
+     11,
+     11
+    ]
+   ],
+   "dmax": 15,
+   "tables": {
+    "(10, 10, 11)": {
+     "d=2,h=0": {
+      "n": 6,
+      "min_margin": 9
+     },
+     "d=15,h=0": {
+      "n": 6,
+      "min_margin": 9
+     }
+    },
+    "(10, 10, 12)": {
+     "d=2,h=0": {
+      "n": 4,
+      "min_margin": 8
+     },
+     "d=2,h=1": {
+      "n": 10,
+      "min_margin": 9
+     },
+     "d=15,h=0": {
+      "n": 4,
+      "min_margin": 8
+     },
+     "d=15,h=1": {
+      "n": 10,
+      "min_margin": 9
+     }
+    },
+    "(10, 11, 11)": {
+     "d=2,h=0": {
+      "n": 3,
+      "min_margin": 9
+     },
+     "d=2,h=1": {
+      "n": 12,
+      "min_margin": 9
+     },
+     "d=15,h=0": {
+      "n": 3,
+      "min_margin": 9
+     },
+     "d=15,h=1": {
+      "n": 12,
+      "min_margin": 9
+     }
+    },
+    "(10, 11, 12)": {
+     "d=2,h=0": {
+      "n": 4,
+      "min_margin": 8
+     },
+     "d=2,h=1": {
+      "n": 16,
+      "min_margin": 8
+     },
+     "d=2,h=2": {
+      "n": 28,
+      "min_margin": 9
+     },
+     "d=4,h=2": {
+      "n": 14,
+      "min_margin": 10
+     },
+     "d=5,h=2": {
+      "n": 9,
+      "min_margin": 11
+     },
+     "d=6,h=2": {
+      "n": 9,
+      "min_margin": 11
+     },
+     "d=7,h=2": {
+      "n": 1,
+      "min_margin": 11
+     },
+     "d=8,h=2": {
+      "n": 14,
+      "min_margin": 10
+     },
+     "d=9,h=2": {
+      "n": 1,
+      "min_margin": 11
+     },
+     "d=12,h=2": {
+      "n": 1,
+      "min_margin": 10
+     },
+     "d=13,h=2": {
+      "n": 1,
+      "min_margin": 10
+     },
+     "d=15,h=0": {
+      "n": 4,
+      "min_margin": 8
+     },
+     "d=15,h=1": {
+      "n": 16,
+      "min_margin": 8
+     },
+     "d=15,h=2": {
+      "n": 28,
+      "min_margin": 9
+     }
+    },
+    "(11, 11, 11)": {
+     "d=2,h=1": {
+      "n": 4,
+      "min_margin": 9
+     },
+     "d=2,h=2": {
+      "n": 4,
+      "min_margin": 9
+     },
+     "d=4,h=2": {
+      "n": 2,
+      "min_margin": 11
+     },
+     "d=8,h=2": {
+      "n": 2,
+      "min_margin": 11
+     },
+     "d=15,h=1": {
+      "n": 4,
+      "min_margin": 9
+     },
+     "d=15,h=2": {
+      "n": 4,
+      "min_margin": 9
+     }
+    }
+   },
+   "onefoot": {
+    "2": {
+     "n": 74,
+     "min_margin": 8
+    },
+    "4": {
+     "n": 16,
+     "min_margin": 10
+    },
+    "5": {
+     "n": 9,
+     "min_margin": 11
+    },
+    "6": {
+     "n": 9,
+     "min_margin": 11
+    },
+    "7": {
+     "n": 1,
+     "min_margin": 11
+    },
+    "8": {
+     "n": 16,
+     "min_margin": 10
+    },
+    "9": {
+     "n": 1,
+     "min_margin": 11
+    },
+    "12": {
+     "n": 1,
+     "min_margin": 10
+    },
+    "13": {
+     "n": 1,
+     "min_margin": 10
+    },
+    "15": {
+     "n": 74,
+     "min_margin": 8
+    }
+   },
+   "totals": {
+    "n_viable": 236,
+    "n_contained": 34,
+    "n_onefoot": 202,
+    "min_margin": 8
+   },
+   "onefoot_trichotomy_ds": [
+    2,
+    15
+   ],
+   "onefoot_middle_ds": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    12,
+    13
+   ],
+   "brute_solutions": 0
+  },
+  "37": {
+   "k": 6,
+   "cls": 1,
+   "multisets": [
+    [
+     12,
+     12,
+     13
+    ],
+    [
+     12,
+     12,
+     14
+    ],
+    [
+     12,
+     13,
+     13
+    ],
+    [
+     12,
+     13,
+     14
+    ],
+    [
+     13,
+     13,
+     13
+    ]
+   ],
+   "dmax": 18,
+   "tables": {
+    "(12, 12, 13)": {
+     "d=2,h=0": {
+      "n": 6,
+      "min_margin": 12
+     },
+     "d=18,h=0": {
+      "n": 6,
+      "min_margin": 12
+     }
+    },
+    "(12, 12, 14)": {
+     "d=2,h=0": {
+      "n": 4,
+      "min_margin": 11
+     },
+     "d=2,h=1": {
+      "n": 10,
+      "min_margin": 11
+     },
+     "d=18,h=0": {
+      "n": 4,
+      "min_margin": 11
+     },
+     "d=18,h=1": {
+      "n": 10,
+      "min_margin": 11
+     }
+    },
+    "(12, 13, 13)": {
+     "d=2,h=0": {
+      "n": 3,
+      "min_margin": 11
+     },
+     "d=2,h=1": {
+      "n": 12,
+      "min_margin": 11
+     },
+     "d=18,h=0": {
+      "n": 3,
+      "min_margin": 11
+     },
+     "d=18,h=1": {
+      "n": 12,
+      "min_margin": 11
+     }
+    },
+    "(12, 13, 14)": {
+     "d=2,h=0": {
+      "n": 4,
+      "min_margin": 10
+     },
+     "d=2,h=1": {
+      "n": 16,
+      "min_margin": 10
+     },
+     "d=2,h=2": {
+      "n": 28,
+      "min_margin": 11
+     },
+     "d=5,h=2": {
+      "n": 3,
+      "min_margin": 14
+     },
+     "d=15,h=2": {
+      "n": 3,
+      "min_margin": 14
+     },
+     "d=18,h=0": {
+      "n": 4,
+      "min_margin": 10
+     },
+     "d=18,h=1": {
+      "n": 16,
+      "min_margin": 10
+     },
+     "d=18,h=2": {
+      "n": 28,
+      "min_margin": 11
+     }
+    },
+    "(13, 13, 13)": {
+     "d=2,h=1": {
+      "n": 4,
+      "min_margin": 11
+     },
+     "d=2,h=2": {
+      "n": 4,
+      "min_margin": 11
+     },
+     "d=18,h=1": {
+      "n": 4,
+      "min_margin": 11
+     },
+     "d=18,h=2": {
+      "n": 4,
+      "min_margin": 11
+     }
+    }
+   },
+   "onefoot": {
+    "2": {
+     "n": 74,
+     "min_margin": 10
+    },
+    "5": {
+     "n": 3,
+     "min_margin": 14
+    },
+    "15": {
+     "n": 3,
+     "min_margin": 14
+    },
+    "18": {
+     "n": 74,
+     "min_margin": 10
+    }
+   },
+   "totals": {
+    "n_viable": 188,
+    "n_contained": 34,
+    "n_onefoot": 154,
+    "min_margin": 10
+   },
+   "onefoot_trichotomy_ds": [
+    2,
+    18
+   ],
+   "onefoot_middle_ds": [
+    5,
+    15
+   ],
+   "brute_solutions": 0
+  }
+ }
+}

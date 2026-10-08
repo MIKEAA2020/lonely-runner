@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://www.combinatorics.org",
+    "name": "View of Correlation Among Runners and Some Results on",
+    "snippet": "by G Perarnau · 2016 · Cited by 20 — View of Correlation Among Runners and Some Results on the Lonely Runner Conjecture",
+    "host_name": "www.combinatorics.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://terrytao.wordpress.com",
+    "name": "A remark on the lonely runner conjecture - Terence Tao",
+    "snippet": "May 13, 2015 — The lonely runner conjecture is the following open problem: runner is “lonely” in the sense that it is separated by a distance at least {1/n} ...",
+    "host_name": "terrytao.wordpress.com",
+    "rank": 1,
+    "date": "May 13, 2015",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.wolframcloud.com",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "May 23, 2014 — The Lonely Runner conjecture states that each runner becomes lonely at some time [1]. The conjecture has been proven for up to seven runners[2]. Read more",
+    "host_name": "www.wolframcloud.com",
+    "rank": 2,
+    "date": "May 23, 2014",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.scribd.com",
+    "name": "Some remarks on the Lonely Runner Conjecture",
+    "snippet": "The lonely runner conjecture asserts that if n runners run around a unit circle at distinct constant speeds, there will always be a time where each runner is ...",
+    "host_name": "www.scribd.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://openproblemgarden.org",
+    "name": "Solution to the Lonely Runner Conjecture",
+    "snippet": "Oct 20, 2012 — If DELTA is greater than 1/n then the nth runner is “ Lonely ”. If DELTA is less than 1/n we can repeat the process and examine the situation at ... Read more",
+    "host_name": "openproblemgarden.org",
+    "rank": 4,
+    "date": "Oct 20, 2012",
+    "favicon": ""
+  },
+  {
+    "url": "https://eudml.org",
+    "name": "On the lonely runner conjecture",
+    "snippet": "by RK Pandey · 2010 · Cited by 2 — The Lonely Runner Conjecture states that there is a time at which a given runner is at distance at least $1/(k+1 )$ from all the others. The conjecture has ... Read more",
+    "host_name": "eudml.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

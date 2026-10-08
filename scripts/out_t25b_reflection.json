@@ -1,0 +1,110 @@
+{
+ "pairs": {
+  "p17_chain": {
+   "j0": 3,
+   "j_reflect": 14,
+   "lambda": 16,
+   "n_sol0": 840,
+   "n_sol_reflect": 840,
+   "survivors": 840,
+   "survival_fraction": 1.0,
+   "sizes_match": true
+  },
+  "p17_top-distinct": {
+   "j0": 3,
+   "j_reflect": 14,
+   "lambda": 16,
+   "n_sol0": 85,
+   "n_sol_reflect": 85,
+   "survivors": 85,
+   "survival_fraction": 1.0,
+   "sizes_match": true
+  },
+  "p19_chain": {
+   "j0": 3,
+   "j_reflect": 16,
+   "lambda": 18,
+   "n_sol0": 4680,
+   "n_sol_reflect": 4680,
+   "survivors": 4680,
+   "survival_fraction": 1.0,
+   "sizes_match": true
+  },
+  "p19_top-distinct": {
+   "j0": 3,
+   "j_reflect": 16,
+   "lambda": 18,
+   "n_sol0": 40,
+   "n_sol_reflect": 40,
+   "survivors": 40,
+   "survival_fraction": 1.0,
+   "sizes_match": true
+  },
+  "p29_committed-A": {
+   "j0": 6,
+   "j_reflect": 23,
+   "lambda": 28,
+   "n_sol0": 16,
+   "n_sol_reflect": 16,
+   "survivors": 16,
+   "survival_fraction": 1.0,
+   "sizes_match": true
+  },
+  "p29_committed-B": {
+   "j0": 5,
+   "j_reflect": 24,
+   "lambda": 28,
+   "n_sol0": 16,
+   "n_sol_reflect": 16,
+   "survivors": 16,
+   "survival_fraction": 1.0,
+   "sizes_match": true
+  }
+ },
+ "subshifts": {
+  "p29_committed-A": {
+   "j": 23,
+   "rho": 1,
+   "n_inside_cycles": 8,
+   "inside_total": 16,
+   "asymptotic_fraction": 2.3e-05,
+   "surv_T": {
+    "1": 16,
+    "2": 16,
+    "3": 16,
+    "4": 16,
+    "5": 16,
+    "6": 16,
+    "7": 16,
+    "8": 16,
+    "9": 16,
+    "10": 16,
+    "11": 16,
+    "12": 16
+   },
+   "sim_mismatches": 0
+  },
+  "p29_committed-B": {
+   "j": 24,
+   "rho": 1,
+   "n_inside_cycles": 8,
+   "inside_total": 16,
+   "asymptotic_fraction": 2.3e-05,
+   "surv_T": {
+    "1": 16,
+    "2": 16,
+    "3": 16,
+    "4": 16,
+    "5": 16,
+    "6": 16,
+    "7": 16,
+    "8": 16,
+    "9": 16,
+    "10": 16,
+    "11": 16,
+    "12": 16
+   },
+   "sim_mismatches": 0
+  }
+ }
+}

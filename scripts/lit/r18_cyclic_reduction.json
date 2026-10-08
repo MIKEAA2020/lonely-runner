@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://math.berkeley.edu",
+    "name": "An invitation to General Algebra and Universal Constructions",
+    "snippet": "... construction of free groups will be our first example. We will prepare for it in Chapter 1 by making precise some concepts such as that of a group -theoretic.",
+    "host_name": "math.berkeley.edu",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://theses.hal.science",
+    "name": "Machine-checked computer-aided mathematics",
+    "snippet": "by A Mahboubi · 2021 · Cited by 2 — G is called the order of the group . Examples of finite groups include the cyclic group Z/nZ of integers modulo n under addition, with ... Read more",
+    "host_name": "theses.hal.science",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://eprint.iacr.org",
+    "name": "Almost-tight Identity Based Encryption against Selective Opening",
+    "snippet": "Given a finite cyclic group G, we use X ← G to denote the process of sampling a random element in. G. In particular, the notation is for the so-called “lazy ...",
+    "host_name": "eprint.iacr.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Drinfeld Doubles for Finite Subgroups of SU(2) and",
+    "snippet": "by R Coquereaux · 2012 · Cited by 6 — Abstract. Drinfeld doubles of finite subgroups of SU(2) and SU(3) are investigated in detail. Their modular data – S, T and fusion matrices ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://tetali.math.gatech.edu",
+    "name": "A Birthday Paradox for Markov chains, with an optimal bound for",
+    "snippet": "The classical discrete logarithm problem on a cyclic group deals with computing the exponents, given the generator of the group; more precisely, given a ...",
+    "host_name": "tetali.math.gatech.edu",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.mff.cuni.cz",
+    "name": "Lecture Notes Universal Algebra 2 Spring term 2022",
+    "snippet": "Our goal is to find an algorithm that solves the above problem.1 Unfortunately there is no algorithm that solves Decide(E) in general - in fact, ...",
+    "host_name": "www.mff.cuni.cz",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://sfi-edu.s3.amazonaws.com",
+    "name": "From Optimal Measurement to Efficient Quantum Algorithms for",
+    "snippet": "This reduction alone is enough to solve the hsp over some semidirect product groups . For example, the hsp over the wreath product groups Zn . 2 oZ2 (for which ...",
+    "host_name": "sfi-edu.s3.amazonaws.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://msp.org",
+    "name": "Journal of Software for Algebra and Geometry",
+    "snippet": "Sep 14, 2023 — ABSTRACT: We describe algorithms and their implementations that calculate local and global Schur indices of ordinary irreducible characters ... Read more",
+    "host_name": "msp.org",
+    "rank": 7,
+    "date": "Sep 14, 2023",
+    "favicon": ""
+  }
+]

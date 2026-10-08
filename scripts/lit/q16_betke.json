@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://arxiv.org",
+    "name": "The lonely runner conjecture holds for eight runners",
+    "snippet": "Sep 17, 2025 — The Lonely Runner Conjecture is a well-known open problem in combinatorial number theory and Diophantine approximation. It was introduced ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "Sep 17, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.sciencedirect.com",
+    "name": "The Lonely Runner Conjecture turns 60",
+    "snippet": "by G Perarnau · 2025 · Cited by 13 — Betke and Wills [38] give a proof from the perspective of Diophantine approximation , although they mention that their method does not extend to n ≥ 4 .",
+    "host_name": "www.sciencedirect.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mbpapers.math.cas.cz",
+    "name": "on the lonely runner conjecture",
+    "snippet": "In this paper the conjecture has been verified for four or more runners having some particular speeds using elementary tools. Keywords: congruences, arithmetic ... Read more 6 pages",
+    "host_name": "mbpapers.math.cas.cz",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://upcommons.upc.edu",
+    "name": "The Lonely Runner Conjecture turns 60 - UPC Commons",
+    "snippet": "by G Perarnau Llobet · 2025 · Cited by 13 — Betke and Wills [38] give a proof from the perspective of Diophantine approximation , although they mention that their method does not extend to ...",
+    "host_name": "upcommons.upc.edu",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathoverflow.net",
+    "name": "The lonely runner conjecture and equidistribution on tori",
+    "snippet": "Feb 3, 2022 — So, I've been reading about the lonely runner conjecture, but I have to admit that my knowledge of diophantine approximation is so limited that I wouldn't ...",
+    "host_name": "mathoverflow.net",
+    "rank": 4,
+    "date": "Feb 3, 2022",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.combinatorics.org",
+    "name": "Nine and ten lonely runners",
+    "snippet": "by T Trakulthongchai · 2026 · Cited by 11 — The Lonely Runner Conjecture predicts that regardless of the runners ' speeds , each runner will become lonely at some time. Betke and Wills",
+    "host_name": "www.combinatorics.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Would this proof strategy work for proving the lonely runner",
+    "snippet": "Aug 30, 2015 — The problem is the lonely runner conjecture. This conjecture states that if k runners begin running down a circle of unit circumference with random speeds, ...",
+    "host_name": "math.stackexchange.com",
+    "rank": 6,
+    "date": "Aug 30, 2015",
+    "favicon": ""
+  },
+  {
+    "url": "https://av.tib.eu",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "A runner is lonely whenever there is no other runner closer than 1/N of a lap. ational geometry, diophantine approximation and graph coloring. Betke in 72, he ...",
+    "host_name": "av.tib.eu",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://arxiv.org/html/1211.2482v1",
+    "name": "The Lonely Runner Conjecture - arXiv",
+    "snippet": "Imagine two runners traveling, at distinct integer speeds, in the same direction along a circular track of unit perimeter.",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Lonely_runner_conjecture",
+    "name": "Lonely runner conjecture - Wikipedia",
+    "snippet": "The lonely runner conjecture states that each runner is lonely at some time, no matter the choice of speeds.",
+    "host_name": "en.wikipedia.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/math/comments/2r8m69/lonely_runner_conjecture_visualization",
+    "name": "Lonely Runner Conjecture [visualization] : r/math - Reddit",
+    "snippet": "The conjecture says that whatever the starting speeds are, every runner will be lonely at some time. What you did is just taking a specific set ... Missing:  sum  | Show results with:",
+    "host_name": "www.reddit.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://epoch.ai/frontiermath/open-problems/lonely-runner",
+    "name": "The Lonely Runner Conjecture | Epoch AI",
+    "snippet": "The conjecture states: For any such set of n runners, there exists a time t at which every runner is at distance at least 1/(n+1) from the starting position 0. Missing:  rational  | Show results with:",
+    "host_name": "epoch.ai",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathematicsassocbitspilani.substack.com/p/the-lonely-runner-conjecture",
+    "name": "THE LONELY RUNNER CONJECTURE - Infinity Insights",
+    "snippet": "THE LONELY RUNNER CONJECTURE states that each runner is lonely at some time, no matter the choice of speeds. Missing:  sum  | Show results with:",
+    "host_name": "mathematicsassocbitspilani.substack.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.quantamagazine.org/new-strides-made-on-deceptively-simple-lonely-runner-problem-20260306",
+    "name": "New Strides Made on Deceptively Simple 'Lonely Runner",
+    "snippet": "A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions. Missing:  sum  rational",
+    "host_name": "www.quantamagazine.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://terrytao.wordpress.com/2015/05/13/a-remark-on-the-lonely-runner-conjecture",
+    "name": "A remark on the lonely runner conjecture - Terence Tao",
+    "snippet": "One can normalise the speed of the lonely runner ... t may be assumed to be rational (with denominator being the sum or difference of two integer ...",
+    "host_name": "terrytao.wordpress.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.ihes.fr/~rzhang/files/teaching/useminar_s26_papers/useminar_s26_illanes_martinez_de_la_vega.pdf",
+    "name": "[PDF] The lonely runner conjecture: the case for 6 runners",
+    "snippet": "The conjecture states that given n runners running at different constant speeds in a circle of circumference 1, having all started at pace, different from that ... Missing:  sum  | Show results with:",
+    "host_name": "www.ihes.fr",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

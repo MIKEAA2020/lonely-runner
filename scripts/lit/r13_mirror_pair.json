@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://www.quantamagazine.org",
+    "name": "New Strides Made on Deceptively Simple 'Lonely Runner",
+    "snippet": "Mar 6, 2026 — A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions. Read more",
+    "host_name": "www.quantamagazine.org",
+    "rank": 0,
+    "date": "Mar 6, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "Nov 11, 2012 — Imagine two runners traveling, at distinct integer speeds , in the same direction along a circular track of unit perimeter. Read more",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "Nov 11, 2012",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Small question about the Lonely runner conjecture",
+    "snippet": "Feb 17, 2021 — A runner is said to be lonely at time t if they are at a distance of at least 1k from every other runner at time t. The lonely runner conjecture",
+    "host_name": "math.stackexchange.com",
+    "rank": 2,
+    "date": "Feb 17, 2021",
+    "favicon": ""
+  },
+  {
+    "url": "https://momath.org",
+    "name": "Math Encounters: \"The Lonely Runner: an unsolved",
+    "snippet": "Apr 13, 2022 — The Lonely Runner Conjecture is an (in)famous open problem if n runners with different (constant) speeds move around a circular track of length",
+    "host_name": "momath.org",
+    "rank": 3,
+    "date": "Apr 13, 2022",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathoverflow.net",
+    "name": "Has the following problem, resembling the lonely runner",
+    "snippet": "May 24, 2022 — Given n, what is the smallest value δn satisfying the following:  For any group of n runners with constant but distinct speeds, starting from the same ...",
+    "host_name": "mathoverflow.net",
+    "rank": 4,
+    "date": "May 24, 2022",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.combinatorics.org",
+    "name": "Nine and ten lonely runners",
+    "snippet": "by T Trakulthongchai · 2026 · Cited by 11 — The Lonely Runner Conjecture predicts that regardless of the runners ' speeds , each runner will become lonely at some time .",
+    "host_name": "www.combinatorics.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://epoch.ai",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "A runner is lonely at time if, at time , they are far away from every other runner . Is every runner sometimes lonely ? The lonely runner conjecture says that the ... Read more",
+    "host_name": "epoch.ai",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  }
+]

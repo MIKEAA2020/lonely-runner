@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://arxiv.org/html/2605.27941v1",
+    "name": "Mixed thresholds in the Lonely Runner Conjecture - arXiv",
+    "snippet": "The Lonely Runner Conjecture states that if k + 1 k+1 runners start at the same point on a unit-length circular track and run with distinct ... Missing:  complementary  | Show results with:",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Lonely_runner_conjecture",
+    "name": "Lonely runner conjecture - Wikipedia",
+    "snippet": "The lonely runner conjecture states that each runner is lonely at some time, no matter the choice of speeds. Missing:  complementary  | Show results with:",
+    "host_name": "en.wikipedia.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.stackexchange.com/questions/4029655/small-question-about-the-lonely-runner-conjecture",
+    "name": "Small question about the Lonely runner conjecture",
+    "snippet": "At t=0, all runners are at the same position and start to run; the runners' speeds are pairwise distinct. The lonely runner conjecture states ... Missing:  complementary  pair",
+    "host_name": "math.stackexchange.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p38/pdf",
+    "name": "[PDF] Amending the Lonely Runner Spectrum Conjecture",
+    "snippet": "The Lonely Runner Conjecture asserts that all runners will sooner or later become lonely of cases for n = 4, when two runners share a ...",
+    "host_name": "www.combinatorics.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://terrytao.wordpress.com/2015/05/13/a-remark-on-the-lonely-runner-conjecture",
+    "name": "A remark on the lonely runner conjecture - Terence Tao",
+    "snippet": "One can normalise the speed of the lonely runner to be zero, conjecture complements this conjecture for n=2 … runners with the fastest speed ...",
+    "host_name": "terrytao.wordpress.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/math/comments/4mwfd1/lonely_runner_conjecture_proven",
+    "name": "Lonely Runner Conjecture proven : r/math - Reddit",
+    "snippet": "Because the run cycles are periodic, unless runners share a speed, they will not stay lonely forever. ... Attempt on the Lonely Runner Conjecture. Missing:  complementary  | Show results with:",
+    "host_name": "www.reddit.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathoverflow.net/questions/206427/what-can-i-further-assume-about-the-speeds-of-runners-of-lonely-runner-conjectur",
+    "name": "What can I further assume about the speeds of runners of",
+    "snippet": "Lonely Runner Conjecture is the following problem, and the conjecture was proven to be true for k≤7: Let V 1k+1 where ||x|| denotes the ... Missing:  complementary  pair",
+    "host_name": "mathoverflow.net",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://epoch.ai/frontiermath/open-problems/lonely-runner",
+    "name": "The Lonely Runner Conjecture | Epoch AI",
+    "snippet": "The conjecture states: For any such set of n runners, there exists a time t at which every runner is at distance at least 1/(n+1) from the starting position 0. Missing:  complementary  pair",
+    "host_name": "epoch.ai",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

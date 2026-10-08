@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://www.researchgate.net",
+    "name": "Cloud allocation. Server-days and vCPU-hours are",
+    "snippet": "Lonely Runner Conjecture for fourteen runners . With one runner stationary, their thirteen- runner result supplies the induction input, and their reduction ...",
+    "host_name": "www.researchgate.net",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "On the largest sum-free subset problem in the integers",
+    "snippet": "In Section 7, we mention a connection the the lonely runner conjecture . In section 8, we prove Theorem 3. 2. Proof of Theorem 2. Read more",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://terrytao.wordpress.com",
+    "name": "May | 2015 | What's new - Terence Tao",
+    "snippet": "May 30, 2015 — The lonely runner conjecture is the following open problem: runner is “ lonely ” One can normalise the speed of the lonely runner to be zero, at ...",
+    "host_name": "terrytao.wordpress.com",
+    "rank": 2,
+    "date": "May 30, 2015",
+    "favicon": ""
+  },
+  {
+    "url": "https://groups.io",
+    "name": "UnsolvedProblems@groups.io | Topics",
+    "snippet": "Jun 27, 2016 — Lonely Runner Conjecture is true for 3 runners , even with irrational speed assignments. measuring distances and time intervals when speeds are ...",
+    "host_name": "groups.io",
+    "rank": 3,
+    "date": "Jun 27, 2016",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.cmu.edu",
+    "name": "2020 SURF / SEMS Projects - Mathematical Sciences",
+    "snippet": "The lonely runner conjecture states that each runner is lonely at some time. We show that this holds when the speeds differ by at most (2−o(1))n ( 2 − o ( 1 ) )",
+    "host_name": "www.cmu.edu",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.jstor.org",
+    "name": "A SURVEY ON COLORING PARAMETERS OF DISTANCE",
+    "snippet": "by DDF Liu · 2008 · Cited by 41 — Although the lonely runner conjecture is widely open for eight or more runners 1 , an analogy for the parameter fi(D) ^ 1/(|jD| + 1), is quite ... Read more",
+    "host_name": "www.jstor.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

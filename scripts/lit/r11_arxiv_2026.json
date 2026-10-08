@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://ui.adsabs.harvard.edu",
+    "name": "Correlation among runners and some results on the Lonely",
+    "snippet": "We study the correlation among the time that runners spend close to the origin. By means of these correlations, we improve a result of Chen on the gap of ... Read more",
+    "host_name": "ui.adsabs.harvard.edu",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.alphaxiv.org",
+    "name": "Eleven, twelve, and thirteen lonely runners",
+    "snippet": "Submitted 26 Apr 2026 Eleven, This statement is known as the Lonely Runner Conjecture . we provide a computer - assisted proof of the Lonely Runner Conjecture",
+    "host_name": "www.alphaxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathematics.stanford.edu",
+    "name": "Improved Bounds Towards the Lonely Runner Conjecture",
+    "snippet": "The Lonely Runner Conjecture , due to Wills and Cusick, asserts that if n runners with distinct constant speeds run around a unit length track, all starting ...",
+    "host_name": "mathematics.stanford.edu",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Would this proof strategy work for proving the lonely runner",
+    "snippet": "Aug 30, 2015 — The problem is the lonely runner conjecture. This conjecture states that if k runners begin running down a circle of unit circumference with random speeds, ...",
+    "host_name": "math.stackexchange.com",
+    "rank": 3,
+    "date": "Aug 30, 2015",
+    "favicon": ""
+  },
+  {
+    "url": "https://epoch.ai",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "The conjecture states: For any such set of n runners , there exists a time t at which every runner is at distance at least 1/(n+1) from the starting position 0. Read more",
+    "host_name": "epoch.ai",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathoverflow.net",
+    "name": "Has the following problem, resembling the lonely runner",
+    "snippet": "May 24, 2022 — Given n, what is the smallest value δn satisfying the following:  For any group of n runners with constant but distinct speeds, starting from the same ...",
+    "host_name": "mathoverflow.net",
+    "rank": 5,
+    "date": "May 24, 2022",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,490 @@
+{
+ "pool": {
+  "p17": {
+   "p": 17,
+   "k": 2,
+   "eps": 1,
+   "committed_families": 4096,
+   "committed_distinct": 840,
+   "law_(D-1)_{T-4}": 840,
+   "n_size_tuples_admissible": 4.876190476190477
+  }
+ },
+ "sol_T7": {
+  "p11": {
+   "k": 1,
+   "eps": 4,
+   "n_keys": 1692,
+   "n_configs": 64368,
+   "n_max": 276,
+   "n_median": 26,
+   "R_needed_for_max": 16.613
+  },
+  "p13": {
+   "k": 1,
+   "eps": 6,
+   "n_keys": 905,
+   "n_configs": 8868,
+   "n_max": 120,
+   "n_median": 5,
+   "R_needed_for_max": 10.954
+  },
+  "p17": {
+   "k": 2,
+   "eps": 3,
+   "n_keys": 473,
+   "n_configs": 5004,
+   "n_max": 120,
+   "n_median": 8,
+   "R_needed_for_max": 5.477
+  },
+  "p19": {
+   "k": 2,
+   "eps": 5,
+   "n_keys": 1348,
+   "n_configs": 30864,
+   "n_max": 336,
+   "n_median": 12,
+   "R_needed_for_max": 9.165
+  },
+  "p23": {
+   "k": 3,
+   "eps": 2,
+   "n_keys": 916,
+   "n_configs": 19176,
+   "n_max": 336,
+   "n_median": 12,
+   "R_needed_for_max": 6.11
+  },
+  "p29": {
+   "k": 4,
+   "eps": 1,
+   "n_keys": 1368,
+   "n_configs": 50856,
+   "n_max": 720,
+   "n_median": 16,
+   "R_needed_for_max": 6.708
+  },
+  "p31": {
+   "k": 4,
+   "eps": 3,
+   "n_keys": 396,
+   "n_configs": 12144,
+   "n_max": 336,
+   "n_median": 18,
+   "R_needed_for_max": 4.583
+  },
+  "p37": {
+   "k": 5,
+   "eps": 2,
+   "n_keys": 632,
+   "n_configs": 32712,
+   "n_max": 720,
+   "n_median": 16,
+   "R_needed_for_max": 5.367
+  },
+  "p41": {
+   "k": 5,
+   "eps": 6,
+   "n_keys": 516,
+   "n_configs": 29592,
+   "n_max": 720,
+   "n_median": 16,
+   "R_needed_for_max": 5.367
+  },
+  "p43": {
+   "k": 6,
+   "eps": 1,
+   "n_keys": 876,
+   "n_configs": 71040,
+   "n_max": 1320,
+   "n_median": 24,
+   "R_needed_for_max": 6.055
+  },
+  "p47": {
+   "k": 6,
+   "eps": 5,
+   "n_keys": 704,
+   "n_configs": 63336,
+   "n_max": 1320,
+   "n_median": 20,
+   "R_needed_for_max": 6.055
+  },
+  "p53": {
+   "k": 7,
+   "eps": 4,
+   "n_keys": 876,
+   "n_configs": 119640,
+   "n_max": 2184,
+   "n_median": 37,
+   "R_needed_for_max": 6.676
+  },
+  "p59": {
+   "k": 8,
+   "eps": 3,
+   "n_keys": 384,
+   "n_configs": 55560,
+   "n_max": 1320,
+   "n_median": 30,
+   "R_needed_for_max": 4.541
+  },
+  "p61": {
+   "k": 8,
+   "eps": 5,
+   "n_keys": 672,
+   "n_configs": 104616,
+   "n_max": 2184,
+   "n_median": 20,
+   "R_needed_for_max": 5.842
+  },
+  "p67": {
+   "k": 9,
+   "eps": 4,
+   "n_keys": 792,
+   "n_configs": 178920,
+   "n_max": 3360,
+   "n_median": 48,
+   "R_needed_for_max": 6.441
+  },
+  "p71": {
+   "k": 10,
+   "eps": 1,
+   "n_keys": 728,
+   "n_configs": 170496,
+   "n_max": 3360,
+   "n_median": 34,
+   "R_needed_for_max": 5.797
+  },
+  "p79": {
+   "k": 11,
+   "eps": 2,
+   "n_keys": 564,
+   "n_configs": 159864,
+   "n_max": 3360,
+   "n_median": 16,
+   "R_needed_for_max": 5.27
+  },
+  "p83": {
+   "k": 11,
+   "eps": 6,
+   "n_keys": 480,
+   "n_configs": 157296,
+   "n_max": 3360,
+   "n_median": 24,
+   "R_needed_for_max": 5.27
+  }
+ },
+ "sol_T8c": {
+  "p17": {
+   "k": 2,
+   "eps": 1,
+   "n_keys": 473,
+   "n_configs": 5004,
+   "n_max": 120,
+   "n_median": 8,
+   "R_needed_for_max": 5.477
+  },
+  "p19": {
+   "k": 2,
+   "eps": 3,
+   "n_keys": 55,
+   "n_configs": 288,
+   "n_max": 24,
+   "n_median": 4,
+   "R_needed_for_max": 2.449
+  },
+  "p29": {
+   "k": 3,
+   "eps": 5,
+   "n_keys": 189,
+   "n_configs": 2856,
+   "n_max": 120,
+   "n_median": 10,
+   "R_needed_for_max": 3.651
+  },
+  "p31": {
+   "k": 3,
+   "eps": 7,
+   "n_keys": 55,
+   "n_configs": 288,
+   "n_max": 24,
+   "n_median": 4,
+   "R_needed_for_max": 1.633
+  },
+  "p41": {
+   "k": 5,
+   "eps": 1,
+   "n_keys": 165,
+   "n_configs": 2784,
+   "n_max": 120,
+   "n_median": 12,
+   "R_needed_for_max": 2.191
+  },
+  "p43": {
+   "k": 5,
+   "eps": 3,
+   "n_keys": 55,
+   "n_configs": 288,
+   "n_max": 24,
+   "n_median": 4,
+   "R_needed_for_max": 0.98
+  },
+  "p47": {
+   "k": 5,
+   "eps": 7,
+   "n_keys": 55,
+   "n_configs": 288,
+   "n_max": 24,
+   "n_median": 4,
+   "R_needed_for_max": 0.98
+  },
+  "p61": {
+   "k": 7,
+   "eps": 5,
+   "n_keys": 165,
+   "n_configs": 2784,
+   "n_max": 120,
+   "n_median": 12,
+   "R_needed_for_max": 1.565
+  },
+  "p59": {
+   "k": 7,
+   "eps": 3,
+   "n_keys": 55,
+   "n_configs": 288,
+   "n_max": 24,
+   "n_median": 4,
+   "R_needed_for_max": 0.7
+  },
+  "p67": {
+   "k": 8,
+   "eps": 3,
+   "n_keys": 55,
+   "n_configs": 288,
+   "n_max": 24,
+   "n_median": 4,
+   "R_needed_for_max": 0.612
+  },
+  "p71": {
+   "k": 8,
+   "eps": 7,
+   "n_keys": 55,
+   "n_configs": 288,
+   "n_max": 24,
+   "n_median": 4,
+   "R_needed_for_max": 0.612
+  },
+  "p73": {
+   "k": 9,
+   "eps": 1,
+   "n_keys": 165,
+   "n_configs": 2784,
+   "n_max": 120,
+   "n_median": 12,
+   "R_needed_for_max": 1.217
+  },
+  "p79": {
+   "k": 9,
+   "eps": 7,
+   "n_keys": 55,
+   "n_configs": 288,
+   "n_max": 24,
+   "n_median": 4,
+   "R_needed_for_max": 0.544
+  },
+  "p89": {
+   "k": 11,
+   "eps": 1,
+   "n_keys": 165,
+   "n_configs": 2784,
+   "n_max": 120,
+   "n_median": 12,
+   "R_needed_for_max": 0.996
+  },
+  "p97": {
+   "k": 12,
+   "eps": 1,
+   "n_keys": 165,
+   "n_configs": 2784,
+   "n_max": 120,
+   "n_median": 12,
+   "R_needed_for_max": 0.913
+  },
+  "p103": {
+   "k": 12,
+   "eps": 7,
+   "n_keys": 55,
+   "n_configs": 288,
+   "n_max": 24,
+   "n_median": 4,
+   "R_needed_for_max": 0.408
+  },
+  "p137": {
+   "k": 17,
+   "eps": 1,
+   "n_keys": 165,
+   "n_configs": 2784,
+   "n_max": 120,
+   "n_median": 12,
+   "R_needed_for_max": 0.644
+  }
+ },
+ "exit": {
+  "exit_p17": {
+   "(1, 1, 1)": {
+    "n_fibers": 10,
+    "best": 1,
+    "n_cand_mu": 120
+   },
+   "(1, 2, 2)": {
+    "n_fibers": 12,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(1, 8, 8)": {
+    "n_fibers": 12,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(2, 1, 2)": {
+    "n_fibers": 12,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(2, 2, 1)": {
+    "n_fibers": 12,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(8, 1, 8)": {
+    "n_fibers": 12,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(8, 8, 1)": {
+    "n_fibers": 12,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(1, 1, 6)": {
+    "n_fibers": 12,
+    "best": 1,
+    "n_cand_mu": 24
+   },
+   "(1, 6, 1)": {
+    "n_fibers": 12,
+    "best": 1,
+    "n_cand_mu": 24
+   },
+   "(3, 3, 3)": {
+    "n_fibers": 12,
+    "best": 1,
+    "n_cand_mu": 48
+   }
+  },
+  "exit_p29": {
+   "(1, 1, 1)": {
+    "n_fibers": 20,
+    "best": 1,
+    "n_cand_mu": 120
+   },
+   "(1, 2, 2)": {
+    "n_fibers": 20,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(1, 14, 14)": {
+    "n_fibers": 20,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(2, 1, 2)": {
+    "n_fibers": 20,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(2, 2, 1)": {
+    "n_fibers": 20,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(14, 1, 14)": {
+    "n_fibers": 20,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(14, 14, 1)": {
+    "n_fibers": 20,
+    "best": 1,
+    "n_cand_mu": 52
+   },
+   "(1, 1, 10)": {
+    "n_fibers": 20,
+    "best": 1,
+    "n_cand_mu": 48
+   },
+   "(1, 10, 1)": {
+    "n_fibers": 20,
+    "best": 1,
+    "n_cand_mu": 48
+   },
+   "(3, 3, 3)": {
+    "n_fibers": 20,
+    "best": 1,
+    "n_cand_mu": 48
+   }
+  },
+  "exit_p43": {
+   "(1, 1, 1)": {
+    "n_fibers": 30,
+    "best": 2,
+    "n_cand_mu": 336
+   },
+   "(1, 2, 2)": {
+    "n_fibers": 30,
+    "best": 1,
+    "n_cand_mu": 136
+   },
+   "(1, 21, 21)": {
+    "n_fibers": 30,
+    "best": 1,
+    "n_cand_mu": 136
+   },
+   "(2, 1, 2)": {
+    "n_fibers": 30,
+    "best": 1,
+    "n_cand_mu": 136
+   },
+   "(2, 2, 1)": {
+    "n_fibers": 30,
+    "best": 1,
+    "n_cand_mu": 136
+   },
+   "(21, 1, 21)": {
+    "n_fibers": 30,
+    "best": 1,
+    "n_cand_mu": 136
+   },
+   "(21, 21, 1)": {
+    "n_fibers": 30,
+    "best": 1,
+    "n_cand_mu": 136
+   },
+   "(1, 1, 14)": {
+    "n_fibers": 30,
+    "best": 1,
+    "n_cand_mu": 108
+   },
+   "(1, 14, 1)": {
+    "n_fibers": 30,
+    "best": 1,
+    "n_cand_mu": 108
+   },
+   "(3, 3, 3)": {
+    "n_fibers": 30,
+    "best": 1,
+    "n_cand_mu": 108
+   }
+  }
+ }
+}

@@ -1,0 +1,1920 @@
+{
+ "gt": {
+  "17_chain": {
+   "fam": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "n_szts": 32,
+   "total": 123240,
+   "gt_total": null,
+   "total_ok": true,
+   "top_szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "top_n": 8880,
+   "gt_top": 8880,
+   "top_ok": true,
+   "covers_gt": true
+  },
+  "17_top-distinct": {
+   "fam": [
+    2,
+    3,
+    4,
+    8
+   ],
+   "n_szts": 32,
+   "total": 9633,
+   "gt_total": 9633,
+   "total_ok": true,
+   "top_szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "top_n": 876,
+   "gt_top": 876,
+   "top_ok": true,
+   "covers_gt": true
+  },
+  "19_chain": {
+   "fam": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "n_szts": 32,
+   "total": 46440,
+   "gt_total": null,
+   "total_ok": true,
+   "top_szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "top_n": 4680,
+   "gt_top": 4680,
+   "top_ok": true,
+   "covers_gt": true
+  },
+  "19_top-distinct": {
+   "fam": [
+    2,
+    4,
+    5,
+    8
+   ],
+   "n_szts": 32,
+   "total": 801,
+   "gt_total": 801,
+   "total_ok": true,
+   "top_szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "top_n": 108,
+   "gt_top": 108,
+   "top_ok": true,
+   "covers_gt": true
+  },
+  "29_committed-A": {
+   "fam": [
+    2,
+    4,
+    7,
+    8
+   ],
+   "n_szts": 32,
+   "total": 1311,
+   "gt_total": 1311,
+   "total_ok": true,
+   "top_szt": [
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "top_n": 186,
+   "gt_top": 186,
+   "top_ok": true,
+   "covers_gt": true
+  },
+  "29_committed-B": {
+   "fam": [
+    3,
+    4,
+    8,
+    13
+   ],
+   "n_szts": 32,
+   "total": 1311,
+   "gt_total": 1311,
+   "total_ok": true,
+   "top_szt": [
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "top_n": 186,
+   "gt_top": 186,
+   "top_ok": true,
+   "covers_gt": true
+  },
+  "29_chain": {
+   "fam": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "n_szts": 32,
+   "total": 469800,
+   "gt_total": null,
+   "total_ok": true,
+   "top_szt": [
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "top_n": 29760,
+   "gt_top": 29760,
+   "top_ok": true,
+   "covers_gt": true
+  }
+ },
+ "top_keys": {
+  "17_chain": {
+   "p": 17,
+   "fam": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "ov": 8,
+   "n_sol": 8880,
+   "trivial_box": 83521,
+   "margin_over_trivial": 9.4,
+   "n_arr": 2520,
+   "arr_box": 4913,
+   "arr_compression": 1.95,
+   "avg_class": 3.524,
+   "max_class": 17,
+   "phase_factor": 4.82,
+   "c1_ov_units": 2.168,
+   "narr_over_ov3": 4.9219,
+   "lemma_D": {
+    "classes": 2520,
+    "violations": 0,
+    "sharp_equal": 0,
+    "max_class": 17,
+    "max_ov_bound": 9,
+    "h_min": 0,
+    "h_max": 5,
+    "span_min": 0,
+    "zero_h_classes": 120,
+    "zero_h_max": 17,
+    "worst": null
+   },
+   "phase_structure": {
+    "size_hist": {
+     "1": 504,
+     "2": 540,
+     "3": 528,
+     "4": 468,
+     "5": 360,
+     "17": 120
+    },
+    "gap_hist": {
+     "1": 6360
+    },
+    "examples": [
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16
+      ],
+      "arr": [
+       15,
+       10,
+       5
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16
+      ],
+      "arr": [
+       15,
+       5,
+       10
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16
+      ],
+      "arr": [
+       14,
+       10,
+       5
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16
+      ],
+      "arr": [
+       14,
+       9,
+       5
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16
+      ],
+      "arr": [
+       14,
+       9,
+       4
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16
+      ],
+      "arr": [
+       14,
+       5,
+       10
+      ]
+     }
+    ]
+   },
+   "arr_adm": 4913,
+   "arr_adm_sec": 0.0,
+   "adm_to_realized": 1.95,
+   "marginals": {
+    "singletons": [
+     17,
+     17,
+     17,
+     17
+    ],
+    "pairs": [
+     17,
+     17,
+     17,
+     17,
+     17,
+     17
+    ]
+   },
+   "x_box_density": 0.0
+  },
+  "17_top-distinct": {
+   "p": 17,
+   "fam": [
+    2,
+    3,
+    4,
+    8
+   ],
+   "szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "ov": 8,
+   "n_sol": 876,
+   "trivial_box": 83521,
+   "margin_over_trivial": 95.3,
+   "n_arr": 312,
+   "arr_box": 4913,
+   "arr_compression": 15.75,
+   "avg_class": 2.808,
+   "max_class": 5,
+   "phase_factor": 6.05,
+   "c1_ov_units": 0.2139,
+   "narr_over_ov3": 0.6094,
+   "lemma_D": {
+    "classes": 312,
+    "violations": 0,
+    "sharp_equal": 0,
+    "max_class": 5,
+    "max_ov_bound": 9,
+    "h_min": 1,
+    "h_max": 4,
+    "span_min": 0,
+    "zero_h_classes": 0,
+    "zero_h_max": 0,
+    "worst": null
+   },
+   "phase_structure": {
+    "size_hist": {
+     "1": 78,
+     "2": 34,
+     "3": 108,
+     "4": 54,
+     "5": 38
+    },
+    "gap_hist": {
+     "1": 564
+    },
+    "examples": [
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4
+      ],
+      "arr": [
+       5,
+       7,
+       4
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4
+      ],
+      "arr": [
+       5,
+       3,
+       14
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4
+      ],
+      "arr": [
+       5,
+       3,
+       5
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4
+      ],
+      "arr": [
+       2,
+       7,
+       4
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4
+      ],
+      "arr": [
+       2,
+       3,
+       13
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4
+      ],
+      "arr": [
+       2,
+       3,
+       5
+      ]
+     }
+    ]
+   },
+   "arr_adm": 4913,
+   "arr_adm_sec": 0.0,
+   "adm_to_realized": 15.75,
+   "marginals": {
+    "singletons": [
+     12,
+     17,
+     17,
+     16
+    ],
+    "pairs": [
+     17,
+     10,
+     17,
+     15,
+     14,
+     12
+    ]
+   },
+   "x_box_density": 0.0,
+   "marg_gt_ok": true
+  },
+  "19_chain": {
+   "p": 19,
+   "fam": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "ov": 6,
+   "n_sol": 4680,
+   "trivial_box": 130321,
+   "margin_over_trivial": 27.8,
+   "n_arr": 1764,
+   "arr_box": 6859,
+   "arr_compression": 3.89,
+   "avg_class": 2.653,
+   "max_class": 19,
+   "phase_factor": 7.16,
+   "c1_ov_units": 3.6111,
+   "narr_over_ov3": 8.1667,
+   "lemma_D": {
+    "classes": 1764,
+    "violations": 0,
+    "sharp_equal": 0,
+    "max_class": 19,
+    "max_ov_bound": 7,
+    "h_min": 0,
+    "h_max": 5,
+    "span_min": 0,
+    "zero_h_classes": 24,
+    "zero_h_max": 19,
+    "worst": null
+   },
+   "phase_structure": {
+    "size_hist": {
+     "1": 528,
+     "2": 468,
+     "3": 360,
+     "4": 240,
+     "5": 144,
+     "19": 24
+    },
+    "gap_hist": {
+     "1": 2916
+    },
+    "examples": [
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18
+      ],
+      "arr": [
+       15,
+       10,
+       5
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18
+      ],
+      "arr": [
+       15,
+       5,
+       10
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18
+      ],
+      "arr": [
+       14,
+       10,
+       5
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18
+      ],
+      "arr": [
+       14,
+       9,
+       5
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18
+      ],
+      "arr": [
+       14,
+       9,
+       4
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18
+      ],
+      "arr": [
+       14,
+       5,
+       10
+      ]
+     }
+    ]
+   },
+   "arr_adm": 6859,
+   "arr_adm_sec": 0.0,
+   "adm_to_realized": 3.89,
+   "marginals": {
+    "singletons": [
+     19,
+     19,
+     19,
+     19
+    ],
+    "pairs": [
+     19,
+     19,
+     19,
+     19,
+     19,
+     19
+    ]
+   },
+   "x_box_density": 0.0
+  },
+  "19_top-distinct": {
+   "p": 19,
+   "fam": [
+    2,
+    4,
+    5,
+    8
+   ],
+   "szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "ov": 6,
+   "n_sol": 108,
+   "trivial_box": 130321,
+   "margin_over_trivial": 1206.7,
+   "n_arr": 76,
+   "arr_box": 6859,
+   "arr_compression": 90.25,
+   "avg_class": 1.421,
+   "max_class": 2,
+   "phase_factor": 13.37,
+   "c1_ov_units": 0.0833,
+   "narr_over_ov3": 0.3519,
+   "lemma_D": {
+    "classes": 76,
+    "violations": 0,
+    "sharp_equal": 0,
+    "max_class": 2,
+    "max_ov_bound": 7,
+    "h_min": 2,
+    "h_max": 4,
+    "span_min": 3,
+    "zero_h_classes": 0,
+    "zero_h_max": 0,
+    "worst": null
+   },
+   "phase_structure": {
+    "size_hist": {
+     "1": 44,
+     "2": 32
+    },
+    "gap_hist": {
+     "1": 32
+    },
+    "examples": [
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       5,
+       15
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       5,
+       7
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       0,
+       15
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       0,
+       7
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       14,
+       15
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       14,
+       7
+      ]
+     }
+    ]
+   },
+   "arr_adm": 6859,
+   "arr_adm_sec": 0.0,
+   "adm_to_realized": 90.25,
+   "marginals": {
+    "singletons": [
+     4,
+     4,
+     9,
+     8
+    ],
+    "pairs": [
+     4,
+     8,
+     11,
+     8,
+     12,
+     16
+    ]
+   },
+   "x_box_density": 0.0,
+   "marg_gt_ok": true
+  },
+  "29_committed-A": {
+   "p": 29,
+   "fam": [
+    2,
+    4,
+    7,
+    8
+   ],
+   "szt": [
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "ov": 11,
+   "n_sol": 186,
+   "trivial_box": 707281,
+   "margin_over_trivial": 3802.6,
+   "n_arr": 86,
+   "arr_box": 24389,
+   "arr_compression": 283.59,
+   "avg_class": 2.163,
+   "max_class": 3,
+   "phase_factor": 13.41,
+   "c1_ov_units": 0.0127,
+   "narr_over_ov3": 0.0646,
+   "lemma_D": {
+    "classes": 86,
+    "violations": 0,
+    "sharp_equal": 0,
+    "max_class": 3,
+    "max_ov_bound": 12,
+    "h_min": 3,
+    "h_max": 5,
+    "span_min": 5,
+    "zero_h_classes": 0,
+    "zero_h_max": 0,
+    "worst": null
+   },
+   "phase_structure": {
+    "size_hist": {
+     "1": 34,
+     "2": 4,
+     "3": 48
+    },
+    "gap_hist": {
+     "1": 100
+    },
+    "examples": [
+     {
+      "phases": [
+       0,
+       1,
+       2
+      ],
+      "arr": [
+       9,
+       19,
+       6
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2
+      ],
+      "arr": [
+       9,
+       19,
+       27
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2
+      ],
+      "arr": [
+       9,
+       19,
+       19
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2
+      ],
+      "arr": [
+       9,
+       19,
+       11
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2
+      ],
+      "arr": [
+       9,
+       12,
+       6
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2
+      ],
+      "arr": [
+       9,
+       12,
+       27
+      ]
+     }
+    ]
+   },
+   "arr_adm": 24389,
+   "arr_adm_sec": 0.0,
+   "adm_to_realized": 283.59,
+   "marginals": {
+    "singletons": [
+     9,
+     7,
+     10,
+     27
+    ],
+    "pairs": [
+     7,
+     6,
+     17,
+     6,
+     15,
+     14
+    ]
+   },
+   "x_box_density": 0.0,
+   "marg_gt_ok": true
+  },
+  "29_committed-B": {
+   "p": 29,
+   "fam": [
+    3,
+    4,
+    8,
+    13
+   ],
+   "szt": [
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "ov": 11,
+   "n_sol": 186,
+   "trivial_box": 707281,
+   "margin_over_trivial": 3802.6,
+   "n_arr": 93,
+   "arr_box": 24389,
+   "arr_compression": 262.25,
+   "avg_class": 2.0,
+   "max_class": 2,
+   "phase_factor": 14.5,
+   "c1_ov_units": 0.0127,
+   "narr_over_ov3": 0.0699,
+   "lemma_D": {
+    "classes": 93,
+    "violations": 0,
+    "sharp_equal": 0,
+    "max_class": 2,
+    "max_ov_bound": 12,
+    "h_min": 3,
+    "h_max": 4,
+    "span_min": 6,
+    "zero_h_classes": 0,
+    "zero_h_max": 0,
+    "worst": null
+   },
+   "phase_structure": {
+    "size_hist": {
+     "2": 93
+    },
+    "gap_hist": {
+     "1": 93
+    },
+    "examples": [
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       20,
+       5,
+       13
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       16,
+       5,
+       13
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       12,
+       5,
+       0
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       12,
+       5,
+       16
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       12,
+       5,
+       13
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       8,
+       5,
+       16
+      ]
+     }
+    ]
+   },
+   "arr_adm": 24389,
+   "arr_adm_sec": 0.0,
+   "adm_to_realized": 262.25,
+   "marginals": {
+    "singletons": [
+     14,
+     10,
+     6,
+     6
+    ],
+    "pairs": [
+     27,
+     17,
+     15,
+     9,
+     7,
+     7
+    ]
+   },
+   "x_box_density": 0.0
+  },
+  "29_chain": {
+   "p": 29,
+   "fam": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "szt": [
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "ov": 11,
+   "n_sol": 29760,
+   "trivial_box": 707281,
+   "margin_over_trivial": 23.8,
+   "n_arr": 7296,
+   "arr_box": 24389,
+   "arr_compression": 3.34,
+   "avg_class": 4.079,
+   "max_class": 29,
+   "phase_factor": 7.11,
+   "c1_ov_units": 2.0326,
+   "narr_over_ov3": 5.4816,
+   "lemma_D": {
+    "classes": 7296,
+    "violations": 0,
+    "sharp_equal": 0,
+    "max_class": 29,
+    "max_ov_bound": 12,
+    "h_min": 0,
+    "h_max": 8,
+    "span_min": 0,
+    "zero_h_classes": 120,
+    "zero_h_max": 29,
+    "worst": null
+   },
+   "phase_structure": {
+    "size_hist": {
+     "1": 1296,
+     "2": 1260,
+     "3": 1176,
+     "4": 1044,
+     "5": 864,
+     "6": 672,
+     "7": 504,
+     "8": 360,
+     "29": 120
+    },
+    "gap_hist": {
+     "1": 22464
+    },
+    "examples": [
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27,
+       28
+      ],
+      "arr": [
+       24,
+       16,
+       8
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27,
+       28
+      ],
+      "arr": [
+       24,
+       8,
+       16
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27,
+       28
+      ],
+      "arr": [
+       23,
+       16,
+       8
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27,
+       28
+      ],
+      "arr": [
+       23,
+       15,
+       8
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27,
+       28
+      ],
+      "arr": [
+       23,
+       15,
+       7
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27,
+       28
+      ],
+      "arr": [
+       23,
+       8,
+       16
+      ]
+     }
+    ]
+   },
+   "arr_adm": 24389,
+   "arr_adm_sec": 0.0,
+   "adm_to_realized": 3.34,
+   "marginals": {
+    "singletons": [
+     29,
+     29,
+     29,
+     29
+    ],
+    "pairs": [
+     29,
+     29,
+     29,
+     29,
+     29,
+     29
+    ]
+   },
+   "x_box_density": 0.0
+  }
+ },
+ "orbit": {
+  "p": 19,
+  "S": [
+   2,
+   4,
+   5,
+   8
+  ],
+  "S2": [
+   3,
+   4,
+   6,
+   8
+  ],
+  "total_S": 801,
+  "total_S2": 801,
+  "top_S": {
+   "p": 19,
+   "fam": [
+    2,
+    4,
+    5,
+    8
+   ],
+   "szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "ov": 6,
+   "n_sol": 108,
+   "trivial_box": 130321,
+   "margin_over_trivial": 1206.7,
+   "n_arr": 76,
+   "arr_box": 6859,
+   "arr_compression": 90.25,
+   "avg_class": 1.421,
+   "max_class": 2,
+   "phase_factor": 13.37,
+   "c1_ov_units": 0.0833,
+   "narr_over_ov3": 0.3519,
+   "lemma_D": {
+    "classes": 76,
+    "violations": 0,
+    "sharp_equal": 0,
+    "max_class": 2,
+    "max_ov_bound": 7,
+    "h_min": 2,
+    "h_max": 4,
+    "span_min": 3,
+    "zero_h_classes": 0,
+    "zero_h_max": 0,
+    "worst": null
+   },
+   "phase_structure": {
+    "size_hist": {
+     "1": 44,
+     "2": 32
+    },
+    "gap_hist": {
+     "1": 32
+    },
+    "examples": [
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       5,
+       15
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       5,
+       7
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       0,
+       15
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       0,
+       7
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       14,
+       15
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       5,
+       14,
+       7
+      ]
+     }
+    ]
+   },
+   "arr_adm": 6859,
+   "arr_adm_sec": 0.0,
+   "adm_to_realized": 90.25,
+   "marginals": {
+    "singletons": [
+     4,
+     4,
+     9,
+     8
+    ],
+    "pairs": [
+     4,
+     8,
+     11,
+     8,
+     12,
+     16
+    ]
+   },
+   "x_box_density": 0.0
+  },
+  "top_S2": {
+   "p": 19,
+   "fam": [
+    3,
+    4,
+    6,
+    8
+   ],
+   "szt": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "ov": 6,
+   "n_sol": 108,
+   "trivial_box": 130321,
+   "margin_over_trivial": 1206.7,
+   "n_arr": 32,
+   "arr_box": 6859,
+   "arr_compression": 214.34,
+   "avg_class": 3.375,
+   "max_class": 4,
+   "phase_factor": 5.63,
+   "c1_ov_units": 0.0833,
+   "narr_over_ov3": 0.1481,
+   "lemma_D": {
+    "classes": 32,
+    "violations": 0,
+    "sharp_equal": 0,
+    "max_class": 4,
+    "max_ov_bound": 7,
+    "h_min": 2,
+    "h_max": 3,
+    "span_min": 1,
+    "zero_h_classes": 0,
+    "zero_h_max": 0,
+    "worst": null
+   },
+   "phase_structure": {
+    "size_hist": {
+     "1": 4,
+     "2": 4,
+     "4": 24
+    },
+    "gap_hist": {
+     "1": 76
+    },
+    "examples": [
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "arr": [
+       12,
+       17,
+       3
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "arr": [
+       12,
+       11,
+       3
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1
+      ],
+      "arr": [
+       12,
+       10,
+       3
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "arr": [
+       12,
+       4,
+       3
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "arr": [
+       8,
+       17,
+       3
+      ]
+     },
+     {
+      "phases": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "arr": [
+       8,
+       11,
+       3
+      ]
+     }
+    ]
+   },
+   "arr_adm": 6859,
+   "arr_adm_sec": 0.0,
+   "adm_to_realized": 214.34,
+   "marginals": {
+    "singletons": [
+     8,
+     9,
+     16,
+     8
+    ],
+    "pairs": [
+     4,
+     12,
+     4,
+     8,
+     4,
+     11
+    ]
+   },
+   "x_box_density": 0.0
+  },
+  "diagonal_image": {
+   "a0": [
+    6,
+    1,
+    1,
+    2
+   ],
+   "b0": [
+    7,
+    15,
+    18,
+    1
+   ],
+   "v_star": [
+    0,
+    15,
+    0,
+    0
+   ],
+   "parallel_to_diagonal": false
+  },
+  "classes_mapped_to_single_class": {
+   "single": 44,
+   "total": 76
+  }
+ },
+ "factorization": [
+  [
+   "17_chain",
+   8880,
+   9.4,
+   1.95,
+   4.82,
+   4.9219
+  ],
+  [
+   "17_top-distinct",
+   876,
+   95.3,
+   15.75,
+   6.05,
+   0.6094
+  ],
+  [
+   "19_chain",
+   4680,
+   27.8,
+   3.89,
+   7.16,
+   8.1667
+  ],
+  [
+   "19_top-distinct",
+   108,
+   1206.7,
+   90.25,
+   13.37,
+   0.3519
+  ],
+  [
+   "29_committed-A",
+   186,
+   3802.6,
+   283.59,
+   13.41,
+   0.0646
+  ],
+  [
+   "29_committed-B",
+   186,
+   3802.6,
+   262.25,
+   14.5,
+   0.0699
+  ],
+  [
+   "29_chain",
+   29760,
+   23.8,
+   3.34,
+   7.11,
+   5.4816
+  ]
+ ],
+ "runtime_sec": 4.4
+}

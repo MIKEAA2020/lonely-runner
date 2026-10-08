@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://www.combinatorics.org",
+    "name": "Six Lonely Runners",
+    "snippet": "by T Bohman · 2001 · Cited by 90 — In this paper we prove the case of the following conjecture (the lonely runner conjecture): for any positive reals there exists a real number ... Read more",
+    "host_name": "www.combinatorics.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org",
+    "name": "the lonely runner conjecture: the case for 6 runners",
+    "snippet": "This is an expository paper in which we look at the lonely runner conjecture through the lens of diophantine approximations. Specifically, we will explore ...",
+    "host_name": "www.semanticscholar.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://cris.technion.ac.il",
+    "name": "Six lonely runners",
+    "snippet": "In this paper we prove the k = 5 case of the following conjecture (the lonely runner . Bohman , Tom ; Holzman , Ron ; Kleitman , Dan. / Six lonely runners . Bohman , ...",
+    "host_name": "cris.technion.ac.il",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://eudml.org",
+    "name": "Six lonely runners.",
+    "snippet": "by T Bohman · 2001 · Cited by 88 — Bohman, Tom, Holzman, Ron, and Kleitman, Dan . \"Six lonely runners..\" The Electronic Journal of Combinatorics [electronic only] 8.2 (2001): Research paper R3 ... Read more",
+    "host_name": "eudml.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mbpapers.math.cas.cz",
+    "name": "on the lonely runner conjecture",
+    "snippet": "The Lonely Runner Conjecture states that there is a time at which a given runner is at distance at least 1/(k + 1 ) from all the others. 6 pages",
+    "host_name": "mbpapers.math.cas.cz",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://compmath.wordpress.com",
+    "name": "Lonely runner problem",
+    "snippet": "The problem is related to number theory problems. Bohman et al (2001) Tom Bohman , Ron Holzman , Daniel J. Kleitman (2001) Six Lonely Runners . a shorter proof ...",
+    "host_name": "compmath.wordpress.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "http://holzman.technion.ac.il",
+    "name": "Six Lonely Runners",
+    "snippet": "by T Bohman · 2001 · Cited by 87 — Six Lonely Runners Tom Bohman ∗. All n runners start at the same time and place. if there are less than or equal to five runners on the track then every runner ...",
+    "host_name": "holzman.technion.ac.il",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "The lonely runner conjecture holds for nine runners",
+    "snippet": "by M Rosenfeld · 2025 · Cited by 7 — The lonely runner conjecture, first stated by Wills in well-known open problem in combinatorial number theory. Bohman, R. Holzman, and D. Kleitman . Six Lonely ...",
+    "host_name": "arxiv.org",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

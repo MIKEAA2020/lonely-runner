@@ -1,0 +1,246 @@
+[
+ {
+  "p": 3,
+  "n_triples": 4,
+  "n_abstract": 0,
+  "n_coupling": 0,
+  "n_alive": 4,
+  "abstract_classes": {},
+  "alive_examples": [
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    1,
+    2,
+    [
+     3,
+     1,
+     4,
+     7
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    2,
+    1,
+    [
+     3,
+     1,
+     7,
+     4
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    1,
+    0,
+    [
+     3,
+     1,
+     4,
+     2
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    2,
+    1,
+    [
+     3,
+     1,
+     7,
+     5
+    ]
+   ]
+  ],
+  "verified_coverings": [
+   [
+    3,
+    1,
+    4,
+    7
+   ],
+   [
+    3,
+    1,
+    7,
+    4
+   ],
+   [
+    3,
+    1,
+    4,
+    2
+   ],
+   [
+    3,
+    1,
+    7,
+    5
+   ]
+  ]
+ },
+ {
+  "p": 5,
+  "n_triples": 20,
+  "n_abstract": 0,
+  "n_coupling": 20,
+  "n_alive": 0,
+  "abstract_classes": {},
+  "alive_examples": [],
+  "verified_coverings": []
+ },
+ {
+  "p": 7,
+  "n_triples": 20,
+  "n_abstract": 14,
+  "n_coupling": 6,
+  "n_alive": 0,
+  "abstract_classes": {
+   "1": 14
+  },
+  "alive_examples": [],
+  "verified_coverings": []
+ },
+ {
+  "p": 11,
+  "n_triples": 108,
+  "n_abstract": 98,
+  "n_coupling": 10,
+  "n_alive": 0,
+  "abstract_classes": {
+   "0": 44,
+   "1": 54
+  },
+  "alive_examples": [],
+  "verified_coverings": []
+ },
+ {
+  "p": 13,
+  "n_triples": 68,
+  "n_abstract": 68,
+  "n_coupling": 0,
+  "n_alive": 0,
+  "abstract_classes": {
+   "1": 46,
+   "2": 22
+  },
+  "alive_examples": [],
+  "verified_coverings": []
+ },
+ {
+  "p": 17,
+  "n_triples": 246,
+  "n_abstract": 236,
+  "n_coupling": 10,
+  "n_alive": 0,
+  "abstract_classes": {
+   "0": 96,
+   "1": 140
+  },
+  "alive_examples": [],
+  "verified_coverings": []
+ },
+ {
+  "p": 19,
+  "n_triples": 64,
+  "n_abstract": 64,
+  "n_coupling": 0,
+  "n_alive": 0,
+  "abstract_classes": {
+   "2": 32,
+   "1": 32
+  },
+  "alive_examples": [],
+  "verified_coverings": []
+ },
+ {
+  "p": 23,
+  "n_triples": 280,
+  "n_abstract": 270,
+  "n_coupling": 10,
+  "n_alive": 0,
+  "abstract_classes": {
+   "0": 124,
+   "1": 146
+  },
+  "alive_examples": [],
+  "verified_coverings": []
+ },
+ {
+  "p": 29,
+  "n_triples": 322,
+  "n_abstract": 312,
+  "n_coupling": 10,
+  "n_alive": 0,
+  "abstract_classes": {
+   "0": 192,
+   "1": 120
+  },
+  "alive_examples": [],
+  "verified_coverings": []
+ },
+ {
+  "p": 37,
+  "n_triples": 32,
+  "n_abstract": 32,
+  "n_coupling": 0,
+  "n_alive": 0,
+  "abstract_classes": {
+   "1": 32
+  },
+  "alive_examples": [],
+  "verified_coverings": []
+ },
+ {
+  "p": 41,
+  "n_triples": 318,
+  "n_abstract": 308,
+  "n_coupling": 10,
+  "n_alive": 0,
+  "abstract_classes": {
+   "0": 168,
+   "1": 140
+  },
+  "alive_examples": [],
+  "verified_coverings": []
+ },
+ {
+  "p": 43,
+  "n_triples": 0,
+  "n_abstract": 0,
+  "n_coupling": 0,
+  "n_alive": 0,
+  "abstract_classes": {},
+  "alive_examples": [],
+  "verified_coverings": []
+ },
+ {
+  "p": 47,
+  "n_triples": 296,
+  "n_abstract": 286,
+  "n_coupling": 10,
+  "n_alive": 0,
+  "abstract_classes": {
+   "0": 156,
+   "1": 130
+  },
+  "alive_examples": [],
+  "verified_coverings": []
+ }
+]

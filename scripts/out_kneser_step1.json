@@ -1,0 +1,1945 @@
+{
+ "T": 6,
+ "anchors": "pass",
+ "moduli": {
+  "1001": {
+   "lfib": {
+    "bad": 0,
+    "checked": 280
+   }
+  },
+  "121": {
+   "arc_size": 41,
+   "distinct": 60,
+   "factorization": "11^2",
+   "fiber_caps": {
+    "11": 4
+   },
+   "kernel_sets": 5,
+   "kneser_pairs": {
+    "('K11', 'K11')": {
+     "(11, 55, 55, True)": 5,
+     "(11, 77, 55, False)": 5,
+     "(11, 99, 55, False)": 5
+    },
+    "('K11', 'U')": {
+     "(121, 121, 121, True)": 275
+    },
+    "('U', 'U')": {
+     "(1, 81, 81, True)": 55,
+     "(121, 121, 121, True)": 1485
+    }
+   },
+   "lfib": {
+    "bad": 0,
+    "checked": 10
+   },
+   "lhom3": {
+    "ok": 220,
+    "total": 220
+   },
+   "lhom4": {
+    "ok": 715,
+    "total": 715
+   },
+   "map_3set": {
+    "examples": {},
+    "n_combos": 37820,
+    "prediction_mismatches": 0,
+    "stats": {
+     "('K11', 'K11', 'K11')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 35,
+      "total": 35,
+      "unit_assist": 0
+     },
+     "('K11', 'K11', 'U')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 825,
+      "total": 825,
+      "unit_assist": 0
+     },
+     "('K11', 'U', 'U')": {
+      "basis": "L-FC (1 kernel + 2 units, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 7700,
+      "total": 7700,
+      "unit_assist": 0
+     },
+     "('U', 'U', 'U')": {
+      "basis": "unit cell (open)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 29260,
+      "unit_assist": 0
+     }
+    }
+   },
+   "map_4set": {
+    "examples": {},
+    "n_combos": 595665,
+    "prediction_mismatches": 0,
+    "stats": {
+     "('K11', 'K11', 'K11', 'K11')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 70,
+      "total": 70,
+      "unit_assist": 0
+     },
+     "('K11', 'K11', 'K11', 'U')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 1925,
+      "total": 1925,
+      "unit_assist": 0
+     },
+     "('K11', 'K11', 'U', 'U')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 23100,
+      "total": 23100,
+      "unit_assist": 0
+     },
+     "('K11', 'U', 'U', 'U')": {
+      "basis": "open (cap condition fails)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 146300,
+      "unit_assist": 0
+     },
+     "('U', 'U', 'U', 'U')": {
+      "basis": "unit cell (open)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 424270,
+      "unit_assist": 0
+     }
+    }
+   },
+   "spectrum": {
+    "1": 41,
+    "10": 13,
+    "100": 13,
+    "101": 15,
+    "102": 15,
+    "103": 13,
+    "104": 13,
+    "105": 13,
+    "106": 15,
+    "107": 15,
+    "108": 15,
+    "109": 13,
+    "111": 13,
+    "112": 13,
+    "113": 15,
+    "114": 17,
+    "115": 15,
+    "116": 9,
+    "117": 11,
+    "118": 13,
+    "119": 21,
+    "12": 13,
+    "120": 41,
+    "13": 15,
+    "14": 15,
+    "15": 15,
+    "16": 13,
+    "17": 13,
+    "18": 13,
+    "19": 15,
+    "2": 21,
+    "20": 15,
+    "21": 13,
+    "23": 13,
+    "24": 9,
+    "25": 15,
+    "26": 15,
+    "27": 13,
+    "28": 15,
+    "29": 15,
+    "3": 13,
+    "30": 11,
+    "31": 15,
+    "32": 13,
+    "34": 13,
+    "35": 13,
+    "36": 15,
+    "37": 15,
+    "38": 13,
+    "39": 15,
+    "4": 11,
+    "40": 13,
+    "41": 13,
+    "42": 15,
+    "43": 15,
+    "45": 15,
+    "46": 13,
+    "47": 13,
+    "48": 13,
+    "49": 15,
+    "5": 9,
+    "50": 13,
+    "51": 15,
+    "52": 17,
+    "53": 13,
+    "54": 15,
+    "56": 15,
+    "57": 13,
+    "58": 13,
+    "59": 13,
+    "6": 15,
+    "60": 21,
+    "61": 21,
+    "62": 13,
+    "63": 13,
+    "64": 13,
+    "65": 15,
+    "67": 15,
+    "68": 13,
+    "69": 17,
+    "7": 17,
+    "70": 15,
+    "71": 13,
+    "72": 15,
+    "73": 13,
+    "74": 13,
+    "75": 13,
+    "76": 15,
+    "78": 15,
+    "79": 15,
+    "8": 15,
+    "80": 13,
+    "81": 13,
+    "82": 15,
+    "83": 13,
+    "84": 15,
+    "85": 15,
+    "86": 13,
+    "87": 13,
+    "89": 13,
+    "9": 13,
+    "90": 15,
+    "91": 11,
+    "92": 15,
+    "93": 15,
+    "94": 13,
+    "95": 15,
+    "96": 15,
+    "97": 9,
+    "98": 13
+   },
+   "spectrum_argmin": [
+    5,
+    24,
+    97,
+    116
+   ],
+   "spectrum_min": 9,
+   "unit_sets": 55
+  },
+  "169": {
+   "arc_size": 57,
+   "distinct": 84,
+   "factorization": "13^2",
+   "fiber_caps": {
+    "13": 5
+   },
+   "kernel_sets": 6,
+   "kneser_pairs": {
+    "('K13', 'K13')": {
+     "(13, 117, 117, True)": 6,
+     "(169, 169, 169, True)": 15
+    },
+    "('K13', 'U')": {
+     "(169, 169, 169, True)": 468
+    },
+    "('U', 'U')": {
+     "(1, 113, 113, True)": 78,
+     "(169, 169, 169, True)": 3003
+    }
+   },
+   "lfib": {
+    "bad": 0,
+    "checked": 12
+   },
+   "lhom3": {
+    "ok": 364,
+    "total": 364
+   },
+   "lhom4": {
+    "ok": 1365,
+    "total": 1365
+   },
+   "map_3set": {
+    "examples": {
+     "('K13', 'K13', 'K13')": [
+      [
+       13,
+       39,
+       52
+      ],
+      [
+       26,
+       65,
+       78
+      ]
+     ]
+    },
+    "n_combos": 102340,
+    "prediction_mismatches": 0,
+    "stats": {
+     "('K13', 'K13', 'K13')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 2,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 56,
+      "total": 56,
+      "unit_assist": 0
+     },
+     "('K13', 'K13', 'U')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 1638,
+      "total": 1638,
+      "unit_assist": 0
+     },
+     "('K13', 'U', 'U')": {
+      "basis": "L-FC (1 kernel + 2 units, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 18486,
+      "total": 18486,
+      "unit_assist": 0
+     },
+     "('U', 'U', 'U')": {
+      "basis": "unit cell (open)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 82160,
+      "unit_assist": 0
+     }
+    }
+   },
+   "map_4set": {
+    "examples": {
+     "('K13', 'K13', 'K13', 'K13')": [
+      [
+       13,
+       13,
+       39,
+       52
+      ],
+      [
+       13,
+       26,
+       39,
+       52
+      ],
+      [
+       13,
+       26,
+       39,
+       65
+      ],
+      [
+       13,
+       26,
+       65,
+       78
+      ]
+     ],
+     "('K13', 'K13', 'K13', 'U')": [
+      [
+       1,
+       13,
+       39,
+       52
+      ],
+      [
+       1,
+       26,
+       65,
+       78
+      ],
+      [
+       2,
+       13,
+       39,
+       52
+      ],
+      [
+       2,
+       26,
+       65,
+       78
+      ]
+     ]
+    },
+    "n_combos": 2225895,
+    "prediction_mismatches": 0,
+    "stats": {
+     "('K13', 'K13', 'K13', 'K13')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 15,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 126,
+      "total": 126,
+      "unit_assist": 0
+     },
+     "('K13', 'K13', 'K13', 'U')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 156,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 4368,
+      "total": 4368,
+      "unit_assist": 0
+     },
+     "('K13', 'K13', 'U', 'U')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 64701,
+      "total": 64701,
+      "unit_assist": 0
+     },
+     "('K13', 'U', 'U', 'U')": {
+      "basis": "open (cap condition fails)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 492960,
+      "unit_assist": 0
+     },
+     "('U', 'U', 'U', 'U')": {
+      "basis": "unit cell (open)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 1663740,
+      "unit_assist": 0
+     }
+    }
+   },
+   "spectrum": {
+    "1": 57,
+    "10": 15,
+    "100": 19,
+    "101": 17,
+    "102": 19,
+    "103": 19,
+    "105": 19,
+    "106": 19,
+    "107": 19,
+    "108": 21,
+    "109": 21,
+    "11": 15,
+    "110": 19,
+    "111": 19,
+    "112": 19,
+    "113": 19,
+    "114": 21,
+    "115": 21,
+    "116": 19,
+    "118": 19,
+    "119": 19,
+    "12": 21,
+    "120": 19,
+    "121": 21,
+    "122": 19,
+    "123": 15,
+    "124": 19,
+    "125": 19,
+    "126": 21,
+    "127": 15,
+    "128": 19,
+    "129": 19,
+    "131": 19,
+    "132": 21,
+    "133": 21,
+    "134": 17,
+    "135": 11,
+    "136": 19,
+    "137": 21,
+    "138": 21,
+    "139": 19,
+    "14": 21,
+    "140": 17,
+    "141": 19,
+    "142": 21,
+    "144": 21,
+    "145": 25,
+    "146": 17,
+    "147": 17,
+    "148": 21,
+    "149": 19,
+    "15": 19,
+    "150": 21,
+    "151": 19,
+    "152": 15,
+    "153": 17,
+    "154": 19,
+    "155": 21,
+    "157": 21,
+    "158": 15,
+    "159": 15,
+    "16": 17,
+    "160": 19,
+    "161": 21,
+    "162": 25,
+    "163": 19,
+    "164": 11,
+    "165": 15,
+    "166": 19,
+    "167": 29,
+    "168": 57,
+    "17": 15,
+    "18": 19,
+    "19": 21,
+    "2": 29,
+    "20": 19,
+    "21": 21,
+    "22": 17,
+    "23": 17,
+    "24": 25,
+    "25": 21,
+    "27": 21,
+    "28": 19,
+    "29": 17,
+    "3": 19,
+    "30": 19,
+    "31": 21,
+    "32": 21,
+    "33": 19,
+    "34": 11,
+    "35": 17,
+    "36": 21,
+    "37": 21,
+    "38": 19,
+    "4": 15,
+    "40": 19,
+    "41": 19,
+    "42": 15,
+    "43": 21,
+    "44": 19,
+    "45": 19,
+    "46": 15,
+    "47": 19,
+    "48": 21,
+    "49": 19,
+    "5": 11,
+    "50": 19,
+    "51": 19,
+    "53": 19,
+    "54": 21,
+    "55": 21,
+    "56": 19,
+    "57": 19,
+    "58": 19,
+    "59": 19,
+    "6": 19,
+    "60": 21,
+    "61": 21,
+    "62": 19,
+    "63": 19,
+    "64": 19,
+    "66": 19,
+    "67": 19,
+    "68": 17,
+    "69": 19,
+    "7": 25,
+    "70": 17,
+    "71": 19,
+    "72": 21,
+    "73": 19,
+    "74": 17,
+    "75": 19,
+    "76": 19,
+    "77": 19,
+    "79": 19,
+    "8": 21,
+    "80": 21,
+    "81": 21,
+    "82": 17,
+    "83": 19,
+    "84": 29,
+    "85": 29,
+    "86": 19,
+    "87": 17,
+    "88": 21,
+    "89": 21,
+    "9": 19,
+    "90": 19,
+    "92": 19,
+    "93": 19,
+    "94": 19,
+    "95": 17,
+    "96": 19,
+    "97": 21,
+    "98": 19,
+    "99": 17
+   },
+   "spectrum_argmin": [
+    5,
+    34,
+    135,
+    164
+   ],
+   "spectrum_min": 11,
+   "unit_sets": 78
+  },
+  "49": {
+   "arc_size": 17,
+   "distinct": 24,
+   "factorization": "7^2",
+   "fiber_caps": {
+    "7": 3
+   },
+   "kernel_sets": 3,
+   "kneser_pairs": {
+    "('K7', 'K7')": {
+     "(49, 49, 49, True)": 3,
+     "(7, 35, 35, True)": 3
+    },
+    "('K7', 'U')": {
+     "(49, 49, 49, True)": 63
+    },
+    "('U', 'U')": {
+     "(1, 33, 33, True)": 21,
+     "(49, 49, 49, True)": 210
+    }
+   },
+   "kneser_triples": {
+    "('K7', 'K7', 'K7')": {
+     "(49, 49)": 10
+    },
+    "('K7', 'K7', 'U')": {
+     "(49, 49)": 126
+    },
+    "('K7', 'U', 'U')": {
+     "(49, 49)": 693
+    },
+    "('U', 'U', 'U')": {
+     "(49, 49)": 1771
+    }
+   },
+   "lfib": {
+    "bad": 0,
+    "checked": 6
+   },
+   "lhom3": {
+    "ok": 56,
+    "total": 56
+   },
+   "lhom4": {
+    "ok": 126,
+    "total": 126
+   },
+   "map_3set": {
+    "examples": {
+     "('K7', 'K7', 'K7')": [
+      [
+       7,
+       14,
+       21
+      ]
+     ]
+    },
+    "n_combos": 2600,
+    "prediction_mismatches": 0,
+    "stats": {
+     "('K7', 'K7', 'K7')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 1,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 10,
+      "total": 10,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'U')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 126,
+      "total": 126,
+      "unit_assist": 0
+     },
+     "('K7', 'U', 'U')": {
+      "basis": "L-FC (1 kernel + 2 units, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 693,
+      "total": 693,
+      "unit_assist": 0
+     },
+     "('U', 'U', 'U')": {
+      "basis": "unit cell (open)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 1771,
+      "unit_assist": 0
+     }
+    }
+   },
+   "map_4set": {
+    "examples": {
+     "('K7', 'K7', 'K7', 'K7')": [
+      [
+       7,
+       7,
+       14,
+       21
+      ],
+      [
+       7,
+       14,
+       14,
+       21
+      ],
+      [
+       7,
+       14,
+       21,
+       21
+      ]
+     ],
+     "('K7', 'K7', 'K7', 'U')": [
+      [
+       1,
+       7,
+       14,
+       21
+      ],
+      [
+       2,
+       7,
+       14,
+       21
+      ],
+      [
+       3,
+       7,
+       14,
+       21
+      ],
+      [
+       4,
+       7,
+       14,
+       21
+      ]
+     ]
+    },
+    "n_combos": 17550,
+    "prediction_mismatches": 0,
+    "stats": {
+     "('K7', 'K7', 'K7', 'K7')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 3,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 15,
+      "total": 15,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'K7', 'U')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 21,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 210,
+      "total": 210,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'U', 'U')": {
+      "basis": "L-FC/L-HOM (>=2 kernel, p^2)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 1386,
+      "total": 1386,
+      "unit_assist": 0
+     },
+     "('K7', 'U', 'U', 'U')": {
+      "basis": "open (cap condition fails)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 5313,
+      "unit_assist": 0
+     },
+     "('U', 'U', 'U', 'U')": {
+      "basis": "unit cell (open)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 10626,
+      "unit_assist": 0
+     }
+    }
+   },
+   "spectrum": {
+    "1": 17,
+    "10": 3,
+    "11": 5,
+    "12": 5,
+    "13": 7,
+    "15": 7,
+    "16": 5,
+    "17": 5,
+    "18": 7,
+    "19": 7,
+    "2": 9,
+    "20": 5,
+    "22": 5,
+    "23": 5,
+    "24": 9,
+    "25": 9,
+    "26": 5,
+    "27": 5,
+    "29": 5,
+    "3": 5,
+    "30": 7,
+    "31": 7,
+    "32": 5,
+    "33": 5,
+    "34": 7,
+    "36": 7,
+    "37": 5,
+    "38": 5,
+    "39": 3,
+    "4": 5,
+    "40": 5,
+    "41": 7,
+    "43": 7,
+    "44": 3,
+    "45": 5,
+    "46": 5,
+    "47": 9,
+    "48": 17,
+    "5": 3,
+    "6": 7,
+    "8": 7,
+    "9": 5
+   },
+   "spectrum_argmin": [
+    5,
+    10,
+    39,
+    44
+   ],
+   "spectrum_min": 3,
+   "unit_sets": 21
+  },
+  "77": {
+   "arc_size": 25,
+   "distinct": 38,
+   "factorization": "7*11",
+   "fiber_caps": {},
+   "kernel_sets": 8,
+   "kneser_pairs": {
+    "('K11', 'K11')": {
+     "(11, 55, 55, True)": 3,
+     "(77, 77, 77, True)": 3
+    },
+    "('K11', 'K7')": {
+     "(77, 77, 77, True)": 15
+    },
+    "('K11', 'U')": {
+     "(77, 77, 77, True)": 90
+    },
+    "('K7', 'K7')": {
+     "(7, 35, 35, True)": 5,
+     "(7, 49, 35, False)": 5,
+     "(7, 63, 35, False)": 5
+    },
+    "('K7', 'U')": {
+     "(77, 77, 77, True)": 150
+    },
+    "('U', 'U')": {
+     "(1, 49, 49, True)": 30,
+     "(1, 73, 49, False)": 30,
+     "(77, 77, 77, True)": 405
+    }
+   },
+   "lcrt3": {
+    "ok": 816,
+    "total": 816
+   },
+   "lcrt4": {
+    "ok": 3876,
+    "total": 3876
+   },
+   "lfib": {
+    "bad": 0,
+    "checked": 16
+   },
+   "lhom3": {
+    "ok": 276,
+    "total": 276
+   },
+   "lhom4": {
+    "ok": 841,
+    "total": 841
+   },
+   "map_3set": {
+    "examples": {
+     "('K11', 'K11', 'K11')": [
+      [
+       11,
+       22,
+       33
+      ]
+     ]
+    },
+    "n_combos": 9880,
+    "prediction_mismatches": 0,
+    "stats": {
+     "('K11', 'K11', 'K11')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 1,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 10,
+      "total": 10,
+      "unit_assist": 0
+     },
+     "('K11', 'K11', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 30,
+      "total": 30,
+      "unit_assist": 0
+     },
+     "('K11', 'K11', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 180,
+      "unit_assist": 0
+     },
+     "('K11', 'K7', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 45,
+      "total": 45,
+      "unit_assist": 0
+     },
+     "('K11', 'K7', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 450,
+      "unit_assist": 0
+     },
+     "('K11', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 1395,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 35,
+      "total": 35,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 450,
+      "unit_assist": 0
+     },
+     "('K7', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 2325,
+      "unit_assist": 0
+     },
+     "('U', 'U', 'U')": {
+      "basis": "unit cell (open)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 4960,
+      "unit_assist": 0
+     }
+    }
+   },
+   "map_4set": {
+    "examples": {
+     "('K11', 'K11', 'K11', 'K11')": [
+      [
+       11,
+       11,
+       22,
+       33
+      ],
+      [
+       11,
+       22,
+       22,
+       33
+      ],
+      [
+       11,
+       22,
+       33,
+       33
+      ]
+     ],
+     "('K11', 'K11', 'K11', 'K7')": [
+      [
+       7,
+       11,
+       22,
+       33
+      ],
+      [
+       11,
+       14,
+       22,
+       33
+      ],
+      [
+       11,
+       21,
+       22,
+       33
+      ],
+      [
+       11,
+       22,
+       28,
+       33
+      ]
+     ],
+     "('K11', 'K11', 'K11', 'U')": [
+      [
+       1,
+       11,
+       22,
+       33
+      ],
+      [
+       2,
+       11,
+       22,
+       33
+      ],
+      [
+       3,
+       11,
+       22,
+       33
+      ],
+      [
+       4,
+       11,
+       22,
+       33
+      ]
+     ]
+    },
+    "n_combos": 101270,
+    "prediction_mismatches": 0,
+    "stats": {
+     "('K11', 'K11', 'K11', 'K11')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 3,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 15,
+      "total": 15,
+      "unit_assist": 0
+     },
+     "('K11', 'K11', 'K11', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 5,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 50,
+      "total": 50,
+      "unit_assist": 0
+     },
+     "('K11', 'K11', 'K11', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 30,
+      "kern_expl": 30,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 300,
+      "unit_assist": 0
+     },
+     "('K11', 'K11', 'K7', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 90,
+      "total": 90,
+      "unit_assist": 0
+     },
+     "('K11', 'K11', 'K7', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 900,
+      "unit_assist": 0
+     },
+     "('K11', 'K11', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 2790,
+      "unit_assist": 0
+     },
+     "('K11', 'K7', 'K7', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 105,
+      "total": 105,
+      "unit_assist": 0
+     },
+     "('K11', 'K7', 'K7', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 1350,
+      "unit_assist": 0
+     },
+     "('K11', 'K7', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 6975,
+      "unit_assist": 0
+     },
+     "('K11', 'U', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 14880,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'K7', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 70,
+      "total": 70,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'K7', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 1050,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 6975,
+      "unit_assist": 0
+     },
+     "('K7', 'U', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 24800,
+      "unit_assist": 0
+     },
+     "('U', 'U', 'U', 'U')": {
+      "basis": "unit cell (open)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 40920,
+      "unit_assist": 0
+     }
+    }
+   },
+   "spectrum": {
+    "1": 25,
+    "10": 7,
+    "12": 9,
+    "13": 9,
+    "15": 7,
+    "16": 7,
+    "17": 7,
+    "18": 7,
+    "19": 7,
+    "2": 13,
+    "20": 9,
+    "23": 7,
+    "24": 7,
+    "25": 9,
+    "26": 9,
+    "27": 9,
+    "29": 9,
+    "3": 9,
+    "30": 7,
+    "31": 5,
+    "32": 9,
+    "34": 9,
+    "36": 7,
+    "37": 9,
+    "38": 13,
+    "39": 13,
+    "4": 7,
+    "40": 9,
+    "41": 7,
+    "43": 9,
+    "45": 9,
+    "46": 5,
+    "47": 7,
+    "48": 9,
+    "5": 5,
+    "50": 9,
+    "51": 9,
+    "52": 9,
+    "53": 7,
+    "54": 7,
+    "57": 9,
+    "58": 7,
+    "59": 7,
+    "6": 9,
+    "60": 7,
+    "61": 7,
+    "62": 7,
+    "64": 9,
+    "65": 9,
+    "67": 7,
+    "68": 7,
+    "69": 9,
+    "71": 9,
+    "72": 5,
+    "73": 7,
+    "74": 9,
+    "75": 13,
+    "76": 25,
+    "8": 9,
+    "9": 7
+   },
+   "spectrum_argmin": [
+    5,
+    31,
+    46,
+    72
+   ],
+   "spectrum_min": 5,
+   "unit_sets": 30
+  },
+  "91": {
+   "arc_size": 31,
+   "distinct": 45,
+   "factorization": "7*13",
+   "fiber_caps": {},
+   "kernel_sets": 9,
+   "kneser_pairs": {
+    "('K13', 'K13')": {
+     "(13, 65, 65, True)": 3,
+     "(91, 91, 91, True)": 3
+    },
+    "('K13', 'K7')": {
+     "(91, 91, 91, True)": 18
+    },
+    "('K13', 'U')": {
+     "(91, 91, 91, True)": 108
+    },
+    "('K7', 'K7')": {
+     "(7, 63, 63, True)": 6,
+     "(91, 91, 91, True)": 15
+    },
+    "('K7', 'U')": {
+     "(91, 91, 91, True)": 216
+    },
+    "('U', 'U')": {
+     "(1, 61, 61, True)": 36,
+     "(91, 91, 91, True)": 630
+    }
+   },
+   "lcrt3": {
+    "ok": 1140,
+    "total": 1140
+   },
+   "lcrt4": {
+    "ok": 5985,
+    "total": 5985
+   },
+   "lfib": {
+    "bad": 0,
+    "checked": 18
+   },
+   "lhom3": {
+    "ok": 420,
+    "total": 420
+   },
+   "lhom4": {
+    "ok": 1491,
+    "total": 1491
+   },
+   "map_3set": {
+    "examples": {
+     "('K13', 'K13', 'K13')": [
+      [
+       13,
+       26,
+       39
+      ]
+     ],
+     "('K7', 'K7', 'K7')": [
+      [
+       7,
+       21,
+       28
+      ],
+      [
+       14,
+       35,
+       42
+      ]
+     ]
+    },
+    "n_combos": 16215,
+    "prediction_mismatches": 0,
+    "stats": {
+     "('K13', 'K13', 'K13')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 1,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 10,
+      "total": 10,
+      "unit_assist": 0
+     },
+     "('K13', 'K13', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 36,
+      "total": 36,
+      "unit_assist": 0
+     },
+     "('K13', 'K13', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 216,
+      "unit_assist": 0
+     },
+     "('K13', 'K7', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 63,
+      "total": 63,
+      "unit_assist": 0
+     },
+     "('K13', 'K7', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 648,
+      "unit_assist": 0
+     },
+     "('K13', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 1998,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 2,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 56,
+      "total": 56,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 756,
+      "unit_assist": 0
+     },
+     "('K7', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 3996,
+      "unit_assist": 0
+     },
+     "('U', 'U', 'U')": {
+      "basis": "unit cell (open)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 8436,
+      "unit_assist": 0
+     }
+    }
+   },
+   "map_4set": {
+    "examples": {
+     "('K13', 'K13', 'K13', 'K13')": [
+      [
+       13,
+       13,
+       26,
+       39
+      ],
+      [
+       13,
+       26,
+       26,
+       39
+      ],
+      [
+       13,
+       26,
+       39,
+       39
+      ]
+     ],
+     "('K13', 'K13', 'K13', 'K7')": [
+      [
+       7,
+       13,
+       26,
+       39
+      ],
+      [
+       13,
+       14,
+       26,
+       39
+      ],
+      [
+       13,
+       21,
+       26,
+       39
+      ],
+      [
+       13,
+       26,
+       28,
+       39
+      ]
+     ],
+     "('K13', 'K13', 'K13', 'U')": [
+      [
+       1,
+       13,
+       26,
+       39
+      ],
+      [
+       2,
+       13,
+       26,
+       39
+      ],
+      [
+       3,
+       13,
+       26,
+       39
+      ],
+      [
+       4,
+       13,
+       26,
+       39
+      ]
+     ],
+     "('K13', 'K7', 'K7', 'K7')": [
+      [
+       7,
+       13,
+       21,
+       28
+      ],
+      [
+       7,
+       21,
+       26,
+       28
+      ],
+      [
+       7,
+       21,
+       28,
+       39
+      ],
+      [
+       13,
+       14,
+       35,
+       42
+      ]
+     ],
+     "('K7', 'K7', 'K7', 'K7')": [
+      [
+       7,
+       7,
+       21,
+       28
+      ],
+      [
+       7,
+       14,
+       21,
+       28
+      ],
+      [
+       7,
+       14,
+       21,
+       35
+      ],
+      [
+       7,
+       14,
+       35,
+       42
+      ]
+     ],
+     "('K7', 'K7', 'K7', 'U')": [
+      [
+       1,
+       7,
+       21,
+       28
+      ],
+      [
+       1,
+       14,
+       35,
+       42
+      ],
+      [
+       2,
+       7,
+       21,
+       28
+      ],
+      [
+       2,
+       14,
+       35,
+       42
+      ]
+     ]
+    },
+    "n_combos": 194580,
+    "prediction_mismatches": 0,
+    "stats": {
+     "('K13', 'K13', 'K13', 'K13')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 3,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 15,
+      "total": 15,
+      "unit_assist": 0
+     },
+     "('K13', 'K13', 'K13', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 6,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 60,
+      "total": 60,
+      "unit_assist": 0
+     },
+     "('K13', 'K13', 'K13', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 36,
+      "kern_expl": 36,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 360,
+      "unit_assist": 0
+     },
+     "('K13', 'K13', 'K7', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 126,
+      "total": 126,
+      "unit_assist": 0
+     },
+     "('K13', 'K13', 'K7', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 1296,
+      "unit_assist": 0
+     },
+     "('K13', 'K13', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 3996,
+      "unit_assist": 0
+     },
+     "('K13', 'K7', 'K7', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 6,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 168,
+      "total": 168,
+      "unit_assist": 0
+     },
+     "('K13', 'K7', 'K7', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 2268,
+      "unit_assist": 0
+     },
+     "('K13', 'K7', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 11988,
+      "unit_assist": 0
+     },
+     "('K13', 'U', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 25308,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'K7', 'K7')": {
+      "basis": "L-CRT (kernel-only, pq)",
+      "covering": 15,
+      "kern_expl": 0,
+      "open": false,
+      "pred_mismatch": 0,
+      "pred_ok": 126,
+      "total": 126,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'K7', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 72,
+      "kern_expl": 72,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 2016,
+      "unit_assist": 0
+     },
+     "('K7', 'K7', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 13986,
+      "unit_assist": 0
+     },
+     "('K7', 'U', 'U', 'U')": {
+      "basis": "open (kernel+units at pq)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 50616,
+      "unit_assist": 0
+     },
+     "('U', 'U', 'U', 'U')": {
+      "basis": "unit cell (open)",
+      "covering": 0,
+      "kern_expl": 0,
+      "open": true,
+      "pred_mismatch": 0,
+      "pred_ok": 0,
+      "total": 82251,
+      "unit_assist": 0
+     }
+    }
+   },
+   "spectrum": {
+    "1": 31,
+    "10": 9,
+    "11": 9,
+    "12": 11,
+    "15": 11,
+    "16": 9,
+    "17": 9,
+    "18": 7,
+    "19": 13,
+    "2": 15,
+    "20": 11,
+    "22": 9,
+    "23": 7,
+    "24": 13,
+    "25": 11,
+    "27": 11,
+    "29": 9,
+    "3": 11,
+    "30": 11,
+    "31": 11,
+    "32": 11,
+    "33": 9,
+    "34": 11,
+    "36": 11,
+    "37": 11,
+    "38": 11,
+    "4": 7,
+    "40": 11,
+    "41": 11,
+    "43": 11,
+    "44": 11,
+    "45": 15,
+    "46": 15,
+    "47": 11,
+    "48": 11,
+    "5": 7,
+    "50": 11,
+    "51": 11,
+    "53": 11,
+    "54": 11,
+    "55": 11,
+    "57": 11,
+    "58": 9,
+    "59": 11,
+    "6": 11,
+    "60": 11,
+    "61": 11,
+    "62": 9,
+    "64": 11,
+    "66": 11,
+    "67": 13,
+    "68": 7,
+    "69": 9,
+    "71": 11,
+    "72": 13,
+    "73": 7,
+    "74": 9,
+    "75": 9,
+    "76": 11,
+    "79": 11,
+    "8": 11,
+    "80": 9,
+    "81": 9,
+    "82": 9,
+    "83": 11,
+    "85": 11,
+    "86": 7,
+    "87": 7,
+    "88": 11,
+    "89": 15,
+    "9": 9,
+    "90": 31
+   },
+   "spectrum_argmin": [
+    4,
+    5,
+    18,
+    23,
+    68,
+    73,
+    86,
+    87
+   ],
+   "spectrum_min": 7,
+   "unit_sets": 36
+  }
+ },
+ "rigid_zone_counts": {
+  "13": 68,
+  "17": 16,
+  "19": 64,
+  "37": 32,
+  "7": 20
+ }
+}

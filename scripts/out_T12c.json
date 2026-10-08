@@ -1,0 +1,924 @@
+[
+ {
+  "p": 3,
+  "k": 0,
+  "c6": 3,
+  "n_triples": 4,
+  "coverings": [
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    1,
+    2
+   ],
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    2,
+    1
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    1,
+    0
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    2,
+    1
+   ],
+   [
+    [
+     1,
+     2,
+     2
+    ],
+    0,
+    1
+   ],
+   [
+    [
+     1,
+     2,
+     2
+    ],
+    1,
+    0
+   ],
+   [
+    [
+     2,
+     2,
+     2
+    ],
+    1,
+    2
+   ],
+   [
+    [
+     2,
+     2,
+     2
+    ],
+    2,
+    1
+   ]
+  ],
+  "diagnostics": []
+ },
+ {
+  "p": 5,
+  "k": 0,
+  "c6": 5,
+  "n_triples": 20,
+  "coverings": [],
+  "diagnostics": [
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     2,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    [
+     2,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     3
+    ],
+    [
+     2,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     4
+    ],
+    [
+     2,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     2,
+     2
+    ],
+    [
+     2,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     2,
+     "intersection empty"
+    ]
+   ]
+  ]
+ },
+ {
+  "p": 7,
+  "k": 1,
+  "c6": 1,
+  "n_triples": 20,
+  "coverings": [],
+  "diagnostics": [
+   [
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     2,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     2,
+     4
+    ],
+    [
+     2,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     3,
+     5
+    ],
+    [
+     2,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     4,
+     5
+    ],
+    [
+     2,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     2,
+     2,
+     3
+    ],
+    [
+     3,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     2,
+     2,
+     4
+    ],
+    [
+     3,
+     "intersection empty"
+    ]
+   ]
+  ]
+ },
+ {
+  "p": 11,
+  "k": 1,
+  "c6": 5,
+  "n_triples": 108,
+  "coverings": [],
+  "diagnostics": [
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     3,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    [
+     3,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     3
+    ],
+    [
+     2,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     4
+    ],
+    [
+     2,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     5
+    ],
+    [
+     2,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     6
+    ],
+    [
+     2,
+     "empty good set"
+    ]
+   ]
+  ]
+ },
+ {
+  "p": 13,
+  "k": 2,
+  "c6": 1,
+  "n_triples": 68,
+  "coverings": [],
+  "diagnostics": [
+   [
+    [
+     1,
+     3,
+     4
+    ],
+    [
+     3,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     3,
+     9
+    ],
+    [
+     3,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     4,
+     10
+    ],
+    [
+     3,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     9,
+     10
+    ],
+    [
+     3,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     2,
+     3,
+     4
+    ],
+    [
+     3,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     2,
+     3,
+     5
+    ],
+    [
+     3,
+     "empty good set"
+    ]
+   ]
+  ]
+ },
+ {
+  "p": 17,
+  "k": 2,
+  "c6": 5,
+  "n_triples": 246,
+  "coverings": [],
+  "diagnostics": [
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     4,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    [
+     4,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     3
+    ],
+    [
+     3,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     4
+    ],
+    [
+     3,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     5
+    ],
+    [
+     3,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     6
+    ],
+    [
+     3,
+     "empty good set"
+    ]
+   ]
+  ]
+ },
+ {
+  "p": 19,
+  "k": 3,
+  "c6": 1,
+  "n_triples": 64,
+  "coverings": [],
+  "diagnostics": [
+   [
+    [
+     2,
+     4,
+     5
+    ],
+    [
+     4,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     2,
+     4,
+     14
+    ],
+    [
+     4,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     2,
+     5,
+     15
+    ],
+    [
+     4,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     2,
+     7,
+     9
+    ],
+    [
+     4,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     2,
+     7,
+     10
+    ],
+    [
+     4,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     2,
+     9,
+     12
+    ],
+    [
+     4,
+     "empty good set"
+    ]
+   ]
+  ]
+ },
+ {
+  "p": 23,
+  "k": 3,
+  "c6": 5,
+  "n_triples": 280,
+  "coverings": [],
+  "diagnostics": [
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     5,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    [
+     5,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     3
+    ],
+    [
+     4,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     4
+    ],
+    [
+     4,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     5
+    ],
+    [
+     4,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     6
+    ],
+    [
+     4,
+     "empty good set"
+    ]
+   ]
+  ]
+ },
+ {
+  "p": 29,
+  "k": 4,
+  "c6": 5,
+  "n_triples": 322,
+  "coverings": [],
+  "diagnostics": [
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     6,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    [
+     6,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     3
+    ],
+    [
+     5,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     4
+    ],
+    [
+     5,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     5
+    ],
+    [
+     5,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     6
+    ],
+    [
+     5,
+     "empty good set"
+    ]
+   ]
+  ]
+ },
+ {
+  "p": 31,
+  "k": 5,
+  "c6": 1,
+  "n_triples": 0,
+  "coverings": [],
+  "diagnostics": []
+ },
+ {
+  "p": 37,
+  "k": 6,
+  "c6": 1,
+  "n_triples": 32,
+  "coverings": [],
+  "diagnostics": [
+   [
+    [
+     3,
+     8,
+     10
+    ],
+    [
+     7,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     3,
+     8,
+     27
+    ],
+    [
+     7,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     3,
+     10,
+     29
+    ],
+    [
+     7,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     3,
+     27,
+     29
+    ],
+    [
+     7,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     4,
+     11,
+     14
+    ],
+    [
+     7,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     4,
+     11,
+     23
+    ],
+    [
+     7,
+     "empty good set"
+    ]
+   ]
+  ]
+ },
+ {
+  "p": 41,
+  "k": 6,
+  "c6": 5,
+  "n_triples": 318,
+  "coverings": [],
+  "diagnostics": [
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     8,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    [
+     8,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     3
+    ],
+    [
+     7,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     4
+    ],
+    [
+     7,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     5
+    ],
+    [
+     7,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     6
+    ],
+    [
+     7,
+     "empty good set"
+    ]
+   ]
+  ]
+ },
+ {
+  "p": 43,
+  "k": 7,
+  "c6": 1,
+  "n_triples": 0,
+  "coverings": [],
+  "diagnostics": []
+ },
+ {
+  "p": 47,
+  "k": 7,
+  "c6": 5,
+  "n_triples": 296,
+  "coverings": [],
+  "diagnostics": [
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     9,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    [
+     9,
+     "intersection empty"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     3
+    ],
+    [
+     8,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     4
+    ],
+    [
+     8,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     5
+    ],
+    [
+     8,
+     "empty good set"
+    ]
+   ],
+   [
+    [
+     1,
+     1,
+     6
+    ],
+    [
+     8,
+     "empty good set"
+    ]
+   ]
+  ]
+ }
+]

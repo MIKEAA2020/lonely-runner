@@ -1,0 +1,38 @@
+[
+  {
+    "url": "https://eudml.org",
+    "name": "On the lonely runner conjecture",
+    "snippet": "by RK Pandey · 2010 · Cited by 2 — The Lonely Runner Conjecture states that there is a time at which a given runner is at distance at least from all the others.",
+    "host_name": "eudml.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.scribd.com",
+    "name": "Proof of Lonely Runner Conjecture | PDF | Euclidean Vector",
+    "snippet": "The document summarizes work on proving the Lonely Runner Conjecture for almost all points. It shows that for any vector of runner velocities that are linearly",
+    "host_name": "www.scribd.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.wolframcloud.com",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "May 23, 2014 — The Lonely Runner conjecture states that each runner becomes lonely at some time [1]. The conjecture has been proven for up to seven runners[2]. Read more",
+    "host_name": "www.wolframcloud.com",
+    "rank": 2,
+    "date": "May 23, 2014",
+    "favicon": ""
+  },
+  {
+    "url": "https://scispace.com",
+    "name": "The lonely runner problem for many runners",
+    "snippet": "Mar 12, 2010 — The problem has been settled for n = 2, 3 ([4]), n = 4 (first in [8] and then a simpler proof was found in [5]), n = 5 ([6], a simpler proof in ... Read more",
+    "host_name": "scispace.com",
+    "rank": 3,
+    "date": "Mar 12, 2010",
+    "favicon": ""
+  }
+]

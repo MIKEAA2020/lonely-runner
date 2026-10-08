@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://www.sciencedirect.com",
+    "name": "The Lonely Runner Conjecture turns 60",
+    "snippet": "by G Perarnau · 2025 · Cited by 13 — The conjecture states that, for each runner , there is a time where she is lonely , precisely, at distance at least 1 / n on the circle from all the other runners ... Read more",
+    "host_name": "www.sciencedirect.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Lonely runner conjecture",
+    "snippet": "Implications of the conjecture include solutions to view-obstruction problems and bounds on properties, related to chromatic numbers , of certain graphs . Read more",
+    "host_name": "en.wikipedia.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org",
+    "name": "from rainbow to the lonely runner: a survey on coloring",
+    "snippet": "Jan 7, 2008 — Math. 2008. TLDR. It is proved that the chromatic number of a distance graph with D={a, b,c,d} is five only if either D={1,2,3,4k} or D={ a,b ... Read more",
+    "host_name": "www.semanticscholar.org",
+    "rank": 2,
+    "date": "Jan 7, 2008",
+    "favicon": ""
+  },
+  {
+    "url": "https://av.tib.eu",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "Recently, there's been some work with distance graphs and the chromatic number of these graphs . So what is a distance graph ? 15:22. Imagine a graph where you ...",
+    "host_name": "av.tib.eu",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "The Lonely Runner Conjecture turns 60",
+    "snippet": "by G Perarnau · 2024 · Cited by 13 — Chang, Liu and Zhu [15] proved that µ(D) is equivalent to the fractional chromatic number of the distance graph G(Z,D): χf (G(Z,D)) = 1. µ(D). Read more",
+    "host_name": "arxiv.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.quantamagazine.org",
+    "name": "New Strides Made on Deceptively Simple 'Lonely Runner",
+    "snippet": "Mar 6, 2026 — A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions.",
+    "host_name": "www.quantamagazine.org",
+    "rank": 5,
+    "date": "Mar 6, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.academia.edu",
+    "name": "Regular chromatic number and the lonely runner problem",
+    "snippet": "The lonely runner conjecture states that there is a time at which one runner is at distance at least 1/(k + 1 ) from all the others. The conjecture has been ... Read more",
+    "host_name": "www.academia.edu",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "Circular chromatic number of distance graphs with",
+    "snippet": "May 5, 2026 — Zhu [13] used known results for the lonely runner problem to compute the chromatic number of distance graphs . In [2] a similar approach was used ... Read more",
+    "host_name": "www.researchgate.net",
+    "rank": 7,
+    "date": "May 5, 2026",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,3151 @@
+{
+ "A_generic_dichotomy": {
+  "trials": 1500,
+  "n": 50,
+  "struct_failures": 0,
+  "dichotomy_failures": 0,
+  "rho_one_fraction": 0.387
+ },
+ "A_generic_traces": {
+  "trials": 300,
+  "t_range": "1..40",
+  "comparisons": 12000,
+  "mismatches": 0
+ },
+ "B_cascade_automaton": {
+  "p17_chain": {
+   "label": "chain",
+   "family": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "p": 17,
+   "k": 2,
+   "n_U": 12,
+   "n_fibers_admissible": 12,
+   "admissible_sizes": 32,
+   "anchor": {
+    "j0": 3,
+    "sz0": [
+     4,
+     4,
+     4,
+     4,
+     4
+    ],
+    "n_sol0": 840
+   },
+   "alive_sequence": [
+    840,
+    0
+   ],
+   "coordinate_mismatches": 0,
+   "depth": 2,
+   "died": true,
+   "pairs": [
+    {
+     "j": 4,
+     "lambda": 7,
+     "lambda_bar": 7,
+     "n_solj": 840,
+     "survivors": 0,
+     "r_t": 0.0
+    }
+   ],
+   "reflection_step": null,
+   "r_ratios": [
+    0.0
+   ],
+   "loop_identity": {
+    "algebraic": true,
+    "numeric_500": true,
+    "composed_lam": 1,
+    "composed_tau": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "cyclic_trace": 0,
+   "cyclic_rho": 0,
+   "n_subshifts": 11,
+   "subshift_rho_one": 1,
+   "subshifts": [
+    {
+     "j": 4,
+     "lambda_bar": 7,
+     "A_size": 840,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 840,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 16,
+      "cycle_lengths": {
+       "1": 1,
+       "16": 5220
+      }
+     },
+     "n_runs": 840,
+     "max_run": 1
+    },
+    {
+     "j": 5,
+     "lambda_bar": 4,
+     "A_size": 840,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 840,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 4,
+      "cycle_lengths": {
+       "1": 1,
+       "4": 20880
+      }
+     },
+     "n_runs": 840,
+     "max_run": 1
+    },
+    {
+     "j": 6,
+     "lambda_bar": 2,
+     "A_size": 840,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 840,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 8,
+      "cycle_lengths": {
+       "1": 1,
+       "8": 10440
+      }
+     },
+     "n_runs": 840,
+     "max_run": 1
+    },
+    {
+     "j": 7,
+     "lambda_bar": 8,
+     "A_size": 840,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 840,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 8,
+      "cycle_lengths": {
+       "1": 1,
+       "8": 10440
+      }
+     },
+     "n_runs": 840,
+     "max_run": 1
+    },
+    {
+     "j": 8,
+     "lambda_bar": 3,
+     "A_size": 840,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 840,
+      "2": 120,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 16,
+      "cycle_lengths": {
+       "1": 1,
+       "16": 5220
+      }
+     },
+     "n_runs": 720,
+     "max_run": 2
+    },
+    {
+     "j": 9,
+     "lambda_bar": 3,
+     "A_size": 840,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 840,
+      "2": 120,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 16,
+      "cycle_lengths": {
+       "1": 1,
+       "16": 5220
+      }
+     },
+     "n_runs": 720,
+     "max_run": 2
+    },
+    {
+     "j": 10,
+     "lambda_bar": 8,
+     "A_size": 840,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 840,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 8,
+      "cycle_lengths": {
+       "1": 1,
+       "8": 10440
+      }
+     },
+     "n_runs": 840,
+     "max_run": 1
+    },
+    {
+     "j": 11,
+     "lambda_bar": 2,
+     "A_size": 840,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 840,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 8,
+      "cycle_lengths": {
+       "1": 1,
+       "8": 10440
+      }
+     },
+     "n_runs": 840,
+     "max_run": 1
+    },
+    {
+     "j": 12,
+     "lambda_bar": 4,
+     "A_size": 840,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 840,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 4,
+      "cycle_lengths": {
+       "1": 1,
+       "4": 20880
+      }
+     },
+     "n_runs": 840,
+     "max_run": 1
+    },
+    {
+     "j": 13,
+     "lambda_bar": 7,
+     "A_size": 840,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 840,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 16,
+      "cycle_lengths": {
+       "1": 1,
+       "16": 5220
+      }
+     },
+     "n_runs": 840,
+     "max_run": 1
+    },
+    {
+     "j": 14,
+     "lambda_bar": 1,
+     "A_size": 840,
+     "rho": 1,
+     "n_inside_cycles": 420,
+     "inside_total": 840,
+     "asymptotic_fraction": 0.010057,
+     "surv_T": {
+      "1": 840,
+      "2": 840,
+      "3": 840,
+      "4": 840,
+      "5": 840,
+      "6": 840,
+      "7": 840,
+      "8": 840,
+      "9": 840,
+      "10": 840,
+      "11": 840,
+      "12": 840
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 2,
+      "cycle_lengths": {
+       "1": 1,
+       "2": 41760
+      }
+     },
+     "n_runs": 0,
+     "max_run": 0
+    }
+   ],
+   "end_to_end_gt": {
+    "checks": 440,
+    "mismatches": 0
+   },
+   "top_size_tuple": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "top_sol": 8880,
+   "trivial_box": 83521,
+   "margin_over_trivial": 9.4,
+   "elapsed_s": 1.3
+  },
+  "p17_top-distinct": {
+   "label": "top-distinct",
+   "family": [
+    2,
+    3,
+    4,
+    8
+   ],
+   "p": 17,
+   "k": 2,
+   "n_U": 12,
+   "n_fibers_admissible": 12,
+   "admissible_sizes": 32,
+   "anchor": {
+    "j0": 3,
+    "sz0": [
+     4,
+     4,
+     5,
+     4,
+     4
+    ],
+    "n_sol0": 85
+   },
+   "alive_sequence": [
+    85,
+    1,
+    0
+   ],
+   "coordinate_mismatches": 0,
+   "depth": 3,
+   "died": true,
+   "pairs": [
+    {
+     "j": 4,
+     "lambda": 7,
+     "lambda_bar": 7,
+     "n_solj": 224,
+     "survivors": 1,
+     "r_t": 0.0118
+    },
+    {
+     "j": 5,
+     "lambda": 13,
+     "lambda_bar": 4,
+     "n_solj": 48,
+     "survivors": 0,
+     "r_t": 0.0
+    }
+   ],
+   "reflection_step": null,
+   "r_ratios": [
+    0.0118,
+    0.0
+   ],
+   "loop_identity": {
+    "algebraic": true,
+    "numeric_500": true,
+    "composed_lam": 1,
+    "composed_tau": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "cyclic_trace": 0,
+   "cyclic_rho": 0,
+   "n_subshifts": 11,
+   "subshift_rho_one": 1,
+   "subshifts": [
+    {
+     "j": 4,
+     "lambda_bar": 7,
+     "A_size": 224,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 224,
+      "2": 1,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       2,
+       10,
+       15,
+       11
+      ],
+      "ord": 16,
+      "cycle_lengths": {
+       "1": 1,
+       "16": 5220
+      }
+     },
+     "n_runs": 223,
+     "max_run": 2
+    },
+    {
+     "j": 5,
+     "lambda_bar": 4,
+     "A_size": 48,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 48,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       16,
+       10,
+       9,
+       11
+      ],
+      "ord": 4,
+      "cycle_lengths": {
+       "1": 1,
+       "4": 20880
+      }
+     },
+     "n_runs": 48,
+     "max_run": 1
+    },
+    {
+     "j": 6,
+     "lambda_bar": 2,
+     "A_size": 85,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 85,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       13,
+       11,
+       11
+      ],
+      "ord": 8,
+      "cycle_lengths": {
+       "1": 1,
+       "8": 10440
+      }
+     },
+     "n_runs": 85,
+     "max_run": 1
+    },
+    {
+     "j": 7,
+     "lambda_bar": 8,
+     "A_size": 48,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 48,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       16,
+       8,
+       12,
+       11
+      ],
+      "ord": 8,
+      "cycle_lengths": {
+       "1": 1,
+       "8": 10440
+      }
+     },
+     "n_runs": 48,
+     "max_run": 1
+    },
+    {
+     "j": 8,
+     "lambda_bar": 3,
+     "A_size": 198,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 198,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       3,
+       5,
+       16,
+       11
+      ],
+      "ord": 16,
+      "cycle_lengths": {
+       "1": 1,
+       "16": 5220
+      }
+     },
+     "n_runs": 198,
+     "max_run": 1
+    },
+    {
+     "j": 9,
+     "lambda_bar": 3,
+     "A_size": 198,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 198,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       16,
+       13,
+       13,
+       11
+      ],
+      "ord": 16,
+      "cycle_lengths": {
+       "1": 1,
+       "16": 5220
+      }
+     },
+     "n_runs": 198,
+     "max_run": 1
+    },
+    {
+     "j": 10,
+     "lambda_bar": 8,
+     "A_size": 48,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 48,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       14,
+       15,
+       14,
+       10
+      ],
+      "ord": 8,
+      "cycle_lengths": {
+       "1": 1,
+       "8": 10440
+      }
+     },
+     "n_runs": 48,
+     "max_run": 1
+    },
+    {
+     "j": 11,
+     "lambda_bar": 2,
+     "A_size": 85,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 85,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       16,
+       7,
+       12,
+       8
+      ],
+      "ord": 8,
+      "cycle_lengths": {
+       "1": 1,
+       "8": 10440
+      }
+     },
+     "n_runs": 85,
+     "max_run": 1
+    },
+    {
+     "j": 12,
+     "lambda_bar": 4,
+     "A_size": 48,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 48,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       5,
+       13,
+       1,
+       14
+      ],
+      "ord": 4,
+      "cycle_lengths": {
+       "1": 1,
+       "4": 20880
+      }
+     },
+     "n_runs": 48,
+     "max_run": 1
+    },
+    {
+     "j": 13,
+     "lambda_bar": 7,
+     "A_size": 224,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 224,
+      "2": 1,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       3,
+       11,
+       16,
+       12
+      ],
+      "ord": 16,
+      "cycle_lengths": {
+       "1": 1,
+       "16": 5220
+      }
+     },
+     "n_runs": 223,
+     "max_run": 2
+    },
+    {
+     "j": 14,
+     "lambda_bar": 1,
+     "A_size": 85,
+     "rho": 1,
+     "n_inside_cycles": 43,
+     "inside_total": 85,
+     "asymptotic_fraction": 0.001018,
+     "surv_T": {
+      "1": 85,
+      "2": 85,
+      "3": 85,
+      "4": 85,
+      "5": 85,
+      "6": 85,
+      "7": 85,
+      "8": 85,
+      "9": 85,
+      "10": 85,
+      "11": 85,
+      "12": 85
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       7,
+       4,
+       4,
+       15
+      ],
+      "ord": 2,
+      "cycle_lengths": {
+       "1": 1,
+       "2": 41760
+      }
+     },
+     "n_runs": 0,
+     "max_run": 0
+    }
+   ],
+   "end_to_end_gt": {
+    "checks": 440,
+    "mismatches": 0
+   },
+   "top_size_tuple": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "top_sol": 876,
+   "trivial_box": 83521,
+   "margin_over_trivial": 95.3,
+   "elapsed_s": 1.3
+  },
+  "p19_chain": {
+   "label": "chain",
+   "family": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "p": 19,
+   "k": 2,
+   "n_U": 14,
+   "n_fibers_admissible": 14,
+   "admissible_sizes": 32,
+   "anchor": {
+    "j0": 3,
+    "sz0": [
+     5,
+     5,
+     5,
+     5,
+     5
+    ],
+    "n_sol0": 4680
+   },
+   "alive_sequence": [
+    4680,
+    0
+   ],
+   "coordinate_mismatches": 0,
+   "depth": 2,
+   "died": true,
+   "pairs": [
+    {
+     "j": 4,
+     "lambda": 14,
+     "lambda_bar": 5,
+     "n_solj": 4680,
+     "survivors": 0,
+     "r_t": 0.0
+    }
+   ],
+   "reflection_step": null,
+   "r_ratios": [
+    0.0
+   ],
+   "loop_identity": {
+    "algebraic": true,
+    "numeric_500": true,
+    "composed_lam": 1,
+    "composed_tau": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "cyclic_trace": 0,
+   "cyclic_rho": 0,
+   "n_subshifts": 13,
+   "subshift_rho_one": 1,
+   "subshifts": [
+    {
+     "j": 4,
+     "lambda_bar": 5,
+     "A_size": 4680,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 4680,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 18,
+      "cycle_lengths": {
+       "1": 1,
+       "18": 7240
+      }
+     },
+     "n_runs": 4680,
+     "max_run": 1
+    },
+    {
+     "j": 5,
+     "lambda_bar": 8,
+     "A_size": 4680,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 4680,
+      "2": 240,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 6,
+      "cycle_lengths": {
+       "1": 1,
+       "6": 21720
+      }
+     },
+     "n_runs": 4440,
+     "max_run": 2
+    },
+    {
+     "j": 6,
+     "lambda_bar": 2,
+     "A_size": 4680,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 4680,
+      "2": 840,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 18,
+      "cycle_lengths": {
+       "1": 1,
+       "18": 7240
+      }
+     },
+     "n_runs": 3840,
+     "max_run": 2
+    },
+    {
+     "j": 7,
+     "lambda_bar": 4,
+     "A_size": 4680,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 4680,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 18,
+      "cycle_lengths": {
+       "1": 1,
+       "18": 7240
+      }
+     },
+     "n_runs": 4680,
+     "max_run": 1
+    },
+    {
+     "j": 8,
+     "lambda_bar": 9,
+     "A_size": 120,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 120,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 9,
+      "cycle_lengths": {
+       "1": 1,
+       "9": 14480
+      }
+     },
+     "n_runs": 120,
+     "max_run": 1
+    },
+    {
+     "j": 9,
+     "lambda_bar": 3,
+     "A_size": 120,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 120,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 18,
+      "cycle_lengths": {
+       "1": 1,
+       "18": 7240
+      }
+     },
+     "n_runs": 120,
+     "max_run": 1
+    },
+    {
+     "j": 10,
+     "lambda_bar": 3,
+     "A_size": 120,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 120,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 9,
+      "cycle_lengths": {
+       "1": 1,
+       "9": 14480
+      }
+     },
+     "n_runs": 120,
+     "max_run": 1
+    },
+    {
+     "j": 11,
+     "lambda_bar": 9,
+     "A_size": 120,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 120,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 18,
+      "cycle_lengths": {
+       "1": 1,
+       "18": 7240
+      }
+     },
+     "n_runs": 120,
+     "max_run": 1
+    },
+    {
+     "j": 12,
+     "lambda_bar": 4,
+     "A_size": 4680,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 4680,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 9,
+      "cycle_lengths": {
+       "1": 1,
+       "9": 14480
+      }
+     },
+     "n_runs": 4680,
+     "max_run": 1
+    },
+    {
+     "j": 13,
+     "lambda_bar": 2,
+     "A_size": 4680,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 4680,
+      "2": 840,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 9,
+      "cycle_lengths": {
+       "1": 1,
+       "9": 14480
+      }
+     },
+     "n_runs": 3840,
+     "max_run": 2
+    },
+    {
+     "j": 14,
+     "lambda_bar": 8,
+     "A_size": 4680,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 4680,
+      "2": 240,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 3,
+      "cycle_lengths": {
+       "1": 1,
+       "3": 43440
+      }
+     },
+     "n_runs": 4440,
+     "max_run": 2
+    },
+    {
+     "j": 15,
+     "lambda_bar": 5,
+     "A_size": 4680,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 4680,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 9,
+      "cycle_lengths": {
+       "1": 1,
+       "9": 14480
+      }
+     },
+     "n_runs": 4680,
+     "max_run": 1
+    },
+    {
+     "j": 16,
+     "lambda_bar": 1,
+     "A_size": 4680,
+     "rho": 1,
+     "n_inside_cycles": 2340,
+     "inside_total": 4680,
+     "asymptotic_fraction": 0.035911,
+     "surv_T": {
+      "1": 4680,
+      "2": 4680,
+      "3": 4680,
+      "4": 4680,
+      "5": 4680,
+      "6": 4680,
+      "7": 4680,
+      "8": 4680,
+      "9": 4680,
+      "10": 4680,
+      "11": 4680,
+      "12": 4680
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "ord": 2,
+      "cycle_lengths": {
+       "1": 1,
+       "2": 65160
+      }
+     },
+     "n_runs": 0,
+     "max_run": 0
+    }
+   ],
+   "end_to_end_gt": {
+    "checks": 520,
+    "mismatches": 0
+   },
+   "top_size_tuple": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "top_sol": 4680,
+   "trivial_box": 130321,
+   "margin_over_trivial": 27.8,
+   "elapsed_s": 2.6
+  },
+  "p19_top-distinct": {
+   "label": "top-distinct",
+   "family": [
+    2,
+    4,
+    5,
+    8
+   ],
+   "p": 19,
+   "k": 2,
+   "n_U": 14,
+   "n_fibers_admissible": 14,
+   "admissible_sizes": 32,
+   "anchor": {
+    "j0": 3,
+    "sz0": [
+     5,
+     4,
+     5,
+     5,
+     5
+    ],
+    "n_sol0": 40
+   },
+   "alive_sequence": [
+    40,
+    0
+   ],
+   "coordinate_mismatches": 0,
+   "depth": 2,
+   "died": true,
+   "pairs": [
+    {
+     "j": 4,
+     "lambda": 14,
+     "lambda_bar": 5,
+     "n_solj": 76,
+     "survivors": 0,
+     "r_t": 0.0
+    }
+   ],
+   "reflection_step": null,
+   "r_ratios": [
+    0.0
+   ],
+   "loop_identity": {
+    "algebraic": true,
+    "numeric_500": true,
+    "composed_lam": 1,
+    "composed_tau": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "cyclic_trace": 0,
+   "cyclic_rho": 0,
+   "n_subshifts": 13,
+   "subshift_rho_one": 1,
+   "subshifts": [
+    {
+     "j": 4,
+     "lambda_bar": 5,
+     "A_size": 76,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 76,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       2,
+       9,
+       6,
+       8
+      ],
+      "ord": 18,
+      "cycle_lengths": {
+       "1": 1,
+       "18": 7240
+      }
+     },
+     "n_runs": 76,
+     "max_run": 1
+    },
+    {
+     "j": 5,
+     "lambda_bar": 8,
+     "A_size": 108,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 108,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       2,
+       9,
+       6,
+       1
+      ],
+      "ord": 6,
+      "cycle_lengths": {
+       "1": 1,
+       "6": 21720
+      }
+     },
+     "n_runs": 108,
+     "max_run": 1
+    },
+    {
+     "j": 6,
+     "lambda_bar": 2,
+     "A_size": 54,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 54,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       9,
+       6,
+       5
+      ],
+      "ord": 18,
+      "cycle_lengths": {
+       "1": 1,
+       "18": 7240
+      }
+     },
+     "n_runs": 54,
+     "max_run": 1
+    },
+    {
+     "j": 7,
+     "lambda_bar": 4,
+     "A_size": 52,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 52,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       10,
+       12,
+       6,
+       1
+      ],
+      "ord": 18,
+      "cycle_lengths": {
+       "1": 1,
+       "18": 7240
+      }
+     },
+     "n_runs": 52,
+     "max_run": 1
+    },
+    {
+     "j": 8,
+     "lambda_bar": 9,
+     "A_size": 32,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 32,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       11,
+       0,
+       9,
+       11
+      ],
+      "ord": 9,
+      "cycle_lengths": {
+       "1": 1,
+       "9": 14480
+      }
+     },
+     "n_runs": 32,
+     "max_run": 1
+    },
+    {
+     "j": 9,
+     "lambda_bar": 3,
+     "A_size": 32,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 32,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       0,
+       11,
+       18,
+       5
+      ],
+      "ord": 18,
+      "cycle_lengths": {
+       "1": 1,
+       "18": 7240
+      }
+     },
+     "n_runs": 32,
+     "max_run": 1
+    },
+    {
+     "j": 10,
+     "lambda_bar": 3,
+     "A_size": 32,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 32,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       13,
+       7,
+       0,
+       0
+      ],
+      "ord": 9,
+      "cycle_lengths": {
+       "1": 1,
+       "9": 14480
+      }
+     },
+     "n_runs": 32,
+     "max_run": 1
+    },
+    {
+     "j": 11,
+     "lambda_bar": 9,
+     "A_size": 32,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 32,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       14,
+       12,
+       15,
+       4
+      ],
+      "ord": 18,
+      "cycle_lengths": {
+       "1": 1,
+       "18": 7240
+      }
+     },
+     "n_runs": 32,
+     "max_run": 1
+    },
+    {
+     "j": 12,
+     "lambda_bar": 4,
+     "A_size": 52,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 52,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       18,
+       5,
+       1,
+       2
+      ],
+      "ord": 9,
+      "cycle_lengths": {
+       "1": 1,
+       "9": 14480
+      }
+     },
+     "n_runs": 52,
+     "max_run": 1
+    },
+    {
+     "j": 13,
+     "lambda_bar": 2,
+     "A_size": 54,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 54,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       5,
+       13,
+       3,
+       5
+      ],
+      "ord": 9,
+      "cycle_lengths": {
+       "1": 1,
+       "9": 14480
+      }
+     },
+     "n_runs": 54,
+     "max_run": 1
+    },
+    {
+     "j": 14,
+     "lambda_bar": 8,
+     "A_size": 108,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 108,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       18,
+       12,
+       5,
+       4
+      ],
+      "ord": 3,
+      "cycle_lengths": {
+       "1": 1,
+       "3": 43440
+      }
+     },
+     "n_runs": 108,
+     "max_run": 1
+    },
+    {
+     "j": 15,
+     "lambda_bar": 5,
+     "A_size": 76,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 76,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       4,
+       7,
+       13,
+       17
+      ],
+      "ord": 9,
+      "cycle_lengths": {
+       "1": 1,
+       "9": 14480
+      }
+     },
+     "n_runs": 76,
+     "max_run": 1
+    },
+    {
+     "j": 16,
+     "lambda_bar": 1,
+     "A_size": 40,
+     "rho": 1,
+     "n_inside_cycles": 20,
+     "inside_total": 40,
+     "asymptotic_fraction": 0.000307,
+     "surv_T": {
+      "1": 40,
+      "2": 40,
+      "3": 40,
+      "4": 40,
+      "5": 40,
+      "6": 40,
+      "7": 40,
+      "8": 40,
+      "9": 40,
+      "10": 40,
+      "11": 40,
+      "12": 40
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       18,
+       13,
+       11,
+       5
+      ],
+      "ord": 2,
+      "cycle_lengths": {
+       "1": 1,
+       "2": 65160
+      }
+     },
+     "n_runs": 0,
+     "max_run": 0
+    }
+   ],
+   "end_to_end_gt": {
+    "checks": 520,
+    "mismatches": 0
+   },
+   "top_size_tuple": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "top_sol": 108,
+   "trivial_box": 130321,
+   "margin_over_trivial": 1206.7,
+   "elapsed_s": 2.3
+  },
+  "p29_committed-A": {
+   "label": "committed-A",
+   "family": [
+    2,
+    4,
+    7,
+    8
+   ],
+   "p": 29,
+   "k": 3,
+   "n_U": 22,
+   "n_fibers_admissible": 12,
+   "admissible_sizes": 24,
+   "anchor": {
+    "j0": 6,
+    "sz0": [
+     7,
+     7,
+     8,
+     7,
+     7
+    ],
+    "n_sol0": 16
+   },
+   "alive_sequence": [
+    16,
+    0
+   ],
+   "coordinate_mismatches": 0,
+   "depth": 2,
+   "died": true,
+   "pairs": [
+    {
+     "j": 10,
+     "lambda": 21,
+     "lambda_bar": 8,
+     "n_solj": 32,
+     "survivors": 0,
+     "r_t": 0.0
+    }
+   ],
+   "reflection_step": null,
+   "r_ratios": [
+    0.0
+   ],
+   "loop_identity": {
+    "algebraic": true,
+    "numeric_500": true,
+    "composed_lam": 1,
+    "composed_tau": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "cyclic_trace": 0,
+   "cyclic_rho": 0,
+   "n_subshifts": 8,
+   "subshift_rho_one": 0,
+   "subshifts": [
+    {
+     "j": 10,
+     "lambda_bar": 8,
+     "A_size": 32,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 32,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       26,
+       18,
+       18,
+       16
+      ],
+      "ord": 28,
+      "cycle_lengths": {
+       "1": 1,
+       "28": 25260
+      }
+     },
+     "n_runs": 32,
+     "max_run": 1
+    },
+    {
+     "j": 11,
+     "lambda_bar": 3,
+     "A_size": 16,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 16,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       26,
+       19,
+       11,
+       10
+      ],
+      "ord": 28,
+      "cycle_lengths": {
+       "1": 1,
+       "28": 25260
+      }
+     },
+     "n_runs": 16,
+     "max_run": 1
+    },
+    {
+     "j": 12,
+     "lambda_bar": 2,
+     "A_size": 12,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 12,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       25,
+       15,
+       10,
+       15
+      ],
+      "ord": 28,
+      "cycle_lengths": {
+       "1": 1,
+       "28": 25260
+      }
+     },
+     "n_runs": 12,
+     "max_run": 1
+    },
+    {
+     "j": 13,
+     "lambda_bar": 7,
+     "A_size": 8,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 8,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       26,
+       8,
+       7,
+       20
+      ],
+      "ord": 7,
+      "cycle_lengths": {
+       "1": 1,
+       "7": 101040
+      }
+     },
+     "n_runs": 8,
+     "max_run": 1
+    },
+    {
+     "j": 14,
+     "lambda_bar": 12,
+     "A_size": 32,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 32,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       18,
+       10,
+       12,
+       2
+      ],
+      "ord": 4,
+      "cycle_lengths": {
+       "1": 1,
+       "4": 176820
+      }
+     },
+     "n_runs": 32,
+     "max_run": 1
+    },
+    {
+     "j": 15,
+     "lambda_bar": 12,
+     "A_size": 32,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 32,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       26,
+       18,
+       3,
+       3
+      ],
+      "ord": 4,
+      "cycle_lengths": {
+       "1": 1,
+       "4": 176820
+      }
+     },
+     "n_runs": 32,
+     "max_run": 1
+    },
+    {
+     "j": 16,
+     "lambda_bar": 7,
+     "A_size": 8,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 8,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       8,
+       22,
+       19,
+       28
+      ],
+      "ord": 14,
+      "cycle_lengths": {
+       "1": 1,
+       "14": 50520
+      }
+     },
+     "n_runs": 8,
+     "max_run": 1
+    },
+    {
+     "j": 17,
+     "lambda_bar": 2,
+     "A_size": 12,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 12,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       26,
+       9,
+       11,
+       8
+      ],
+      "ord": 28,
+      "cycle_lengths": {
+       "1": 1,
+       "28": 25260
+      }
+     },
+     "n_runs": 12,
+     "max_run": 1
+    }
+   ],
+   "end_to_end_gt": {
+    "checks": 440,
+    "mismatches": 0
+   },
+   "top_size_tuple": [
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "top_sol": 186,
+   "trivial_box": 707281,
+   "margin_over_trivial": 3802.6,
+   "elapsed_s": 7.8
+  },
+  "p29_committed-B": {
+   "label": "committed-B",
+   "family": [
+    3,
+    4,
+    8,
+    13
+   ],
+   "p": 29,
+   "k": 3,
+   "n_U": 22,
+   "n_fibers_admissible": 12,
+   "admissible_sizes": 24,
+   "anchor": {
+    "j0": 5,
+    "sz0": [
+     7,
+     7,
+     7,
+     7,
+     8
+    ],
+    "n_sol0": 16
+   },
+   "alive_sequence": [
+    16,
+    0
+   ],
+   "coordinate_mismatches": 0,
+   "depth": 2,
+   "died": true,
+   "pairs": [
+    {
+     "j": 6,
+     "lambda": 7,
+     "lambda_bar": 7,
+     "n_solj": 8,
+     "survivors": 0,
+     "r_t": 0.0
+    }
+   ],
+   "reflection_step": null,
+   "r_ratios": [
+    0.0
+   ],
+   "loop_identity": {
+    "algebraic": true,
+    "numeric_500": true,
+    "composed_lam": 1,
+    "composed_tau": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "cyclic_trace": 0,
+   "cyclic_rho": 0,
+   "n_subshifts": 8,
+   "subshift_rho_one": 0,
+   "subshifts": [
+    {
+     "j": 6,
+     "lambda_bar": 7,
+     "A_size": 8,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 8,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       17,
+       24,
+       21,
+       25
+      ],
+      "ord": 7,
+      "cycle_lengths": {
+       "1": 1,
+       "7": 101040
+      }
+     },
+     "n_runs": 8,
+     "max_run": 1
+    },
+    {
+     "j": 8,
+     "lambda_bar": 10,
+     "A_size": 16,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 16,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       22,
+       27,
+       15,
+       8
+      ],
+      "ord": 28,
+      "cycle_lengths": {
+       "1": 1,
+       "28": 25260
+      }
+     },
+     "n_runs": 16,
+     "max_run": 1
+    },
+    {
+     "j": 10,
+     "lambda_bar": 2,
+     "A_size": 12,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 12,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       23,
+       20,
+       8,
+       9
+      ],
+      "ord": 28,
+      "cycle_lengths": {
+       "1": 1,
+       "28": 25260
+      }
+     },
+     "n_runs": 12,
+     "max_run": 1
+    },
+    {
+     "j": 11,
+     "lambda_bar": 8,
+     "A_size": 32,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 32,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       26,
+       2,
+       19,
+       12
+      ],
+      "ord": 28,
+      "cycle_lengths": {
+       "1": 1,
+       "28": 25260
+      }
+     },
+     "n_runs": 32,
+     "max_run": 1
+    },
+    {
+     "j": 14,
+     "lambda_bar": 3,
+     "A_size": 16,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 16,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       15,
+       19,
+       8,
+       26
+      ],
+      "ord": 28,
+      "cycle_lengths": {
+       "1": 1,
+       "28": 25260
+      }
+     },
+     "n_runs": 16,
+     "max_run": 1
+    },
+    {
+     "j": 15,
+     "lambda_bar": 3,
+     "A_size": 16,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 16,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       21,
+       5,
+       22,
+       15
+      ],
+      "ord": 28,
+      "cycle_lengths": {
+       "1": 1,
+       "28": 25260
+      }
+     },
+     "n_runs": 16,
+     "max_run": 1
+    },
+    {
+     "j": 18,
+     "lambda_bar": 8,
+     "A_size": 32,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 32,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       19,
+       19,
+       7,
+       0
+      ],
+      "ord": 28,
+      "cycle_lengths": {
+       "1": 1,
+       "28": 25260
+      }
+     },
+     "n_runs": 32,
+     "max_run": 1
+    },
+    {
+     "j": 19,
+     "lambda_bar": 2,
+     "A_size": 12,
+     "rho": 0,
+     "n_inside_cycles": 0,
+     "inside_total": 0,
+     "asymptotic_fraction": 0.0,
+     "surv_T": {
+      "1": 12,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+     },
+     "sim_mismatches": 0,
+     "inventory": {
+      "type": "dilation",
+      "fixed": 1,
+      "xstar": [
+       22,
+       9,
+       8,
+       8
+      ],
+      "ord": 28,
+      "cycle_lengths": {
+       "1": 1,
+       "28": 25260
+      }
+     },
+     "n_runs": 12,
+     "max_run": 1
+    }
+   ],
+   "end_to_end_gt": {
+    "checks": 440,
+    "mismatches": 0
+   },
+   "top_size_tuple": [
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "top_sol": 186,
+   "trivial_box": 707281,
+   "margin_over_trivial": 3802.6,
+   "elapsed_s": 7.4
+  }
+ },
+ "committed_depth_crosscheck": {
+  "available_families": [
+   "(1, 1, 1, 1)",
+   "(1, 1, 8, 1)",
+   "(1, 8, 1, 1)",
+   "(2, 2, 2, 2)",
+   "(8, 1, 1, 1)",
+   "(1, 1, 6, 1)",
+   "(1, 6, 1, 1)",
+   "(3, 3, 3, 3)",
+   "(6, 1, 1, 1)",
+   "(1, 1, 1, 8)"
+  ]
+ },
+ "C_door3_witness": {
+  "matrix": [
+   [
+    0.0,
+    0.9
+   ],
+   [
+    0.9,
+    0.4
+   ]
+  ],
+  "cycle_geometric_means": [
+   0.4,
+   0.9
+  ],
+  "rho": 1.122,
+  "note": "all cycle means <= 0.9 yet rho > 1: cycle decay does not bound the spectral radius; branching resurrects mass"
+ }
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://openproblemgarden.org",
+    "name": "Solution to the Lonely Runner Conjecture",
+    "snippet": "Oct 20, 2012 — If DELTA is greater than 1/n then the nth runner is “ Lonely ”. If DELTA is less than 1/n we can repeat the process and examine the situation at ... Read more",
+    "host_name": "openproblemgarden.org",
+    "rank": 0,
+    "date": "Oct 20, 2012",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org",
+    "name": "[PDF] The Lonely Runner Conjecture turns 60",
+    "snippet": "We prove that the lonely runner conjecture holds for nine runners . Our proof is based on a couple of improvements of the method we used to prove the conjecture ... Read more",
+    "host_name": "www.semanticscholar.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathforums.com",
+    "name": "A few notes on the Lonely Runner problem",
+    "snippet": "May 31, 2024 — This means that each runner is at the positions that satisfy the problem after a time t = 1. A time t = 1 means exactly the first initial cycle. Read more",
+    "host_name": "mathforums.com",
+    "rank": 2,
+    "date": "May 31, 2024",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.scribd.com",
+    "name": "Proof of Lonely Runner Conjecture | PDF | Euclidean Vector",
+    "snippet": "The document summarizes work on proving the Lonely Runner Conjecture for almost all points. It shows that for any vector of runner velocities that are ... Read more",
+    "host_name": "www.scribd.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "[2111.13688] On the time for a runner to get lonely",
+    "snippet": "by L Rifford · 2021 · Cited by 5 — We formulate a conjecture regarding this covering problem and prove it to be true for n=3,4,5,6. Then, we use our method of proof to demonstrate ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.wolframcloud.com",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "May 23, 2014 — The Lonely Runner conjecture states that each runner becomes lonely at some time [1]. The conjecture has been proven for up to seven runners [ 2 ]. Read more",
+    "host_name": "www.wolframcloud.com",
+    "rank": 5,
+    "date": "May 23, 2014",
+    "favicon": ""
+  }
+]

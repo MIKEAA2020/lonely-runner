@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://www.quantamagazine.org",
+    "name": "New Strides Made on Deceptively Simple 'Lonely Runner",
+    "snippet": "Mar 6, 2026 — A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions. Read more",
+    "host_name": "www.quantamagazine.org",
+    "rank": 0,
+    "date": "Mar 6, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Lonely runner conjecture",
+    "snippet": "The lonely runner conjecture states that each runner is lonely at some time, no matter the choice of speeds .",
+    "host_name": "en.wikipedia.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org",
+    "name": "[PDF] TIGHT INSTANCES OF THE LONELY RUNNER",
+    "snippet": "It is shown that to verify the lonely runner conjecture, it suffices to do so under the assumption that the speeds are integers of size $n^{O(n^2)}$.",
+    "host_name": "www.semanticscholar.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://terrytao.wordpress.com",
+    "name": "Some remarks on the lonely runner conjecture - Terence Tao",
+    "snippet": "Jan 10, 2017 — Proof : It is not difficult to see that for any non-zero velocity {v} the speeds of the runners would be w = 6 + c, 5 + c, c, for some c ...",
+    "host_name": "terrytao.wordpress.com",
+    "rank": 3,
+    "date": "Jan 10, 2017",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "The lonely runner conjecture holds for eight runners",
+    "snippet": "Sep 17, 2025 — We prove that the lonely runner conjecture holds for eight runners . Our proof relies on a computer verification and on recent results that allow ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 4,
+    "date": "Sep 17, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.ihes.fr",
+    "name": "The lonely runner conjecture: the case for 6 runners",
+    "snippet": "Specifically, we will prove that we can reduce the problem for n runners to the problems for n and n − 1 runners where we only consider integer speeds , as ... Read more 12 pages",
+    "host_name": "www.ihes.fr",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

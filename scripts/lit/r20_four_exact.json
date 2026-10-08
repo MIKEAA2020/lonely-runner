@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://arxiv.org",
+    "name": "Nine and ten lonely runners",
+    "snippet": "Apr 18, 2026 — The Lonely Runner Conjecture of Wills and Cusick states that if k + 1 k+1 runners start running at distinct constant speeds around a unit- ...",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "Apr 18, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://ora.ox.ac.uk",
+    "name": "lonely runners in function fields",
+    "snippet": "by S Chow · 2019 · Cited by 7 — The conjecture asserts that each runner is lonely at some point in time , meaning distance at least 1/m from the others.",
+    "host_name": "ora.ox.ac.uk",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.quantamagazine.org",
+    "name": "New Strides Made on Deceptively Simple 'Lonely Runner",
+    "snippet": "Mar 6, 2026 — A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions. Read more",
+    "host_name": "www.quantamagazine.org",
+    "rank": 2,
+    "date": "Mar 6, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Lonely runner conjecture",
+    "snippet": "The lonely runner conjecture states that each runner is lonely at some time , no matter the choice of speeds.",
+    "host_name": "en.wikipedia.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://av.tib.eu",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "A runner is lonely whenever there is no other runner closer than 1/N of a lap. then restated by Cusick in 73. solved for four runners . this problem is exactly ...",
+    "host_name": "av.tib.eu",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.combinatorics.org",
+    "name": "Correlation among runners and some results on the Lonely",
+    "snippet": "by G Perarnau · 2016 · Cited by 20 — By using this model we can show that either there is a runner alone at some time or at least four runners are almost alone at the same time . Read more",
+    "host_name": "www.combinatorics.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://epoch.ai",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "The lonely runner conjecture says that the answer is yes: every runner is sometimes lonely . Formally, the lonely runner conjecture says that for every set of ... Read more",
+    "host_name": "epoch.ai",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  }
+]

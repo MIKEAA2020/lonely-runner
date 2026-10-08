@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://terrytao.wordpress.com",
+    "name": "Some remarks on the lonely runner conjecture - Terence Tao",
+    "snippet": "Jan 10, 2017 — The conjecture models a situation in music of rhythmic polyphony: musical voices repeating at periodically distinct sub-intervals of the ... Read more",
+    "host_name": "terrytao.wordpress.com",
+    "rank": 0,
+    "date": "Jan 10, 2017",
+    "favicon": ""
+  },
+  {
+    "url": "https://av.tib.eu",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "One interesting artifact about this proof is that in order to prove this, we have to use the fact the lonely runner conjecture is true for five runners .",
+    "host_name": "av.tib.eu",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Would this proof strategy work for proving the lonely runner",
+    "snippet": "Aug 30, 2015 — The problem is the lonely runner conjecture. This conjecture states that if k runners begin running down a circle of unit circumference with random speeds, ...",
+    "host_name": "math.stackexchange.com",
+    "rank": 2,
+    "date": "Aug 30, 2015",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.ihes.fr",
+    "name": "The lonely runner conjecture: the case for 6 runners",
+    "snippet": "The conjecture states that given n runners some time . That is, they will be at a distance of at least 1 n from any other runner . 12 pages",
+    "host_name": "www.ihes.fr",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "The lonely runner conjecture holds for eight runners",
+    "snippet": "Sep 17, 2025 — The lonely runner conjecture asserts that for any runner there is a time at which the runner is at least a distance 1 / ( k + 1 ) 1/(k+1) away ... Read more",
+    "host_name": "arxiv.org",
+    "rank": 4,
+    "date": "Sep 17, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://en.wikipedia.org",
+    "name": "Lonely runner conjecture",
+    "snippet": "The lonely runner conjecture states that each runner is lonely at some time , no matter the choice of speeds.",
+    "host_name": "en.wikipedia.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://epoch.ai",
+    "name": "The Lonely Runner Conjecture",
+    "snippet": "The conjecture states: For any such set of n runners, there exists a time t at which every runner is at distance at least 1/(n+1 ) from the starting position 0. Read more",
+    "host_name": "epoch.ai",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.quantamagazine.org",
+    "name": "New Strides Made on Deceptively Simple 'Lonely Runner",
+    "snippet": "Mar 6, 2026 — A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions. Read more",
+    "host_name": "www.quantamagazine.org",
+    "rank": 7,
+    "date": "Mar 6, 2026",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://swc-math.github.io",
+    "name": "Modular forms and Galois representations",
+    "snippet": "by A Caraiani — the multiplicative group is described by the law G(x, y) = x + y + xy. Using the addition law, we can define multiplication by any integer. 13 pages",
+    "host_name": "swc-math.github.io",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.coursehero.com",
+    "name": "Understanding Discrete Structures: Key Concepts and Proof",
+    "snippet": "Mar 28, 2025 — Discrete Structures Lecture. A set can be defined by simply listing its members inside curly braces.",
+    "host_name": "www.coursehero.com",
+    "rank": 1,
+    "date": "Mar 28, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://digital.fandm.edu",
+    "name": "Closed Geodesics on the Punctured Torus",
+    "snippet": "Abstract. We examine the behavior of geodesics on the punctured torus. We first consider simple geodesics and the results of [I]. Read more 14 pages",
+    "host_name": "digital.fandm.edu",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mathoverflow.net",
+    "name": "Multiplicity of automorphic representation",
+    "snippet": "Aug 3, 2014 — The only discrete spectrum is cuspidal or made from residues of cuspidal-data Eisenstein series. In the continuous spectrum, the same ... Read more",
+    "host_name": "mathoverflow.net",
+    "rank": 3,
+    "date": "Aug 3, 2014",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.cs.cornell.edu",
+    "name": "Lecture 22",
+    "snippet": "Lecture 22 22hiddensurf.pdf",
+    "host_name": "www.cs.cornell.edu",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "(PDF) A computational theory of da Vinci stereopsis",
+    "snippet": "Feb 27, 2026 — discrete representations of neuronal firing rates. Our model suggests new directions for creating cooperative stereo systems that incorporate  ...",
+    "host_name": "www.researchgate.net",
+    "rank": 5,
+    "date": "Feb 27, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://math.stackexchange.com",
+    "name": "Confusion with intersection multiplicities of curves",
+    "snippet": "Nov 21, 2021 — I am reading Gathmann's notes on plane algebraic curves and I have a presumably very simple confusion with the intersection multiplicities. Read more",
+    "host_name": "math.stackexchange.com",
+    "rank": 6,
+    "date": "Nov 21, 2021",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.emergentmind.com",
+    "name": "Nonbinary multiplication-phase cocycles in projector-",
+    "snippet": "cocycle can produce an essential contextuality obstruction beyond the binary case, rather than having the obstruction already arise at the incidence level",
+    "host_name": "www.emergentmind.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

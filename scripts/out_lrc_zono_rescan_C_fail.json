@@ -1,0 +1,284 @@
+[
+ {
+  "v": [
+   1,
+   2,
+   3,
+   5
+  ],
+  "m": 5,
+  "n": 4,
+  "lambda": "1/4",
+  "delta": "1/4",
+  "thr": "3/10",
+  "mode": "witness-fail",
+  "rho_lo_exact": "2/7",
+  "rho_hi": 0.2982152857142857,
+  "witness": [
+   "1/10",
+   "5/8",
+   "1/4"
+  ],
+  "witness_val": "2/7",
+  "tor_max": "2/7",
+  "deepest_hole_refuted": true,
+  "rho_leq_thr_lo": true,
+  "rho_gt_thr": false,
+  "n_div_m": false,
+  "sec": 0.1
+ },
+ {
+  "v": [
+   1,
+   2,
+   3,
+   6
+  ],
+  "m": 6,
+  "n": 4,
+  "lambda": "1/4",
+  "delta": "1/4",
+  "thr": "3/10",
+  "mode": "witness-fail",
+  "rho_lo_exact": "2/7",
+  "rho_hi": 0.2982152857142857,
+  "witness": [
+   "19/40",
+   "0",
+   "0"
+  ],
+  "witness_val": "2/7",
+  "tor_max": "2/7",
+  "deepest_hole_refuted": true,
+  "rho_leq_thr_lo": true,
+  "rho_gt_thr": false,
+  "n_div_m": false,
+  "sec": 0.1
+ },
+ {
+  "v": [
+   1,
+   2,
+   3,
+   7
+  ],
+  "m": 7,
+  "n": 4,
+  "lambda": "1/4",
+  "delta": "1/4",
+  "thr": "3/10",
+  "mode": "witness-fail",
+  "rho_lo_exact": "87/320",
+  "rho_hi": 0.28437599999999996,
+  "witness": [
+   "9/20",
+   "9/10",
+   "7/40"
+  ],
+  "witness_val": "87/320",
+  "tor_max": "1/4",
+  "deepest_hole_refuted": true,
+  "rho_leq_thr_lo": true,
+  "rho_gt_thr": false,
+  "n_div_m": false,
+  "sec": 0.2
+ },
+ {
+  "v": [
+   1,
+   2,
+   3,
+   9
+  ],
+  "m": 9,
+  "n": 4,
+  "lambda": "1/4",
+  "delta": "1/4",
+  "thr": "3/10",
+  "mode": "witness-fail",
+  "rho_lo_exact": "43/160",
+  "rho_hi": 0.281251,
+  "witness": [
+   "1/2",
+   "3/40",
+   "3/10"
+  ],
+  "witness_val": "43/160",
+  "tor_max": "1/4",
+  "deepest_hole_refuted": true,
+  "rho_leq_thr_lo": true,
+  "rho_gt_thr": false,
+  "n_div_m": false,
+  "sec": 0.2
+ },
+ {
+  "v": [
+   1,
+   2,
+   3,
+   10
+  ],
+  "m": 10,
+  "n": 4,
+  "lambda": "1/4",
+  "delta": "1/4",
+  "thr": "3/10",
+  "mode": "witness-fail",
+  "rho_lo_exact": "3/11",
+  "rho_hi": 0.2852282727272727,
+  "witness": [
+   "19/40",
+   "1/40",
+   "0"
+  ],
+  "witness_val": "3/11",
+  "tor_max": "3/11",
+  "deepest_hole_refuted": true,
+  "rho_leq_thr_lo": true,
+  "rho_gt_thr": false,
+  "n_div_m": false,
+  "sec": 0.2
+ },
+ {
+  "v": [
+   1,
+   2,
+   3,
+   11
+  ],
+  "m": 11,
+  "n": 4,
+  "lambda": "1/4",
+  "delta": "1/4",
+  "thr": "3/10",
+  "mode": "witness-fail",
+  "rho_lo_exact": "21/80",
+  "rho_hi": 0.275001,
+  "witness": [
+   "19/40",
+   "1/20",
+   "4/5"
+  ],
+  "witness_val": "21/80",
+  "tor_max": "1/4",
+  "deepest_hole_refuted": true,
+  "rho_leq_thr_lo": true,
+  "rho_gt_thr": false,
+  "n_div_m": false,
+  "sec": 0.2
+ },
+ {
+  "v": [
+   1,
+   2,
+   3,
+   13
+  ],
+  "m": 13,
+  "n": 4,
+  "lambda": "1/4",
+  "delta": "1/4",
+  "thr": "3/10",
+  "mode": "witness-fail",
+  "rho_lo_exact": "21/80",
+  "rho_hi": 0.275001,
+  "witness": [
+   "23/40",
+   "1/20",
+   "13/40"
+  ],
+  "witness_val": "21/80",
+  "tor_max": "1/4",
+  "deepest_hole_refuted": true,
+  "rho_leq_thr_lo": true,
+  "rho_gt_thr": false,
+  "n_div_m": false,
+  "sec": 0.3
+ },
+ {
+  "v": [
+   1,
+   2,
+   3,
+   14
+  ],
+  "m": 14,
+  "n": 4,
+  "lambda": "1/4",
+  "delta": "1/4",
+  "thr": "3/10",
+  "mode": "witness-fail",
+  "rho_lo_exact": "4/15",
+  "rho_hi": 0.27916766666666665,
+  "witness": [
+   "19/40",
+   "0",
+   "0"
+  ],
+  "witness_val": "4/15",
+  "tor_max": "4/15",
+  "deepest_hole_refuted": true,
+  "rho_leq_thr_lo": true,
+  "rho_gt_thr": false,
+  "n_div_m": false,
+  "sec": 0.3
+ },
+ {
+  "v": [
+   1,
+   2,
+   3,
+   15
+  ],
+  "m": 15,
+  "n": 4,
+  "lambda": "1/4",
+  "delta": "1/4",
+  "thr": "3/10",
+  "mode": "witness-fail",
+  "rho_lo_exact": "167/640",
+  "rho_hi": 0.2734385,
+  "witness": [
+   "21/40",
+   "1/20",
+   "33/40"
+  ],
+  "witness_val": "167/640",
+  "tor_max": "1/4",
+  "deepest_hole_refuted": true,
+  "rho_leq_thr_lo": true,
+  "rho_gt_thr": false,
+  "n_div_m": false,
+  "sec": 0.3
+ },
+ {
+  "v": [
+   1,
+   2,
+   3,
+   16
+  ],
+  "m": 16,
+  "n": 4,
+  "lambda": "4/17",
+  "delta": "9/34",
+  "thr": "3/10",
+  "mode": "enclosure-consistent (exact cert > 10 min, not run)",
+  "rho_lo_exact": "9/34",
+  "rho_hi": 0.27720688235294116,
+  "fmax": 0.2647058823529412,
+  "tor_max": "9/34",
+  "witness": [
+   "17/40",
+   "39/40",
+   "1/2"
+  ],
+  "witness_val": "9/34",
+  "deepest_hole_refuted": false,
+  "deepest_hole_certified": false,
+  "deepest_hole_consistent": true,
+  "rho_leq_thr_lo": true,
+  "n_div_m": true,
+  "sec": 0.2
+ }
+]

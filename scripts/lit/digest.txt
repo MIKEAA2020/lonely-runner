@@ -1,0 +1,514 @@
+### q01_complementary.json  (8 results)
+- [Mixed thresholds in the Lonely Runner Conjecture - arXiv] (arxiv.org, )
+  https://arxiv.org/html/2605.27941v1
+  The Lonely Runner Conjecture states that if k + 1 k+1 runners start at the same point on a unit-length circular track and run with distinct ... Missing:  complementary  | Show results with:
+- [Lonely runner conjecture - Wikipedia] (en.wikipedia.org, )
+  https://en.wikipedia.org/wiki/Lonely_runner_conjecture
+  The lonely runner conjecture states that each runner is lonely at some time, no matter the choice of speeds. Missing:  complementary  | Show results with:
+- [Small question about the Lonely runner conjecture] (math.stackexchange.com, )
+  https://math.stackexchange.com/questions/4029655/small-question-about-the-lonely-runner-conjecture
+  At t=0, all runners are at the same position and start to run; the runners' speeds are pairwise distinct. The lonely runner conjecture states ... Missing:  complementary  pair
+- [[PDF] Amending the Lonely Runner Spectrum Conjecture] (www.combinatorics.org, )
+  https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p38/pdf
+  The Lonely Runner Conjecture asserts that all runners will sooner or later become lonely of cases for n = 4, when two runners share a ...
+- [A remark on the lonely runner conjecture - Terence Tao] (terrytao.wordpress.com, )
+  https://terrytao.wordpress.com/2015/05/13/a-remark-on-the-lonely-runner-conjecture
+  One can normalise the speed of the lonely runner to be zero, conjecture complements this conjecture for n=2 … runners with the fastest speed ...
+- [Lonely Runner Conjecture proven : r/math - Reddit] (www.reddit.com, )
+  https://www.reddit.com/r/math/comments/4mwfd1/lonely_runner_conjecture_proven
+  Because the run cycles are periodic, unless runners share a speed, they will not stay lonely forever. ... Attempt on the Lonely Runner Conjecture. Missing:  complementary  | Show results with:
+- [What can I further assume about the speeds of runners of] (mathoverflow.net, )
+  https://mathoverflow.net/questions/206427/what-can-i-further-assume-about-the-speeds-of-runners-of-lonely-runner-conject
+  Lonely Runner Conjecture is the following problem, and the conjecture was proven to be true for k≤7: Let V 1k+1 where ||x|| denotes the ... Missing:  complementary  pair
+- [The Lonely Runner Conjecture | Epoch AI] (epoch.ai, )
+  https://epoch.ai/frontiermath/open-problems/lonely-runner
+  The conjecture states: For any such set of n runners, there exists a time t at which every runner is at distance at least 1/(n+1) from the starting position 0. Missing:  complementary  pair
+
+### q02_mirror.json  (6 results)
+- [A proof of The Lonely Runner Conjecture for any n] (vixra.org, Oct 20, 2012)
+  https://vixra.org
+  Oct 20, 2012 — (1) If any runner's speed is a prime number which is not a factor of any other runners speed then that runner will become lonely . (2) By ... Read more
+- [Proof of Lonely Runner Conjecture | PDF | Euclidean Vector] (www.scribd.com, )
+  https://www.scribd.com
+  The document summarizes work on proving the Lonely Runner Conjecture for almost all points. It shows that for any vector of runner velocities that are linearly
+- [On the lonely runner conjecture] (dml.cz, )
+  https://dml.cz
+  by RK Pandey · 2010 · Cited by 2 — The Lonely Runner Conjecture . In this paper the conjecture has been verified for four or more runners having some particular speeds using elementary tools.
+- [The lonely runner problem -A simulation] (www.researchgate.net, Mar 22, 2025)
+  https://www.researchgate.net
+  Mar 22, 2025 — The lonely runner conjecture , a well-known problem in number theory and combinatorics, posits that for any set of runners moving at distinct ... Read more
+- [(PDF) A proof of the lonely runner conjecture] (www.academia.edu, )
+  https://www.academia.edu
+  The work proves the lonely runner conjecture , also known as the view obstruction problem. The proof employs induction, establishing validity for k runners
+- [The Lonely Runner Conjecture | - AMS Blogs] (blogs.ams.org, Aug 22, 2013)
+  https://blogs.ams.org
+  Aug 22, 2013 — Mathematicians normally employ one of three methods of proof in their tomb raiding; mathematical induction, direct deduction, or contradiction. Read more
+
+### q03_cyclic.json  (8 results)
+- [(PDF) On Coloring Distance Graphs] (www.academia.edu, )
+  https://www.academia.edu
+  This problem asks for the smallest number of colors needed to color the points of the plane R so that points unit distance apart have distinct colors.
+- [New Quadratic Polynomials for Primes | PDF] (www.scribd.com, )
+  https://www.scribd.com
+  Lonely Runner Conjecture PDF No ratings yet Remarks on the Lonely Runner Conjecture 31 pages Nonexistence of Solutions in Pseudo-Parabolic Equations PDF
+- [Mathematics Nov 2021] (arxiv.org, )
+  http://arxiv.org
+  On the time for a runner to get lonely Ludovic Rifford. On augmented finite element formulation for the Navier--Stokes equations … a finite group acting.  ...
+- [discrete thoughts - Springer Nature] (link.springer.com, )
+  https://link.springer.com
+  An infinite class of finite sets is no longer a finite set, and infinity has a way of getting into the most finite of considerations.
+- [Intellectual development statement] (www.cs.cmu.edu, )
+  https://www.cs.cmu.edu
+  by V Conitzer — The conjecture remained unproven until 2005, when a randomized reduction was given by Ailon et al. [1]. A later derandomization of this reduction by Alon ... Read more 22 pages
+- [897 rows where sourced_how = "wikipedia list of unsolved] (explorer-production-64a5.up.railway.app, )
+  https://explorer-production-64a5.up.railway.app
+  The lonely runner conjecture – if k {\displaystyle k} runners with pairwise distinct speeds run round a track of unit length, will every runner be " lonely "
+- [certify/gpt-4.csv at main · reveondivad/certify] (github.com, )
+  https://github.com
+  means that a formula has no solutions. Lonely Runner Conjecture , a mathematical problem, not a medical or clinical one. Therefore, medical knowledge and ...
+- [Mathematics Rhyme and Reason 9781470449889,] (dokumen.pub, )
+  https://dokumen.pub
+  Mathematics: Rhyme and Reason is an exploration of the aesthetic value of mathematics and the culture of the mathematics...
+
+### q04_cusick.json  (8 results)
+- [View-obstruction: a shorter proof for 6 lonely runners] (www.sciencedirect.com, )
+  https://www.sciencedirect.com
+  by J Renault · 2004 · Cited by 48 — The Lonely Runner Conjecture has been introduced by Wills [8] and independently by Cusick [4], was motivated by view - obstruction problems in n -dimensional ...
+- [Lonely runner conjecture] (en.wikipedia.org, )
+  https://en.wikipedia.org
+  the lonely runner conjecture is a conjecture about the long-term behavior of runners on a circular track . as a view-obstruction problem in 1974 by Thomas W.  ...
+- [View-obstruction: a shorter proof for 6 lonely runners] (compmath.wordpress.com, )
+  https://compmath.wordpress.com
+  by J Renault · 2004 · Cited by 47 — The Lonely Runner Conjecture has been introduced by Wills [8] and independently by Cusick [4], A runner is said to be lonely at some time … motivated by view - ...
+- [lonely runners in function fields] (ora.ox.ac.uk, )
+  https://ora.ox.ac.uk
+  by S Chow · 2019 · Cited by 7 — The conjecture asserts that each runner is lonely at some point in time, meaning distance at least 1/m from the others. View - obstruction problems. Cusick , The  ...
+- [Nine and ten lonely runners] (arxiv.org, Apr 18, 2026)
+  https://arxiv.org
+  Apr 18, 2026 — The Lonely Runner Conjecture of Wills and Cusick states that if k + 1 k+1 runners start running at distinct constant speeds around a unit- ...
+- [The Lonely Runner Conjecture] (av.tib.eu, )
+  https://av.tib.eu
+  A runner is lonely whenever there is no other runner closer than 1/N of a lap. Okay, view obstruction . So Cusick gave a nice geometric interpretation of lonely ...
+- [on the lonely runner conjecture] (mbpapers.math.cas.cz, )
+  https://mbpapers.math.cas.cz
+  The Lonely Runner Conjecture states that there is a time at which a given runner is at distance at least 1/(k + 1 ) from all the others. Flows, view ... 6 pages
+- [Lonely runner conjecture | UnsolvedMath] (www.unsolvedmath.com, Jun 24, 2007)
+  https://www.unsolvedmath.com
+  Jun 24, 2007 — Wills [W] introduced it as a problem in diophantine approximation, and Cusick [C1] discovered it as a geometric view obstruction problem. The ...
+
+### q05_bhk.json  (8 results)
+- [Six Lonely Runners] (www.combinatorics.org, )
+  https://www.combinatorics.org
+  by T Bohman · 2001 · Cited by 90 — In this paper we prove the case of the following conjecture (the lonely runner conjecture): for any positive reals there exists a real number ... Read more
+- [the lonely runner conjecture: the case for 6 runners] (www.semanticscholar.org, )
+  https://www.semanticscholar.org
+  This is an expository paper in which we look at the lonely runner conjecture through the lens of diophantine approximations. Specifically, we will explore ...
+- [Six lonely runners] (cris.technion.ac.il, )
+  https://cris.technion.ac.il
+  In this paper we prove the k = 5 case of the following conjecture (the lonely runner . Bohman , Tom ; Holzman , Ron ; Kleitman , Dan. / Six lonely runners . Bohman , ...
+- [Six lonely runners.] (eudml.org, )
+  https://eudml.org
+  by T Bohman · 2001 · Cited by 88 — Bohman, Tom, Holzman, Ron, and Kleitman, Dan . "Six lonely runners.." The Electronic Journal of Combinatorics [electronic only] 8.2 (2001): Research paper R3 ... Read more
+- [on the lonely runner conjecture] (mbpapers.math.cas.cz, )
+  https://mbpapers.math.cas.cz
+  The Lonely Runner Conjecture states that there is a time at which a given runner is at distance at least 1/(k + 1 ) from all the others. 6 pages
+- [Lonely runner problem] (compmath.wordpress.com, )
+  https://compmath.wordpress.com
+  The problem is related to number theory problems. Bohman et al (2001) Tom Bohman , Ron Holzman , Daniel J. Kleitman (2001) Six Lonely Runners . a shorter proof ...
+- [Six Lonely Runners] (holzman.technion.ac.il, )
+  http://holzman.technion.ac.il
+  by T Bohman · 2001 · Cited by 87 — Six Lonely Runners Tom Bohman ∗. All n runners start at the same time and place. if there are less than or equal to five runners on the track then every runner ...
+- [The lonely runner conjecture holds for nine runners] (arxiv.org, )
+  https://arxiv.org
+  by M Rosenfeld · 2025 · Cited by 7 — The lonely runner conjecture, first stated by Wills in well-known open problem in combinatorial number theory. Bohman, R. Holzman, and D. Kleitman . Six Lonely ...
+
+### q06_barajas.json  (8 results)
+- [[0710.4495] The lonely runner with seven runners] (arxiv.org, )
+  https://arxiv.org
+  by J Barajas · 2007 · Cited by 81 — The conjecture has been proved up to six runners (k\le 5). A formulation of the problem is related to the regular chromatic number of distance ... Read more
+- [The Lonely Runner with Seven Runners] (www.researchgate.net, )
+  https://www.researchgate.net
+  The conjecture has been proved up to six runners ( k ≤ 5 k\le 5 ). A formulation of the problem is related to the regular chromatic number of distance graphs . Read more
+- [Lonely runner conjecture] (en.wikipedia.org, )
+  https://en.wikipedia.org
+  In number theory, specifically the study of Diophantine approximation, the lonely runner conjecture is a conjecture about the long-term behavior of runners ... Read more
+- [The Lonely Runner Conjecture turns 60] (www.sciencedirect.com, )
+  https://www.sciencedirect.com
+  by G Perarnau · 2025 · Cited by 13 — The conjecture states that, for each runner , there is a time where she is lonely , precisely, at distance at least 1 / n on the circle from all the other runners ... Read more
+- [#A29 INTEGERS 19 (2019) LONELY RUNNER] (math.colgate.edu, )
+  https://math.colgate.edu
+  2019 · Cited by 14 — For more on the. Lonely Runner Conjecture's history, proofs for k ≤ 6, connections to Diophantine ... Serra , The lonely runner with seven runners ... Read more 13 pages
+- [The lonely runner with seven runners] (www.combinatorics.org, )
+  https://www.combinatorics.org
+  by J Barajas · 2008 · Cited by 81 — The conjecture has been proved up to six runners (k ≤ 5). A formulation of the problem is related to the regular chromatic number of distance graphs . We use a. Read more
+- [The lonely runner problem for many runners] (scispace.com, Mar 12, 2010)
+  https://scispace.com
+  Mar 12, 2010 — ... proof in [15]). Recently, Barajas and Serra ([2]) proved the conjecture for n = 6. For each n ⩾ 7 the lonely runner conjecture is still open. Read more
+- [(PDF) A proof of the lonely runner conjecture] (www.academia.edu, )
+  https://www.academia.edu
+  The work proves the lonely runner conjecture , also known as the view obstruction problem. The proof employs induction, establishing validity for k runners ... Read more
+
+### q07_tight.json  (8 results)
+- [Past Talks - SCMS Combinatorics Seminar] (scmscomb.github.io, )
+  https://scmscomb.github.io
+  The lonely runner conjecture can be stated as follows: for any n positive integers … be sets of integers. This is tight and establishes a conjecture of Keevash ...
+- [Program – RS&A2023] (rsa.math.cmu.edu, )
+  https://rsa.math.cmu.edu
+  The lonely runner conjecture can be stated as follows: for any n positive integers v1<v2<⋯<vn there exists a real number t such that 1/(n+1)≤{vit}?n/(n+1) for ... Read more
+- [An Annoying Open Problem] (rjlipton.com, Oct 8, 2011)
+  https://rjlipton.com
+  Oct 8, 2011 — Groups have a tight structure that varies with the prime factorization of {n} , the number of elements. Groups can have many different ...
+- [Minimal covering bodies and Brunn-Minkowski type] (arxiv.org, Jun 12, 2026)
+  https://arxiv.org
+  Jun 12, 2026 — the covering radius of Minkowski sums has been studied in the context of the Lonely Runner Conjecture [1, 4, 10] . is a finite set , sets of ...
+- [Circular chromatic number of distance graphs with] (onlinelibrary.wiley.com, )
+  https://onlinelibrary.wiley.com
+  by X Zhu · 2002 · Cited by 59 — This study investigates the circular chromatic number. This settles a conjecture proposed independently by Chen et al. the lonely runner , J.  ...
+- [seminar in number theory: the topic proposal] (www.ihes.fr, )
+  https://www.ihes.fr
+  the classification of rational periodic points of quadratic polynomials of period 3. The lonely runner conjecture • Zero–one laws in Diophantine approximation ...
+- [On the largest sum-free subset problem in the integers] (www.researchgate.net, Aug 16, 2026)
+  https://www.researchgate.net
+  Aug 16, 2026 — lonely runner conjecture . It turns out this is related to the lonely runner conjecture . Conjecture 3 ( Lonely Runner ) jectured that every 3-cube ...
+- [References] (dwest.web.illinois.edu, )
+  https://dwest.web.illinois.edu
+  The lonely runner conjecture is often considered in the following manner: assume that all speeds are integers, not divisible by the same prime , and that the ... 21 pages
+
+### q08_smallcases.json  (6 results)
+- [Unsolved problems with the common core | Bits of DNA] (liorpachter.wordpress.com, Sep 20, 2015)
+  https://liorpachter.wordpress.com
+  Sep 20, 2015 — A runner is lonely at time t if she is at a distance of at least 1/8 from every other runner at time t. If the runners all start at the same ... Read more
+- [Jaan Allikvere's research works] (www.researchgate.net, )
+  https://www.researchgate.net
+  We prove the Lonely Runner Conjecture for fourteen runners by a computer-assisted extension of the finite-checking framework of Sungkawichai and ...
+- [May | 2015 | What's new - Terence Tao] (terrytao.wordpress.com, May 30, 2015)
+  https://terrytao.wordpress.com
+  May 30, 2015 — The lonely runner conjecture is the following open problem: runner is “lonely” in the sense that it is separated by a distance at least {1/n} ...
+- [Open problems in geometry of continued fractions] (arxiv.org, )
+  https://arxiv.org
+  ( Lonely Runner conjecture .) Assume that k k runners start a competition at the a common point of the circular track with circumference 1. Read more
+- [Sequim students shine at state fair] (www.sequimgazette.com, Apr 23, 2014)
+  https://www.sequimgazette.com
+  Apr 23, 2014 — ... Proof : The Lonely Runner Conjecture .” In her proof , this conjecture states that if eight runners having distinct constant speeds start at a ... Read more
+- [Noah Kravitz from Yale University] (www.scilit.com, )
+  https://www.scilit.com
+  We introduce a sharpened version of the well-known Lonely Runner Conjecture of Wills and Cusick. Given , we define the associated maximum loneliness to be
+
+### q09_induction.json  (6 results)
+- [Cloud allocation. Server-days and vCPU-hours are] (www.researchgate.net, )
+  https://www.researchgate.net
+  Lonely Runner Conjecture for fourteen runners . With one runner stationary, their thirteen- runner result supplies the induction input, and their reduction ...
+- [On the largest sum-free subset problem in the integers] (arxiv.org, )
+  https://arxiv.org
+  In Section 7, we mention a connection the the lonely runner conjecture . In section 8, we prove Theorem 3. 2. Proof of Theorem 2. Read more
+- [May | 2015 | What's new - Terence Tao] (terrytao.wordpress.com, May 30, 2015)
+  https://terrytao.wordpress.com
+  May 30, 2015 — The lonely runner conjecture is the following open problem: runner is “ lonely ” One can normalise the speed of the lonely runner to be zero, at ...
+- [UnsolvedProblems@groups.io | Topics] (groups.io, Jun 27, 2016)
+  https://groups.io
+  Jun 27, 2016 — Lonely Runner Conjecture is true for 3 runners , even with irrational speed assignments. measuring distances and time intervals when speeds are ...
+- [2020 SURF / SEMS Projects - Mathematical Sciences] (www.cmu.edu, )
+  https://www.cmu.edu
+  The lonely runner conjecture states that each runner is lonely at some time. We show that this holds when the speeds differ by at most (2−o(1))n ( 2 − o ( 1 ) )
+- [A SURVEY ON COLORING PARAMETERS OF DISTANCE] (www.jstor.org, )
+  https://www.jstor.org
+  by DDF Liu · 2008 · Cited by 41 — Although the lonely runner conjecture is widely open for eight or more runners 1 , an analogy for the parameter fi(D) ^ 1/(|jD| + 1), is quite ... Read more
+
+### q10_survey.json  (8 results)
+- [The Man Behind the Lonely Runner | Universität Siegen] (www.uni-siegen.de, )
+  https://www.uni-siegen.de/en/news/the-man-behind-the-lonely-runner
+  The Canadian mathematician Luis Goddyn proposed the “Lonely Runner Conjecture.” Wills wrote to him at the time: “Wonderful name, very poetic.”. Missing:  history  | Show results with:
+- [The lonely runner conjecture holds for nine runners - arXiv] (arxiv.org, )
+  https://arxiv.org/html/2512.01912v1
+  The lonely runner conjecture, first stated by Wills in 1967 [21, 22] , is a well-known open problem in combinatorial number theory with several ... Missing:  history  | Show results with:
+- [The Lonely Runner Conjecture turns 60 - ScienceDirect] (www.sciencedirect.com, )
+  https://www.sciencedirect.com/science/article/pii/S1574013725000747
+  The Lonely Runner (LR) Conjecture was posed by Wills [1] in 1968 (see also [2], [3]), in the context of Diophantine approximation, and by Cusick [4] in 1973, Missing:  history  | Show results with:
+- [Lonely runner conjecture - Wikipedia] (en.wikipedia.org, )
+  https://en.wikipedia.org/wiki/Lonely_runner_conjecture
+  The conjecture was first posed in 1967 by German mathematician Jörg Wills [de], in purely number-theoretic terms, and independently as a view-obstruction ... Missing:  survey  | Show results with:
+- [Lonely Runner Conjecture - UnsolvedMath] (www.unsolvedmath.com, )
+  https://www.unsolvedmath.com/problems/COMB-002
+  Proposed by J. M. Wills in 1967, this conjecture concerns runners on a unit-length circular track with distinct constant speeds. A runner is "lonely" if all ...
+- [Correlation Among Runners and Some Results on the Lonely] (www.combinatorics.org, )
+  https://www.combinatorics.org/ojs/index.php/eljc/article/view/v23i1p50
+  The Lonely Runner Conjecture, posed independently by Wills. We study the correlation among the time that runners spend close to the origin. the ... Missing:  survey  | Show results with:
+- [[PDF] The lonely runner conjecture: the case for 6 runners] (www.ihes.fr, )
+  https://www.ihes.fr/~rzhang/files/teaching/useminar_s26_papers/useminar_s26_illanes_martinez_de_la_vega.pdf
+  The Lonely Runner Conjecture, first proposed by Wills in 1968 [Wil68], is best pictured by the formulation that gave it its name, as introduced in 1996 [Bie98].
+- [Lonely Runner Conjecture Proof - viXra.org] (vixra.org, )
+  https://vixra.org/abs/2603.0086
+  The Lonely Runner Conjecture, independently proposed by Wills (1967) and Cusick (1973), asserts that for any n runners on a unit circular ...
+
+### q11_spectrum.json  (8 results)
+- [Amending the Lonely Runner Spectrum Conjecture] (arxiv.org, Jan 30, 2026)
+  https://arxiv.org
+  Jan 30, 2026 — The Lonely Runner Conjecture asserts that all runners will sooner or later become lonely regardless of the speeds, possibly at different times. Read more
+- [The Lonely Runner Conjecture turns 60] (www.sciencedirect.com, )
+  https://www.sciencedirect.com
+  by G Perarnau · 2025 · Cited by 13 — The conjecture states that, for each runner, there is a time where she is lonely , precisely, at distance at least 1 / n on the circle from all the other runners ... Read more
+- [Amending the Lonely Runner Spectrum Conjecture] (www.combinatorics.org, )
+  https://www.combinatorics.org
+  by HT Fan · 2026 · Cited by 6 — At a particular moment in time, a runner is considered “ lonely ” if he or she is at least 1 n units of distance away from every other instances ...
+- [Lonely runner conjecture] (en.wikipedia.org, )
+  https://en.wikipedia.org
+  Runners colored black have not yet been lonely . The white arcs, of length 2/n, indicate that a runner is currently lonely . Yellow runners have experienced  ...
+- [On the lonely runner conjecture] (www.researchgate.net, May 25, 2026)
+  https://www.researchgate.net
+  May 25, 2026 — The lonely runner conjecture states that there is a time at which all runners are at least 1/(k + 1 ) from their common starting point. The ... Read more
+- [New Strides Made on Deceptively Simple 'Lonely Runner] (www.quantamagazine.org, Mar 6, 2026)
+  https://www.quantamagazine.org
+  Mar 6, 2026 — Wills' conjecture is equivalent to saying that each runner will always end up lonely at some point, no matter what the other runners ' speeds ...
+- [Amending and Continuing the Lonely Runner Spectrum] (meetings.ams.org, )
+  https://meetings.ams.org
+  by HT Fan · Cited by 6 — The main results of this paper are: Disproving the Loneliness Spectrum Conjecture for with an explicitly constructed family of countercases ; Proposing an ... Read more
+- [Amending the Lonely Runner Spectrum Conjecture - ADS] (ui.adsabs.harvard.edu, )
+  https://ui.adsabs.harvard.edu
+  by H Tin Fan · 2023 — $$ We disprove the Loneliness Spectrum Conjecture for $n = 4 $ with an infinite family of counterexamples and propose an alternative conjecture. We confirm ... Read more
+
+### q12_recent.json  (8 results)
+- [More (shifted) runners, less loneliness - arXiv] (arxiv.org, )
+  https://arxiv.org/html/2609.23952
+  The shifted lonely runner conjecture was recently disproved by Blanco, Criado and Santos. We give quantitative bounds on its failure as the ...
+- [[2609.06259] Lonely Runner Relations - arXiv] (arxiv.org, )
+  https://arxiv.org/abs/2609.06259
+  We study the Lonely Runner Conjecture (LRC), conceived by Jörg M. Wills in the 1960's: Given positive integers n_1, n_2, \dots, n_k, there ... Missing:  2024  2025
+- [Fourteen and fifteen lonely runners - arXiv] (arxiv.org, )
+  https://arxiv.org/html/2609.02604v2
+  We prove the Lonely Runner Conjecture for fourteen and fifteen runners. Our proof combines a stronger bound on the speed product in a primitive ...
+- [[2509.14111] The lonely runner conjecture holds for eight runners] (arxiv.org, )
+  https://arxiv.org/abs/2509.14111
+  Abstract:We prove that the lonely runner conjecture holds for eight runners. Our proof relies on a computer verification and on recent ... Missing:  2024  | Show results with:
+- [[2511.22427] Nine and ten lonely runners - arXiv] (arxiv.org, )
+  https://arxiv.org/abs/2511.22427
+  The Lonely Runner Conjecture of Wills and Cusick states that if k+1 runners start running at distinct constant speeds around a unit-length ... Missing:  2024  results
+- [New Strides Made on Deceptively Simple 'Lonely Runner] (www.quantamagazine.org, )
+  https://www.quantamagazine.org/new-strides-made-on-deceptively-simple-lonely-runner-problem-20260306
+  A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions.
+- [New Strides Made on Deceptively Simple 'Lonely Runner] (www.reddit.com, )
+  https://www.reddit.com/r/math/comments/1rsn6lu/new_strides_made_on_deceptively_simple_lonely
+  The papers: The lonely runner conjecture holds for eight runners Matthieu Rosenfeld arXiv ... new results at a rapid pace. Mathematicians ...
+- [The Lonely Runner Conjecture turns 60 - RECERCAT] (recercat.cat, )
+  https://recercat.cat/handle/2072/489097
+  The Lonely Runner Conjecture originated in Diophantine approximation is turning 60. Even if the conjecture is still widely open, the flow of ...
+
+### q13_three.json  (7 results)
+- [Lonely runner conjecture] (www.openproblemgarden.org, Jun 24, 2007)
+  https://www.openproblemgarden.org
+  Jun 24, 2007 — 3 $ runners are easy to check. The $ k=4 $ case was proved independently by Betke and Wills [BW] and by Cusick . The $ k=5 $ case was first ...
+- [SOME REMARKS ON THE LONELY RUNNER CONJECTURE] (cdm.ucalgary.ca, )
+  https://cdm.ucalgary.ca
+  by T Tao · 2018 · Cited by 50 — The lonely runner conjecture of Wills and Cusick , in its most popular formulation, asserts that if n runners with distinct con- stant speeds run around a unit ...
+- [On the lonely runner conjecture] (dml.cz, )
+  https://dml.cz
+  by RK Pandey · 2010 · Cited by 2 — The Lonely Runner Conjecture states that there is a time at which a given runner is at distance at least $1/(k+1)$ from all the others. ( 1973 ), American ...
+- [Eleven, twelve, and thirteen lonely runners] (www.researchgate.net, Apr 28, 2026)
+  https://www.researchgate.net
+  Apr 28, 2026 — The Lonely Runner Conjecture of Wills and Cusick states that if k+1 runners start running at distinct constant speeds around a unit-length ... Read more
+- [The lonely runner problem for many runners] (scispace.com, Mar 12, 2010)
+  https://scispace.com
+  Mar 12, 2010 — The conjecture originally comes from the paper of Wills ([17]), where it is stated for integer vi's. Independently, this problem was considered ...
+- [[PDF] Random runners are very lonely] (www.semanticscholar.org, )
+  https://www.semanticscholar.org
+  The lonely runner conjecture of Wills and Cusick asserts that if $n$ runners with distinct constant speeds run around a a circular unit length track ... Read more
+- [The lonely runner problem for many runners] (web.math.pmf.unizg.hr, )
+  https://web.math.pmf.unizg.hr
+  by A Dubickas · 2011 · Cited by 19 — The lonely runner conjecture asserts that for any positive integer n and any positive numbers v1 < ... < vn there exists a positive number t such that ||vi t|| ... Read more
+
+### q14_chromatic.json  (8 results)
+- [The Lonely Runner Conjecture turns 60] (www.sciencedirect.com, )
+  https://www.sciencedirect.com
+  by G Perarnau · 2025 · Cited by 13 — The conjecture states that, for each runner , there is a time where she is lonely , precisely, at distance at least 1 / n on the circle from all the other runners ... Read more
+- [Lonely runner conjecture] (en.wikipedia.org, )
+  https://en.wikipedia.org
+  Implications of the conjecture include solutions to view-obstruction problems and bounds on properties, related to chromatic numbers , of certain graphs . Read more
+- [from rainbow to the lonely runner: a survey on coloring] (www.semanticscholar.org, Jan 7, 2008)
+  https://www.semanticscholar.org
+  Jan 7, 2008 — Math. 2008. TLDR. It is proved that the chromatic number of a distance graph with D={a, b,c,d} is five only if either D={1,2,3,4k} or D={ a,b ... Read more
+- [The Lonely Runner Conjecture] (av.tib.eu, )
+  https://av.tib.eu
+  Recently, there's been some work with distance graphs and the chromatic number of these graphs . So what is a distance graph ? 15:22. Imagine a graph where you ...
+- [The Lonely Runner Conjecture turns 60] (arxiv.org, )
+  https://arxiv.org
+  by G Perarnau · 2024 · Cited by 13 — Chang, Liu and Zhu [15] proved that µ(D) is equivalent to the fractional chromatic number of the distance graph G(Z,D): χf (G(Z,D)) = 1. µ(D). Read more
+- [New Strides Made on Deceptively Simple 'Lonely Runner] (www.quantamagazine.org, Mar 6, 2026)
+  https://www.quantamagazine.org
+  Mar 6, 2026 — A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions.
+- [Regular chromatic number and the lonely runner problem] (www.academia.edu, )
+  https://www.academia.edu
+  The lonely runner conjecture states that there is a time at which one runner is at distance at least 1/(k + 1 ) from all the others. The conjecture has been ... Read more
+- [Circular chromatic number of distance graphs with] (www.researchgate.net, May 5, 2026)
+  https://www.researchgate.net
+  May 5, 2026 — Zhu [13] used known results for the lonely runner problem to compute the chromatic number of distance graphs . In [2] a similar approach was used ... Read more
+
+### q15_pairsum.json  (8 results)
+- [The Lonely Runner Conjecture - arXiv] (arxiv.org, )
+  https://arxiv.org/html/1211.2482v1
+  Imagine two runners traveling, at distinct integer speeds, in the same direction along a circular track of unit perimeter.
+- [Lonely runner conjecture - Wikipedia] (en.wikipedia.org, )
+  https://en.wikipedia.org/wiki/Lonely_runner_conjecture
+  The lonely runner conjecture states that each runner is lonely at some time, no matter the choice of speeds.
+- [Lonely Runner Conjecture [visualization] : r/math - Reddit] (www.reddit.com, )
+  https://www.reddit.com/r/math/comments/2r8m69/lonely_runner_conjecture_visualization
+  The conjecture says that whatever the starting speeds are, every runner will be lonely at some time. What you did is just taking a specific set ... Missing:  sum  | Show results with:
+- [The Lonely Runner Conjecture | Epoch AI] (epoch.ai, )
+  https://epoch.ai/frontiermath/open-problems/lonely-runner
+  The conjecture states: For any such set of n runners, there exists a time t at which every runner is at distance at least 1/(n+1) from the starting position 0. Missing:  rational  | Show results with:
+- [THE LONELY RUNNER CONJECTURE - Infinity Insights] (mathematicsassocbitspilani.substack.com, )
+  https://mathematicsassocbitspilani.substack.com/p/the-lonely-runner-conjecture
+  THE LONELY RUNNER CONJECTURE states that each runner is lonely at some time, no matter the choice of speeds. Missing:  sum  | Show results with:
+- [New Strides Made on Deceptively Simple 'Lonely Runner] (www.quantamagazine.org, )
+  https://www.quantamagazine.org/new-strides-made-on-deceptively-simple-lonely-runner-problem-20260306
+  A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions. Missing:  sum  rational
+- [A remark on the lonely runner conjecture - Terence Tao] (terrytao.wordpress.com, )
+  https://terrytao.wordpress.com/2015/05/13/a-remark-on-the-lonely-runner-conjecture
+  One can normalise the speed of the lonely runner ... t may be assumed to be rational (with denominator being the sum or difference of two integer ...
+- [[PDF] The lonely runner conjecture: the case for 6 runners] (www.ihes.fr, )
+  https://www.ihes.fr/~rzhang/files/teaching/useminar_s26_papers/useminar_s26_illanes_martinez_de_la_vega.pdf
+  The conjecture states that given n runners running at different constant speeds in a circle of circumference 1, having all started at pace, different from that ... Missing:  sum  | Show results with:
+
+### q16_betke.json  (8 results)
+- [The lonely runner conjecture holds for eight runners] (arxiv.org, Sep 17, 2025)
+  https://arxiv.org
+  Sep 17, 2025 — The Lonely Runner Conjecture is a well-known open problem in combinatorial number theory and Diophantine approximation. It was introduced ... Read more
+- [The Lonely Runner Conjecture turns 60] (www.sciencedirect.com, )
+  https://www.sciencedirect.com
+  by G Perarnau · 2025 · Cited by 13 — Betke and Wills [38] give a proof from the perspective of Diophantine approximation , although they mention that their method does not extend to n ≥ 4 .
+- [on the lonely runner conjecture] (mbpapers.math.cas.cz, )
+  https://mbpapers.math.cas.cz
+  In this paper the conjecture has been verified for four or more runners having some particular speeds using elementary tools. Keywords: congruences, arithmetic ... Read more 6 pages
+- [The Lonely Runner Conjecture turns 60 - UPC Commons] (upcommons.upc.edu, )
+  https://upcommons.upc.edu
+  by G Perarnau Llobet · 2025 · Cited by 13 — Betke and Wills [38] give a proof from the perspective of Diophantine approximation , although they mention that their method does not extend to ...
+- [The lonely runner conjecture and equidistribution on tori] (mathoverflow.net, Feb 3, 2022)
+  https://mathoverflow.net
+  Feb 3, 2022 — So, I've been reading about the lonely runner conjecture, but I have to admit that my knowledge of diophantine approximation is so limited that I wouldn't ...
+- [Nine and ten lonely runners] (www.combinatorics.org, )
+  https://www.combinatorics.org
+  by T Trakulthongchai · 2026 · Cited by 11 — The Lonely Runner Conjecture predicts that regardless of the runners ' speeds , each runner will become lonely at some time. Betke and Wills
+- [Would this proof strategy work for proving the lonely runner] (math.stackexchange.com, Aug 30, 2015)
+  https://math.stackexchange.com
+  Aug 30, 2015 — The problem is the lonely runner conjecture. This conjecture states that if k runners begin running down a circle of unit circumference with random speeds, ...
+- [The Lonely Runner Conjecture] (av.tib.eu, )
+  https://av.tib.eu
+  A runner is lonely whenever there is no other runner closer than 1/N of a lap. ational geometry, diophantine approximation and graph coloring. Betke in 72, he ...
+
+### q17_kravitz.json  (5 results)
+- [When atmost one runner prevents loneliness] (vixra.org, )
+  https://vixra.org
+  The Lonely Runner Conjecture (LRC) and the Shifted LRC (SLRC) with n runners , both ask whether there exists a time at which there are no moving runners in an ...
+- [[PDF] Relative Lonely Runner spectra] (www.semanticscholar.org, Nov 19, 2024)
+  https://www.semanticscholar.org
+  Nov 19, 2024 — The structure of Lonely Runner spectra · V. GiriNoah Kravitz ; The Lonely Runner Conjecture turns 60 · G. PerarnauOriol Serra ; Odd denominators ...
+- [[2111.13688] On the time for a runner to get lonely] (arxiv.org, )
+  https://arxiv.org
+  by L Rifford · 2021 · Cited by 5 — Finally, we show that the so-called gap of loneliness in one round (with respect to the Lonely Runner Conjecture), where we have m+1 runners ...
+- [Lonely Runner Conjecture: Does aligning others at 0 via] (math.stackexchange.com, May 4, 2026)
+  https://math.stackexchange.com
+  May 4, 2026 — When some runners are “co-dependent” (e.g. 1/2 and 1/4), they naturally form a tight cluster whenever the independent runners are aligned at 0.
+- [Nine and Ten Lonely Runners] (www.combinatorics.org, )
+  https://www.combinatorics.org
+  by T Trakulthongchai · 2026 · Cited by 10 — The Lonely Runner Conjecture of Wills and Cusick states that if runners start running at distinct constant speeds around a unit-length ...
+
+### q18_tao.json  (7 results)
+- [Relative Lonely Runner Spectra - Vanshika Jain] (perso.math.u-pem.fr, )
+  https://perso.math.u-pem.fr
+  by V Jain · Cited by 4 — The conjecture states that for each runner , there exists a time t . 2. Any speed can be negated. 3. Speeds can be scaled by any nonzero real ... 42 pages
+- [Matthias SCHYMURA | Research Assistant | Dr. rer. nat.] (www.researchgate.net, )
+  https://www.researchgate.net
+  Tao ( 2018 ) showed that in order to prove the Lonely Runner Conjecture (LRC) up to $n+1$ runners it suffices to consider positive integer velocities in the order ... Read more
+- [Relative Lonely Runner spectra] (escholarship.org, )
+  https://escholarship.org
+  by V Jain · 2026 · Cited by 4 — In the present work, we prove that such relative spectra S 1 ( U ) have a very rigid arithmetic structure, and that one can explicitly find a complete ... Read more
+- [Abstracts of ELAZ 2026 16-21 February 2026 Strobl, Austria] (www.math.tugraz.at, )
+  https://www.math.tugraz.at
+  T. Tao, Some remarks on the lonely runner conjecture , Contrib. Discrete Math. (13), 2018, 1–31. consequence of a Bombieri-Vinogradov type theorem on the ...
+- [List of pending theorems with web resources] (www.theoremoftheday.org, )
+  https://www.theoremoftheday.org
+  Theorem of the Day. List of pending theorems with web resources. At some time in the future I hope there will be a page for each of the following theorems . Read more
+- [Linear Independence in Gabor Systems | PDF] (www.scribd.com, Sep 4, 2025)
+  https://www.scribd.com
+  Sep 4, 2025 — 16. T. Tao, Some remarks on the lonely runner conjecture , Contrib. Discrete Math. 13 (2018), no. 2, 1–31. Read more
+- [Proposals for polymath projects] (mathoverflow.net, Sep 30, 2015)
+  https://mathoverflow.net
+  Sep 30, 2015 — Background  Polymath projects are a form of open Internet collaboration aimed towards a major mathematical goal, usually to settle a major mathematical ...
+
+### q19_sungk.json  (4 results)
+- [Coloopless zonotopes and counterexamples to the Shifted] (arxiv.org, )
+  https://arxiv.org
+  Lonely Runner Conjecture (LRC) can be restated as a convex-geometric question on the so-called LR zonotopes, lattice zonotopes with one more generator than ...
+- [The covering radius of the parallelogram í µí±„ í µí±ƒ 2,5] (www.researchgate.net, )
+  https://www.researchgate.net
+  The Lonely Runner Conjecture states that if k+1 runners start at the same point on a unit-length circular track and run with distinct constant speeds, then each ... Read more
+- [A Unified Difference-LCM-CRT Reduction Framework for] (www.academia.edu, )
+  https://www.academia.edu
+  This paper develops a single arithmetic reduction framework for the Lonely Runner Conjecture (LRC), Sungkawichai and T. P.
+- [Amended Loneliness Spectrum Conjecture · cqfd] (cqfdlab.xyz, Aug 31, 2026)
+  https://cqfdlab.xyz
+  Aug 31, 2026 — Sungkawichai –Trakulthongchai, Eleven, twelve, and thirteen lonely runners , leftover finite boxes … prior finite checks, not re-derived here.
+
+### q20_product.json  (8 results)
+- [Open Problems in Number Theory | PDF] (www.scribd.com, Mar 29, 2019)
+  https://www.scribd.com
+  Mar 29, 2019 — The lonely runner conjecture: if runners with pairwise distinct speeds run round a track of unit length , will every runner be "lonely"
+- [Mathematics Nov 2022] (arxiv.org, )
+  http://arxiv.org
+  Title: An improved lower bound for the union-closed set conjecture . Will Sawin. Comments: 9 pages. Subjects: Combinatorics (math.CO). [2325] arXiv:2211.11506 ... Read more
+- [List of unsolved problems in mathematics] (www.hellenicaworld.com, )
+  https://www.hellenicaworld.com
+  The lonely runner conjecture : if k + 1 runners with pairwise distinct speeds run round a track of unit length, will every runner be " lonely "
+- [of the American Mathematical Society] (www.ams.org, Apr 9, 2011)
+  https://www.ams.org
+  Apr 9, 2011 — A Bound on a Product of SD-Terms. How does an estimate on the least of two sd-terms yield an upper estimate on a product of sd-terms? The ... Read more
+- [. a a] (www.congress.gov, )
+  https://www.congress.gov
+  set forth. The accommodations along the trail route are of two types: public, such as farmhouses, inns or camps on or adjacent to the trail; the second ... Read more
+- [HOUSE OF REPRESENTATIVES] (www.govinfo.gov, )
+  https://www.govinfo.gov
+  increased electronic effectiveness or speed in the dissemination of information, and consumption of a product that is injurious to our health.
+- [Environmentally Sustainable Production Systems for] (ipps.org, )
+  https://ipps.org
+  The use of variable speed drive pumps improves management of operating pres- sure for the sprinklers as well as flexibility when beds are partially shut down. 595 pages
+- [Daily Reflector, November 26, 1981 - ECU Digital Collections] (digital.lib.ecu.edu, )
+  https://digital.lib.ecu.edu
+  Discover digitized images, texts, audio, and video from ECU Libraries diverse collections and it's partners.
+
+### q21_rosenfeld.json  (4 results)
+- [On the lonely runner conjecture] (eudml.org, )
+  https://eudml.org
+  by RK Pandey · 2010 · Cited by 2 — The Lonely Runner Conjecture states that there is a time at which a given runner is at distance at least from all the others.
+- [Proof of Lonely Runner Conjecture | PDF | Euclidean Vector] (www.scribd.com, )
+  https://www.scribd.com
+  The document summarizes work on proving the Lonely Runner Conjecture for almost all points. It shows that for any vector of runner velocities that are linearly
+- [The Lonely Runner Conjecture] (www.wolframcloud.com, May 23, 2014)
+  https://www.wolframcloud.com
+  May 23, 2014 — The Lonely Runner conjecture states that each runner becomes lonely at some time [1]. The conjecture has been proven for up to seven runners[2]. Read more
+- [The lonely runner problem for many runners] (scispace.com, Mar 12, 2010)
+  https://scispace.com
+  Mar 12, 2010 — The problem has been settled for n = 2, 3 ([4]), n = 4 (first in [8] and then a simpler proof was found in [5]), n = 5 ([6], a simpler proof in ... Read more
+
+### q22_jtimes.json  (8 results)
+- [Some remarks on the lonely runner conjecture - Terence Tao] (terrytao.wordpress.com, Jan 10, 2017)
+  https://terrytao.wordpress.com
+  Jan 10, 2017 — The conjecture models a situation in music of rhythmic polyphony: musical voices repeating at periodically distinct sub-intervals of the ... Read more
+- [The Lonely Runner Conjecture] (av.tib.eu, )
+  https://av.tib.eu
+  One interesting artifact about this proof is that in order to prove this, we have to use the fact the lonely runner conjecture is true for five runners .
+- [Would this proof strategy work for proving the lonely runner] (math.stackexchange.com, Aug 30, 2015)
+  https://math.stackexchange.com
+  Aug 30, 2015 — The problem is the lonely runner conjecture. This conjecture states that if k runners begin running down a circle of unit circumference with random speeds, ...
+- [The lonely runner conjecture: the case for 6 runners] (www.ihes.fr, )
+  https://www.ihes.fr
+  The conjecture states that given n runners some time . That is, they will be at a distance of at least 1 n from any other runner . 12 pages
+- [The lonely runner conjecture holds for eight runners] (arxiv.org, Sep 17, 2025)
+  https://arxiv.org
+  Sep 17, 2025 — The lonely runner conjecture asserts that for any runner there is a time at which the runner is at least a distance 1 / ( k + 1 ) 1/(k+1) away ... Read more
+- [Lonely runner conjecture] (en.wikipedia.org, )
+  https://en.wikipedia.org
+  The lonely runner conjecture states that each runner is lonely at some time , no matter the choice of speeds.
+- [The Lonely Runner Conjecture] (epoch.ai, )
+  https://epoch.ai
+  The conjecture states: For any such set of n runners, there exists a time t at which every runner is at distance at least 1/(n+1 ) from the starting position 0. Read more
+- [New Strides Made on Deceptively Simple 'Lonely Runner] (www.quantamagazine.org, Mar 6, 2026)
+  https://www.quantamagazine.org
+  Mar 6, 2026 — A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions. Read more

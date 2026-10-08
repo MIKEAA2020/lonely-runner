@@ -1,0 +1,285 @@
+% ======================================================================
+% Section 3 — The type-mismatch mechanism and four instances
+% ======================================================================
+
+\section{The type-mismatch mechanism and four instances}\label{sec:tm}
+
+\subsection{The mechanism}\label{sec:tm-mech}
+
+Call a statement $R$ a \emph{lossless reformulation} of $\lrc_n$ if $R$
+holds for all speed vectors at rung $n$ if and only if $\lrc_n$ does, with
+no slack in either direction. Call a statement $S$ a \emph{toolkit
+strengthening} of $R$ if (i) $S$ implies $R$, strictly, and (ii) the
+strictness is of the kind that a named toolkit can exploit: a uniform
+margin over a trivial baseline, a spectral gap, an interior rate, a
+monotone law in the scale parameter, a saturated bound with slack. The
+distinction is not aesthetic; it is the difference between statements
+that classification, spectral, harmonic, or polyhedral instruments can
+consume and statements they cannot.
+
+Three observations, jointly verified four times in this program, make up
+the mechanism.
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item \textbf{Losslessness is as-hard-ness.} A lossless reformulation
+carries the full difficulty of $\lrc_n$ by construction. No instrument
+that respects the equivalence---that is, no instrument whose outputs are
+invariant under the lossless rewriting---can distinguish the
+reformulation from the original.
+\item \textbf{The strengthening is false where it matters.} The
+toolkit-relevant strengthenings are strictly stronger than $\lrc$, and at
+the extremal instances (the harmonic and rung-2 families, the
+reflection-symmetric cascade families, the tight covering
+configurations) the extra margin they demand does not exist. When the
+demand is a definite statement, it is false, and small $n$ exhibits the
+falsity with exact witnesses.
+\item \textbf{The instruments land on the closed side.} The instruments a
+lossless reformulation naturally supports---exact counts,
+classifications, invariances, exhaustiveness checks---provably compose
+into statements that close everything \emph{except} the missing margin.
+In the setting of Instance 1 this is a theorem-level audit finding; in
+Instance 2 it is a theorem; in Instances 3 and 4 it is measured, with the
+saturation and decay records below.
+\end{enumerate}
+
+The four subsections that follow develop one instance each. They are
+independent: different reformulations, different hoped-for toolkits,
+different witnesses. What they share is the mechanism, and we state it
+once, here, as the paper's organizing claim: \emph{in each setting, the
+falsity of the strengthening is not an accident of the example but a
+consequence of the losslessness that made the reformulation faithful.}
+
+\subsection{Instance 1: the finite covering reformulation}\label{sec:tm-covering}
+
+The pair-sum equality theorem (\S\ref{sec:positive}) reduces
+$M(V)$ to a finite maximum over cyclic groups: $M(V)=\max_{\{u,w\}}
+\tau(u,w)$, where $\tau$ is the optimal loneliness on the pair-sum
+lattice of denominator $N=v_u+v_w$. Under this reduction $\lrc_n$
+becomes the statement that for every $V$ some pair's bad sets
+$B_w=\{k\in\Z_N:(n{+}1)\wn{wk}<N\}$ fail to cover $\Z_N$: a finite
+covering problem, exact, and apparently made for the covering toolkit.
+
+The toolkit delivered. The program proved an exact size law for the bad
+sets, a polygonal witness lemma, moat-counting and coincidence-counting
+lemmas, a lift law, and a class-group reduction at prime moduli; it
+classified the unit covering configurations completely at the rigid
+primes (Theorem~\ref{thm:rigid}); and on the full corpus of
+$3{,}712{,}576$ primitive $5$-sets with speeds $\le 56$ it closed
+$75.6\%$ of instances by proved lemmas alone ($78.2\%$ with the
+coincidence lemma) and all of them by per-modulus verification,
+localizing the residual obstruction to a single named class
+\cite{prog-artifacts}. What it did not deliver, at any point in the
+program's multi-year run, is a single statement of the type the residual
+obstruction requires: a \emph{uniform growth-in-$k$ margin over a trivial
+or measured baseline}.
+
+This is a verifiable claim, and it was verified by audit: the full proof
+inventory of the program---$34$ named results across the pair-sum,
+group-ring, tensor, and cascade sections---was classified
+statement-by-statement. Every proved statement is a closure, an
+invariance, an exhaustiveness, or a machine verification. The one
+candidate that reads like an exception, the cut law's
+``$k$-cancellation,'' resolves as a $k$-scale \emph{invariance} of the
+composed bound: it cancels exactly the $k$-dependence that a margin
+would need to grow---the opposite of the missing type. The
+spacing/packing lemma, the chain-class volume law, and the dilate theorem
+were each examined as potential margin carriers and each resolves the
+same way: a $k$-growing \emph{count} whose margin over its own trivial
+baseline is $k$-free, a degrading order-factor slack, or a conditional
+consequence of the hypothesis stack it was meant to prove.
+
+The empirical half of the reading (``no proved margin-type statement
+exists in the inventory'') is thereby settled. The structural half (``no
+classification toolkit \emph{can} produce one'') is a hypothesis about
+tool reach; it is what Instances 2--4 test, in three independent
+settings, and what the falsity archive of \S\ref{sec:witness} completes
+on the metric side.
+
+\subsection{Instance 2: the transfer-matrix route, closed by theorem}
+\label{sec:tm-transfer}
+
+The one margin-shaped candidate instrument in the entire program was a
+transfer-matrix (automaton) model of the solution cascade: transfer
+operators naturally emit spectral quantities uniform in the scale
+parameter, and a uniform spectral gap would be exactly the missing type.
+The session that built it fixed its success criterion before computing:
+the whole-cascade survival fraction must be bounded by
+$\rho^{\mathrm{depth}}$ times the initial mass, with spectral radius
+$\rho\le 1-\epsilon$ and $\epsilon$ independent of scale.
+
+\begin{lemma}[Monomial dichotomy; Lemma M of the program records]
+\label{lem:monomial}
+Every constrained transfer matrix of the lossless cascade is a partial
+permutation matrix. Its spectrum is $\{0\}$ together with roots of unity;
+its spectral radius is exactly $0$ or $1$, never interior, at any scale,
+in any state formulation. The affine pair maps compose to the identity
+around any closed fiber loop (the dilation ratios telescope), so the
+cyclic transfer product is diagonal, and its trace is the cascade's own
+survivor count.
+\end{lemma}
+
+The proof is short once the state space is fixed: the cascade is
+non-consuming (pure intersection semantics), the drift maps are
+bijections, and a bijection constrained to an invariant subset is a
+partial permutation. The machine record is not short: $1500/1500$ random
+constrained systems; $12{,}000$ exact trace fingerprints over $300$
+systems; $66$ homogenized pair systems on the committed families, with
+spectral radius $1$ at exactly the six reflection-symmetric families
+(their deletion sets close into $2$-cycles and the two-fiber survival
+fraction is exactly $1.0000$ at all depths) and $0$ at the other sixty
+(total extinction within three iterates, the intermediates set by lattice
+runs of solution points, not by geometric decay). The criterion is
+unattainable by theorem, not merely unattained.
+
+Two further doors were checked. Coarse-grained or weighted automata can
+carry interior spectral radii numerically, but the radius dominates every
+cycle's geometric mean, so a uniform gap would force uniform decay of the
+census weights---the margin as an \emph{input}, not an output---and the
+converse fails (a $2\times2$ witness with all cycle means $\le0.9$ and
+radius $1.122$: branching resurrects). Averaged or randomized operators
+collapse to the independent-extension baseline. And the reduction closes
+the loop: the whole-cascade survival fraction equals the product of
+consecutive conditional ratios, each bounded by the pair-volume and
+solution-set thinness hypotheses the route was commissioned to prove. The
+instrument is the census in different notation; it consumes the
+hypotheses it was built to generate. Losslessness forbids generated
+decay---bijections preserve measure, deletion filters without
+dissipating---and the reformulation is bounded by its own fidelity.
+
+\subsection{Instance 3: character rigidity and saturated envelopes}
+\label{sec:tm-char}
+
+The harmonic-analytic route phrased the cascade obstruction in terms of
+\emph{characters}: the four singleton coordinates and six pairwise
+differences of the placement vector form a closed system of ten
+functionals (Lemma C10 of the program records), closed under the
+renormalization action up to affine shifts, whose aggregate
+marginal-multiset is an orbit invariant. Any class-level census law must
+live on this system; the route's natural strengthenings are laws about
+its per-character profiles.
+
+They are false, exactly. The singleton-profile orbit invariance (Lemma
+V$'$) fails at both fully-enumerated primes: per-key counts match across
+orbit members only after a size permutation, and the profiles differ. The
+pairwise-profile invariance (V$''$) fails with $0/32$ sigma-matched
+tuples. The mechanism is \emph{anchor mixing}: the renormalization
+bijection couples every moving slot to the anchor coordinate; slot
+singletons map to anchor pairs and pairwise differences to non-anchor
+singletons, so no per-character statistic can be invariant---only the
+aggregate is.
+
+Worse, the per-character envelopes are \emph{saturated} exactly where the
+margin would be needed. On the committed top orbits the pinning envelope
+equals the modulus at both $k=2$ primes and $27/29$ at $k=3$ (fullness
+fractions $1.000$, $1.000$, $0.931$): the marginal boxes are full, the
+$\gamma$-envelope sits at or above the threshold value $4$ at $k=2$, and
+the only invariant sparsity is \emph{joint} (median joint densities in
+the marginal box: $1.5\%$, $7.4\%$, $6.9\%$). A bound phrased on
+individual characters is tight---zero slack---precisely at the
+configurations the obligations target.
+
+Finally, the trivial bound sits exactly at the cascade threshold. The
+baseline $|Sol|\le p^{m-1}$ realizes the constant
+$c_1=(T/(T-6)+o(1))^{m-1}$---numerically $256$, $243$, $244$ at $T=8,9,10$
+---which is exactly the value at which the depth denominator of the
+conditional scaling theorem vanishes. The hypothesis H1g's content is to
+beat the trivial bound by a factor growing in $k$; the measured factors
+($95\times$, $1{,}207\times$, $3{,}803\times$) grow, but the proved ones
+do not exist, and the sharp-constant question and the margin question
+are one criterion stated twice. This is the type mismatch in its purest
+form: the character system is exactly rich enough to locate the
+obstruction and exactly too poor to bound it.
+
+\subsection{Instance 4: the Lonely Runner zonotope}\label{sec:tm-zono}
+
+The fourth instance is metric, and its falsity archive is the paper's
+sharpest. The quotient-torus model of \S\ref{sec:prelim} gives two
+statements: the $\delta$-form (the center class is within
+$\mathrm{thr}_n$ of the lattice), which is equivalent to $\lrc_n$, and
+the $\rho$-form (every class is), which is strictly stronger and would
+open the geometry-of-numbers toolkit---transference bounds, covering
+radius inequalities, dilution arguments. The natural lemma a
+covering-radius toolkit wants first is exactly $\rho\le\mathrm{thr}_n$.
+
+It is false, with exact witnesses, from $n=5$. At the extremal harmonic
+instance $v=(1,2,3,4,5)$, the rational point
+$c=(\tfrac1{32},\tfrac{15}{32},\tfrac3{32},\tfrac78)$ has
+$D(c)=97/288>\tfrac13=\mathrm{thr}_5$: the deepest hole is not the
+center, and the covering-radius statement fails at the very instance
+where the $\delta$-form is tight. At $n=6$ the harmonic witness
+$c=(0,\tfrac5{16},\tfrac{15}{16},\tfrac34,\tfrac12)$ gives
+$D=29/80>\tfrac5{14}=\mathrm{thr}_6$, and the non-extremal instance
+$v=(1,2,3,4,5,7)$ carries $c=(\tfrac1{16},\tfrac9{16},0,\tfrac38,0)$
+with $D=4/11>\mathrm{thr}_6$: the falsity is not an extremal-curiosity
+confined to the tight family. The rung-2 instance
+$v=(1,2,3,4,5,12)$ has a witness at exactly $5/14=\mathrm{thr}_6$. All
+witnesses are non-torsion points---the deepest holes are not the center
+classes---and all are single exact evaluations of \eqref{eq:runnerform},
+checkable by hand.
+
+For $n\le4$ the two statements coincide on every instance tested: at
+$n=3$ the deepest-hole property (that the maximum of $D$ is attained at
+the center class) holds exactly when $3\mid m$ in the family
+$(1,2,m)$ for $m\le24$, and at $n=4$ it holds when
+$4\mid m$ for $m\le16$ (away-certified at $m=4,8,12$;
+branch-and-bound certified at $m=16$, \S\ref{sec:bb}), with exact
+witnesses against every other $m$.
+The coincidence of the $\delta$- and $\rho$-forms in the small cases is
+precisely why the stronger form was tempting; the $n=5$ witness is
+precisely why it is wrong.
+
+The companion hope---that the zonotope's Ehrhart theory could control
+the covering radius through the positivity structure of its
+$h^*$-polynomial---fails independently, and its failure mode is the
+cleanest illustration of type mismatch in the whole program. The
+$h^*$-polynomials are real-rooted, log-concave, and Newton, uniformly,
+in every instance tested through $n=10$ in both core families
+(Appendix~\ref{sec:hstar}). But the log-concavity \emph{strictness}
+decays like $\Theta(1/n)$ ($n\cdot\text{strictness}$ drifting from
+$\approx37$ to $\approx30$ over $n=3,\dots,10$), so there is no growing
+quantitative margin to spend; and across the instance sweeps the
+strictness has no measurable correlation with the covering margins
+(Spearman $+0.32$ at $n=3$, $-0.31$ at $n=4$; the sign flips). A
+coefficient inequality of a counting polynomial at growing scale $t$ is
+the wrong type to pin a fixed-scale metric hole depth; the computation
+says so twice, once by decay and once by correlation, and the
+covering-radius statement it was meant to feed is false at the extremal
+instances anyway. There is no mechanism, and none is needed: the bridge
+is dead on both ends.
+
+\subsection{The pattern}
+
+Table~\ref{tab:instances} assembles the four instances. Each row names
+the reformulation, the toolkit strengthening it wanted, the status of
+that strengthening, and the witness. The rows are independent; the last
+column is always finite, exact, and small. We emphasize what the table
+does \emph{not} contain: any statement falsifying $\lrc$ itself, or any
+statement weakening our certainty that the surviving equivalent forms
+(the $\delta$-form, the pair-sum form) are exactly as hard as the
+original.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{The four instances of type mismatch. ``Margin type'' is the
+statement class the toolkit needed; ``status'' is its verified fate.}
+\label{tab:instances}
+\begin{tabularx}{\textwidth}{@{} l >{\raggedright\arraybackslash}X
+>{\raggedright\arraybackslash}X l @{}}
+\toprule
+Reformulation & Toolkit wanted & Status & Witness \\
+\midrule
+Pair-sum covering & growth-in-$k$ margin & no proved instance in full
+inventory; $k$-cancellation is a $k$-invariance & audit record
+($34$ statements) \\
+Transfer cascade & spectral gap $1-\epsilon$ & false by Lemma~M;
+survival $=1$ at reflection families & six families, exact \\
+Character rigidity & per-character profile laws & V$'$/V$''$ false;
+envelopes saturated; trivial bound at threshold & exhaustive orbits;
+$0/32$ \\
+LR-zonotope & $\rho\le\mathrm{thr}_n$ (covering) & false from $n=5$;
+$h^*$ strictness decays, no correlation & $97/288$, $29/80$, $4/11$
+(exact) \\
+\bottomrule
+\end{tabularx}
+\end{table}

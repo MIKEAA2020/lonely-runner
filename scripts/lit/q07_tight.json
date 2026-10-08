@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://scmscomb.github.io",
+    "name": "Past Talks - SCMS Combinatorics Seminar",
+    "snippet": "The lonely runner conjecture can be stated as follows: for any n positive integers … be sets of integers. This is tight and establishes a conjecture of Keevash ...",
+    "host_name": "scmscomb.github.io",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://rsa.math.cmu.edu",
+    "name": "Program – RS&A2023",
+    "snippet": "The lonely runner conjecture can be stated as follows: for any n positive integers v1<v2<⋯<vn there exists a real number t such that 1/(n+1)≤{vit}?n/(n+1) for ... Read more",
+    "host_name": "rsa.math.cmu.edu",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://rjlipton.com",
+    "name": "An Annoying Open Problem",
+    "snippet": "Oct 8, 2011 — Groups have a tight structure that varies with the prime factorization of {n} , the number of elements. Groups can have many different ...",
+    "host_name": "rjlipton.com",
+    "rank": 2,
+    "date": "Oct 8, 2011",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org",
+    "name": "Minimal covering bodies and Brunn-Minkowski type",
+    "snippet": "Jun 12, 2026 — the covering radius of Minkowski sums has been studied in the context of the Lonely Runner Conjecture [1, 4, 10] . is a finite set , sets of ...",
+    "host_name": "arxiv.org",
+    "rank": 3,
+    "date": "Jun 12, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://onlinelibrary.wiley.com",
+    "name": "Circular chromatic number of distance graphs with",
+    "snippet": "by X Zhu · 2002 · Cited by 59 — This study investigates the circular chromatic number. This settles a conjecture proposed independently by Chen et al. the lonely runner , J.  ...",
+    "host_name": "onlinelibrary.wiley.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.ihes.fr",
+    "name": "seminar in number theory: the topic proposal",
+    "snippet": "the classification of rational periodic points of quadratic polynomials of period 3. The lonely runner conjecture • Zero–one laws in Diophantine approximation ...",
+    "host_name": "www.ihes.fr",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net",
+    "name": "On the largest sum-free subset problem in the integers",
+    "snippet": "Aug 16, 2026 — lonely runner conjecture . It turns out this is related to the lonely runner conjecture . Conjecture 3 ( Lonely Runner ) jectured that every 3-cube ...",
+    "host_name": "www.researchgate.net",
+    "rank": 6,
+    "date": "Aug 16, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://dwest.web.illinois.edu",
+    "name": "References",
+    "snippet": "The lonely runner conjecture is often considered in the following manner: assume that all speeds are integers, not divisible by the same prime , and that the ... 21 pages",
+    "host_name": "dwest.web.illinois.edu",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]

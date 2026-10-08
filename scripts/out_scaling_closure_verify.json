@@ -1,0 +1,988 @@
+{
+ "T7_p17": {
+  "label": "T=7 (1K,4U) top-10 census fams",
+  "T": 7,
+  "p": 17,
+  "m": 4,
+  "k": 2,
+  "n_families": 10,
+  "sign_mode": "canonical",
+  "depths": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2
+  ],
+  "depth_median": 2,
+  "depth_max": 2,
+  "gamma_median": 0.0,
+  "gamma_p90": 0.0,
+  "gamma_max": 204.70833333333331,
+  "gamma_min": 0.0,
+  "n_gamma": 108,
+  "sol_max": 120,
+  "sol_median": 12,
+  "sol_n": 150,
+  "resonance_mean_survival": {
+   "mid": 0.0,
+   "small": 0.14705882352941177
+  },
+  "resonance_n": {
+   "mid": 40,
+   "small": 68
+  },
+  "per_fam": {
+   "(1, 1, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(1, 2, 2)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(1, 8, 8)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(2, 1, 2)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(2, 2, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(8, 1, 8)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(8, 8, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(1, 1, 6)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(1, 6, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(3, 3, 3)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   }
+  },
+  "elapsed_s": 0.0
+ },
+ "T7_p17_signs": {
+  "label": "T=7 top-3, all 8 signs",
+  "T": 7,
+  "p": 17,
+  "m": 4,
+  "k": 2,
+  "n_families": 3,
+  "sign_mode": "all",
+  "depths": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2
+  ],
+  "depth_median": 2,
+  "depth_max": 2,
+  "gamma_median": null,
+  "gamma_p90": null,
+  "gamma_max": null,
+  "gamma_min": null,
+  "n_gamma": 0,
+  "sol_max": 120,
+  "sol_median": 12,
+  "sol_n": 45,
+  "resonance_mean_survival": {},
+  "resonance_n": {},
+  "per_fam": {
+   "(1, 1, 1)": {
+    "depths": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(1, 2, 2)": {
+    "depths": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(1, 8, 8)": {
+    "depths": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "n_sizes": 15
+   }
+  },
+  "elapsed_s": 0.0
+ },
+ "T7_p29": {
+  "label": "T=7 (1K,4U) top-10 census fams",
+  "T": 7,
+  "p": 29,
+  "m": 4,
+  "k": 4,
+  "n_families": 10,
+  "sign_mode": "canonical",
+  "depths": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2
+  ],
+  "depth_median": 2,
+  "depth_max": 2,
+  "gamma_median": 0.0,
+  "gamma_p90": 0.0,
+  "gamma_max": 508.10416666666663,
+  "gamma_min": 0.0,
+  "n_gamma": 190,
+  "sol_max": 720,
+  "sol_median": 130,
+  "sol_n": 160,
+  "resonance_mean_survival": {
+   "mid": 0.0033333333333333335,
+   "small": 0.14857142857142858
+  },
+  "resonance_n": {
+   "mid": 120,
+   "small": 70
+  },
+  "per_fam": {
+   "(1, 1, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 16
+   },
+   "(1, 2, 2)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 16
+   },
+   "(1, 14, 14)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 16
+   },
+   "(2, 1, 2)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 16
+   },
+   "(2, 2, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 16
+   },
+   "(14, 1, 14)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 16
+   },
+   "(14, 14, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 16
+   },
+   "(1, 1, 10)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 16
+   },
+   "(1, 10, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 16
+   },
+   "(3, 3, 3)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 16
+   }
+  },
+  "elapsed_s": 0.0
+ },
+ "T7_p29_signs": {
+  "label": "T=7 top-3, all 8 signs",
+  "T": 7,
+  "p": 29,
+  "m": 4,
+  "k": 4,
+  "n_families": 3,
+  "sign_mode": "all",
+  "depths": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2
+  ],
+  "depth_median": 2,
+  "depth_max": 2,
+  "gamma_median": null,
+  "gamma_p90": null,
+  "gamma_max": null,
+  "gamma_min": null,
+  "n_gamma": 0,
+  "sol_max": 720,
+  "sol_median": 192,
+  "sol_n": 48,
+  "resonance_mean_survival": {},
+  "resonance_n": {},
+  "per_fam": {
+   "(1, 1, 1)": {
+    "depths": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "n_sizes": 16
+   },
+   "(1, 2, 2)": {
+    "depths": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "n_sizes": 16
+   },
+   "(1, 14, 14)": {
+    "depths": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "n_sizes": 16
+   }
+  },
+  "elapsed_s": 0.0
+ },
+ "T8c_p17": {
+  "label": "T=8-critical (2K,4U) top-10",
+  "T": 8,
+  "p": 17,
+  "m": 4,
+  "k": 2,
+  "n_families": 10,
+  "sign_mode": "canonical",
+  "depths": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2
+  ],
+  "depth_median": 2,
+  "depth_max": 2,
+  "gamma_median": 409.41666666666663,
+  "gamma_p90": 818.8333333333333,
+  "gamma_max": 818.8333333333333,
+  "gamma_min": 0.0,
+  "n_gamma": 15,
+  "sol_max": 120,
+  "sol_median": 12,
+  "sol_n": 150,
+  "resonance_mean_survival": {
+   "small": 0.8181818181818182,
+   "mid": 0.0
+  },
+  "resonance_n": {
+   "small": 11,
+   "mid": 4
+  },
+  "per_fam": {
+   "(1, 1, 1)": {
+    "depths": [],
+    "n_sizes": 15
+   },
+   "(1, 2, 2)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(1, 8, 8)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(2, 1, 2)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(2, 2, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(8, 1, 8)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(8, 8, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(1, 1, 6)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(1, 6, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   },
+   "(3, 3, 3)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 15
+   }
+  },
+  "elapsed_s": 0.0
+ },
+ "zoo_selfcheck": {
+  "family": "(1, 1, 1, 1)",
+  "rebuilt": 123240,
+  "committed": 105288,
+  "note": "census_m5 excludes nr==0 bystander placements; solutions include them (covering condition, m=4 GT convention)"
+ },
+ "T8zoo_p17_top": {
+  "label": "zoo top-10",
+  "T": 8,
+  "p": 17,
+  "m": 5,
+  "k": 2,
+  "n_families": 10,
+  "sign_mode": "canonical",
+  "depths": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   3,
+   3
+  ],
+  "depth_median": 2,
+  "depth_max": 3,
+  "gamma_median": 0.0,
+  "gamma_p90": 14.204251700680272,
+  "gamma_max": 193.33564814814815,
+  "gamma_min": 0.0,
+  "n_gamma": 110,
+  "sol_max": 8880,
+  "sol_median": 2500,
+  "sol_n": 320,
+  "resonance_mean_survival": {
+   "mid": 0.023879680785758133,
+   "small": 0.1574009345911477
+  },
+  "resonance_n": {
+   "mid": 40,
+   "small": 70
+  },
+  "per_fam": {
+   "(1, 1, 1, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(1, 1, 8, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(1, 8, 1, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(2, 2, 2, 2)": {
+    "depths": [
+     3
+    ],
+    "n_sizes": 32
+   },
+   "(8, 1, 1, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(1, 1, 6, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(1, 6, 1, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(3, 3, 3, 3)": {
+    "depths": [
+     3
+    ],
+    "n_sizes": 32
+   },
+   "(6, 1, 1, 1)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(1, 1, 1, 8)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   }
+  },
+  "elapsed_s": 0.1
+ },
+ "T8zoo_p17_sample": {
+  "label": "zoo random-40 distinct",
+  "T": 8,
+  "p": 17,
+  "m": 5,
+  "k": 2,
+  "n_families": 40,
+  "sign_mode": "canonical",
+  "depths": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   3,
+   4,
+   4
+  ],
+  "depth_median": 2,
+  "depth_max": 4,
+  "gamma_median": 0.0,
+  "gamma_p90": 421.8232323232323,
+  "gamma_max": 20880.25,
+  "gamma_min": 0.0,
+  "n_gamma": 341,
+  "sol_max": 876,
+  "sol_median": 85,
+  "sol_n": 1154,
+  "resonance_mean_survival": {
+   "mid": 0.0004994800950683304,
+   "small": 0.16980032303147463
+  },
+  "resonance_n": {
+   "mid": 128,
+   "small": 213
+  },
+  "per_fam": {
+   "(6, 3, 4, 7)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(2, 7, 3, 8)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 30
+   },
+   "(7, 6, 4, 5)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(4, 5, 7, 3)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(4, 5, 7, 8)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 30
+   },
+   "(6, 4, 2, 7)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(3, 7, 2, 5)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 30
+   },
+   "(8, 6, 2, 4)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(6, 7, 5, 2)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 30
+   },
+   "(3, 8, 7, 5)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(6, 4, 8, 2)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(7, 4, 2, 3)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 30
+   },
+   "(6, 4, 8, 3)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(8, 2, 4, 5)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(6, 5, 8, 3)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 30
+   },
+   "(8, 4, 6, 3)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(8, 4, 7, 3)": {
+    "depths": [],
+    "n_sizes": 14
+   },
+   "(2, 4, 7, 3)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 30
+   },
+   "(2, 8, 5, 6)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(2, 3, 6, 8)": {
+    "depths": [],
+    "n_sizes": 14
+   },
+   "(4, 2, 3, 5)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(2, 8, 7, 6)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(2, 7, 3, 6)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(8, 3, 7, 5)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(4, 3, 2, 8)": {
+    "depths": [
+     3
+    ],
+    "n_sizes": 32
+   },
+   "(5, 8, 6, 2)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(6, 8, 4, 3)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(5, 6, 8, 3)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 30
+   },
+   "(5, 2, 8, 4)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(3, 8, 2, 6)": {
+    "depths": [],
+    "n_sizes": 14
+   },
+   "(2, 3, 5, 6)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 14
+   },
+   "(2, 7, 4, 8)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(3, 5, 4, 8)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(6, 3, 5, 7)": {
+    "depths": [
+     4
+    ],
+    "n_sizes": 32
+   },
+   "(3, 2, 8, 5)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(3, 7, 8, 4)": {
+    "depths": [],
+    "n_sizes": 14
+   },
+   "(3, 2, 6, 8)": {
+    "depths": [],
+    "n_sizes": 14
+   },
+   "(3, 5, 6, 7)": {
+    "depths": [
+     4
+    ],
+    "n_sizes": 32
+   },
+   "(8, 3, 5, 2)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(7, 5, 2, 8)": {
+    "depths": [
+     2
+    ],
+    "n_sizes": 30
+   }
+  },
+  "elapsed_s": 0.0
+ },
+ "T8zoo_p17_signs": {
+  "label": "zoo top-2, all 16 signs",
+  "T": 8,
+  "p": 17,
+  "m": 5,
+  "k": 2,
+  "n_families": 2,
+  "sign_mode": "all",
+  "depths": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2
+  ],
+  "depth_median": 2,
+  "depth_max": 2,
+  "gamma_median": null,
+  "gamma_p90": null,
+  "gamma_max": null,
+  "gamma_min": null,
+  "n_gamma": 0,
+  "sol_max": 8880,
+  "sol_median": 2838,
+  "sol_n": 64,
+  "resonance_mean_survival": {},
+  "resonance_n": {},
+  "per_fam": {
+   "(1, 1, 1, 1)": {
+    "depths": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "n_sizes": 32
+   },
+   "(1, 1, 8, 1)": {
+    "depths": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "n_sizes": 32
+   }
+  },
+  "elapsed_s": 0.0
+ }
+}

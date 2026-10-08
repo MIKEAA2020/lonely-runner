@@ -1,0 +1,53 @@
+{
+ "121": {
+  "distinct": 60,
+  "nK": 5,
+  "nU": 55
+ },
+ "169": {
+  "distinct": 84,
+  "nK": 6,
+  "nU": 78
+ },
+ "25": {
+  "distinct": 11,
+  "nK": 1,
+  "nU": 10
+ },
+ "4": {
+  "distinct": 2,
+  "nK": 1,
+  "nU": 1
+ },
+ "49": {
+  "distinct": 24,
+  "nK": 3,
+  "nU": 21
+ },
+ "77": {
+  "distinct": 38,
+  "nK": 8,
+  "nU": 30
+ },
+ "9": {
+  "distinct": 4,
+  "nK": 1,
+  "nU": 3
+ },
+ "91": {
+  "distinct": 45,
+  "nK": 9,
+  "nU": 36
+ },
+ "dirichlet_table": "pass",
+ "hand_anchors": "pass",
+ "n9_counterexample": {
+  "cell": "('K3', 'U', 'U', 'U')",
+  "example": [
+   1,
+   2,
+   3,
+   4
+  ]
+ }
+}
