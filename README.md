@@ -10,13 +10,17 @@ repository. What the program establishes is (i) a systematic negative result —
 natural *strengthening* of the reformulation framework proposed as a route to LRC is
 false, each refuted by an exact rational witness — (ii) a bounded positive core stated
 with exact theorems, and (iii) a machine-reasserted provenance record for every cited
-number (225 items, zero failures).
+number (225 items, zero failures, plus an eleven-check cross-validation of the incorporated
+closure records, zero failures).
 
-## The papers (v4 harmonic-certification revision — current)
+## The papers (v5 unified revision — current)
 
 | Paper | File | Contents |
 |---|---|---|
-| **Flagship v4** — *Every Natural Strengthening Examined Is False: Type Mismatch in Lossless Reformulations of the Lonely Runner Conjecture* | `papers/lonely_runner_type_mismatch_paper_v4.pdf` (30 pages) | **The harmonic instance is closed exactly: rho(1,2,3,4,5) = 16/47.** The third certification session found a *balance family* of witnesses — c(k) = (2k+160, 3k-13, 4k+91, 5k)/235, k = 20..35 — on which the three pair-dips of the runner triple {3,4,5} tie at 16/47, forced by the weighted identity 32 r_(3,5) + 27 r_(4,5) + 35 r_(3,4) = 32 (the c-terms cancel). The branch and bound at r = 16/47 emptied only after two new certificates were added: a vertex-checked *sliding-sigma gap certificate* (for a fixed lift vector m, every c in the box admits a valid sigma iff an interval of affine forms intersects S; the gap is concave in c, so 2^d vertex checks certify the whole box — sigma free to slide along the band) and a *triple-identity certificate* (three pair-dips with weights w_(a,b) = v_c(v_a+v_b) whose weighted values sum to a constant <= (sum w) r over the box), together with lattice-aligned splitting at the dip lattice q = 470. Tree: 782,255 box evaluations, 0 survivors, 5,935 s; 4,841 sampled prunes re-confirmed exactly. The two n=6 boundary rows are resolved as strict refutations: rho >= 17/47 > 5/14 at m=12 (triple {2,5,12}: identity 84 r_(2,5) + 70 r_(2,12) + 34 r_(5,12) = 68; witness (0, 27/47, 0, 25/94, 22/47)) and rho >= 455/1269 > 5/14 at m=9 (witness (13/423, 22/47, 58/423, 695/846, 401/846)). The n=5 boundary rows m=6,7,8 remain open. Sources: `sources/flagship_v4/` (includes certify_harmonic_v4.py and out_certify_harmonic_v4.json). |
+| **Flagship v5** — *Every Natural Strengthening Examined Is False: Type Mismatch in Lossless Reformulations of the Lonely Runner Conjecture* | `papers/lonely_runner_type_mismatch_paper_v5.pdf` (32 pages) | **The merge of the two certification threads, with the weight identity promoted to a proved lemma.** The harmonic instance is closed exactly, rho(1,2,3,4,5) = 16/47, two-sided (the balance-family witness below, the enhanced-cascade branch and bound above: 782,255 box evaluations, 0 survivors, the sliding-sigma gap and triple-identity certificates, lattice-aligned splitting at the dip lattice q = 470), and the m=10 ladder row is closed, rho(1,2,3,4,10) = 7/22 = delta exactly at the center class (sound 4.2M-point screen + exact Lipschitz box certificate, 190,295 box evaluations, 0 survivors). New proved content over both v3 and v4: the pair-character identity c·chi_ab + a·chi_bc = b·chi_ac as a lemma with the denominator corollary for both binding archetypes — triple binding (rho = N/(2(ab+ac+bc)); 16/47 and the rung-2 17/47 forced by the triples {3,4,5} and {2,5,12}) and pair bisection (rho = N/(2(u+v)); the m=7 witness 4/11) — with the scope statement that the corollary applies to any binding triple within a larger binding set (the harmonic argmax binds four forms; the triple {3,4,5} suffices), and the verified remark that all four certified ladder values (7/22, 13/42, 4/13, 19/62) are pair-bisecting at the center class on the pair (1,m): **the two archetypes govern every exact value in the archive**. The triple-identity certificate of the harmonic closure is the lemma in box form. m=9 is stated as a strict refutation with the exact value unknown (clean witness 1793/5000; a deeper exactly-evaluated dyadic point at 0.358639 on record). Honest open rows: m=12 (argmax-certified 17/47, global equality open) and m=6 (29/80 strict). The paper reads as one thread's instance of a general structural pattern, the weight lemma being the thread's contribution. Cross-validated before incorporation: 11/11 checks (`sources/flagship_v5/crosscheck_cert_witnesses.py`). Sources: `sources/flagship_v5/`. |
+| **Companion v4** — unchanged from the v4 revision (67 pages) | `papers/lonely_runner_pair_sum_lattices_conditional_theorem_paper_v4.pdf` | No theorem, lemma, or hypothesis changed in v5. Sources: `sources/companion_v4/`. |
+
+## The papers (v4 harmonic-certification revision — superseded by v5, kept for the record) **The harmonic instance is closed exactly: rho(1,2,3,4,5) = 16/47.** The third certification session found a *balance family* of witnesses — c(k) = (2k+160, 3k-13, 4k+91, 5k)/235, k = 20..35 — on which the three pair-dips of the runner triple {3,4,5} tie at 16/47, forced by the weighted identity 32 r_(3,5) + 27 r_(4,5) + 35 r_(3,4) = 32 (the c-terms cancel). The branch and bound at r = 16/47 emptied only after two new certificates were added: a vertex-checked *sliding-sigma gap certificate* (for a fixed lift vector m, every c in the box admits a valid sigma iff an interval of affine forms intersects S; the gap is concave in c, so 2^d vertex checks certify the whole box — sigma free to slide along the band) and a *triple-identity certificate* (three pair-dips with weights w_(a,b) = v_c(v_a+v_b) whose weighted values sum to a constant <= (sum w) r over the box), together with lattice-aligned splitting at the dip lattice q = 470. Tree: 782,255 box evaluations, 0 survivors, 5,935 s; 4,841 sampled prunes re-confirmed exactly. The two n=6 boundary rows are resolved as strict refutations: rho >= 17/47 > 5/14 at m=12 (triple {2,5,12}: identity 84 r_(2,5) + 70 r_(2,12) + 34 r_(5,12) = 68; witness (0, 27/47, 0, 25/94, 22/47)) and rho >= 455/1269 > 5/14 at m=9 (witness (13/423, 22/47, 58/423, 695/846, 401/846)). The n=5 boundary rows m=6,7,8 remain open. Sources: `sources/flagship_v4/` (includes certify_harmonic_v4.py and out_certify_harmonic_v4.json). |
 | **Companion v4** — *Pair-Sum Lattices and a Conditional Scaling-Closure Theorem* | `papers/lonely_runner_pair_sum_lattices_conditional_theorem_paper_v4.pdf` (67 pages) | No theorem, lemma, or hypothesis changed; the zonotope-strand record updated (the harmonic instance closed exactly at 16/47; the two n=6 boundary rows resolved as strict refutations). Sources: `sources/companion_v4/`. |
 
 ## The papers (v3 m=10-certification revision — superseded, kept for the record)
@@ -55,6 +59,8 @@ papers/                  Final PDFs (flagship + companion monograph)
 sources/flagship/        v1 LaTeX sources + scripts + persisted outputs
 sources/flagship_v2/     v2 LaTeX sources (audit revision) + outputs
 sources/flagship_v3/     v3 LaTeX sources (m=10 certified) + outputs (incl. certify_m10_v2.py + out_certify_m10_v2.json)
+sources/flagship_v4/     v4 LaTeX sources (harmonic closed exactly) + outputs (incl. certify_harmonic_v4.py + out_certify_harmonic_v4.json)
+sources/flagship_v5/     v5 LaTeX sources (unified revision: weight lemma + both closures) + outputs (incl. crosscheck_cert_witnesses.py)
 sources/companion/       v1 LaTeX sources + figures + scripts + outputs
 sources/companion_v2/    v2 LaTeX sources (Hq repair) + outputs
 sources/companion_v3/    v3 LaTeX sources (zonotope-strand record update) + outputs
@@ -67,16 +73,18 @@ LICENSE                  MIT
 
 ## Key machine-checkable results
 
-- **Refuted (exact rational witnesses):** the zonotope "deepest hole = center" rho-form
-  fails at n=5 harmonic m=5 (rho ≥ 97/288, improved to 607/1792) and at three further
-  instances through n=6, including a non-extremal instance (n=6, v=(1,2,3,4,5,7),
-  witness (1/16, 9/16, 0, 3/8, 0), D = 4/11 > 5/14).
+- **Refuted (exact rational witnesses):** the zonotope covering-radius form is false
+  from n=5, measured exactly at the extremal instance (rho(1,2,3,4,5) = 16/47,
+  two-sided certificate) and falsified at four further instances: 17/47 at m=12
+  (argmax-certified), 1793/5000 at m=9, 29/80 at m=6, and 4/11 at the non-extremal
+  v=(1,2,3,4,5,7).
 - **Certified (exact branch-and-bound minimax certificates):** n=3 cores; n=4 m ≤ 16
-  (m=16 at 9/34, 222 leaves); n=5 m = 20, 25, 30 (13/42, 4/13, 19/62) — with a negative
-  control that correctly refuses the harmonic n=5 instance.
-- **Open (honestly recorded):** n=5 m=10 — one serious certification attempt
-  (61,038 exact leaves, residual volume < 6e-7, minimax-loss signature
-  1135/3584 < 7/22 at centers, top bound U = 571/1792), recorded as open.
+  (m=16 at 9/34, 222 leaves); n=5 m = 10, 20, 25, 30 (7/22 = delta, 13/42, 4/13,
+  19/62, each with the deepest hole at the center class) — with a negative
+  control that correctly refuses the harmonic n=5 instance at r = 1/3.
+- **Open (honestly recorded):** the global equality at m=12 (the argmax neighborhood
+  is certified at 17/47; the two-sided close-out did not terminate within its
+  budget) and at m=6 (strict witness 29/80).
 - **Transfer cascade:** every constrained transfer matrix of the lossless cascade is a
   partial permutation with spectral radius exactly 0 or 1 (Lemma M) — the margin is
   provably external to the lossless dynamics.
