@@ -112,12 +112,13 @@ the whole-cascade survival fraction must be bounded by
 $\rho^{\mathrm{depth}}$ times the initial mass, with spectral radius
 $\rho\le 1-\epsilon$ and $\epsilon$ independent of scale.
 
-\begin{lemma}[Monomial dichotomy; Lemma M of the program records]
+\begin{lemma}[Monomial dichotomy; Lemma M of the program records, single-anchor scope]
 \label{lem:monomial}
-Every constrained transfer matrix of the lossless cascade is a partial
+Every constrained transfer matrix of the lossless cascade \emph{that
+tracks a single anchor placement along the drift} is a partial
 permutation matrix. Its spectrum is $\{0\}$ together with roots of unity;
-its spectral radius is exactly $0$ or $1$, never interior, at any scale,
-in any state formulation. The affine pair maps compose to the identity
+its spectral radius is exactly $0$ or $1$, never interior, at any scale.
+The affine pair maps compose to the identity
 around any closed fiber loop (the dilation ratios telescope), so the
 cyclic transfer product is diagonal, and its trace is the cascade's own
 survivor count.
@@ -126,15 +127,23 @@ survivor count.
 The proof is short once the state space is fixed: the cascade is
 non-consuming (pure intersection semantics), the drift maps are
 bijections, and a bijection constrained to an invariant subset is a
-partial permutation. The machine record is not short: $1500/1500$ random
-constrained systems; $12{,}000$ exact trace fingerprints over $300$
-systems; $66$ homogenized pair systems on the committed families, with
+partial permutation. \emph{The scope is load-bearing}: the theorem
+covers the single-anchor operator only; the general strand-census
+operator scans the complement interval position by position with
+\emph{branching} local coverage states, is not a partial permutation,
+and may have interior spectral radius (the $2\times2$ witness below,
+radius $1.122$). The general case is left open; the single-anchor
+dichotomy is what is established. The machine record is not short:
+$1500/1500$ random constrained systems; $12{,}000$ exact trace
+fingerprints over $300$ systems; $66$ homogenized pair systems on the
+committed families, with
 spectral radius $1$ at exactly the six reflection-symmetric families
 (their deletion sets close into $2$-cycles and the two-fiber survival
 fraction is exactly $1.0000$ at all depths) and $0$ at the other sixty
 (total extinction within three iterates, the intermediates set by lattice
 runs of solution points, not by geometric decay). The criterion is
-unattainable by theorem, not merely unattained.
+unattainable by theorem for the single-anchor operator, not merely
+unattained.
 
 Two further doors were checked. Coarse-grained or weighted automata can
 carry interior spectral radii numerically, but the radius dominates every
@@ -148,8 +157,10 @@ consecutive conditional ratios, each bounded by the pair-volume and
 solution-set thinness hypotheses the route was commissioned to prove. The
 instrument is the census in different notation; it consumes the
 hypotheses it was built to generate. Losslessness forbids generated
-decay---bijections preserve measure, deletion filters without
-dissipating---and the reformulation is bounded by its own fidelity.
+decay \emph{for the single-anchor operator}---bijections preserve
+measure, deletion filters without dissipating---and the single-anchor
+reformulation is bounded by its own fidelity. The general branching
+strand-census operator is not covered and is left open.
 
 \subsection{Instance 3: character rigidity and saturated envelopes}
 \label{sec:tm-char}
