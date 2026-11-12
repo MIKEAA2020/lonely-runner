@@ -1,4 +1,5 @@
 \documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[margin=2.5cm]{geometry}
@@ -18,6 +19,8 @@
 
 \widowpenalty=10000
 \clubpenalty=10000
+\emergencystretch=3em
+\numberwithin{equation}{section}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
@@ -45,7 +48,7 @@
 \hypersetup{
   pdftitle={The Lonely Runner Problem on Pair-Sum Lattices: A Lossless
             Finitization and a Conditional Scaling-Closure Theorem for the
-            Covering Obstruction (v3)},
+            Covering Obstruction},
   pdfauthor={Anonymous},
   pdfsubject={Lonely Runner Conjecture; Diophantine approximation;
               cyclic covering; combinatorics},
@@ -56,6 +59,13 @@
 }
 
 \begin{document}
+
+\title{The Lonely Runner Problem on Pair-Sum Lattices: A Lossless
+Finitization and a Conditional Scaling-Closure Theorem for the
+Covering Obstruction}
+\author{Anonymous}
+\date{}
+\maketitle
 
 \tableofcontents
 \newpage
