@@ -13,7 +13,12 @@ argument is folklore (it appears in a comment on Tao's 2015 blog post); the
 contributions claimed here are the sharpening that sum lattices alone always
 suffice, the exact equality, and the lossless reformulation of the Lonely
 Runner Conjecture ($\mathrm{LRC}$-$_n$) as the finite statement
-$(\mathrm{TAU}$-$_n)$. The reformulation turns the conjecture into a family
+$(\mathrm{TAU}$-$_n)$. The reformulation is a \emph{per-instance}
+finitization: for each fixed speed vector $V$ it replaces the
+one-parameter supremum defining $M(V)$ by a finite maximum over the
+$\binom{n}{2}$ pair-sum lattices of denominators $N=v_u+v_w$, but the
+denominators grow with $V$ and no uniform bound on $N$ is claimed or
+implied. The reformulation turns the conjecture into a family
 of covering problems: a pair certifies iff $n-1$ explicit bad sets
 $B_w=\{k\in\Z_N : (n{+}1)\,\wn{wk}<N\}$ fail to cover $\Z_N$. We develop
 this covering geometry: an exact size law, a class-group reduction at prime
@@ -271,6 +276,30 @@ do not inherit the drift are outside its scope, as
   witnesses, and the certification ladder---published in the companion
   paper \cite{companion-paper}.
 \end{enumerate}
+
+\begin{table}[htbp]
+\centering\small
+\caption{Status of the principal results. ``Unconditional'' means proved
+outright (possibly with a machine-verified finite check); ``conditional''
+means the statement depends on a named open hypothesis or a fitted
+constant, as recorded in the ledger of Theorem~\ref{thm:SC}.}
+\label{tab:status}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l l@{}}
+\toprule
+result & kind & status \\
+\midrule
+Pair-sum equality $M(V)=\max\tau$ (Thm~\ref{thm:equality}) & identity & unconditional \\
+Lossless reformulation $\mathrm{LRC}\Leftrightarrow\mathrm{TAU}$ (Cor~\ref{cor:tau}) & equivalence & unconditional \\
+Rigid-zone classifications $K_7,K_{11},K_{13},K_{17},K_{19},K_{37}$ & finite list & unconditional (finite check) \\
+Group-ring / tensor translations (Thm~\ref{thm:GT}, Thm~\ref{thm:R}) & identity & unconditional \\
+Foot-count lemma E (\S\ref{sec:lemmaE}) & lemma & unconditional \\
+Rigid-zone \emph{finiteness} beyond $37$ & empirical & measured only \\
+Scaling-closure theorem (Thm~\ref{thm:SC}) & theorem & conditional (Hq$_\pm$, H1g, H2r) \\
+$T=8$-critical eleven-family census & finite list & unconditional (finite check) \\
+$T=7$ tail decay $183\to43$ & pattern & measured only \\
+\bottomrule
+\end{tabular*}
+\end{table}
 
 \subsection{What this paper does not claim}
 
