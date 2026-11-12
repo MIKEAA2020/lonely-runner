@@ -1,0 +1,343 @@
+deepseek:
+## Audit of `main_standalone.tex`
+
+I read the full standalone manuscript (all sections, appendices, and bibliography) and checked the mathematics, internal consistency, and LaTeX. This is a genuine content audit, not just a structural one.
+
+### 1. Overall assessment
+
+This is a well-written, unusually honest negative-results paper. Its central claims are:
+
+- The covering-radius form \(\rho(V)\le \mathrm{thr}_n\) is strictly stronger than LRC and **false from \(n=5\)**.
+- Four “natural strengthenings” of lossless reformulations fail, each with exact witnesses or a theorem.
+- A bounded positive core (sum-only equality, rigid-zone classifications, conditional scaling theorem) survives.
+- A finite witness archive with an explicit certification ladder.
+
+The paper is careful to say it **proves no new cases of LRC** and that the surviving equivalent forms remain as hard as the original. The epistemic labels (exact / certified / consistent) are applied consistently.
+
+### 2. Mathematical checks I performed
+
+I verified the arithmetic of the headline witnesses directly from the runner formulation
+\[
+D(c)=\min_{\sigma\in[0,1)}\max\bigl(\wnc{\sigma},\max_{2\le j\le n}\wnc{c_j-v_j\sigma}\bigr).
+\]
+
+**Harmonic \(n=5\), \(v=(1,2,3,4,5)\).** With
+\(c=(122,688,284,80)/1175\) and \(\sigma=96/1175\), the five terms are
+\(96/1175,\ 70/1175,\ 400/1175,\ 100/1175,\ 400/1175\).
+Maximum \(=400/1175=16/47>1/3\). ✅
+
+**Rung-2 \(n=6\), \(v=(1,2,3,4,5,12)\).** With
+\(c=(4714/5875,\,1/8,\,5/8,\,6/25,\,2034/5875)\) and \(\sigma=482/5875\), the six terms are
+\(482/5875,\ 2125/5875,\ 5693/47000,\ 13951/47000,\ 1000/5875,\ 2125/5875\).
+Maximum \(=2125/5875=17/47>5/14\). ✅
+
+**Harmonic \(n=6\), \(v=(1,2,3,4,5,6)\).** With
+\(c=(0,5/16,15/16,3/4,1/2)\), \(\sigma=23/160\):
+terms \(23/160,\ 23/80,\ 19/160,\ 29/80,\ 1/32,\ 29/80\).
+Maximum \(29/80>5/14\). ✅
+
+**Non-extremal \(v=(1,2,3,4,5,7)\).** With
+\(c=(1/16,9/16,0,3/8,0)\), \(\sigma=1/11\):
+terms \(1/11,\ 21/176,\ 51/176,\ 4/11,\ 7/88,\ 4/11\).
+Maximum \(4/11>5/14\). ✅
+
+**\(v=(1,2,3,4,5,9)\).** With the stated \(c\) and \(\sigma=18577/200000\), the last two terms are \(1793/5000\), and the maximum is \(1793/5000>5/14\). ✅
+
+**Center class \(v=(1,2,3,4,10)\).** With
+\(c=(1/2,0,1/2,1/2)\), \(\sigma=7/22\):
+terms \(7/22,\ 3/22,\ 1/22,\ 5/22,\ 7/22\). Maximum \(7/22\), and \(\delta=1/2-2/11=7/22\). ✅
+
+**Pair-character identity.** I checked Lemma 5.1:
+\[
+c\chi_{ab}+a\chi_{bc}=b\chi_{ac},\qquad \chi_{uv}=v x_u-u x_v.
+\]
+LHS \(=bcx_a-acx_b+acx_b-abx_c=bcx_a-abx_c=b(cx_a-ax_c)\). ✅
+
+**Denominator laws.** Corollary 5.2 follows correctly by substituting the three binding expressions into the identity. For the harmonic triple \(\{3,4,5\}\), the weights sum to \(2(12+15+20)=94=2\cdot47\), and the numerator is \(32\), giving \(16/47\). For the rung-2 triple \(\{2,5,12\}\), the weights sum to \(2(10+24+60)=188=2\cdot94\), numerator \(68\), giving \(17/47\). ✅
+
+**Balance family.** I checked \(c(35)=(46/47,92/235,231/235,35/47)\) and \(\sigma=4/235\): terms \(4/235,\ 13/235,\ 80/235,\ 20/235,\ 80/235\), maximum \(80/235=16/47\). ✅
+
+**Thresholds.** \(\mathrm{thr}_5=1/3\), \(\mathrm{thr}_6=5/14\). All witnesses strictly exceed the relevant threshold. ✅
+
+### 3. Technical concerns
+
+These are not errors I can confirm, but points a referee would likely press on.
+
+**3.1 The “sliding-\(\sigma\) gap certificate” concavity claim is not proved.**
+Section 5.5 states: “each endpoint is affine in \(c\) and the gap is concave, so its minimum over a box sits at a vertex—\(2^d\) vertex checks certify the whole box.” The logic is only sound if the object being minimized is a slack that is positive exactly when the certificate holds, and if that slack is genuinely concave. The text does not define the gap precisely enough to verify concavity, and the distance-to-lattice function is not obviously concave (it is a minimum of convex pieces with mod-1 identifications). This is the weakest link in the harmonic \(16/47\) close-out. The paper backs it with computational soundness checks (adversarial boxes refuse, negative control refuses), but a short lemma or a precise definition of the concave slack would strengthen it considerably.
+
+**3.2 The float screen in branch-and-bound is not fully rigorous.**
+The cheap grid screen is float-based, with only a one-in-sixty-four sample re-confirmed exactly. The paper is transparent about this, and the exact Lipschitz and minimax tests are the main pruning mechanisms. But if a float screen prunes a box that an exact test would not, the certificate could be unsound. The paper’s “re-auditable leaf list” mitigates this, but a 100% exact re-confirmation of all float prunes (or interval arithmetic) would be cleaner.
+
+**3.3 The sum-only equality is cited, not proved.**
+Theorem 4.1 is “Theorem 1.1 of the companion monograph,” and Appendix C gives the explicit statement but not the proof. The appendix’s claim of self-contained verification is true for the negative witnesses (which I checked), but not for the positive equality theorem. This is acceptable given the paper’s stated scope, but the abstract’s “one bounded positive theorem” is not independently verified here.
+
+**3.4 The “gap is concave” phrasing may be a sign error.**
+If the gap is convex (max of affine functions), then its **maximum** over a box is at a vertex, and checking vertices for gap \(\le 0\) would certify the box. The text says “concave … minimum … at a vertex,” which is the opposite pairing. This may be a harmless sign convention (defining the gap as slack), but it should be checked.
+
+### 4. LaTeX issues
+
+- **`\begin{thebibliography}{17}`** with 19 `\bibitem`s. The argument is the widest label; `{17}` is two characters wide, same as `{19}`, so it will almost certainly compile fine. But `{99}` is safer and standard.
+- **`\graphicspath{{./}}`** is correct (fixed from the earlier version).
+- **`\usepackage[section]{placeins}`** with a non-linear include order is not an issue here because this is a single standalone file with sequential sections.
+- **`\newcommand{\wn}[1]{\lVert #1 \rVert_{N}}`** and `\DeclareMathOperator{\ord}` / `\cls` appear unused in this file; harmless.
+- **`\usepackage{needspace}`** is absent (unlike the earlier `main_comp2.tex`), so no missing-command risk from that package.
+- **`\usepackage{longtable}`** is loaded but the tables use `tabularx`; harmless.
+- **`\hypersetup{pdftitle={\papertitle}}`** works because `\papertitle` is a simple macro.
+- **Theorem numbering** is section-based; the appendix theorems will be numbered A.1, B.1, etc., which is fine.
+
+No fatal LaTeX errors are visible.
+
+### 5. Minor points
+
+- **“False from \(n=5\)”** is supported by the \(n=5\) witness. The paper does not claim the \(\rho\)-form fails for every \(n\ge5\), only that the first failure is at \(n=5\). The phrasing is acceptable but could be read as “for all \(n\ge5\)”; a footnote clarifying “first failure at \(n=5\)” would remove ambiguity.
+- **“Strict exact witnesses \(\rho\ge 29/80\)”** in the abstract: the word “exact” here means the evaluation is exact, not that the covering radius equals \(29/80\). The text clarifies this (equality open), but the abstract could be misread.
+- **The \(m=9\) row** records \(1793/5000\) as the clean witness, but the text notes a slightly deeper dyadic search point at \(0.358639\ldots\). The table is not the best known lower bound. This is disclosed, but a reader comparing the abstract to the table might be confused.
+- **The bibliography** is plausible and up to date (2024–2026 preprints). I cannot verify the arXiv identifiers, but they are consistent with the claimed results.
+- **The `MirskyNewman` entry** is an unusual citation style (“unpublished … see the account in Davenport–Rado”). It is acceptable for a historical attribution, but a referee might prefer a standard reference.
+
+### 6. Bottom line
+
+The paper’s **core negative claims are arithmetically correct** at every witness I checked. The pair-character identity and denominator laws are correct and elegantly explained. The certification ladder and provenance ledger are unusually rigorous for an experimental mathematics paper.
+
+The main **technical soft spots** are the unproved concavity claim behind the sliding-\(\sigma\) gap certificate and the partially float-based branch-and-bound screen. Neither invalidates the paper’s thesis—the negative results are supported by direct witnesses that do not rely on the branch-and-bound upper bounds—but they are the places a careful referee will push. The paper is honest about its conditional positive core and does not overclaim.
+
+**Recommendation:** Accept with minor revisions: (i) add a precise definition and short proof (or counterexample) for the gap-slack concavity claim, (ii) consider exact re-confirmation of all float prunes or interval arithmetic, and (iii) fix `{17}` to `{99}` in `thebibliography`. The mathematical content is sound and the contribution is genuine.
+qwen:
+## Audit Report — `main_standalone.tex`
+
+> **Method & limits.** The code sandbox is **unavailable in this environment** (`code_interpreter` does not exist — this also explains the three failures last round). Everything below is **hand verification on exact rational arithmetic**, done line by line. No URL-based tool was called; none is needed for a local file audit.
+> This is the first upload containing the **actual body**, so this report has two layers: **(A) engineering** and **(B) substance**.
+
+**Verdict.** The mathematics I could check is **correct** — including every headline witness, the weight identity, and the Ehrhart table. But the file **will not compile** (31 escape-truncated commands), and there are **several genuine content defects**, one of which may invalidate the paper's stated open question.
+
+---
+
+# A. Engineering audit
+
+## A.1 P0 — 31 truncated commands (`\n` eaten by the writer)
+
+| Location | Current | Correct | Count |
+|---|---|---|---|
+| Preamble L21 | `umberwithin{equation}{section}` | `\numberwithin` | 1 |
+| Preamble L23–27, 29–30, 32 | `ewtheorem{…}` | `\newtheorem` | 8 |
+| Preamble L33–40 | `ewcommand{\Z,\R,\T,\floor,\wn,\wnc,\lrc,\taust}` | `\newcommand` | 8 |
+| Preamble L45 | `ewcommand{\papertitle}` | `\newcommand` | 1 |
+| Abstract, first line | `oindent` | `\noindent` | 1 |
+| §3.2, bad-set definition | `$p otin\{u,w\}$` | `\notin` | 1 |
+| Table `tab:hstar`, 8 rows (n=7,8,9,10 × 2 families) | `ewline` | `\newline` | 8 |
+| §5.1, Table `tab:ladder`, §5.4 | `16/47 e\delta`, `16/47 e1/3`, `16/47 e\delta` | `\ne` | 3 |
+| | | **Total** | **31** |
+
+**This round the damage is mostly *silent*.** Only the 18 preamble items abort the compile. The 13 body items would typeset as literal text if you fixed the preamble alone:
+
+- `$p otin\{u,w\}$` → "p otin{u,w}" inside math — a wrong definition, no error.
+- `$\rho=16/47 e\delta$` → renders as **16/47 · e · δ**, i.e. a spurious variable *e* in three places where the paper means **≠**. In a paper whose thesis is "these values are different", this is the worst possible corruption.
+- `ewline` → the literal word "ewline" inside eight table cells.
+
+**Good news:** scanner **v2** from the previous audit detects all 31 (its dictionary contains `numberwithin, noindent, notin, newline, ne`). It auto-fixes **28** and flags the **3 `e` sites** as `REVIEW` (correctly — `e` is ambiguous). **Fix those three by hand.**
+
+## A.2 P0 — missing external dependencies
+
+- `fig_nS.png` (Appendix A, Figure 1) — not supplied.
+- The entire artifact bundle (`out_*.json`, `lrc_zono_lib.py`, the 11 scripts) — not supplied. The paper's central reproducibility claim ("225-item ledger, zero failures") is **unauditable** without it.
+
+## A.3 P1/P2 — LaTeX issues
+
+| # | Issue | Fix |
+|---|---|---|
+| 1 | `\boldmath` + math in `\section` titles (`$p^2$/$pq$`, `$h^*$`, `$n=10$`) | hyperref emits *Token not allowed in a PDF string*; wrap in `\texorpdfstring` |
+| 2 | `longtable`, `adjustbox` loaded but **never used** | drop (note: `needspace` was already correctly dropped ✅) |
+| 3 | Front matter order: `\maketitle` → TOC → `\clearpage` → abstract | put the abstract before the TOC |
+| 4 | Abstract ≈ **700 words** | most venues cap at 200–250; needs a cut-down version |
+| 5 | `tab:refute` has 5 `l` columns + 1 `X`; the `X` column carries long rational tuples | likely overfull; check the log |
+| 6 | `\begin{thebibliography}{17}` with **19** entries | `{19}` (cosmetic only) |
+| 7 | `|Sol|` typeset as italic *S·o·l* | `|\mathrm{Sol}|` |
+
+**Correct and unchanged:** T1 before `lmodern` ✅, `hyperref` last ✅, `\papertitle` single source of truth ✅ (my earlier P2 suggestion, adopted), `pdftitle` = `\title` ✅, all `\ref` targets resolve ✅ (no undefined references), all `tabularx` column counts match their headers ✅ (`tab:refute` 6, `tab:hstar` 9, `tab:certs` 5, `tab:instances` 4, `tab:ladder` 3).
+
+---
+
+# B. Substantive audit
+
+## B.1 ✅ Verified exactly — the headline witnesses
+
+I re-minimised `D(c)` independently at each stated σ. **All five Table 2 rows are correct**, and in each the two binding terms have opposite slopes, so σ is a genuine local minimum.
+
+| Instance | σ | terms (‖σ‖, ‖c₂−2σ‖, …) | max | claim |
+|---|---|---|---|---|
+| (1,2,3,4,5) | 96/1175 | 96, 70, **400**, 100, **400** /1175 | 400/1175 = **16/47** | ✅ |
+| (1,2,3,4,5,12) | 482/5875 | 482/5875, **2125/5875**, 5693/47000, 13951/47000, 1000/5875, **2125/5875** | **17/47** | ✅ |
+| (1,2,3,4,5,6) | 23/160 | 23/160, 23/80, 19/160, **29/80**, 1/32, **29/80** | **29/80** | ✅ |
+| (1,2,3,4,5,7) | 1/11 | 1/11, 21/176, 51/176, **4/11**, 7/88, **4/11** | **4/11** | ✅ |
+| (1,2,3,4,5,9) | 18577/200000 | …, **1793/5000**, **1793/5000** | **1793/5000** | ✅ |
+
+Also verified: the **7/22** center class at (1,2,3,4,10) ✅; the negative control **607/1792** at c=(11,163,15,79)/256 — I located the minimiser **σ = 89/896**, where runners 3 and 4 tie at 607/1792 with opposite slopes ✅; the superseded **97/288** at σ=31/288 ✅; and **c(35) = (46/47, 92/235, 231/235, 35/47)** at σ=4/235 ✅.
+
+**Balance family:** I checked `c(20)` as well as `c(35)`. At k=20 the three triple-dips are exactly ±16/47 via the integer translates k₃₅=−3, k₃₄=1, k₄₅=5 ✅. The family claim holds.
+
+## B.2 ✅ Verified exactly — the weight identity (§5.2)
+
+This is the paper's own positive contribution and it is **correct and elegant**.
+
+- Lemma `lem:chi`: `c(bx_a−ax_b) + a(cx_b−bx_c) = b(cx_a−ax_c)` ✅.
+- Weights for {3,4,5}: 5·7=**35**, 3·9=**27**, 4·8=**32**; sum **94** = 2(12+15+20) ✅.
+- All **four** binding forms at the harmonic argmax, with the stated translates:
+ φ³⁵ = 3200/9400 = **+16/47**; φ³⁴ = −2800/8225 = **−16/47**; φ⁴⁵ = −3600/10575 = **−16/47**; φ²⁵ = 2800/8225 = **+16/47** ✅.
+- Integer: 5k₃₄+3k₄₅−4k₃₅ = 20+12−0 = **32**, ρ = 32/94 = 16/47 ✅.
+- For {2,5,12}: weights **84, 34, 70**, sum **188** = 2(10+24+60) ✅; all three binding forms evaluate to ±17/47 at the stated translates ✅; 5k₂,₁₂−12k₂,₅−2k₅,₁₂ = 70−12+10 = **68**, ρ = 68/188 = **17/47** ✅.
+- Consistency: 94·(16/47) = 32 ✅, 188·(17/47) = 68 ✅.
+- Pair-bisection denominators 22, 42, 13, 62 all divide 2(1+m) ✅; 4/11 gives 2·11·(4/11)=8 ∈ ℤ ✅.
+
+The paper's honesty about the "recurring 47" being a **coincidence** (47 vs 94, incidental gcd reductions) is correct and commendable.
+
+## B.3 ✅ Verified — the Ehrhart table (Appendix A)
+
+Recomputed from `eq:ehr` (eₖ = Σ gcd of complements) with the shifted Eulerian expansion:
+
+- n=3 harm → **1+7z+4z²** ✅; rung2 → **1+11z+6z²** ✅
+- n=4 harm → **1+18z+35z²+6z³** ✅; rung2 → **1+22z+51z²+10z³** ✅
+- n=5 harm → **1+37z+179z²+133z³+10z⁴** ✅
+- Strictness S: 12.250, 20.167, 9.257, 9.490, 6.511 ✅; n=10 harm min ratio at k=5 = **2.9871** ✅; Newton floors 4, 3, 9/4, 3/2 ✅; S/f ✅.
+- **Volume identity** h*(1) = d!·Σv: n=10 harm **19,958,400 = 9!·55** ✅; rung2 **23,587,200 = 9!·65** ✅.
+- Floor crossing: 30/n = 1+4/(n−1) ⟹ n² − 27n + 30 = 0 ⟹ **n ≈ 25.84** ✅ ("near n≈26").
+
+## B.4 ✅ Verified — internal bookkeeping (this is unusually clean)
+
+| Check | Result |
+|---|---|
+| m=10 tree: 190,295 − 95,147 splits | = **95,148** leaves ✅ matches table & App. B |
+| Harmonic tree: 782,255 − 391,127 | = **391,128** ✅ |
+| Harmonic prune breakdown 3,721+45,598+61,191+197,330+83,288 | = **391,128** ✅ |
+| Binary-tree invariant leaves = splits+1 | holds for all three closure runs ✅ |
+| 571/1792 = 7/22 + 9/19712 | **exact** ✅ (6281/19712 both sides) |
+| 1135/3584 + 1/1024 = 0.317662 < 7/22 = 0.318182 | ✅ |
+| 71/208 − 17/50 | = **7/5200** ✅ |
+| c₁ = (T/(T−6))^{T−4} at T=8,9,10 | **256, 243, 244.140625** ✅ |
+| Spearman → t → p (N=12, ρ=.32 / N=8, ρ=−.31) | t=1.07→p≈.31; t=−0.80→p≈.45 ✅ |
+| Timings 1286 s ≈ 21 min, 5935 s ≈ 99 min, 981 s ≈ 16 min | ✅ |
+| Provenance chain 97/288 < 607/1792 < 4183/12288 < 16/47 | monotone ✅ |
+| `tab:certs` r-values vs δ (incl. (1,2,3,12)→λ=3/13, (1,2,3,16)→λ=4/17) | all consistent with sum lattices ✅ |
+| Quotient-norm forms have ℓ₁ ≤ 1 ⟹ 1-Lipschitz | ✅ correct |
+| Center class = ½ on even speeds, 0 on odd | ✅ correct |
+
+**Assessment:** the computational spine of this paper is sound. The scope discipline (exact / certified / consistent ladder, single-anchor scope on Lemma M, negative control, explicit withdrawal of "≤ T+3", "global equality open" on m=12) is better than typical.
+
+## B.5 ❌ Content defects found
+
+**D1 (P1) — `‖·‖_N` is used but never defined.** The macro `\wn` = ‖·‖_N appears in both bad-set definitions (§3.2 and §4.2): `B = {k ∈ Z_N : (n+1)‖v_p k‖_N < N}`. Under the intended reading ‖x‖_N = dist(x, Nℤ) this is correct — but the standalone paper **never defines it**, and a reader who assumes ‖·‖ = distance-to-nearest-integer gets ‖v_p k‖ = 0 and a vacuous definition. **Add one line to §2.1.**
+
+**D2 (P1) — bad-set index range contradicts the equality theorem.** §3.2 indexes `p ∉ {u,w}` (**n−2** sets); §4.2 says "**n−1** bad sets"; Theorem 4.1 defines τ with `p ∈ [n]\{w}` (**n−1** runners). Since v_u ≡ −v_w (mod N) gives B_u = B_w, dropping *both* removes a set that matters. §3.2 must be `p ∈ [n]\{w}`. Also §4.2 reuses `w` as the running runner index — rename to `p`.
+
+**D3 (P1) — the Eulerian formula is convention-dependent and, under the standard convention, wrong.** §2.3 states `h*(z) = Σ_k e_k (1−z)^{d−k} A_k(z)`. With classical Eulerian polynomials (A₁=1, A₂=1+z) this yields **10+z+z²** for n=3, not the table's (correct) **1+7z+4z²**. It is right only under Beck–Robins' shifted convention A₀=1, A₁=z, A₂=z+z². **State the convention explicitly** (one clause), otherwise the displayed formula contradicts the table it generates.
+
+**D4 (P1) — stale text in Appendix B.1.** "A one-line reproduction of the **headline witnesses**…" is followed by the **superseded** 97/288 point. The headline is 16/47. Replace with the c(35) or the 1175-ths check (both already in Appendix C).
+
+**D5 (P1) — broken hyperlink.** The Tao blog URL is split across two `\url{}` commands; the second (`a-remark-on-the-lonely-runner-conjecture`) is a relative, dead link. Use a single `\url{…}` and let `hyperref`/`url` break it.
+
+**D6 (P1, high priority) — the LRC status claim contradicts its own citations.** §1.1: *"It is proved for at most seven runners… for eight through fifteen runners only computational verifications of special families are known."* But the bibliography cites, by title, **"The lonely runner conjecture holds for eight runners"** (2025), **"Nine and ten lonely runners"** (2025), **"Eleven, twelve, and thirteen lonely runners"** (2026), **"Fourteen and fifteen lonely runners"** (2026) — and §1.3 calls them "the rung results … are untouched". Either the status sentence is stale, or the citations are misdescribed. **This must be reconciled before submission**; I cannot verify the preprints without external lookup.
+
+**D7 (P1) — Conjecture A.1 may already be a theorem, and is mis-stated.**
+- *Mis-statement:* "the h*-polynomial of the **arithmetic matroid** of any projected basis `π([0,1]^n) ∩ Λ`". An arithmetic matroid has a **Tutte** polynomial, not an h*; and `π([0,1]^n) ∩ Λ` is a finite point set, not the zonotope. It should read "the h*-polynomial of the LR-zonotope Z(V)".
+- *Priority:* real-rootedness of **lattice-zonotope** h*-polynomials is, to my recollection, addressed in the literature — specifically **Beck, Jochemko & McCullough, "h*-polynomials of zonotopes" (Trans. AMS, ~2019)**. If their theorem covers this class, the paper's "residual question of independent interest" is **not open**. This is the single highest-value literature check in the paper. I flag it as *requires verification*, not as established.
+
+**D8 (P2) — decimal equality.** Table 2 writes `16/47=.3404` and `17/47=.3617`; these are truncations, use `≈`. (`29/80=.3625` and `1793/5000=.3586` are exact and fine.)
+
+**D9 (P2) — sign-convention flip between hand checks.** Appendix C says "slopes **+3 and −5**" for the 1175-ths check but "slopes **−3 and +5**" for c(35) — same configuration type, opposite conventions. Fix one.
+
+**D10 (P2) — "The The h*-polynomials are real-rooted"** (§3.5), duplicated word.
+
+**D11 (P2) — undefined notation in Theorem 4.3.** Frontier cell `(1K, T−3U)`; hypotheses Hq±, H1g, H2r, H2m; and the k↔T map behind "95 < 244" in §3.4 (which T does k=2 correspond to?). As written, that comparison is not checkable.
+
+**D12 (P2) — the m=9 row carries three different values.** Table 2: 1793/5000; §5.1 prose: a dyadic point at 0.358639…; Appendix B item 11: "clean witness **455/1269**" (≈0.358550) — a number that appears nowhere in the body. Order them explicitly in one footnote.
+
+**D13 (P2) — bibliography ordering.** Declared "ordered by first citation", but `prog-artifacts` is cited before `Tao-blog`, and `Shephard` before `BeckRobins`. Also missing page numbers (Wills, d'Adderio–Moci, Rifford); **d'Adderio–Moci is dated 2014 — I believe the Advances paper is 2013**; and the Mirsky–Newman "see the account in Davenport–Rado, *Covering systems of negative congruences*, JLMS 38 (1963)" reference does not match the account I know (usually Erdős 1952 / Porubský–Schönheim). **Verify these two entries.**
+
+---
+
+# C. Repaired preamble (drop-in replacement for L1–L56)
+
+```latex
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[section]{placeins}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,
+urlcolor=blue!55!black,bookmarks=true,bookmarksnumbered=true,
+unicode=true]{hyperref}
+\widowpenalty=10000
+\clubpenalty=10000
+\emergencystretch=3em
+\numberwithin{equation}{section}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\wn}[1]{\lVert #1 \rVert_{N}}
+\newcommand{\wnc}[1]{\lVert #1 \rVert}
+\newcommand{\lrc}{\mathrm{LRC}}
+\newcommand{\taust}{\mathrm{TAU}}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\cls}{cls}
+\DeclareMathOperator{\Vol}{Vol}
+\graphicspath{{./}}
+\newcommand{\papertitle}{Every Natural Strengthening Examined Is False: Type Mismatch
+in Lossless Reformulations of the Lonely Runner Conjecture}
+\hypersetup{
+pdftitle={\papertitle},
+pdfauthor={Anonymous},
+pdfsubject={Lonely Runner Conjecture; reformulations; covering radius;
+zonotopes; Ehrhart theory; negative results},
+pdfkeywords={Lonely Runner Conjecture, lossless reformulation,
+type mismatch, covering radius, LR-zonotope, Ehrhart
+h*-polynomial, arithmetic matroid, exact witnesses,
+branch and bound certification}
+}
+```
+
+*(Removed the unused `longtable` and `adjustbox`; everything else preserved.)*
+
+## C.1 Body find-and-replace (13 sites — do these after the preamble)
+
+| Find | Replace | Where |
+|---|---|---|
+| `oindent` | `\noindent` | abstract, first line |
+| `p otin\{u,w\}` | `p \in [n]\setminus\{w\}` | §3.2 — **also fixes D2** |
+| `ewline` (×8) | `\newline` | `tab:hstar`, rows n=7,8,9,10 both families |
+| `16/47 e\delta=1/3` | `16/47 \ne \delta=1/3` | §5.1 |
+| `16/47 e1/3` | `16/47 \ne 1/3` | `tab:ladder`, n=5 row |
+| `16/47 e\delta` | `16/47 \ne \delta` | §5.4 |
+
+Then add to §2.1: `\(\wn{x}:=\min_{j\in\Z}|x-jN|\)` (D1), and the Eulerian convention clause in §2.3 (D3).
+
+---
+
+# D. Priority actions
+
+1. **Run scanner v2** over the tree; auto-fix 28, hand-fix the 3 `\ne` sites. Replace the preamble with §C.
+2. **D6** — reconcile the "at most seven runners" sentence with the 2025–2026 citations. This is a factual claim about the field's state of the art.
+3. **D7** — check Beck–Jochemko–McCullough on zonotope h*-polynomials **before** publishing Conjecture A.1 as open; and restate it about Z(V), not about an arithmetic matroid.
+4. **D1–D5** — notation, index range, Eulerian convention, stale Appendix B witness, broken URL.
+5. Supply `fig_nS.png` and the artifact bundle; without them the "225-item ledger, zero failures" claim cannot be audited.
+6. Cut the abstract; move it before the TOC; `\texorpdfstring` the section titles.
+
+**Bottom line.** The evidence chain is real: I independently confirmed every headline witness, both binding architectures, the denominator laws, and the Ehrhart table, and the certificate bookkeeping is arithmetically self-consistent to the leaf count. What stands between this and a submittable paper is (i) the writer's `\n` bug, now corrupting mathematics silently, (ii) three notation/consistency gaps that a referee will catch, and (iii) two scholarship questions — the runner-count status and the possible prior art for the closing conjecture.
