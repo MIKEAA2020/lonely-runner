@@ -317,10 +317,42 @@ target denominator, and $V$ has $\gcd(V)=1$ (dividing by the gcd does
 not change $M$). For a modulus $N$ we write $\wn{x}=\min(x\bmod N,\;
 N-(x\bmod N))$, $\ord_N(w)=N/\gcd(w,N)$ for the additive order of $w$
 in $\Z_N$, and $h=\floor{(N-1)/T}$ for the covering threshold index
-of \S\ref{sec:cover}. The letter $k$ always denotes a lattice time
-index. Computations are exact integer/rational arithmetic wherever a
-theorem or table entry asserts an exact value; the Wilson intervals,
-the fitted $\Lambda_0$, the projected pools of Table~\ref{tab:pool},
-and displayed asymptotics are statistical or asymptotic estimates and
-are labeled as such in the free-parameter disclosure. The verification
-record is the subject of \S\ref{sec:sound}.
+of \S\ref{sec:covering}. The letter $k$ always denotes a lattice time
+index (never a fiber count). Computations are exact integer/rational
+arithmetic wherever a theorem or table entry asserts an exact value; the
+Wilson intervals, the fitted $\Lambda_0$, the projected pools of
+Table~\ref{tab:pool}, and displayed asymptotics are statistical or
+asymptotic estimates and are labeled as such in the free-parameter
+disclosure. The verification record is the subject of
+\S\ref{sec:sound}.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Recurring symbols and the section where each is fixed. Where a
+symbol is reused, the binding listed here is the one in force in the
+section cited.}
+\label{tab:notation}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l l@{}}
+\toprule
+symbol & meaning & fixed in \\
+\midrule
+$n,T$ & speed count; $T=n+1$ loneliness denominator & \S\ref{sec:intro} \\
+$V,\ M$ & speed tuple; optimal loneliness $\max_t g(t)$ & \S\ref{sec:equality} \\
+$N$ & modulus ($p$, $p^2$, or $pq$) & \S\ref{sec:covering} \\
+$p,q$ & primes at composite modulus $N=pq$ & \S\ref{sec:pq} \\
+$k$ & lattice time index (never a fiber count) & \S\ref{sec:intro} \\
+$m$ & moving-arc count at the frontier cell ($m=T-3$) & \S\ref{sec:scale} \\
+$h$ & covering threshold index $\floor{(N-1)/T}$ & \S\ref{sec:covering} \\
+$D$ & canonical-difference bound $(p-1)/2$ & \S\ref{sec:scale} \\
+$\mathrm{ov}$ & overlap budget $\Sigma s-p$ & \S\ref{sec:scale} \\
+$\sigma,\tau$ & sorted cyclic order; pair-sum lattice translate & \S\ref{sec:scale},\,\S\ref{sec:equality} \\
+$\Gamma$ & Hq$_\pm$ survivor constant & \S\ref{sec:SC} \\
+$c_1$ & H1g volume constant & \S\ref{sec:SC} \\
+$\gamma_0$ & H2m cut-quality constant & \S\ref{sec:SC} \\
+$\Lambda_0$ & H2r resonance zone cutoff (fitted) & \S\ref{sec:SC} \\
+$\rho$ & zonotope covering radius $\rho(V)$ & \S\ref{sec:scale-status} \\
+$E$ & Hq$_\pm$ additive error term & \S\ref{sec:SC} \\
+$U_\pm$ & $\pm$-representative non-resonant fiber set & \S\ref{sec:scale} \\
+\bottomrule
+\end{tabular*}
+\end{table}
