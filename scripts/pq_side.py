@@ -28,7 +28,7 @@ Experiments:
   [ROWCEN]  row-level census at the row modulus p: critical coverings with
             s1 = |X| = 2*rho_p+1 fixed (the X-restricted census) -- the
             four families with an interval member; counts constant in p.
-  [CELL112] (1,1,2) exhaustive at N in {35,55,65,77,85,91,95,115,119,143}:
+  [CELL112] (1,1,2) exhaustive at N in {35,55,65,77,85,91,95,115,119,133,143}:
             0 coverings; margins; T-10 reproduction at 77/91.
   [CELL13U] (1K,3U), both (kappa_p,kappa_q) in {(1,0),(0,1)}: exhaustive
             unit triples: 0 coverings; margins.
@@ -288,7 +288,7 @@ def row_census():
 def cells():
     res = {}
     Ns = [(5, 7), (5, 11), (5, 13), (7, 11), (5, 17), (7, 13), (5, 19),
-          (5, 23), (7, 17), (11, 13)]
+          (5, 23), (7, 17), (11, 13), (7, 19)]
     for (p, q) in Ns:
         W = PQ(p, q)
         N = W.N
