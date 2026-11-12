@@ -1,1 +1,212 @@
+## 审计报告：`main.tex`
 
+> 说明：本次为本地文件静态审计，仅用代码沙箱做解析/配平/正则检查，**未调用任何需要 URL 的联网工具**（任务不涉及外部链接，无需检索）。
+> 审计对象：`main.tex`（69 行，2033 字节）。**结论：当前状态无法编译，存在 17 处致命字符级损坏 + 10 个缺失依赖文件。**
+
+---
+
+## 一、总体判定
+
+| 维度 | 结果 |
+|---|---|
+| 花括号配平 | ✅ 81 / 81 平衡 |
+| `\begin`/`\end` 环境 | ✅ `document` 匹配 |
+| 宏包加载顺序 | ✅ `hyperref` 最后加载，`adjustbox[export]` 与 `graphicx` 无选项冲突 |
+| 自定义宏重名 | ✅ 无（Z, R, T, floor, wn, wnc, lrc, taust） |
+| **命令完整性** | ❌ **17 处命令首字母被吞** |
+| **依赖完整性** | ❌ **10 个 `\input` 文件未提供** |
+| 可编译性 | ❌ 立即报错终止 |
+
+---
+
+## 二、P0 致命问题
+
+### P0-1　`\n` 转义吞字：17 处命令损坏
+
+**损坏清单（行号精确）**
+
+| 行号 | 当前内容 | 应为 |
+|---|---|---|
+| L22–L26 | `ewtheorem{theorem/lemma/corollary/proposition/conjecture}` | `\newtheorem{...}` |
+| L28–L29 | `ewtheorem{definition/example}` | `\newtheorem{...}` |
+| L31 | `ewtheorem{remark}` | `\newtheorem{remark}` |
+| L32–L39 | `ewcommand{\Z/\R/\T/\floor/\wn/\wnc/\lrc/\taust}` | `\newcommand{...}` |
+| L57 | `ewpage` | `\newpage` |
+
+合计：`ewtheorem` ×8、`ewcommand` ×8、`ewpage` ×1 = **17 处**。
+
+**成因诊断（已交叉验证）**：抽检 `\theoremstyle`、`\tableofcontents`、`\taust`、`\T`、`\right`、`\rVert`、`\begin`、`\floor` **全部完好** → 说明只有 `\n` 被当作换行转义处理，`\t`、`\r`、`\b`、`\f` 均未受影响。这是典型的**写入环节做了一次转义解释**（如 Python 普通字符串 `"...\newtheorem..."`、`echo -e`、JSON 解码），而非编辑器或 LaTeX 本身问题。
+
+**后果（两级连锁）**：
+1. 导言区出现裸文本 `ewtheorem...` → `Missing \begin{document}` / `LaTeX Error: Can be used only in preamble`，编译在 L22 即终止；
+2. 即使用 `\nonstopmode` 强行过，8 个定理环境与 8 个自定义宏全部未定义 → 正文中每一处 `\begin{theorem}`、`\lrc`、`\wn{...}`、`\taust`、`\Z`、`\R`、`\T`、`\floor` 都会触发 `Undefined control sequence` / `Environment ... undefined`，错误数量与正文规模同阶。
+
+> ⚠️ 同一写入管线极可能污染了 `sec1–sec6`、`secA–secC`、`bib`。数学正文中 `\neq`、`\ne`、`\nabla`、`\notin`、`\noindent`、`\nonumber`、`\notag`、`\newline`、`\nu`、`\nolimits`、`\normalfont` 都是高频命令，**必须全量扫描**（脚本见第六节）。
+> 另需排除一种可能：损坏只发生在传输/提取副本而非磁盘原文件。请先在真实文件上执行 `grep -nE '^ew' main.tex` 确认。
+
+### P0-2　10 个被引用文件缺失
+
+`\input` 依赖：`sec1.tex, sec2.tex, sec3.tex, sec4.tex, sec5.tex, sec6.tex, secA.tex, secB.tex, secC.tex, bib.tex`。
+
+本次仅上传 `main.tex`，编译必然 `File ... not found`。**且内容层审计（数学正确性、"Every Natural Strengthening Examined Is False" 这一强断言与 exact witnesses / branch-and-bound 认证的可复现性、LR-zonotope 与 Ehrhart $h^*$ 论证的类型匹配论证链）在缺少正文时无法开展**——目前只能给出导言区与工程层结论。
+
+---
+
+## 三、P1 结构与兼容性风险（需在拿到子文件后确认）
+
+| # | 问题 | 说明与处置 |
+|---|---|---|
+| 1 | 缺 `\usepackage[T1]{fontenc}` | 已用 `lmodern` 却仍走 OT1 编码，含重音字符断词与 PDF 复制/检索会异常。建议 `lmodern` 前加 T1（现代 LaTeX 默认 UTF-8，`inputenc` 可不加） |
+| 2 | `\newcommand{\T}` 潜在重定义 | 若后续引入 `babel`（土耳其语等）或某些语言/字体包，`\T` 可能已定义并触发 `already defined`。建议改名 `\TT` 或预留 `\renewcommand` |
+| 3 | `tabularx` + `longtable` 组合 | 二者**不能直接嵌套**（`tabularx` 需先读完整表体测宽）。若附录用跨页宽表，须改用 `xltabular` |
+| 4 | `placeins[section]` + 跨页长表 | 每节强制 `\FloatBarrier`，与 `longtable` 分页混排时易出现浮动体堆积/空白页；建议附录节改用手动 `\FloatBarrier` |
+| 5 | `\input{bib}` 性质未知 | 若为 `thebibliography` 手写表 → 直编即可；若内含 `\bibliography{...}` → 必须走 BibTeX/Biber 全流程，否则引用全 `[?]` |
+| 6 | 交叉引用与目录 | `hyperref` + `\tableofcontents` + 按节编号定理，需 **≥2 遍**编译；建议统一 `latexmk` |
+| 7 | 主文件无 `\title/\author/\maketitle` | 推测在 `sec1.tex`；需确认其与 `pdfauthor={Anonymous}` 的双盲一致性（正文致谢/脚注/基金号是否泄漏身份） |
+
+---
+
+## 四、P2 优化建议（非阻断）
+
+- 加 `\numberwithin{equation}{section}`：数学论文公式按节编号，便于审稿定位。
+- `\graphicspath{{.}}` 等价于默认行为，若有图目录建议改 `{{figures/}{.}}`。
+- `\wnc` 语义不明（无下标范数），建议改名 `\norm`；`\wn` 建议 `\normN`，可读性更好。
+- `\floor` 用 `\left\lfloor...\right\rfloor` 会强制自动定界符尺寸、产生额外间距且不可跨行；推荐 `mathtools` 的 `\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}`。
+- `needspace`、`enumitem`、`longtable`、`tabularx` 是否真被使用，需在子文件中核验，未用则精简。
+- `\hypersetup` 中 `pdftitle`/`pdfkeywords` 的折行会被合并为空格，**无害**，无需修改。
+- 定理计数器共享（lemma/corollary 等跟随 theorem，按 section 重置）设置正确，符合惯例。
+
+---
+
+## 五、修复版 `main.tex`（最小改动，仅还原 17 处，其余一字未动）
+
+```latex
+\documentclass[11pt,a4paper]{article}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage[section]{placeins}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,
+urlcolor=blue!55!black,bookmarks=true,bookmarksnumbered=true,
+unicode=true]{hyperref}
+\widowpenalty=10000
+\clubpenalty=10000
+\emergencystretch=3em
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\wn}[1]{\lVert #1 \rVert_{N}}
+\newcommand{\wnc}[1]{\lVert #1 \rVert}
+\newcommand{\lrc}{\mathrm{LRC}}
+\newcommand{\taust}{\mathrm{TAU}}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\cls}{cls}
+\DeclareMathOperator{\Vol}{Vol}
+\graphicspath{{.}}
+\hypersetup{
+pdftitle={Every Natural Strengthening Examined Is False: Type Mismatch
+in Lossless Reformulations of the Lonely Runner Conjecture},
+pdfauthor={Anonymous},
+pdfsubject={Lonely Runner Conjecture; reformulations; covering radius;
+zonotopes; Ehrhart theory; negative results},
+pdfkeywords={Lonely Runner Conjecture, lossless reformulation,
+type mismatch, covering radius, LR-zonotope, Ehrhart
+h*-polynomial, arithmetic matroid, exact witnesses,
+branch and bound certification}
+}
+\begin{document}
+\tableofcontents
+\newpage
+\input{sec1}
+\input{sec2}
+\input{sec3}
+\input{sec4}
+\input{sec5}
+\input{sec6}
+\input{secA}
+\input{secB}
+\input{secC}
+\input{bib}
+\end{document}
+```
+
+**沙箱复检**：还原 17/17，残留损坏行 0，括号与环境仍配平。
+
+可选增量补丁（按需插在对应位置）：
+```latex
+\usepackage[T1]{fontenc}                 % 放在 \usepackage{lmodern} 之前
+\numberwithin{equation}{section}         % 放在宏包之后
+```
+
+---
+
+## 六、全量扫描 / 修复脚本（含子文件，先 dry-run）
+
+```python
+# save as fix_newline_damage.py ; 用法: python fix_newline_damage.py . [--fix]
+import re, sys, pathlib, shutil
+
+ROOT  = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else ".")
+FIX   = "--fix" in sys.argv
+# 明确无歧义、可自动还原的残片（长优先）
+SAFE  = ["ewtheorem","ewcommand","ewcolumntype","ewlength","ewlabel","ewline","ewpage",
+         "oindent","onumber","otag","ormalfont","ormalcolor","olimits","abla","otin"]
+# 易误伤自然语言，只报告不自动改
+AMBIG = ["eq","e","u","u_","u\\"]
+pat   = re.compile(r'(?m)^(' + "|".join(SAFE + AMBIG) + r')(?![A-Za-z])')
+
+total = 0
+for f in sorted(ROOT.rglob("*.tex")):
+    txt = f.read_text(encoding="utf-8")
+    hits = [(txt[:m.start()].count("\n") + 1, m.group(1)) for m in pat.finditer(txt)]
+    if not hits:
+        continue
+    total += len(hits)
+    print(f"\n[{f}] {len(hits)} 处")
+    for ln, frag in hits:
+        tag = "AUTO" if frag in SAFE else "需人工确认"
+        print(f"  L{ln:>4}: {frag}...  -> \\n{frag}...  [{tag}]")
+    if FIX:
+        shutil.copy2(f, f.with_suffix(".tex.bak"))          # 先备份
+        new = pat.sub(lambda m: "\\n" + m.group(1) if m.group(1) in SAFE else m.group(0), txt)
+        f.write_text(new, encoding="utf-8")
+print(f"\n合计 {total} 处；{'已修复(备份 .tex.bak)' if FIX else 'dry-run，未改动任何文件'}")
+```
+
+**根因预防**：写文件时一律用原始字符串 `r"..."`、`Path.write_text()` 或模板文件落盘，禁止让含 LaTeX 的字符串经过一次 `\n` 转义解释。
+
+**编译验收**：
+```bash
+grep -nE '^(ew|oindent|onumber|otag|abla|otin)' *.tex     # 应为空
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+grep -nE "Undefined control sequence|not found|Missing .begin|already defined" main.log
+```
+
+---
+
+## 七、下一步
+
+1. 先跑第六节脚本（dry-run → `--fix`），确认磁盘真实文件的损坏范围；
+2. 用第五节版本替换 `main.tex`；
+3. **上传 `sec1–sec6.tex`、`secA–secC.tex`、`bib.tex`**（及图表/证书数据），我才能继续做第二层审计：定理陈述与证明链、"type mismatch" 主张的形式化定义是否自洽、反例 witness 的精确性与可验证性、branch-and-bound 认证的完备性论证，以及标题那句全称强断言是否被正文证据支撑。
