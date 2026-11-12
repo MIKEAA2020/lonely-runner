@@ -495,11 +495,11 @@ $\lambda$ is contained in
 where $\tilde U=A_{\sigma'}^{-1}A_\sigma$ is integer-unimodular
 ($A_\sigma$ the lower-triangular chain matrix) and the boxes have
 sides $\le 2s_{\max}$. Substituting $u=\tilde Uo$ (whose box has sides
-$\le 2m\,s_{\max}$), each term is bounded by
+$\le 2(m{-}1)\,s_{\max}$, the normalizer arc pinned), each term is bounded by
 Lemma~\ref{lem:spacing} applied per coordinate:
 \[
-\mathrm{survivors}(\lambda)\;\le\;(m!)^2
-\Bigl(1+\frac{4m\,s_{\max}+1}{b_{\min}(\lambda,\,2s_{\max})}\bigr)^{m}.
+\mathrm{survivors}(\lambda)\;\le\;((m-1)!)^2
+\Bigl(1+\frac{4(m-1)\,s_{\max}+1}{b_{\min}(\lambda,\,2s_{\max})}\bigr)^{m}.
 \]
 Consequently the chain-class per-fiber cut is $k$-free and polynomial
 in $b_{\min}$: it exceeds any fixed $\gamma$ once
@@ -556,7 +556,7 @@ resonance to small $\bar\lambda$ (the $b_{\min}$ regime), the
 $k$-freeness of the cut, and the volume law that fixes the depth
 formula's leading constant. It does \emph{not} give the sharp uniform
 $\gamma_0=O(1)$ with clean constants---the order factors
-($(m!)^2$, $4m\,s_{\max}$) are loose by orders of magnitude at $T=8$,
+$((m-1)!)^2$, $4(m-1)\,s_{\max}$ are loose by orders of magnitude at $T=8$,
 where the measured mid-zone cut is an instant kill and the bound gives
 $\approx1$; the route to sharpness is to count \emph{on the slice}
 (keep $\sum o=\mathrm{ov}$ in the lattice count---it is load-bearing;
