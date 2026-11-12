@@ -1,0 +1,275 @@
+## Audit Report — `main_comp2.tex` (third master, revision of `main_companion.tex`)
+
+> **Scope & method.** Local static audit; **no URL-based tool was invoked** — this task needs no external links, so none were added. The code sandbox errored on three consecutive attempts this round, so the findings below are from **line-by-line manual verification** of the supplied source, reusing the sandbox-verified baselines for `main.tex` (17 defects) and `main_companion.tex` (15 defects).
+> Object: `main_comp2.tex`, **77 lines**.
+
+**Verdict: still not compilable — 16 truncated commands (one of a *new* kind), 13 missing dependencies, and the two-document namespace collision has become a three-document one.**
+
+---
+
+## 1. What this revision fixed ✅
+
+| Previous finding | Status in `main_comp2.tex` |
+|---|---|
+| P1-2 missing `T1` fontenc | ✅ `\usepackage[T1]{fontenc}` added at L2, correctly **before** `lmodern` |
+| P1-1 `\emergencystretch` drift | ✅ `\emergencystretch=3em` restored at L21 (parity with `main.tex`) |
+| P2 equation numbering | ✅ `\numberwithin{equation}{section}` added at L22 — **but corrupted, see P0-1** |
+| P0-3 no printed title / metadata mismatch | ✅ `\title`/`\author`/`\date{}`/`\maketitle` added at L56–L61. Verified: `pdftitle` **string-identical** to `\title`; `pdfauthor` = `\author` = `Anonymous` |
+| P2 `(v3)` in metadata | ✅ removed |
+
+Unchanged and still correct: 17 packages, `hyperref` loaded last, no option clash, brace balance **82/82** (companion's verified 76/76 + 6 balanced pairs added; the deleted `(v3)` contains no braces), `document` environment matched, theorem counter scheme consistent, all 8 shared macro bodies still byte-identical to `main.tex`.
+
+---
+
+## 2. P0 — Blocking defects
+
+### P0-1　16 truncated commands — including a **new** corruption class
+
+| Line(s) | Current | Correct |
+|---|---|---|
+| **L22** | **`umberwithin{equation}{section}`** | **`\numberwithin{equation}{section}`** ← new type |
+| L24–L28 | `ewtheorem{theorem, lemma, corollary, proposition, conjecture}` | `\newtheorem{…}` |
+| L30–L31 | `ewtheorem{definition, example}` | `\newtheorem{…}` |
+| L33 | `ewtheorem{remark}` | `\newtheorem{remark}` |
+| L34–L39 | `ewcommand{\Z,\R,\T,\floor,\wn,\wnc}` | `\newcommand{…}` |
+| L63 | `ewpage` | `\newpage` |
+
+`ewtheorem` ×8 + `ewcommand` ×6 + `ewpage` ×1 + **`umberwithin` ×1 = 16**.
+
+The new fragment confirms the diagnosis and extends it: the writer consumes **every** `\n`, not just `\new*`. `\numberwithin` → `\n` + `umberwithin`. Compile aborts at **L22** (bare preamble text → `Missing \begin{document}`), i.e. one line *earlier* than before.
+
+### P0-2　⚠️ The repair script I gave you in the previous two audits **misses L22**
+
+Self-correction, and the most important operational finding of this round:
+
+- Its `SAFE` list contains `oindent, onumber, otag, abla, otin, …` but **not `umberwithin`**.
+- Its `AMBIG` entry `u` cannot match either, because the guard `(?![A-Za-z])` rejects `u` followed by `m`.
+
+A dry-run would have reported **15** hits, `--fix` would have repaired 15, and the file would **still fail to compile** — with a false "clean" signal. **Do not reuse that version.** Replacement below (§6).
+
+### P0-3　13 missing `\input` files
+
+`sec1, secsc, sec2, sec3, sec4, secgr, sec8, sec9, secscale, sec5, sec6, sec7, bib` — none supplied. `File not found`; no content-level review possible.
+
+### P0-4　Namespace collision is now three-way
+
+| Master | Inputs | Exclusive |
+|---|---|---|
+| `main.tex` | 10 | `secA, secB, secC` |
+| `main_companion.tex` | 13 | — |
+| `main_comp2.tex` | 13 | — |
+
+- `main_comp2.tex` and `main_companion.tex` input **the identical 13 files in the identical order** → two masters for one paper, differing only in preamble/metadata. Which is authoritative? Both will build, producing two different PDFs from the same body. **Archive `main_companion.tex`** (e.g. `attic/`) and keep `main_comp2.tex` as the single master.
+- All three share **`sec1–sec6` + `bib` (7 files)**; union of required sources across the tree: **16**.
+
+### P0-5　Macro deficit persists
+
+`\lrc`, `\taust`, `\Vol` are defined in `main.tex` but **not** in `main_comp2.tex`, while `sec1–sec6` are shared. If those files use them (highly likely for an LRC/covering paper), the build dies with `Undefined control sequence`. Present and identical: `\Z, \R, \T, \floor, \wn, \wnc, \ord, \cls`.
+
+### P0-6　New risk: duplicate `\maketitle`
+
+`main_comp2.tex` now prints its own title at L61. `main.tex` still has none — so the negative-results paper's title presumably lives in the **shared** `sec1.tex`. If so, `main_comp2.tex` will render **two title blocks**, the second possibly bearing the *other* paper's title. Verify `sec1.tex` before building; the title block must live in exactly one place per document.
+
+---
+
+## 3. P1 — Structural risks
+
+### P1-1　Three independent numbering regimes now drift across shared files
+
+Assuming one `\section` per file (**verify**):
+
+| Shared file | § in `main.tex` | § in `comp2` | Theorem numbers | Equation numbers in `comp2` |
+|---|---|---|---|---|
+| `sec2` | 2 | 3 (+1) | 3.x | (3.1)… |
+| `sec3` | 3 | 4 (+1) | 4.x | (4.1)… |
+| `sec4` | 4 | 5 (+1) | 5.x | (5.1)… |
+| `sec5` | 5 | 10 (+5) | 10.x | (10.1)… |
+| `sec6` | 6 | 11 (+5) | 11.x | (11.1)… |
+
+`\numberwithin` adds a **third** axis of drift: a hard-coded "(12)" in a shared file is now wrong in `comp2` even where it was right in `main.tex`. Every hard-coded `Section n` / `Theorem n.m` / `(n)` in `sec1–sec6` must become `\label`/`\ref`.
+
+### P1-2　Ordering still non-monotonic
+
+`sec1, secsc, sec2, sec3, sec4, secgr, sec8, sec9, secscale, sec5, sec6, sec7` — `sec8.tex` renders as **Section 7**, `sec5.tex` as **Section 10**. Filenames no longer encode order; rename or maintain an explicit build manifest.
+
+### P1-3　Front-matter layout
+
+Current flow: `\maketitle` → `\tableofcontents` → `\newpage` → `sec1`. If the abstract lives in `sec1.tex`, the PDF reads **title → contents → abstract → introduction**. Conventional order is title → abstract → contents. Consider `\newpage` after `\maketitle`, or move the TOC after the abstract.
+
+### P1-4　Carried over, unresolved
+
+`tabularx` cannot nest inside `longtable` (use `xltabular`); `placeins[section]` vs. breakable tables; `\input{bib}` type unknown (`thebibliography` vs. `\bibliography` ⇒ BibTeX/Biber pass); duplicate `\label`s across 13 merged inputs; ≥2 compile passes; `\T` may clash with future language packages; double-blind check on shared `sec1`.
+
+---
+
+## 4. P2 — Polish
+
+- **Single source of truth for the title:** `\newcommand{\papertitle}{…}` used by both `\title{\papertitle}` and `pdftitle={\papertitle}` — they match today, but hand-copying guarantees future drift.
+- Factor the now-identical preamble into `preamble.tex`, `\input` by all masters; that structurally prevents the `\lrc`/`\taust`/`\Vol` deficit and the `\emergencystretch` drift from recurring.
+- `\wnc` → `\norm`; `\floor` → `mathtools` `\DeclarePairedDelimiter`; `\graphicspath{{.}}` is a no-op; confirm `needspace`/`enumitem`/`tabularx` are actually used.
+
+---
+
+## 5. Repaired `main_comp2.tex` (minimal: 16 restorations, nothing else changed)
+
+```latex
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage[section]{placeins}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,
+urlcolor=blue!55!black,bookmarks=true,bookmarksnumbered=true,
+unicode=true]{hyperref}
+\widowpenalty=10000
+\clubpenalty=10000
+\emergencystretch=3em
+\numberwithin{equation}{section}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\wn}[1]{\lVert #1 \rVert_{N}}
+\newcommand{\wnc}[1]{\lVert #1 \rVert}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\cls}{cls}
+\graphicspath{{.}}
+\hypersetup{
+pdftitle={The Lonely Runner Problem on Pair-Sum Lattices: A Lossless
+Finitization and a Conditional Scaling-Closure Theorem for the
+Covering Obstruction},
+pdfauthor={Anonymous},
+pdfsubject={Lonely Runner Conjecture; Diophantine approximation;
+cyclic covering; combinatorics},
+pdfkeywords={Lonely Runner Conjecture, pair-sum lattice, finitization,
+covering systems, rigid zone, translate classes, group ring,
+cyclotomic, tensor translation, higher rungs, fiber cascade,
+conditional theorem, hypothesis ledger}
+}
+\begin{document}
+\title{The Lonely Runner Problem on Pair-Sum Lattices: A Lossless
+Finitization and a Conditional Scaling-Closure Theorem for the
+Covering Obstruction}
+\author{Anonymous}
+\date{}
+\maketitle
+\tableofcontents
+\newpage
+\input{sec1}
+\input{secsc}
+\input{sec2}
+\input{sec3}
+\input{sec4}
+\input{secgr}
+\input{sec8}
+\input{sec9}
+\input{secscale}
+\input{sec5}
+\input{sec6}
+\input{sec7}
+\input{bib}
+\end{document}
+```
+
+Optional, only after confirming usage in the subfiles: `\newcommand{\lrc}{\mathrm{LRC}}`, `\newcommand{\taust}{\mathrm{TAU}}`, `\DeclareMathOperator{\Vol}{Vol}`.
+
+---
+
+## 6. Scanner **v2** — replaces the previous version
+
+Two independent detectors: a dictionary of *all* `\n`-initial control words, plus a dictionary-free structural check (any non-`\`, non-comment text at bracket/brace depth 0 in the preamble is damage).
+
+```python
+# fix_newline_damage.py v2 — usage: python fix_newline_damage.py . [--fix]
+import re, sys, pathlib, shutil
+
+ROOT, FIX = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "."), "--fix" in sys.argv
+
+N_COMMANDS = """nabla natural ne nearrow neg neq newcommand newenvironment newline newpage
+newtheorem newcounter newlength newsavebox newfont nexists ni nleftarrow not notin nu
+numberwithin nparallel nrightarrow nsubseteq nsupseteq nwarrow noindent nonumber nolimits
+normalfont normalsize notag newcolumntype newlabel ncong nleq ngeq nless ngtr nmid nsim
+nsubseteqq nsupseteqq ntriangleleft ntriangleright nVDash nVdash nvDash nvdash newbox newif
+newtoks newmuskip newdimen newskip nRightarrow nleftrightarrow nLeftrightarrow nLeftarrow
+nprec nsucc npreceq nsucceq newwrite newread""".split()
+FRAGS = sorted({c[1:] for c in N_COMMANDS}, key=len, reverse=True)
+PAT   = re.compile(r"(?m)^(" + "|".join(map(re.escape, FRAGS)) + r")(?![A-Za-z])")
+AMBIG = {"e", "u", "i", "eq", "eg"}          # report only; never auto-rewrite
+
+def structural(src):                          # dictionary-free preamble check
+    pre, depth, out = src.split("\\begin{document}")[0], 0, []
+    for i, ln in enumerate(pre.split("\n"), 1):
+        t = re.sub(r"(?<!\\)%.*", "", ln).strip()
+        if depth == 0 and t and not t.startswith("\\"):
+            out.append((i, t[:60]))
+        b = t.replace(r"\{","").replace(r"\}","").replace(r"\[","").replace(r"\]","")
+        depth += b.count("{") + b.count("[") - b.count("}") - b.count("]")
+    return out
+
+total = 0
+for f in sorted(ROOT.rglob("*.tex")):
+    txt  = f.read_text(encoding="utf-8")
+    hits = [(txt[:m.start()].count("\n")+1, m.group(1)) for m in PAT.finditer(txt)]
+    extra = [x for x in structural(txt) if x[0] not in {i for i, _ in hits}]
+    if not hits and not extra:
+        continue
+    total += len(hits) + len(extra)
+    print(f"\n[{f}]")
+    for ln, frag in hits:
+        print(f"  L{ln:>4}: {frag}...  -> \\n{frag}...  [{'REVIEW' if frag in AMBIG else 'AUTO'}]")
+    for ln, t in extra:
+        print(f"  L{ln:>4}: UNRECOGNISED PREAMBLE TEXT: {t}  [REVIEW]")
+    if FIX:
+        shutil.copy2(f, f.with_suffix(".tex.bak"))
+        f.write_text(PAT.sub(lambda m: m.group(0) if m.group(1) in AMBIG else "\\n"+m.group(1), txt),
+                     encoding="utf-8")
+print(f"\n{total} findings; {'fixed (backups .tex.bak)' if FIX else 'dry-run, nothing written'}")
+```
+
+**Why this matters beyond compile errors:** in the *body*, `\n`-damage is often **silent**. `\neq` → a line break plus the literal text `eq`; `\nu` → `u`; `\notin` → `otin`; `\nabla` → `abla`; `\nonumber` → `onumber` *and the equation silently gets a number*. No error, no warning — just wrong mathematics in the PDF. Proofreading the output is not a substitute for running this scan over all 16 sources.
+
+---
+
+## 7. Verification gate
+
+```bash
+grep -nE '^(ew|umberwithin|oindent|onumber|otag|abla|otin)' *.tex   # expect empty
+grep -n 'maketitle\|\\title' sec1.tex                              # P0-6: duplicate title?
+grep -ohE '\\(lrc|taust|Vol)\b' sec1.tex sec2.tex sec3.tex sec4.tex sec5.tex sec6.tex | sort | uniq -c
+grep -nE '(Section|Theorem|Lemma|Corollary)~?[0-9]+\.[0-9]+|\([0-9]+\)' sec*.tex   # hard-coded refs
+grep -ohE '\\label\{[^}]+\}' sec*.tex | sort | uniq -d
+latexmk -pdf -outdir=build_psl -interaction=nonstopmode -halt-on-error main_comp2.tex
+grep -nE "Undefined control sequence|not found|Missing .begin|already defined|multiply defined" build_psl/*.log
+```
+
+---
+
+## 8. Next steps
+
+1. Replace the old scanner with **v2** and re-scan the whole tree — the previous "clean" result was a false negative.
+2. Apply §5; retire `main_companion.tex`; extract `preamble.tex`; namespace or isolate the 7 shared subfiles.
+3. Check `sec1.tex` for a competing `\maketitle`.
+4. Upload the **16** sources (`sec1–sec9`, `secsc`, `secgr`, `secscale`, `secA–secC`, `bib`) plus figure/certificate data.
+
+Only then can the substantive review start: whether the finitization is genuinely lossless, whether the scaling-closure theorem's conditionality is fully discharged by the hypothesis ledger, and whether the shared `sec1–sec6` prose is even valid in both papers.
