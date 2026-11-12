@@ -4,18 +4,18 @@
 \contentsline {subsection}{\numberline {1.3}What this paper does not claim}{6}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Notation}{7}{subsection.1.4}%
 \contentsline {section}{\numberline {2}The main theorem, stated conditionally}{7}{section.2}%
-\contentsline {paragraph}{What changed in this revision, and why.}{9}{section*.2}%
+\contentsline {paragraph}{The reduction and its hypotheses.}{9}{section*.2}%
 \contentsline {paragraph}{What is conditional and what is not.}{9}{section*.3}%
-\contentsline {paragraph}{The hypothesis ledger.}{10}{section*.4}%
+\contentsline {paragraph}{The hypothesis ledger.}{9}{section*.4}%
 \contentsline {paragraph}{The free-parameter disclosure.}{11}{section*.5}%
-\contentsline {paragraph}{The sampled numbers, with intervals.}{12}{section*.6}%
+\contentsline {paragraph}{The sampled numbers, with intervals.}{11}{section*.6}%
 \contentsline {paragraph}{Scope levels, fixed once.}{12}{section*.7}%
 \contentsline {paragraph}{Where the derivation lives.}{12}{section*.8}%
-\contentsline {section}{\numberline {3}The pair-sum equality theorem}{13}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Setup}{13}{subsection.3.1}%
+\contentsline {section}{\numberline {3}The pair-sum equality theorem}{12}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Setup}{12}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}The mirror identity}{13}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Attainment at a pair-sum time}{14}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Proof of the theorem}{15}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.3}Attainment at a pair-sum time}{13}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Proof of the theorem}{14}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Verification and novelty status}{15}{subsection.3.5}%
 \contentsline {section}{\numberline {4}The covering framework}{16}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Bad sets and certification}{16}{subsection.4.1}%
@@ -24,48 +24,48 @@
 \contentsline {section}{\numberline {5}The rigid zone and the covering classifications}{19}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Capability and the rigid zone}{19}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}The base rung: three bad sets}{20}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}The second rung: four bad sets}{21}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.3}The second rung: four bad sets}{20}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Composite moduli}{22}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}Discharging Input E: the three-distance foot count}{24}{subsection.5.5}%
 \contentsline {paragraph}{Notation.}{24}{section*.9}%
-\contentsline {paragraph}{Machine verification.}{28}{section*.10}%
+\contentsline {paragraph}{Machine verification.}{27}{section*.10}%
 \contentsline {subsection}{\numberline {5.6}The non-porting, and the successor conjecture}{28}{subsection.5.6}%
 \contentsline {section}{\numberline {6}The group-ring translation}{28}{section.6}%
-\contentsline {subsection}{\numberline {6.1}The identity and the translation theorem}{29}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.1}The identity and the translation theorem}{28}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Machine verification of the translation}{30}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}The covering census: four families, pinned placements}{31}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}The support lemma and the computational inputs}{33}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Outlook: cyclotomic tools and the $pq$ side}{35}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.5}Outlook: cyclotomic tools and the $pq$ side}{34}{subsection.6.5}%
 \contentsline {section}{\numberline {7}The $pq$ side: the tensor translation}{35}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Setup: the CRT picture and the closed-form constants}{36}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.1}Setup: the CRT picture and the closed-form constants}{35}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}The row translation}{36}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}The row census and the pinning}{37}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Machine verification and the cell record}{38}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.4}Machine verification and the cell record}{37}{subsection.7.4}%
 \contentsline {section}{\numberline {8}The higher rungs: $T=7$ and $T=8$}{39}{section.8}%
 \contentsline {subsection}{\numberline {8.1}The rung map and the general-$T$ fiber machinery}{39}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}The critical census at $T=8$: eleven families, constant counts}{40}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}The $T=7$ census: the core, the tail, and the growing pinned sets}{41}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.3}The $T=7$ census: the core, the tail, and the growing pinned sets}{40}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}The shear step at the higher rungs}{41}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}The honest boundary of the port}{42}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.5}The boundary of the method}{41}{subsection.8.5}%
 \contentsline {section}{\numberline {9}The scaling-closure lemma: derivation and calibration}{42}{section.9}%
 \contentsline {subsection}{\numberline {9.1}The model: the cascade as a dilate-intersection}{42}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}The pool law}{44}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}The cut law: spacing, $k$-cancellation, and the comparison}{45}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.2}The pool law}{43}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}The cut law: spacing, $k$-cancellation, and the comparison}{44}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}The two-regime structure: the measured $\gamma $, the reflection fiber, and the chain class}{46}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}The volume law at $T=8$: the census, renormalization, and the strand census}{49}{subsection.9.5}%
-\contentsline {paragraph}{The character system: the corrected coordinates.}{51}{section*.11}%
-\contentsline {paragraph}{The strand census: where H1g now lives.}{52}{section*.12}%
-\contentsline {paragraph}{The transfer-matrix session: the third route, closed by theorem.}{52}{section*.13}%
+\contentsline {subsection}{\numberline {9.5}The volume law at $T=8$: the census, renormalization, and the strand census}{48}{subsection.9.5}%
+\contentsline {paragraph}{The character system: the corrected coordinates.}{50}{section*.11}%
+\contentsline {paragraph}{The strand census: where H1g now lives.}{51}{section*.12}%
+\contentsline {paragraph}{The transfer-matrix route: the third route, closed by theorem.}{52}{section*.13}%
 \contentsline {subsection}{\numberline {9.6}The verification record of this section}{54}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}The epistemic status}{55}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.7}The epistemic status}{54}{subsection.9.7}%
 \contentsline {section}{\numberline {10}Measured coverage and the decay curve}{57}{section.10}%
 \contentsline {subsection}{\numberline {10.1}The battery and its status discipline}{57}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}The corpora and the coverage tables}{58}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}The empirical pair-selection law}{59}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.2}The corpora and the coverage tables}{57}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}The empirical pair-selection law}{58}{subsection.10.3}%
 \contentsline {subsection}{\numberline {10.4}Interpreting the decay curve}{59}{subsection.10.4}%
-\contentsline {section}{\numberline {11}Open problems}{60}{section.11}%
-\contentsline {section}{\numberline {12}Reproducibility and soundness record}{63}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Controls}{65}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}The cross-validation discipline}{65}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Artifacts}{66}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Data and code availability}{67}{subsection.12.4}%
+\contentsline {section}{\numberline {11}Open problems}{59}{section.11}%
+\contentsline {section}{\numberline {12}Reproducibility and soundness record}{62}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Controls}{64}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}The cross-validation discipline}{64}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Artifacts}{65}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Data and code availability}{66}{subsection.12.4}%

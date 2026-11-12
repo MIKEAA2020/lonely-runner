@@ -12,8 +12,8 @@ at the critical cells of the higher rungs. What remains is the frontier:
 the $(1K,5U)$ cell at $T=8$ and its generalizations $(1K,T{-}3U)$ at
 every $T\ge 8$, the cells whose five-and-more-difference censuses are too
 large to enumerate and whose closure must therefore be structural. This
-section states the program's central result in what we judge its only
-honest form: a single named conditional theorem, preceded by a ledger of
+section states the program's central result in its stated form:
+a single named conditional theorem, preceded by a ledger of
 hypotheses in which every input carries its status---proved, measured,
 or derived from a disclosed fitted constant. The theorem is the
 consolidation of the conditional statements scattered through the
@@ -44,7 +44,7 @@ set empties.
 Assume the hypotheses $\mathrm{NF}$, $\mathrm{Hq}_\pm$, $\mathrm{H1g}$,
 $\mathrm{H2r}$ of Table~\ref{tab:ledger} (statuses as in the table;
 $\mathrm{Hq}_\pm$ is the $\pm$-representative, additive-error form and
-subsumes the former $\mathrm{H2m}$ as its one-step case), together with the
+subsumes $\mathrm{H2m}$ as its one-step case), together with the
 committed identity $\mathrm{EQ}$ of the same table. Let $T\ge 8$, let
 $p=Tk+\epsilon$ be prime with $k\ge 2$ and $0\le\epsilon<T$ (so $k=\floor{p/T}$
 is canonical; $p\ge p_0(T)$, the least such prime, $p_0(8)=17$), and let the
@@ -142,55 +142,29 @@ $\bar\lambda\le\Lambda_0$) is excluded from $U_\pm$ by construction, so no
 $N_{\mathrm{res}}$ term is needed.
 \end{proof}
 
-\paragraph{What changed in this revision, and why.}
-The theorem's predecessor assumed an unquantified ``sequential
-composition'' input (the former $\mathrm{H0}$ row: $C_i\approx
-\bar\gamma^{\,i}|\mathrm{Sol}|^{i+1}/p^{(m-1)i}$) and a \emph{pairwise}
-dilate-sparsity input (the former $\mathrm{H2m}$). As an audit of this
-paper observed, a recurrence for the \emph{independent-extension model}
-and a bound on \emph{unconditional} pair intersections do not compose
-into a bound on the \emph{iterated, history-dependent} intersections the
-actual cascade performs: pairwise sparsity does not control
-higher-order correlations, and three sets can have acceptable pairwise
-overlaps while sharing a structured common core. The repair is minimal
-and explicit: the multi-fiber survivor inequality $\mathrm{Hq}$ (above)
-replaces both, with $\mathrm{H2m}$ retained as its one-step case and
-$\mathrm{H0}$'s measurements retained as its calibration support. The
-derivation from the ledger is then exactly
-Proposition~\ref{prop:Hq}'s induction---complete, and conditional on
-named open inputs only.
-\emph{The present (v5) revision} is a \emph{correctness} revision, not a
-cosmetic one. Its root cause is the reflection symmetry of the bad sets
-(Lemma~\ref{lem:reflect}): the earlier Hq was quantified over \emph{oriented}
-fibers, but the fiber $-j$ imposes exactly the same constraint as fiber $j$,
-so (a) Hq was refuted by the reflection fiber (the ``intersection'' there is
-the whole set), (b) only half the fibers are independent, (c) the additive
-error term was missing and the inequality was circular at late steps, and
-(d) the depth bound ``$\le T+3$'' compared the depth to the un-reduced
-budget. The elevation is structural, not a weakening: the cascade is now
-modelled on the $\pm$-representative fiber set $U_\pm$, Hq is restated with
-an additive error term $E$ over $U_\pm$, the induction contracts to an $O(1)$
-floor and closes it by a deterministic kill (Prop.~\ref{prop:Hq}), the depth
-is $O_T(\log k)$ (Prop.~\ref{prop:depth}), and the non sequitur
-``cell empty $\Rightarrow$ LRC at the rung'' is deleted (clause (iii) now
-states the cell-emptiness result and nothing more). Every hypothesis of the
-earlier draft is retained except where the reflection defect required its
-repair; nothing is silently weakened.
-\emph{The third revision (v3) changes no theorem, lemma, or hypothesis
-of this monograph}: it updates the zonotope-strand record of
-\S\ref{sec:scale} for the companion paper's closure of the last open
-certification row (the $n=5$, $m=10$ deepest-hole value, now exactly
-$7/22$ by a Lipschitz box certificate), harmonizes the harmonic
-lower-bound record with the companion's audited $4183/12288$ witness,
-and records the version marker. \emph{The fourth revision (v4) again
-changes no theorem, lemma, or hypothesis}: it updates the
-zonotope-strand record for the companion's third certification
-session---the harmonic instance's deepest hole closed \emph{exactly}
-($\rho(1,2,3,4,5)=16/47$, by a balance-family witness whose three tied
-pair-dips obey a weighted identity, certified by branch and bound with
-two new box certificates), and the two $n=6$ boundary rows resolved as
-strict refutations ($\rho\ge17/47>5/14$ at $m=12$,
-$\rho\ge455/1269>5/14$ at $m=9$)---and records the version marker.
+\paragraph{The reduction and its hypotheses.}
+An unquantified ``sequential composition'' input
+(the $\mathrm{H0}$ row: $C_i\approx
+\bar\gamma^{\,i}|\mathrm{Sol}|^{i+1}/p^{(m-1)i}$) is not used; a recurrence for the
+\emph{independent-extension model} and a bound on \emph{unconditional} pair
+intersections do not compose into a bound on the \emph{iterated,
+history-dependent} intersections the actual cascade performs: pairwise
+sparsity does not control higher-order correlations, and three sets can have
+acceptable pairwise overlaps while sharing a structured common core. The
+multi-fiber survivor inequality $\mathrm{Hq}_\pm$ (above) replaces both, with
+$\mathrm{H2m}$ as its one-step case. The derivation from the ledger is
+exactly Proposition~\ref{prop:Hq}'s induction, conditional on named open
+inputs only.
+
+The cascade is modelled on the $\pm$-representative fiber set $U_\pm$
+(one representative per reflection pair; the reflection fiber excluded, by
+Lemma~\ref{lem:reflect}), because the fiber $-j$ imposes the same covering
+constraint as fiber $j$; an oriented-fiber model would double-count every
+constraint and make the survivor inequality fail on the reflection duplicate.
+The survivor inequality $\mathrm{Hq}_\pm$ carries an additive error term $E$;
+the induction contracts to an $O(1)$ floor and closes it by a deterministic
+kill (Prop.~\ref{prop:Hq}), and the depth is $O_T(\log k)$
+(Prop.~\ref{prop:depth}). Clause (iii) states cell emptiness and nothing more.
 
 \paragraph{What is conditional and what is not.}
 The reduction chain \emph{(i)}$\to$\emph{(ii)}$\to$\emph{(iii)} is
@@ -202,14 +176,11 @@ reflection identification (Lemma~\ref{lem:reflect}), the
 $T$-free fiber machinery, and the lossless identity of
 Corollary~\ref{cor:tau}. The arithmetical content---that the per-fiber
 cut beats the pool within $C(T,k)$ fibers---is proved \emph{given} the
-ledger's inputs, by the induction of Proposition~\ref{prop:Hq} (in
-this revision an explicit theorem-level step; its predecessor leaned
-on the independent-extension recurrence without the quantified Hq). None of those inputs is silently established, and none
+ledger's inputs, by the induction of Proposition~\ref{prop:Hq}. None of those inputs is silently established, and none
 is silently weakened: that is the content of Table~\ref{tab:ledger}. The
 $pq$ side of the composite frontier is carried by the row translation
 (Theorem~\ref{thm:R}) with the same input structure; Theorem~\ref{thm:SC}
-is stated for the $p^2$ side only. The one change the reflection defect
-forces is that the reduction chain (i)$\to$(ii)$\to$(iii) is now stated
+is stated for the $p^2$ side only. The reduction chain (i)$\to$(ii)$\to$(iii) is stated
 over the $\pm$-representative fiber set $U_\pm$: (iii) is cell emptiness,
 not LRC at the rung.
 
@@ -218,9 +189,8 @@ Each row of Table~\ref{tab:ledger} names one input, its precise form,
 its status, and its evidence or attack route. The rows are
 \emph{conditional inputs}, not evidence toward the theorem's validity:
 three are open hypotheses with measured support ($\mathrm{Hq}_\pm$,
-$\mathrm{H1g}$, $\mathrm{H2r}$, the first rebuilt over the
-$\pm$-representative fiber set with an additive error term in this
-revision); one is the measured one-step base case
+$\mathrm{H1g}$, $\mathrm{H2r}$, the first over the
+$\pm$-representative fiber set with an additive error term); one is the measured one-step base case
 ($\mathrm{H2m}$); the others are proved, machine-validated structure
 ($\mathrm{NF}$) and a committed identity ($\mathrm{EQ}$). The statuses
 are stated once here and are not restated with each citation.
@@ -256,9 +226,8 @@ census-restricted search equals brute force at the boundary prime
 $p=5$ (the $8$-covering control); the $T=8$ zoo census is the measured
 object. \\
 $\mathrm{Hq}_\pm$ &
-Multi-fiber survivor inequality, $\pm$-representative form with additive error
-(this revision; replaces the former unquantified H0 and the reflection-defective
-Hq): for every admissible cascade history $S_{i-1}$ over the $\pm$-representative
+Multi-fiber survivor inequality, $\pm$-representative form with additive error:
+for every admissible cascade history $S_{i-1}$ over the $\pm$-representative
 fiber set $U_\pm$ (one representative per reflection pair $\{j,-j\}$; the
 reflection fiber excluded) and next such fiber $i$,
 $|S_{i-1}\cap A_i|\le\Gamma\,|S_{i-1}|\,|\mathrm{Sol}_i|/p^{m-1}+E$,
@@ -273,7 +242,7 @@ the $i=1$ case is the measured H2m. Route: tangency codimension $\ge 1$ (the
 reflection identification removes the $j=-j$ duplicate); the error term $E$ is
 the tangency remainder; the iterated conditional bound is the open content. \\
 $\mathrm{H1g}$ &
-Distinct-family volume law with uniform margin (sharpened in this revision):
+Distinct-family volume law with uniform margin:
 $|\mathrm{Sol}(f,\mathrm{sz})|\le c_1\,\mathrm{ov}^{\,m-1}$ for every
 $\pm$-distinct family $f$ and admissible size tuple, with
 $c_1\,\Gamma\le\bigl(T/(T-6)\bigr)^{\,m-1}e^{-\eta}$ for some $\eta>0$ uniform
