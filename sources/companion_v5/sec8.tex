@@ -1,0 +1,288 @@
+% ======================================================================
+% Section 6 — The pq side: the tensor translation
+% ======================================================================
+
+\section{The $pq$ side: the tensor translation}\label{sec:pq}
+
+The group-ring translation of \S\ref{sec:groupring} was stated and verified at
+prime modulus, where the three covering objects are APs of $\Z_p$. This
+section completes the structural picture at semiprime modulus: at $N=pq$ the
+CRT identification $\Z_{pq}\cong\Z_p\times\Z_q$ turns the two-unit and
+three-unit cells into \emph{fiber-wise} three-AP problems of exactly the
+prime-modulus form, with one member fixed by the kernel side and the other
+members moving affinely along the fiber index. The tensor structure that the
+outlook of \S\ref{sec:gt-outlook} anticipated is real, it is proved
+(Theorem~\ref{thm:R}), and it is machine-verified in every component. The
+outcome is the structural completion the programme wanted: \emph{the $pq$
+cells introduce no new computational input} --- they close modulo exactly the
+two lemmas already named for the $p^2$ closure (Corollary~\ref{cor:pqdep}).
+
+\subsection{Setup: the CRT picture and the closed-form constants}
+\label{sec:pq-setup}
+
+Fix $N=pq$ with $5\le p<q$ primes, $c=\floor{(N-1)/6}$, and work in the CRT
+coordinates $(x,y)=(k\bmod p,\ k\bmod q)$. Define
+\[
+\rho_p:=\floor{c/q}=\floor{p/6},\qquad \rho_q:=\floor{c/p}=\floor{q/6},
+\]
+the first equality by the nested-floor identity. A kernel-$p$ member (speed
+$pa$, $a\in\Z_q^{*}$) has $\|pa\,k\|_{N}=p\,\|ak\bmod q\|_q\le c$ iff
+$\|ak\bmod q\|_q\le\rho_q$: it covers exactly the rows of
+\[
+Y_a=\{y\in\Z_q:\|ay\|_q\le\rho_q\},
+\]
+an AP of $2\rho_q+1$ rows (the preimage of the symmetric interval under
+multiplication by $a$); symmetrically a kernel-$q$ member (speed $qb$,
+$b\in\Z_p^{*}$) covers exactly the columns of
+$X_b=\{x\in\Z_p:\|bx\|_p\le\rho_p\}$, an AP of $2\rho_p+1$ columns. The
+uncovered region of a $(1,1,2)$ family --- one kernel of each type, two units
+--- is the rectangle $X_b^{c}\times Y_a^{c}$ with
+\[
+|X_b^{c}|=p-2\rho_p-1,\qquad |Y_a^{c}|=q-2\rho_q-1\ \tfrac{2}{3}q-\mathrm{O}(1).
+\]
+
+A unit $u\in\Z_{pq}^{*}$ has bad set $B_u=u^{-1}[-c,c]$, and its trace on a
+row is governed by one integer interval. Write $k=y+qj$ ($j\in\Z_p$) for the
+row $y$ and $\sigma=\sigma_u(y):=uy\bmod q\in[0,q)$; then
+$(x,y)\in B_u$ iff $x\equiv u^{-1}t\pmod p$ for some $t\in[-c,c]$ with
+$t\equiv\sigma\pmod q$, i.e.\ $t=\sigma+qj'$ with
+\begin{equation}\label{eq:Jinterval}
+j'\in J_u(y):=\bigl[\lceil(-c-\sigma)/q\rceil,\ \floor{(c-\sigma)/q}\bigr],
+\end{equation}
+an interval of $n_u(y):=|J_u(y)|=\floor{(c-\sigma)/q}+\floor{(c+\sigma)/q}+1$
+consecutive integers. This is the $pq$ form of the fiber footprint
+$T_u(j)$ of the $p^2$ analysis.
+
+\subsection{The row translation}\label{sec:pq-thm}
+
+\begin{theorem}[row translation at $N=pq$]\label{thm:R}
+With the notation above, writing $\alpha_u:=u^{-1}\bmod p$:
+\begin{enumerate}[leftmargin=1.9em,itemsep=2pt]
+\item[\textup{(i)}] the trace of $B_u$ on the row $y$ is the AP
+\[
+f_u(y)=\{\alpha_u(\sigma+qj')\bmod p:\ j'\in J_u(y)\},
+\]
+of step $\alpha_u q\bmod p$ and size $n_u(y)$;
+\item[\textup{(ii)}] the size profile is class-appropriate: writing
+$p=6k+\epsilon$ with $\epsilon\in\{1,5\}$,
+\[
+n_u(y)\in
+\begin{cases}
+\{2k+1,\ 2k+2\}&\epsilon=5,\\
+\{2k,\ 2k+1\}&\epsilon=1,
+\end{cases}
+\]
+independently of $q$;
+\item[\textup{(iii)}] the $(1,1,2)$ family covers $\Z_{pq}$ if and only if,
+for every row $y\in Y_a^{c}$,
+\[
+X_b^{c}\ \subseteq\ f_{u_1}(y)\cup f_{u_2}(y),
+\]
+i.e.\ iff $(f_{u_1}(y),\,f_{u_2}(y),\,X_b)$ is a three-AP covering of
+$\Z_p$ whose third member is the \emph{fixed} AP $X_b$; at $\epsilon=5$ this
+is the exact partition of the multiset $\{2k{+}2,2k{+}2,2k{+}1\}$, and at
+$\epsilon=1$ a critical covering with $\mathrm{ov}\in\{0,1,2\}$ and sizes in
+$\{2k,2k{+}1\}$ --- in both cases precisely the census scope of
+\S\ref{sec:gt-census} with $s_1=|X_b|=2k+1$;
+\item[\textup{(iv)}] the start $a_u(y)=\alpha_u(\sigma_u(y)+q\,j_{\min}(y))$
+of the row AP moves \emph{piecewise-affinely} in $y$:
+$a_u(y{+}1)-a_u(y)\in\{\alpha_u u,\ \alpha_u(u-q)\}$ in $\Z_p$; the
+$(1K,3U)$ cells obey the same translation with three footprints and no fixed
+member (the whole row must be covered), i.e.\ the Lemma~A/B problem itself.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) is the computation above \eqref{eq:Jinterval}. (ii) Write
+$c=\rho_p q+c'$ with $c'=c\bmod q$. Since $p=6m+\epsilon$ and
+$r:=(\epsilon q)\bmod 6\in\{1,5\}$,
+$c=mq+(\epsilon q-r)/6$, so $c'=(\epsilon q-r)/6$, which is $>q/2$ exactly
+when $\epsilon=5$ (for $q\ge 3$) and $<q/2$ exactly when $\epsilon=1$. Now
+\[
+n_u(y)=2\rho_p+\floor{(c'-\sigma)/q}+\floor{(c'+\sigma)/q}+1,
+\]
+where the two floors take values in $\{-1,0\}$ and $\{0,1\}$: the maximum
+$2\rho_p+2$ occurs iff $q-c'\le\sigma\le c'$ (nonempty iff $c'>q/2$, i.e.\
+$\epsilon=5$), the minimum $2\rho_p$ occurs iff
+$c'<\sigma<q-c'$ (nonempty iff $c'<q/2$, i.e.\ $\epsilon=1$), and
+$2\rho_p+1$ always occurs. With $\rho_p=\floor{p/6}=k$ this is the stated
+profile; the dichotomy depends on $c'$, hence on $p\bmod 6$ and $q$, but the
+\emph{window} $\{2k{+}1,2k{+}2\}$ resp.\ $\{2k,2k{+}1\}$ depends only on
+$p$. (iii) The uncovered region is exactly $X_b^c\times Y_a^c$; covering it
+is equivalent to the row inclusions. At $\epsilon=5$,
+$|X_b^{c}|=p-2k-1=4k+4=2(2k+2)$ while $n_{u_i}(y)\le 2k+2$, so both
+footprints must have the maximal size and
+$f_{u_1}(y)\sqcup f_{u_2}(y)=X_b^{c}$ exactly: together with $X_b$ (disjoint
+from $X_b^{c}$) this is a pairwise-disjoint partition of $\Z_p$ with sizes
+$(2k+2,2k+2,2k+1)$, the B-side critical multiset with the third member fixed.
+At $\epsilon=1$, $|X_b^{c}|=4k$ and $n_{u_i}(y)\le 2k+1$, so
+$n_1+n_2+|X_b|-p\le 2$ with all sizes in the A-side window: a critical
+covering with $s_1=2k+1$ fixed. (iv) $\sigma_u(y{+}1)-\sigma_u(y)\in\{u
+\bmod q,\ u\bmod q-q\}$ and $j_{\min}(y{+}1)-j_{\min}(y)\in\{0,-1\}$, giving
+the two rates; the $(1K,3U)$ statement is the same row decomposition with the
+kernel covering only rows.
+\end{proof}
+
+Part (iii) is the tensor translation: the $pq$ cell condition \emph{is} the
+prime-modulus census condition, fiber by fiber, with the kernel side
+supplying the fixed member and the unit side supplying the moving members.
+Part (ii) is what makes it sharp --- the row-size profile is forced by
+$c\bmod q$ to sit in the class-appropriate critical window, so no
+out-of-scope size ever appears on a fiber. Part (iv) is the shear structure:
+the covering configurations of the rows are pinned (below), and their
+carriers drift at rates determined by the units alone.
+
+\subsection{The row census and the pinning}\label{sec:pq-census}
+
+Theorem~\ref{thm:R}(iii) reduces the row condition to the census of
+\S\ref{sec:gt-census} \emph{restricted to} $s_1=|X_b|=2k+1$. That restricted
+census is again four families with $p$-independent counts.
+
+\begin{proposition}[row census, machine]\label{prop:rowcensus}
+At every prime $p\equiv5\pmod6$ with $11\le p\le59$, the census of critical
+coverings in the normal form with $s_1=2k+1$ (sizes $(2k{+}2,2k{+}2)$,
+$\mathrm{ov}=0$) returns exactly $24$ configurations, distributed by the
+$\pm$-rep pair $(\|d_2\|,\|d_3\|)$ as
+\[
+(1,1):8,\qquad(2,2):8,\qquad(1,q):4,\qquad(q,1):4,
+\]
+with $q=(p-1)/2$. At every prime $p\equiv1\pmod6$ with $19\le p\le61$, the
+census with $s_1=2k+1$ and sizes in $\{2k,2k+1\}$ ($\mathrm{ov}\in\{0,1,2\}$)
+returns exactly $312$, distributed as
+\[
+(1,1):104,\qquad(2,2):72,\qquad(1,q):68,\qquad(q,1):68.
+\]
+All counts are independent of $p$, and no other family occurs.
+\end{proposition}
+
+The $24$ of the $\epsilon=5$ side is completely proved by the parametrization
+mechanism of Proposition~\ref{prop:pindep}: the $(1,1)$ configurations are the two
+cyclic orders of the consecutive tiling of $I_1=[2k+1,p-1]$ by two intervals
+of $2k+2$, in $2^2$ parametrizations ($8$); the $(2,2)$ configurations are
+the even/odd split of $I_1$ in both assignments and orientations ($8$); and
+the $(1,q)$, $(q,1)$ configurations are the \emph{wrapped} two-block: the
+two-block of step $-q$ with first block $[2k+1,3k+1]$ has its second block at
+$[a-q,a-q+k]\equiv[5k+4,6k+4]$ through the wrap at $0$, and its complement
+in $I_1$ is the single interval $[3k+2,5k+3]$ of size $2k+2$ --- one
+set-arrangement in $2^2$ parametrizations ($4$ each). The unwrapped two-block
+placements $a\in\{3k+1,3k+2\}$ fail by exactly one exposed endpoint
+($\{2k+1\}\cup[3k{+}3,5k{+}3]$ resp.\ $[3k{+}2,5k{+}2]\cup\{6k{+}4\}$): the
+near-miss that the shear argument exploits. This is the CRT-compatible form
+of the four families: on each fiber, the classified objects are exactly the
+census objects, with the fixed member playing the normalized role.
+
+The pinning statement is the machine result that connects this to
+Input~S. Across the eight moduli
+$N\in\{35,55,77,91,95,115,119,143\}$, all $132{,}485$ $(a,b,u_1,u_2)$
+families were scanned row by row:
+
+\begin{proposition}[pinning at $N=pq$, machine]\label{prop:pqpinned}
+Every row configuration $(f_{u_1}(y),f_{u_2}(y),X_b)$ satisfying the row
+condition of Theorem~\emph{\ref{thm:R}(iii)} --- $37{,}672$ of them across
+the eight moduli --- is, after the normalization $x\mapsto bx+\rho_p$,
+\emph{exactly} a census solution of Proposition~\ref{prop:rowcensus} at the
+row modulus ($100\%$; both the family label and the placement sets coincide).
+For a fixed family $(a,b,u_1,u_2)$ the number of rows satisfying the
+condition is at most $6$.
+\end{proposition}
+
+This is the identity-level form of the shear mechanism at $N=pq$: a covering
+would need the row condition on \emph{every} row of the arc $Y_a^{c}$ (of
+size $q-2\floor{q/6}-1\ \tfrac23 q\ \ge 8$ for $q\ge11$), but the pinned
+placement sets have $p$-independent size ($24$ resp.\ $312$ elements, by
+Propositions~\ref{prop:rowcensus} and~\ref{prop:pindep}), and the carriers
+drift at the two rates of Theorem~\ref{thm:R}(iv). Either the relative drift
+is nonzero, and the normalized placement pair exits the pinned set within a
+bounded number of rows (at most $6$ in every measured case, with the failure
+rows carrying $1$--$2$ uncovered points each --- the margins below), or the
+relative drift vanishes, which forces a multiplicative relation between
+$u_1,u_2$ modulo $p$ --- the collapse case, where the family degenerates to a
+common scaling and the kernel side must cover. The dichotomy is the same as
+at $p^2$, with the same two consumers.
+
+\subsection{Machine verification and the cell record}\label{sec:pq-verify}
+
+\begin{table}[t]
+\centering
+\small
+\caption{Verification of the $pq$ translation and the cells. ``Families''
+counts $(a,b,u_1,u_2)$ resp.\ $(a,u_1,u_2,u_3)$ tuples over $\pm$-canonical
+speeds; margins are the minimal numbers of uncovered points over all
+families.}
+\label{tab:pqverify}
+\begin{tabularx}{\textwidth}{@{}lXXr@{}}
+\toprule
+check & scope & outcome & count \\
+\midrule
+constants & $8$ moduli $35$--$143$ & $\rho_\cdot=\floor{\cdot/6}$;
+$\epsilon{=}5$ partition equality $|X^c|=2(2k{+}2)$; profile dichotomy
+\eqref{eq:Jinterval}--(ii) & 8 \\
+footprint formula & all units $\times$ all rows, $8$ moduli & exact set
+equality $f_u(y)=\{\alpha_u(\sigma+qj')\}$ & 4{,}394 \\
+row census (Prop.~\ref{prop:rowcensus}) & $\epsilon=5$: $p\le59$;
+$\epsilon=1$: $p\le61$ & $24$ resp.\ $312$, counts constant, four families
+only & 14 \\
+$(1,1,2)$ cell & $N\in\{35,\dots,143\}$, all $(a,b,u_1<u_2)$ & $0$
+coverings; margins $4$--$18$ & 143{,}733 \\
+$(1K,3U)$ cells, both orientations & same $N$, all unit triples & $0$
+coverings; margins $2$--$10$ & 989{,}000 \\
+pinning (Prop.~\ref{prop:pqpinned}) & $8$ moduli, all families & $37{,}672/
+37{,}672$ rows are census solutions; max good rows $\le6$ & --- \\
+$T$-10 reproduction & $N=77,91$ & $(1,1,2)$ empty, as committed & 2 \\
+parity/two-block structure & every census $(2,2)$ solution, $6$ primes &
+one integer parity class of $I_1$, $\le\mathrm{ov}$ spills & 1{,}248 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+All checks pass (Table~\ref{tab:pqverify}); the harness is an independent
+code path (formula-based footprints cross-checked against the direct
+definition, bit-masked cell enumeration, census by residual fit with the
+$p=7$ brute-force validation of \S\ref{sec:gt-verify} carried over). The
+margin structure mirrors the prime side: the nearest $(1,1,2)$ families sit
+in the interval and parity families with a handful of good rows (the drift
+kills the rest, each failing row missing $1$--$2$ points of $X_b^c$), and the
+nearest $(1K,3U)$ families fail entire rows by $2$--$10$ points --- the
+cyclotomic analogue of the shear near-miss at $p^2$ (families failing all
+but two fibers).
+
+\begin{corollary}[the $pq$ closure's dependencies]\label{cor:pqdep}
+The emptiness of the $(1,1,2)$ and $(1K,3U)$ cells at $N=pq$ ($5\le p<q$),
+verified here for $N\le143$, is modulo exactly the computational inputs of
+the $p^2$ closure, and no new unbounded statement appears on the $pq$
+side: \emph{(a)} the support lemma (Conjecture~\ref{conj:SL}) at the row
+and column moduli --- which classifies the per-fiber configurations into
+the four families with the pinned placement sets of
+Propositions~\ref{prop:rowcensus}--\ref{prop:pqpinned} --- and \emph{(b)}
+the shear-rigidity argument applied along the row arc
+(Theorem~\emph{\ref{thm:R}(iv)}), i.e.\ Input~S in its fiberwise form. The
+$p^2$ closure's foot-count input (Input E) reaches the $pq$ side only
+through the prime-side trichotomy inside \emph{(a)} and is now
+discharged (Lemma~\ref{lem:E}); after this revision, both closures rest
+on the single unbounded input S.
+\end{corollary}
+
+\begin{proof}[Proof sketch]
+By Theorem~\ref{thm:R}(iii) a covering family yields a critical three-AP
+covering on every row of $Y_a^{c}$; by the support lemma each is one of the
+four families in the normalization of the fixed member $X_b$, with placement
+in the pinned set; the affine drift (iv) moves the normalized placements at
+rates $\lambda_i\in\{\alpha_{u_i}u_i,\alpha_{u_i}(u_i-q)\}$, and the pinned
+set is finite and $p$-independent while $|Y_a^{c}|$ grows with $q$; a
+nonvanishing relative drift exits the set (Proposition~\ref{prop:pqpinned}
+measures at most $6$ surviving rows), and a vanishing one collapses the units
+to a common scaling modulo the fiber modulus, whereupon the reduced problem
+is the prime-modulus cell, closed by Lemmas A/B. The column side exchanges
+the roles of $p$ and $q$ and of rows and columns.
+\end{proof}
+
+The reformulation is thus structurally complete on the semiprime side: every
+cell of the two-unit and three-unit counting at $N=pq$ is either closed by
+the proved fiber-cap theorems (Theorems 2--3 of the companion notes, with the
+$(1,1,2)$ cell's row-slack equality $p-2\rho_p-1=2(2\rho_p+2)$ at
+$p\equiv5\pmod6$ explaining precisely why that cell is the sole survivor of
+the counting), or reduced by Theorem~\ref{thm:R} to the prime-modulus
+programme with the same named inputs --- of which the foot-count lemma is
+now proved (Lemma~\ref{lem:E}), leaving a single unbounded input. What
+remains outside the
+classification is the rigid-zone lift question, unchanged.

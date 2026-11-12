@@ -1,0 +1,180 @@
+% ======================================================================
+% Appendix C — Self-contained verification core
+% ======================================================================
+
+\section{A self-contained verification core}\label{sec:self}
+
+This appendix lets a reader with only this paper verify the sharpest
+negative claims without the companion monograph. It collects the
+elementary identity behind the four forms, the runner formulation with
+its certificate, the explicit statement of the sum-only equality, and
+one-line hand checks of the headline witnesses.
+
+\subsection{The identity and the runner formulation}
+
+\begin{lemma}[depth identity]\label{lem:depthid}
+For every $t\in\T$,
+$\max_{1\le j\le n}\wnc{\tfrac12-v_jt}=\tfrac12-\min_{1\le j\le n}\wnc{v_jt}$.
+Consequently $\delta(V)=\tfrac12-\lambda(V)$ with
+$\delta(V)=\operatorname{dist}_\infty\!\bigl(\R v,\;\Z^n+\tfrac12\mathbf{1}
+\bigr)$, and the $\delta$-form of \S\ref{sec:prelim} is exactly
+$\lrc_n$.
+\end{lemma}
+
+\begin{proof}
+Each map $x\mapsto\wnc{x}$ satisfies
+$\wnc{\tfrac12-x}=\tfrac12-\wnc{x}$: reflecting about $\tfrac12$
+exchanges the two half-intervals and fixes the midpoint. Taking $x=v_jt$
+and maximizing over $j$ gives the displayed identity (a maximum of
+quantities each equal to $\tfrac12$ minus the corresponding term is
+$\tfrac12$ minus the minimum). The distance form is the same statement
+along the trajectory line $tv$, $t\in\R$.
+\end{proof}
+
+The computations of this paper use the \emph{runner formulation}
+\eqref{eq:runnerform}, restated here:
+\[
+D(c)\;=\;\min_{\sigma\in[0,1)}\;\max\Bigl(\wnc{\sigma},\;
+\max_{2\le j\le n}\wnc{c_j-v_j\sigma}\Bigr).
+\]
+Two facts make it auditable. First, it is the quotient-norm depth
+$\operatorname{dist}_{\mathcal{X}_v}(c,\Lambda)$ written in the
+$c$-coordinates of \S\ref{sec:prelim}: the linear forms $\phi^{1j}$,
+$\phi^{ij}$ listed there generate the norm, the parameter $\sigma$ is the
+free coordinate $x_1$ of a lift, and minimizing over $\sigma$ minimizes
+over the lift. Second, it is \emph{Lipschitz-auditable}: each term
+$\wnc{c_j-v_j\sigma}$ is $v_j$-Lipschitz in $\sigma$ and the whole
+objective is piecewise linear with breakpoints at the half-integers
+$c_j-\tfrac12-v_j\sigma\in\Z$, so the minimum is attained at a rational
+breakpoint or crossing and is exactly computable by hand or by exact
+rational arithmetic. The independent linear-form/lattice-search
+implementation of the program agrees with it exactly on every instance
+used in this paper (forty random rational points per instance).
+
+\subsection{The sum-only equality, explicitly}
+
+\begin{theorem}[sum-only equality; explicit form]\label{thm:equality-explicit}
+Let $V=(v_1,\dots,v_n)$ have distinct positive entries with $\gcd(V)=1$
+and $0<M(V)<\tfrac12$. For each unordered pair $\{u,w\}\subset[n]$ write
+$N_{uw}=v_u+v_w$ and
+\[
+\tau(u,w)\;=\;\max_{0\le k<N_{uw}}\;\min_{p\in[n]\setminus\{w\}}\;
+\wnc{\frac{v_pk}{N_{uw}}}.
+\]
+Then $M(V)=\max_{\{u,w\}}\tau(u,w)$, and consequently $\lrc_n$ holds
+for all $V$ if and only if for every $V$ there is a pair $\{u,w\}$ with
+$\tau(u,w)\ge 1/(n+1)$.
+\end{theorem}
+
+The two ingredients (proved in the companion monograph, Theorem~1.1
+there; the finitization is what every instance of \S\ref{sec:tm-covering}
+entered through) are: (i) at a global optimum $t^\ast$ with
+$0<M(V)<\tfrac12$ the binding runners can be chosen two-sided---one
+rising, one falling---which forces $(v_u+v_w)t^\ast\in\Z$ for that pair,
+so $t^\ast$ lies on the \emph{sum} lattice of denominator $v_u+v_w$; and
+(ii) on that lattice the two binding runners are exact reflections
+($\wnc{v_uk/N}=\wnc{v_wk/N}$ for all $k$, since $v_u\equiv-v_w \pmod N$),
+so the $n$-runner minimum equals an $(n-1)$-runner minimum. The
+companion's Lemma~2.1 also records the boundary cases $M(V)=\tfrac12$
+(all speeds odd) and $M(V)=0$ (impossible).
+
+\subsection{Hand checks of the headline witnesses}
+
+All the strict witnesses of Table~\ref{tab:refute} are one-minute hand
+computations with \eqref{eq:runnerform}; the two closed values need the
+branch-and-bound half of their certificates as well
+(\S\ref{sec:bb}), but the witness halves are hand checks too.
+
+\emph{The harmonic argmax value $16/47$.} Take $v=(1,2,3,4,5)$ and
+$c=(\tfrac{122}{1175},\tfrac{688}{1175},\tfrac{284}{1175},
+\tfrac{80}{1175})$. At $\sigma=\tfrac{96}{1175}$ (working in
+$1175$-ths, with $c=(\tfrac{122}{1175},\tfrac{688}{1175},
+\tfrac{284}{1175},\tfrac{80}{1175})$):
+$\wnc\sigma=\tfrac{96}{1175}$;
+$\wnc{c_2-2\sigma}=\wnc{\tfrac{122-192}{1175}}=\tfrac{70}{1175}$;
+$\wnc{c_3-3\sigma}=\wnc{\tfrac{688-288}{1175}}=\tfrac{400}{1175}$;
+$\wnc{c_4-4\sigma}=\wnc{\tfrac{284-384}{1175}}=\tfrac{100}{1175}$;
+$\wnc{c_5-5\sigma}=\wnc{\tfrac{80-480}{1175}}=\tfrac{400}{1175}$.
+The maximum is $\tfrac{400}{1175}=\tfrac{16}{47}$, attained twice
+(runners $3$ and $5$, slopes $+3$ and $-5$ opposite), and it is
+minimized: any local shift of $\sigma$ increases one of the two. Hence
+$D(c)=16/47>\tfrac13=\mathrm{thr}_5$. The pair-form side of the same
+point is the quadruple binding of \S\ref{sec:weights}:
+$\phi^{45}(c-z)=-16/47$ at $z=(0,0,0,-1)$, $\phi^{34}(c-z)=-16/47$ at
+$z=(0,1,0,0)$, $\phi^{35}(c-z)=+16/47$ at $z=0$, and
+$\phi^{25}(c-z)=+16/47$ at $z=(0,1,1,1)$, each a two-term integer
+evaluation.
+
+\emph{The rung-2 argmax value $17/47$.} Take
+$v=(1,2,3,4,5,12)$ and
+$c=(\tfrac{4714}{5875},\tfrac18,\tfrac58,\tfrac6{25},
+\tfrac{2034}{5875})$. At $\sigma=\tfrac{482}{5875}$ the six terms are
+$\tfrac{482}{5875}$, $\tfrac{2125}{5875}$, $\tfrac{5693}{47000}$,
+$\tfrac{13951}{47000}$, $\tfrac{1000}{5875}$, $\tfrac{2125}{5875}$:
+the maximum $\tfrac{2125}{5875}=\tfrac{17}{47}$ is attained twice
+(runners $2$ and $12$, slopes $+2$ and $-12$ opposite) and is
+minimized, so $D(c)=17/47>\tfrac5{14}=\mathrm{thr}_6$. The binding
+triple $\{2,5,12\}$ and its translates are recorded in
+\S\ref{sec:weights}.
+
+\emph{The strict witnesses.} For $v=(1,2,3,4,5,6)$ take
+$c=(0,\tfrac5{16},\tfrac{15}{16},\tfrac34,\tfrac12)$ and
+$\sigma=\tfrac{23}{160}$: the six terms are
+$\tfrac{23}{160}$, $\tfrac{23}{80}$, $\tfrac{19}{160}$, $\tfrac{29}{80}$,
+$\tfrac1{32}$, $\tfrac{29}{80}$, so $D(c)=29/80>\tfrac5{14}$ (runners
+$4$ and $6$ tie at the maximum with opposite slopes). For
+$v=(1,2,3,4,5,7)$ take
+$c=(\tfrac1{16},\tfrac9{16},0,\tfrac38,0)$ and $\sigma=\tfrac1{11}$:
+the six terms are $\tfrac1{11}$, $\tfrac{21}{176}$, $\tfrac{51}{176}$,
+$\tfrac4{11}$, $\tfrac7{88}$, $\tfrac4{11}$, so $D(c)=4/11>
+\tfrac5{14}$. For $v=(1,2,3,4,5,9)$ take
+$c=(\tfrac1{32},\tfrac{15}{32},\tfrac{1383}{10000},
+\tfrac{32921}{40000},\tfrac{95473}{200000})$ and
+$\sigma=\tfrac{18577}{200000}$: the six terms are
+$\tfrac{18577}{200000}$, $\tfrac{3863}{25000}$,
+$\tfrac{38019}{200000}$, $\tfrac{5831}{25000}$, $\tfrac{1793}{5000}$,
+$\tfrac{1793}{5000}$, so $D(c)=1793/5000>\tfrac5{14}$ (runners $5$ and
+$9$ tie at the maximum).
+
+\emph{The $7/22$ center class (the $m=10$ ladder closure's witness).}
+Take $v=(1,2,3,4,10)$ and
+$c=(\tfrac12,0,\tfrac12,\tfrac12)$. At $\sigma=\tfrac{7}{22}$ the five
+terms of \eqref{eq:runnerform} are $\tfrac{7}{22}$, $\tfrac{3}{22}$,
+$\tfrac{1}{22}$, $\tfrac{5}{22}$, $\tfrac{7}{22}$: explicitly
+$\wnc\sigma=\tfrac7{22}$; $\wnc{\tfrac12-2\sigma}=\tfrac3{22}$;
+$\wnc{-3\sigma}=\tfrac1{22}$;
+$\wnc{\tfrac12-4\sigma}=\tfrac5{22}$; and
+$\tfrac12-10\sigma=-\tfrac{59}{22}\equiv\tfrac7{22}\pmod 1$, so the
+fifth term is $\tfrac7{22}$. The maximum is $\tfrac7{22}$, and it is
+minimized: the binding terms are the $\sigma$-term (slope $+1$) and the
+fifth term (slope $-10$), opposite signs, so any local shift of
+$\sigma$ increases one of them. Hence $D(c)=7/22$, and the
+branch-and-bound certificate of \S\ref{sec:bb} ($\rho\le7/22$, the
+tree emptying) upgrades this to $\rho(1,2,3,4,10)=\tfrac{7}{22}$
+exactly; since $\delta=1/2-\lambda=1/2-2/11=7/22$, the deepest hole at
+$m=10$ is the center class itself. The pair-form side is the bisection
+of \S\ref{sec:weights}: the pair $(1,10)$ binds at two translates with
+opposite signs, $2\cdot 11\cdot\rho=7\in\Z$.
+
+\emph{The balance-family witness at the harmonic argmax.} Take
+$c=c(35)=(\tfrac{46}{47},\tfrac{92}{235},\tfrac{231}{235},
+\tfrac{35}{47})$. At $\sigma=\tfrac{4}{235}$ the five terms of
+\eqref{eq:runnerform} are $\tfrac{4}{235}$, $\tfrac{13}{235}$,
+$\tfrac{80}{235}$, $\tfrac{20}{235}$, $\tfrac{80}{235}$: explicitly
+$\wnc\sigma=\tfrac4{235}$;
+$\wnc{\tfrac{46}{47}-2\sigma}=\wnc{\tfrac{222}{235}}=\tfrac{13}{235}$;
+$\wnc{\tfrac{92}{235}-3\sigma}=\tfrac{80}{235}$;
+$\wnc{\tfrac{231}{235}-4\sigma}=\wnc{\tfrac{215}{235}}=\tfrac{20}{235}$;
+and $\wnc{\tfrac{35}{47}-5\sigma}=\wnc{\tfrac{155}{235}}=\tfrac{80}{235}$.
+The maximum is $\tfrac{80}{235}=\tfrac{16}{47}$, attained with the
+third and fifth terms binding (slopes $-3$ and $+5$, opposite), and the
+tie over all three dips of the triple $\{3,4,5\}$---forced by the
+identity along the family---gives the same value at every member; the
+two-sided certificate of \S\ref{sec:bb} then makes $16/47$ the exact
+covering radius.
+
+Every value in
+Table~\ref{tab:refute} was additionally re-asserted by two independent
+implementations in the provenance run (Appendix~\ref{sec:prov}), and
+the closure runs' witnesses by the cross-validation run described
+there.

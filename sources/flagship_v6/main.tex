@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage[section]{placeins}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,
+            urlcolor=blue!55!black,bookmarks=true,bookmarksnumbered=true,
+            unicode=true]{hyperref}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\emergencystretch=3em
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\wn}[1]{\lVert #1 \rVert_{N}}
+\newcommand{\wnc}[1]{\lVert #1 \rVert}
+\newcommand{\lrc}{\mathrm{LRC}}
+\newcommand{\taust}{\mathrm{TAU}}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\cls}{cls}
+\DeclareMathOperator{\Vol}{Vol}
+
+\graphicspath{{.}}
+
+\hypersetup{
+  pdftitle={Every Natural Strengthening Examined Is False: Type Mismatch
+            in Lossless Reformulations of the Lonely Runner Conjecture},
+  pdfauthor={Anonymous},
+  pdfsubject={Lonely Runner Conjecture; reformulations; covering radius;
+              zonotopes; Ehrhart theory; negative results},
+  pdfkeywords={Lonely Runner Conjecture, lossless reformulation,
+               type mismatch, covering radius, LR-zonotope, Ehrhart
+               h*-polynomial, arithmetic matroid, exact witnesses,
+               branch and bound certification}
+}
+
+\begin{document}
+
+\tableofcontents
+\newpage
+
+\input{sec1}
+\input{sec2}
+\input{sec3}
+\input{sec4}
+\input{sec5}
+\input{sec6}
+\input{secA}
+\input{secB}
+\input{secC}
+
+\input{bib}
+
+\end{document}

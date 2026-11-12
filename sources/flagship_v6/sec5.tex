@@ -1,0 +1,547 @@
+% ======================================================================
+% Section 5 — The witness archive
+% ======================================================================
+
+\section{The witness archive}\label{sec:witness}
+
+The archive has four shelves: exact refutations of the covering-radius
+form (each a single rational point, checkable by one evaluation of
+\eqref{eq:runnerform}, the sharpest carrying a complete two-sided
+certificate---the exact covering radius itself), the arithmetic law
+that governs the denominators of the
+exact values (\S\ref{sec:weights}), the deepest-hole certification
+ladder for the family $(1,\dots,n{-}1,m)$, and the branch-and-bound
+certificate method together with its negative-control validation. Every
+entry is re-asserted by two independent exact implementations in the
+provenance run of Appendix~\ref{sec:prov}.
+
+\subsection{Exact refutations of the covering-radius form}
+
+Table~\ref{tab:refute} lists the witnesses. Each witness $c$ is a
+rational point of the quotient torus in $c$-coordinates; the claimed
+value is $D(c)$ from \eqref{eq:runnerform}, computed exactly and
+independently by the linear-form/lattice-search implementation of the
+program's records. The first entry carries the strongest certification
+in the archive: the value $16/47$ is the covering radius itself,
+certified from both sides---the witness below, and the branch-and-bound
+upper certificate of \S\ref{sec:bb}, whose tree empties at $r=16/47$.
+The second entry is \emph{argmax-certified}: the displayed value is
+not merely attained at the witness point but is the maximum of $D$ on
+the whole argmax neighborhood, certified exactly by the arrangement
+analysis of \S\ref{sec:bb} (all vertices, ridges, and corners of the
+region evaluated in rational arithmetic), and the argmax carries the
+binding structure of \S\ref{sec:weights} that forces the denominator;
+its global equality remains open (\S\ref{sec:bb}).
+The harmonic instance is extremal for the $\delta$-form
+($\delta=\mathrm{thr}_n$ exactly), so the value $16/47$ kills the
+$\rho$-form at the very instance where the surviving equivalent form is
+tight; the rung-2 instance $v=(1,2,3,4,5,12)$ was previously a
+boundary row (witness value exactly $\mathrm{thr}_6$) and is now a
+strict refutation; the $m=9$ row is upgraded from boundary to strict
+witness; the $v=(1,2,3,4,5,6)$ and $v=(1,2,3,4,5,7)$ rows are strict
+witnesses of long standing. The witnesses are non-torsion in every
+case: the deepest holes are not the center classes.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Exact witnesses against the covering-radius form
+$\rho(V)\le\mathrm{thr}_n$. All values are exact rational lower bounds
+for $\rho$; the first is \emph{exact-certified} (the branch-and-bound
+tree empties at $r$ equal to the displayed value, so the value is the
+covering radius itself), the second \emph{argmax-certified} (the
+maximum of $D$ on the whole argmax neighborhood equals the displayed
+value, exact arrangement analysis); both are depths of the deepest
+hole, not merely point depths. Witness points are in $c$-coordinates
+(\S\ref{sec:prelim}). ``$>\mathrm{thr}$?'' marks whether the value
+\emph{strictly} exceeds the threshold: only strict rows falsify the
+$\rho$-form; boundary rows (equality) separate the deepest hole from
+the center class without falsifying it. The $\delta$ entries for
+non-harmonic instances are computed values, not harmonic identities.}
+\label{tab:refute}
+\begin{tabularx}{\textwidth}{@{} l l l >{\raggedright\arraybackslash}X l c @{}}
+\toprule
+$V$ & $\delta=\tfrac12-\lambda$ & $\mathrm{thr}_n$ & witness $c$ &
+$\rho$ & $>\mathrm{thr}$? \\
+\midrule
+$(1,2,3,4,5)$ & $1/3$ & $1/3$ &
+$(\tfrac{122}{1175},\tfrac{688}{1175},\tfrac{284}{1175},
+\tfrac{80}{1175})$ &
+$16/47=.3404$ & yes (exact) \\
+$(1,2,3,4,5,12)$ & $9/26$ & $5/14$ &
+$(\tfrac{4714}{5875},\tfrac18,\tfrac58,\tfrac6{25},
+\tfrac{2034}{5875})$ &
+$17/47=.3617$ & yes (argmax) \\
+$(1,2,3,4,5,9)$ & $5/14$ & $5/14$ &
+$(\tfrac1{32},\tfrac{15}{32},\tfrac{1383}{10000},
+\tfrac{32921}{40000},\tfrac{95473}{200000})$ &
+$1793/5000=.3586$ & yes \\
+$(1,2,3,4,5,6)$ & $5/14$ & $5/14$ &
+$(0,\tfrac5{16},\tfrac{15}{16},\tfrac34,\tfrac12)$ & $29/80=.3625$ &
+yes \\
+$(1,2,3,4,5,7)$ & $1/3$ & $5/14$ &
+$(\tfrac1{16},\tfrac9{16},0,\tfrac38,0)$ & $4/11{\approx}.3636$ & yes
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The $m=9$ witness deserves its sentence: the instance sits at the
+threshold from the center side ($\delta=5/14=\mathrm{thr}_6$ computed),
+so the boundary witness at exactly $5/14$ could not decide the
+$\rho$-form either way; the strict witness $1793/5000>5/14$ does. What
+it does not decide is the value itself: the exact covering radius at
+$v=(1,2,3,4,5,9)$ is unknown. The recorded lower bound is marginally
+deeper than the clean witness---an exactly evaluated dyadic search
+point at depth $0.358639\ldots$ persists in the provenance data
+(Appendix~\ref{sec:prov})---while no nontrivial upper certificate is
+on record; the row's status is strict refutation, exact value unknown.
+
+Three further exact families fill out the record---but it matters what
+each refutes. The $n=5$ family $(1,2,3,4,m)$ refutes the
+\emph{modular deepest-hole law}, not the $\rho$-form: the law's equality
+clause (deepest hole at the center when $5\mid m$) fails exactly at the
+multiples $m=5$ (now with the exact witness $\rho\ge16/47\ne\delta=1/3$)
+and $m=15$ ($6/19>5/16=\delta$), while the deepest-hole-at-center
+property fails at all twenty non-multiples (exact witnesses, the largest
+margins $1/3>3/10$ at $m=6,7,8$). The $n=6$ family extinguishes the
+modular law at every tested $m\in\{6,\dots,11,18,24\}$ (all multiples of
+$6$ through $4n$ included; the narrowest modular margin is $7/5200$ at
+$m=24$, witness value $71/208$ against $\delta=17/50$); against the
+$\rho$-form itself those witnesses fall short of the threshold
+($6/19<1/3$; $71/208<5/14$) and are recorded as deepest-hole evidence,
+not covering-radius refutations. At $n=6$, $m=9$ the strict witness of
+Table~\ref{tab:refute} upgrades the earlier boundary row; at $m=12$ the
+witness $17/47$ upgrades another. A useful way to read the table:
+the $\rho$-form is falsified at the extremal harmonic instance by the
+exact argmax value $16/47$, at a second $n=6$ instance by the exact
+argmax value $17/47$, and at
+two further $n=6$ instances by exact strict witnesses; the
+classification side (which instances have their deepest hole at the
+center) is a different question, answered by the ladder below.
+
+\subsection{The arithmetic of the deepest holes: a weight identity}
+\label{sec:weights}
+
+The exact values $16/47$ and $17/47$ are not accidents of the search:
+their denominators are forced by a one-line linear identity among the
+norm's defining forms, and the same identity explains why the exact
+covering radii of these instances are rationals with small structured
+denominators rather than generic reals. This subsection records the
+identity, the two binding archetypes that activate it, and the resulting
+denominator laws; everything is elementary and fully proved.
+
+Recall from \S\ref{sec:prelim} that the quotient norm is the maximum of
+the pair forms $\phi^{uv}$, and write the \emph{pair character}
+$\chi_{uv}=(u{+}v)\,\phi^{uv}$, i.e.\ $\chi_{uv}(x)=v\,x_u-u\,x_v$ on
+any lift $x$: a circle-valued linear map on the quotient torus
+$\mathcal{X}_v/\Lambda$ (integer shifts of $x$ change $\chi_{uv}$ by
+integers). For a lattice translate $z$, write
+$k_{uv}(z)=v\,z_u-u\,z_v\in\Z$, so that
+$\phi^{uv}(y-z)=\bigl(\chi_{uv}(y)-k_{uv}(z)\bigr)/(u{+}v)$.
+
+\begin{lemma}[pair-character identity]\label{lem:chi}
+For any three distinct speeds $a,b,c\in V$,
+\begin{equation}\label{eq:chi}
+c\,\chi_{ab}\;+\;a\,\chi_{bc}\;=\;b\,\chi_{ac}
+\end{equation}
+identically on the quotient torus.
+\end{lemma}
+
+\begin{proof}
+Substitute $\chi_{uv}=v\,x_u-u\,x_v$ (any lift): the left side is
+$c(bx_a-ax_b)+a(cx_b-bx_c)=bc\,x_a-ac\,x_b+ac\,x_b-ab\,x_c
+=b(cx_a-ax_c)$, which is the right side. Every term is a function of
+the quotient class, so the identity descends.
+\end{proof}
+
+Multiplying \eqref{eq:chi} through by the pair sums recovers the
+\emph{weighted form} in terms of the pair forms themselves:
+\begin{equation}\label{eq:weights}
+c\,(a{+}b)\,\phi^{ab}\;+\;a\,(b{+}c)\,\phi^{bc}\;=\;
+b\,(a{+}c)\,\phi^{ac}.
+\end{equation}
+The weight of each pair is the third speed times the pair sum. Three
+pair forms of one speed triple are therefore never independent, and at a
+point where all three are simultaneously \emph{binding}---each equal to
+$\pm\rho$ in absolute value relative to its own nearest translate---the
+identity becomes an arithmetic constraint on $\rho$ itself.
+
+\begin{corollary}[denominator laws]\label{cor:denom}
+Let $y$ be a point of the quotient torus and $\rho>0$.
+\emph{(i) Triple binding.} If the three pair forms of a speed triple
+$a<b<c$ are simultaneously binding at $y$,
+$\phi^{uv}(y-z_{uv})=s_{uv}\,\rho$ with signs $s_{uv}\in\{\pm1\}$ and
+translates $z_{uv}$, then
+\[
+\bigl[\,c\,s_{ab}(a{+}b)\;+\;a\,s_{bc}(b{+}c)\;-\;b\,s_{ac}(a{+}c)\,
+\bigr]\,\rho\;\in\;\Z,
+\]
+the integer being $b\,k_{ac}-c\,k_{ab}-a\,k_{bc}$. In the sign pattern
+$(+,+,-)$ and its negation---the pattern that occurs at both closed
+argmaxes below---the bracket equals $2(ab{+}ac{+}bc)$, the sum of the
+three weights in \eqref{eq:weights}, and
+\[
+\rho\;=\;\frac{\bigl|\,b\,k_{ac}-c\,k_{ab}-a\,k_{bc}\,\bigr|}
+{2\,(ab+ac+bc)}.
+\]
+In particular the reduced denominator of $\rho$ divides
+$2(ab+ac+bc)$.
+\emph{(ii) Pair bisection.} If a single pair form $(u,v)$ binds at two
+translates with opposite signs, $\phi^{uv}(y-z_1)=+\rho$ and
+$\phi^{uv}(y-z_2)=-\rho$, then $2(u{+}v)\,\rho=k_{uv}(z_2)-k_{uv}(z_1)
+\in\Z$: the reduced denominator of $\rho$ divides $2(u+v)$.
+\end{corollary}
+
+\begin{proof}
+Part (i): binding means
+$\chi_{uv}(y)=k_{uv}(z_{uv})+s_{uv}(u{+}v)\rho$ for each of the three
+pairs; substitute the three expressions into \eqref{eq:chi} and collect
+the $\rho$-terms. In the stated sign pattern the coefficient of $\rho$
+is $c(a+b)+a(b+c)+b(a+c)=2(ab+ac+bc)$. Part (ii) is the same
+substitution for the single identity $\chi_{uv}(y)-\chi_{uv}(y)=0$ with
+the two translates: $k_{uv}(z_1)+(u{+}v)\rho=k_{uv}(z_2)-(u{+}v)\rho$.
+\end{proof}
+
+The scope of Corollary~\ref{cor:denom}(i) is worth stating
+precisely, because the harmonic example exceeds it. The hypothesis is
+that the three pair forms of \emph{one} speed triple bind---nothing is
+assumed about the other pair forms, which may bind or not as they
+please. An argmax with four or more binding forms therefore falls
+under the corollary once for each speed triple whose three pair forms
+all bind: the identity is applied to a three-element subset of the
+binding set, and additional binding forms neither disturb nor dilute
+it---every such triple with the $(+,+,-)$ sign pattern forces
+$2(ab{+}ac{+}bc)\,\rho\in\Z$ independently. The harmonic argmax below
+binds four pair forms; the triple $\{3,4,5\}$ among them forces
+$2\cdot47\,\rho\in\Z$, and the fourth binding form (the pair $(2,5)$)
+is extra structure the computation does not need. No comparable
+constraint exists at a point where fewer than three pair forms bind in
+the pattern; the $m=9$ witness below is a chain of dips that never
+fully ties, and its clean value reflects the parametrized scan that
+found it rather than any forced arithmetic.
+
+Both argmaxes with certified structure are triple-binding, and their
+architectures read
+as follows. At the harmonic instance $v=(1,2,3,4,5)$, the deepest hole
+$c^{*}=(\tfrac{122}{1175},\tfrac{688}{1175},\tfrac{284}{1175},
+\tfrac{80}{1175})$ has four binding pair forms:
+$\phi^{45}=-\rho$ at $z=(0,0,0,-1)$, $\phi^{34}=-\rho$ at
+$z=(0,1,0,0)$, $\phi^{35}=+\rho$ at $z=(0,0,0,0)$, and
+$\phi^{25}=+\rho$ at $z=(0,1,1,1)$. The first three are the triple
+$\{3,4,5\}$ with signs $(-,-,+)$; Corollary~\ref{cor:denom}(i) gives
+$2(3\cdot4+3\cdot5+4\cdot5)\,\rho=5k_{34}+3k_{45}-4k_{35}
+=5\cdot4+3\cdot4-4\cdot0=32$, i.e.
+\[
+\rho\;=\;\frac{32}{2\cdot 47}\;=\;\frac{16}{47},
+\qquad 47=3\cdot4+3\cdot5+4\cdot5.
+\]
+The harmonic argmax set is richer than a single point, and the identity
+is the reason. Along the branch region containing the argmax, the three
+dips of the triple $\{3,4,5\}$ obey the weighted identity with
+\emph{constant} total,
+$32\,r_{(3,5)}+27\,r_{(4,5)}+35\,r_{(3,4)}=32$ (the $c$-terms cancel
+in \eqref{eq:weights}), so at every point of the region the smallest
+dip is at most $32/94=16/47$; on the one-parameter \emph{balance
+family}
+\[
+c(k)\;=\;\tfrac{1}{235}\,(2k{+}160,\;3k{-}13,\;4k{+}91,\;5k),
+\qquad k=20,\dots,35,
+\]
+the three dips tie at exactly $16/47$, so the bound is attained along a
+whole band. The family member $c(35)=(\tfrac{46}{47},
+\tfrac{92}{235},\tfrac{231}{235},\tfrac{35}{47})$ is re-asserted
+exactly by the cross-validation run of Appendix~\ref{sec:prov}
+alongside the isolated argmax of Table~\ref{tab:refute}; both are
+components of the argmax set, and the two-sided certificate of
+\S\ref{sec:bb} covers them together.
+At $v=(1,2,3,4,5,12)$ the deepest hole
+$c^{*}=(\tfrac{4714}{5875},\tfrac18,\tfrac58,\tfrac6{25},
+\tfrac{2034}{5875})$ has three binding pair forms: $\phi^{2,12}=-\rho$
+at $z=(1,0,0,0,-1)$, $\phi^{5,12}=+\rho$ at $z=(1,0,1,0,1)$, and
+$\phi^{25}=+\rho$ at $z=(1,1,2,2,4)$---the triple $\{2,5,12\}$ with
+signs $(+{,}+{,}-)$ in the $(ab),(bc),(ac)$ roles; the identity gives
+$2(10+24+60)\,\rho=5k_{2,12}-12k_{25}-2k_{5,12}=70-12+10=68$, i.e.
+\[
+\rho\;=\;\frac{68}{2\cdot 94}\;=\;\frac{17}{47},
+\qquad 94=2\cdot5+2\cdot12+5\cdot12.
+\]
+(For the harmonic instance the same substitution reads
+$5k_{34}+3k_{45}-4k_{35}=32$.)
+The weighted identity \eqref{eq:weights} is exactly the relation
+$35\,\phi^{34}+27\,\phi^{45}=32\,\phi^{35}$ (resp.\
+$84\,\phi^{25}+34\,\phi^{5,12}=70\,\phi^{2,12}$) that the binding
+values satisfy; summed over the three binding pairs it reads
+$35r_{34}+27r_{45}+32r_{35}=32$ (resp.\ $84r_{25}+34r_{5,12}+70r_{2,12}
+=68$) with $r$ the common binding value, which is how the two argmax
+values were first read off the computed deepest holes.
+
+Three remarks sharpen the record. First, the lemma converts the deepest
+hole problem at such points into arithmetic: once the binding triple
+and its translates are known, $\rho$ is a one-line integer computation,
+and the congruence class of the argmax
+($\chi_{uv}\equiv s_{uv}(u{+}v)\rho \bmod 1$ for the binding pairs)
+turns the exact search into a finite parametrized scan---the method
+that located the $m=12$ argmax above. Second, the repeated denominator
+$47$ is not a law: $ab+ac+bc=47$ for the triple $\{3,4,5\}$ and
+$ab+ac+bc=94=2\cdot47$ for $\{2,5,12\}$, and the reductions by
+$\gcd 2$ and $\gcd 4$ happen to land on the same $47$; at
+$v=(1,2,3,4,5,7)$ the recorded witness $4/11$ is pair-bisecting
+(Corollary~\ref{cor:denom}(ii) with the pair $(4,7)$:
+$2\cdot11\,\rho=8$), a different archetype with denominator governed by
+the pair sum $11$, and no $47$ appears---the denominator follows the
+binding architecture. What remains true, and worth recording, is that
+both computed triple-binding argmaxes share the $47$: a coincidence
+the identity does not force (the two weight sums are $47$ and $94$, and
+the divisors $2$ and $4$ are incidental) but which the two data points
+do not demystify either. Whether the small-triple weight sums
+$ab+ac+bc$ cluster at the scale where the deepest holes of small
+instances live is a question the archive legitimately raises and does
+not answer. Third, the
+archetypes have different reach: triple binding with weights
+$c(a{+}b)$, $a(b{+}c)$, $b(a{+}c)$ summing to $2(ab{+}ac{+}bc)$, and
+pair bisection with weight $2(u{+}v)$---and between them they govern
+every exact value in the archive. The four certified ladder values at
+the $n=5$ multiples are pair-bisecting at the center class on the pair
+$(1,m)$---verified by the same binding-structure extraction, the pair
+binding at two translates with opposite signs at each of
+$m=10,20,25,30$---with reduced denominators $22$, $42$, $13$, $62$ all
+dividing $2(1{+}m)$; the two triple-binding argmax values divide
+$2(ab{+}ac{+}bc)$. The boundary rows at exactly the
+threshold (for example $m=6,7,8$ at $n=5$) bind neither archetype
+cleanly and are certified at their boundary values directly.
+
+\subsection{The deepest-hole certification ladder}
+
+Table~\ref{tab:ladder} records the corrected modular law with its
+certification levels. The law as originally stated (``deepest hole at
+the center iff $n\mid m$'') is a small-$n$ phenomenon, genuine and exact
+at $n=3$, certified at $n=4$, broken at $n=5$ by the harmonic instance
+itself---now with the exact value $\rho=16/47$ against
+$\delta=1/3$---and extinct at $n=6$; the record below is the corrected
+version, and the rows improved by the branch-and-bound method are
+marked.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{The deepest-hole ladder for $(1,\dots,n{-}1,m)$: when is the
+maximum of $D$ attained at the center class ($\rho=\delta$)?
+``Exact'' = complete exact proof; ``certified'' = complete proof with an
+independent outer loop; ``consistent'' = search-level only.}
+\label{tab:ladder}
+\begin{tabularx}{\textwidth}{@{} c c >{\raggedright\arraybackslash}X @{}}
+\toprule
+$n$ & tested $m$ & status of ``deepest hole at center iff $n\mid m$''
+\\
+\midrule
+$3$ & $3..24$ & exact: holds iff $3\mid m$; exact witnesses against all
+others \\
+$4$ & $4..16$ & certified: holds iff $4\mid m$ ($m=4,8,12$
+away-certified; $m=16$ certified by branch and bound); exact witnesses
+against all non-multiples \\
+$5$ & $5..30$ & law false: $m=5$ (harmonic; closed
+$\rho=16/47\ne1/3$) and $m=15$ fail exactly; $m=10,20,25,30$ certified
+by branch and bound ($\rho=7/22$, $13/42$, $4/13$, $19/62$ exactly, at
+the center class); all $20$ non-multiples fail exactly
+\\
+$6$ & $6..12,18,24$ & extinct: every tested $m$ fails exactly,
+including every multiple of $6$ through $4n$; at $m=12$ the failure is
+the exact witness $\rho\ge17/47>\delta=9/26$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The $n=5$ multiples carry the hold signature (the torsion center
+attains $\delta$; the $K=32$ grid maximum equals $\delta$ exactly; a
+flat ridge passes through the center; a $288$-start Nelder--Mead search
+with exact re-evaluation finds nothing above $\delta$), but at $d=4$ a
+global exact certificate was beyond the program's earlier arrangement
+machinery. (Only $m=10$ is a rung-2 instance; $m=20,25,30$ are the
+higher multiples of $5$.) The branch-and-bound method of \S\ref{sec:bb}
+closed all four. At $m=25$ and $m=30$ the trees empty in under five
+minutes each ($10{,}414$ and $10{,}646$ certified leaves; $\rho=4/13$
+and $\rho=19/62$ exactly), and at $m=20$ the tree empties in sixteen
+minutes ($37{,}018$ leaves; $\rho=13/42$). At $m=10$ the first attempt
+($25$ minutes, $143{,}228$ box evaluations, $61{,}038$ exact leaf
+certificates) did not terminate: the unresolved set had total volume
+below $6\times10^{-7}$, the exact depths at its sampled centers were at
+most $1135/3584<7/22$, and the largest exact $U$-bounds among the
+sampled survivors were all exactly $571/1792=7/22+9/19712$---a fixed
+quantization offset, consistent with pure minimax loss rather than
+genuine excess, though a residual volume below $6\times10^{-7}$ does not
+exclude a deeper point hiding inside it. The record left two points
+open to objection---the search evidence behind the label was thin, and
+the residual reading was unproved---and both were answered in a renewed
+pass that closed the row. On the search side: $4{,}194{,}304$ uniform
+random points, the full $\{k/16\}^4$ and $\{k/32\}^4$ dyadic grids, a
+$500{,}000$-point torsion neighborhood, $2{,}048$ batched random uphill
+climbs ($1.8$ million evaluations), and $64$ Nelder--Mead polishes, all
+screened on a fixed $s$-grid over $[0,r]\cup[1-r,1)$---a \emph{sound}
+screen, because the grid minimum of $G(c,\cdot)$ is an upper bound for
+$D(c)$, so no point above the threshold can escape it---followed by
+exact rational re-evaluation of the $114$ deepest candidates: every
+line of the search converges to the torsion center
+$(\tfrac12,0,\tfrac12,\tfrac12)$, at which the depth is exactly $7/22$,
+and nothing anywhere exceeds $7/22$. On the certificate side, the
+renewed cascade adds the exact Lipschitz box test of \S\ref{sec:bb}:
+at the first attempt's residual width ($1/512$ per side, half-width
+$1/1024$) the test closes the observed gap exactly, since
+$1135/3584+1/1024=0.31766\ldots<7/22$, and the re-run tree empties
+($190{,}295$ box evaluations, $95{,}147$ splits, \emph{zero} survivors,
+$1{,}286$ seconds on one core; $846$ of $846$ sampled float-stage
+prunes re-confirmed in exact rational arithmetic; the harmonic negative
+control still refuses; the $n=4$ certificates re-certify with identical
+box counts). Together with the torsion center attaining $7/22$, this
+certifies
+\[
+\rho(1,2,3,4,10)\;=\;\tfrac{7}{22}\quad\text{exactly},
+\]
+and since $7/22=\delta=1/2-\lambda$ with $\lambda=2/11$, the deepest
+hole at $m=10$ is the center class itself. The $n=5$ multiples residue
+now has a clean shape, recorded without forcing it into a law: the odd
+multiples $k\in\{1,3\}$ fail exactly, the even and higher multiples
+$k\in\{2,4,5,6\}$ are certified.
+
+\subsection{The branch-and-bound certificate and its negative control}
+\label{sec:bb}
+
+The certification method is a second, independent construction, built on
+the runner formulation \eqref{eq:runnerform} rather than on the
+arrangement enumeration of the program's records. For a dyadic $c$-box
+$C$ define
+\[
+U(C)\;=\;\min_{\sigma\in[0,1)}\;
+\max\Bigl(\wnc{\sigma},\;\max_{2\le j\le n}\;
+\sup_{c\in C}\wnc{c_j-v_j\sigma}\Bigr),
+\]
+the box-supremum analogue of \eqref{eq:runnerform} itself (the
+$\wnc\sigma$ term is the depth of the first runner, whose coordinate is
+fixed at $0$; the inner maximum runs over $j=2,\dots,n$). It is
+computed exactly: each inner supremum is piecewise linear in $\sigma$
+with a rational kink set, so the minimum of their maximum is attained at
+a rational kink or crossing. By the minimax inequality,
+$\max_C D\le U(C)$, so a box with exact $U(C)\le r$ is \emph{certified}
+to contain no point of depth above $r$; boxes that fail are split
+dyadically. If the tree empties, $\rho\le r$ is exactly certified by a
+finite, auditable leaf list. Two soundness refinements matter in
+practice: the $\sigma$-search is restricted to $[0,r]\cup[1-r,1)$, which
+is lossless because any certifying $\sigma$ has $\wnc\sigma\le r$; and
+equality $U(C)=r$ prunes, which the tight boxes need. One further
+sound test completes the cascade: $D$ is $1$-Lipschitz in the sup norm
+(for fixed $\sigma$ every term $\wnc{c_j-v_j\sigma}$ moves by at most
+$|c_j-c'_j|$ while the $\wnc\sigma$ term does not move, and minimizing
+over $\sigma$ preserves the bound), so a dyadic box $C$ with center
+$c_0$ and half-width $h$ satisfies $\max_C D\le D(c_0)+h$ with $D(c_0)$
+exactly computable in rational arithmetic; and before the minimax bound
+$U(C)$ is attempted, the box's center depth is bounded above by the
+minimum of $G(c_0,\cdot)$ over a fixed float grid on
+$[0,r]\cup[1-r,1)$ (the grid minimum is an upper bound for $D(c_0)$),
+with a one-in-sixty-four sample of such prunes re-confirmed exactly.
+The cascade is then: the cheap grid test; the grid-Lipschitz test; the
+exact Lipschitz box test; the exact minimax test $U(C)\le r$; split.
+
+The method carries its own negative control, and the control behaves
+exactly as it must. Run on the harmonic instance $v=(1,2,3,4,5)$ at
+$r=\delta=\tfrac13$---where the truth is $\rho=16/47>\tfrac13$---the
+branch and bound \emph{refuses to certify}: its survivor set persists
+around the true deep holes, and the exact depths at the survivors'
+centers reach $607/1792\approx0.3388>\tfrac13$, at
+$c=(\tfrac{11}{256},\tfrac{163}{256},\tfrac{15}{256},\tfrac{79}{256})$.
+The machinery thus demonstrates both halves of its own soundness profile
+on one instance: it certifies only what is true, and it localizes the
+false. The same control distinguishes the two $n=5$ worlds sharply: for
+the harmonic instance the surviving excess stays above the threshold by
+a fixed margin, while for the certified $n=5$ multiples
+($m=10,20,25,30$) the surviving excess is pure minimax loss and decays
+with the box size.
+
+The argmax-certified value of Table~\ref{tab:refute} ($m=12$) is
+certified as follows. The exact arrangement analysis is run on the
+argmax neighborhood (a box of half-width $1/125$ around the located
+deepest hole): every vertex of the induced hyperplane arrangement
+inside the box, every ridge candidate, and every box corner is
+evaluated exactly, and the maximum over the whole box is the displayed
+value, attained at the recorded point. This certifies that no point of
+the neighborhood is deeper than the witness. The two-sided close-out at
+this instance---pruned leaves outside, center-plus-slack Lipschitz net
+and exact region analyses over the survivors inside---did not
+terminate within the stated budgets, and the row stands as an
+argmax-certified strict refutation with global equality open.
+
+The structural reason the close-out resists is worth recording, because
+it delimits the method itself. The $m=12$ argmax is non-dyadic
+($5875=5^3\cdot47$), strictly interior to every dyadic box at every
+depth, so the box-supremum $U(C)$ exceeds $r$ strictly for every box
+containing the argmax and the plain pruning rule never fires there;
+the instances the plain cascade certifies ($m=16$, $20$, $25$, $30$,
+and $10$) have dyadic (torsion) argmaxes, which is why their trees
+empty. This is an obstruction to the \emph{plain} cascade, not to the
+method: a closure at a non-dyadic argmax must let the certificate
+follow the argmax's rational structure, and the harmonic instance
+shows that such certificates exist. Two were added. The
+\emph{sliding-$\sigma$ gap certificate}: for a fixed integer lift
+vector $m$, a point $c$ admits a $\sigma$ with every runner term $\le
+r$ iff the interval
+$[\max_j (c_j-m_j-r)/v_j,\ \min_j (c_j-m_j+r)/v_j]$ intersects
+$[0,r]\cup[1-r,1]$; each endpoint is affine in $c$ and the gap is
+concave, so its minimum over a box sits at a vertex---$2^d$ vertex
+checks certify the whole box, with $\sigma$ allowed to \emph{slide}
+with $c$ along the band, which the single-$\sigma$ minimax bound
+cannot do. The \emph{triple-identity certificate} is the weight
+identity of \S\ref{sec:weights} in box form: exhibit three pair-dips of
+a runner triple with weights $w_{(a,b)}=v_c(v_a{+}v_b)$ whose weighted
+values sum, over the box, to a constant $S\le(\sum w)\,r$ (the
+$c$-coefficients cancel exactly, verified symbolically per candidate);
+at every $c$ the minimum dip is then $\le S/\sum w\le r$, and the
+non-pair terms at each dip are checked $\le r$ by exact affine interval
+arithmetic. Splitting is lattice-aligned at the dip lattice $q=470$:
+dyadic midpoints alone can never align with the balance family's
+rational slice edges, and boxes straddling them unpruned are exactly
+what strands the plain cascade. With these, the tree at $r=16/47$
+empties: $782{,}255$ box evaluations ($3{,}721$ cheap-grid,
+$45{,}598$ grid-Lipschitz, $61{,}191$ gap, $197{,}330$ triple-identity,
+$83{,}288$ exact-minimax prunes; $391{,}127$ splits; maximum depth
+$81$), \emph{zero} survivors, $5{,}935$~s on one core; $4{,}841$
+sampled prunes re-confirmed exactly. Combined with either component of
+the argmax set,
+\[
+\rho(1,2,3,4,5)\;=\;\tfrac{16}{47}\quad\text{exactly.}
+\]
+The soundness profile matches the rest of the method: adversarial boxes
+around known deeper holes refuse the new certificates at their
+thresholds, and the $n=4$ and $m=10$ certificates are untouched.
+
+The harmonic sextuple $v=(1,2,3,4,5,6)$ was run at its witness level
+$29/80$ and its tree does not empty within the same budget class; its
+row in Table~\ref{tab:refute} therefore remains a strict witness, with
+equality open, and the archive records the asymmetry honestly: at
+$d=5$ the survivor regions are larger and more numerous, and the exact
+region analysis at the harmonic sextuple's argmax does not terminate
+within the stated budget.
+
+\subsection{Summary of the archive}
+
+The archive's content, stated as a single paragraph: the
+covering-radius strengthening of the Lonely Runner statement is false
+from $n=5$, measured exactly at the extremal instance
+($\rho(1,2,3,4,5)=16/47$, certified from both sides) and falsified at
+four further instances with exact witnesses ($29/80$ and $4/11$;
+$17/47$ argmax-certified and $1793/5000$ at the two former boundary
+rows, both upgraded, the superseded search records
+$97/288\to607/1792\to4183/12288$ retained as provenance), boundary
+rows at $n=5$ ($m=6,7,8$) at exactly the threshold, and a modular-law
+extinction record at $n=6$; the denominators of the exact values are
+forced by the pair-character identity (Lemma~\ref{lem:chi},
+Corollary~\ref{cor:denom}), whose two archetypes---triple binding and
+pair bisection---govern every exact value in the archive and explain,
+and delimit, the recurring $47$; the equivalent
+center-depth form survives untouched (it is $\lrc$); the deepest-hole
+modular law is exact at $n=3$, certified at $n=4$ (both sides, all
+tested $m$, including $m=16$ by the tree method), false at $n=5$ (the
+$k=1,3$ multiples fail exactly, $k=1$ with the exact value
+$\rho=16/47\ne\delta$; $k\in\{2,4,5,6\}$ are certified, each with
+$\rho=\delta$ exactly), and extinct at $n=6$; and every number in the
+paragraph is re-asserted by persisted, independent, exact computation.
+The archive is finite, small, and open to inspection; that is the
+point.
