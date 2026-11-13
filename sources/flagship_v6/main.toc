@@ -38,7 +38,7 @@
 \contentsline {subsection}{\numberline {B.1}The ledger}{25}{subsection.B.1}%
 \contentsline {subsection}{\numberline {B.2}The runs behind this paper}{25}{subsection.B.2}%
 \contentsline {subsection}{\numberline {B.3}Certificates and budgets}{26}{subsection.B.3}%
-\contentsline {subsection}{\numberline {B.4}Reproduction}{26}{subsection.B.4}%
+\contentsline {subsection}{\numberline {B.4}Reproduction}{28}{subsection.B.4}%
 \contentsline {section}{\numberline {C}A self-contained verification core}{28}{appendix.C}%
 \contentsline {subsection}{\numberline {C.1}The identity and the runner formulation}{28}{subsection.C.1}%
 \contentsline {subsection}{\numberline {C.2}The sum-only equality, explicitly}{29}{subsection.C.2}%

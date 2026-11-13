@@ -65,7 +65,7 @@ in Lossless Reformulations of the Lonely Runner Conjecture}
 
 \title{\papertitle}
 \author{Anonymous}
-\date{}
+\date{Version 6.0}
 \maketitle
 
 \tableofcontents
@@ -1943,7 +1943,7 @@ linear-form/lattice-search implementation of this paper's ledger:
 seven exact evaluations (the $m=10$ torsion center at $7/22$; the
 balance family at $k=20,27,35$, each exactly $16/47$; the $m=9$ dyadic
 search point at its exact depth; the $m=12$ and $m=9$ clean witnesses
-at $17/47$ and $455/1269$), zero failures, plus the binding-structure
+at $17/47$ and $1793/5000$), zero failures, plus the binding-structure
 extraction at the four $n=5$-multiple center classes (pair $(1,m)$
 bisecting at each), the verification behind the archetype remark of
 \S\ref{sec:weights}.
@@ -1958,8 +1958,10 @@ of \S\ref{sec:bb}. Budgets and certificate sizes for the runs cited in
 the text are listed in Table~\ref{tab:certs}; the JSON persists leaf
 samples, survivor aggregates (count, bounding box, maximum excess over
 $r$, exact depths at sampled survivor centers), and the exact
-$U$-values, so every certificate can be re-audited without re-running
-the search, and re-running the search reproduces it deterministically.
+$U$-values, so the recorded leaves and survivor aggregates can be
+re-audited without re-running the search, and re-running the search
+reproduces every certificate deterministically (a full leaf-by-leaf
+re-audit of the largest runs requires the re-run).
 The two closure runs persist, in addition, their per-certificate fire
 counts (including the gap and triple-identity counts of the harmonic
 cascade), the sampled-prune exact re-confirmations, and the

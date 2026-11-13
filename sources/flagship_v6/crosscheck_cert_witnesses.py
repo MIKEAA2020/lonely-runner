@@ -11,7 +11,7 @@ Checks (all exact rational arithmetic, no floats in the verdicts):
      harmonic balance family k=35   D = 16/47   (the recorded witness)
      m=9 dyadic search point        D = 90449257437660783/252201579132747776
      m=12 clean witness             D = 17/47
-     m=9 clean witness              D = 455/1269
+     m=9 clean witness              D = 1793/5000
   8-11. Binding structure at the four certified n=5-multiple center
      classes (m=10,20,25,30): the pair (1,m) binds at two translates
      with opposite signs (pair bisection), and D(c*) equals the claimed
@@ -60,10 +60,10 @@ results.append(check_value("m=12 clean witness 17/47",
     [F(0), F(27, 47), F(0), F(25, 94), F(22, 47)],
     F(17, 47)))
 
-results.append(check_value("m=9 clean witness 455/1269",
+results.append(check_value("m=9 clean witness 1793/5000",
     (1, 2, 3, 4, 5, 9),
-    [F(13, 423), F(22, 47), F(58, 423), F(695, 846), F(401, 846)],
-    F(455, 1269)))
+    [F(1, 32), F(15, 32), F(1383, 10000), F(32921, 40000), F(95473, 200000)],
+    F(1793, 5000)))
 
 # --- binding structure at the certified ladder center classes ------------
 sys.path.insert(0, '/home/z/my-project/download/paper2_sources_v3')
