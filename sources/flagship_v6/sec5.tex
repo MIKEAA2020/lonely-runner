@@ -67,11 +67,11 @@ $\rho$ & $>\mathrm{thr}$? \\
 $(1,2,3,4,5)$ & $1/3$ & $1/3$ &
 $(\tfrac{122}{1175},\tfrac{688}{1175},\tfrac{284}{1175},
 \tfrac{80}{1175})$ &
-$16/47=.3404$ & yes (exact) \\
+$16/47\approx0.3404$ & yes (exact) \\
 $(1,2,3,4,5,12)$ & $9/26$ & $5/14$ &
 $(\tfrac{4714}{5875},\tfrac18,\tfrac58,\tfrac6{25},
 \tfrac{2034}{5875})$ &
-$17/47=.3617$ & yes (argmax) \\
+$17/47\approx0.3617$ & yes (argmax) \\
 $(1,2,3,4,5,9)$ & $5/14$ & $5/14$ &
 $(\tfrac1{32},\tfrac{15}{32},\tfrac{1383}{10000},
 \tfrac{32921}{40000},\tfrac{95473}{200000})$ &
@@ -484,11 +484,16 @@ shows that such certificates exist. Two were added. The
 vector $m$, a point $c$ admits a $\sigma$ with every runner term $\le
 r$ iff the interval
 $[\max_j (c_j-m_j-r)/v_j,\ \min_j (c_j-m_j+r)/v_j]$ intersects
-$[0,r]\cup[1-r,1]$; each endpoint is affine in $c$ and the gap is
-concave, so its minimum over a box sits at a vertex---$2^d$ vertex
-checks certify the whole box, with $\sigma$ allowed to \emph{slide}
-with $c$ along the band, which the single-$\sigma$ minimax bound
-cannot do. The \emph{triple-identity certificate} is the weight
+$[0,r]\cup[1-r,1]$. Write $L(c)=\max_j(c_j-m_j-r)/v_j$ (a maximum of
+affine functions, hence convex) and $R(c)=\min_j(c_j-m_j+r)/v_j$ (a
+minimum of affine functions, hence concave); the \emph{gap} is
+$G(c)=R(c)-L(c)$, a concave function of $c$, and the certificate holds
+on the box iff $G\ge0$ at every point (together with the boundary
+conditions). A concave function attains its minimum over a box at a
+vertex, so $G\ge0$ at all $2^d$ vertices certifies $G\ge0$ on the whole
+box---$2^d$ vertex checks certify the whole box, with $\sigma$ allowed
+to \emph{slide} with $c$ along the band, which the single-$\sigma$
+minimax bound cannot do. The \emph{triple-identity certificate} is the weight
 identity of \S\ref{sec:weights} in box form: exhibit three pair-dips of
 a runner triple with weights $w_{(a,b)}=v_c(v_a{+}v_b)$ whose weighted
 values sum, over the box, to a constant $S\le(\sum w)\,r$ (the

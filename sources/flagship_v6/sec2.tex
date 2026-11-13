@@ -9,7 +9,9 @@
 Throughout, $n\ge 3$ is the number of speeds, $V=(v_1,\dots,v_n)$ has
 distinct positive integer entries with $\gcd(V)=1$ and $v_1=1$ when a
 coordinate model is in use, and $\wnc{x}=\min(x-\floor{x},
-\floor{x}+1-x)$ is the distance to the nearest integer. We write
+\floor{x}+1-x)$ is the distance to the nearest integer. For a modulus
+$N$ we write $\wn{x}:=\min_{j\in\Z}|x-jN|$ for the distance from $x$ to
+the nearest multiple of $N$ (so $\wn{x}=N\,\wnc{x/N}$). We write
 $\lambda(V)=\max_{t\in\T}\min_p \wnc{v_p t}$ for the optimal loneliness
 and $M(V)$ for the same quantity; the two notations are interchangeable
 and we keep $\lambda$ in metric contexts and $M$ in the
@@ -121,7 +123,9 @@ and the $h^*$-polynomial is obtained
 from the Eulerian expansion
 $\sum_{t\ge0}\mathrm{Ehr}(t)z^t=h^*(z)/(1-z)^{d+1}$; explicitly
 $h^*(z)=\sum_k e_k\,(1-z)^{d-k}A_k(z)$ with $A_k$ the Eulerian
-polynomials \cite{Frobenius}. Formula \eqref{eq:ehr} was derived in the
+polynomials in the shifted convention $A_0=1$, $A_1=z$, $A_2=z+z^2$
+(so $A_k(z)=\sum_{j}\left\langle{k\atop j}\right\rangle z^{j+1}$ for
+$k\ge1$) \cite{Frobenius}. Formula \eqref{eq:ehr} was derived in the
 program's records and verified in three independent ways on every
 instance used here (the Eulerian expansion, the standard Ehrhart
 inversion, and a depth-first coset count at $t=1,2$;

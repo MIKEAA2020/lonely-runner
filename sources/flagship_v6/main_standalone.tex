@@ -159,10 +159,12 @@ $g(t)=\min_{1\le p\le n}\wnc{v_p t}$, and $M(V)=\max_{t\in\T}g(t)$. The
 Lonely Runner Conjecture, posed by Wills in 1967 and independently by
 Cusick in the language of view obstruction
 \cite{PS-survey,Wills,Cusick1973}, asserts $M(V)\ge 1/(n{+}1)$ for every
-$V$. It is proved for at most seven runners \cite{PS-survey}; for eight
-through fifteen runners only computational verifications of special
-families are known
-\cite{Rosenfeld8,Trakulthongchai,Sungkawichai,Allikvere,MSS}.
+$V$. It is proved for up to fifteen runners: the classical cases
+$n\le7$ \cite{PS-survey}, eight runners \cite{Rosenfeld8}, nine and ten
+\cite{Trakulthongchai}, eleven through thirteen \cite{Sungkawichai}, and
+fourteen and fifteen \cite{Allikvere}; beyond fifteen only computational
+verifications of special families are known
+\cite{PS-survey,MSS}.
 
 Attacking such a conjecture through equivalent rewrites is an old habit.
 The reformulation landscape around the Lonely Runner problem is unusually
@@ -360,7 +362,9 @@ evidence only), following the ladder of \S\ref{sec:prelim}
 Throughout, $n\ge 3$ is the number of speeds, $V=(v_1,\dots,v_n)$ has
 distinct positive integer entries with $\gcd(V)=1$ and $v_1=1$ when a
 coordinate model is in use, and $\wnc{x}=\min(x-\floor{x},
-\floor{x}+1-x)$ is the distance to the nearest integer. We write
+\floor{x}+1-x)$ is the distance to the nearest integer. For a modulus
+$N$ we write $\wn{x}:=\min_{j\in\Z}|x-jN|$ for the distance from $x$ to
+the nearest multiple of $N$ (so $\wn{x}=N\,\wnc{x/N}$). We write
 $\lambda(V)=\max_{t\in\T}\min_p \wnc{v_p t}$ for the optimal loneliness
 and $M(V)$ for the same quantity; the two notations are interchangeable
 and we keep $\lambda$ in metric contexts and $M$ in the
@@ -472,7 +476,9 @@ and the $h^*$-polynomial is obtained
 from the Eulerian expansion
 $\sum_{t\ge0}\mathrm{Ehr}(t)z^t=h^*(z)/(1-z)^{d+1}$; explicitly
 $h^*(z)=\sum_k e_k\,(1-z)^{d-k}A_k(z)$ with $A_k$ the Eulerian
-polynomials \cite{Frobenius}. Formula \eqref{eq:ehr} was derived in the
+polynomials in the shifted convention $A_0=1$, $A_1=z$, $A_2=z+z^2$
+(so $A_k(z)=\sum_{j}\left\langle{k\atop j}\right\rangle z^{j+1}$ for
+$k\ge1$) \cite{Frobenius}. Formula \eqref{eq:ehr} was derived in the
 program's records and verified in three independent ways on every
 instance used here (the Eulerian expansion, the standard Ehrhart
 inversion, and a depth-first coset count at $t=1,2$;
@@ -559,7 +565,7 @@ $M(V)$ to a finite maximum over cyclic groups: $M(V)=\max_{\{u,w\}}
 \tau(u,w)$, where $\tau$ is the optimal loneliness on the pair-sum
 lattice of denominator $N=v_u+v_w$. Under this reduction $\lrc_n$
 becomes the statement that for every $V$ some pair's bad sets
-$B_p=\{k\in\Z_N:(n{+}1)\wn{v_pk}<N\}$, $p\notin\{u,w\}$, fail to
+$B_p=\{k\in\Z_N:(n{+}1)\wn{v_pk}<N\}$, $p\in[n]\setminus\{w\}$, fail to
 cover $\Z_N$: a finite covering problem, exact, and apparently made for
 the covering toolkit.
 
@@ -702,7 +708,8 @@ of the conditional scaling theorem vanishes. The hypothesis H1g's
 content is to beat the trivial bound by a factor growing in $k$; the
 measured factors ($95\times$, $1{,}207\times$, $3{,}803\times$ at
 $k=2,3,4$) grow, but the first of them starts \emph{below} the
-threshold constant ($95<244$), which is precisely why the margin must
+threshold constant ($95<244$, the $k=2$ factor against the $T=10$
+threshold $c_1=244.14$), which is precisely why the margin must
 grow in $k$ and why $k=2$ alone cannot certify anything; the proved
 factors do not exist, and the sharp-constant question and the margin
 question are one criterion stated twice. This is the type mismatch in its purest
@@ -1041,11 +1048,11 @@ $\rho$ & $>\mathrm{thr}$? \\
 $(1,2,3,4,5)$ & $1/3$ & $1/3$ &
 $(\tfrac{122}{1175},\tfrac{688}{1175},\tfrac{284}{1175},
 \tfrac{80}{1175})$ &
-$16/47=.3404$ & yes (exact) \\
+$16/47\approx0.3404$ & yes (exact) \\
 $(1,2,3,4,5,12)$ & $9/26$ & $5/14$ &
 $(\tfrac{4714}{5875},\tfrac18,\tfrac58,\tfrac6{25},
 \tfrac{2034}{5875})$ &
-$17/47=.3617$ & yes (argmax) \\
+$17/47\approx0.3617$ & yes (argmax) \\
 $(1,2,3,4,5,9)$ & $5/14$ & $5/14$ &
 $(\tfrac1{32},\tfrac{15}{32},\tfrac{1383}{10000},
 \tfrac{32921}{40000},\tfrac{95473}{200000})$ &
@@ -1458,11 +1465,16 @@ shows that such certificates exist. Two were added. The
 vector $m$, a point $c$ admits a $\sigma$ with every runner term $\le
 r$ iff the interval
 $[\max_j (c_j-m_j-r)/v_j,\ \min_j (c_j-m_j+r)/v_j]$ intersects
-$[0,r]\cup[1-r,1]$; each endpoint is affine in $c$ and the gap is
-concave, so its minimum over a box sits at a vertex---$2^d$ vertex
-checks certify the whole box, with $\sigma$ allowed to \emph{slide}
-with $c$ along the band, which the single-$\sigma$ minimax bound
-cannot do. The \emph{triple-identity certificate} is the weight
+$[0,r]\cup[1-r,1]$. Write $L(c)=\max_j(c_j-m_j-r)/v_j$ (a maximum of
+affine functions, hence convex) and $R(c)=\min_j(c_j-m_j+r)/v_j$ (a
+minimum of affine functions, hence concave); the \emph{gap} is
+$G(c)=R(c)-L(c)$, a concave function of $c$, and the certificate holds
+on the box iff $G\ge0$ at every point (together with the boundary
+conditions). A concave function attains its minimum over a box at a
+vertex, so $G\ge0$ at all $2^d$ vertices certifies $G\ge0$ on the whole
+box---$2^d$ vertex checks certify the whole box, with $\sigma$ allowed
+to \emph{slide} with $c$ along the band, which the single-$\sigma$
+minimax bound cannot do. The \emph{triple-identity certificate} is the weight
 identity of \S\ref{sec:weights} in box form: exhibit three pair-dips of
 a runner triple with weights $w_{(a,b)}=v_c(v_a{+}v_b)$ whose weighted
 values sum, over the box, to a constant $S\le(\sum w)\,r$ (the
@@ -1777,13 +1789,13 @@ Ehrhart data of the LR-zonotopes is governed by the gcd structure
 \eqref{eq:ehr} of the projected basis---the arithmetic matroid of the
 configuration \cite{dAMoci}. In every instance tested (two core
 families through $n=10$, sweeps through $m\le14$ at $n=3$ and $m\le12$
-at $n=4$), the arithmetic $h^*$-polynomial is real-rooted.
+at $n=4$), the $h^*$-polynomial of the zonotope $Z(V)$ is real-rooted.
 
 \begin{conjecture}\label{conj:hstarRR}
-The $h^*$-polynomial of the arithmetic matroid of any projected basis
-$\pi([0,1]^n)\cap\Lambda$ of the form considered here---in particular,
-for every speed vector $v=(v_1,\dots,v_n)$ with distinct entries and
-$\gcd(v)=1$---is real-rooted.
+The $h^*$-polynomial of the LR-zonotope $Z(V)$ of any speed vector
+$v=(v_1,\dots,v_n)$ with distinct entries and $\gcd(v)=1$---equivalently,
+the Ehrhart $h^*$-polynomial of the projected-basis zonotope
+$\pi([0,1]^n)\cap\Lambda$ of the form considered here---is real-rooted.
 \end{conjecture}
 
 The conjecture is stated for the projected-basis zonotopes; the sweeps
@@ -1832,12 +1844,13 @@ Tables~\ref{tab:refute} and the fail-witness lists of
 mathematics (a one-dimensional minimization over the trajectory
 parameter, and a pruned lattice search in the quotient norm's linear
 forms), agreeing exactly. A one-line reproduction of the headline
-witnesses, for the skeptical reader with the runner formulation at
+witness, for the skeptical reader with the runner formulation at
 hand: evaluate
 $\min_\sigma\max(\wnc\sigma,\wnc{c_2-2\sigma},\wnc{c_3-3\sigma},
 \wnc{c_4-4\sigma},\wnc{c_5-5\sigma})$ at
-$c=(\tfrac1{32},\tfrac{15}{32},\tfrac3{32},\tfrac78)$; the minimum is
-attained at $\sigma=\tfrac{31}{288}$ and the value is $97/288$.
+$c=(\tfrac{46}{47},\tfrac{92}{235},\tfrac{231}{235},\tfrac{35}{47})$;
+the minimum is attained at $\sigma=\tfrac{4}{235}$ and the value is
+$\tfrac{80}{235}=\tfrac{16}{47}$.
 
 \subsection{The runs behind this paper}
 
@@ -2268,8 +2281,7 @@ weblog post, 13 May 2015; the observation that the optimal time is
 rational with denominator the sum or difference of two speeds appears
 in the comments.
 \\[2pt]
-\url{https://terrytao.wordpress.com/2015/05/13/}\\
-\url{a-remark-on-the-lonely-runner-conjecture}
+\url{https://terrytao.wordpress.com/2015/05/13/a-remark-on-the-lonely-runner-conjecture}
 
 \bibitem{prog-artifacts}
 LRC reformulation program,
