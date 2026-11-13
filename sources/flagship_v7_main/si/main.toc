@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}The \boldmath $h^*$-observations through \boldmath $n=10$}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The table}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Strictness decay and non-correlation}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}The residual question}{3}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Computational provenance}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The ledger}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The runs behind this paper}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Certificates and budgets}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Reproduction}{6}{subsection.2.4}%
+\contentsline {section}{\numberline {3}A self-contained verification core}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The identity and the runner formulation}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The sum-only equality, explicitly}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Hand checks of the headline witnesses}{8}{subsection.3.3}%
