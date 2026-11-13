@@ -1076,7 +1076,10 @@ $v=(1,2,3,4,5,9)$ is unknown. The recorded lower bound is marginally
 deeper than the clean witness---an exactly evaluated dyadic search
 point at depth $0.358639\ldots$ persists in the provenance data
 (Appendix~\ref{sec:prov})---while no nontrivial upper certificate is
-on record; the row's status is strict refutation, exact value unknown.
+on record. By convention the headline is the clean rational witness
+$1793/5000$ (exact, hand-checkable); the dyadic point is recorded as a
+deeper provenance artifact and is not used as the headline. The row's
+status is strict refutation, exact value unknown.
 
 Three further exact families fill out the record---but it matters what
 each refutes. The $n=5$ family $(1,2,3,4,m)$ refutes the
@@ -1786,28 +1789,41 @@ absence of the mechanism is itself a datum.
 What survives is a question of independent arithmetic interest, and we
 state it decoupled from the Lonely Runner problem entirely. The
 Ehrhart data of the LR-zonotopes is governed by the gcd structure
-\eqref{eq:ehr} of the projected basis---the arithmetic matroid of the
-configuration \cite{dAMoci}. In every instance tested (two core
-families through $n=10$, sweeps through $m\le14$ at $n=3$ and $m\le12$
-at $n=4$), the $h^*$-polynomial of the zonotope $Z(V)$ is real-rooted.
+\eqref{eq:ehr} of the projected basis; the $h^*$-polynomial of the table
+is the ordinary Ehrhart $h^*$-polynomial of the lattice zonotope $Z(V)$
+(its coefficients carry the gcd structure of the lattice geometry, but
+the polynomial is the ordinary one---the gcd formula \eqref{eq:ehr} is
+the standard zonotope Ehrhart polynomial). In every instance tested (two
+core families through $n=10$, sweeps through $m\le14$ at $n=3$ and
+$m\le12$ at $n=4$), the $h^*$-polynomial is real-rooted---as it must be,
+by the theorem below.
 
-\begin{conjecture}\label{conj:hstarRR}
+\begin{corollary}\label{cor:hstarRR}
 The $h^*$-polynomial of the LR-zonotope $Z(V)$ of any speed vector
-$v=(v_1,\dots,v_n)$ with distinct entries and $\gcd(v)=1$---equivalently,
-the Ehrhart $h^*$-polynomial of the projected-basis zonotope
-$\pi([0,1]^n)\cap\Lambda$ of the form considered here---is real-rooted.
-\end{conjecture}
+$v=(v_1,\dots,v_n)$ with distinct entries and $\gcd(v)=1$---the
+Ehrhart $h^*$-polynomial of the projected-basis zonotope
+$\pi([0,1]^n)\subset\mathcal{X}_v$ with respect to the lattice
+$\Lambda=\pi(\Z^n)\cong\Z^{n-1}$---is real-rooted.
+\end{corollary}
 
-The conjecture is stated for the projected-basis zonotopes; the sweeps
-suggest it may hold for $(1,\dots,n-1,m)$ and beyond, and the natural
-home for it is the real-rootedness and Lorentzian literature for
-arithmetic matroid Tutte specializations
-\cite{BrandenHuh,dAMoci,StanleyEC}. We
-flag it as a question, record the data, and deliberately do not pursue
-it further here: the extension to $n=9,10$ was executed to complete the
-record, and the record's reading is that the question is real but
-belongs to a different subject. It is not a bridge, and treating it as
-one would repeat the pattern this paper documents.
+\begin{proof}
+$Z(V)=\pi([0,1]^n)$ is a lattice zonotope: a projection of the unit cube
+with vertices $\pi(\{0,1\}^n)\subset\Lambda$, i.e.\ a zonotope with
+integer generators $\pi(e_i)$ with respect to $\Lambda\cong\Z^{n-1}$. By
+Beck--Jochemko--McCullough \cite{BJM}, the $h^*$-polynomial of every
+lattice zonotope has only real roots. Hence $h^*(Z(V))$ is real-rooted.
+\end{proof}
+
+The real-rootedness is thus a special case of \cite{BJM}, and the data
+of Table~\ref{tab:hstar} are a confirmation of that theorem on the
+LR-zonotopes rather than a new observation. What the table records
+\emph{beyond} \cite{BJM} is quantitative: the strictness $S$ (the
+log-concavity margin $h_k^2/(h_{k-1}h_{k+1})$), its decay, and its
+non-correlation with the covering margins---all properties of the
+coefficient sequence, not of real-rootedness alone. We record the data
+and do not pursue it further here: it belongs to the Ehrhart theory of
+zonotopes, not to the Lonely Runner problem. It is not a bridge, and
+treating it as one would repeat the pattern this paper documents.
 
 % ======================================================================
 % Appendix B — Computational provenance
@@ -2225,7 +2241,7 @@ there.
 % ======================================================================
 
 \begingroup\sloppy\raggedright
-\begin{thebibliography}{17}
+\begin{thebibliography}{20}
 
 \bibitem{PS-survey}
 G.~Perarnau and O.~Serra,
@@ -2301,7 +2317,12 @@ Undergraduate Texts in Mathematics, Springer, New York, 2015.
 L.~d'Adderio and L.~Moci,
 \emph{Arithmetic matroids, the Tutte polynomial and toric
 arrangements},
-Adv.\ in Appl.\ Math. (2014).
+Adv.\ Math.\ \textbf{232} (2013), 335--367.
+
+\bibitem{BJM}
+M.~Beck, K.~Jochemko, and E.~McCullough,
+\emph{$h^*$-polynomials of zonotopes},
+Trans.\ Amer.\ Math.\ Soc.\ \textbf{371} (2019), 2021--2042.
 
 \bibitem{StanleyEC}
 R.~P. Stanley,
@@ -2329,10 +2350,10 @@ J.\ Algebra \textbf{224} (2000), 91--109.
 \bibitem{MirskyNewman}
 L.~Mirsky and D.~J.~Newman,
 unpublished (the distinct-moduli theorem for exact covering systems);
-see the account in
+the same proof was found independently by
 H.~Davenport and R.~Rado,
-\emph{Covering systems of negative congruences},
-J.\ London Math.\ Soc.\ \textbf{38} (1963), 509--516.
+\emph{On the density of certain sequences of integers},
+J.\ London Math.\ Soc.\ \textbf{27} (1952), 224--229.
 
 \bibitem{BrandenHuh}
 P.~Br\"anden and J.~Huh,

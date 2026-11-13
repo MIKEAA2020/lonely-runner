@@ -32,14 +32,14 @@
 \contentsline {subsection}{\numberline {6.4}Scope, stated once more}{22}{subsection.6.4}%
 \contentsline {section}{\numberline {A}The \boldmath $h^*$-observations through \boldmath $n=10$}{22}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}The table}{22}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Strictness decay and non-correlation}{24}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.2}Strictness decay and non-correlation}{23}{subsection.A.2}%
 \contentsline {subsection}{\numberline {A.3}The residual question}{24}{subsection.A.3}%
 \contentsline {section}{\numberline {B}Computational provenance}{25}{appendix.B}%
 \contentsline {subsection}{\numberline {B.1}The ledger}{25}{subsection.B.1}%
 \contentsline {subsection}{\numberline {B.2}The runs behind this paper}{25}{subsection.B.2}%
 \contentsline {subsection}{\numberline {B.3}Certificates and budgets}{26}{subsection.B.3}%
-\contentsline {subsection}{\numberline {B.4}Reproduction}{27}{subsection.B.4}%
+\contentsline {subsection}{\numberline {B.4}Reproduction}{26}{subsection.B.4}%
 \contentsline {section}{\numberline {C}A self-contained verification core}{28}{appendix.C}%
 \contentsline {subsection}{\numberline {C.1}The identity and the runner formulation}{28}{subsection.C.1}%
-\contentsline {subsection}{\numberline {C.2}The sum-only equality, explicitly}{28}{subsection.C.2}%
+\contentsline {subsection}{\numberline {C.2}The sum-only equality, explicitly}{29}{subsection.C.2}%
 \contentsline {subsection}{\numberline {C.3}Hand checks of the headline witnesses}{29}{subsection.C.3}%
