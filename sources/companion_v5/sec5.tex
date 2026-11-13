@@ -188,7 +188,24 @@ is the single open mathematical problem the reformulation now has.
 Whether the decay is \emph{fundamental} (an intrinsic scaling limit of
 the method) or an artifact of the missing lemma family is open
 problem~6 of \S\ref{sec:open}; the present
-data does not decide it.
+data does not decide it. One piece of it is settled
+unconditionally, and it constrains what ``fundamental'' can mean: \emph{if
+the rigid zone is finite, the coverage supplied by capable pairs tends
+to zero.} The argument is a one-line pair count. A set is certified by
+a capable pair only if it contains a pair $\{u,w\}$ whose sum
+$N=v_u+v_w$ is covering-capable; if the capable set is finite, the
+number of such sets is at most
+$\sum_{N\text{ capable}}\tfrac{N}{2}\binom{V}{n-2}$, against
+$\binom{V}{n}$ sets in all, so the capable-pair contribution to the
+coverage is at most
+$\sum_{N\text{ capable}}\tfrac{N}{2}\cdot\tfrac{n(n-1)}{V(V-1)}\to 0$.
+The open problem is therefore not whether the capable-pair contribution
+can stay bounded away from $0$ (it cannot, on a finite capable set) but
+whether the capable set is finite---equivalently, whether the kernel
+world is classifiable at all. This does \emph{not} settle the coverage's
+limit: the corpus is certified by \emph{some} pair, not only by capable
+ones, and the non-capable contribution is not controlled by this
+argument.
 
 \begin{remark}[the plain regime, measured correctly]\label{rem:plain}
 Two notions of ``plain'' must not be conflated. A best-pair census (does

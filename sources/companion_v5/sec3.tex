@@ -250,6 +250,62 @@ Lemma~\ref{lem:jgon} at $j=2$ exhibits the certifying time $k=N/2$, so
 no unit tuple covers.
 \end{proof}
 
+\subsection{The prime-power descent}\label{sec:pq-descent}
+
+The reachability bound above is one handle on composite moduli; the
+prime powers admit a sharper structural reduction. Write $N=p^a$
+($a\ge 2$), $T=n+1$, $h=\floor{(N-1)/T}$, and let a \emph{dilate} be
+$w^{-1}[-h,h]=\{w^{-1}j:\ |j|\le h\}$ for a unit $w$ (every unit bad set
+is such a dilate, since $B_w=w^{-1}B_1$).
+
+\begin{lemma}[prime-power descent]\label{lem:pq-descent}
+Let $w$ be a unit and $0\le y<p^{a-1}$. The dilate $w^{-1}[-h,h]$ covers
+the non-unit class $[p\,y]$ if and only if
+$\lVert w\,y\bmod p^{a-1}\rVert_{p^{a-1}}\le h/p$. Consequently the
+non-unit classes $[p\,y]$ are covered by dilates $w_i^{-1}[-h,h]$ if and
+only if the dilates $w_i^{-1}B_{p^{a-1}}(h/p)$ cover $\Z_{p^{a-1}}$,
+where $B_{p^{a-1}}(r)=\{z:\lVert z\rVert_{p^{a-1}}\le r\}$.
+\end{lemma}
+
+\begin{proof}
+$w\,p\,y\bmod p^a=p\,(w\,y\bmod p^{a-1})$ and
+$\lVert p\,z\rVert_{p^a}=p\,\lVert z\rVert_{p^{a-1}}$, so
+$\lVert w\,p\,y\rVert_{p^a}=p\,\lVert w\,y\bmod p^{a-1}\rVert_{p^{a-1}}$.
+The class $[p\,y]$ is covered iff this is $\le h$, i.e.\ iff
+$\lVert w\,y\bmod p^{a-1}\rVert_{p^{a-1}}\le h/p$, i.e.\ iff
+$y\in w^{-1}B_{p^{a-1}}(h/p)$. The second statement is the union over the
+dilates.
+\end{proof}
+
+The descent is the composite shadow of the prime-modulus analysis: the
+non-unit part of a $p^a$ covering \emph{is} a covering of $\Z_{p^{a-1}}$
+by dilates of a radius-$h/p$ ball. It is exact, and it is the tool that
+produces the clean small-$p$ obstruction:
+
+\begin{corollary}[small-$p$ prime-power obstruction]\label{cor:pq-small}
+If $h<p$ (equivalently $p^{a-1}\le T$), then no unit bad sets cover
+$\Z_{p^a}$: the non-unit classes $[p\,y]$ with $y\ne 0$ are uncovered.
+\end{corollary}
+
+\begin{proof}
+If $h<p$ then $h/p<1$, so the ball $B_{p^{a-1}}(h/p)=\{0\}$ and, by
+Lemma~\ref{lem:pq-descent}, only the class $[0]$ (which lies in every
+bad set) is covered among the non-units; the classes $[p\,y]$, $y\ne0$,
+are uncovered, so no covering exists.
+\end{proof}
+
+The corollary is genuinely proved, and it covers a real range: at
+$n=4$ ($T=5$) it settles $p\in\{3,5\}$ at $p^2$; at $n=5$ ($T=6$) it
+settles $p\in\{3,5\}$ at $p^2$; at $n=6$ ($T=7$) it settles
+$p\in\{3,5,7\}$ at $p^2$. (At $a\ge3$ the condition $p^{a-1}\le T$ forces
+$p=2$---the even case, already excluded by Proposition~\ref{prop:reach}---so
+the corollary's new content is the $p^2$ range.) For larger $p$ the
+descent is silent (the radius-$h/p$ ball is nonempty) and the obstruction
+is the unit-class covering itself, which is the conjecture's own covering
+obstruction---the descent does \emph{not} reach it. The small-$p$ range is
+stated as proved; the larger-$p$ range is the open unit-class problem,
+not a descent artifact.
+
 \begin{remark}[the two-runner base]\label{rem:tworunner}
 The $n=4$ run of the program also isolated a two-residue law used as a
 base case: for all $N\in[3,80]$ and all residue pairs $(a,b)$ with
