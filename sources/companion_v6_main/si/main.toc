@@ -1,1 +1,6 @@
 \contentsline {section}{\numberline {1}The verification record of the scaling-closure derivation}{2}{section.1}%
+\contentsline {section}{\numberline {2}Reproducibility and soundness record}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Controls}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The cross-validation discipline}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Artifacts}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Data and code availability}{6}{subsection.2.4}%

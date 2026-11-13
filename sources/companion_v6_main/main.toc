@@ -64,8 +64,3 @@
 \contentsline {subsection}{\numberline {10.3}The empirical pair-selection law}{59}{subsection.10.3}%
 \contentsline {subsection}{\numberline {10.4}Interpreting the decay curve}{59}{subsection.10.4}%
 \contentsline {section}{\numberline {11}Open problems}{60}{section.11}%
-\contentsline {section}{\numberline {12}Reproducibility and soundness record}{63}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Controls}{64}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}The cross-validation discipline}{65}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Artifacts}{65}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Data and code availability}{67}{subsection.12.4}%
