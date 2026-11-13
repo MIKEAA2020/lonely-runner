@@ -1,0 +1,127 @@
+openrouter:
+Audit of the flagship paper (`lrc_standalone` release) is complete. Key findings:
+
+**The paper's core claim holds:** every natural strengthening of a lossless reformulation examined by the program is false — a structural "type mismatch" across four settings.
+
+**Four instances, all with exact rational witnesses:**
+
+1. **Pair-sum covering** — no proved margin-type statement exists in the 34-item inventory; the "k-cancellation" candidate is actually a k-*invariance* (the opposite type).
+2. **Transfer cascade** — closed by theorem in single-anchor scope (spectral radius exactly 0 or 1); the general branching operator is left open.
+3. **Character rigidity** — orbit-invariance laws falsified; marginal envelopes saturated exactly where the margin would be needed.
+4. **LR-zonotope** — the covering-radius form $\rho \le \mathrm{thr}_n$ is **false from $n=5$** onward, with exact witnesses: $16/47 > 1/3$ at $v=(1,2,3,4,5)$ (two-sided certified), $17/47 > 5/14$ at $v=(1,2,3,4,5,12)$ (argmax-certified), plus $29/80$, $4/11$, $1793/5000$ at $n=6$.
+
+**Verified:** the weight identity forcing denominator 47 ($3\cdot4+3\cdot5+4\cdot5$), the 225-item provenance ledger with zero failures, the branch-and-bound negative control correctly refusing false statements, and the Ehrhart $h^*$-polynomials being real-rooted/log-concave/Newton through $n=10$ with no measurable correlation to covering margins. The positive core (sum-only equality, rigid-zone classifications at primes 7–37, deepest-hole certification ladder) survives intact.
+
+The paper is a negative-results paper and explicitly claims no progress on LRC itself — it documents where four natural toolkits cannot cross the same gap.
+qwen: 
+## Audit — flagship paper only (`lrc_standalone` release)
+
+**Target:** *Every Natural Strengthening Examined Is False: Type Mismatch in Lossless Reformulations of the Lonely Runner Conjecture* — asset `flagship_v6_submission.zip`.
+
+**What I actually did:** fetched the release URL you gave, then the repo root and the `papers` branch (the README states the sources live there). **What I could not do:** the sandbox tool does not exist in this environment, and the assets are binary `.zip` — so I could **not** unzip, compile, read the v6 `.tex`/PDF, or run the ledger. Everything below is either (a) read directly off the release/repo pages, or (b) hand-verified arithmetic. I flag which is which.
+
+---
+
+## 1. Release facts (read from the page)
+
+| Item | Value |
+|---|---|
+| Tag | `lrc_standalone`, **Pre-release** |
+| Tagged commit | `28869a4` — message **"Create main paper audit"**, Nov 12 2026 |
+| Release published | Nov 13 2026 14:57 |
+| Assets | 4 |
+| `flagship_v6_submission.zip` | 1.43 MB, uploaded 14:55:35Z, `sha256:2cddb1613fa6c80d470d703dab03768d5659f6fbae11a911824942bdfc5f20fb` |
+| `companion_v5_submission.zip` | 2.71 MB, uploaded 14:55:51Z, `sha256:a5a3d086e770048ba12a93f4a16f701660c8e8c52b18022bc1aa6023d7a0d55e` |
+| Source code (zip / tar.gz) | auto-generated from `28869a4`, dated Nov 12 23:59Z |
+| Release notes | **none** |
+
+---
+
+## 2. P0 — The release does not contain the paper it releases
+
+**2.1 The tag points at a branch with no paper.** `main`'s entire tree is `audits/`, `LICENSE`, `README.md`. The flagship lives on the **`papers` branch** (`sources/flagship_v5/`, `papers/lonely_runner_type_mismatch_paper_v5.pdf`), which GitHub reports as *"5 commits ahead of and 31 commits behind main."* Consequence: **the release's "Source code (zip)" and "Source code (tar.gz)" contain the audit layer, not the flagship.** Anyone who clicks "Source code" to reproduce the paper gets nothing.
+
+**2.2 v6 exists nowhere in the repository.** Both READMEs, the release list, and the branch tree agree the current flagship is **v5 (32 pp)**, released as `v5.0-weight-lemma` (Oct 9), still marked **Latest**. There is no `sources/flagship_v6/`, no v6 PDF, no v6 commit, no v6 tag, and no release notes. The shipped `flagship_v6_submission.zip` is therefore **not buildable from any commit in this repo**, and nothing documents what changed from v5 → v6.
+
+**2.3 The tagged commit predates the assets by ~20 hours** and its message is about an *audit*, not a paper build. The assets cannot be derived from the tag.
+
+**2.4 It is a pre-release**, so GitHub's "Latest" still resolves to v5.0. A visitor lands on v5 while the newest flagship sits in an unlisted pre-release asset.
+
+**2.5 Signature scope.** The commit is signed with GPG key `B5690EEEBB952194` — GitHub's web-flow key. "Verified" attests that GitHub made the commit, **not** the author's identity, and the **assets themselves are unsigned**.
+
+**2.6 A promised artifact is absent.** The README says the full session history is "exported as a git bundle (`lrc_full_provenance.bundle`) alongside this release." It is **not** among the 4 assets.
+
+---
+
+## 3. P0/P1 — The paper contradicts its own repository on ledger-backed numbers
+
+This is the most damaging category for a paper whose thesis is auditability. Each row is the *same* quantity in two places.
+
+| # | Quantity | Paper (`main_standalone.tex`) | Repository | Verdict |
+|---|---|---|---|---|
+| **C1** | Cross-validation of the closure runs | "**seven**-witness cross-validation"; "seven exact evaluations" (abstract, §B.3, App. B item 11 — and exactly 7 items listed) | "**11/11** checks" (main README); "an **eleven**-check cross-validation" and "11/11 checks (`sources/flagship_v5/crosscheck_cert_witnesses.py`)" (papers README + commit msg) | **7 ≠ 11**, same script cited |
+| **C2** | Exact re-evaluations in the m=10 search screen | "the **114** deepest candidates" | "**188** exact re-evaluations" (v3 README) | **114 ≠ 188**; all other screen parameters identical (4,194,304 points, dyadic-16/32, 500k torsion, 2,048 climbs, 64 NM polishes) |
+| **C3** | Screen size | 4,194,304 (≈4.2M) | "4.2M" (v5 README) vs "**4.7M**" (v3 commit msg) | repo internally inconsistent |
+| **C4** | Strictness decay | "roughly like **30/n**"; table gives nS = 29.6 / 29.9 / 30.0 at n=9,10 | "strictness decay **~33/n**" (papers README, Key results) | paper's table supports 30/n; **repo figure is stale** |
+| **C5** | m=12 witness point | `(4714/5875, 1/8, 5/8, 6/25, 2034/5875)`, σ=482/5875 | "`(0, 27/47, 0, 25/94, 22/47)`" (v4 README) | **two different points**, both claimed at 17/47; the paper never mentions the repo's |
+| **C6** | Build recipe | App. B.4: CPython 3.12 + `fractions`, `numpy`, **`scipy`**, `mpmath`; `python3 …` one-liners; no cover/merge step | "`tectonic main.tex`"; "**covers are pre-rendered HTML → PDF and merged**"; deps `numpy`/**`sympy`**/`mpmath` | **the PDF is not a pure LaTeX build**, and the dependency sets differ |
+| **C7** | Provenance script path | `scripts/paper_provenance.py` | `sources/flagship/paper_provenance.py` (v1 dir) | path drift |
+| **C8** | Version identification | PDF has **no version marker** (`pdftitle` unversioned, `\date{}` empty) | repo tracks v1–v5 meticulously; companion v3 explicitly "version marker recorded" | a reader holding the PDF **cannot tell which build it is** |
+
+**C5, hand-verified.** I evaluated the repository's alternative m=12 witness myself. With `v=(1,2,3,4,5,12)`, `c=(0, 27/47, 0, 25/94, 22/47)` and **σ = −7/94 (≡ 87/94)**, the six terms in 1/94 units are `7, 14, 19, 28, 34, 34` → max **34/94 = 17/47** ✅, binding runners 5 and 12 with opposite slopes (+5, −12), so it is a genuine local minimum. **Both witnesses are correct** — but they are different points, and the paper's argmax certificate is explicitly built around the 5875-point ("a box of half-width **1/125**", 5875 = 47·125; §5.4's non-dyadic obstruction is argued from 5875 = 5³·47). The repo's point has denominator **94 = 2·47**. Reconcile: either declare both components of the argmax set (as the paper already does for the harmonic balance family), or state which one the arrangement analysis certified. Side benefit: the 94-denominator point makes the Appendix C hand check far shorter than the 5875 one.
+
+**Also hand-verified (a positive):** the repo's exact form of the Lipschitz closure, `1135/3584 + 1/1024 = 2277/7168`, is correct (2270/7168 + 7/7168), ≈ 0.317662 < 7/22 ≈ 0.318182 ✅ — consistent with the paper's decimal.
+
+---
+
+## 4. P1 — "Re-audit without re-running" is not supported by a 1.43 MB bundle
+
+§B.3 claims the JSON persists *"leaf samples, survivor aggregates … and the exact U-values, so **every certificate can be re-audited without re-running the search**."* The sentence contradicts itself (samples ≠ every leaf), and the bundle size settles it:
+
+- Harmonic certificate: **391,128** certified leaves. m=10: **95,148**. Plus 37,018 + 10,414 + 10,646 + the n=4 trees ≈ **557,000 leaves total**.
+- Even a maximally terse encoding (depth + 4 integer box coords + certificate tag ≈ 10–20 B/leaf) is **5.5–11 MB raw**; as JSON with per-leaf keys it is 30 MB+. Zip compression on numeric JSON buys ~4–6×, i.e. **still several MB** — before the PDF, `fig_nS.png`, and 11 scripts.
+- The whole flagship bundle is **1.43 MB**.
+
+**Inference (not verified — I could not open the zip):** the bundle contains samples and aggregates only, so full re-audit requires re-running. Fix the sentence to match what is shipped, or ship the full leaf lists. *What would settle it in one command:* `unzip -l flagship_v6_submission.zip` and a per-file `sha256` manifest.
+
+---
+
+## 5. Standing paper-internal defects (carried forward, unchanged)
+
+The copy I hold matches the **v5 feature set** (weight lemma §5.2, both closures, m=9 = 1793/5000, the "47 is a coincidence" note). Whether v6 fixed any of these is **unverified**. In priority order:
+
+| ID | Defect | Severity |
+|---|---|---|
+| D0 | **31 `\n`-truncated commands**: `umberwithin`, 8×`ewtheorem`, 9×`ewcommand`, `oindent`, `otin`, 8×`ewline`, **3×`e` for `\ne`**. The body ones are *silent* — `16/47 e δ` renders as a spurious variable *e* in a paper about values being different | P0 |
+| D6 | §1.1 "proved for **at most seven** runners" vs its own citations titled *eight runners*, *nine and ten*, *eleven, twelve, thirteen*, *fourteen and fifteen* (2025–26), and §1.3 calling them "the rung results … untouched" | P1 |
+| D7 | Conjecture A.1: real-rootedness of lattice-**zonotope** h\* is likely already published (Beck–Jochemko–McCullough, *h\*-polynomials of zonotopes*, Trans. AMS ~2019). Also mis-stated: an arithmetic matroid has a **Tutte**, not an h\*, and `π([0,1]^n)∩Λ` is a point set, not the zonotope | P1 |
+| D1 | `‖·‖_N` (`\wn`) used in both bad-set definitions, **never defined** | P1 |
+| D2 | Bad-set index: §3.2 `p ∉ {u,w}` (n−2) vs §4.2 "n−1 bad sets" vs Thm 4.1 `p ∈ [n]\{w}` (n−1). Since B_u = B_w, dropping both loses a set that matters | P1 |
+| D3 | Eulerian convention unstated: `h* = Σ e_k(1−z)^{d−k}A_k` gives **10+z+z²** for n=3 under classical A_k, vs the table's correct **1+7z+4z²** | P1 |
+| D4 | App. B.1 calls the **superseded 97/288** point "a one-line reproduction of the headline witnesses" | P1 |
+| D5 | Tao blog URL split across two `\url{}` → second is a dead relative link | P1 |
+| D8–13 | `16/47=.3404` should be `≈`; "The The"; ±slope convention flip between the two hand checks; `(1K,T−3U)`/Hq±/H1g/H2r/H2m and the k↔T map undefined; `thebibliography{17}` with 19 entries; citation order violated; d'Adderio–Moci year and the Davenport–Rado Mirsky–Newman account need checking | P2 |
+
+**The 30-second decisive test for D0:** open the shipped v6 PDF and text-search for `ewline`, `otin`, `ewtheorem`, and `16/47 e`. If they appear, the corruption shipped; if not, it is confined to the transmitted copy and D0 downgrades to a pipeline bug.
+
+---
+
+## 6. What checked out
+
+Independently re-verified by hand and **correct**: all five Table 2 witnesses (16/47, 17/47, 29/80, 4/11, 1793/5000) with their stated σ and opposite-slope binding; the 7/22 center class; the 607/1792 negative control (minimiser σ = 89/896); the balance family at k=20 and k=35; all four binding pair forms at the harmonic argmax and all three at m=12; the weight identity, both denominator archetypes, 94·(16/47)=32 and 188·(17/47)=68; the h\* polynomials for n=3,4,5 and the volume identity at n=10 (19,958,400 = 9!·55; 23,587,200 = 9!·65); the Newton floors and the n≈26 crossing; and every leaf/split count (190,295−95,147 = 95,148; 782,255−391,127 = 391,128; the five prune classes sum to 391,128). Repo-side figures I cross-checked also match: 222 leaves at m=16, 782,255/0 and 190,295/0, 45-dp Sturm, Spearman +0.32/−0.31, and the m=9 ordering 455/1269 ≈ 0.358550 < 1793/5000 = 0.358600 < 0.358639.
+
+**The mathematics is sound. The release engineering and the paper↔repo number reconciliation are not.**
+
+---
+
+## 7. Priority actions
+
+1. **Re-tag the release on the `papers` branch** at the commit that actually produced `flagship_v6_submission.zip`; commit `sources/flagship_v6/` and the v6 PDF; write release notes for v5→v6; promote out of pre-release or say why not.
+2. **Reconcile C1–C8.** Start with **7 vs 11** and **114 vs 188** — these are exactly the numbers the 225-item ledger is supposed to guarantee. Then fix the stale `~33/n`, pick one m=12 witness, and pin one toolchain (`tectonic` + cover/merge **must** be documented in Appendix B, and `scipy` vs `sympy` resolved).
+3. **Embed provenance in the PDF**: version + tag + commit SHA in `\date{}` or a footer, so the artifact identifies itself.
+4. **Fix the §B.3 re-audit claim** or ship full leaf lists; add a per-file `sha256` MANIFEST inside the zip; add `lrc_full_provenance.bundle` or remove the promise.
+5. **Run the D0 PDF text-search**, then the v2 scanner over `sources/flagship_v6/`.
+6. **Settle D6 and D7** before submission — one is a factual claim about the field, the other risks presenting a published theorem as open.
+7. Minor: `audits/flaghship.txt` is misspelled; the tag named `lrc_standalone` ships the companion too (and calls it v5 while the repo says v4).
+
+**Limits of this audit, stated plainly:** I could not open the zip, compile v6, or execute the ledger. Items in §4 and D0 are inferences with the arithmetic shown, not verified observations. Send me `unzip -l` output plus the v6 `.tex` (as text) and I can close them definitively.
