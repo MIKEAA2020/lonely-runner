@@ -48,19 +48,11 @@
 \contentsline {subsection}{\numberline {8.3}The $T=7$ census: the core, the tail, and the growing pinned sets}{41}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}The shear step at the higher rungs}{42}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}The boundary of the method}{42}{subsection.8.5}%
-\contentsline {section}{\numberline {9}The scaling-closure lemma: derivation and calibration}{43}{section.9}%
-\contentsline {subsection}{\numberline {9.1}The model: the cascade as a dilate-intersection}{43}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}The pool law}{44}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}The cut law: spacing, $k$-cancellation, and the comparison}{45}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}The two-regime structure: the measured $\gamma $, the reflection fiber, and the chain class}{47}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}The volume law at $T=8$: the census, renormalization, and the strand census}{49}{subsection.9.5}%
-\contentsline {paragraph}{The character system: the corrected coordinates.}{51}{section*.11}%
-\contentsline {paragraph}{The strand census: where H1g now lives.}{52}{section*.12}%
-\contentsline {paragraph}{The transfer-matrix route: the third route, closed by theorem.}{53}{section*.13}%
-\contentsline {subsection}{\numberline {9.6}The epistemic status}{55}{subsection.9.6}%
-\contentsline {section}{\numberline {10}Measured coverage and the decay curve}{57}{section.10}%
-\contentsline {subsection}{\numberline {10.1}The battery and its status discipline}{57}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}The corpora and the coverage tables}{58}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}The empirical pair-selection law}{59}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Interpreting the decay curve}{59}{subsection.10.4}%
-\contentsline {section}{\numberline {11}Open problems}{60}{section.11}%
+\contentsline {section}{\numberline {9}The scaling-closure lemma: the named results}{43}{section.9}%
+\contentsline {subsection}{\numberline {9.1}The epistemic status}{45}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Measured coverage and the decay curve}{47}{section.10}%
+\contentsline {subsection}{\numberline {10.1}The battery and its status discipline}{47}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}The corpora and the coverage tables}{48}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}The empirical pair-selection law}{49}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Interpreting the decay curve}{49}{subsection.10.4}%
+\contentsline {section}{\numberline {11}Open problems}{50}{section.11}%

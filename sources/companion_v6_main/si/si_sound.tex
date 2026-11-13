@@ -2,7 +2,7 @@
 % Section 7 — Reproducibility and soundness record
 % ======================================================================
 
-\section{Reproducibility and soundness record}\label{sec:sound}
+\section{Reproducibility and soundness record}\label{si:sec:sound}
 
 Every empirical and classification claim in this paper rests on exact
 integer computation, and every computation is paired with a control or an
@@ -260,7 +260,7 @@ full run log:
         the two frontier cells; output
         \texttt{out\_higher\_rung\_step3.json}),
   \item \texttt{pool\_sat.c} with \texttt{gt\_pool\_brute.py} (the pool
-        saturation censuses of \S\ref{sec:scale-pool}: the $m$-general
+        saturation censuses of \S\ref{si:sec:scale-pool}: the $m$-general
         admissibility checker in two cross-validated implementations
         plus dump/resume stride sampling, and the independent
         pure-enumeration brute force agreeing on $21/21$ sampled tuples
@@ -268,7 +268,7 @@ full run log:
         \texttt{dump\_p\{17,19,23\}.tsv}, \texttt{pool\_T8\_p31.tsv},
         \texttt{dump\_T9\_p\{29,31\}\_sample.tsv}),
   \item \texttt{h2\_pair\_check.py} (the zone-resolved cut-quality
-        measurement of Table~\ref{tab:gamma}: per-pair $\gamma$ on the
+        measurement of Table~\ref{si:tab:gamma}: per-pair $\gamma$ on the
         committed cells, $764$ pairs; output
         \texttt{out\_h2\_pair\_check.json}),
   \item \texttt{chain\_structure\_check.py} (the chain-class machine
@@ -278,7 +278,7 @@ full run log:
   \item \texttt{scaling\_closure\_extract.py} and
         \texttt{scaling\_closure\_verify.py} (the read-only calibration
         from the committed JSONs and the targeted lemma verification of
-        \S\ref{sec:scale-cut}: solution-volume probes, two-fiber dilate
+        \S\ref{si:sec:scale-cut}: solution-volume probes, two-fiber dilate
         law, resonance zones, cascade depths at the committed cells,
         sign robustness; outputs
         \texttt{out\_scaling\_closure\_extract.json},
@@ -286,7 +286,7 @@ full run log:
   \item \texttt{h1\_t8\_census.py}, \texttt{h1\_t8\_structure.py},
         \texttt{h1\_t8\_prime.py}, \texttt{h1\_t8\_path.py} (the
         $T=8$ volume census, mechanism probes, and prime extensions of
-        \S\ref{sec:scale-h1}, with the independent brute-force ground
+        \S\ref{si:sec:scale-h1}, with the independent brute-force ground
         truth ($9/9$ keys) and the renormalization-orbit verification;
         states \texttt{h1\_t8\_state.json} /
         \texttt{h1\_t8\_prime\_state.json}, outputs
@@ -295,7 +295,7 @@ full run log:
         \texttt{out\_h1\_t8\_prime.json}).
 \end{itemize}
 All runs are deterministic; every number in
-\S\ref{sec:measure}--\ref{sec:sound} appears verbatim in a committed log.
+\S\ref{sec:measure}--\ref{si:sec:sound} appears verbatim in a committed log.
 \endgroup
 
 \subsection{Data and code availability}

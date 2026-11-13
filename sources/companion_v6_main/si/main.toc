@@ -4,3 +4,13 @@
 \contentsline {subsection}{\numberline {2.2}The cross-validation discipline}{4}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Artifacts}{5}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Data and code availability}{6}{subsection.2.4}%
+\contentsline {section}{\numberline {3}The scaling-closure lemma: derivation and calibration}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The model: the cascade as a dilate-intersection}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The pool law}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}The cut law: spacing, $k$-cancellation, and the comparison}{9}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}The two-regime structure: the measured $\gamma $, the reflection fiber, and the chain class}{10}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}The volume law at $T=8$: the census, renormalization, and the strand census}{13}{subsection.3.5}%
+\contentsline {paragraph}{The character system: the corrected coordinates.}{15}{section*.2}%
+\contentsline {paragraph}{The strand census: where H1g now lives.}{16}{section*.3}%
+\contentsline {paragraph}{The transfer-matrix route: the third route, closed by theorem.}{16}{section*.4}%
+\contentsline {subsection}{\numberline {3.6}The verification record of this section}{18}{subsection.3.6}%

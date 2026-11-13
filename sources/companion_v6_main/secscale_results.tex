@@ -1,0 +1,228 @@
+\section{The scaling-closure lemma: the named results}\label{sec:scale}
+
+The derivation of these results---the cascade model, the pool/cut/volume laws,
+the strand-census reduction, and the full proofs---is given in the Supplementary
+Information (SI~\S\ref{si:sec:scale}). The statements are collected here because
+the reduction chain of \S\ref{sec:SC} cites them by name.
+
+\begin{lemma}[two-fiber reduction]\label{lem:twofiber}
+Fix an anchor fiber $j_0\in U$ and an anchor solution
+$a\in\mathrm{Sol}(\mathrm{sz}(j_0))$. The anchor determines the drift,
+$\mu=(c^0(j_0)-a)\,j_0^{-1}$. For a second fiber $j$ with
+$\lambda:=j\,j_0^{-1}\bmod p$, the anchor solution $a$ survives fiber
+$j$ if and only if
+\[
+\lambda\,a+\tau\;\in\;\mathrm{Sol}(\mathrm{sz}(j)),
+\qquad
+\tau=c^0(j)-\lambda\,c^0(j_0)\;\in\;(\Z_p)^{m-1}.
+\]
+Hence the two-fiber candidate set is the dilate-intersection
+$\mathrm{Sol}_0\cap\lambda^{-1}(\mathrm{Sol}_j-\tau)$, and the cascade
+after $i$ processed fibers is the iterated intersection
+$\bigcap_{\ell\le i}\lambda_\ell^{-1}(\mathrm{Sol}_\ell-\tau_\ell)$.
+\end{lemma}
+
+\begin{lemma}[pool law]\label{lem:pool}
+The family pool after the $\pm$-collision reduction is bounded by the
+distinct canonical difference tuples:
+\[
+P(T,p)\;\le\;(D-1)(D-2)\cdots\bigl(D-(T-4)\bigr)
+\;\le\;\bigl((p-1)/2\bigr)^{T-4},
+\qquad D=(p-1)/2,
+\]
+with difference count $T-4$ (the normalizer's difference is pinned to
+$1$).
+\end{lemma}
+
+\begin{lemma}[dilate-count spacing bound]\label{lem:spacing}
+Let $p$ be prime, $\lambda\in\Z_p^*$, $0\le L<p$, $t\in\Z_p$. Then
+\[
+N(\lambda,t)\;:=\;\#\{\nu\in\{0,\dots,L\}:
+(\lambda\nu+t\bmod p)\in\{0,\dots,L\}\;\}
+\;\le\;\lfloor L/b_{\min}\rfloor+1,
+\]
+where $b_{\min}(\lambda,L):=\min\{b\ge 1:\ \|\lambda b\|_p\le L\}$ is
+the first return of the $\lambda$-walk to the $L$-ball ($b_{\min}=L+1$
+if no such $b\le L$ exists, giving $N\le 1$).
+\end{lemma}
+
+\begin{proposition}[$k$-cancellation]\label{prop:kcanc}
+Assume the volume law in either proved or hypothesized form---for the
+chain class, $|\mathrm{Sol}|\approx\mathrm{ov}^{\,m-1}$ with
+$\mathrm{ov}\approx(T-6)k$ (Lemma~\ref{lem:chainbox}); for general
+families under H1g, $|\mathrm{Sol}|\le c_1\,\mathrm{ov}^{\,m-1}$. Then
+the per-fiber cut ratio at the frontier cell is $k$-free:
+\[
+\mathrm{cut}\;\approx\;\frac{p^{m-1}}{|\mathrm{Sol}|}
+\;\gtrsim\;\Bigl(\frac{T}{T-6}\bigr)^{m-1}\big/\bigl(\text{order and
+tie factors}\bigr).
+\]
+\end{proposition}
+
+\begin{proposition}[comparison; the $\pm$-reduced cascade, evaluated under
+the calibrated constants]
+\label{prop:depth}
+\emph{Derivation, not a cascade theorem}: the model below is the
+calibration of Theorem~\ref{thm:SC}'s clause (i) under
+Proposition~\ref{prop:Hq}'s $\pm$-reduced induction (Hq$_\pm$ with additive
+error term $E$, quantified over the $\pm$-representative non-resonant fiber
+set $U_\pm$). Write $d=m-1=T-4$, $B=c_1\mathrm{ov}^{d}$, and
+$r=\Gamma\,(p/\mathrm{ov})^{-d}$ (the per-fiber contraction factor of
+Prop.~\ref{prop:Hq}). The survivor count after $q$ processed fibers obeys
+$|S_q|\le B\,r^{q}+\tfrac{E}{1-r}$, so the cascade reaches the $O(1)$ floor
+$|S|\le E/(1-r)$ within
+\[
+q\;=\;\frac{\log\!\bigl(c_1\,\mathrm{ov}^{\,m-1}\bigr)}
+{(m-1)\log\!\bigl(p/\mathrm{ov}\bigr)-\log(c_1\Gamma)}\;+\;O(1)
+\]
+fibers (the leading term; the $O(1)$ absorbs the error-term floor), after
+which a single further fiber kills the structured $O(1)$ remainder. The
+$\pm$-representative fiber budget is $|U_\pm|=\tfrac12\bigl((T-2)k+\epsilon-1\bigr)$.
+Consequently:
+\emph{(a)} (depth is $O_T(\log k)$, never linear) the leading term is
+$\dfrac{(m-1)\log\mathrm{ov}+O(1)}{(m-1)\log(p/\mathrm{ov})-\log(c_1\Gamma)}
+=\dfrac{\log k}{\log(T/(T-6))}\bigl(1+o(1)\bigr)$, which grows like $\log k$
+with a $T$-dependent slope and has \emph{no} $k$-uniform linear bound;
+\emph{(b)} ($T$-flat plateau at practical $k$) the pool-route term stays in
+$[1.1,2.9]$ for $k\le10$, $8\le T\le20$, so the typical depth is
+$\approx 2$--$3$ plus the $O(1)$ floor;
+\emph{(c)} (the ``$\le T+3$'' form is not used) the quantity
+$(T-4)+N_{\mathrm{res}}$ is \emph{not} an upper bound on
+the depth and is not $k$-uniform; the explicit
+$O_T(\log k)$ formula above is the depth bound;
+\emph{(d)} (closure margin against the $\pm$-budget) for every $T\ge8$,
+$k\ge2$ the contraction count $q$ satisfies $q\ll|U_\pm|=\tfrac12((T-2)k+\epsilon-1)$,
+with surplus growing linearly in $k$; equivalently the per-fiber factor $r$
+may be as large as $\bigl(T/(T-6)\bigr)^{m-1}$ (the threshold value) and the
+cascade still closes within the $\pm$-budget. The factor $\tfrac12$ in
+$|U_\pm|$ is the cost of the reflection identification
+(Lemma~\ref{lem:reflect}: fibers $\pm j$ are one constraint).
+\end{proposition}
+
+\begin{lemma}[the free reflection fiber]\label{lem:reflect}
+The map $x\mapsto-x$ on $\Z_{p^2}$ preserves every bad set
+$B_w=\{x:\wn{wx}\le c\}$ and maps the fiber $F_j$ onto $F_{p-j}$. Hence,
+for every unit system, the covering condition at fiber $j$ is
+equivalent to the reflected covering condition at fiber $p-j$; in
+particular, for every anchor solution $a\in\mathrm{Sol}_0$ with drift
+$\mu$, the reflected placement covers fiber $-j_0$ with the same drift:
+the fiber with dilation $\lambda\equiv-1$ has survival fraction exactly
+$1$ and is never a cut.
+\end{lemma}
+
+\begin{lemma}[overlap-sum identity]\label{lem:overlapsum}
+For the all-interval family and any size tuple $s$ with
+$\Sigma s=p+\mathrm{ov}$: every covering placement, written in its
+sorted cyclic order $\sigma$, has the overlap vector
+$o_i=s_{\sigma(i)}-(a_{\sigma(i+1)}-a_{\sigma(i)})$ with
+$\sum_i o_i=\mathrm{ov}$ exactly, $o_i\le s_{\sigma(i)}$, and every
+inter-start gap $\le s_{\max}$ (the reach bound: the point before the
+next start is covered by some arc starting at or before the current
+one, whose reach is $\le s_{\max}$ past it).
+\end{lemma}
+
+\begin{lemma}[chain-box parameterization]\label{lem:chainbox}
+$\mathrm{Sol}(s)$ is contained in the union over the $(m-1)!$ cyclic
+orders $\sigma$ of the affine-unimodular images of the boxes
+$\{o\in\Z^m:\ \sum o=\mathrm{ov},\ s_{\sigma(i)}-s_{\max}\le o_i\le
+s_{\sigma(i)}\}$; on the $o\ge0$ stratum the parameterization is exact
+up to start ties, with count
+$\sum_\sigma\#\{o\ge0:\ \sum o=\mathrm{ov},\ o_i\le s_{\sigma(i)}\}$.
+Consequently $|\mathrm{Sol}|\approx\mathrm{ov}^{\,m-1}$---the volume
+law with exponent $m-1=T-4$ and constant derived from the overlap
+budget, $\mathrm{ov}\approx(T-6)k$.
+\end{lemma}
+
+\begin{theorem}[chain-class dilate reduction]\label{thm:chaindilate}
+For the all-interval family, the two-fiber survivor set at dilation
+$\lambda$ is contained in
+\[
+\bigcup_{\sigma,\sigma'}\bigl\{o\in\mathrm{Box}_\sigma:\;
+\lambda\,\tilde U_{\sigma,\sigma'}\,o+\tilde v\in
+\mathrm{Box}'_{\sigma'}\pmod p\bigr\},
+\]
+where $\tilde U=A_{\sigma'}^{-1}A_\sigma$ is integer-unimodular
+($A_\sigma$ the lower-triangular chain matrix) and the boxes have
+sides $\le 2s_{\max}$. Substituting $u=\tilde Uo$ (whose box has sides
+$\le 2(m{-}1)\,s_{\max}$, the normalizer arc pinned), each term is bounded by
+Lemma~\ref{lem:spacing} applied per coordinate:
+\[
+\mathrm{survivors}(\lambda)\;\le\;((m-1)!)^2
+\Bigl(1+\frac{4(m-1)\,s_{\max}+1}{b_{\min}(\lambda,\,2s_{\max})}\bigr)^{m}.
+\]
+Consequently the chain-class per-fiber cut is $k$-free and polynomial
+in $b_{\min}$: it exceeds any fixed $\gamma$ once
+$b_{\min}(\lambda,2s_{\max})\ge B(T)$, and the fibers failing this are
+$\le B(4s_{\max}+1)$ in number---a vanishing fraction of $U$ as $k$
+grows. Pulling the $\sigma'$-sum condition back through the dilation
+gives one affine congruence
+$\lambda\,(w^\top_{\sigma,\sigma'}o)\equiv c(\sigma,\sigma')$ per
+order pair; for matched sizes it degenerates to the $o$-independent
+congruence $\lambda\,\mathrm{ov}\equiv c$---either every anchor
+candidate satisfies it or none does: the instant-kill dichotomy,
+measured at $\bar\lambda\in\{2,4\}$ (survival $0$) against the partial
+resonance at $\bar\lambda=3$ (survival $120/840$) in the zoo chain pair
+data.
+\end{theorem}
+
+\begin{lemma}[renormalization invariance]\label{lem:renorm}
+Let $D=\{1\}\cup S$ be the difference multiset of a census family ($S$
+a $\pm$-distinct $(m-1)$-set), and for $\delta\in D$ let
+$\mathrm{renorm}_\delta(S)=\{\mathrm{canon}(d\,\delta^{-1}\bmod p):
+d\in D,\ d\ne\delta\}$, $\mathrm{canon}(x)=\min(x,p-x)$. Then the total
+covering count summed over all size assignments is equal for $S$ and
+$\mathrm{renorm}_\delta(S)$:
+$\sum_{\mathrm{sz}}|\mathrm{Sol}(S,\mathrm{sz})|
+=\sum_{\mathrm{sz}}|\mathrm{Sol}(\mathrm{renorm}_\delta(S),
+\mathrm{sz})|$.
+\end{lemma}
+
+\begin{proposition}[the threshold form of H1g]\label{prop:threshold}
+The per-coordinate bound $|\mathrm{Sol}(f,\mathrm{sz})|\le p^{\,m-1}$
+is trivial at every cell of the measured family (the
+moving-start space is $\Z_p^{\,m-1}$), and $p/\mathrm{ov}\to T/(T-6)$
+because $\mathrm{ov}=(T-6)k+O(1)$ against $p=Tk+\epsilon$, so the
+trivial bound realizes
+\[
+c_1^{\mathrm{triv}}=\bigl(T/(T-6)+o(1)\bigr)^{\,m-1}
+\]
+in the normalization of the volume law---exactly the value at which
+the depth denominator $(m-1)\log\bigl(T/(T-6)\bigr)-\log c_1$ of
+Theorem~\ref{thm:SC} vanishes. At $m-1=T-4$ the threshold is $256$,
+$243$, $244.1$ at $T=8/9/10$: near-constant across rungs, so neither
+the cascade's task nor the volume law's softens at higher $T$.
+\end{proposition}
+
+\begin{lemma}[the extended character system]\label{lem:char10}
+Let $X=\{e_i\}\cup\{e_i-e_j:\ i<j\}$ on the moving-start space
+$\Z_p^{\,m-1}$, so $|X|=(m-1)+\binom{m-1}{2}$ (ten functionals at
+$T=8$). Under the renormalization bijection of Lemma~\ref{lem:renorm},
+each functional of $X$ maps to a nonzero scalar multiple of a
+functional of $X$ plus a size-dependent constant. Consequently the
+multiset of marginal sizes
+$\{|\pi_\chi(\mathrm{Sol}(S,\mathrm{sz}))|:\chi\in X\}$, aggregated
+over the permutation-closed set of size tuples, is a
+renormalization-orbit invariant.
+\end{lemma}
+
+\begin{lemma}[the monomial dichotomy of the cascade, single-anchor scope]\label{lem:monomial}
+Fix the rung, the prime, and any sequence of fibers $j_1,\dots,j_D$
+from the uncovered set with solution sets
+$\mathrm{Sol}_t=\mathrm{Sol}(\mathrm{sz}(j_t))$, and let $\sigma_t$
+be the affine bijection between consecutive fiber placements of
+Lemma~\ref{lem:twofiber}. Then: \emph{(i)} every constrained
+transition $P_{\mathrm{Sol}_{t+1}}\,\sigma_t\,P_{\mathrm{Sol}_t}$ is
+a partial permutation matrix (at most one nonzero entry, equal to $1$,
+per row and per column), and so is every product along the chain; its
+spectrum is $\{0\}$ (the directed paths) together with the roots of
+unity of the surviving cycle lengths. \emph{(ii)} The affine maps
+compose to the identity around any closed fiber loop (each re-expresses
+the fixed drift $\mu$; the dilation ratios telescope), so the cyclic
+transfer product is a diagonal $0/1$ matrix whose trace is the number
+of placements surviving the loop---the cascade's own survivor
+count---and whose spectral radius is $1$ if that count is positive and
+$0$ otherwise. \emph{(iii)} Consequently every constrained transfer
+matrix obtainable in the framework---open chain, cyclic, homogenized
+single pair, or state-augmented---has spectral radius exactly $0$ or
+$1$: never an interior value, at any $k$.
+\end{lemma}

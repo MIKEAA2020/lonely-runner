@@ -1,0 +1,176 @@
+\subsection{The epistemic status}\label{sec:scale-status}
+
+The program is either one proof away---H1g and the sharp H2m, both
+reduced to concrete named objects, the strand census and the pair-line
+count---or one systematic obstruction away: a family class whose
+junction structure escapes the $\mathrm{ov}^{\,m-1}$ volume law. For
+the obstruction direction the $T=8$ evidence points the other way: the
+measured margin \emph{grows} with $k$, and no distinct family reaches
+even a tenth of the chain-class volume at equal $\mathrm{ov}$ beyond
+$k=2$. The distinction will be settled by whether the strand census
+closes at $T=8$ with uniform constants, not by further measurement.
+
+One more disclosure belongs in the record. The sequence of named
+obligations has moved: the input structure, then the exhaustiveness of
+the census classification, then the scaling-closure lemma itself, then
+H1-general, now the strand census. Each closure has been real, and
+each new obligation has been at the same scale as the previous one.
+Whether this is a fractal obstruction---each gap revealing a new gap of
+the same size, indefinitely---or a sequence of genuinely decreasing
+obligations that will bottom out is not decidable from the present
+data; after five iterations of the pattern the defensible prior is that
+the reformulation has a stubborn residual, and Theorem~\ref{thm:SC} is
+stated so that the residual is exactly what the hypotheses name. What
+would change the verdict: a family at some $(T=8,k)$ whose per-size
+volume exceeds $\mathrm{ov}^{\,m-1}$---the measured pool collapse
+makes this increasingly unlikely, as admissibility itself dies at
+$13\%$ by $p=29$---or a strand-census proof at $T=8$ with uniform
+constants, which would make H1g a theorem at the rung and supply the
+template for general $T$. No claim is made about the amount of work
+needed to close the open obligations; the
+failure modes are stated where the obligations are.
+
+The record since that disclosure adds a sixth attack turn and a change
+in the pattern's shape. The strand census has now been attacked twice
+and has survived both attacks: the necessary-condition families of
+this section (the overlap budget, the spacing caps, the last-arc fit
+count---non-discriminating), and the marginal-rigidity route of
+\S\ref{si:sec:scale-h1} (the projection envelope measured full, the two
+naive coordinate readings false, the corrected character system closed
+but silent on the count). Both closed as route-closures, and---for the
+first time in the sequence's six attack turns---the named obligation
+did not move: no successor lemma was minted; what moved was the
+obligation's coordinate system (Lemma~\ref{si:lem:char10}) and its
+numerical form (Proposition~\ref{si:prop:threshold}). The reading
+has tightened accordingly: the residual is not a bookkeeping artifact
+awaiting the right census format; it is resistant to the toolkit that
+produced every proved result in this paper. A structural fact in the
+ledger explains why that may be: the proved results are closures,
+invariances, exhaustiveness statements, and machine verifications,
+while every remaining obligation---H1g's margin over the trivial
+bound, the volume law's unproved growth in $k$, the chain class's gap
+from measured to proved constants---is a growth-in-$k$ margin over a
+trivial or measured baseline, and no turn of this program has proved a
+statement of that type. Both closed routes, moreover, were
+census-shaped attacks on what Proposition~\ref{si:prop:threshold} shows
+is an inequality-shaped obstruction. Three candidate third routes are
+on record, none attempted here and none with a stated prior:
+pairwise-difference marginals in the corrected $X$ coordinates; a
+combinatorial characterization of the joint support, given its
+measured sparsity ($1.5\%$--$7.4\%$ median density); and a
+transfer-matrix or automaton model of the joint density under the
+arc-covering constraint.
+
+The type-mismatch reading of the preceding paragraph has since been
+verified statement-by-statement against the paper's full proof
+inventory---every lemma, proposition, theorem, and machine record---and
+it holds, with the three statements that could be read as exceptions
+resolved explicitly. First, the spacing lemma (Lemma~\ref{si:lem:spacing})
+is a packing bound whose slack over its own trivial baseline is the
+factor $b_{\min}$; at the cascade's operating point ($L=Rk$ against
+$p=Tk$) the bulk-fiber value $b_{\min}\gtrsim p/(2L+1)\approx T/(2R)$ is
+$k$-free, so the lemma is invariant under exactly the scaling in which
+the obligations' margins grow, and the ``$k$-cancellation''
+(Proposition~\ref{si:prop:kcanc}) is a $k$-invariance of the cut,
+conditional on the volume law---the cancellation of the dependence the
+obligations need to grow, not a proof that it grows. Second, part (d) of
+the comparison (Proposition~\ref{si:prop:depth}) does state a margin
+growing linearly in $k$, but as a consequence of its hypothesis stack
+(H1g included), not as a proved statement about the measured world.
+Third, the chain-class volume law (Lemma~\ref{si:lem:chainbox}) computes a
+count that grows in $k$, but its margin over the trivial box is the
+$k$-free threshold value of Proposition~\ref{si:prop:threshold}; the
+growth-in-$k$ content of H1g is precisely the distinct class's extra
+thinness below the chain benchmark ($10\times/43\times/160\times$ at
+equal $\mathrm{ov}$, measured), which the chain-class theorem does not
+touch, while the proved chain constants of Theorem~\ref{si:thm:chaindilate}
+carry order factors ($4m\,s_{\max}$ with $s_{\max}\approx2k$) whose
+slack grows in $k$---the measured-to-proved constant gap already listed
+among the obligations. With the reading verified, the three candidate
+third routes of the preceding paragraph are typed by output:
+pairwise-difference marginals in the corrected $X$ coordinates and the
+joint-support characterization are census-shaped (classification
+outputs; the same type as the two routes already closed), while the
+transfer-matrix or automaton model is the one margin-shaped
+candidate---the natural output of a transfer-operator argument is a
+spectral quantity uniform in $k$, the missing statement type. The typing
+assigns output types, not success probabilities, and rests on the
+tool-reach half of the reading rather than a theorem; it is the reason
+the automaton route is the only one the record prioritizes, and the
+attempt itself is its test.
+
+The attempt has since been run, under the discipline of a proof
+attempt: the two design specifications fixed beforehand, the success
+criterion pre-committed, and the verdict taken against it. The route
+closed by theorem \emph{in its single-anchor scope}
+(Lemma~\ref{si:lem:monomial} and the analysis following it): every spectral
+quantity the single-anchor automaton framework can produce is
+exactly $0$ or $1$, the cyclic product's trace is the cascade's own
+survivor count, and the survival-fraction deficit the criterion
+demanded translates exactly into the pair bound H2m and the volume law
+H1g---the instrument consumes the hypotheses it was commissioned to
+prove. The typing's prediction was therefore right about the output
+type and wrong about its shape: the route's natural output is not a
+margin in disguise but a closure about itself, and the expected
+spectral gap was an artifact of the classical analogy (sub-shifts of
+finite type earn their gaps through branching that a lossless,
+sufficient-statistic dynamics cannot have). Three routes into the
+strand census are now closed---the necessary-condition families, the
+marginal-rigidity route, and the (single-anchor) automaton---the first
+two by measurement, the third by theorem \emph{within its stated
+scope}. The empirical half of the reading (S1) is verified a second
+time by a second instrument: the one margin-shaped candidate, fully
+specified and executed, emitted exact census computations and a
+$k$-invariance, and no margin. The tool-reach half (S2) has its first
+proved instance---every automaton built on a bijective drift is
+census-shaped---which is a mechanism, not yet the general claim;
+instruments that branch (the general strand-census operator) or do not
+inherit the drift remain outside its scope, and nothing here is claimed
+about them. With this, the program's state is fixed, and it is the
+state the conditional theorem was stated to name: Theorem~\ref{thm:SC}
+with its ledger; the type-mismatch diagnosis, now with its mechanism
+\emph{at the single-anchor level} (losslessness forbids generated decay
+for that operator); and a named residual---the growth-in-$k$ margin,
+uniform over families, size tuples, and $k$---that the single-anchor
+toolkit is not the right shape to close, with the general strand-census
+route left open. The reformulation closes the covering obstruction exactly
+where classification suffices, and the conjecture-level consequence is
+the one stated in the introduction: within this framework the residual
+is a structural gap for the single-anchor toolkit, not a technical one
+for that toolkit; closing it in general is work for a different
+instrument, and the general strand-census route is left open.
+
+The disposition of that verdict is now on record, and it fixes the
+program's final state. The natural external instrument for the missing
+margin---the Ehrhart theory of the Lonely-Runner zonotope, the third
+bridge of \S\ref{sec:open}---was engaged as a full strand and executed
+to certificates. Its arithmetic is unimpeachable: the $h^*$-polynomials
+of both canonical families are real-rooted, log-concave, and Newton
+through $n=10$, in exact rational arithmetic throughout. Its geometric
+reading is false: the deepest-hole form fails from $n=5$ with exact
+witnesses (the harmonic instance closed \emph{exactly} in the fourth
+revision, $\rho(1,2,3,4,5)=16/47$; the two $n=6$ boundary rows
+resolved as strict refutations, $\rho\ge17/47$ at $m=12$ and
+$\rho\ge1793/5000$ at $m=9$),
+and the modular law it suggested---deepest hole at the center exactly
+when $n\mid m$---holds exactly at $n=3$ ($m\le 24$), is certified at
+$n=4$ (through $m=16$, value $9/34$), breaks at $n=5$ (the harmonic
+$m=5$ and $m=15$ refuted exactly, $\rho\ge 97/288$ and $6/19$; the
+surviving multiples $m=10,20,25,30$ certified at $7/22$, $13/42$,
+$4/13$, and $19/62$ respectively---$m=20,25,30$ in the first
+certification and $m=10$ closed by the companion paper's
+third attempt, which paired a heavily scaled random-local
+search with an exact Lipschitz box certificate and emptied the tree),
+and is
+extinct at $n=6$ (every tested instance refuted exactly, through the
+$4n$ dilate, the narrowest margin $71/208$ against $17/50$). The
+instrument that most faithfully preserves the instance's arithmetic is
+again the one that cannot produce the margin: the type mismatch is a
+property of the lossless encodings themselves, not of one toolkit.
+The record is accordingly published in two parts---this monograph (the
+exact identities, the classifications, the conditional theorem with
+its ledger) and a companion paper \cite{companion-paper} that works
+out the negative half: the four falsified strengthenings, the witness
+archive, the certification ladder above with its negative control, and
+the $h^*$ addendum. The scope statement of the abstract applies to
+both parts unchanged.
