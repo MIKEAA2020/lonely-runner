@@ -4,6 +4,8 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{tabularx}
@@ -1766,7 +1768,29 @@ and reproduce exactly.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.92\textwidth]{fig_nS.png}
+\begin{tikzpicture}
+\begin{axis}[width=0.46\textwidth, height=5.0cm,
+  xlabel={$n$}, ylabel={$n\cdot S$}, title={\small plateau of $n\cdot S$},
+  xmin=2.5, xmax=10.5, ymin=25, ymax=65, grid=major,
+  legend pos=north east, legend style={font=\scriptsize}]
+\addplot[mark=*, thick] coordinates {(3,36.8)(4,37.0)(5,32.6)(6,33.1)(7,30.3)(8,30.3)(9,29.6)(10,29.9)};
+\addlegendentry{harmonic}
+\addplot[mark=square*, dashed, thick] coordinates {(3,60.5)(4,38.0)(5,35.1)(6,34.5)(7,30.9)(8,30.6)(9,29.9)(10,30.0)};
+\addlegendentry{rung-2}
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}[width=0.46\textwidth, height=5.0cm,
+  xlabel={$n$}, ylabel={$S/\mathrm{floor}$}, title={\small excess over Newton floor},
+  xmin=2.5, xmax=10.5, ymin=1.5, ymax=5.5, grid=major,
+  legend pos=north east, legend style={font=\scriptsize}]
+\addplot[mark=*, thick] coordinates {(3,3.06)(4,3.09)(5,2.89)(6,2.76)(7,2.44)(8,2.27)(9,2.11)(10,1.99)};
+\addlegendentry{harmonic}
+\addplot[mark=square*, dashed, thick] coordinates {(3,5.04)(4,3.16)(5,3.12)(6,2.87)(7,2.48)(8,2.30)(9,2.13)(10,2.00)};
+\addlegendentry{rung-2}
+\end{axis}
+\end{tikzpicture}
 \caption{The strictness records of Table~\ref{tab:hstar}. Left: the
 plateau of $n\cdot S$ (the harmonic family starts at $36.8$, rung-2 at
 $60.5$; both drift to $\approx30$). Right: the excess $S/\mathrm{floor}$

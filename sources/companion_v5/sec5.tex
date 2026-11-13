@@ -88,8 +88,29 @@ $V$ & sets & ports & $+D_3$ & ports & $+D_3$ & $+$V \\
 \end{table}
 
 \begin{center}
-\includegraphics[max width=\textwidth, max height=0.36\textheight]
-  {fig_decay.png}
+\begin{tikzpicture}
+\begin{axis}[width=\textwidth, height=6.4cm,
+  xlabel={speed bound $V$ (corpus $=$ primitive 5-subsets of $[1,V]$)},
+  ylabel={sets closed by proved lemmas (\%)},
+  xmin=14, xmax=58, ymin=55, ymax=100, grid=major,
+  legend pos=south west, legend style={font=\scriptsize},
+  legend columns=2]
+\addplot[mark=*, thick, color=blue!55!black] coordinates {(16,96.94)(24,85.89)(32,79.52)(40,74.93)(48,72.10)(56,71.13)};
+\addlegendentry{same battery, ports}
+\addplot[mark=*, dashed, thick, color=blue!55!black] coordinates {(16,97.26)(24,87.29)(32,82.13)(40,78.03)(48,75.25)(56,74.28)};
+\addlegendentry{same battery, +D3}
+\addplot[mark=square*, thick, color=orange!80!black] coordinates {(24,92.69)(32,88.10)(40,82.13)(48,77.79)(56,75.57)};
+\addlegendentry{augmented, ports}
+\addplot[mark=square*, dashed, thick, color=orange!80!black] coordinates {(24,93.44)(32,89.64)(40,84.29)(48,80.21)(56,78.16)};
+\addlegendentry{augmented, +D3}
+\addplot[dotted, gray, thick, forget plot] coordinates {(14,80)(58,80)};
+\addplot[dotted, gray, thick, forget plot] coordinates {(14,60)(58,60)};
+\node[font=\scriptsize, gray] at (axis cs:16.5,81.2) {80\% continuation bar};
+\node[font=\scriptsize, gray] at (axis cs:16.5,61.2) {60\% pivot bar};
+\node[font=\scriptsize, orange!80!black, anchor=west] at (axis cs:49,80.8) {V=48: 80.21\%};
+\node[font=\scriptsize, orange!80!black, anchor=west] at (axis cs:44,73.5) {V=56: 78.16\%};
+\end{axis}
+\end{tikzpicture}
 \end{center}
 
 Two framing statements, both true, must be carried together. At
