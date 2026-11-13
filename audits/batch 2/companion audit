@@ -1,0 +1,202 @@
+I've now read the entire companion paper. Let me consolidate the audit. I've verified the key structural and mathematical claims. Let me summarize the audit of the companion paper.
+
+Key findings of the audit:
+
+1. **Theorem thm:equality (sum-only equality)** — the central unconditional result. Proof is rigorous:
+   - Lemma lem:mirror: v_u k ≡ -v_w k (mod N) → pair collapse. Correct.
+   - Lemma lem:attainment: two-sided binders (rising + falling) force argmax onto sum lattice. The perturbation argument with Lipschitz bounds is sound and handles the cusps correctly.
+   - Lemma lem:halfcase: M(V)=1/2 case (all speeds odd). Correct.
+   - Machine-verified independently: 885/885 and 2,870/2,870 exact checks.
+
+2. **Corollary cor:tau** — LRC_n ⟺ TAU_n lossless. Immediate from the equality. Correct.
+
+3. **Covering framework (sec3)** — size law lem:size correct (|B_w| = (N/j)(2⌊(j-1)/T⌋+1)); mirror, lift law, class reduction at prime moduli all correct.
+
+4. **Rigid zone classifications (sec4)** — K_7, K_11, K_13 group-theoretic (tilings/matchings), K_17 (perfect matching), K_19 and K_37 explicit finite lists. Machine-verified with 0 mismatches (bidirectional). These are exact finite classifications.
+
+5. **Group-ring translation (secgr)** — Theorem thm:GT: Q = E·P in R_p for every configuration, proved via roots of unity (DFT + Gauss lemma). Correct. Kernel = Z·Φ̄_p. Sign characterization of covering. This is a genuine proved bridge. Machine-verified on 36,308 checks.
+
+6. **Input E / three-distance foot count (sec4 sec:lemmaE)** — Lemma lem:E proved outright for p≥31 via column decomposition. Discharges a major open input.
+
+7. **pq tensor side (sec8)** — Theorem thm:R row translation; verified cells empty to N≤143; reduces to same input structure. Correct reduction.
+
+8. **Higher rungs (sec9)** — T=8 eleven families with p-independent counts; T=7 core-tail; drift law T-free. Measured/structural, properly labeled.
+
+9. **Conditional scaling theorem thm:SC (secsc)** — properly conditional. Hypothesis ledger explicitly marks Hq±, H1g, H2r as OPEN with measured support; NF proved; EQ committed; H2m measured. The theorem explicitly disclaims it doesn't imply LRC at the rung (cell emptiness only). This is exemplary epistemic hygiene.
+
+10. **Scaling derivation (secscale)** — derivation record, labels proved/measured/fit/projected carefully. The transfer-matrix Lemma lem:monomial (single-anchor scope) proved via partial permutation structure; scope caveat load-bearing and stated. Prop depth, chain-class theorem, renormalization, character system all proved or measured with scope.
+
+11. **Soundness record (sec7)** — extensive verification record; every claim paired with controls; cross-validation discipline caught many bugs. Good.
+
+12. **Measured coverage (sec5)** — the decline (93.4%→78.2%) is reported honestly, with the level fact (below 80% threshold at V=56), no trend claimed. Good.
+
+The epistemic framing is excellent: the paper repeatedly and explicitly distinguishes proved / measured / conditional / projected, and disclaims all progress on LRC itself. The conditional theorem thm:SC is properly conditional with named open hypotheses.
+
+Now, the relationship to the flagship paper: the flagship paper defers to the companion for proofs of the equality theorem, rigid-zone classifications, and composite structure. The companion does prove these (with machine verification), so the flagship's reliance is appropriate. The companion's own negative half (witnesses, certification ladder, h* addendum) is the flagship paper.
+
+One thing to note: the companion paper's `secscale-status` and `sec6` reference the flagship's witnesses (16/47, 17/47, 455/1269 at m=9) — wait, there's a discrepancy! The flagship paper says the m=9 n=6 witness is 1793/5000, but the companion paper (secscale line 1268, sec6 line 220) says "455/1269" at m=9. Let me check.
+
+In the flagship paper, the m=9 witness value is 1793/5000 (Table tab:refute, row v=(1,2,3,4,5,9), ρ=1793/5000). And in secB of flagship, the cross-validation mentions "the m=9 dyadic search point at its exact depth" and "the m=12 and m=9 clean witnesses at 17/47 and 455/1269".
+
+Wait — the flagship secB (line 119-120) says: "the m=12 and m=9 clean witnesses at 17/47 and 455/1269". So the flagship itself references 455/1269 as the m=9 witness in the cross-validation, while Table tab:refute lists 1793/5000 for m=9.
+
+Let me re-read the flagship sec5 (Table tab:refute): row (1,2,3,4,5,9) has witness c=(1/32,15/32,1383/10000,32921/40000,95473/200000) and ρ=1793/5000=.3586.
+
+But the companion says (secscale line 1268): "the two n=6 boundary rows resolved as strict refutations, ρ≥17/47 at m=12 and ρ≥455/1269 at m=9". And sec6 line 220: "17/47 and 455/1269".
+
+Hmm, so there's an inconsistency in the flagship paper: the m=9 witness is described as 1793/5000 in the main table/abstract, but as 455/1269 in the cross-validation reference and in the companion paper.
+
+Wait, let me check: 455/1269 ≈ 0.3586. 1793/5000 = 0.3586. Are these equal? 455/1269: 455*5000 = 2,275,000; 1269*1793 = 2,275,... let me compute: 1269*1793 = 1269*1800 - 1269*7 = 2,284,200 - 8,883 = 2,275,317. And 455*5000 = 2,275,000. Not equal. So 455/1269 ≠ 1793/5000. They're both ≈0.3586 but different rationals.
+
+Hmm wait, let me compute more precisely:
+- 1793/5000 = 0.3586
+- 455/1269 = 0.35855...
+
+455/1269: 1269 × 0.3585 = 454.9... so ≈0.35855.
+1793/5000 = 0.3586.
+
+These are close but different. So there IS a discrepancy: the flagship's Table tab:refute and abstract claim m=9 witness = 1793/5000, but the flagship's own provenance cross-validation (secB line 120) and the companion paper both cite the m=9 witness as 455/1269.
+
+Wait, let me re-read flagship secB lines 116-122:
+"the cross-validation of the two closure runs' witness-level claims against the independent linear-form/lattice-search implementation of this paper's ledger: seven exact evaluations (the m=10 torsion center at 7/22; the balance family at k=20,27,35, each exactly 16/47; the m=9 dyadic search point at its exact depth; the m=12 and m=9 clean witnesses at 17/47 and 455/1269), zero failures..."
+
+So the flagship cross-validation uses "the m=9 clean witness at 455/1269". But Table tab:refute and the abstract list the m=9 witness as 1793/5000 with a different witness point c=(1/32, 15/32, 1383/10000, 32921/40000, 95473/200000).
+
+So this is an internal inconsistency in the flagship paper (and between flagship and companion): there appear to be two different m=9 witness values recorded: 1793/5000 (main table) and 455/1269 (provenance cross-validation / companion).
+
+Actually wait — this could be two different witnesses at the same instance (m=9). The flagship sec5 (line 89-101) discusses the m=9 witness and says: "The recorded lower bound is marginally deeper than the clean witness—an exactly evaluated dyadic search point at depth 0.358639… persists in the provenance data... while no nontrivial upper certificate is on record. By convention the headline is the clean rational witness 1793/5000 (exact, hand-checkable); the dyadic point is recorded as a deeper provenance artifact and is not used as the headline."
+
+Hmm, so the flagship says: headline = 1793/5000, and there's a dyadic search point at 0.358639 (deeper). 0.358639... Let me check: 455/1269 = 0.35855... and the dyadic point 0.358639. Hmm.
+
+Actually 1793/5000 = 0.3586. 455/1269 = 0.35855. The "dyadic search point at 0.358639..." — let me see what fraction 0.358639 could be. Actually, let me reconsider. In secB of the flagship, the seven-witness cross-validation lists "the m=9 dyadic search point at its exact depth" AND "the m=9 clean witness at ... 455/1269". Wait, re-reading: "seven exact evaluations (the m=10 torsion center at 7/22; the balance family at k=20,27,35, each exactly 16/47; the m=9 dyadic search point at its exact depth; the m=12 and m=9 clean witnesses at 17/47 and 455/1269), zero failures."
+
+So there are 7 evaluations:
+1. m=10 torsion center 7/22
+2. balance family k=20 → 16/47
+3. balance family k=27 → 16/47
+4. balance family k=35 → 16/47
+5. m=9 dyadic search point at its exact depth (0.358639...)
+6. m=12 clean witness 17/47
+7. m=9 clean witness 455/1269
+
+So the "m=9 clean witness" is 455/1269 in the cross-validation, but Table tab:refute lists the m=9 witness as 1793/5000.
+
+Hmm. So which is right? Let me check the witness point c for m=9 in Table tab:refute: (1/32, 15/32, 1383/10000, 32921/40000, 95473/200000). The paper claims D(c) = 1793/5000 at σ=18577/200000.
+
+Let me verify this with my earlier grid computation — it gave 179301/500000 = 0.358602 ≈ 1793/5000. So the table's witness point does give ~1793/5000 (0.3586). Good, that's consistent.
+
+Now, is 455/1269 a different witness? 455/1269 ≈ 0.35855. It's a slightly different value. The companion says "ρ≥455/1269 at m=9". This is a DIFFERENT value from 1793/5000.
+
+So there's a genuine inconsistency: the flagship abstract/table headline m=9 value is 1793/5000, but the companion and the flagship's own cross-validation say 455/1269.
+
+Actually, wait. Let me reconsider. Perhaps these are two different runs/versions. The flagship is "v6" and companion is "v5". The flagship's provenance cross-validation might be from an earlier state where the m=9 clean witness was 455/1269, and then the flagship's Table was updated to 1793/5000 (a "clean rational witness") but the cross-validation text wasn't updated. OR the companion (v5) is older and the flagship (v6) superseded it.
+
+Actually, the flagship sec5 (lines 89-101) discusses the m=9 witness evolution: "The m=9 witness deserves its sentence... The recorded lower bound is marginally deeper than the clean witness—an exactly evaluated dyadic search point at depth 0.358639… persists in the provenance data... By convention the headline is the clean rational witness 1793/5000 (exact, hand-checkable); the dyadic point is recorded as a deeper provenance artifact."
+
+So in the flagship: 
+- clean witness = 1793/5000
+- dyadic search point = 0.358639... (deeper)
+
+And the flagship secB cross-validation says "m=9 dyadic search point at its exact depth" and "m=9 clean witness at 455/1269".
+
+Hmm, so the flagship's own cross-validation calls the "clean witness" 455/1269, while Table calls it 1793/5000. That's an internal inconsistency within the flagship (v6).
+
+But actually — maybe 455/1269 IS the "dyadic search point at its exact depth"? Let me check: 455/1269 = 0.35855... but the dyadic point is stated as 0.358639. Those differ. So no.
+
+Actually, let me reconsider: maybe the cross-validation lists are from different generations. This is getting into the weeds. The key audit point: there is a numerical inconsistency between the flagship's Table/abstract (m=9 witness = 1793/5000) and the companion's statements (m=9 witness = 455/1269), and the flagship's own provenance cross-validation section also references 455/1269. This is a documentation/versioning discrepancy worth flagging.
+
+But wait — the user asked me to audit ONLY the companion paper. So the m=9 discrepancy is primarily a cross-paper consistency issue. Within the companion paper itself, the m=9 witness is cited as 455/1269 (secscale line 1268, sec6 line 220). And the companion references the flagship for the witness archive. So within the companion, it's internally consistent to cite 455/1269 (which matches the older v5 state). The discrepancy is between the companion (v5, citing 455/1269) and the flagship (v6, whose main table says 1793/5000 but whose cross-validation says 455/1269).
+
+Actually, this is exactly the kind of thing to flag in an audit. Let me note it as a cross-document numerical inconsistency: the m=9 strict witness value differs (455/1269 in companion v5 and flagship's provenance cross-validation vs. 1793/5000 in flagship v6's Table/abstract). Both are > 5/14, so the qualitative claim (strict refutation) is unaffected; only the recorded value differs.
+
+Let me verify both values numerically to be sure they're both valid strict witnesses. My grid gave 0.358602 for the table witness (1793/5000 = 0.3586). Let me check 455/1269 = 0.35855. Both > 5/14 = 0.3571. So both are valid strict witnesses; the discrepancy is just which value is recorded as "the" witness.
+
+Actually, I realize I should double-check whether 455/1269 could be the value at the dyadic point or a different witness. But this is a minor point. The important thing for the audit: I'll flag the numerical discrepancy between companion (455/1269) and flagship main table (1793/5000) for the m=9 witness, noting it's a versioning/consistency issue that doesn't affect the qualitative result (both strictly exceed 5/14).
+
+Now let me also note: the companion paper's own internal consistency on this. Within the companion (v5), secscale and sec6 both say 455/1269, so the companion is internally consistent. Good.
+
+Now let me formulate the audit conclusion for the companion paper.
+
+Summary of audit of companion paper:
+- The main unconditional theorem (sum-only equality) is correct and rigorously proved (mirror lemma + attainment lemma), with independent machine verification (885/885, 2,870/2,870).
+- The lossless reformulation LRC ⟺ TAU is immediate and correct.
+- The covering framework lemmas (size law, lift, class reduction) are correct.
+- The rigid-zone classifications (K_7 through K_37) are exact finite classifications, machine-verified bidirectionally with 0 mismatches.
+- The group-ring translation theorem (Q = E·P in R_p) is proved via DFT/Gauss lemma; correct; machine-verified 36,308 checks.
+- Input E (three-distance foot count) proved for p≥31.
+- The conditional scaling theorem (thm:SC) is properly conditional: hypothesis ledger explicitly marks Hq±, H1g, H2r as OPEN with measured support; the theorem disclaims LRC consequence (cell emptiness only). Exemplary epistemic hygiene.
+- The scaling derivation labels proved/measured/fit/projected carefully; transfer-matrix lemma (single-anchor) proved with explicit scope caveat.
+- Extensive soundness record (sec7); measured coverage decline reported honestly (no trend claimed; level fact at V=56 below 80%).
+- The paper explicitly claims no progress on LRC itself.
+
+Issues found:
+1. Cross-document numerical discrepancy: m=9 strict witness recorded as 455/1269 in the companion (and flagship's provenance cross-validation) but as 1793/5000 in the flagship's main Table/abstract. Both exceed 5/14, so the qualitative strict-refutation claim is unaffected; the difference is a versioning/consistency issue. Within the companion itself it's internally consistent (455/1269 in both sec6 and secscale).
+
+2. The companion is explicitly a "conditional" paper: its one culminating theorem (thm:SC) rests on three open hypotheses. This is properly disclosed but means the companion does not unconditionally resolve the p² covering obstruction.
+
+3. The reference "companion-paper" (the flagship) is v6, but the companion is v5; the witness values (e.g. 455/1269 vs 1793/5000) reflect different versions.
+
+Let me also verify a couple more numbers for the audit. The flagship's Table tab:refute has a slightly different m=9 witness point than what I verified. Let me double-check the flagship's m=9 witness point value to confirm 1793/5000. My grid gave 0.358602, and 1793/5000 = 0.3586. Good.
+
+Actually, let me also verify that the companion's 455/1269 could be a legitimate witness. I don't have the witness point for 455/1269 in the companion (it just cites the value). But since the flagship secB cross-validation re-asserts "the m=9 clean witness at 455/1269" via two independent implementations with zero failures, it's a legitimate computed value.
+
+OK, I think I have enough for a thorough audit. Let me also quickly sanity-check the size law lemma with a concrete example to be safe. Lemma size: |B_w| = (N/j)(2⌊(j-1)/T⌋+1). For N=7, T=6, w=1 (invertible, j=7): |B_1| = (7/7)(2⌊6/6⌋+1) = 1·(2·1+1) = 3 = 2h+1 where h=⌊6/6⌋=1. ✓ (B_1 = {0,±1} = {0,1,6}, size 3). Good.
+
+For j ≤ T, e.g., N=6, T=5, j=2 (w=3 mod 6, order 2): |B_3| = (6/2)(2⌊1/5⌋+1) = 3·(0+1) = 3 = N/2. And B_3 = {k: ‖3k‖_6 ≤ h=⌊5/5⌋=1} = {k: ‖3k‖≤1} = {0} (since 3k mod 6 ∈ {0,3}, ‖0‖=0≤1, ‖3‖=3>1), so B_3={0,3}, size 2? Wait, that's size 2 not 3.
+
+Hmm, let me recompute. N=6, w=3, T=5. h=⌊(N-1)/T⌋=⌊5/5⌋=1. B_3 = {k∈Z_6 : ‖3k‖_6 ≤ 1}. 3k mod 6 for k=0..5: 0,3,0,3,0,3. ‖0‖=0≤1 (yes), ‖3‖=3>1 (no). So B_3 = {0,2,4}, size 3. ✓ (I made an arithmetic error: 3k mod 6 cycles 0,3,0,3,0,3, so k=0,2,4 give 0). So |B_3|=3=N/2. ✓ And ord_6(3) = 6/gcd(3,6)=6/3=2, j=2. Formula: (6/2)(2⌊1/5⌋+1)=3(0+1)=3. ✓ 
+
+So the size law is correct.
+
+I'm confident in the audit. Let me write up the companion paper audit.
+
+Let me note the m=9 value discrepancy precisely:
+- Companion (v5): "ρ≥17/47 at m=12 and ρ≥455/1269 at m=9" (secscale line 1268, sec6 line 220).
+- Flagship (v6): Table tab:refute and abstract: m=9 witness 1793/5000; but secB cross-validation (line 120) says "the m=12 and m=9 clean witnesses at 17/47 and 455/1269".
+
+So even within the flagship (v6), the main table (1793/5000) and its own provenance cross-validation (455/1269) disagree on the m=9 value. This is a real internal inconsistency in the flagship, and the companion (v5) aligns with the 455/1269 figure.
+
+Let me verify 455/1269 vs 1793/5000 both > 5/14:
+- 5/14 = 0.35714
+- 455/1269 = 0.35855 ✓
+- 1793/5000 = 0.35860 ✓
+Both strictly exceed 5/14, so the strict-refutation claim holds either way. Good.
+
+Now let me write the audit result. I'll be concise but complete, as the user wants an audit of the companion paper. I'll structure: (1) what the companion claims, (2) verification of the main unconditional theorem, (3) verification of the classification/translation results, (4) the conditional theorem's status, (5) soundness record, (6) issues/discrepancies found.
+
+I've read the full companion paper (all 14 section files + bib). Here's the audit.
+
+## Audit: Companion Paper (`companion_v5_submission.zip`)
+
+**Title:** *The Lonely Runner Problem on Pair-Sum Lattices: A Lossless Finitization and a Conditional Scaling-Closure Theorem for the Covering Obstruction*
+
+### 1. Central unconditional result — correct and rigorous
+**Theorem `thm:equality` (sum-only equality, $M(V)=\max_{\{u,w\}}\tau(u,w)$)** is proved correctly:
+- **Mirror lemma** (`lem:mirror`): $v_u k\equiv -v_w k \pmod N$ ⟹ pair collapse $\min_p = \min_{p\ne w}$. Correct.
+- **Attainment lemma** (`lem:attainment`): a global argmax with $0<M<\tfrac12$ must have one rising and one falling binder, forcing the argmax onto a **sum** lattice $t^*=k^*/(v_u+v_w)$. The perturbation/Lipschitz argument (with the one-sided cusp-free bound and per-binder windows) is sound; the $M=\tfrac12$ case (`lem:halfcase`, all speeds odd) is handled separately and correctly.
+- **Corollary `cor:tau`**: $\mathrm{LRC}_n \Leftrightarrow \mathrm{TAU}_n$ follows immediately and is a genuine lossless equivalence.
+- Independently machine-verified: $885/885$ (non-circular folklore-breakpoint check) and $2{,}870/2{,}870$ (from-scratch reimplementation, $n=2$–$6$, $v\le200$).
+
+### 2. Covering framework, classifications, translations — correct
+- **Size law** (`lem:size`): $|B_w|=\frac{N}{j}(2\lfloor\frac{j-1}{T}\rfloor+1)$ — verified by hand on concrete cases ($N=7,T=6,j=7\to3$; $N=6,T=5,j=2\to3$).
+- **Rigid-zone classifications** `thm:K4`–`thm:K37` (primes $7,11,13,17,19,37$): exact if-and-only-if classifications (antipodal classes, domino tilings, perfect matchings, explicit finite lists at $19,37$). Machine-verified **bidirectionally** with $0$ mismatches over all unit $4$-multisets ($5{,}985$ at $N=19$; $82{,}251$ at $N=37$).
+- **Group-ring translation** `thm:GT` ($Q=E\cdot P$ in $R_p$, kernel $=\mathbb{Z}\bar\Phi_p$, sign characterization of covering): proved via DFT + Gauss lemma; correct; verified on $36{,}308$ checks.
+- **Input E / three-distance foot count** (`lem:E`, $p\ge31$): proved outright by column decomposition; discharges the one-foot input.
+- **$pq$ tensor translation** `thm:R`; cells verified empty to $N\le143$; reduces to the same input structure.
+
+### 3. Conditional theorem — properly conditional
+**Theorem `thm:SC` (scaling closure)** rests on named hypotheses whose **statuses are explicit in the ledger** (`tab:ledger`): $\mathrm{Hq}_\pm,\mathrm{H1g},\mathrm{H2r}$ are marked **OPEN** (with measured support), $\mathrm{NF}$ proved, $\mathrm{EQ}$ committed, $\mathrm{H2m}$ measured. The theorem **explicitly disclaims** that cell-emptiness implies $\mathrm{LRC}$ at the rung (clause iii). This is exemplary epistemic hygiene — the boundary between proved and hypothesized is stated precisely and never silently crossed.
+
+### 4. Derivation, measurement, soundness — carefully labeled
+- `secscale` consistently labels **proved / measured / fit / projected**; the transfer-matrix `lem:monomial` (single-anchor scope) is proved (partial-permutation spectrum $\{0\}\cup$ roots of unity) with an explicit, load-bearing scope caveat that the general branching operator is **not** covered.
+- `sec7` soundness record is extensive (every claim paired with a control; cross-validation discipline caught many bugs). `sec5` reports the coverage decline ($93.4\%\to78.2\%$ over $V=24\to56$) honestly, including the level fact (below the $80\%$ continuation threshold at $V=56$) with **no trend claimed**.
+
+### 5. Issues found
+1. **Cross-document numerical inconsistency (m=9 witness).** The companion (and the flagship's own provenance cross-validation, `secB` line 120) record the $n=6$, $m=9$ strict witness as $\rho\ge \mathbf{455/1269}$, but the flagship's main Table `tab:refute`/abstract record it as $\mathbf{1793/5000}$. Both are valid strict refutations ($455/1269\approx0.35855$, $1793/5000=0.3586$, both $>5/14\approx0.3571$), so the qualitative claim is unaffected — but the two versions of the same program disagree on the recorded value, and the flagship is internally inconsistent (main table vs. its own cross-validation). This reflects the companion being **v5** vs. the flagship **v6**; the companion itself is internally consistent (both `sec6` and `secscale` cite $455/1269$).
+
+2. **The companion's one culminating theorem is conditional** — it does not unconditionally resolve the $p^2$ covering obstruction, and (correctly) does not claim to. The paper's unconditional content is the equality theorem, the finite classifications, the group-ring/$pq$ translations, and Input E.
+
+### 6. Relationship to the flagship paper
+The flagship defers to the companion for the equality theorem, rigid-zone classifications, and composite structure. The companion **does** prove these (with machine verification), so the flagship's reliance is appropriate. The companion's negative half (witnesses, certification ladder, $h^*$ addendum) is the flagship. The only friction is the version-drift numerical discrepancy noted above.
+
+**Bottom line:** The companion paper's unconditional results are mathematically correct and rigorously machine-verified; its conditional theorem is honestly and precisely scoped; and it makes no claim of progress on $\mathrm{LRC}$ itself. The single actionable defect is the m=9 witness value discrepancy ($455/1269$ vs. $1793/5000$) between the two papers/versions.
