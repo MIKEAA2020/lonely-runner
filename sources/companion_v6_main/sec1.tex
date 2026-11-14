@@ -4,80 +4,57 @@
 
 \begin{abstract}
 \noindent
-We prove an exact identity that reduces the maximum loneliness of a Lonely
+We prove an exact identity reducing the maximum loneliness of a Lonely
 Runner instance to a finite maximum over cyclic groups: for every speed
-vector $V$ of $n$ positive integers,
-$M(V)=\max_{\{u,w\}}\tau(u,w)$, where $\tau(u,w)$ is the optimal loneliness
-on the pair-sum lattice of denominator $N=v_u+v_w$. The analytic core of the
-argument is folklore (it appears in a comment on Tao's 2015 blog post); the
-contributions claimed here are the sharpening that sum lattices alone always
-suffice, the exact equality, and the lossless reformulation of the Lonely
-Runner Conjecture ($\mathrm{LRC}$-$_n$) as the finite statement
-$(\mathrm{TAU}$-$_n)$. The reformulation is a \emph{per-instance}
-finitization: for each fixed speed vector $V$ it replaces the
-one-parameter supremum defining $M(V)$ by a finite maximum over the
-$\binom{n}{2}$ pair-sum lattices of denominators $N=v_u+v_w$, but the
-denominators grow with $V$ and no uniform bound on $N$ is claimed or
-implied. The reformulation turns the conjecture into a family
-of covering problems: a pair certifies iff $n-1$ explicit bad sets
-$B_w=\{k\in\Z_N : (n{+}1)\,\wn{wk}<N\}$ fail to cover $\Z_N$. We develop
-this covering geometry: an exact size law, a class-group reduction at prime
-moduli, a lift law, and complete classifications of the unit coverings at
-the prime moduli $7,11,13$ (three bad sets) and $7,13,17,19,37$ (four bad
-sets)---at every such prime, covering is governed by a short explicit list
-of translate classes in a cyclic group. Empirically, these five primes form
-the entire unit-capable \emph{rigid zone} at $n=5$ within the verified range
-(primes $\le 150$, composites $\le 111$), a striking but unproved finiteness
-statement. On the full corpus of $3{,}712{,}576$ primitive speed sets with
-$n=5$ and speeds $\le 56$, proved lemmas close $75.6\%$ of instances
-($78.2\%$ including a coincidence-counting lemma), per-modulus verification
-closes all of them, and the residual obstruction is localized to a single
-named class (mixed order signatures at composite moduli). The proved-coverage
-rate declines as the corpus grows ($93.4\%\to78.2\%$ over $V=24\to56$ on the
-augmented battery, crossing below the continuation threshold at $V=56$);
-the trend does not establish that coverage stabilizes, and its asymptotics
-are unresolved. We report the decline, the localization, and the exact
-verification record as the paper's empirical findings.
-The paper's culminating result is stated as a \emph{conditional}
-theorem (Theorem~\ref{thm:SC}): under three named open hypotheses---the
-multi-fiber survivor inequality Hq (the $\pm$-representative form; it
-subsumes the dilate-sparsity input H2m as its one-step case),
-the distinct-family volume law H1g with its uniform margin, and the
-resonance budget H2r---the fiber cascade closes the covering
-obstruction at the frontier cells $(1K,T{-}3U)$ of every rung $T\ge 8$
-at $N=p^2$ within a depth that is $T$-flat in practice and never
-exceeds $T+3$ in the worst case. The reduction chain and every other
-input (normal form, reflection fiber, chain-class theorem,
-renormalization lemma, lossless equivalence) are proved or
-machine-validated, and each constant's provenance---derived, measured,
-or fitted, with the data it is fit to---is disclosed in the hypothesis
-ledger.
-That boundary between the proved and the hypothesized has a structural
-type, verified statement-by-statement in \S\ref{sec:scale-status}: every
-proved result in this program is a closure, invariance, exhaustiveness,
-or machine-verification statement, while every remaining obligation is a
-uniform growth-in-$k$ margin over a trivial or measured baseline---a
-statement type no turn of the program has proved. This type mismatch is
-why the paper stops where it stops. The one candidate instrument
-shaped to produce that missing type was a transfer-matrix or automaton
-model of the strand census. It was executed as a proof attempt under a
-pre-committed success criterion and closed by theorem \emph{in its
-single-anchor scope} (for automata built on the cascade's bijective
-drift) (Lemma~\ref{lem:monomial}). The cascade's single-anchor
-constrained transfer matrices are partial permutations with a spectral
-radius of exactly $0$ or $1$ at every scale. The cyclic product is
-diagonal, with trace equal to the survivor count itself, and the missing
-margin is provably external to the single-anchor lossless dynamics. The
-reformulation is bounded by its own fidelity at the single-anchor level:
-the losslessness that makes it a faithful rewrite is the property that
-withholds the decay a margin would require for that operator. The
-general strand-census operator branches and is not covered by the lemma.
-This is a structural paper: it does not solve or reduce the Lonely
-Runner Conjecture, proves no new cases of it, and claims nothing beyond
-the verified ranges stated in the text; the three open hypotheses
-$\mathrm{Hq}_\pm$, $\mathrm{H1g}$, $\mathrm{H2r}$ of
-Theorem~\ref{thm:SC} are not silently established anywhere.
+vector $V$ of $n$ positive integers, $M(V)=\max_{\{u,w\}}\tau(u,w)$,
+where $\tau(u,w)$ is the optimal loneliness on the pair-sum lattice of
+denominator $N=v_u+v_w$. The analytic core is folklore; the contributions
+are the sharpening that sum lattices alone suffice, the exact equality,
+and the lossless reformulation of the Lonely Runner Conjecture as the
+finite statement $(\mathrm{TAU}$-$n)$. This is a \emph{per-instance}
+finitization---for each fixed $V$ it replaces the defining supremum by a
+finite maximum over $\binom{n}{2}$ pair-sum lattices, but the denominators
+$N=v_u+v_w$ grow with $V$ and no uniform bound on $N$ is claimed. The
+reformulation turns the conjecture into a family of covering problems,
+and we develop that covering geometry: an exact size law, a class-group
+reduction at prime moduli, a lift law, and complete classifications of
+the unit coverings at the prime moduli $7,11,13$ (three bad sets) and
+$7,13,17,19,37$ (four bad sets). These five primes form the entire
+unit-capable \emph{rigid zone} at $n=5$ within the verified range---a
+striking but unproved finiteness statement. Empirically, on the full
+corpus of $3{,}712{,}576$ primitive speed sets with $n=5$ and speeds
+$\le 56$, proved lemmas close $75.6\%$ of instances, per-modulus
+verification closes all of them, and the residual is localized to a
+single named class (mixed order signatures at composite moduli); the
+proved-coverage rate declines as the corpus grows
+($93.4\%\to78.2\%$ over $V=24\to56$) and its asymptotics are unresolved.
+The paper's culminating result is a \emph{conditional} theorem: under
+three named open hypotheses---the multi-fiber survivor inequality
+$\mathrm{Hq}_\pm$ (subsuming the dilate-sparsity input H2m), the
+distinct-family volume law H1g, and the resonance budget H2r---the fiber
+cascade closes the covering obstruction at the frontier cells
+$(1K,T{-}3U)$ of every rung $T\ge 8$ at $N=p^2$ within a depth that is
+$O_T(\log k)$ (no $k$-uniform linear bound is claimed). The reduction
+chain and every other input are proved or machine-validated, and each
+constant's provenance (derived, measured, or fitted) is disclosed in the
+hypothesis ledger. That proved/hypothesized boundary has a structural
+type, verified statement-by-statement: every proved result is a closure,
+invariance, exhaustiveness, or machine-verification statement, while
+every remaining obligation is a uniform growth-in-$k$ margin---a type no
+turn of the program has proved. The one instrument shaped to produce
+that type, a transfer-matrix model of the strand census, closes by
+theorem \emph{in its single-anchor scope}: its constrained transfer
+matrices are partial permutations of spectral radius exactly $0$ or $1$,
+and the missing margin is provably external to that lossless dynamics.
+This is a structural paper: it does not solve or reduce the Lonely Runner
+Conjecture, proves no new cases of it, and claims nothing beyond the
+verified ranges stated; the three open hypotheses are not silently
+established anywhere.
 \end{abstract}
+
+\noindent\textbf{Keywords:}\ Lonely Runner Conjecture; pair-sum lattice;
+covering systems; rigid zone; group-ring translation; scaling closure;
+conditional theorem.
 
 \section{Introduction}\label{sec:intro}
 

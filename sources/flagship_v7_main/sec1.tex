@@ -5,70 +5,60 @@
 \begin{abstract}
 \noindent
 The Lonely Runner Conjecture ($\lrc_n$) admits many \emph{lossless}
-reformulations---finite, geometric, dynamical, or arithmetic rewrites that
-are exactly equivalent to it. This paper is about a structural fact that
-emerged from a multi-year program of attacking the conjecture through such
+reformulations---finite, geometric, dynamical, or arithmetic rewrites
+exactly equivalent to it. This paper reports a structural fact that
+emerged from a program of attacking the conjecture through such
 reformulations: \emph{every natural strengthening of a lossless
-reformulation that the program examined---every version of it that would
-open a new toolkit---is false}. The claim is an observational summary of
-four witnessed settings, not a meta-theorem over all conceivable
-strengthenings. A reformulation equivalent to $\lrc$ carries the full
-truth-content of $\lrc$; a strictly stronger version is false, and the
-falsity is visible at small $n$ with exact rational witnesses. We exhibit
-the type mismatch in four settings across two reformulation worlds. The
-finite pair-sum covering reformulation supports three of them: its proved
-inventory, audited statement-by-statement, contains only closure,
-invariance, and exhaustiveness statements (no proved margin-type statement
-exists in it); its single margin-shaped instrument, a transfer-matrix
-model of the solution cascade, is closed by theorem \emph{in its
-single-anchor scope} (the constrained transfer matrices are partial
-permutations with spectral radius exactly $0$ or $1$; the general
-branching strand-census operator is not covered by the theorem); and its
-character-rigidity route has orbit-invariance laws falsified exactly, with
-marginal envelopes saturated precisely where the missing margin would be
-needed. The fourth setting is independent of the
+reformulation that the program examined---every version that would open a
+new toolkit---is false}. The claim is an observational summary of four
+witnessed settings, not a meta-theorem over all conceivable
+strengthenings: a reformulation equivalent to $\lrc$ carries the full
+truth-content of $\lrc$, and a strictly stronger version is false, with
+the falsity visible at small $n$ through exact rational witnesses. We
+exhibit the type mismatch in four settings across two reformulation
+worlds. The finite pair-sum covering reformulation supports three: its
+proved inventory contains only closure, invariance, and exhaustiveness
+statements (no proved margin-type statement exists in it); its single
+margin-shaped instrument, a transfer-matrix model of the solution
+cascade, is closed by theorem \emph{in its single-anchor scope} (the
+constrained transfer matrices are partial permutations of spectral radius
+exactly $0$ or $1$; the general branching strand-census operator is not
+covered); and its character-rigidity route has orbit-invariance laws
+falsified exactly, with marginal envelopes saturated precisely where the
+missing margin would be needed. The fourth setting is independent of the
 cascade: the Lonely Runner zonotope, whose covering radius satisfies a
 strictly stronger inequality than $\lrc$ that is false from $n=5$ on,
-with the exact value $\rho=16/47>1/3$ at
-$v=(1,2,3,4,5)$ (certified from both sides by branch and bound) and
-$\rho\ge17/47>5/14$ at $v=(1,2,3,4,5,12)$ (a rational witness at a
-certified argmax, superseding every earlier record), strict exact
-witnesses $\rho\ge
-29/80>5/14$ at $v=(1,2,3,4,5,6)$, $\rho\ge 4/11>5/14$ at
-$v=(1,2,3,4,5,7)$, and $\rho\ge 1793/5000>5/14$ at $v=(1,2,3,4,5,9)$,
+with $\rho=16/47>1/3$ at $v=(1,2,3,4,5)$ (certified from both sides by
+branch and bound), strict witnesses $\rho\ge17/47>5/14$ at
+$v=(1,2,3,4,5,12)$, $\rho\ge29/80$, $4/11$, $1793/5000$ (all $>5/14$),
 and a proved weight identity among the quotient norm's pair forms that
 forces the denominators of the exact values (the recurring $47$ is
-$3\cdot4+3\cdot5+4\cdot5$), while its
-Ehrhart $h^*$-polynomials are real-rooted and log-concave through
-$n=10$ (verified by exact Sturm sequences) with strictness decaying like
-$\Theta(1/n)$ in the measured range and no statistically distinguishable
-correlation with covering margins at the achievable sample sizes.
-Alongside the negative result the paper states the program's one bounded positive
-theorem---the sum-only equality $M(V)=\max_{\{u,w\}}\tau(u,w)$, the
-rigid-zone translate-class classifications at the primes
-$7,11,13,17,19,37$, and the composite-side structure at $p^2$ and $pq$,
-stated with their hypothesis ledger---and a finite witness archive with a
-certification ladder: exact deepest-hole classification at $n=3$,
-independent away-certified and branch-and-bound certificates at $n=4$
-(including $v=(1,2,3,16)$, $\rho=9/34$), exact refutations at
-$n=5,6$---the sharpest with a two-sided certificate, the second at a
-certified argmax point---and, from an independent
-branch-and-bound method,
-certified deepest-hole equality at $n=5$, $m=10,20,25,30$
-($\rho=\delta$ exactly at each; $m=10$ closed with an exact Lipschitz
-box certificate after its first attempt stranded on a residual of volume
-below $6\times10^{-7}$). Every number cited in this abstract is
-re-asserted by a persisted, independent, exact computation (a 225-item
-ledger with zero failures, and a seven-witness cross-validation of the
-incorporated certification records, zero failures), and the certification
+$3\cdot4+3\cdot5+4\cdot5$); its Ehrhart $h^*$-polynomials are
+real-rooted and log-concave through $n=10$, with strictness decaying
+like $\Theta(1/n)$ and no correlation with covering margins at the
+achievable sample sizes. Alongside the negative result the paper states
+the program's one bounded positive theorem---the sum-only equality
+$M(V)=\max_{\{u,w\}}\tau(u,w)$, the rigid-zone translate-class
+classifications at $7,11,13,17,19,37$, and the composite-side structure
+at $p^2$ and $pq$, with its hypothesis ledger---and a finite witness
+archive with a certification ladder: exact deepest-hole classification at
+$n=3$, away-certified and branch-and-bound certificates at $n=4$
+($\rho=9/34$ at $v=(1,2,3,16)$), exact refutations at $n=5,6$ (the
+sharpest two-sided), and certified deepest-hole equality at $n=5$,
+$m=10,20,25,30$ ($\rho=\delta$ exactly). Every number is re-asserted by
+a persisted, independent, exact computation, and the certification
 method carries a negative control that correctly refuses a false
 statement.
 The paper is a negative-results paper and claims no progress on the
 conjecture itself: it proves no new cases of $\lrc$, and the surviving
-equivalent forms are as hard as they ever were. What it contributes is the
-obstruction's anatomy: why four natural toolkits, each correct and each
+equivalent forms are as hard as they ever were. Its contribution is the
+obstruction's anatomy---why four natural toolkits, each correct and each
 productive on its own terms, cannot cross the same gap.
 \end{abstract}
+
+\noindent\textbf{Keywords:}\ Lonely Runner Conjecture; lossless
+reformulation; type mismatch; covering radius; zonotope; Ehrhart
+$h^*$-polynomial; negative results.
 
 \section{Introduction}\label{sec:intro}
 

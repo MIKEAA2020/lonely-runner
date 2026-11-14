@@ -1,45 +1,45 @@
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}The conjecture and the reformulation habit}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}The four instances in one paragraph each}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}What this paper is and is not}{4}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Roadmap and conventions}{5}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Preliminaries}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Notation}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Four forms of the covering statement}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}The Lonely Runner zonotope and its Ehrhart theory}{6}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}The certification ladder}{7}{subsection.2.4}%
-\contentsline {section}{\numberline {3}The type-mismatch mechanism and four instances}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}The mechanism}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Instance 1: the finite covering reformulation}{8}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Instance 2: the transfer-matrix route, closed by theorem}{8}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Instance 3: character rigidity and saturated envelopes}{9}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Instance 4: the Lonely Runner zonotope}{10}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}The pattern}{11}{subsection.3.6}%
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The conjecture and the reformulation habit}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}The four instances in one paragraph each}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}What this paper is and is not}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Roadmap and conventions}{6}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Preliminaries}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Notation}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Four forms of the covering statement}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}The Lonely Runner zonotope and its Ehrhart theory}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}The certification ladder}{8}{subsection.2.4}%
+\contentsline {section}{\numberline {3}The type-mismatch mechanism and four instances}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The mechanism}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Instance 1: the finite covering reformulation}{9}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Instance 2: the transfer-matrix route, closed by theorem}{9}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Instance 3: character rigidity and saturated envelopes}{10}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Instance 4: the Lonely Runner zonotope}{11}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}The pattern}{12}{subsection.3.6}%
 \contentsline {section}{\numberline {4}The positive core: classification at the rigid primes and at \boldmath $p^2$/$pq$}{12}{section.4}%
-\contentsline {subsection}{\numberline {4.1}The sum-only equality theorem}{12}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}The covering framework and the rigid zone}{12}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}The composite side: group ring, tensor, and the fiber cascade}{13}{subsection.4.3}%
-\contentsline {section}{\numberline {5}The witness archive}{13}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Exact refutations of the covering-radius form}{13}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}The arithmetic of the deepest holes: a weight identity}{15}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}The deepest-hole certification ladder}{17}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}The branch-and-bound certificate and its negative control}{18}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Summary of the archive}{19}{subsection.5.5}%
-\contentsline {section}{\numberline {6}Conclusion}{20}{section.6}%
-\contentsline {subsection}{\numberline {6.1}What is established}{20}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Why the reformulations cannot cross}{20}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}What would be needed}{21}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Scope, stated once more}{21}{subsection.6.4}%
-\contentsline {section}{\numberline {7}The \boldmath $h^*$-observations through \boldmath $n=10$}{24}{section.7}%
-\contentsline {subsection}{\numberline {7.1}The table}{24}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Strictness decay and non-correlation}{25}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}The residual question}{25}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Computational provenance}{26}{section.8}%
-\contentsline {subsection}{\numberline {8.1}The ledger}{26}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}The runs behind this paper}{26}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Certificates and budgets}{28}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Reproduction}{28}{subsection.8.4}%
-\contentsline {section}{\numberline {9}A self-contained verification core}{29}{section.9}%
-\contentsline {subsection}{\numberline {9.1}The identity and the runner formulation}{29}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}The sum-only equality, explicitly}{30}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Hand checks of the headline witnesses}{30}{subsection.9.3}%
+\contentsline {subsection}{\numberline {4.1}The sum-only equality theorem}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}The covering framework and the rigid zone}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}The composite side: group ring, tensor, and the fiber cascade}{14}{subsection.4.3}%
+\contentsline {section}{\numberline {5}The witness archive}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Exact refutations of the covering-radius form}{14}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The arithmetic of the deepest holes: a weight identity}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The deepest-hole certification ladder}{18}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}The branch-and-bound certificate and its negative control}{19}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Summary of the archive}{20}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Conclusion}{21}{section.6}%
+\contentsline {subsection}{\numberline {6.1}What is established}{21}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Why the reformulations cannot cross}{21}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}What would be needed}{22}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Scope, stated once more}{22}{subsection.6.4}%
+\contentsline {section}{\numberline {7}The \boldmath $h^*$-observations through \boldmath $n=10$}{25}{section.7}%
+\contentsline {subsection}{\numberline {7.1}The table}{25}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Strictness decay and non-correlation}{26}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}The residual question}{26}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Computational provenance}{27}{section.8}%
+\contentsline {subsection}{\numberline {8.1}The ledger}{27}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}The runs behind this paper}{27}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Certificates and budgets}{29}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Reproduction}{29}{subsection.8.4}%
+\contentsline {section}{\numberline {9}A self-contained verification core}{30}{section.9}%
+\contentsline {subsection}{\numberline {9.1}The identity and the runner formulation}{30}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}The sum-only equality, explicitly}{31}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Hand checks of the headline witnesses}{31}{subsection.9.3}%
