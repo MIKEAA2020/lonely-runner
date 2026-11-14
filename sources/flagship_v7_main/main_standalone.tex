@@ -18,6 +18,7 @@
             urlcolor=blue!55!black,bookmarks=true,bookmarksnumbered=true,
             unicode=true]{hyperref}
 
+
 \widowpenalty=10000
 \clubpenalty=10000
 \emergencystretch=3em
@@ -49,25 +50,23 @@
 
 \graphicspath{{./}}
 
-\newcommand{\papertitle}{Every Natural Strengthening Examined Is False: Type Mismatch
-in Lossless Reformulations of the Lonely Runner Conjecture}
+\newcommand{\papertitle}{Every Natural Strengthening Examined Is False: Type Mismatch in Lossless Reformulations of the Lonely Runner Conjecture}
 
 \hypersetup{
   pdftitle={\papertitle},
-  pdfauthor={Anonymous},
+  pdfauthor={Amin Abaee},
   pdfsubject={Lonely Runner Conjecture; reformulations; covering radius;
               zonotopes; Ehrhart theory; negative results},
   pdfkeywords={Lonely Runner Conjecture, lossless reformulation,
-               type mismatch, covering radius, LR-zonotope, Ehrhart
-               h*-polynomial, arithmetic matroid, exact witnesses,
-               branch and bound certification}
+               type mismatch, covering radius, zonotope,
+               Ehrhart h*-polynomial, negative results}
 }
 
 \begin{document}
 
 \title{\papertitle}
-\author{Anonymous}
-\date{Version 6.0}
+\author{Amin Abaee\\[2pt] {\small Independent Researcher, Tehran, Iran}\\[1pt] {\small \href{mailto:amin_abaee@ut.ac.ir}{amin\_abaee@ut.ac.ir} \textbullet\ \href{https://orcid.org/0000-0002-0019-1842}{ORCID 0000-0002-0019-1842}}}
+\date{Submitted: 14 November 2026}
 \maketitle
 
 \tableofcontents
@@ -80,70 +79,60 @@ in Lossless Reformulations of the Lonely Runner Conjecture}
 \begin{abstract}
 \noindent
 The Lonely Runner Conjecture ($\lrc_n$) admits many \emph{lossless}
-reformulations---finite, geometric, dynamical, or arithmetic rewrites that
-are exactly equivalent to it. This paper is about a structural fact that
-emerged from a multi-year program of attacking the conjecture through such
+reformulations---finite, geometric, dynamical, or arithmetic rewrites
+exactly equivalent to it. This paper reports a structural fact that
+emerged from a program of attacking the conjecture through such
 reformulations: \emph{every natural strengthening of a lossless
-reformulation that the program examined---every version of it that would
-open a new toolkit---is false}. The claim is an observational summary of
-four witnessed settings, not a meta-theorem over all conceivable
-strengthenings. A reformulation equivalent to $\lrc$ carries the full
-truth-content of $\lrc$; a strictly stronger version is false, and the
-falsity is visible at small $n$ with exact rational witnesses. We exhibit
-the type mismatch in four settings across two reformulation worlds. The
-finite pair-sum covering reformulation supports three of them: its proved
-inventory, audited statement-by-statement, contains only closure,
-invariance, and exhaustiveness statements (no proved margin-type statement
-exists in it); its single margin-shaped instrument, a transfer-matrix
-model of the solution cascade, is closed by theorem \emph{in its
-single-anchor scope} (the constrained transfer matrices are partial
-permutations with spectral radius exactly $0$ or $1$; the general
-branching strand-census operator is not covered by the theorem); and its
-character-rigidity route has orbit-invariance laws falsified exactly, with
-marginal envelopes saturated precisely where the missing margin would be
-needed. The fourth setting is independent of the
+reformulation that the program examined---every version that would open a
+new toolkit---is false}. The claim is an observational summary of four
+witnessed settings, not a meta-theorem over all conceivable
+strengthenings: a reformulation equivalent to $\lrc$ carries the full
+truth-content of $\lrc$, and a strictly stronger version is false, with
+the falsity visible at small $n$ through exact rational witnesses. We
+exhibit the type mismatch in four settings across two reformulation
+worlds. The finite pair-sum covering reformulation supports three: its
+proved inventory contains only closure, invariance, and exhaustiveness
+statements (no proved margin-type statement exists in it); its single
+margin-shaped instrument, a transfer-matrix model of the solution
+cascade, is closed by theorem \emph{in its single-anchor scope} (the
+constrained transfer matrices are partial permutations of spectral radius
+exactly $0$ or $1$; the general branching strand-census operator is not
+covered); and its character-rigidity route has orbit-invariance laws
+falsified exactly, with marginal envelopes saturated precisely where the
+missing margin would be needed. The fourth setting is independent of the
 cascade: the Lonely Runner zonotope, whose covering radius satisfies a
 strictly stronger inequality than $\lrc$ that is false from $n=5$ on,
-with the exact value $\rho=16/47>1/3$ at
-$v=(1,2,3,4,5)$ (certified from both sides by branch and bound) and
-$\rho\ge17/47>5/14$ at $v=(1,2,3,4,5,12)$ (a rational witness at a
-certified argmax, superseding every earlier record), strict exact
-witnesses $\rho\ge
-29/80>5/14$ at $v=(1,2,3,4,5,6)$, $\rho\ge 4/11>5/14$ at
-$v=(1,2,3,4,5,7)$, and $\rho\ge 1793/5000>5/14$ at $v=(1,2,3,4,5,9)$,
+with $\rho=16/47>1/3$ at $v=(1,2,3,4,5)$ (certified from both sides by
+branch and bound), strict witnesses $\rho\ge17/47>5/14$ at
+$v=(1,2,3,4,5,12)$, $\rho\ge29/80$, $4/11$, $1793/5000$ (all $>5/14$),
 and a proved weight identity among the quotient norm's pair forms that
 forces the denominators of the exact values (the recurring $47$ is
-$3\cdot4+3\cdot5+4\cdot5$), while its
-Ehrhart $h^*$-polynomials are real-rooted and log-concave through
-$n=10$ (verified by exact Sturm sequences) with strictness decaying like
-$\Theta(1/n)$ in the measured range and no statistically distinguishable
-correlation with covering margins at the achievable sample sizes.
-Alongside the negative result the paper states the program's one bounded positive
-theorem---the sum-only equality $M(V)=\max_{\{u,w\}}\tau(u,w)$, the
-rigid-zone translate-class classifications at the primes
-$7,11,13,17,19,37$, and the composite-side structure at $p^2$ and $pq$,
-stated with their hypothesis ledger---and a finite witness archive with a
-certification ladder: exact deepest-hole classification at $n=3$,
-independent away-certified and branch-and-bound certificates at $n=4$
-(including $v=(1,2,3,16)$, $\rho=9/34$), exact refutations at
-$n=5,6$---the sharpest with a two-sided certificate, the second at a
-certified argmax point---and, from an independent
-branch-and-bound method,
-certified deepest-hole equality at $n=5$, $m=10,20,25,30$
-($\rho=\delta$ exactly at each; $m=10$ closed with an exact Lipschitz
-box certificate after its first attempt stranded on a residual of volume
-below $6\times10^{-7}$). Every number cited in this abstract is
-re-asserted by a persisted, independent, exact computation (a 225-item
-ledger with zero failures, and a seven-witness cross-validation of the
-incorporated certification records, zero failures), and the certification
+$3\cdot4+3\cdot5+4\cdot5$); its Ehrhart $h^*$-polynomials are
+real-rooted and log-concave through $n=10$, with strictness decaying
+like $\Theta(1/n)$ and no correlation with covering margins at the
+achievable sample sizes. Alongside the negative result the paper states
+the program's one bounded positive theorem---the sum-only equality
+$M(V)=\max_{\{u,w\}}\tau(u,w)$, the rigid-zone translate-class
+classifications at $7,11,13,17,19,37$, and the composite-side structure
+at $p^2$ and $pq$, with its hypothesis ledger---and a finite witness
+archive with a certification ladder: exact deepest-hole classification at
+$n=3$, away-certified and branch-and-bound certificates at $n=4$
+($\rho=9/34$ at $v=(1,2,3,16)$), exact refutations at $n=5,6$ (the
+sharpest two-sided), and certified deepest-hole equality at $n=5$,
+$m=10,20,25,30$ ($\rho=\delta$ exactly). Every number is re-asserted by
+a persisted, independent, exact computation, and the certification
 method carries a negative control that correctly refuses a false
 statement.
 The paper is a negative-results paper and claims no progress on the
 conjecture itself: it proves no new cases of $\lrc$, and the surviving
-equivalent forms are as hard as they ever were. What it contributes is the
-obstruction's anatomy: why four natural toolkits, each correct and each
+equivalent forms are as hard as they ever were. Its contribution is the
+obstruction's anatomy---why four natural toolkits, each correct and each
 productive on its own terms, cannot cross the same gap.
 \end{abstract}
+
+\noindent\textbf{Keywords:}\ Lonely Runner Conjecture; lossless
+reformulation; type mismatch; covering radius; zonotope; Ehrhart
+$h^*$-polynomial; negative results.
 
 \section{Introduction}\label{sec:intro}
 
@@ -227,7 +216,7 @@ reformulation naturally supports (classifications, invariances, exact
 counts) compose into statements of the wrong type: they close everything
 except the one gap that matters. All four settings were probed by exact
 computation, and the witnesses are small, checkable, and archived
-(\S\ref{sec:witness}, Appendices~\ref{sec:prov} and \ref{sec:self}).
+(\S\ref{sec:witness}, SI~\ref{si:sec:prov} and \ref{si:sec:self}).
 
 \subsection{The four instances in one paragraph each}
 
@@ -330,13 +319,13 @@ ladder, including the exact value $\rho=16/47$ (certified from both
 sides), the argmax-certified $17/47$, the closed ladder row $m=10$
 ($\rho=7/22=\delta$), and
 the weight identity that governs their denominators.
-\S\ref{sec:concl} concludes. Appendix~\ref{sec:hstar} records the
+\S\ref{sec:concl} concludes. SI~\ref{si:sec:hstar} records the
 $h^*$-observations (the extension to $n=9,10$ is included here).
-Appendix~\ref{sec:prov} is the provenance ledger: every number cited in
+SI~\ref{si:sec:prov} is the provenance ledger: every number cited in
 this paper is re-asserted by independent exact computation in a
 persisted, machine-checkable run (225 items, zero failures), and the
 certification scripts, budgets, and outputs are listed.
-Appendix~\ref{sec:self} is the self-contained verification core: the
+SI~\ref{si:sec:self} is the self-contained verification core: the
 elementary identity behind the four forms, the runner formulation with
 its Lipschitz certificate, the explicit pair-sum statement of
 Theorem~\ref{thm:equality}, and one-line hand checks of the headline
@@ -379,7 +368,7 @@ with zero margin against the conjecture), and
 $\lambda(1,\dots,n-1,2n)=2/(2n+1)$ exactly (the rung-2 family is not
 extremal; its margin is $1/((n+1)(2n+1))$). Both identities are
 re-asserted exactly for $n\le 10$ in the provenance run of
-Appendix~\ref{sec:prov}.
+SI~\ref{si:sec:prov}.
 
 \subsection{Four forms of the covering statement}
 
@@ -419,7 +408,7 @@ Forms (1)--(3) are equivalent to $\lrc_n$: this is the content of the
 shift identity above together with the standard quotient-torus dictionary,
 and the equivalence is asserted computationally, exactly, on every
 instance of the program (the geometric pipeline is validated end to end
-in the runs of Appendix~\ref{sec:prov}). Form (4) is \emph{strictly
+in the runs of SI~\ref{si:sec:prov}). Form (4) is \emph{strictly
 stronger}. Since the maximum defining $\rho$ ranges over all classes and
 $\delta$ is the depth of one class, $\delta(V)\le\rho(V)$ always; hence
 $\rho\le\mathrm{thr}_n$ implies the $\delta$-form and thus $\lrc_n$. The
@@ -484,10 +473,10 @@ $k\ge1$) \cite{Frobenius}. Formula \eqref{eq:ehr} was derived in the
 program's records and verified in three independent ways on every
 instance used here (the Eulerian expansion, the standard Ehrhart
 inversion, and a depth-first coset count at $t=1,2$;
-Appendix~\ref{sec:prov}). The gcd structure is that of the arithmetic
+SI~\ref{si:sec:prov}). The gcd structure is that of the arithmetic
 matroid of the projected basis \cite{dAMoci}, which is why the
 arithmetic-matroid literature is the natural home for the residual
-positive question in Appendix~\ref{sec:hstar}.
+positive question in SI~\ref{si:sec:hstar}.
 
 \subsection{The certification ladder}
 
@@ -512,6 +501,14 @@ claim in this paper.
 \section{The type-mismatch mechanism and four instances}\label{sec:tm}
 
 \subsection{The mechanism}\label{sec:tm-mech}
+
+The mechanism is a \emph{type mismatch}: a lossless reformulation is
+faithful precisely because it is bijective, and a bijection cannot
+manufacture the decay a margin-type statement would require. Each
+toolkit the program tried outputs a statement of the wrong type---a
+closure or an invariance where a quantitative margin was needed---so the
+failure is structural, not technical. The definitions below make this
+precise.
 
 Call a statement $R$ a \emph{lossless reformulation} of $\lrc_n$ if $R$
 holds for all speed vectors at rung $n$ if and only if $\lrc_n$ does, with
@@ -580,10 +577,10 @@ $3{,}712{,}576$ primitive $5$-sets with speeds $\le 56$ it closed
 $75.6\%$ of instances by proved lemmas alone ($78.2\%$ with the
 coincidence lemma) and all of them by per-modulus verification,
 localizing the residual obstruction to a single named class
-\cite{prog-artifacts}. What it did not deliver, at any point in the
-program's multi-year run, is a single statement of the type the residual
-obstruction requires: a \emph{uniform growth-in-$k$ margin over a trivial
-or measured baseline}.
+\cite{prog-artifacts}. What it did not deliver, at any point, is a
+single statement of the type the residual obstruction requires: a
+\emph{uniform growth-in-$k$ margin over a trivial or measured
+baseline}.
 
 This is a verifiable claim, and it was verified by audit: the full proof
 inventory of the program---$34$ named results across the pair-sum,
@@ -762,7 +759,7 @@ threshold from the center side ($\delta=5/14$ computed), carries the
 strict witness $\rho\ge 1793/5000>\mathrm{thr}_6$. All witnesses are
 non-torsion points---the deepest holes are
 not the center classes---and all are single exact evaluations of
-\eqref{eq:runnerform}, checkable by hand (Appendix~\ref{sec:self}).
+\eqref{eq:runnerform}, checkable by hand (SI~\ref{si:sec:self}).
 
 For $n\le4$ the $\rho$-form holds on every instance tested: at $n=3$
 the deepest-hole property (that the maximum of $D$ is attained at the
@@ -780,7 +777,7 @@ $h^*$-polynomial---fails independently, and its failure mode is the
 cleanest illustration of type mismatch in the whole program. The
 The $h^*$-polynomials are real-rooted, log-concave, and Newton, uniformly,
 in every instance tested through $n=10$ in both core families
-(Appendix~\ref{sec:hstar}). But the log-concavity \emph{strictness} $S$
+(SI~\ref{si:sec:hstar}). But the log-concavity \emph{strictness} $S$
 decays roughly like $30/n$ in the measured range ($nS$ drifting from
 $\approx37$ to $\approx30$ in the harmonic family over
 $n=3,\dots,10$, and from $60.5$ to $\approx30$ in the rung-2 family),
@@ -873,7 +870,7 @@ Let $V=(v_1,\dots,v_n)$ have distinct positive entries with
 $\gcd(V)=1$ and $0<M(V)<\tfrac12$. For each unordered pair $\{u,w\}$
 let $\tau(u,w)$ denote the optimal loneliness of the $(n-1)$-runner
 instance obtained by restricting to the pair-sum lattice of denominator
-$N=v_u+v_w$---explicitly (Appendix~\ref{sec:self}),
+$N=v_u+v_w$---explicitly (SI~\ref{si:sec:self}),
 \[
 \tau(u,w)\;=\;\max_{k\in\Z_{N}}\;\min_{p\in[n]\setminus\{w\}}
 \wnc{\tfrac{v_pk}{N}}
@@ -996,7 +993,7 @@ exact values (\S\ref{sec:weights}), the deepest-hole certification
 ladder for the family $(1,\dots,n{-}1,m)$, and the branch-and-bound
 certificate method together with its negative-control validation. Every
 entry is re-asserted by two independent exact implementations in the
-provenance run of Appendix~\ref{sec:prov}.
+provenance run of SI~\ref{si:sec:prov}.
 
 \subsection{Exact refutations of the covering-radius form}
 
@@ -1077,7 +1074,7 @@ it does not decide is the value itself: the exact covering radius at
 $v=(1,2,3,4,5,9)$ is unknown. The recorded lower bound is marginally
 deeper than the clean witness---an exactly evaluated dyadic search
 point at depth $0.358639\ldots$ persists in the provenance data
-(Appendix~\ref{sec:prov})---while no nontrivial upper certificate is
+(SI~\ref{si:sec:prov})---while no nontrivial upper certificate is
 on record. By convention the headline is the clean rational witness
 $1793/5000$ (exact, hand-checkable); the dyadic point is recorded as a
 deeper provenance artifact and is not used as the headline. The row's
@@ -1237,7 +1234,7 @@ c(k)\;=\;\tfrac{1}{235}\,(2k{+}160,\;3k{-}13,\;4k{+}91,\;5k),
 the three dips tie at exactly $16/47$, so the bound is attained along a
 whole band. The family member $c(35)=(\tfrac{46}{47},
 \tfrac{92}{235},\tfrac{231}{235},\tfrac{35}{47})$ is re-asserted
-exactly by the cross-validation run of Appendix~\ref{sec:prov}
+exactly by the cross-validation run of SI~\ref{si:sec:prov}
 alongside the isolated argmax of Table~\ref{tab:refute}; both are
 components of the argmax set, and the two-sided certificate of
 \S\ref{sec:bb} covers them together.
@@ -1612,8 +1609,8 @@ $h^*$-polynomials of the LR-zonotopes---verified through $n=10$ in both
 core families and in every sweep instance tested---may well be a true
 theorem of the arithmetic-matroid type, and if it is, it belongs to the
 arithmetic-matroid literature, decoupled from the Lonely Runner problem
-(Appendix~\ref{sec:hstar}). What it cannot be, given the decay and
-non-correlation records of Appendix~\ref{sec:hstar} and the falsity of
+(SI~\ref{si:sec:hstar}). What it cannot be, given the decay and
+non-correlation records of SI~\ref{si:sec:hstar} and the falsity of
 the covering-radius statement it was meant to feed, is a bridge to
 $\lrc$. That was always the fork's second branch.
 
@@ -1644,622 +1641,6 @@ instances, and now surrounded on four sides by precisely mapped walls.
 The walls are the contribution. They are finite, exact, and checkable,
 and they are documented so that the next program does not spend its
 years rediscovering them.
-
-% ======================================================================
-% Appendix A — h* observations
-% ======================================================================
-
-\appendix
-\section{The \boldmath$h^*$-observations through \boldmath$n=10$}
-\label{sec:hstar}
-
-This appendix records the Ehrhart observations on the LR-zonotopes,
-extended here to $n=9$ and $n=10$ in both core families. The
-extension has a narrow purpose:
-establish whether the real-rootedness and log-concavity observed at
-$n\le8$ continue, and whether the strictness decay and the
-non-correlation with covering margins persist. Both answers are yes. The
-appendix closes with the statement we regard as the residual question of
-independent interest.
-
-\subsection{The table}
-
-Table~\ref{tab:hstar} lists, for each family and $n$: the
-$h^*$-polynomial, real-rootedness (verified \emph{exactly} by
-Sturm-sequence sign-change counts on the square-free part of the integer
-polynomial, with the $45$-decimal-place numerical verification and
-the companion-matrix check agreeing), log-concavity and Newton's inequalities (exact rational
-arithmetic), the minimum ratio $h_k^2/(h_{k-1}h_{k+1})$ (the
-\emph{strictness} $S$ of log-concavity), the Newton floor at the
-minimizing $k$, namely
-$\bigl((k{+}1)(d{-}k{+}1)\bigr)/\bigl(k(d{-}k)\bigr)$,
-and the excess ratio $S/\text{floor}$. Every row's Ehrhart data was
-verified three ways (Eulerian expansion, standard inversion, and an
-independent depth-first coset count at $t=1,2$), the volume identity
-$e_{n-1}=\sum v_j$ was asserted exactly, and the loneliness identities
-$\lambda=1/(n{+}1)$ (harmonic) and $\lambda=2/(2n{+}1)$ (rung-2) were
-re-asserted exactly. The $n\le8$ rows reproduce the program's
-records digit for digit; the $n=9,10$ rows extend them.
-
-\begin{table}[htbp]
-\centering
-\footnotesize
-\caption{$h^*$-polynomials of the LR-zonotopes, $n=3..10$, both core
-families. ``RR'' = real-rooted (exact Sturm verification);
-``LC/Nw'' = log-concave and
-Newton (exact rational arithmetic); $S$ =
-$\min_k h_k^2/(h_{k-1}h_{k+1})$; $nS$ = $n\cdot S$;
-``floor'' = the Newton bound
-$\bigl((k{+}1)(d{-}k{+}1)\bigr)/\bigl(k(d{-}k)\bigr)$ at the
-minimizing $k$ (any real-rooted family has $S\ge\text{floor}$ there);
-$S/f$ = $S/\text{floor}$. The $n\le8$ rows reproduce the program's
-records digit for digit; the $n=9,10$ rows extend them.}
-\label{tab:hstar}
-\begin{tabularx}{\textwidth}{@{} l c >{\raggedright\arraybackslash}X c c r r r r @{}}
-\toprule
-family & $n$ & $h^*(z)$ & RR & LC/Nw & $S$ & $nS$ & floor & $S/f$ \\
-\midrule
-harm. & 3 & $1+7z+4z^2$ & y & y & $12.250$ & $36.8$ & $4$ & $3.06$ \\
-rung2 & 3 & $1+11z+6z^2$ & y & y & $20.167$ & $60.5$ & $4$ & $5.04$ \\
-harm. & 4 & $1+18z+35z^2+6z^3$ & y & y & $9.257$ & $37.0$ & $3$ & $3.09$ \\
-rung2 & 4 & $1+22z+51z^2+10z^3$ & y & y & $9.490$ & $38.0$ & $3$ & $3.16$ \\
-harm. & 5 & $1+37z+179z^2+133z^3+10z^4$ & y & y & $6.511$ & $32.6$ & $9/4$ & $2.89$ \\
-rung2 & 5 & $1+45z+239z^2+181z^3+14z^4$ & y & y & $7.013$ & $35.1$ & $9/4$ & $3.12$ \\
-harm. & 6 & $1+78z+744z^2+1286z^3+399z^4+12z^5$ & y & y & $5.518$
-& $33.1$ & $2$ & $2.76$ \\
-rung2 & 6 & $1+86z+920z^2+1682z^3+535z^4+16z^5$ & y & y & $5.748$
-& $34.5$ & $2$ & $2.87$ \\
-harm. & 7 & $1+147z+2522z^2+8948z^3+7323z^4$\newline
-$+1201z^5+18z^6$ & y & y & $4.335$ & $30.3$ & $16/9$ & $2.44$ \\
-rung2 & 7 & $1+161z+3024z^2+11144z^3+9295z^4$\newline
-$+1551z^5+24z^6$ & y & y & $4.418$ & $30.9$ & $16/9$ & $2.48$ \\
-harm. & 8 & $1+290z+8317z^2+51458z^3+82947z^4$\newline
-$+35270z^5+3135z^6+22z^7$ & y & y & $3.791$ & $30.3$ & $5/3$ & $2.27$ \\
-rung2 & 8 & $1+298z+9277z^2+60986z^3+102275z^4$\newline
-$+44798z^5+4095z^6+30z^7$ & y & y & $3.829$ & $30.6$ & $5/3$ & $2.30$ \\
-harm. & 9 & $1+559z+25519z^2+258901z^3+734059z^4$\newline
-$+631993z^5+155305z^6+8035z^7+28z^8$ & y & y & $3.293$ & $29.6$ & $25/16$ & $2.11$ \\
-rung2 & 9 & $1+585z+28885z^2+305035z^3+880149z^4$\newline
-$+764143z^5+188659z^6+9789z^7+34z^8$ & y & y & $3.323$ & $29.9$ & $25/16$ & $2.13$ \\
-harm. & 10 & $1+1098z+77550z^2+1213626z^3+5529648z^4$\newline
-$+8309694z^5+4180482z^6+626910z^7+19359z^8+32z^9$ & y & y & $2.987$
-& $29.9$ & $3/2$ & $1.99$ \\
-rung2 & 10 & $1+1114z+83790z^2+1377794z^3+6457600z^4$\newline
-$+9866694z^5+5017826z^6+758710z^7+23631z^8+40z^9$ & y & y & $3.004$
-& $30.0$ & $3/2$ & $2.00$ \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-The sweep families behave identically: every instance of $(1,2,m)$,
-$m\le14$, and $(1,2,3,m)$, $m\le12$, tested by the program was
-real-rooted, log-concave, and Newton.
-
-\subsection{Strictness decay and non-correlation}
-
-Two quantitative facts were already in the program's records at $n\le8$
-and persist through the new rows; both are stated here with the precision
-the data supports. First, the strictness $S$ decays monotonically in $n$
-in both families, with $n\cdot S$ drifting from $\approx37$ at
-$n=3,4$ (harmonic; the rung-2 family starts at $60.5$) to
-$\approx29.6$--$30.0$ at $n=9,10$: within the measured range the decay
-is well described as $\approx30/n$. That description cannot persist
-indefinitely---log-concavity forces $S\ge1$, and Newton's inequalities
-force $S$ above the floor $\bigl((k{+}1)(d{-}k{+}1)\bigr)/\bigl(k(d{-}k)
-\bigr)\approx1+4/d$ at the middle coefficients, so $nS\approx30$ would
-cross the floor near $n\approx26$---and much of the measured decline is
-the generic Newton-floor decline that any real-rooted family exhibits.
-The family-specific content is the excess $S/\text{floor}$, which declines
-from $3.06$ (harmonic) and $5.04$ (rung-2) at $n=3$ to $1.99$ and
-$2.00$ at $n=10$ (Table~\ref{tab:hstar}, Figure~\ref{fig:nS}); it, too,
-declines, so there is no growing quantitative margin in the coefficient
-structure to spend. Second, the strictness carries no statistically
-distinguishable correlation with the covering margins at the achievable
-sample sizes: across the $n=3$ sweep (twelve instances, $(1,2,m)$,
-$m=3..14$) the Spearman coefficient of strictness against the margin is
-$+0.32$ ($p=0.32$); across the $n=4$ sweep (eight instances,
-$(1,2,3,m)$, $m=5..12$) it is $-0.31$ ($p=0.45$). The sign flips
-between adjacent rungs and neither coefficient is significant; these
-arrays are too small to establish correlation or its absence. The
-harmonic family has margin identically $0$ at every $n$ while its
-strictness varies by a factor of four over the table. Both coefficients
-were recomputed in the provenance run from the persisted instance data
-and reproduce exactly.
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}
-\begin{axis}[width=0.46\textwidth, height=5.0cm,
-  xlabel={$n$}, ylabel={$n\cdot S$}, title={\small plateau of $n\cdot S$},
-  xmin=2.5, xmax=10.5, ymin=25, ymax=65, grid=major,
-  legend pos=north east, legend style={font=\scriptsize}]
-\addplot[mark=*, thick] coordinates {(3,36.8)(4,37.0)(5,32.6)(6,33.1)(7,30.3)(8,30.3)(9,29.6)(10,29.9)};
-\addlegendentry{harmonic}
-\addplot[mark=square*, dashed, thick] coordinates {(3,60.5)(4,38.0)(5,35.1)(6,34.5)(7,30.9)(8,30.6)(9,29.9)(10,30.0)};
-\addlegendentry{rung-2}
-\end{axis}
-\end{tikzpicture}
-\hfill
-\begin{tikzpicture}
-\begin{axis}[width=0.46\textwidth, height=5.0cm,
-  xlabel={$n$}, ylabel={$S/\mathrm{floor}$}, title={\small excess over Newton floor},
-  xmin=2.5, xmax=10.5, ymin=1.5, ymax=5.5, grid=major,
-  legend pos=north east, legend style={font=\scriptsize}]
-\addplot[mark=*, thick] coordinates {(3,3.06)(4,3.09)(5,2.89)(6,2.76)(7,2.44)(8,2.27)(9,2.11)(10,1.99)};
-\addlegendentry{harmonic}
-\addplot[mark=square*, dashed, thick] coordinates {(3,5.04)(4,3.16)(5,3.12)(6,2.87)(7,2.48)(8,2.30)(9,2.13)(10,2.00)};
-\addlegendentry{rung-2}
-\end{axis}
-\end{tikzpicture}
-\caption{The strictness records of Table~\ref{tab:hstar}. Left: the
-plateau of $n\cdot S$ (the harmonic family starts at $36.8$, rung-2 at
-$60.5$; both drift to $\approx30$). Right: the excess $S/\mathrm{floor}$
-over the Newton floor at the minimizing coefficient---the
-family-specific content of the decline---which itself decreases from
-$3.06$/$5.04$ at $n=3$ to $1.99$/$2.00$ at $n=10$.}
-\label{fig:nS}
-\end{figure}
-
-The two facts close the bridge in the coefficient direction, and the
-falsity of the covering-radius statement (\S\ref{sec:tm-zono}) closes it
-in the metric direction: the statement that strict log-concavity would
-have needed to feed is false at the extremal instances, and the
-coefficient structure cannot see the metric hole depth that falsifies
-it. There is no mechanism, and the arithmetic is clean enough that the
-absence of the mechanism is itself a datum.
-
-\subsection{The residual question}
-
-What survives is a question of independent arithmetic interest, and we
-state it decoupled from the Lonely Runner problem entirely. The
-Ehrhart data of the LR-zonotopes is governed by the gcd structure
-\eqref{eq:ehr} of the projected basis; the $h^*$-polynomial of the table
-is the ordinary Ehrhart $h^*$-polynomial of the lattice zonotope $Z(V)$
-(its coefficients carry the gcd structure of the lattice geometry, but
-the polynomial is the ordinary one---the gcd formula \eqref{eq:ehr} is
-the standard zonotope Ehrhart polynomial). In every instance tested (two
-core families through $n=10$, sweeps through $m\le14$ at $n=3$ and
-$m\le12$ at $n=4$), the $h^*$-polynomial is real-rooted---as it must be,
-by the theorem below.
-
-\begin{corollary}\label{cor:hstarRR}
-The $h^*$-polynomial of the LR-zonotope $Z(V)$ of any speed vector
-$v=(v_1,\dots,v_n)$ with distinct entries and $\gcd(v)=1$---the
-Ehrhart $h^*$-polynomial of the projected-basis zonotope
-$\pi([0,1]^n)\subset\mathcal{X}_v$ with respect to the lattice
-$\Lambda=\pi(\Z^n)\cong\Z^{n-1}$---is real-rooted.
-\end{corollary}
-
-\begin{proof}
-$Z(V)=\pi([0,1]^n)$ is a lattice zonotope: a projection of the unit cube
-with vertices $\pi(\{0,1\}^n)\subset\Lambda$, i.e.\ a zonotope with
-integer generators $\pi(e_i)$ with respect to $\Lambda\cong\Z^{n-1}$. By
-Beck--Jochemko--McCullough \cite{BJM}, the $h^*$-polynomial of every
-lattice zonotope has only real roots. Hence $h^*(Z(V))$ is real-rooted.
-\end{proof}
-
-The real-rootedness is thus a special case of \cite{BJM}, and the data
-of Table~\ref{tab:hstar} are a confirmation of that theorem on the
-LR-zonotopes rather than a new observation. What the table records
-\emph{beyond} \cite{BJM} is quantitative: the strictness $S$ (the
-log-concavity margin $h_k^2/(h_{k-1}h_{k+1})$), its decay, and its
-non-correlation with the covering margins---all properties of the
-coefficient sequence, not of real-rootedness alone. We record the data
-and do not pursue it further here: it belongs to the Ehrhart theory of
-zonotopes, not to the Lonely Runner problem. It is not a bridge, and
-treating it as one would repeat the pattern this paper documents.
-
-% ======================================================================
-% Appendix B — Computational provenance
-% ======================================================================
-
-\section{Computational provenance}\label{sec:prov}
-
-The reproducibility standard of this paper is one sentence:
-\emph{every number cited in the text traces to a script that was
-actually run and whose output was persisted.} The standard is applied
-uniformly to every cited number, inherited or new. This appendix is
-the map.
-
-\subsection{The ledger}
-
-The provenance run (\texttt{scripts/paper\_provenance.py}; output
-\texttt{out\_paper\_provenance.json} and the human-readable
-\texttt{out\_paper\_provenance.txt}) reads the two persisted run records
-of the zonotope program and re-asserts, by independent exact
-computation, every value the paper cites from them: all witness depths
-(evaluating the runner formulation \eqref{eq:runnerform} \emph{and} the
-independent linear-form/lattice-search implementation, asserting exact
-agreement of the two), all recorded $\rho$ values at their recorded
-argmax points, all $\lambda$ and $\delta$ values, both Spearman
-coefficients, both correlation instance arrays (strictness recomputed
-from the Ehrhart coefficients and margins recomputed from exact
-$\lambda$), and the strictness entries of the $n\le8$ table. The
-complete ledger contains $225$ items. The number of failures is $0$.
-
-The two-way witness verification deserves emphasis because it is the
-strongest form of check the program has: every witness value in
-Tables~\ref{tab:refute} and the fail-witness lists of
-\S\ref{sec:witness} was recomputed by two implementations with different
-mathematics (a one-dimensional minimization over the trajectory
-parameter, and a pruned lattice search in the quotient norm's linear
-forms), agreeing exactly. A one-line reproduction of the headline
-witness, for the skeptical reader with the runner formulation at
-hand: evaluate
-$\min_\sigma\max(\wnc\sigma,\wnc{c_2-2\sigma},\wnc{c_3-3\sigma},
-\wnc{c_4-4\sigma},\wnc{c_5-5\sigma})$ at
-$c=(\tfrac{46}{47},\tfrac{92}{235},\tfrac{231}{235},\tfrac{35}{47})$;
-the minimum is attained at $\sigma=\tfrac{4}{235}$ and the value is
-$\tfrac{80}{235}=\tfrac{16}{47}$.
-
-\subsection{The runs behind this paper}
-
-The scripts written and run for this paper and its revisions are listed
-below with their persisted outputs; the inherited records are copied
-into the paper's artifact bundle.
-
-\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
-\item \texttt{hstar\_n9\_n10.py} $\to$ \texttt{out\_hstar\_n9\_n10.json}:
-the $h^*$ extension of Appendix~\ref{sec:hstar} ($n=3..10$, both
-families; Ehrhart asserted three ways; roots at $45$ decimal places on
-exact integer coefficients; strictness, Newton, log-concavity exact;
-$\lambda$ asserted against the classical values).
-\item \texttt{certify\_rung2\_n5.py} $\to$
-\texttt{out\_certify\_rung2.json}: the branch-and-bound certificate of
-\S\ref{sec:bb}, including the cross-validation of the two $D$
-implementations (forty random rational points per instance, exact
-agreement), the controls ($n=3$ and $n=4$ core instances, all
-certified), the negative control (harmonic $n=5$, correctly refusing),
-and the ladder targets (\S\ref{sec:witness}).
-\item \texttt{paper\_provenance.py} $\to$
-\texttt{out\_paper\_provenance.\{json,txt\}}: the $225$-item ledger
-above.
-\item \texttt{certify\_followup.py} $\to$
-\texttt{out\_certify\_followup.json}: the survivor enclosure analysis
-of the open $m=10$ run and the recovered improved harmonic witness
-($607/1792$ at $c=(\tfrac{11}{256},\tfrac{163}{256},
-\tfrac{15}{256},\tfrac{79}{256})$).
-\item \texttt{rho\_closeout.py} $\to$ \texttt{out\_rho\_closeout.json}:
-the exact-argmax determination of the sharpest witnesses (grid and
-congruence-family localization of the deepest holes, exact arrangement
-analysis of the argmax regions, the binding-structure extraction of
-\S\ref{sec:weights} with every binding value, translate, and
-$\chi$-residual re-computed by both $D$ implementations, and the
-branch-and-bound runs at the exact levels).
-\item {\sloppy\texttt{closeout\_certify.py} and \texttt{lean\_closeout.py} $\to$
-\texttt{out\_closeout\_*.json} and \texttt{out\_lean\_*.json}: the
-two-sided close-out attempts at the exact levels: the branch-and-bound
-survivor collection at the exact level (leaves certify $D\le r$ outside
-the survivor boxes), the center-plus-slack Lipschitz net over the
-survivors, and the exact arrangement analysis of the surviving regions
-(\S\ref{sec:bb}, Table~\ref{tab:certs}).\par}
-\item \texttt{m9\_witness\_hunt.py} and \texttt{m9\_ridge\_scan.py} $\to$
-\texttt{out\_m9\_witness.json}: the strict $m=9$ witness of
-Table~\ref{tab:refute} (multi-start exact hill-climb, then the
-parametrized binding-family scan that produced the $1793/5000$ point
-and its chain binding structure).
-\item \texttt{local\_refine.py}: the reusable float-grid localizer used
-to seed the exact arrangement analyses.
-\item \texttt{certify\_m10\_v2.py} $\to$ \texttt{out\_certify\_m10\_v2.json}:
-the $m=10$ close-out of \S\ref{sec:witness}: the sound multi-slice
-search screen ($4.2$ million random points, dyadic grids, torsion
-neighborhood, climbs, Nelder--Mead polishes, $114$ exact
-re-evaluations) and the re-run branch and bound with the exact
-Lipschitz box test added to the cascade ($190{,}295$ box evaluations,
-$95{,}148$ certified leaves, zero survivors, $1{,}286$~s; the negative
-control refusing, the $n=4$ certificates re-certifying with identical
-counts, $846/846$ sampled prunes re-confirmed exactly).
-\item \texttt{certify\_harmonic\_v4.py} $\to$
-\texttt{out\_certify\_harmonic\_v4.json}: the harmonic close-out of
-\S\ref{sec:bb}: the balance-family search (the $30{,}000$ survivor
-seeds of the control run, the family witness $c(35)$, the identity
-$32\,r_{(3,5)}+27\,r_{(4,5)}+35\,r_{(3,4)}=32$ verified exactly at
-every member), and the branch and bound at $r=16/47$ with the
-sliding-$\sigma$ gap and triple-identity certificates plus
-lattice-aligned splitting at the dip lattice $q=470$ ($782{,}255$ box
-evaluations, $391{,}128$ certified leaves, zero survivors, $5{,}935$~s;
-$4{,}841/4{,}841$ sampled prunes re-confirmed exactly); includes the
-$n=6$ $m=9$ and $m=12$ refutation searches with their exactly evaluated
-dyadic witnesses.
-\item \texttt{crosscheck\_cert\_witnesses.py}: the cross-validation of
-the two closure runs' witness-level claims against the independent
-linear-form/lattice-search implementation of this paper's ledger:
-seven exact evaluations (the $m=10$ torsion center at $7/22$; the
-balance family at $k=20,27,35$, each exactly $16/47$; the $m=9$ dyadic
-search point at its exact depth; the $m=12$ and $m=9$ clean witnesses
-at $17/47$ and $1793/5000$), zero failures, plus the binding-structure
-extraction at the four $n=5$-multiple center classes (pair $(1,m)$
-bisecting at each), the verification behind the archetype remark of
-\S\ref{sec:weights}.
-\end{enumerate}
-
-\subsection{Certificates and budgets}
-
-The branch-and-bound certificates are finite objects: a certificate for
-$\rho(V)\le r$ is the pruned dyadic tree, each leaf carrying an exact
-rational $U$-value $\le r$ computed from the kink/crossover enumeration
-of \S\ref{sec:bb}. Budgets and certificate sizes for the runs cited in
-the text are listed in Table~\ref{tab:certs}; the JSON persists leaf
-samples, survivor aggregates (count, bounding box, maximum excess over
-$r$, exact depths at sampled survivor centers), and the exact
-$U$-values, so the recorded leaves and survivor aggregates can be
-re-audited without re-running the search, and re-running the search
-reproduces every certificate deterministically (a full leaf-by-leaf
-re-audit of the largest runs requires the re-run).
-The two closure runs persist, in addition, their per-certificate fire
-counts (including the gap and triple-identity counts of the harmonic
-cascade), the sampled-prune exact re-confirmations, and the
-negative-control refusals; and their witness-level claims were
-re-asserted by an independent cross-validation run
-(\texttt{crosscheck\_cert\_witnesses.py}, seven exact evaluations,
-zero failures) before incorporation into this paper.
-
-\begin{table}[htbp]
-\centering
-\small
-\caption{Branch-and-bound runs cited in the text. ``leaves'' = certified
-boxes (each with exact $U\le r$, or an exact certificate of the added
-Lipschitz/gap/triple-identity type); ``surv.'' = unresolved boxes at cap
-or at budget; wall-clock seconds in parentheses. ``Direct closure'' =
-running the tree to an empty heap at exactly $r$ with the plain
-cascade; it is unavailable at non-dyadic argmaxes (\S\ref{sec:bb}),
-which the plain-cascade rows record. ``Close-out'' = the two-sided
-assembly of leaves, the center-plus-slack Lipschitz net, and the exact
-region analyses (\texttt{lean\_closeout.py}); ``budget-open'' records
-that the region analyses did not terminate within the stated budget.
-The two ``certified'' rows at $r=16/47$ and at $m=10$'s $r=7/22$ are
-the closures: the enhanced cascade (gap + triple-identity,
-lattice-aligned splitting) and the Lipschitz box test respectively.}
-\label{tab:certs}
-\begin{tabularx}{\textwidth}{@{} l l >{\raggedright\arraybackslash}X r r @{}}
-\toprule
-instance & $r$ & verdict & leaves & surv. \\
-\midrule
-$(1,2,3)$ & $1/4$ & certified & $14$ $(0.0)$ & $0$ \\
-$(1,2,6)$ & $3/14$ & certified & $20$ $(0.0)$ & $0$ \\
-$(1,2,3,4)$ & $3/10$ & certified & $438$ $(2)$ & $0$ \\
-$(1,2,3,8)$ & $5/18$ & certified & $156$ $(1)$ & $0$ \\
-$(1,2,3,12)$ & $7/26$ & certified & $168$ $(1)$ & $0$ \\
-$(1,2,3,16)$ & $9/34$ & certified & $222$ $(2)$ & $0$ \\
-$(1,2,3,4,5)$ & $1/3$ & \emph{refused} (control) & $17{,}520$ $(421)$
-& $45{,}355$ \\
-$(1,2,3,4,5)$ & $16/47$ & refused (direct closure; non-dyadic argmax)
-& $49{,}422$ $(3002)$ & $57{,}219$ \\
-$(1,2,3,4,5)$ & $16/47$ & close-out (budget-open; $6{,}835$
-net-certified, $8$ regions) & $42{,}914$ $(1400)$ & $52{,}581$ \\
-$(1,2,3,4,5)$ & $16/47$ & \emph{certified} (enhanced cascade: gap +
-triple-identity, lattice-aligned splitting) & $391{,}128$ $(5935)$ &
-$0$ \\
-$(1,2,3,4,5,12)$ & $17/47$ & refused (direct closure) & $33{,}926$
-$(3004)$ & $15{,}709$ \\
-$(1,2,3,4,5,12)$ & $17/47$ & close-out (budget-open; $1{,}270$
-certified, $14$ regions) & $30{,}340$ $(1400)$ & $9{,}749$ \\
-$(1,2,3,4,5,6)$ & $29/80$ & refused (direct closure) & $52{,}772$
-$(3002)$ & $42{,}822$ \\
-$(1,2,3,4,10)$ & $7/22$ & first attempt open (residual volume
-$<6\times10^{-7}$) & $61{,}038$ $(1501)$ & $21{,}153$ \\
-$(1,2,3,4,10)$ & $7/22$ & \emph{certified} (Lipschitz box test; sound
-search screen) & $95{,}148$ $(1286)$ & $0$ \\
-$(1,2,3,4,20)$ & $13/42$ & certified & $37{,}018$ $(981)$ & $0$ \\
-$(1,2,3,4,25)$ & $4/13$ & certified & $10{,}414$ $(231)$ & $0$ \\
-$(1,2,3,4,30)$ & $19/62$ & certified & $10{,}646$ $(274)$ & $0$ \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\subsection{Reproduction}
-
-All scripts run under CPython~3.12 with \texttt{fractions},
-\texttt{numpy}, \texttt{scipy}, and \texttt{mpmath}, and take minutes
-to hours on one core; the certificates of Table~\ref{tab:certs} take
-seconds to minutes (the longest plain-closure certificate, $m=20$, took
-sixteen minutes; the enhanced-cascade closures took twenty-one minutes
-at $m=10$ and ninety-nine minutes at the harmonic instance), and the
-refused control runs were run to their stated
-budgets. One-line reproduction from the artifact bundle's root (each
-writes its \texttt{out\_*.json} next to itself, deterministically):
-\begin{itemize}[leftmargin=2.2em,itemsep=1pt,topsep=2pt]
-\item \texttt{python3 hstar\_n9\_n10.py}
-\item \texttt{python3 certify\_rung2\_n5.py}
-\item \texttt{python3 paper\_provenance.py}
-\item \texttt{python3 certify\_followup.py}
-\item \texttt{python3 rho\_closeout.py} (phases: \texttt{grid47},
-\texttt{tiny\_exact}, \texttt{structure}, \texttt{certify})
-\item \texttt{python3 lean\_closeout.py 1,2,3,4,5 16/47} (and the
-$m=12$, $m=9$, harmonic-$n=6$ analogues)
-\item \texttt{python3 certify\_m10\_v2.py} and
-\texttt{python3 certify\_harmonic\_v4.py} (the two closure runs)
-\item \texttt{python3 crosscheck\_cert\_witnesses.py} (the
-seven-witness cross-validation)
-\end{itemize} The artifact
-bundle accompanying the paper contains the scripts, their outputs,
-the inherited zonotope records
-(\texttt{out\_lrc\_zono\_final.json},
-\texttt{out\_lrc\_zono\_rescan.json}, and the library
-\texttt{lrc\_zono\_lib.py} they import), and the ledger. Nothing in the
-paper relies on an unlogged computation, a hard-coded constant, or a
-claim of the form ``verified elsewhere''.
-
-% ======================================================================
-% Appendix C — Self-contained verification core
-% ======================================================================
-
-\section{A self-contained verification core}\label{sec:self}
-
-This appendix lets a reader with only this paper verify the sharpest
-negative claims without the companion monograph. It collects the
-elementary identity behind the four forms, the runner formulation with
-its certificate, the explicit statement of the sum-only equality, and
-one-line hand checks of the headline witnesses.
-
-\subsection{The identity and the runner formulation}
-
-\begin{lemma}[depth identity]\label{lem:depthid}
-For every $t\in\T$,
-$\max_{1\le j\le n}\wnc{\tfrac12-v_jt}=\tfrac12-\min_{1\le j\le n}\wnc{v_jt}$.
-Consequently $\delta(V)=\tfrac12-\lambda(V)$ with
-$\delta(V)=\operatorname{dist}_\infty\!\bigl(\R v,\;\Z^n+\tfrac12\mathbf{1}
-\bigr)$, and the $\delta$-form of \S\ref{sec:prelim} is exactly
-$\lrc_n$.
-\end{lemma}
-
-\begin{proof}
-Each map $x\mapsto\wnc{x}$ satisfies
-$\wnc{\tfrac12-x}=\tfrac12-\wnc{x}$: reflecting about $\tfrac12$
-exchanges the two half-intervals and fixes the midpoint. Taking $x=v_jt$
-and maximizing over $j$ gives the displayed identity (a maximum of
-quantities each equal to $\tfrac12$ minus the corresponding term is
-$\tfrac12$ minus the minimum). The distance form is the same statement
-along the trajectory line $tv$, $t\in\R$.
-\end{proof}
-
-The computations of this paper use the \emph{runner formulation}
-\eqref{eq:runnerform}, restated here:
-\[
-D(c)\;=\;\min_{\sigma\in[0,1)}\;\max\Bigl(\wnc{\sigma},\;
-\max_{2\le j\le n}\wnc{c_j-v_j\sigma}\Bigr).
-\]
-Two facts make it auditable. First, it is the quotient-norm depth
-$\operatorname{dist}_{\mathcal{X}_v}(c,\Lambda)$ written in the
-$c$-coordinates of \S\ref{sec:prelim}: the linear forms $\phi^{1j}$,
-$\phi^{ij}$ listed there generate the norm, the parameter $\sigma$ is the
-free coordinate $x_1$ of a lift, and minimizing over $\sigma$ minimizes
-over the lift. Second, it is \emph{Lipschitz-auditable}: each term
-$\wnc{c_j-v_j\sigma}$ is $v_j$-Lipschitz in $\sigma$ and the whole
-objective is piecewise linear with breakpoints at the half-integers
-$c_j-\tfrac12-v_j\sigma\in\Z$, so the minimum is attained at a rational
-breakpoint or crossing and is exactly computable by hand or by exact
-rational arithmetic. The independent linear-form/lattice-search
-implementation of the program agrees with it exactly on every instance
-used in this paper (forty random rational points per instance).
-
-\subsection{The sum-only equality, explicitly}
-
-\begin{theorem}[sum-only equality; explicit form]\label{thm:equality-explicit}
-Let $V=(v_1,\dots,v_n)$ have distinct positive entries with $\gcd(V)=1$
-and $0<M(V)<\tfrac12$. For each unordered pair $\{u,w\}\subset[n]$ write
-$N_{uw}=v_u+v_w$ and
-\[
-\tau(u,w)\;=\;\max_{0\le k<N_{uw}}\;\min_{p\in[n]\setminus\{w\}}\;
-\wnc{\frac{v_pk}{N_{uw}}}.
-\]
-Then $M(V)=\max_{\{u,w\}}\tau(u,w)$, and consequently $\lrc_n$ holds
-for all $V$ if and only if for every $V$ there is a pair $\{u,w\}$ with
-$\tau(u,w)\ge 1/(n+1)$.
-\end{theorem}
-
-The two ingredients (proved in the companion monograph, Theorem~1.1
-there; the finitization is what every instance of \S\ref{sec:tm-covering}
-entered through) are: (i) at a global optimum $t^\ast$ with
-$0<M(V)<\tfrac12$ the binding runners can be chosen two-sided---one
-rising, one falling---which forces $(v_u+v_w)t^\ast\in\Z$ for that pair,
-so $t^\ast$ lies on the \emph{sum} lattice of denominator $v_u+v_w$; and
-(ii) on that lattice the two binding runners are exact reflections
-($\wnc{v_uk/N}=\wnc{v_wk/N}$ for all $k$, since $v_u\equiv-v_w \pmod N$),
-so the $n$-runner minimum equals an $(n-1)$-runner minimum. The
-companion's Lemma~2.1 also records the boundary cases $M(V)=\tfrac12$
-(all speeds odd) and $M(V)=0$ (impossible).
-
-\subsection{Hand checks of the headline witnesses}
-
-All the strict witnesses of Table~\ref{tab:refute} are one-minute hand
-computations with \eqref{eq:runnerform}; the two closed values need the
-branch-and-bound half of their certificates as well
-(\S\ref{sec:bb}), but the witness halves are hand checks too.
-
-\emph{The harmonic argmax value $16/47$.} Take $v=(1,2,3,4,5)$ and
-$c=(\tfrac{122}{1175},\tfrac{688}{1175},\tfrac{284}{1175},
-\tfrac{80}{1175})$. At $\sigma=\tfrac{96}{1175}$ (working in
-$1175$-ths, with $c=(\tfrac{122}{1175},\tfrac{688}{1175},
-\tfrac{284}{1175},\tfrac{80}{1175})$):
-$\wnc\sigma=\tfrac{96}{1175}$;
-$\wnc{c_2-2\sigma}=\wnc{\tfrac{122-192}{1175}}=\tfrac{70}{1175}$;
-$\wnc{c_3-3\sigma}=\wnc{\tfrac{688-288}{1175}}=\tfrac{400}{1175}$;
-$\wnc{c_4-4\sigma}=\wnc{\tfrac{284-384}{1175}}=\tfrac{100}{1175}$;
-$\wnc{c_5-5\sigma}=\wnc{\tfrac{80-480}{1175}}=\tfrac{400}{1175}$.
-The maximum is $\tfrac{400}{1175}=\tfrac{16}{47}$, attained twice
-(runners $3$ and $5$, slopes $+3$ and $-5$ opposite), and it is
-minimized: any local shift of $\sigma$ increases one of the two. Hence
-$D(c)=16/47>\tfrac13=\mathrm{thr}_5$. The pair-form side of the same
-point is the quadruple binding of \S\ref{sec:weights}:
-$\phi^{45}(c-z)=-16/47$ at $z=(0,0,0,-1)$, $\phi^{34}(c-z)=-16/47$ at
-$z=(0,1,0,0)$, $\phi^{35}(c-z)=+16/47$ at $z=0$, and
-$\phi^{25}(c-z)=+16/47$ at $z=(0,1,1,1)$, each a two-term integer
-evaluation.
-
-\emph{The rung-2 argmax value $17/47$.} Take
-$v=(1,2,3,4,5,12)$ and
-$c=(\tfrac{4714}{5875},\tfrac18,\tfrac58,\tfrac6{25},
-\tfrac{2034}{5875})$. At $\sigma=\tfrac{482}{5875}$ the six terms are
-$\tfrac{482}{5875}$, $\tfrac{2125}{5875}$, $\tfrac{5693}{47000}$,
-$\tfrac{13951}{47000}$, $\tfrac{1000}{5875}$, $\tfrac{2125}{5875}$:
-the maximum $\tfrac{2125}{5875}=\tfrac{17}{47}$ is attained twice
-(runners $2$ and $12$, slopes $+2$ and $-12$ opposite) and is
-minimized, so $D(c)=17/47>\tfrac5{14}=\mathrm{thr}_6$. The binding
-triple $\{2,5,12\}$ and its translates are recorded in
-\S\ref{sec:weights}.
-
-\emph{The strict witnesses.} For $v=(1,2,3,4,5,6)$ take
-$c=(0,\tfrac5{16},\tfrac{15}{16},\tfrac34,\tfrac12)$ and
-$\sigma=\tfrac{23}{160}$: the six terms are
-$\tfrac{23}{160}$, $\tfrac{23}{80}$, $\tfrac{19}{160}$, $\tfrac{29}{80}$,
-$\tfrac1{32}$, $\tfrac{29}{80}$, so $D(c)=29/80>\tfrac5{14}$ (runners
-$4$ and $6$ tie at the maximum with opposite slopes). For
-$v=(1,2,3,4,5,7)$ take
-$c=(\tfrac1{16},\tfrac9{16},0,\tfrac38,0)$ and $\sigma=\tfrac1{11}$:
-the six terms are $\tfrac1{11}$, $\tfrac{21}{176}$, $\tfrac{51}{176}$,
-$\tfrac4{11}$, $\tfrac7{88}$, $\tfrac4{11}$, so $D(c)=4/11>
-\tfrac5{14}$. For $v=(1,2,3,4,5,9)$ take
-$c=(\tfrac1{32},\tfrac{15}{32},\tfrac{1383}{10000},
-\tfrac{32921}{40000},\tfrac{95473}{200000})$ and
-$\sigma=\tfrac{18577}{200000}$: the six terms are
-$\tfrac{18577}{200000}$, $\tfrac{3863}{25000}$,
-$\tfrac{38019}{200000}$, $\tfrac{5831}{25000}$, $\tfrac{1793}{5000}$,
-$\tfrac{1793}{5000}$, so $D(c)=1793/5000>\tfrac5{14}$ (runners $5$ and
-$9$ tie at the maximum).
-
-\emph{The $7/22$ center class (the $m=10$ ladder closure's witness).}
-Take $v=(1,2,3,4,10)$ and
-$c=(\tfrac12,0,\tfrac12,\tfrac12)$. At $\sigma=\tfrac{7}{22}$ the five
-terms of \eqref{eq:runnerform} are $\tfrac{7}{22}$, $\tfrac{3}{22}$,
-$\tfrac{1}{22}$, $\tfrac{5}{22}$, $\tfrac{7}{22}$: explicitly
-$\wnc\sigma=\tfrac7{22}$; $\wnc{\tfrac12-2\sigma}=\tfrac3{22}$;
-$\wnc{-3\sigma}=\tfrac1{22}$;
-$\wnc{\tfrac12-4\sigma}=\tfrac5{22}$; and
-$\tfrac12-10\sigma=-\tfrac{59}{22}\equiv\tfrac7{22}\pmod 1$, so the
-fifth term is $\tfrac7{22}$. The maximum is $\tfrac7{22}$, and it is
-minimized: the binding terms are the $\sigma$-term (slope $+1$) and the
-fifth term (slope $-10$), opposite signs, so any local shift of
-$\sigma$ increases one of them. Hence $D(c)=7/22$, and the
-branch-and-bound certificate of \S\ref{sec:bb} ($\rho\le7/22$, the
-tree emptying) upgrades this to $\rho(1,2,3,4,10)=\tfrac{7}{22}$
-exactly; since $\delta=1/2-\lambda=1/2-2/11=7/22$, the deepest hole at
-$m=10$ is the center class itself. The pair-form side is the bisection
-of \S\ref{sec:weights}: the pair $(1,10)$ binds at two translates with
-opposite signs, $2\cdot 11\cdot\rho=7\in\Z$.
-
-\emph{The balance-family witness at the harmonic argmax.} Take
-$c=c(35)=(\tfrac{46}{47},\tfrac{92}{235},\tfrac{231}{235},
-\tfrac{35}{47})$. At $\sigma=\tfrac{4}{235}$ the five terms of
-\eqref{eq:runnerform} are $\tfrac{4}{235}$, $\tfrac{13}{235}$,
-$\tfrac{80}{235}$, $\tfrac{20}{235}$, $\tfrac{80}{235}$: explicitly
-$\wnc\sigma=\tfrac4{235}$;
-$\wnc{\tfrac{46}{47}-2\sigma}=\wnc{\tfrac{222}{235}}=\tfrac{13}{235}$;
-$\wnc{\tfrac{92}{235}-3\sigma}=\tfrac{80}{235}$;
-$\wnc{\tfrac{231}{235}-4\sigma}=\wnc{\tfrac{215}{235}}=\tfrac{20}{235}$;
-and $\wnc{\tfrac{35}{47}-5\sigma}=\wnc{\tfrac{155}{235}}=\tfrac{80}{235}$.
-The maximum is $\tfrac{80}{235}=\tfrac{16}{47}$, attained with the
-third and fifth terms binding (slopes $-3$ and $+5$, opposite), and the
-tie over all three dips of the triple $\{3,4,5\}$---forced by the
-identity along the family---gives the same value at every member; the
-two-sided certificate of \S\ref{sec:bb} then makes $16/47$ the exact
-covering radius.
-
-Every value in
-Table~\ref{tab:refute} was additionally re-asserted by two independent
-implementations in the provenance run (Appendix~\ref{sec:prov}), and
-the closure runs' witnesses by the cross-validation run described
-there.
 
 
 % ======================================================================
@@ -2389,5 +1770,32 @@ Ann.\ of Math.\ (2) \textbf{192} (2020), no.~3, 821--915.
 \end{thebibliography}
 \endgroup
 
+
+\section*{Declarations}
+
+\paragraph{Ethics and consent.} Not applicable; this work involved no
+human or animal subjects.
+
+\paragraph{Funding.} This research received no specific grant from any
+funding agency in the public, commercial, or not-for-profit sectors.
+
+\paragraph{Competing interests.} The author declares no competing
+interests.
+
+\paragraph{Data availability.} The computational data and code
+supporting this study are openly available in the repository
+\texttt{MIKEAA2020/lonely-runner} (branch \texttt{papers}, release
+\texttt{v6.0-referee-fix}): the exact-arithmetic scripts, the committed
+JSON output records, and the verification ledgers are deposited there,
+together with the \LaTeX{} sources and the compiled PDF.
+
+\paragraph{Use of AI tools.} DeepSeek AI, Qwen (Alibaba), GLM (Z.AI Co.,
+Ltd.), and ERNIE (Baidu) assisted with computational checks and
+verification during the preparation of this work. The author reviewed and
+edited all content and takes full responsibility for the work.
+
+\paragraph{CRediT author statement.} \textbf{Amin Abaee}: Conceptualization,
+Methodology, Formal analysis, Investigation, Computation, Validation,
+Visualization, Writing -- original draft, Writing -- review \& editing.
 
 \end{document}

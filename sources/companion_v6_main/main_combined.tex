@@ -30,9 +30,7 @@
 
 \graphicspath{{./}}
 
-\newcommand{\papertitle}{The Lonely Runner Problem on Pair-Sum Lattices: A Lossless
-Finitization and a Conditional Scaling-Closure Theorem for the
-Covering Obstruction}
+\newcommand{\papertitle}{The Lonely Runner Problem on Pair-Sum Lattices: A Lossless Finitization and a Conditional Scaling-Closure Theorem for the Covering Obstruction}
 
 \hypersetup{
   pdftitle={\papertitle},
@@ -47,10 +45,8 @@ Covering Obstruction}
 \begin{document}
 
 \title{\papertitle}
-\author{Amin Abaee\\[2pt]
-{\small \href{mailto:amin_abaee@ut.ac.ir}{amin\_abaee@ut.ac.ir} \quad\textbullet\quad
-\href{https://orcid.org/0000-0002-0019-1842}{ORCID 0000-0002-0019-1842}}}
-\date{}
+\author{Amin Abaee\\[2pt] {\small Independent Researcher, Tehran, Iran}\\[1pt] {\small \href{mailto:amin_abaee@ut.ac.ir}{amin\_abaee@ut.ac.ir} \textbullet\ \href{https://orcid.org/0000-0002-0019-1842}{ORCID 0000-0002-0019-1842}}}
+\date{Submitted: 14 November 2026}
 \maketitle
 
 \tableofcontents
@@ -515,6 +511,15 @@ The measured range of the calibration is $T=8,9,10$ at $p\le 73$, with
 committed ground-truth cells at $p\le 61$ for $T\in\{7,8\}$; the statement
 at primes beyond the calibration is exactly what the hypotheses purchase.
 \end{theorem}
+
+In words: the covering obstruction at the frontier cell is closed by
+processing the uncovered fibers one at a time---each fiber's
+configuration must lie in a fixed census solution set, the surviving
+placements shrink by a bounded factor per fiber, and after $O_T(\log k)$
+fibers the survivor set is empty. The closure is conditional only because
+the per-fiber shrink factor and the initial volume are controlled by
+named hypotheses (Hq$_\pm$, H1g, H2r), not because the reduction has a
+gap.
 
 \begin{proposition}[the Hq$_\pm$-induction; the derivation step]\label{prop:Hq}
 Let the frontier cell and notation be as in Theorem~\ref{thm:SC}, and assume
@@ -4311,13 +4316,39 @@ $h^*$ addendum through $n=10$.
 \endgroup
 
 
+\section*{Declarations}
+
+\paragraph{Ethics and consent.} Not applicable; this work involved no
+human or animal subjects.
+
+\paragraph{Funding.} This research received no specific grant from any
+funding agency in the public, commercial, or not-for-profit sectors.
+
+\paragraph{Competing interests.} The author declares no competing
+interests.
+
+\paragraph{Data availability.} The computational data and code
+supporting this study are openly available in the repository
+\texttt{MIKEAA2020/lonely-runner} (branch \texttt{papers}, release
+\texttt{v6.0-referee-fix}): the exact-arithmetic scripts, the committed
+JSON output records, and the verification ledgers are deposited there,
+together with the \LaTeX{} sources and the compiled PDF.
+
+\paragraph{Use of AI tools.} DeepSeek AI, Qwen (Alibaba), GLM (Z.AI Co.,
+Ltd.), and ERNIE (Baidu) assisted with computational checks and
+verification during the preparation of this work. The author reviewed and
+edited all content and takes full responsibility for the work.
+
+\paragraph{CRediT author statement.} \textbf{Amin Abaee}: Conceptualization,
+Methodology, Formal analysis, Investigation, Computation, Validation,
+Visualization, Writing -- original draft, Writing -- review \& editing.
+
 
 \clearpage
 
 \title{Supplementary Information:\\[4pt] The Lonely Runner Problem on Pair-Sum Lattices}
-\author{Amin Abaee\\[2pt]
-{\small \href{mailto:amin_abaee@ut.ac.ir}{amin\_abaee@ut.ac.ir} \quad\textbullet\quad
-\href{https://orcid.org/0000-0002-0019-1842}{ORCID 0000-0002-0019-1842}}}
+\author{Amin Abaee\\[2pt] {\small Independent Researcher, Tehran, Iran}\\[1pt] {\small \href{mailto:amin_abaee@ut.ac.ir}{amin\_abaee@ut.ac.ir} \textbullet\ \href{https://orcid.org/0000-0002-0019-1842}{ORCID 0000-0002-0019-1842}}}
+\date{Submitted: 14 November 2026}
 \date{}\maketitle
 \tableofcontents
 \clearpage
@@ -4737,7 +4768,35 @@ size tuple and the family's difference tuple; this is exactly the
 committed ground-truth check. The \emph{fiber cascade} processes the
 uncovered fibers one by one, retaining the anchor placements that
 survive each; the family dies when the survivor set empties, and the
-\emph{cascade depth} is the number of fibers needed.
+\emph{cascade depth} is the number of fibers needed
+(Figure~\ref{fig:cascade}).
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth, node distance=6mm and 10mm,
+  every node/.style={font=\scriptsize}]
+\node[draw, rounded corners, fill=blue!5] (s0) {$S_0$};
+\node[draw, rounded corners, fill=blue!5, right=of s0] (s1) {$S_1$};
+\node[draw, rounded corners, fill=blue!5, right=of s1] (s2) {$S_2$};
+\node[draw, rounded corners, fill=blue!5, right=of s2] (s3) {$\cdots$};
+\node[draw, rounded corners, fill=red!8, right=of s3] (sq) {$S_q=\varnothing$};
+\draw[->] (s0)--(s1) node[midway, above] {fiber $j_1$};
+\draw[->] (s1)--(s2) node[midway, above] {fiber $j_2$};
+\draw[->] (s2)--(s3) node[midway, above] {fiber $j_3$};
+\draw[->] (s3)--(sq) node[midway, above] {fiber $j_q$};
+\node[below=14mm of s1, align=center, text width=0.9\textwidth, gray]
+  {each step: $S_i=S_{i-1}\cap\lambda_i^{-1}(\mathrm{Sol}_{i}-\tau_i)$;
+   the survivor set shrinks by the per-fiber cut (Hq$_\pm$); death
+   occurs when it empties, i.e.\ when no anchor placement survives all
+   processed fibers.};
+\end{tikzpicture}
+\caption{The fiber cascade. The survivor set $S_i$ of anchor placements
+is intersected with each fiber's census solution set (dilated and
+translated by the drift); the family dies when $S_q=\varnothing$. The
+cascade depth $q$ is the number of fibers processed before the survivor
+set empties.}
+\label{fig:cascade}
+\end{figure}
 
 \begin{lemma}[two-fiber reduction]\label{si:lem:twofiber}
 Fix an anchor fiber $j_0\in U$ and an anchor solution
