@@ -56,3 +56,9 @@
 \contentsline {subsection}{\numberline {10.3}The empirical pair-selection law}{49}{subsection.10.3}%
 \contentsline {subsection}{\numberline {10.4}Interpreting the decay curve}{49}{subsection.10.4}%
 \contentsline {section}{\numberline {11}Open problems}{50}{section.11}%
+\contentsline {paragraph}{Ethics and consent.}{54}{section*.13}%
+\contentsline {paragraph}{Funding.}{54}{section*.14}%
+\contentsline {paragraph}{Competing interests.}{54}{section*.15}%
+\contentsline {paragraph}{Data availability.}{54}{section*.16}%
+\contentsline {paragraph}{Use of AI tools.}{54}{section*.17}%
+\contentsline {paragraph}{CRediT author statement.}{54}{section*.18}%
