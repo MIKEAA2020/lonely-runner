@@ -49,7 +49,35 @@ size tuple and the family's difference tuple; this is exactly the
 committed ground-truth check. The \emph{fiber cascade} processes the
 uncovered fibers one by one, retaining the anchor placements that
 survive each; the family dies when the survivor set empties, and the
-\emph{cascade depth} is the number of fibers needed.
+\emph{cascade depth} is the number of fibers needed
+(Figure~\ref{fig:cascade}).
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth, node distance=6mm and 10mm,
+  every node/.style={font=\scriptsize}]
+\node[draw, rounded corners, fill=blue!5] (s0) {$S_0$};
+\node[draw, rounded corners, fill=blue!5, right=of s0] (s1) {$S_1$};
+\node[draw, rounded corners, fill=blue!5, right=of s1] (s2) {$S_2$};
+\node[draw, rounded corners, fill=blue!5, right=of s2] (s3) {$\cdots$};
+\node[draw, rounded corners, fill=red!8, right=of s3] (sq) {$S_q=\varnothing$};
+\draw[->] (s0)--(s1) node[midway, above] {fiber $j_1$};
+\draw[->] (s1)--(s2) node[midway, above] {fiber $j_2$};
+\draw[->] (s2)--(s3) node[midway, above] {fiber $j_3$};
+\draw[->] (s3)--(sq) node[midway, above] {fiber $j_q$};
+\node[below=14mm of s1, align=center, text width=0.9\textwidth, gray]
+  {each step: $S_i=S_{i-1}\cap\lambda_i^{-1}(\mathrm{Sol}_{i}-\tau_i)$;
+   the survivor set shrinks by the per-fiber cut (Hq$_\pm$); death
+   occurs when it empties, i.e.\ when no anchor placement survives all
+   processed fibers.};
+\end{tikzpicture}
+\caption{The fiber cascade. The survivor set $S_i$ of anchor placements
+is intersected with each fiber's census solution set (dilated and
+translated by the drift); the family dies when $S_q=\varnothing$. The
+cascade depth $q$ is the number of fibers processed before the survivor
+set empties.}
+\label{fig:cascade}
+\end{figure}
 
 \begin{lemma}[two-fiber reduction]\label{si:lem:twofiber}
 Fix an anchor fiber $j_0\in U$ and an anchor solution

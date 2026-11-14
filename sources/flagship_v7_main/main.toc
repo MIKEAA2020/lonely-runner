@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {3.4}Instance 3: character rigidity and saturated envelopes}{9}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Instance 4: the Lonely Runner zonotope}{10}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}The pattern}{11}{subsection.3.6}%
-\contentsline {section}{\numberline {4}The positive core: classification at the rigid primes and at \boldmath $p^2$/$pq$}{11}{section.4}%
+\contentsline {section}{\numberline {4}The positive core: classification at the rigid primes and at \boldmath $p^2$/$pq$}{12}{section.4}%
 \contentsline {subsection}{\numberline {4.1}The sum-only equality theorem}{12}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}The covering framework and the rigid zone}{12}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}The composite side: group ring, tensor, and the fiber cascade}{13}{subsection.4.3}%

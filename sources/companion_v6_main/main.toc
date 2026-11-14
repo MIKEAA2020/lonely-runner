@@ -8,14 +8,14 @@
 \contentsline {paragraph}{What is conditional and what is not.}{9}{section*.3}%
 \contentsline {paragraph}{The hypothesis ledger.}{9}{section*.4}%
 \contentsline {paragraph}{The free-parameter disclosure.}{11}{section*.5}%
-\contentsline {paragraph}{The sampled numbers, with intervals.}{11}{section*.6}%
+\contentsline {paragraph}{The sampled numbers, with intervals.}{12}{section*.6}%
 \contentsline {paragraph}{Scope levels, fixed once.}{12}{section*.7}%
 \contentsline {paragraph}{Where the derivation lives.}{12}{section*.8}%
 \contentsline {section}{\numberline {3}The pair-sum equality theorem}{12}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Setup}{12}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}The mirror identity}{13}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Attainment at a pair-sum time}{13}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Proof of the theorem}{14}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Proof of the theorem}{15}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Verification and novelty status}{15}{subsection.3.5}%
 \contentsline {section}{\numberline {4}The covering framework}{16}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Bad sets and certification}{16}{subsection.4.1}%
